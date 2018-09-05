@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-credits',
   templateUrl: './credits.component.html',
-  styleUrls: ['./credits.component.css']
+  styleUrls: ['./credits.component.less']
 })
 export class CreditsComponent implements OnInit {
 

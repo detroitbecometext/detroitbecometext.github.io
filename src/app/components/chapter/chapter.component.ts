@@ -2,8 +2,6 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Chapter } from '../../models/Chapter';
 import { DataService } from '../../data.service';
 import {  Router, ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import { Status } from '../../models/Chapter';
 import { SafeHtmlPipe } from '../../models/SafeHtmlPipe';
 import { HttpClient } from '@angular/common/http';
 declare var $: any;
@@ -17,9 +15,7 @@ declare var $: any;
 
 export class ChapterComponent implements OnInit {
 
-  Status = Status;
   SafeHtmlPipe = SafeHtmlPipe;
-  ChapterList: Chapter[];
   chapter: Chapter;
   chapterContent: string;
 
@@ -27,9 +23,6 @@ export class ChapterComponent implements OnInit {
 
   ngOnInit() 
   {
-    //Get the chapter list
-    this.ChapterList = this.dataService.getChapters();
-    
     //Init the chapter content to display a loading icon
     this.chapterContent = "<div class=\"loading\"><span><i class=\"fas fa-circle-notch fa-spin\"></i></span><h2>...Loading...</h2></div>";
     
@@ -71,12 +64,6 @@ export class ChapterComponent implements OnInit {
         }
     );
 
-    //Initialize materialize components
-    $(document).ready(function ()
-    {
-        $('.sidenav').sidenav();
-        $('.modal').modal();
-    });
   }
 
 }
