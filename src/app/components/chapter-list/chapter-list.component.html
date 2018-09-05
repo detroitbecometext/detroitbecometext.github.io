@@ -1,0 +1,53 @@
+<header>
+    <img src="assets/images/Detroit-become-human-logo.png"/>
+</header>
+
+<main class="container">
+    <h1>
+        <span class="fa-stack fa-1x led">
+            <i class="fas fa-circle-notch fa-stack-2x led-1"></i>
+            <i class="fas fa-circle-notch fa-stack-2x led-2"></i>
+            <i class="fas fa-circle-notch fa-stack-2x led-3"></i>
+        </span> Detroit: Become Human - Text transcription
+    </h1>
+    
+    <div class="separator center-align">
+        <img src="assets/images/triangles.png" class="hide-on-small-only">
+    </div>
+
+    <div class='row' *ngFor='let chapter of ChapterList; let i = index; let even = even'>
+        <ng-container *ngIf="even">
+                <div class="col s12 m6 l6">
+
+                <a routerLink='/chapters/{{ChapterList[i].Number}}'>
+                        <div class="card small">
+                            <div class="card-image">
+                                <img src="{{ChapterList[i].Image}}" alt="{{ChapterList[i].Title}}">
+                                <div class="card-title">
+                                    <h2>Chapter {{ChapterList[i].Number}}</h2>
+                                    <p>{{ChapterList[i].Title}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col s12 m6 l6">
+                        <a routerLink='/chapters/{{ChapterList[i+1].Number}}'>
+                            <div class="card small">
+                                <div class="card-image">
+                                    <img src="{{ChapterList[i+1].Image}}" alt="{{ChapterList[i+1].Title}}">
+                                    <div class="card-title">
+                                        <h2>Chapter {{ChapterList[i+1].Number}}</h2>
+                                        <p>{{ChapterList[i+1].Title}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                </div>
+            </ng-container>
+    </div>
+
+</main>
+
+
+

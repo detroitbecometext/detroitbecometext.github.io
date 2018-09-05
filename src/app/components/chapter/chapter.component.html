@@ -1,0 +1,65 @@
+<!-- Top NavBar -->
+<div class="navbar-fixed">
+        <nav>
+          <a href="" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="fas fa-bars"></i></a>
+          <a routerLink="/chapters" class="home-button" ><i class="fas fa-home"></i></a>
+          <a href="#about-modal" class="help-button modal-trigger"><i class="fas fa-question"></i></a>
+        </nav>
+      </div>
+      
+      <!-- SideNav -->
+        <div id="slide-out" class="sidenav">
+          <h1 class="flow-text center-align">Chapter list</h1>
+          <ol class="flow-text">
+            <li *ngFor='let chapter of ChapterList;'>
+              <a routerLink='/chapters/{{chapter.Number}}'>{{chapter.Title}}</a>
+            </li>
+          </ol>
+        </div>
+      
+      <!-- Help modal -->
+      <div id="about-modal" class="modal">
+        <div class="modal-content">
+      
+          <h4>About</h4>
+          <p><span class="name">Names</span> are written in bold.</p>
+          <p><strong>This is an action or an event</strong>
+            <br>The associated dialogue being available below.</p>
+          <div class="condition">
+            <span class="name">Conditions that affect dialogues are also in bold</span>
+            <div class="condition-text">And the text that goes with it is written below.</div>
+          </div>
+          <p><span class="note">Notes</span> are in italic.</p>
+          <div class="choices"><em>DIALOGUE CHOICES</em>
+            <div class="choice">
+              have their associated dialogue just below.
+            </div>
+          </div>
+      
+          <p>[ <i class="fas fa-lock-open fa-flip-horizontal"></i> ] means that the option has to be unlocked by a previous action.</p>
+          <p>[ <i class="fas fa-skull"></i> ] indicates the death of a character.</p>
+          <p>[ <i class="fas fa-hourglass-end"></i> ] indicates actions happening if you loose too much time.</p>
+          <p>[ <i class="fas fa-tv"></i> ] indicates dialogues that can be heard on television.</p>
+      
+          <h4>Progress</h4>
+          <div *ngFor='let chapter of ChapterList;'>{{chapter.Number}}. {{chapter.Title}} - 
+            <span *ngIf='chapter.Status === Status.Done' class="done"><i class="fas fa-check"></i> Done</span>
+            <span *ngIf='chapter.Status === Status.NotStarted' class="not-started"><i class="fas fa-times"></i> Not started</span>
+            <span *ngIf='chapter.Status === Status.InProgress' class="in-progress"><i class="fas fa-ellipsis-h"></i> In progress</span>
+          </div>
+        </div>
+      
+        <div class="modal-footer">
+          <a class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+<header>
+    <h1>Chapter : {{chapter.Number}} - {{chapter.Title}}</h1>
+</header>
+
+<main class="container">
+    <section class="main-section">
+        <div [innerHTML]="chapterContent | safehtml"></div>
+    </section>
+</main>
