@@ -20,7 +20,7 @@ export class DataService {
         new Chapter("4", "A New Home", "chapter4.html", "Chapter4.jpg", Status.Done),
         new Chapter("5", "The Painter", "chapter5.html", "Chapter5.jpg", Status.InProgress),
         new Chapter("6", "Partners", "chapter6.html", "Chapter6.jpg", Status.Done),
-        new Chapter("7", "Stormy Night", "chapter7.html", "Chapter7.jpg", Status.NotStarted),
+        new Chapter("7", "Stormy Night", "chapter7.html", "Chapter7.jpg", Status.Done),
         new Chapter("8", "Broken", "chapter8.html", "Chapter8.jpg", Status.NotStarted),
         new Chapter("9", "The Interrogation", "chapter9.html", "Chapter9.jpg", Status.Done),
         new Chapter("10", "Fugitives", "chapter10.html", "Chapter10.jpg", Status.NotStarted),
