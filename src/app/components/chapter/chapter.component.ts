@@ -5,6 +5,7 @@ import {  Router, ActivatedRoute } from '@angular/router';
 import { SafeHtmlPipe } from '../../models/SafeHtmlPipe';
 import { HttpClient } from '@angular/common/http';
 declare var $: any;
+declare var ga: any;
 
 @Component({
   selector: 'app-chapter',
@@ -63,6 +64,10 @@ export class ChapterComponent implements OnInit {
           this.chapterContent = "An error occured.";
         }
     );
+
+    //Chapter changed : send a pageview
+    ga('set', 'page', '/chapters/' + chapterNumber);
+    ga('send', 'pageview');
 
   }
 
