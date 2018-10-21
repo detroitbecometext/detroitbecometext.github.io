@@ -3,47 +3,64 @@
 <main class="container">
   <section class="main-section">
     <h1>Contact</h1>
-    <form name="input" 
-          method="POST" 
-          action="https://formspree.io/dbtext.contact@gmail.com" 
-          class="col s12">
+    <form class="col s12"
+          [formGroup]="contactForm"
+          (ngSubmit)="onSubmit()">
       <div class="row">
           <div class="input-field col s6">
             <input placeholder="Your name" 
                    id="name" 
                    type="text" 
-                   name="Name" 
-                   class="validate">
-            <label for="name">Name</label>
+                   class="validate"
+                   formControlName="name">
+            <label for="name" class="active">Name</label>
             <div class="note">(not required, but necessary if you want me to credit you for your submission)</div>
           </div>
           <div class="input-field col s6">
-            <input id="email" class="validate" type="email" name="_replyto" placeholder="Your email">
-            <label for="email">Email</label>
+            <input id="email" 
+                   class="validate" 
+                   type="email" 
+                   placeholder="Your email" 
+                   formControlName="email">
+            <label for="email" class="active">Email</label>
             <div class="note">(not required, but necessary if you need me to contact you back)</div>
             <span class="helper-text" data-error="email format not valid"></span>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <textarea name="message" 
-                      id="textarea" 
+            <textarea id="textarea" 
                       class="materialize-textarea" 
                       placeholder="Type your message here!" 
-                      [(ngModel)]="message"
-                      (ngModelChange)="onMessageChanged($event)"></textarea>
-            <label for="textarea">Your message</label>
+                      formControlName="message"></textarea>
+            <label for="textarea" class="active">Your message</label>
           </div>
         </div>
-        <input type="hidden" name="_subject" value="New submission!" />
-        <input type="hidden" name="_language" value="es" />
-      <button class="btn waves-effect waves-light indigo darken-3" 
+      <button class="btn waves-effect waves-light indigo darken-3 submit" 
               type="submit" 
               name="action" 
               value="send"
-              [class.disabled]="isDisabled">Submit
-          <i class="material-icons right">send</i>
-        </button>
+              [disabled]="!contactForm.valid"
+              *ngIf='!isSubmitted'>Submit
+        <i class="material-icons right">send</i>
+      </button>
     </form>
+    <div class="resultsWrapper">
+        <div class="loading" *ngIf='isSubmitted && isSuccess === false && isError === false'>
+          <p>
+            <span><i class="fas fa-spinner fa-spin"></i></span>Sending...
+          </p>
+        </div>
+      <div class="success" *ngIf='isSuccess'>
+          <p>
+              <span><i class="fas fa-check-circle"></i></span>Sent! Thank you!
+          </p>
+      </div>
+      <div class="error" *ngIf='isError'>
+        <p>
+          <span><i class="fas fa-times-circle"></i></span>Error while sending
+        </p>
+      </div>
+    </div>
   </section>  
 </main>
