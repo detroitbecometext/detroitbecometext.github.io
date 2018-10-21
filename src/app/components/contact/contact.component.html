@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<main class="container">
+  <section class="main-section">
+    <h1>Contact</h1>
+    <form name="input" 
+          method="POST" 
+          action="https://formspree.io/dbtext.contact@gmail.com" 
+          class="col s12">
+      <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Your name" 
+                   id="name" 
+                   type="text" 
+                   name="Name" 
+                   class="validate">
+            <label for="name">Name</label>
+            <div class="note">(not required, but necessary if you want me to credit you for your submission)</div>
+          </div>
+          <div class="input-field col s6">
+            <input id="email" class="validate" type="email" name="_replyto" placeholder="Your email">
+            <label for="email">Email</label>
+            <div class="note">(not required, but necessary if you need me to contact you back)</div>
+            <span class="helper-text" data-error="email format not valid"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea name="message" 
+                      id="textarea" 
+                      class="materialize-textarea" 
+                      placeholder="Type your message here!" 
+                      [(ngModel)]="message"
+                      (ngModelChange)="onMessageChanged($event)"></textarea>
+            <label for="textarea">Your message</label>
+          </div>
+        </div>
+        <input type="hidden" name="_subject" value="New submission!" />
+        <input type="hidden" name="_language" value="es" />
+      <button class="btn waves-effect waves-light indigo darken-3" 
+              type="submit" 
+              name="action" 
+              value="send"
+              [class.disabled]="isDisabled">Submit
+          <i class="material-icons right">send</i>
+        </button>
+    </form>
+  </section>  
+</main>

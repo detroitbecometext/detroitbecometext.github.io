@@ -49,7 +49,7 @@ export class DataService {
         new Chapter("31.1", "Night of the Soul - Markus", "chapter31.1.htm", "Chapter31.jpg", Status.InProgress),
         new Chapter("31.2", "Night of the Soul - Connor", "chapter31.2.htm", "Chapter31.jpg", Status.InProgress),
         new Chapter("32.1", "Kara Leaving Detroit", "chapter32.1.htm", "Chapter32.1.jpg", Status.InProgress),
-        new Chapter("32.2", "Kara Captured", "chapter32.2.htm", "Chapter32.2.jpg", Status.NotStarted),
+        new Chapter("32.2", "Kara Captured", "chapter32.2.htm", "Chapter32.2.jpg", Status.InProgress),
         new Chapter("32.3", "Connor's Last Mission", "chapter32.3.htm", "Chapter32.3.jpg", Status.Done),
         new Chapter("32.4", "Connor at the Cyberlife Tower", "chapter32.4.htm", "Chapter32.4.jpg", Status.Done),
         new Chapter("32.5", "Markus Demonstration", "chapter32.5.htm", "Chapter32.5.jpg", Status.InProgress),

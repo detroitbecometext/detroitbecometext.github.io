@@ -1,16 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule }    from '@angular/forms';
+import { SafeHtmlPipe } from './models/SafeHtmlPipe';
 
 import { AppComponent } from './app.component';
 import { ChapterListComponent } from './components/chapter-list/chapter-list.component';
 import { ChapterComponent } from './components/chapter/chapter.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-
-import { SafeHtmlPipe } from './models/SafeHtmlPipe';
 import { CreditsComponent } from './components/credits/credits.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,14 @@ import { HeaderComponent } from './components/header/header.component';
     NotFoundComponent,
     SafeHtmlPipe,
     CreditsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

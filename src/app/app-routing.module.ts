@@ -4,6 +4,7 @@ import { ChapterListComponent } from '../app/components/chapter-list/chapter-lis
 import { ChapterComponent } from '../app/components/chapter/chapter.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CreditsComponent } from './components/credits/credits.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = 
 [
@@ -11,6 +12,7 @@ const routes: Routes =
   { path: 'chapters', component: ChapterListComponent },
   { path: 'chapters/:number', component: ChapterComponent },
   { path: 'credits', component: CreditsComponent },
+  { path: 'contact', component: ContactComponent },
   { path: '404', component: NotFoundComponent},
   { path: '**', redirectTo: '/404'}
 ];
