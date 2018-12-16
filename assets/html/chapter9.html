@@ -27,8 +27,11 @@
     <h1>In the observation room</h1>
     <p>
         <span class="name">Hank</span>: Why d'you kill him? What happened before you took that knife? How long were ya in
-        the attic? Why didn't you even try to run away? Say something, goddamnit! Fuck it, I'm outta here... We're wastin'
-        our time interrogating a machine, we're gettin' nothing out of it!<br>
+        the attic? Why didn't you even try to run away? Say something, goddamnit! Fuck it, I'm outta here...
+    </p> 
+    <p>
+        <strong>Hank enters the observation room</strong>
+        <br><span class="name">Hank</span>:We're wastin' our time interrogating a machine, we're gettin' nothing out of it!<br>
         <span class="name">Gavin</span>: 'Could always try roughing it up a little. After all, it's not human...<br>
         <span class="name">Connor</span>: Androids don't feel pain. You would only damage it and that wouldn't make it talk.
         Deviants also have a tendency to self-destruct when they're in stressful situations.<br>
@@ -185,7 +188,8 @@
                 <em>GIVE UP</em>
                 <div class="choice">
                     <p>
-                        <span class="name">Deviant</span>: Please, please leave me alone...<br>
+                        <span class="note">This dialogue will also trigger if "Pressure it" fails</span>
+                        <br><span class="name">Deviant</span>: Please, please leave me alone...<br>
                         <span class="name">Connor</span>: All right, all right. Everything is going to be okay.
                     </p>
                 </div>
@@ -194,23 +198,49 @@
             <div class="choice">
                 <p>
                     <span class="name">Connor</span>: You leave me no choice...
+                    <br><span class="name">Deviant</span>: Uh...
                 </p>
                 <div class="condition">
-                    <span class="name">Probe succeeded</span>
+                    <span class="name">Probe succeeded</span> [ <span class="relation small up">Software instability <img src="assets/images/slight_increase.png" alt="slight_increase"></span>
+                    ]
                     <div class="condition-text">
                         <p>
-                            <span class="name">Deviant</span>: Uh...AAH !<br>
-                            <span class="name">Carlos Ortiz</span>: Come here, you piece of shit! I'll teach you to look
+                            <span class="name">Deviant</span>: AAH !<br>
+                            <span class="name">Carlos Ortiz (in the recording)</span>: Come here, you piece of shit! I'll teach you to look
                             me in the eye...<br>
                             <span class="name">Deviant</span>: ARGH!<br>
                             <span class="name">Connor</span>: I accessed its memory. I know what happened.
                         </p>
+
+                        <div class="condition">
+                                <p>
+                                    <strong>Talking to deviant after probing </strong>
+                                    <div class="condition-text">
+                                        <div class="choices">
+                                            <em>APOLOGETIC</em>
+                                            <div class="choice">
+                                                <span class="name">Connor</span>: I had to know... You left me no choice.
+                                            </div>
+                                            <em>COLD</em>
+                                            <div class="choice">
+                                                <span class="name">Connor</span>: You'll go back to CyberLife to be disassembled. It's better
+                                                this way.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p>
+                            </div>
+                            <p>
+                                    <span class="note">Goes to 'Deviant self-destructs' ending</span>
+                                </p>
+                            
                     </div>
                 </div>
                 <div class="condition">
                     <span class="name">Probe failed</span>
                     <div class="condition-text">
-                        <span class="name">Connor</span>: It resisted. I couldn't see anything...
+                        <span class="name">Deviant</span>: ARGH! ARGH! ARGHH!
+                        <br><span class="name">Connor</span>: It resisted. I couldn't see anything...
                     </div>
                 </div>
             </div>
@@ -274,14 +304,15 @@
                     </div>
                 </div>
             </div>
-            <em>GIVE UP</em>
+            <em>GIVE UP</em> [will also automatically happen if the chosen approach failed twice]
             <div class="choice">
                 <span class="name">Connor</span>: I'm not getting anywhere. I give up.
             </div>
         </div>
 
 
-        <h2>Deviant confess</h2>
+        <h2>Deviant confesses</h2> [ <span class="relation small up">Hank <img src="assets/images/slight_increase.png" alt="slight_increase"></span>
+        ]
         <p>
             <span class="name">Deviant</span>: He tortured me every day... I did whatever he told me, but there was always
             something wrong... Then one day... He took a bat and started hitting me... For the first time, I felt scared...
@@ -350,26 +381,6 @@
         </p>
 
         <div class="condition">
-            <p>
-                <strong>Talking to deviant after probing </strong> [ <i class="fa fa-lock-open fa-flip-horizontal"></i> unlocked
-                by getting a confession by probing its memory]
-                <div class="condition-text">
-                    <div class="choices">
-                        <em>APOLOGETIC</em>
-                        <div class="choice">
-                            <span class="name">Connor</span>: I had to know... You left me no choice.
-                        </div>
-                        <em>COLD</em>
-                        <div class="choice">
-                            <span class="name">Connor</span>: You'll go back to CyberLife to be disassembled. It's better
-                            this way.
-                        </div>
-                    </div>
-                </div>
-            </p>
-        </div>
-
-        <div class="condition">
             <span class="name">Deviant self-destructs</span> [ <i class="fa fa-lock-open fa-flip-horizontal"></i> if stress
             level at 100%]
             <div class="condition-text">
@@ -380,16 +391,19 @@
                     <span class="name">Chris</span>: I... I-I can't!.. I can't stop it!
                 </p>
                 <div class="choices">
-                    <em>INTERVENE</em>
+                    <em>INTERVENE</em> [ <span class="relation small down">Software instability <img src="assets/images/slight_decrease.png" alt="slight_decrease"></span>]
                     <div class="choice">
                         <p>
                             <span class="name">Connor</span>: That's enough! You need to stop that right now!<br>
-                            <span class="name">Hank</span>: WATCH OUT! Holy shit...
+                            <span class="name">Hank</span>: WATCH OUT!
+                            <br><strong>Deviant shoots Connor and itself</strong>
+                            <br><span class="name">Hank</span>: Holy shit...
                         </p>
                     </div>
                     <em>GIVE UP</em>
                     <div class="choice">
-                        <span class="name">Hank</span>: Holy shit!
+                        <strong>Deviant destroys itself</strong>
+                        <br><span class="name">Hank</span>: Holy shit!
                     </div>
                 </div>
             </div>
@@ -398,7 +412,7 @@
             <span class="name">Deviant is taken back to its cell</span>
             <div class="condition-text">
                 <div class="choices">
-                    <em>NOT INTERVENING</em>
+                    <em>GIVE UP</em>
                     <div class="choice">
                         <p>
                             <span class="name">Gavin</span>: Chris, lock it up.<br>
@@ -412,14 +426,29 @@
                             <span class="name">Deviant</span>: Please, please leave me alone!
                             <br><span class="name">Chris</span>: Take it easy, I'm not going to hurt you! Stop resist... Stop resisting.
                         </p>
+                        <div class="condition">
+                                <strong class="name">Deviant shoots itself</strong>
+                                <div class="condition-text">
+                                            <span class="name">Hank</span>: Holy shit...
+                                    </div>
+                            </div>
+                            <div class="condition">
+<strong class="name">Deviant shoots Connor and itself</strong> [ <i class="fas fa-lock-open fa-flip-horizontal"></i> if put deviant under stress and failed to get a confession] [ <span class="relation small down">Software instability <img src="assets/images/slight_decrease.png" alt="slight_decrease"></span>] [ <span class="relation small down">Hank <img src="assets/images/slight_decrease.png" alt="slight_decrease"></span>
+]
+                                    <div class="condition-text">
+                                                <span class="name">Hank</span>: Holy shit...
+                                        </div>
+                                </div>
                     </div>
+                    
                     <em>INTERVENE</em>
                     <div class="choice">
                         <p>
                             <span class="name">Connor</span>: You shouldn't touch it. It'll self-destruct if it feels threatened.<br>
                             <span class="name">Gavin</span>: Stay outta this, got it? No fuckin' android is gonna tell me
                             what to do.<br>
-                            <span class="note">intervene again</span><br>
+                            <span class="note">intervene again</span> [ <span class="relation small up">Hank <img src="assets/images/slight_increase.png" alt="slight_increase"></span>
+                            ]<br>
                             <span class="name">Connor</span>: You don't understand. If it self-destructs, we won't get anything
                             out of it!<br>
                             <span class="name">Gavin</span>:I told you to shut your fuckin' mouth! Chris, gonna move this
@@ -442,6 +471,7 @@
                                 <span class="name">Deviant</span>: The truth is inside.
                             </div>
                         </div>
+                        [ <span class="relation small up">Software instability <img src="assets/images/slight_increase.png" alt="slight_increase"></span>]
                     </div>
                 </div>
             </div>
