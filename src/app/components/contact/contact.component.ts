@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms'
-import { HttpClient } from '@angular/common/http';
+declare var $: any;
+const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 @Component({
   selector: 'app-contact',
@@ -10,25 +10,52 @@ import { HttpClient } from '@angular/common/http';
 export class ContactComponent implements OnInit {
 
   language: string;
-  contactForm: FormGroup;
-  isSubmitted: boolean;
-  isSuccess: boolean;
-  isError: boolean;
+  formValid: boolean;
+  isEmailValid: boolean;
+  isMessageValid: boolean;
 
-  constructor(private http: HttpClient) { }
+  constructor() 
+  { 
+   
+  }
 
   ngOnInit() 
   {
     this.language = this.getLanguage(navigator.language);
-    this.isSubmitted = false;
-    this.isSuccess = false;
-    this.isError = false;
+    this.formValid = false;
+    this.isEmailValid = true;
+    this.isMessageValid = false;
+    this.checkFormValid();
 
-    //Create the control group
-    this.contactForm = new FormGroup({
-      email: new FormControl(''),
-      name: new FormControl(''),
-      message: new FormControl('', Validators.required)
+    var self = this;
+
+    $(document).ready(function () 
+    {
+      $("#email").change(() => 
+      {
+        if($("#email").val() === "" || regex.test($("#email").val()))
+        {
+          self.isEmailValid = true;
+        }
+        else
+        {
+          self.isEmailValid = false;
+        }
+        self.checkFormValid();
+      }
+      );
+
+      $("#message").change(function() 
+      {
+        if($("#message").val() === ""){
+          self.isMessageValid = false;
+        }
+        else{
+          self.isMessageValid = true;
+        }
+        self.checkFormValid();
+      });
+
     });
   }
 
@@ -46,38 +73,16 @@ export class ContactComponent implements OnInit {
     return "en";
   }
 
-  onSubmit(){
-    //Nothing to do here
-    console.log("submitting...");
-    
-    //Reset error in case we are trying again
-    this.isError = false;
-
-    if (this.contactForm.valid) 
-    {
-      //Create the object to send
-      let formResult = {
-        name: this.contactForm.value.name,
-        _replyto: this.contactForm.value.email,
-        message: this.contactForm.value.message,
-        _subject: "New submission!",
-        _language: this.language
-      }
-      console.log(formResult);
-
-      this.isSubmitted = true;
-
-      this.http.post('https://formspree.io/dbtext.contact@gmail.com', formResult)
-        .subscribe(
-          success => this.isSuccess = true,
-          error => 
-          { 
-            this.isError = true; 
-            console.error(error); 
-            this.isSubmitted = false;
-          }
-        );
+  checkFormValid(): any
+  {
+    if(this.isEmailValid && this.isMessageValid){
+      this.formValid = true;
+      $("#submit").removeClass("disabled");
     }
+    else{
+      this.formValid = false;
+      $("#submit").addClass("disabled");
+    }
+    
   }
-
 }
