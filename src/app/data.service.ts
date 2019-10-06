@@ -31,8 +31,8 @@ export class DataService {
         new Chapter("15", "The Nest", "chapter15.html", "Chapter15.jpg", Status.Done),
         new Chapter("16", "Time to Decide", "chapter16.html", "Chapter16.jpg", Status.Done),
         new Chapter("17", "Zlatko", "chapter17.html", "Chapter17.jpg", Status.Done),
-        new Chapter("18", "Russian Roulette", "chapter18.html", "Chapter18.jpg", Status.InProgress),
-        new Chapter("19", "Spare Parts", "chapter19.html", "Chapter19.jpg", Status.InProgress),
+        new Chapter("18", "Russian Roulette", "chapter18.html", "Chapter18.jpg", Status.Done),
+        new Chapter("19", "Spare Parts", "chapter19.html", "Chapter19.jpg", Status.Done),
         new Chapter("20", "The Eden Club", "chapter20.html", "Chapter20.jpg", Status.Done),
         new Chapter("21", "The Pirates' Cove", "chapter21.html", "Chapter21.jpg", Status.Done),
         new Chapter("22", "The Bridge", "chapter22.html", "Chapter22.jpg", Status.Done),
@@ -43,7 +43,7 @@ export class DataService {
         new Chapter("27", "Meet Kamski", "chapter27.html", "Chapter27.jpg", Status.Done),
         new Chapter("28", "Freedom March", "chapter28.html", "Chapter28.jpg", Status.InProgress),
         new Chapter("29", "Last Chance, Connor", "chapter29.html", "Chapter29.jpg", Status.Done),
-        new Chapter("30.1", "Crossroads - Kara", "chapter30.1.htm", "Chapter30.jpg", Status.InProgress),
+        new Chapter("30.1", "Crossroads - Kara", "chapter30.1.htm", "Chapter30.jpg", Status.Done),
         new Chapter("30.2", "Crossroads - Connor", "chapter30.2.htm", "Chapter30.jpg", Status.Done),
         new Chapter("30.3", "Crossroads - Markus", "chapter30.3.htm", "Chapter30.jpg", Status.Done),
         new Chapter("31.1", "Night of the Soul - Markus", "chapter31.1.htm", "Chapter31.jpg", Status.Done),
@@ -52,7 +52,7 @@ export class DataService {
         new Chapter("32.2", "Kara Captured", "chapter32.2.htm", "Chapter32.2.jpg", Status.InProgress),
         new Chapter("32.3", "Connor's Last Mission", "chapter32.3.htm", "Chapter32.3.jpg", Status.Done),
         new Chapter("32.4", "Connor at the Cyberlife Tower", "chapter32.4.htm", "Chapter32.4.jpg", Status.Done),
-        new Chapter("32.5", "Markus Demonstration", "chapter32.5.htm", "Chapter32.5.jpg", Status.InProgress),
+        new Chapter("32.5", "Markus Demonstration", "chapter32.5.htm", "Chapter32.5.jpg", Status.Done),
         new Chapter("32.6", "Markus Revolution", "chapter32.6.htm", "Chapter32.6.jpg", Status.InProgress)
       ];
   }
