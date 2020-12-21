@@ -1,34 +1,86 @@
+// Angular imports
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { SafeHtmlPipe } from './models/SafeHtmlPipe';
 
-import { AppComponent } from './app.component';
-import { ChapterListComponent } from './components/chapter-list/chapter-list.component';
-import { ChapterComponent } from './components/chapter/chapter.component';
-import { AppRoutingModule } from './/app-routing.module';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { CreditsComponent } from './components/credits/credits.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ContactComponent } from './components/contact/contact.component';
+// Components
+import { AppRoutingModule } from '@app/app-routing.module';
+import { AppComponent } from '@app/app.component';
+import { HomeComponent } from '@components/home/home.component';
+import { ChapterComponent } from '@components/chapters/chapter/chapter.component';
+import { CreditsComponent } from '@components/credits/credits.component';
+import { ContactComponent } from '@app/features/contact/contact.component';
+import { NotFoundComponent } from '@components/not-found/not-found.component';
+
+// Icons
+import {
+    FontAwesomeModule,
+    FaIconLibrary,
+} from '@fortawesome/angular-fontawesome';
+import {
+    faInfoCircle,
+    faCircleNotch,
+    faBars,
+    faSkull,
+    faHourglassHalf,
+    faUnlock,
+    faEnvelope,
+    faQuestion,
+    faHome,
+    faTv,
+    faCheck,
+    faTimes,
+    faEllipsisH,
+    faLockOpen,
+    faAngleRight,
+    faAngleLeft,
+} from '@fortawesome/free-solid-svg-icons';
+
+// Core and Shared
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ChapterListComponent,
-    ChapterComponent,
-    NotFoundComponent,
-    SafeHtmlPipe,
-    CreditsComponent,
-    HeaderComponent,
-    ContactComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        ChapterComponent,
+        CreditsComponent,
+        ContactComponent,
+        NotFoundComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        FontAwesomeModule,
+        CoreModule,
+        SharedModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+    constructor(private faIconLibrary: FaIconLibrary) {
+        faIconLibrary.addIcons(
+            faInfoCircle,
+            faCircleNotch,
+            faBars,
+            faSkull,
+            faHourglassHalf,
+            faUnlock,
+            faEnvelope,
+            faQuestion,
+            faHome,
+            faTv,
+            faCheck,
+            faTimes,
+            faEllipsisH,
+            faLockOpen,
+            faAngleRight,
+            faAngleLeft
+        );
+    }
+}

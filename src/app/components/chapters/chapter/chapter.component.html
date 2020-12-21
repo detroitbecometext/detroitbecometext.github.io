@@ -1,0 +1,65 @@
+<main class="container">
+  <div *ngIf="!(isLoading$ | async); else loading">
+    <!--<div>-->
+    <header>
+      <h1>Chapter : {{ chapter.number }} - {{ chapter.title }}</h1>
+    </header>
+
+    <!-- Chapter nav -->
+    <div class="chapter-nav">
+      <div>
+        <a
+          *ngIf="(previousChapterId$ | async) != null"
+          class="prev"
+          [routerLink]="['/chapters', previousChapterId$ | async]"
+        >
+          <fa-icon icon="angle-left"></fa-icon> Previous chapter</a
+        >
+      </div>
+      <div class="next">
+        <a
+          *ngIf="(nextChapterId$ | async) != null"
+          class="next"
+          [routerLink]="['/chapters', nextChapterId$ | async]"
+          >Next chapter <fa-icon icon="angle-right"></fa-icon
+        ></a>
+      </div>
+
+      <div>
+        <a
+          *ngIf="(previousCharacterChapterId$ | async) != null"
+          class="prev"
+          [routerLink]="['/chapters', previousCharacterChapterId$ | async]"
+        >
+          <fa-icon icon="angle-left"></fa-icon> Previous
+          {{ chapter.character }} chapter</a
+        >
+      </div>
+      <div class="next">
+        <a
+          *ngIf="(nextCharacterChapterId$ | async) != null"
+          class="next"
+          [routerLink]="['/chapters', nextCharacterChapterId$ | async]"
+          >Next {{ chapter.character }} chapter
+          <fa-icon icon="angle-right"></fa-icon
+        ></a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!--
+    <section class="main-section">
+      <div [innerHTML]="chapterContent | safeHtml"></div>
+    </section>
+  </div>-->
+  </div>
+  <ng-template #loading>
+    <div fxLayout="row" fxLayoutAlign="center center" class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+
+  <!-- Chapter content -->
+  <ng-template appChapterContent></ng-template>
+</main>
