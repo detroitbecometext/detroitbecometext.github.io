@@ -1,31 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material.module';
-import { BaseLayoutComponent } from './layout/base-layout/base-layout.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { InfoDialogComponent } from './layout/info-dialog/info-dialog.component';
-import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { IconsModule } from './icons/icons.module';
 
 @NgModule({
-    declarations: [
-        BaseLayoutComponent,
-        FooterComponent,
-        HeaderComponent,
-        InfoDialogComponent,
-        SidenavComponent,
+    declarations: [],
+    imports: [
+        CommonModule,
+        MaterialModule,
+        FlexLayoutModule,
+        RouterModule,
+        IconsModule,
     ],
-    imports: [CommonModule, MaterialModule, FlexLayoutModule],
     exports: [
         CommonModule,
         MaterialModule,
-        BaseLayoutComponent,
-        FooterComponent,
-        HeaderComponent,
-        InfoDialogComponent,
-        SidenavComponent,
         FlexLayoutModule,
+        RouterModule,
+        IconsModule,
     ],
 })
 export class SharedModule {}
