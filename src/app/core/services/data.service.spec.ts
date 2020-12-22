@@ -1,4 +1,4 @@
-import { TestBed } from '@app/features/home/components/home-old/node_modules/@app/features/chapters/chapter-contents/opening-chapter-content/node_modules/@app/features/chapters/chapter/node_modules/@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { DataService } from './data.service';
 

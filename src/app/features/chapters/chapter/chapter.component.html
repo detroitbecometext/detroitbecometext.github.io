@@ -1,64 +1,40 @@
-<main class="container">
-	<div *ngIf="!(isLoading$ | async); else loading">
-	  <header>
-		<h1>Chapter : {{ chapter.number }} - {{ chapter.title }}</h1>
-	  </header>
+<main class="container" fxLayout="column" fxLayoutAlign="start">
+    <ng-container *ngIf="!(isLoading$ | async)">
+        <header fxFlexAlign="stretch">
+            <h1>Chapter {{ chapter.number }} - {{ chapter.title }}</h1>
+        </header>
+    </ng-container>
 
-	  <!-- Chapter nav -->
-	  <div class="chapter-nav">
-		<div>
-		  <a
-			*ngIf="(previousChapterId$ | async) != null"
-			class="prev"
-			[routerLink]="['/chapters', previousChapterId$ | async]"
-		  >
-			<fa-icon icon="angle-left"></fa-icon> Previous chapter</a
-		  >
-		</div>
-		<div class="next">
-		  <a
-			*ngIf="(nextChapterId$ | async) != null"
-			class="next"
-			[routerLink]="['/chapters', nextChapterId$ | async]"
-			>Next chapter <fa-icon icon="angle-right"></fa-icon
-		  ></a>
-		</div>
+    <mat-card fxFlexAlign="center">
+        <mat-card-content>
+            <!-- Top nav -->
+            <ng-container *ngIf="!(isLoading$ | async); else loading">
+                <app-chapter-nav [chapter]="chapter"></app-chapter-nav>
 
-		<div>
-		  <a
-			*ngIf="(previousCharacterChapterId$ | async) != null"
-			class="prev"
-			[routerLink]="['/chapters', previousCharacterChapterId$ | async]"
-		  >
-			<fa-icon icon="angle-left"></fa-icon> Previous
-			{{ chapter.character }} chapter</a
-		  >
-		</div>
-		<div class="next">
-		  <a
-			*ngIf="(nextCharacterChapterId$ | async) != null"
-			class="next"
-			[routerLink]="['/chapters', nextCharacterChapterId$ | async]"
-			>Next {{ chapter.character }} chapter
-			<fa-icon icon="angle-right"></fa-icon
-		  ></a>
-		</div>
-	  </div>
+                <mat-divider></mat-divider>
+            </ng-container>
 
-	  <div class="divider"></div>
+            <!-- Chapter content -->
+            <div class="chapter-content">
+                <ng-template appChapterContent></ng-template>
+            </div>
 
-	  <!--
-	  <section class="main-section">
-		<div [innerHTML]="chapterContent | safeHtml"></div>
-	  </section>
-	</div>-->
-	</div>
-	<ng-template #loading>
-	  <div fxLayout="row" fxLayoutAlign="center center" class="spinner">
-		<mat-spinner></mat-spinner>
-	  </div>
-	</ng-template>
+            <!-- Bottom nav -->
+            <ng-container *ngIf="!(isLoading$ | async)">
+                <mat-divider></mat-divider>
+                <app-chapter-nav [chapter]="chapter"></app-chapter-nav>
+            </ng-container>
 
-	<!-- Chapter content -->
-	<ng-template appChapterContent></ng-template>
-  </main>
+            <!-- Loading -->
+            <ng-template #loading>
+                <div
+                    fxLayout="row"
+                    fxLayoutAlign="center center"
+                    class="spinner"
+                >
+                    <mat-spinner></mat-spinner>
+                </div>
+            </ng-template>
+        </mat-card-content>
+    </mat-card>
+</main>

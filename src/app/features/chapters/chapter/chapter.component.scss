@@ -1,61 +1,84 @@
+@import '/src/app/styles/colors.scss';
+
 .container,
 .spinner {
     height: 100%;
 }
 
-.main-section {
-    background-color: rgba(233, 233, 233, 0.884);
-    padding: 40px;
-    color: #222;
-
+header {
+    background-color: rgba(2, 8, 44, 0.883);
+    color: #c5c5c5;
+    text-align: center;
     h1 {
-        font-size: 3em;
-        margin: 10px 10px 10px 0;
+        margin-top: 1rem;
+        font-size: 4rem;
+        line-height: 100%;
+    }
+}
+
+mat-card {
+    padding: 3rem;
+
+    mat-divider {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        position: inherit !important;
+    }
+}
+
+/* Inserted content styles */
+:host ::ng-deep .chapter-content {
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
     }
 
     h2 {
-        font-size: 2em;
-        margin: 20px 20px 20px 0;
+        font-size: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
         color: #2c2c2c;
     }
 
     h3 {
-        font-size: 1.8em;
-        margin: 20px 20px 20px 0;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
         color: #404040;
     }
-}
-.chapter-nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    justify-content: space-between;
-    row-gap: 1em;
 
-    div.next {
-        text-align: right;
+    mat-divider {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        position: inherit !important;
     }
 
-    a {
-        color: #1f2444;
-        transition: color 0.8s;
-        -o-transition: color 0.8s;
-        -ms-transition: color 0.8s;
-        -moz-transition: color 0.8s;
-        -webkit-transition: color 0.8s;
+    section {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
-    a:hover {
-        color: #545c91;
-    }
-}
+    .relation {
+        img {
+            margin-right: 0.2rem;
+            margin-left: 0.2rem;
+        }
 
-header {
-    background-color: rgba(2, 8, 44, 0.883);
-    color: #c5c5c5;
-    margin-bottom: 40px;
-    text-align:center h1 {
-        margin: 0;
-        padding: 10px;
+        &.small img {
+            max-height: 10px;
+        }
+
+        &.large img {
+            max-height: 20px;
+            position: relative;
+            top: 4px;
+        }
+
+        &.up {
+            color: #0c71b0;
+        }
+
+        &.down {
+            color: #8f1600;
+        }
     }
 }

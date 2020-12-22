@@ -1,0 +1,39 @@
+<div class="container" *ngIf="chapterNav">
+    <div>
+        <a
+            *ngIf="chapterNav.previousChapterId != null"
+            class="prev"
+            [routerLink]="['/chapters', chapterNav.previousChapterId]"
+        >
+            <fa-icon icon="angle-left"></fa-icon> Previous chapter</a
+        >
+    </div>
+    <div class="next">
+        <a
+            *ngIf="chapterNav.nextChapterId != null"
+            class="next"
+            [routerLink]="['/chapters', chapterNav.nextChapterId]"
+            >Next chapter <fa-icon icon="angle-right"></fa-icon
+        ></a>
+    </div>
+
+    <div>
+        <a
+            *ngIf="chapterNav.previousCharacterChapterId != null"
+            class="prev"
+            [routerLink]="['/chapters', chapterNav.previousCharacterChapterId]"
+        >
+            <fa-icon icon="angle-left"></fa-icon> Previous
+            {{ chapter.character }} chapter</a
+        >
+    </div>
+    <div class="next">
+        <a
+            *ngIf="chapterNav.nextCharacterChapterId != null"
+            class="next"
+            [routerLink]="['/chapters', chapterNav.nextCharacterChapterId]"
+            >Next {{ chapter.character }} chapter
+            <fa-icon icon="angle-right"></fa-icon
+        ></a>
+    </div>
+</div>

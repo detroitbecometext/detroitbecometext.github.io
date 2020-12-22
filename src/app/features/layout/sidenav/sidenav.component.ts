@@ -17,7 +17,5 @@ export class SidenavComponent implements OnInit {
         this.links = this.dataService
             .getChapters()
             .map((c) => new Link(c.title, c.id));
-
-        console.log(this.links);
     }
 }

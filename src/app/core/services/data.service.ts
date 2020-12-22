@@ -1,8 +1,46 @@
 import { Injectable } from '@angular/core';
 import { Chapter, Status, Character } from '../models';
 
-import { OpeningChapterContentComponent } from '../../features/chapters/components/opening-chapter-content/opening-chapter-content.component';
-import { TheHostageChapterContentComponent } from '../../features/chapters/components/the-hostage-chapter-content/the-hostage-chapter-content.component';
+import { TheHostageChapterContentComponent } from '@app/features/chapters/chapter-contents/1-the-hostage-chapter-content/the-hostage-chapter-content.component';
+import { OpeningChapterContentComponent } from '@app/features/chapters/chapter-contents/2-opening-chapter-content/opening-chapter-content.component';
+import { ShadesColorChapterContentComponent } from '@app/features/chapters/chapter-contents/3-shades-color-chapter-content/shades-color-chapter-content.component';
+import { NewHomeChapterContentComponent } from '@app/features/chapters/chapter-contents/4-new-home-chapter-content/new-home-chapter-content.component';
+import { PainterChapterContentComponent } from '@app/features/chapters/chapter-contents/5-painter-chapter-content/painter-chapter-content.component';
+import { PartnersChapterContentComponent } from '@app/features/chapters/chapter-contents/6-partners-chapter-content/partners-chapter-content.component';
+import { StormyNightChapterContentComponent } from '@app/features/chapters/chapter-contents/7-stormy-night-chapter-content/stormy-night-chapter-content.component';
+import { BrokenChapterContentComponent } from '@app/features/chapters/chapter-contents/8-broken-chapter-content/broken-chapter-content.component';
+import { TheInterrogationChapterContentComponent } from '@app/features/chapters/chapter-contents/9-the-interrogation-chapter-content/the-interrogation-chapter-content.component';
+import { FugitivesChapterContentComponent } from '@app/features/chapters/chapter-contents/10-fugitives-chapter-content/fugitives-chapter-content.component';
+import { FromTheDeadChapterContentComponent } from '@app/features/chapters/chapter-contents/11-from-the-dead-chapter-content/from-the-dead-chapter-content.component';
+import { WaitingForHankChapterContentComponent } from '@app/features/chapters/chapter-contents/12-waiting-for-hank-chapter-content/waiting-for-hank-chapter-content.component';
+import { OnTheRunChapterContentComponent } from '@app/features/chapters/chapter-contents/13-on-the-run-chapter-content/on-the-run-chapter-content.component';
+import { JerichoChapterContentComponent } from '@app/features/chapters/chapter-contents/14-jericho-chapter-content/jericho-chapter-content.component';
+import { TheNestChapterContentComponent } from '@app/features/chapters/chapter-contents/15-the-nest-chapter-content/the-nest-chapter-content.component';
+import { TimeToDecideChapterContentComponent } from '@app/features/chapters/chapter-contents/16-time-to-decide-chapter-content/time-to-decide-chapter-content.component';
+import { ZlatkoChapterContentComponent } from '@app/features/chapters/chapter-contents/17-zlatko-chapter-content/zlatko-chapter-content.component';
+import { RussianRouletteChapterContentComponent } from '@app/features/chapters/chapter-contents/18-russian-roulette-chapter-content/russian-roulette-chapter-content.component';
+import { SparePartsChapterContentComponent } from '@app/features/chapters/chapter-contents/19-spare-parts-chapter-content/spare-parts-chapter-content.component';
+import { EdenClubChapterContentComponent } from '@app/features/chapters/chapter-contents/20-eden-club-chapter-content/eden-club-chapter-content.component';
+import { PiratesCoveChapterContentComponent } from '@app/features/chapters/chapter-contents/21-pirates-cove-chapter-content/pirates-cove-chapter-content.component';
+import { TheBridgeChapterContentComponent } from '@app/features/chapters/chapter-contents/22-the-bridge-chapter-content/the-bridge-chapter-content.component';
+import { StratfordTowerChapterContentComponent } from '@app/features/chapters/chapter-contents/23-stratford-tower-chapter-content/stratford-tower-chapter-content.component';
+import { PublicEnemyChapterContentComponent } from '@app/features/chapters/chapter-contents/24-public-enemy-chapter-content/public-enemy-chapter-content.component';
+import { MidnightTrainChapterContentComponent } from '@app/features/chapters/chapter-contents/25-midnight-train-chapter-content/midnight-train-chapter-content.component';
+import { CapitolParkChapterContentComponent } from '@app/features/chapters/chapter-contents/26-capitol-park-chapter-content/capitol-park-chapter-content.component';
+import { MeetKamskiChapterContentComponent } from '@app/features/chapters/chapter-contents/27-meet-kamski-chapter-content/meet-kamski-chapter-content.component';
+import { FreedomMarchChapterContentComponent } from '@app/features/chapters/chapter-contents/28-freedom-march-chapter-content/freedom-march-chapter-content.component';
+import { LastChanceConnorChapterContentComponent } from '@app/features/chapters/chapter-contents/29-last-chance-connor-chapter-content/last-chance-connor-chapter-content.component';
+import { CrossroadsKaraChapterContentComponent } from '@app/features/chapters/chapter-contents/30.1-crossroads-kara-chapter-content/crossroads-kara-chapter-content.component';
+import { CrossroadsConnorChapterContentComponent } from '@app/features/chapters/chapter-contents/30.2-crossroads-connor-chapter-content/crossroads-connor-chapter-content.component';
+import { CrossroadsMarkusChapterContentComponent } from '@app/features/chapters/chapter-contents/30.3-crossroads-markus-chapter-content/crossroads-markus-chapter-content.component';
+import { NightSoulMarkusChapterContentComponent } from '@app/features/chapters/chapter-contents/31.1-night-soul-markus-chapter-content/night-soul-markus-chapter-content.component';
+import { NightSoulConnorChapterContentComponent } from '@app/features/chapters/chapter-contents/31.2-night-soul-connor-chapter-content/night-soul-connor-chapter-content.component';
+import { KaraLeavingDetroitChapterContentComponent } from '@app/features/chapters/chapter-contents/32.1-kara-leaving-detroit-chapter-content/kara-leaving-detroit-chapter-content.component';
+import { KaraCapturedChapterContentComponent } from '@app/features/chapters/chapter-contents/32.2-kara-captured-chapter-content/kara-captured-chapter-content.component';
+import { ConnorsLastMissionChapterContentComponent } from '@app/features/chapters/chapter-contents/32.3-connors-last-mission-chapter-content/connors-last-mission-chapter-content.component';
+import { ConnorCyberlifeTowerChapterContentComponent } from '@app/features/chapters/chapter-contents/32.4-connor-cyberlife-tower-chapter-content/connor-cyberlife-tower-chapter-content.component';
+import { MarkusDemonstrationChapterContentComponent } from '@app/features/chapters/chapter-contents/32.5-markus-demonstration-chapter-content/markus-demonstration-chapter-content.component';
+import { MarkusRevolutionChapterContentComponent } from '@app/features/chapters/chapter-contents/32.6-markus-revolution-chapter-content/markus-revolution-chapter-content.component';
 
 @Injectable({
     providedIn: 'root',
@@ -21,7 +59,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter1.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                TheHostageChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -30,7 +68,7 @@ export class DataService {
                 Character.Kara,
                 'Chapter2.jpg',
                 Status.Done,
-                TheHostageChapterContentComponent
+                OpeningChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -39,7 +77,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter3.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                ShadesColorChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -48,7 +86,7 @@ export class DataService {
                 Character.Kara,
                 'Chapter4.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                NewHomeChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -57,7 +95,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter5.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                PainterChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -66,7 +104,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter6.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                PartnersChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -75,7 +113,7 @@ export class DataService {
                 Character.Kara,
                 'Chapter7.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                StormyNightChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -84,7 +122,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter8.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                BrokenChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -93,7 +131,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter9.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                TheInterrogationChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -102,7 +140,7 @@ export class DataService {
                 Character.Kara,
                 'Chapter10.jpg',
                 Status.InProgress,
-                OpeningChapterContentComponent
+                FugitivesChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -111,7 +149,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter11.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                FromTheDeadChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -120,7 +158,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter12.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                WaitingForHankChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -129,7 +167,7 @@ export class DataService {
                 Character.Kara,
                 'Chapter13.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                OnTheRunChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -138,7 +176,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter14.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                JerichoChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -147,7 +185,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter15.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                TheNestChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -156,7 +194,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter16.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                TimeToDecideChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -165,7 +203,7 @@ export class DataService {
                 Character.Kara,
                 'Chapter17.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                ZlatkoChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -174,7 +212,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter18.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                RussianRouletteChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -183,7 +221,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter19.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                SparePartsChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -192,7 +230,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter20.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                EdenClubChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -201,7 +239,7 @@ export class DataService {
                 Character.Kara,
                 'Chapter21.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                PiratesCoveChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -210,7 +248,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter22.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                TheBridgeChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -219,7 +257,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter23.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                StratfordTowerChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -228,7 +266,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter24.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                PublicEnemyChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -237,7 +275,7 @@ export class DataService {
                 Character.Kara,
                 'Chapter25.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                MidnightTrainChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -246,7 +284,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter26.jpg',
                 Status.InProgress,
-                OpeningChapterContentComponent
+                CapitolParkChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -255,7 +293,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter27.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                MeetKamskiChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -264,7 +302,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter28.jpg',
                 Status.InProgress,
-                OpeningChapterContentComponent
+                FreedomMarchChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -273,7 +311,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter29.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                LastChanceConnorChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -282,7 +320,7 @@ export class DataService {
                 Character.Kara,
                 'Chapter30.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                CrossroadsKaraChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -291,7 +329,7 @@ export class DataService {
                 Character.Connor,
                 'Chapter30.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                CrossroadsConnorChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -300,7 +338,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter30.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                CrossroadsMarkusChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -309,7 +347,7 @@ export class DataService {
                 Character.Markus,
                 'Chapter31.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                NightSoulMarkusChapterContentComponent
             ),
             new Chapter(
                 i++,
@@ -318,61 +356,61 @@ export class DataService {
                 Character.Connor,
                 'Chapter31.jpg',
                 Status.InProgress,
-                OpeningChapterContentComponent
+                NightSoulConnorChapterContentComponent
             ),
             new Chapter(
                 i++,
                 '32.1',
-                'Kara Leaving Detroit',
+                'Battle for Detroit - Kara Leaving Detroit',
                 Character.Kara,
                 'Chapter32.1.jpg',
                 Status.InProgress,
-                OpeningChapterContentComponent
+                KaraLeavingDetroitChapterContentComponent
             ),
             new Chapter(
                 i++,
                 '32.2',
-                'Kara Captured',
+                'Battle for Detroit - Kara Captured',
                 Character.Kara,
                 'Chapter32.2.jpg',
                 Status.InProgress,
-                OpeningChapterContentComponent
+                KaraCapturedChapterContentComponent
             ),
             new Chapter(
                 i++,
                 '32.3',
-                "Connor's Last Mission",
+                "Battle for Detroit - Connor's Last Mission",
                 Character.Connor,
                 'Chapter32.3.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                ConnorsLastMissionChapterContentComponent
             ),
             new Chapter(
                 i++,
                 '32.4',
-                'Connor at the Cyberlife Tower',
+                'Battle for Detroit - Connor at the Cyberlife Tower',
                 Character.Connor,
                 'Chapter32.4.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                ConnorCyberlifeTowerChapterContentComponent
             ),
             new Chapter(
                 i++,
                 '32.5',
-                'Markus Demonstration',
+                'Battle for Detroit - Markus Demonstration',
                 Character.Markus,
                 'Chapter32.5.jpg',
                 Status.Done,
-                OpeningChapterContentComponent
+                MarkusDemonstrationChapterContentComponent
             ),
             new Chapter(
                 i++,
                 '32.6',
-                'Markus Revolution',
+                'Battle for Detroit - Markus Revolution',
                 Character.Markus,
                 'Chapter32.6.jpg',
                 Status.InProgress,
-                OpeningChapterContentComponent
+                MarkusRevolutionChapterContentComponent
             ),
         ];
     }

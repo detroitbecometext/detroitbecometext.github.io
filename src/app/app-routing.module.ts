@@ -12,38 +12,32 @@ const routes: Routes = [
     },
     // Other pages
     {
-        path: '',
-        component: BaseLayoutComponent,
-        children: [
-            {
-                path: 'contact',
-                loadChildren: () =>
-                    import('./features/contact/contact.module').then(
-                        (m) => m.ContactModule
-                    ),
-            },
-            {
-                path: 'chapters',
-                loadChildren: () =>
-                    import('./features/chapters/chapters.module').then(
-                        (m) => m.ChaptersModule
-                    ),
-            },
-            {
-                path: 'not-found',
-                loadChildren: () =>
-                    import('./features/not-found/not-found.module').then(
-                        (m) => m.NotFoundModule
-                    ),
-            },
-            {
-                path: 'credits',
-                loadChildren: () =>
-                    import('./features/credits/credits.module').then(
-                        (m) => m.CreditsModule
-                    ),
-            },
-        ],
+        path: 'contact',
+        loadChildren: () =>
+            import('./features/contact/contact.module').then(
+                (m) => m.ContactModule
+            ),
+    },
+    {
+        path: 'chapters',
+        loadChildren: () =>
+            import('./features/chapters/chapters.module').then(
+                (m) => m.ChaptersModule
+            ),
+    },
+    {
+        path: 'not-found',
+        loadChildren: () =>
+            import('./features/not-found/not-found.module').then(
+                (m) => m.NotFoundModule
+            ),
+    },
+    {
+        path: 'credits',
+        loadChildren: () =>
+            import('./features/credits/credits.module').then(
+                (m) => m.CreditsModule
+            ),
     },
 
     // Redirect to 404

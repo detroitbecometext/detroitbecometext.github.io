@@ -1,4 +1,5 @@
 import {
+    AfterViewInit,
     Component,
     ComponentFactoryResolver,
     OnInit,
@@ -8,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Chapter } from '@app/core/models';
 import { DataService } from '@app/core/services';
 import { BehaviorSubject } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { ChapterContentDirective } from '../shared/directives/chapter-content.directive';
 import { IChapterContent } from '../shared/interfaces/chapter-component.interface';
 
@@ -15,10 +17,10 @@ import { IChapterContent } from '../shared/interfaces/chapter-component.interfac
     templateUrl: './chapter.component.html',
     styleUrls: ['./chapter.component.scss'],
 })
-export class ChapterComponent implements OnInit {
+export class ChapterComponent implements OnInit, AfterViewInit {
     public chapter: Chapter;
     public chapterContent: string;
-    public isLoading$: BehaviorSubject<boolean> = new BehaviorSubject(true);
+    public isLoading$: BehaviorSubject<boolean>;
 
     public previousChapterId$: BehaviorSubject<
         number | null
@@ -33,7 +35,7 @@ export class ChapterComponent implements OnInit {
         number | null
     > = new BehaviorSubject(null);
 
-    @ViewChild(ChapterContentDirective, { static: true })
+    @ViewChild(ChapterContentDirective)
     contentHost: ChapterContentDirective;
 
     constructor(
@@ -44,11 +46,13 @@ export class ChapterComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        console.log('init'); //TODO: remove
-        this.route.paramMap.subscribe((params) => {
+        this.isLoading$ = new BehaviorSubject<boolean>(true);
+    }
+
+    ngAfterViewInit(): void {
+        this.route.paramMap.pipe(delay(0)).subscribe((params) => {
             this.isLoading$.next(true);
             const chapterId: number = +params.get('id');
-            console.log('in subscribe', chapterId); //TODO: remove
             this.LoadChapter(chapterId);
         });
     }
@@ -57,23 +61,8 @@ export class ChapterComponent implements OnInit {
         this.chapter = this.dataService.getChapter(chapterId);
         if (this.chapter === undefined) {
             // Chapter doesn't exist, redirecting to 404
-            this.router.navigate(['404']);
+            this.router.navigate(['not-found']);
         }
-
-        // Load navigation ids
-        this.previousChapterId$.next(
-            this.dataService.getPreviousChapterId(chapterId)
-        );
-        this.nextChapterId$.next(this.dataService.getNextChapterId(chapterId));
-        this.previousCharacterChapterId$.next(
-            this.dataService.getPreviousChapterId(
-                chapterId,
-                this.chapter.character
-            )
-        );
-        this.nextCharacterChapterId$.next(
-            this.dataService.getNextChapterId(chapterId, this.chapter.character)
-        );
 
         // Load the component
         const componentFactory = this.componentFactoryResolver.resolveComponentFactory(

@@ -15,6 +15,6 @@ export class HomeComponent implements OnInit {
     ngOnInit(): void {
         this.chapters = this.dataService.getChapters();
         this.note =
-            'New lines were added to chapters 14, 18, 22, 23, and 32.5, a typo was fixed in chapter 23 and a new contributor was added to the credits.';
+            'The site has been rewritten from scratch. The full source code is now available on GitHub, instead of only the dist files.';
     }
 }

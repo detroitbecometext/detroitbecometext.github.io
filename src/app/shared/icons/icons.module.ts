@@ -8,7 +8,6 @@ import {
     faCircleNotch,
     faBars,
     faSkull,
-    faHourglassHalf,
     faUnlock,
     faEnvelope,
     faQuestion,
@@ -20,6 +19,8 @@ import {
     faLockOpen,
     faAngleRight,
     faAngleLeft,
+    faPaperPlane,
+    faHourglassEnd,
 } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
@@ -34,7 +35,7 @@ export class IconsModule {
             faCircleNotch,
             faBars,
             faSkull,
-            faHourglassHalf,
+            faHourglassEnd,
             faUnlock,
             faEnvelope,
             faQuestion,
@@ -45,7 +46,8 @@ export class IconsModule {
             faEllipsisH,
             faLockOpen,
             faAngleRight,
-            faAngleLeft
+            faAngleLeft,
+            faPaperPlane
         );
     }
 }
