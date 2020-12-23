@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import {
     AfterViewInit,
     Component,
@@ -39,10 +40,11 @@ export class ChapterComponent implements OnInit, AfterViewInit {
     contentHost: ChapterContentDirective;
 
     constructor(
-        private dataService: DataService,
-        private route: ActivatedRoute,
-        private router: Router,
-        private componentFactoryResolver: ComponentFactoryResolver
+        private readonly dataService: DataService,
+        private readonly route: ActivatedRoute,
+        private readonly router: Router,
+        private readonly componentFactoryResolver: ComponentFactoryResolver,
+        private readonly viewPortScroller: ViewportScroller
     ) {}
 
     ngOnInit(): void {
@@ -77,5 +79,6 @@ export class ChapterComponent implements OnInit, AfterViewInit {
         );
 
         this.isLoading$.next(false);
+        this.viewPortScroller.scrollToPosition([0, 0]);
     }
 }
