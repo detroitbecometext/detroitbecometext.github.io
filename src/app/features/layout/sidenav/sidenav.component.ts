@@ -1,4 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    ChangeDetectionStrategy,
+    Input,
+} from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { Link } from '@app/core/models';
 import { DataService } from '@app/core/services';
 
@@ -9,6 +15,7 @@ import { DataService } from '@app/core/services';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidenavComponent implements OnInit {
+    @Input() sidenav: MatSidenav;
     public links: Link[];
 
     constructor(private dataService: DataService) {}
