@@ -1,68 +1,71 @@
 <header>
-	<img src="assets/images/Detroit-become-human-logo.png" alt="logo" />
-  </header>
+    <img src="assets/images/Detroit-become-human-logo.png" alt="logo" />
+</header>
 
-  <main class="container" fxLayout="column" fxLayoutAlign="start center">
-	<div class="title" fxFlex="0 1 auto">
-	  <fa-layers [fixedWidth]="true" class="led" fxHide.xs>
-		<fa-icon
-		  icon="circle-notch"
-		  class="led-1"
-		  transform="rotate-45 grow-35 up-10"
-		></fa-icon>
-		<fa-icon
-		  icon="circle-notch"
-		  class="led-2"
-		  transform="rotate-240 grow-35 up-10"
-		></fa-icon>
-		<fa-icon
-		  icon="circle-notch"
-		  class="led-3"
-		  transform="rotate-135 grow-35 up-10"
-		></fa-icon>
-	  </fa-layers>
-	  <h1>Detroit: Become Human - Text transcription</h1>
-	</div>
+<main class="container" fxLayout="column" fxLayoutAlign="start center">
+    <div class="title" fxFlex="0 1 auto">
+        <fa-layers [fixedWidth]="true" class="led" fxHide.xs>
+            <fa-icon
+                icon="circle-notch"
+                class="led-1"
+                transform="rotate-45 grow-35 up-10"
+            ></fa-icon>
+            <fa-icon
+                icon="circle-notch"
+                class="led-2"
+                transform="rotate-240 grow-35 up-10"
+            ></fa-icon>
+            <fa-icon
+                icon="circle-notch"
+                class="led-3"
+                transform="rotate-135 grow-35 up-10"
+            ></fa-icon>
+        </fa-layers>
+        <h1>Detroit: Become Human - Text transcription</h1>
+    </div>
 
-	<div class="info" fxFlex="0 0 auto">
-	  <div class="info-title">
-		<fa-icon icon="info-circle" size="lg"></fa-icon>
-		<h2>12/22/2020 - Update</h2>
-	  </div>
-	  <p>
-		{{ note }}
-	  </p>
-	</div>
+    <div class="info" fxFlex="0 0 auto">
+        <div class="info-title">
+            <fa-icon icon="info-circle" size="lg"></fa-icon>
+            <h2>12/22/2020 - Update</h2>
+        </div>
+        <p>
+            {{ note }}
+        </p>
+    </div>
 
-	<img
-	  class="separator"
-	  src="assets/images/triangles.png"
-	  fxHide.xs
-	  alt="A separator composed of triangles"
-	/>
+    <img
+        class="separator"
+        src="assets/images/triangles.png"
+        fxHide.xs
+        alt="A separator composed of triangles"
+    />
 
-	<div
-	  gdAlignColumns="stretch stretch"
-	  gdColumns="repeat(2, minmax(3em, 1fr))"
-	  gdColumns.lt-md="100%"
-	  gdRows="auto"
-	  gdGap="2em"
-	  class="chapters-grid"
-	  fxFlex="0 1 auto"
-	>
-	  <a
-		routerLink="/chapters/{{ chapters[i].id }}"
-		*ngFor="let chapter of chapters; let i = index; let even = even"
-	  >
-		<div class="card">
-		  <img src="{{ chapters[i].image }}" alt="{{ chapters[i].title }}" />
-		  <div class="card-content">
-			<h2>Chapter {{ chapters[i].number }}</h2>
-			<p>{{ chapters[i].title }}</p>
-		  </div>
-		</div>
-	  </a>
-	</div>
-  </main>
+    <div
+        gdAlignColumns="stretch stretch"
+        gdColumns="repeat(2, minmax(3em, 1fr))"
+        gdColumns.lt-md="100%"
+        gdRows="auto"
+        gdGap="2em"
+        class="chapters-grid"
+        fxFlex="0 1 auto"
+    >
+        <a
+            [routerLink]="['/chapters', chapters[i].id]"
+            *ngFor="let chapter of chapters; let i = index; let even = even"
+        >
+            <div class="card">
+                <img
+                    src="{{ chapters[i].image }}"
+                    alt="{{ chapters[i].title }}"
+                />
+                <div class="card-content">
+                    <h2>Chapter {{ chapters[i].number }}</h2>
+                    <p>{{ chapters[i].title }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</main>
 
-  <app-footer></app-footer>
+<app-footer></app-footer>

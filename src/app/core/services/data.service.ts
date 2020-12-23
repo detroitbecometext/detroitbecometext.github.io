@@ -50,7 +50,7 @@ export class DataService {
 
     constructor() {
         // Create all the chapters
-        let i = 0;
+        let i = 1;
         this.chapters = [
             new Chapter(
                 i++,
