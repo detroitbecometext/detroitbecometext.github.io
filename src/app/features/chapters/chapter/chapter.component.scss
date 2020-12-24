@@ -1,4 +1,5 @@
 @import '/src/app/styles/colors.scss';
+@import '/src/app/styles/media.scss';
 
 .container,
 .spinner {
@@ -19,6 +20,10 @@ header {
 mat-card {
     padding: 3rem;
 
+    @include xs {
+        width: 70%;
+    }
+
     mat-divider {
         margin-top: 2rem;
         margin-bottom: 1rem;
@@ -29,23 +34,45 @@ mat-card {
 /* Inserted content styles */
 :host ::ng-deep .chapter-content {
     h1 {
-        font-size: 3rem;
         margin-bottom: 2rem;
         margin-top: 2rem;
+
+        @include xs {
+            font-size: 2rem;
+        }
+
+        @include md {
+            font-size: 3rem;
+        }
     }
 
     h2 {
-        font-size: 2rem;
         margin-top: 1rem;
         margin-bottom: 1rem;
         color: #2c2c2c;
+
+        @include xs {
+            font-size: 1.5rem;
+        }
+
+        @include md {
+            font-size: 2rem;
+        }
     }
 
     h3 {
-        font-size: 1.8rem;
         margin-bottom: 1rem;
         margin-top: 1rem;
         color: #404040;
+
+        @include xs {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        @include md {
+            font-size: 1.8rem;
+        }
     }
 
     mat-divider {
@@ -56,7 +83,6 @@ mat-card {
 
     section {
         padding-top: 1rem;
-        padding-bottom: 1rem;
     }
 
     .relation {
