@@ -64,6 +64,7 @@ export class ChapterComponent implements OnInit, AfterViewInit {
         if (this.chapter === undefined) {
             // Chapter doesn't exist, redirecting to 404
             this.router.navigate(['not-found']);
+            return;
         }
 
         // Load the component
