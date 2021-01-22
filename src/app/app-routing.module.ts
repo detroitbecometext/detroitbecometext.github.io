@@ -39,6 +39,11 @@ const routes: Routes = [
                 (m) => m.CreditsModule
             ),
     },
+    {
+        path: 'chloe',
+        loadChildren: () =>
+            import('./features/chloe/chloe.module').then((m) => m.ChloeModule),
+    },
 
     // Redirect to 404
     { path: '**', redirectTo: '/not-found' },

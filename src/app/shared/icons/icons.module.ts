@@ -21,6 +21,7 @@ import {
     faAngleLeft,
     faPaperPlane,
     faHourglassEnd,
+    faExternalLinkAlt,
 } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
@@ -47,7 +48,8 @@ export class IconsModule {
             faLockOpen,
             faAngleRight,
             faAngleLeft,
-            faPaperPlane
+            faPaperPlane,
+            faExternalLinkAlt
         );
     }
 }

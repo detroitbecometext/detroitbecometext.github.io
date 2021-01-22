@@ -34,12 +34,8 @@
         </p>
     </div>
 
-    <img
-        class="separator"
-        src="assets/images/triangles.png"
-        fxHide.xs
-        alt="A separator composed of triangles"
-    />
+    <h2>Chapters</h2>
+    <mat-divider fxFlexAlign="stretch"></mat-divider>
 
     <div
         gdAlignColumns="stretch stretch"
@@ -47,7 +43,7 @@
         gdColumns.lt-md="100%"
         gdRows="auto"
         gdGap="2em"
-        class="chapters-grid"
+        class="cards-container"
         fxFlex="0 1 auto"
     >
         <a
@@ -65,6 +61,90 @@
                 </div>
             </div>
         </a>
+    </div>
+
+    <h2>Extras</h2>
+    <mat-divider fxFlexAlign="stretch"></mat-divider>
+    <div
+        gdAlignColumns="stretch stretch"
+        gdColumns="repeat(2, minmax(3em, 1fr))"
+        gdColumns.lt-md="100%"
+        gdRows="1"
+        gdGap="2em"
+        class="cards-container"
+        fxFlex="0 1 auto"
+    >
+        <div>
+            <a [routerLink]="['/chloe']">
+                <div class="card">
+                    <img
+                        src="assets/images/chloe.jpg"
+                        alt="Chloe in the main menu"
+                    />
+                    <div class="card-content">
+                        <h2>Chloe</h2>
+                        <p>Main menu interactions</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div>
+            <a
+                href="https://detroit-become-human.fandom.com/wiki/Magazine"
+                target="_blank"
+            >
+                <div class="card">
+                    <img
+                        src="assets/images/magazine.png"
+                        alt="Chloe in the main menu"
+                    />
+                    <div class="card-content">
+                        <h2>Magazines</h2>
+                        <p>The complete list</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <h2>Additional Links</h2>
+    <mat-divider fxFlexAlign="stretch"></mat-divider>
+    <p>
+        Want a link to appear here ? Send a request through the
+        <a [routerLink]="['/contact']" class="contact-link">contact form</a> !
+    </p>
+
+    <div
+        class="cards-container"
+        fxLayout="row wrap"
+        fxLayoutAlign="start stretch"
+        fxLayout.sm="column"
+        fxLayoutAlign.sm="start center"
+    >
+        <mat-card *ngFor="let link of additionalLinks">
+            <mat-card-header>
+                <img
+                    mat-card-avatar
+                    src="{{ link.img }}"
+                    alt="{{ link.alt }}"
+                />
+                <mat-card-title>{{ link.title }}</mat-card-title>
+                <mat-card-subtitle>{{ link.subtitle }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div fxLayoutAlign="space-between">
+                    <p>{{ link.description }}</p>
+                    <a
+                        mat-icon-button
+                        aria-label="Icon button with an arrow icon"
+                        href="{{ link.link }}"
+                        target="_blank"
+                    >
+                        <fa-icon icon="external-link-alt" size="lg"></fa-icon>
+                    </a>
+                </div>
+            </mat-card-content>
+        </mat-card>
     </div>
 </main>
 
