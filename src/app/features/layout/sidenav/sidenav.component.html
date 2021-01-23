@@ -1,11 +1,30 @@
-<h1>Chapter list</h1>
-<mat-nav-list>
-    <a
-        mat-list-item
-        [routerLink]="['/chapters', link.id]"
-        *ngFor="let link of links"
-        (click)="sidenav.close()"
-    >
-        {{ link.label }}
-    </a>
-</mat-nav-list>
+<div class="container">
+    <h1>Chapter list</h1>
+    <mat-nav-list>
+        <a
+            mat-list-item
+            [routerLink]="['/chapters', link.id]"
+            *ngFor="let link of links"
+            (click)="sidenav.close()"
+        >
+            {{ link.label }}
+        </a>
+    </mat-nav-list>
+
+    <mat-divider></mat-divider>
+
+    <h1>Extras</h1>
+    <mat-nav-list>
+        <a mat-list-item [routerLink]="['/chloe']" (click)="sidenav.close()">
+            Chloe
+        </a>
+        <a
+            mat-list-item
+            href="https://detroit-become-human.fandom.com/wiki/Magazine"
+            target="_blank"
+            (click)="sidenav.close()"
+        >
+            Magazines
+        </a>
+    </mat-nav-list>
+</div>
