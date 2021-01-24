@@ -17,15 +17,12 @@ class AdditionalLink {
 })
 export class HomeComponent implements OnInit {
     public chapters: Chapter[];
-    public note: string;
     public additionalLinks: AdditionalLink[];
 
     constructor(private dataService: DataService) {}
 
     ngOnInit(): void {
         this.chapters = this.dataService.getChapters();
-        this.note =
-            'The site has been rewritten from scratch. The full source code is now available on GitHub, instead of only the dist files.';
         this.additionalLinks = [
             {
                 img: 'assets/images/cyberlife.webp',

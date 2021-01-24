@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -6,7 +6,7 @@ import { filter } from 'rxjs/operators';
     providedIn: 'root',
 })
 export class GoatCounterService {
-    private allowLocal = true;
+    private allowLocal = isDevMode();
 
     constructor(public router: Router) {
         // Wait for `window.goatcounter` to be available
@@ -34,7 +34,6 @@ export class GoatCounterService {
                 )
             )
             .subscribe((e: NavigationEnd) => {
-                console.log('navigation ended');
                 goatcounter.count();
             });
     }

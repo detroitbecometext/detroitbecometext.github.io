@@ -6,7 +6,7 @@ You will need `node.js` to run the app.
 
 ### Clone the repository
 ```
-git clone https://github.com/detroitbecometext/detroitbecometext.github.io.git
+git clone https://github.com/detroitbecometext/detroitbecometext.github.io.git detroitbecometext
 cd detroitbecometext
 ```
 ### Install npm packages and launch the app
