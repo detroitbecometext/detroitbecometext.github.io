@@ -12,6 +12,6 @@ cd detroitbecometext
 ### Install npm packages and launch the app
 ```
 npm install
-npm start
+npm run start
 ```
 You can then open the website at `http://localhost:4200/`.
