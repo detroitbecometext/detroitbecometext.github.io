@@ -4,5 +4,20 @@
         <fa-icon icon="home" [routerLink]="['/home']"></fa-icon>
         <fa-icon icon="question" (click)="openDialog()"></fa-icon>
         <fa-icon icon="envelope" [routerLink]="['/contact']"></fa-icon>
+
+        <span fxFlex></span>
+        <div
+            class="flag-icon-background flag-icon-{{ activeFlag }}"
+            (click)="showFlagPanel = !showFlagPanel"
+        ></div>
     </nav>
+    <div *ngIf="showFlagPanel" fxLayout="row" fxLayoutAlign="end">
+        <div class="flags" fxLayout="row wrap" fxLayoutAlign="end" fxFlex="50%">
+            <div
+                *ngFor="let lang of supportedLanguages"
+                class="flag-icon-background flag-icon-{{ lang.flag }}"
+                (click)="changeLanguage(lang.lang)"
+            ></div>
+        </div>
+    </div>
 </header>

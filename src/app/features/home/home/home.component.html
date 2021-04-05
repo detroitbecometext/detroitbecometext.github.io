@@ -42,31 +42,36 @@
     <h2>Chapters</h2>
     <mat-divider fxFlexAlign="stretch"></mat-divider>
 
-    <div
-        gdAlignColumns="stretch stretch"
-        gdColumns="repeat(2, minmax(3em, 1fr))"
-        gdColumns.lt-md="100%"
-        gdRows="auto"
-        gdGap="2em"
-        class="cards-container"
-        fxFlex="0 1 auto"
-    >
-        <a
-            [routerLink]="['/chapters', chapters[i].id]"
-            *ngFor="let chapter of chapters; let i = index; let even = even"
+    <ng-container *transloco="let t">
+        <div
+            gdAlignColumns="stretch stretch"
+            gdColumns="repeat(2, minmax(3em, 1fr))"
+            gdColumns.lt-md="100%"
+            gdRows="auto"
+            gdGap="2em"
+            class="cards-container"
+            fxFlex="0 1 auto"
         >
-            <div class="card">
-                <img
-                    src="{{ chapters[i].image }}"
-                    alt="{{ chapters[i].title }}"
-                />
-                <div class="card-content">
-                    <h2>Chapter {{ chapters[i].number }}</h2>
-                    <p>{{ chapters[i].title }}</p>
+            <a
+                [routerLink]="['/chapters', chapters[i].id]"
+                *ngFor="let chapter of chapters; let i = index; let even = even"
+            >
+                <div class="card">
+                    <img
+                        src="{{ chapters[i].image }}"
+                        alt="{{ chapters[i].title }}"
+                    />
+                    <div class="card-content">
+                        <h2>
+                            {{ t('chapter') | titlecase }}
+                            {{ chapters[i].number }}
+                        </h2>
+                        <p>{{ chapters[i].title }}</p>
+                    </div>
                 </div>
-            </div>
-        </a>
-    </div>
+            </a>
+        </div>
+    </ng-container>
 
     <h2>Extras</h2>
     <mat-divider fxFlexAlign="stretch"></mat-divider>
