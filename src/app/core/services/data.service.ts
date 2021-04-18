@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Chapter, Status, Character } from '../models';
+import { Chapter, Status, Character, Magazine } from '../models';
 
 import { TheHostageChapterContentComponent } from '@app/features/chapters/chapter-contents/1-the-hostage-chapter-content/the-hostage-chapter-content.component';
 import { OpeningChapterContentComponent } from '@app/features/chapters/chapter-contents/2-opening-chapter-content/opening-chapter-content.component';
@@ -47,6 +47,7 @@ import { MarkusRevolutionChapterContentComponent } from '@app/features/chapters/
 })
 export class DataService {
     private chapters: Chapter[];
+    private magazines: Magazine[];
 
     constructor() {
         // Create all the chapters
@@ -413,6 +414,8 @@ export class DataService {
                 MarkusRevolutionChapterContentComponent
             ),
         ];
+
+        this.magazines = [];
     }
 
     /**

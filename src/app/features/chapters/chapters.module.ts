@@ -46,6 +46,7 @@ import { ConnorsLastMissionChapterContentComponent } from './chapter-contents/32
 import { ConnorCyberlifeTowerChapterContentComponent } from './chapter-contents/32.4-connor-cyberlife-tower-chapter-content/connor-cyberlife-tower-chapter-content.component';
 import { MarkusDemonstrationChapterContentComponent } from './chapter-contents/32.5-markus-demonstration-chapter-content/markus-demonstration-chapter-content.component';
 import { MarkusRevolutionChapterContentComponent } from './chapter-contents/32.6-markus-revolution-chapter-content/markus-revolution-chapter-content.component';
+import { TranslocoRootModule } from '@app/transloco/transloco-root.module';
 
 @NgModule({
     declarations: [
@@ -94,6 +95,6 @@ import { MarkusRevolutionChapterContentComponent } from './chapter-contents/32.6
         MarkusDemonstrationChapterContentComponent,
         MarkusRevolutionChapterContentComponent,
     ],
-    imports: [SharedModule, ChaptersRoutingModule],
+    imports: [SharedModule, ChaptersRoutingModule, TranslocoRootModule],
 })
 export class ChaptersModule {}
