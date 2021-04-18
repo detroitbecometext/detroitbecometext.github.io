@@ -3,6 +3,7 @@ import {
     FontAwesomeModule,
     FaIconLibrary,
 } from '@fortawesome/angular-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
     faInfoCircle,
     faCircleNotch,
@@ -49,7 +50,8 @@ export class IconsModule {
             faAngleRight,
             faAngleLeft,
             faPaperPlane,
-            faExternalLinkAlt
+            faExternalLinkAlt,
+            faGithub
         );
     }
 }
