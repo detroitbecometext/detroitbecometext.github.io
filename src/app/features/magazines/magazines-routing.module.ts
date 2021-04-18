@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BaseLayoutComponent } from '../layout/base-layout/base-layout.component';
-
-import { ChapterComponent } from './chapter/chapter.component';
+import { MagazineComponent } from './magazine/magazine.component';
 
 const routes: Routes = [
     {
         path: '',
         redirectTo: '1',
         component: BaseLayoutComponent,
-        children: [{ path: '', component: ChapterComponent }],
+        children: [{ path: '', component: MagazineComponent }],
     },
     {
         path: ':id',
         component: BaseLayoutComponent,
-        children: [{ path: '', component: ChapterComponent }],
+        children: [{ path: '', component: MagazineComponent }],
     },
 ];
 
@@ -22,4 +21,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
-export class ChaptersRoutingModule {}
+export class MagazinesRoutingModule {}

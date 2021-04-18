@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chapter, Status } from '@app/core/models';
-import { DataService } from '@app/core/services';
+import { ChapterService } from '@app/core/services';
 
 @Component({
     templateUrl: './info-dialog.component.html',
@@ -11,9 +11,9 @@ export class InfoDialogComponent implements OnInit {
 
     Status = Status;
 
-    constructor(private dataService: DataService) {}
+    constructor(private chapterService: ChapterService) {}
 
     ngOnInit(): void {
-        this.chapters = this.dataService.getChapters();
+        this.chapters = this.chapterService.getChapters();
     }
 }

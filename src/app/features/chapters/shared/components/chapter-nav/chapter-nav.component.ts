@@ -5,7 +5,7 @@ import {
     Input,
 } from '@angular/core';
 import { Chapter, ChapterNav } from '@app/core/models';
-import { DataService } from '@app/core/services';
+import { ChapterService } from '@app/core/services';
 
 @Component({
     selector: 'app-chapter-nav',
@@ -21,17 +21,17 @@ export class ChapterNavComponent implements OnInit {
         if (value) {
             this.chapter = value;
             this.chapterNav = new ChapterNav(
-                this.dataService.getPreviousChapterId(value.id),
-                this.dataService.getNextChapterId(value.id),
-                this.dataService.getPreviousChapterId(
+                this.chapterService.getPreviousChapterId(value.id),
+                this.chapterService.getNextChapterId(value.id),
+                this.chapterService.getPreviousChapterId(
                     value.id,
                     value.character
                 ),
-                this.dataService.getNextChapterId(value.id, value.character)
+                this.chapterService.getNextChapterId(value.id, value.character)
             );
         }
     }
-    constructor(private readonly dataService: DataService) {}
+    constructor(private readonly chapterService: ChapterService) {}
 
     ngOnInit(): void {}
 }

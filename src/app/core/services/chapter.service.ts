@@ -45,9 +45,8 @@ import { MarkusRevolutionChapterContentComponent } from '@app/features/chapters/
 @Injectable({
     providedIn: 'root',
 })
-export class DataService {
+export class ChapterService {
     private chapters: Chapter[];
-    private magazines: Magazine[];
 
     constructor() {
         // Create all the chapters
@@ -414,8 +413,6 @@ export class DataService {
                 MarkusRevolutionChapterContentComponent
             ),
         ];
-
-        this.magazines = [];
     }
 
     /**

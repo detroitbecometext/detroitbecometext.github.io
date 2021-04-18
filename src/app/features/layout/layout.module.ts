@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@app/shared/shared.module';
+import { TranslocoRootModule } from '@app/transloco/transloco-root.module';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,7 +15,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
         InfoDialogComponent,
         SidenavComponent,
     ],
-    imports: [SharedModule],
+    imports: [SharedModule, TranslocoRootModule],
     exports: [FooterComponent, BaseLayoutComponent],
 })
 export class LayoutModule {}

@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Chapter } from '@app/core/models';
-import { DataService } from '@app/core/services';
+import { ChapterService } from '@app/core/services';
 import { BehaviorSubject } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { ChapterContentDirective } from '../shared/directives/chapter-content.directive';
@@ -40,7 +40,7 @@ export class ChapterComponent implements OnInit, AfterViewInit {
     contentHost: ChapterContentDirective;
 
     constructor(
-        private readonly dataService: DataService,
+        private readonly chapterService: ChapterService,
         private readonly route: ActivatedRoute,
         private readonly router: Router,
         private readonly componentFactoryResolver: ComponentFactoryResolver,
@@ -60,7 +60,7 @@ export class ChapterComponent implements OnInit, AfterViewInit {
     }
 
     private LoadChapter(chapterId: number): void {
-        this.chapter = this.dataService.getChapter(chapterId);
+        this.chapter = this.chapterService.getChapter(chapterId);
         if (this.chapter === undefined) {
             // Chapter doesn't exist, redirecting to 404
             this.router.navigate(['not-found']);

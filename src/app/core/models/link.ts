@@ -1,3 +1,3 @@
 export class Link {
-  constructor(public label: string, public id: number) {}
+    constructor(public translationKey: string, public id: number) {}
 }

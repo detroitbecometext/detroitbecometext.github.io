@@ -1,5 +1,4 @@
 const mappingJson = require('./mapping.json');
-import jp = require('jsonpath');
 import fs = require('fs');
 import path = require('path');
 
@@ -35,6 +34,10 @@ const langMap: Map<string, string> = new Map([
 const commentStart: string = '/****';
 const emptyValue: string = '__EMPTY';
 
+const safe = (path: string): string => {
+    return path.replace('[]', '');
+};
+
 for (let pair of langMap) {
     const inputFile = `${pair[0]}.json`;
     const outputFile = `${pair[1]}.json`;
@@ -57,18 +60,24 @@ for (let pair of langMap) {
         for (let i = 0; i < path.length; i++) {
             if (i === path.length - 1) {
                 // Set the value
-                if (mapping[key] === emptyValue) {
-                    ref[path[i]] = '';
+                let value: string =
+                    mapping[key] === emptyValue ? '' : input[mapping[key]];
+                if (path[i - 1].includes('[]')) {
+                    ref.push(value);
                 } else {
                     ref[path[i]] = input[mapping[key]];
                 }
             } else {
-                if (ref[path[i]] === undefined) {
-                    ref[path[i]] = {};
+                if (ref[safe(path[i])] === undefined) {
+                    if (path[i].includes('[]')) {
+                        ref[safe(path[i])] = [];
+                    } else {
+                        ref[path[i]] = {};
+                    }
                 }
 
                 // Get the next subPath
-                ref = ref[path[i]];
+                ref = ref[safe(path[i])];
             }
         }
     }

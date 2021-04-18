@@ -44,6 +44,13 @@ const routes: Routes = [
         loadChildren: () =>
             import('./features/chloe/chloe.module').then((m) => m.ChloeModule),
     },
+    {
+        path: 'magazines',
+        loadChildren: () =>
+            import('./features/magazines/magazines.module').then(
+                (m) => m.MagazinesModule
+            ),
+    },
 
     // Redirect to 404
     { path: '**', redirectTo: '/not-found' },

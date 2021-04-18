@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chapter } from '@app/core/models';
-import { DataService } from '@app/core/services';
+import { ChapterService } from '@app/core/services';
 
 class AdditionalLink {
     img: string;
@@ -19,10 +19,10 @@ export class HomeComponent implements OnInit {
     public chapters: Chapter[];
     public additionalLinks: AdditionalLink[];
 
-    constructor(private dataService: DataService) {}
+    constructor(private chapterService: ChapterService) {}
 
     ngOnInit(): void {
-        this.chapters = this.dataService.getChapters();
+        this.chapters = this.chapterService.getChapters();
         this.additionalLinks = [
             {
                 img: 'assets/images/cyberlife.webp',

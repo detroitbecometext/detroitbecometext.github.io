@@ -1,0 +1,61 @@
+<ng-container *transloco="let t">
+    <main class="container" fxLayout="column" fxLayoutAlign="start">
+        <header fxFlexAlign="stretch"></header>
+
+        <mat-card fxFlexAlign="center">
+            <mat-card-content>
+                <div class="magazine-content">
+                    <mat-chip-list>
+                        <mat-chip>{{ magazine.type }}</mat-chip>
+                    </mat-chip-list>
+
+                    <h1>
+                        {{ t('magazines.' + magazine.id + '.title') }}
+                    </h1>
+
+                    <mat-divider></mat-divider>
+
+                    <h2>
+                        {{ t('magazines.' + magazine.id + '.subtitle') }}
+                    </h2>
+
+                    <mat-card-subtitle>
+                        {{
+                            t(
+                                'magazineSubheadlines.' +
+                                    magazine.type.toLowerCase().replace(' ', '')
+                            ).join(' ● ')
+                        }}
+                    </mat-card-subtitle>
+                    <p>
+                        {{ t('magazines.' + magazine.id + '.articles.1') }}
+                    </p>
+                    <p>
+                        {{ t('magazines.' + magazine.id + '.articles.2') }}
+                    </p>
+                </div>
+            </mat-card-content>
+
+            <mat-divider></mat-divider>
+
+            <mat-card-footer fxLayout="row" class="nav">
+                <div fxFlex="50%">
+                    <a
+                        *ngIf="previousMagazineId != null"
+                        [routerLink]="['/magazines', previousMagazineId]"
+                    >
+                        <fa-icon icon="angle-left"></fa-icon> Previous
+                        magazine</a
+                    >
+                </div>
+                <div fxFlex="50%" class="next">
+                    <a
+                        *ngIf="nextMagazineId != null"
+                        [routerLink]="['/magazines', nextMagazineId]"
+                        >Next magazine <fa-icon icon="angle-right"></fa-icon
+                    ></a>
+                </div>
+            </mat-card-footer>
+        </mat-card>
+    </main>
+</ng-container>
