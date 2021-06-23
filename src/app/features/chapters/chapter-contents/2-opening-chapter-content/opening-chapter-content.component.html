@@ -1,12 +1,13 @@
-<section>
-    <p>
-        NOV 5th, 2038<br />
-        PM 03:24
-    </p>
+<ng-container *transloco="let t">
+    <section>
+        <p>
+            {{ t('GUI.MENU.DATE.01K2') }}
+            {{ t('GUI.MENU.TIME.01K1') }}
+        </p>
 
-    <h1>In the Android Zone store</h1>
+        <h1>In the Android Zone store</h1>
 
-    <pre>
+        <pre>
 MODEL AX400
 SERIAL#: 579 102 694
 BIOS 7.4 REVISION 0483
@@ -25,77 +26,194 @@ ALL SYSTEMS                OK
 
 READY
 </pre
-    >
+        >
 
-    <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
 
-    <p>
-        <span class="name">Android employee 1</span>: This is the top of the
-        range household assistant. It cooks 10,000 different dishes, speaks 200
-        languages and dialects and handles the kids' homework from elementary
-        school up to university level.<br />
-        <span class="name">Woman</span> : Wow, honey, it looks amazing... This
-        is exactly what we need...<br />
-        <span class="name">Man</span> : How much did you say it costs?<br />
-        <span class="name">Android employee 1</span>: At the moment we're doing
-        a special promotion on this entire range at $7999, with a 48-months
-        interest free credit. And it comes with a two-year warranty for parts
-        and labor.<br />
-        <span class="name">Man</span> : We'll take it.<br />
-        <span class="name">Android employee 1</span>: An excellent choice, sir.
-        If you'll just follow me, we'll process the order.
-    </p>
+        <p>
+            <app-dialogue-line name="Android employee 1">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KSELLER01.MODELS01',
+                        0,
+                        4
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KCUSTOW01.MODELS01'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{ t('X0101K.INTRO.LIME.PC.X01KCUSTOM01.MODELS01.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android employee 1">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KSELLER01.MODELS01',
+                        4,
+                        6
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{ t('X0101K.INTRO.LIME.PC.X01KCUSTOM01.MODELS01.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android employee 1">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KSELLER01.MODELS01',
+                        6
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
 
-    <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
 
-    <p><span class="name">Mother</span>: Come on, Zoe. Let's go.</p>
+        <p>
+            <app-dialogue-line name="Mother">
+                {{ t('X0101K.INTRO.LIME.FA.WOMGEN.COMEONV2') }}
+            </app-dialogue-line>
+        </p>
 
-    <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
 
-    <p>
-        <span class="name">Man</span> : We're still gonna have to finance it, I
-        can't pay for that cash.<br />
-        <span class="name">Android employee 2</span>: Good afternoon! Can I help
-        you?<br />
-        <span class="name">Man</span> : Please, we're looking for a little help
-        around the house.<br />
-        <span class="name">Android employee 2</span>: The MP500 is a very basic
-        model, it pretty much handles all the chores around the house. I can
-        show you another model.<br />
-        <span class="name">Man</span> : Okay.<br />
-        <span class="name">Android employee 2</span>: It does absolutely all the
-        work around the house: painting, plumbing, gardening, repairs. At night,
-        it switches to surveillance mode and contacts emergency services if
-        there's a break-in, or if it detects smoke.<br />
-        <span class="name">Man</span> : Excuse me, how much is that one over
-        there?<br />
-        <span class="name">Android employee 2</span>: The MP800 is slightly more
-        expensive, but it has many other functions. Come along and I'll show
-        you.<br />
-        <span class="name">Man</span> : Slightly more expensive and lots of
-        functions... I don't like this guy. I'm not spending a penny over four.
-        That's it. Okay? Forget about it.
-    </p>
+        <p>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KCUSTOM02.MODELS02',
+                        0,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android employee 2">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KSELLER02.MODELS02',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KCUSTOM02.MODELS02',
+                        3,
+                        5
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android employee 2">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KSELLER02.MODELS02',
+                        2,
+                        4
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{ t('X0101K.INTRO.LIME.PC.X01KCUSTOM02.MODELS02.6') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android employee 2">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KSELLER02.MODELS02',
+                        4,
+                        6
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{ t('X0101K.INTRO.LIME.PC.X01KCUSTOM02.MODELS02.7') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android employee 2">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KSELLER02.MODELS02',
+                        6
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KCUSTOM02.MODELS02',
+                        7
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
 
-    <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
 
-    <p>
-        <span class="name">Human employee</span>: Thank you, and we're good.<br />
-        <span class="name">Todd</span>: Can I go pick it up?<br />
-        <span class="name">Human employee</span>: Yeah, right back here. There
-        it is. It was a bit difficult getting it back in working order. It was
-        really messed up... What did you say happened to it again?<br />
-        <span class="name">Todd</span>: Huh, A car hit it... Stupid
-        accident...<br />
-        <span class="name">Human employee</span>: Oh, I see... Anyway, it's as
-        good as new now... Except that we had to reset it. Meaning we had to
-        wipe its memory. Hope you don't mind.<br />
-        <span class="name">Todd</span>: That'll be fine.<br />
-        <span class="name">Human employee</span>: Okay, did you give it a
-        name?<br />
-        <span class="name">Todd</span>: My daughter did...<br />
-        <span class="name">Human employee</span>: AX400, register your name.<br />
-        <span class="name">Todd</span>: Kara.<br />
-        <span class="name">Kara</span>: My name is Kara.
-    </p>
-</section>
+        <p>
+            <app-dialogue-line name="Human employee">
+                {{ t('X0101K.INTRO.LIME.PC.X01KSELLER03.MODELS03.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.INTRO.LIME.PC.X01KEXTDAD.MODELS03.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Human employee">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KSELLER03.MODELS03',
+                        1,
+                        5
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Todd">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KEXTDAD.MODELS03',
+                        1,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Human employee">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KSELLER03.MODELS03',
+                        5,
+                        10
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.INTRO.LIME.PC.X01KEXTDAD.MODELS03.4') }}
+            </app-dialogue-line>
+
+            <app-dialogue-line name="Human employee">
+                {{
+                    translateObject(
+                        'X0101K.INTRO.LIME.PC.X01KSELLER03.MODELS03',
+                        10,
+                        12
+                    ) | async
+                }}
+            </app-dialogue-line>
+
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.INTRO.LIME.PC.X01KEXTDAD.MODELS03.5') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Human employee">
+                {{ t('X0101K.INTRO.LIME.PC.X01KSELLER03.MODELS03.13') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.INTRO.LIME.PC.X01KEXTDAD.MODELS03.6') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{ t('X0101K.INTRO.LIME.FA.X01KKARA.MODELS04') }}
+            </app-dialogue-line>
+        </p>
+    </section>
+</ng-container>

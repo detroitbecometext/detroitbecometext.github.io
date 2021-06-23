@@ -10,28 +10,55 @@
                     </mat-chip-list>
 
                     <h1>
-                        {{ t('magazines.' + magazine.id + '.title') }}
+                        {{
+                            t(
+                                'GUI.MAGAZINE.' +
+                                    magazine.translationCategory +
+                                    '.' +
+                                    magazine.translationKey +
+                                    '.TITLE'
+                            )
+                        }}
                     </h1>
 
                     <mat-divider></mat-divider>
 
                     <h2>
-                        {{ t('magazines.' + magazine.id + '.subtitle') }}
+                        {{
+                            t(
+                                'GUI.MAGAZINE.' +
+                                    magazine.translationCategory +
+                                    '.' +
+                                    magazine.translationKey +
+                                    '.SUBTITLE'
+                            )
+                        }}
                     </h2>
 
                     <mat-card-subtitle>
-                        {{
-                            t(
-                                'magazineSubheadlines.' +
-                                    magazine.type.toLowerCase().replace(' ', '')
-                            ).join(' ● ')
-                        }}
+                        {{ subHeadlines | async }}
                     </mat-card-subtitle>
                     <p>
-                        {{ t('magazines.' + magazine.id + '.articles.1') }}
+                        {{
+                            t(
+                                'GUI.MAGAZINE.' +
+                                    magazine.translationCategory +
+                                    '.' +
+                                    magazine.translationKey +
+                                    '.ARTICLE1'
+                            )
+                        }}
                     </p>
                     <p>
-                        {{ t('magazines.' + magazine.id + '.articles.2') }}
+                        {{
+                            t(
+                                'GUI.MAGAZINE.' +
+                                    magazine.translationCategory +
+                                    '.' +
+                                    magazine.translationKey +
+                                    '.ARTICLE2'
+                            )
+                        }}
                     </p>
                 </div>
             </mat-card-content>

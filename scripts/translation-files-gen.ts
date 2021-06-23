@@ -1,8 +1,6 @@
-const mappingJson = require('./mapping.json');
 import fs = require('fs');
 import path = require('path');
 
-const mapping: { [key: string]: string } = mappingJson;
 // Game files -> ISO Language Codes
 const langMap: Map<string, string> = new Map([
     ['ara', 'ar'], // Arabic
@@ -31,11 +29,31 @@ const langMap: Map<string, string> = new Map([
     ['tur', 'tr'], // Turkish
 ]);
 
-const commentStart: string = '/****';
-const emptyValue: string = '__EMPTY';
+/**
+ * Splits the value if necessary.
+ * @param value The translated value.
+ * @returns A string array.
+ */
+const format = (value: string): string[] => {
+    // ex: {*3} or {*3-4} or {3*} or {B} or {*TC:12|23}
+    let indexRegex = new RegExp(
+        '{\\*\\d*}|{\\*\\d*-\\d*}|{\\d*\\*}|{B}|(?:{\\*TC:\\d*\\|\\d*})',
+        'g'
+    );
+    // ex: text/info/text-to-remove
+    let infoRegex = new RegExp('/info/(.*)$', 'g');
 
-const safe = (path: string): string => {
-    return path.replace('[]', '');
+    let result;
+    if (!indexRegex.test(value)) {
+        // nothing to do
+        result = [value];
+    } else {
+        result = value.split(indexRegex).filter((v) => v !== '');
+    }
+
+    result = result.map((r) => r.replace(infoRegex, ''));
+
+    return result;
 };
 
 for (let pair of langMap) {
@@ -49,35 +67,41 @@ for (let pair of langMap) {
         fs.readFileSync(path.resolve(__dirname, `./input/${inputFile}`), 'utf8')
     );
 
-    for (let key in mapping) {
-        // Comment
-        if (key.startsWith(commentStart)) {
-            continue;
-        }
-
-        const path = key.split('.');
+    for (let translationKey in input) {
+        const path = translationKey.split('_');
         let ref: any = result;
+
         for (let i = 0; i < path.length; i++) {
             if (i === path.length - 1) {
                 // Set the value
-                let value: string =
-                    mapping[key] === emptyValue ? '' : input[mapping[key]];
-                if (path[i - 1].includes('[]')) {
-                    ref.push(value);
+                let values: string[] = format(input[translationKey]);
+                let currentKey = path[i];
+
+                if (values.length === 1) {
+                    ref[currentKey] = values[0];
                 } else {
-                    ref[path[i]] = input[mapping[key]];
+                    ref[currentKey] = {};
+                    for (let j = 0; j < values.length; j++) {
+                        ref[currentKey][j + 1] = values[j];
+                    }
                 }
             } else {
-                if (ref[safe(path[i])] === undefined) {
-                    if (path[i].includes('[]')) {
-                        ref[safe(path[i])] = [];
-                    } else {
-                        ref[path[i]] = {};
-                    }
+                let currentKey = path[i];
+                if (ref[currentKey] === undefined) {
+                    ref[currentKey] = {};
+                } else if (
+                    typeof ref[currentKey] === 'string' ||
+                    ref[currentKey] instanceof String
+                ) {
+                    // if this path already has a value, create a new sub-object
+                    let stringValue = ref[currentKey];
+                    ref[currentKey] = {
+                        VALUE: stringValue,
+                    };
                 }
 
                 // Get the next subPath
-                ref = ref[safe(path[i])];
+                ref = ref[currentKey];
             }
         }
     }

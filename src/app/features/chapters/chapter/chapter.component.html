@@ -1,8 +1,13 @@
 <main class="container" fxLayout="column" fxLayoutAlign="start">
     <ng-container *ngIf="!(isLoading$ | async)">
-        <header fxFlexAlign="stretch">
-            <h1>Chapter {{ chapter.number }} - {{ chapter.title }}</h1>
-        </header>
+        <ng-container *transloco="let t">
+            <header fxFlexAlign="stretch">
+                <h1>
+                    {{ chapter.number }} -
+                    {{ t('GUI.MENU.CHAPTERS.' + chapter.shortIdentifier) }}
+                </h1>
+            </header>
+        </ng-container>
     </ng-container>
 
     <mat-card fxFlexAlign="center">

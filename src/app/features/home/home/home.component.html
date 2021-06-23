@@ -39,10 +39,10 @@
         </ul>
     </div>
 
-    <h2>Chapters</h2>
-    <mat-divider fxFlexAlign="stretch"></mat-divider>
-
     <ng-container *transloco="let t">
+        <h2>{{ t('GUI.MENU.CHAPTERS.VALUE') }}</h2>
+        <mat-divider fxFlexAlign="stretch"></mat-divider>
+
         <div
             gdAlignColumns="stretch stretch"
             gdColumns="repeat(2, minmax(3em, 1fr))"
@@ -59,11 +59,23 @@
                 <div class="card">
                     <img
                         src="{{ chapters[i].image }}"
-                        alt="{{ chapters[i].title }}"
+                        alt="{{
+                            t(
+                                'GUI.MENU.CHAPTERS.' +
+                                    chapters[i].shortIdentifier
+                            )
+                        }}"
                     />
                     <div class="card-content">
                         <h2>Chapter {{ chapters[i].number }}</h2>
-                        <p>{{ chapters[i].title }}</p>
+                        <p>
+                            {{
+                                t(
+                                    'GUI.MENU.CHAPTERS.' +
+                                        chapters[i].shortIdentifier
+                                )
+                            }}
+                        </p>
                     </div>
                 </div>
             </a>

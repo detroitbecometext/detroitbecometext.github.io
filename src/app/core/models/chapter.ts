@@ -3,6 +3,8 @@ import { Type } from '@angular/core';
 import { IChapterContent } from '@app/features/chapters/shared/interfaces/chapter-component.interface';
 import { Character } from './character.enum';
 
+// TODO: Remove long identifier ?
+
 /**
  * Represents a chapter of the game.
  */
@@ -19,10 +21,11 @@ export class Chapter {
     constructor(
         public readonly id: number,
         public readonly number: string,
-        public readonly title: string,
         public readonly character: Character,
         public readonly image: string,
         public readonly status: Status,
+        public readonly shortIdentifier: string,
+        public readonly longIdentifier: string,
         public readonly component: Type<IChapterContent>
     ) {
         this.image = 'assets/images/' + image;
