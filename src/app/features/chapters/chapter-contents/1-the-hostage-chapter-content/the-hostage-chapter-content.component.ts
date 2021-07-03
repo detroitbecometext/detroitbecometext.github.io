@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { BaseTranslationComponent } from '@app/shared/base-translation/base-translation.component';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
     selector: 'app-the-hostage-chapter-content',
@@ -6,8 +8,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
     styleUrls: ['./the-hostage-chapter-content.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TheHostageChapterContentComponent implements OnInit {
-    constructor() {}
+export class TheHostageChapterContentComponent
+    extends BaseTranslationComponent
+    implements OnInit
+{
+    constructor(translocoService: TranslocoService) {
+        super(translocoService);
+    }
 
     ngOnInit(): void {}
 }

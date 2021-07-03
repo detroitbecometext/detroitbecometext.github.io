@@ -1,504 +1,737 @@
-<section>
-    <p>
-        NOV 7TH, 2038
-        <br />AM 01:19
-    </p>
+<ng-container *transloco="let t">
+    <section>
+        <p>
+            {{ t('GUI.MENU.DATE.08C') }}
+            <br />{{ t('GUI.MENU.TIME.08C') }}
+        </p>
 
-    <h1>At Ambassador Bridge</h1>
-    <p>
-        <span class="name">Hank</span>: Nice view, huh?... I used to come here a
-        lot before...
-    </p>
+        <h1>At Ambassador Bridge</h1>
+        <p>
+            <span class="name">Hank</span>:
+            {{ translateObject('X0801C.BENCH.TALK.PC.X08CHANK.START') | async }}
+        </p>
 
-    <div class="choices">
-        <em>PERSONAL QUESTION</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: Can I ask you a personal
-                question, Lieutenant? <br /><span class="name">Hank</span>: Do
-                all androids ask so many personal questions or is it just you?
-            </p>
-            <p>
-                <span class="note"
-                    >If Connor didn't look at the photo in
-                    <a [routerLink]="['/chapters', 18]">Russian Roulette</a>, no
-                    choice will be given and the dialogue will go directly to
-                    the SUICIDE option.</span
-                >
-            </p>
-            <em>PHOTO</em> [
-            <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked by
-            looking at Cole's photo in
-            <a [routerLink]="['/chapters', 18]">Russian Roulette</a> ] [
+        <div class="choices">
+            <em>{{ t('X0801C.BENCH.TALK.PC.STARTCHOICE01.SUICIDE') }}</em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.SUICIDE') }} <br />
+                    <span class="name">Hank</span>:
+                    {{ t('X0801C.BENCH.TALK.PC.X08CHANK.SUICIDE') }}
+                </p>
+                <p>
+                    <span class="note"
+                        >If Connor didn't look at the photo in
+                        <a [routerLink]="['/chapters', 18]">Russian Roulette</a
+                        >, no choice will be given and the dialogue will go
+                        directly to the SUICIDE option.</span
+                    >
+                </p>
+                <em>{{ t('X0801C.BENCH.TALK.PC.PHOTOCHOICE.PHOTO') }}</em> [
+                <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked by
+                looking at Cole's photo in
+                <a [routerLink]="['/chapters', 18]">Russian Roulette</a> ] [
+                <span appRelation="small down">Hank</span>
+                ]
+                <div class="choice">
+                    <p>
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.PHOTO'
+                            ) | async
+                        }}
+                        <br /><span class="name">Hank</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CHANK.PHOTO'
+                            ) | async
+                        }}
+                    </p>
+                </div>
+                <em>{{ t('X0801C.BENCH.TALK.PC.PHOTOCHOICE.SUICIDE') }}</em>
+                <div class="choice">
+                    <p>
+                        <span class="name">Connor</span>:
+                        {{
+                            t('X0801C.BENCH.TALK.PC.X08CCONNOR.KILLYOURSELF00')
+                        }}
+                        <br /><span class="name">Hank</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CHANK.KILLYOURSELF01'
+                            ) | async
+                        }}
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CHANK.KILLYOURSELF02'
+                            ) | async
+                        }}
+                    </p>
+                </div>
+            </div>
+            <em>{{ t('X0801C.BENCH.TALK.PC.STARTCHOICE01.ALCOHOL') }}</em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CCONNOR.ALCOHOL'
+                        ) | async
+                    }}<br />
+                    <span class="name">Hank</span>:
+                    {{ t('X0801C.BENCH.TALK.PC.X08CHANK.ALCOHOL') }}
+                </p>
+            </div>
+            <em>{{ t('X0801C.BENCH.TALK.PC.STARTCHOICE01.BEFORE') }}</em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.BEFORE.2') }} <br />
+                    <span class="name">Hank</span>:
+                    {{ t('X0801C.BENCH.TALK.PC.X08CHANK.BEFORE.1') }} <br />
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CCONNOR.BEFORE',
+                            2
+                        ) | async
+                    }}
+                    <br /><span class="name">Hank</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CHANK.BEFORE',
+                            1
+                        ) | async
+                    }}
+                </p>
+            </div>
+            <em>{{ t('X0801C.BENCH.TALK.PC.STARTCHOICE01.GOBACK') }}</em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CCONNOR.GOBACKC'
+                        ) | async
+                    }}<br />
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject('X0801C.BENCH.TALK.PC.X08CHANK.GOBACKC')
+                            | async
+                    }}
+                </p>
+            </div>
+        </div>
+
+        <p>
+            <span class="name">Connor</span>:
+            {{
+                translateObject(
+                    'X0801C.BENCH.TALK.PC.X08CCONNOR.INVESTIGATIONC'
+                ) | async
+            }}
+            <br />
+            <span class="name">Hank</span>:
+            {{ t('X0801C.BENCH.TALK.PC.X08CHANK.INVESTIGATIONH') }}
+        </p>
+
+        <div class="choices">
+            <em
+                >[
+                {{ t('X0801C.BENCH.TALK.PC.INVESTIGATIONCHOICE02.RA9') }} ]</em
+            >
+            [ <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked by
+            looking at rA9 clues in previous chapters ]
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject('X0801C.BENCH.TALK.PC.X08CCONNOR.RA9C')
+                            | async
+                    }}<br />
+                    <span class="name">Hank</span>:{{
+                        translateObject('X0801C.BENCH.TALK.PC.X08CHANK.RA9H')
+                            | async
+                    }}
+                </p>
+            </div>
+            <em>{{ t('X0801C.BENCH.TALK.PC.INVESTIGATIONCHOICE02.SHOCK') }}</em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject('X0801C.BENCH.TALK.PC.X08CCONNOR.SHOCK')
+                            | async
+                    }}
+                    <br />
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject('X0801C.BENCH.TALK.PC.X08CHANK.SHOCK')
+                            | async
+                    }}
+                </p>
+            </div>
+            <em>{{
+                t('X0801C.BENCH.TALK.PC.INVESTIGATIONCHOICE02.SYSTEMS')
+            }}</em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CCONNOR.CIRCUITS'
+                        ) | async
+                    }}
+                    <br /><span class="name">Hank</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CHANK.CIRCUITS'
+                        ) | async
+                    }}
+                </p>
+            </div>
+            <em>{{
+                t('X0801C.BENCH.TALK.PC.INVESTIGATIONCHOICE02.SOFTWARES')
+            }}</em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CCONNOR.SOFTWARES'
+                        ) | async
+                    }}
+                    <br /><span class="name">Hank</span>:
+                    {{ t('X0801C.BENCH.TALK.PC.X08CHANK.SOFTWARES') }}
+                </p>
+            </div>
+        </div>
+
+        <p>
+            <span class="name">Connor</span>:
+            {{
+                translateObject('X0801C.BENCH.TALK.PC.X08CCONNOR.CLUB') | async
+            }}
+        </p>
+
+        <div class="condition">
+            <span class="name"
+                >Found the Tracis in
+                <a [routerLink]="['/chapters', 20]">The Eden Club</a></span
+            >
+            <div class="condition-text">
+                <p>
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject('X0801C.BENCH.TALK.PC.X08CHANK.FOUND')
+                            | async
+                    }}
+                </p>
+                <div class="choices">
+                    <em>{{
+                        t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.RATIONAL')
+                    }}</em>
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.RATIONAL01'
+                            ) | async
+                        }}
+                    </div>
+                    <em>{{
+                        t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.DEVIANTS')
+                    }}</em>
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.DEVIANTS'
+                            ) | async
+                        }}
+                    </div>
+                    <em>{{
+                        t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.IRONIC')
+                    }}</em>
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.IRONIC'
+                            ) | async
+                        }}
+                    </div>
+                    <em>{{ t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.COLD') }}</em>
+                    [ <span appRelation="small down">Software instability</span
+                    ><span appRelation="small down">Hank</span>
+                    ]
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD01'
+                            ) | async
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="condition">
+            <span class="name"
+                >Took too much time looking for the Traci in
+                <a [routerLink]="['/chapters', 20]">The Eden Club</a></span
+            >
+            <div class="condition-text">
+                <span class="name">Hank</span>:
+                {{
+                    translateObject('X0801C.BENCH.TALK.PC.X08CHANK.NOTFOUND')
+                        | async
+                }}
+                <div class="choices">
+                    <em>{{
+                        t('X0801C.BENCH.TALK.PC.NOTFOUNDCHOICE04.COLD')
+                    }}</em>
+                    [ <span appRelation="small down">Software instability</span
+                    ><span appRelation="small down">Hank</span>
+                    ]
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD02'
+                            ) | async
+                        }}
+                    </div>
+                    <em>{{
+                        t('X0801C.BENCH.TALK.PC.NOTFOUNDCHOICE04.IRONIC')
+                    }}</em>
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.IRONIC'
+                            ) | async
+                        }}
+                    </div>
+                    <em>{{
+                        t('X0801C.BENCH.TALK.PC.NOTFOUNDCHOICE04.RATIONAL')
+                    }}</em>
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.RATIONAL02'
+                            ) | async
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <p>
+            <span class="name">Hank</span>:
+            {{
+                translateObject('X0801C.BENCH.TALK.PC.X08CHANK.ABOUTYOU')
+                    | async
+            }}
+        </p>
+
+        <div class="choices">
+            <em>COLD</em> [
+            <span appRelation="small down">Software instability</span
+            ><span appRelation="small down">Hank</span>
+            ]
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.COLD03') }}
+            </div>
+            <em>AGGRESSIVE</em> [
+            <span appRelation="small down">Software instability</span
+            ><span appRelation="small down">Hank</span>
+            ]
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject(
+                        'X0801C.BENCH.TALK.PC.X08CCONNOR.AGGRESSIVE01'
+                    ) | async
+                }}
+            </div>
+            <em>DEFENSIVE</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject(
+                        'X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE01'
+                    ) | async
+                }}
+            </div>
+            <em>NEUTRAL</em> [
+            <span appRelation="small up">Hank</span>
+            ]
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject('X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL01')
+                        | async
+                }}
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="condition">
+            <span class="name">Connor spared the Tracis</span>
+            <div class="condition-text">
+                <span class="name">Hank</span>:
+                {{
+                    translateObject('X0801C.BENCH.TALK.PC.X08CHANK.NOTSHOOT')
+                        | async
+                }}
+                <div class="choices">
+                    <em>LIE</em> [
+                    <span appRelation="small down">Hank</span>
+                    ]
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.LIE'
+                            ) | async
+                        }}
+                    </div>
+                    <em>TRUTH</em> [
+                    <span appRelation="small up">Software instability</span
+                    ><span appRelation="small up">Hank</span>
+                    ]
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.TRUTH'
+                            ) | async
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="condition">
+            <span class="name">Connor shot the Tracis in the back </span>
+            <div class="condition-text">
+                <p>
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject('X0801C.BENCH.TALK.PC.X08CHANK.SHOOT')
+                            | async
+                    }}
+                </p>
+                <div class="choices">
+                    <em>COLD</em> [
+                    <span appRelation="small down">Software instability</span
+                    ><span appRelation="small down">Hank</span>
+                    ]
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD04'
+                            ) | async
+                        }}
+                    </div>
+                    <em>DEFENSIVE</em>
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE02'
+                            ) | async
+                        }}
+                    </div>
+                    <em>AGGRESSIVE</em> [
+                    <span appRelation="small down">Hank</span>
+                    ]
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.AGGRESSIVE02'
+                            ) | async
+                        }}
+                    </div>
+                    <em>NEUTRAL</em> [
+                    <span appRelation="small down">Software instability</span
+                    ><span appRelation="small down">Hank</span>
+                    ]
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL03'
+                            ) | async
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="condition">
+            <span class="name">Connor shot one Traci</span>
+            <div class="condition-text">
+                <p>
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CHANK.SUICIDETRACY'
+                        ) | async
+                    }}
+                </p>
+                <div class="choices">
+                    <em>DISTURBED</em> [
+                    <span appRelation="small up">Software instability</span> ]
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD11'
+                            ) | async
+                        }}
+                    </div>
+                    <em>COLD</em> [ <span appRelation="small down">Hank</span
+                    ><span appRelation="small down">Software instability</span>
+                    ]
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.DISTURBED11'
+                            ) | async
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="condition">
+            <span class="name">Connor didn't find the Tracis </span>
+            <div class="condition-text">
+                <p>
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CHANK.NOWEAKNESSES'
+                        ) | async
+                    }}
+                </p>
+                <div class="choices">
+                    <em>DEFENSIVE</em>
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE04'
+                            ) | async
+                        }}
+                    </div>
+                    <em>CYNICAL</em>
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.CYNICAL') }}
+                    </div>
+                    <em>UNDERSTANDING</em>
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.UNDRESTANDING'
+                            ) | async
+                        }}
+                    </div>
+                    <em>NEUTRAL</em>
+                    <div class="choice">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL02'
+                            ) | async
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="condition">
+            <span class="name"
+                >| <i class="fas fa-skull"></i> Connor died before</span
+            >
+            <div class="condition-text">
+                <span class="name">Hank</span>:
+                {{
+                    translateObject('X0801C.BENCH.TALK.PC.X08CHANK.DEAD')
+                        | async
+                }}
+            </div>
+        </div>
+
+        <p>
+            <span class="name">Hank</span>:
+            {{ t('X0801C.BENCH.TALK.PC.X08CHANK.DEADNEVER') }}
+        </p>
+
+        <div class="choices">
+            <em>YES</em> [
+            <span appRelation="small up">Software instability</span>]
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject('X0801C.BENCH.TALK.PC.X08CCONNOR.YES')
+                        | async
+                }}
+            </div>
+            <em>NO</em> [
+            <span appRelation="small down">Software instability</span
+            ><span appRelation="small down">Hank</span>
+            ]
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.NO.1') }}
+            </div>
+            <em>NOT ALIVE</em> [
+            <span appRelation="small down">Software instability</span
+            ><span appRelation="small down">Hank</span>
+            ]
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject('X0801C.BENCH.TALK.PC.X08CCONNOR.NOTALIVE')
+                        | async
+                }}
+            </div>
+            <em>LOGICAL</em> [
+            <span appRelation="small down">Software instability</span
+            ><span appRelation="small down">Hank</span>
+            ]
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject('X0801C.BENCH.TALK.PC.X08CCONNOR.COLD05')
+                        | async
+                }}
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <p>
+            <span class="name">Hank</span>:
+            {{
+                translateObject('X0801C.BENCH.TALK.PC.X08CHANK.PULLTRIGGER')
+                    | async
+            }}
+        </p>
+
+        <div class="choices">
+            <em>DEFY</em> [
             <span appRelation="small down">Hank</span>
             ]
             <div class="choice">
                 <p>
-                    <span class="name">Connor</span>: I saw a photo of a
-                    child...on your kitchen table. It was your son, right?
-                    <br /><span class="name">Hank</span>: Yeah... His name was
-                    Cole.
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject('X0801C.BENCH.TALK.PC.X08CCONNOR.DEFY')
+                            | async
+                    }}
+                    <br />
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject('X0801C.BENCH.TALK.PC.X08CHANK.DEFY')
+                            | async
+                    }}<br />
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CCONNOR.SELFTEST'
+                        ) | async
+                    }}
                 </p>
             </div>
-            <em>SUICIDE</em>
+            <em>HANK'S ANGER</em>
             <div class="choice">
                 <p>
-                    <span class="name">Connor</span>: Why are you so determined
-                    to kill yourself? <br /><span class="name">Hank</span>: Some
-                    things, I just can't forget... Whatever I do, they're always
-                    there... Eating away at me... I don't have the guts to pull
-                    the trigger... So, I kill myself a little every day...
-                    That's probably difficult for you to understand, huh,
-                    Connor? Nothing very rational about it...
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CCONNOR.ANALYSE'
+                        ) | async
+                    }}
+                    <br />
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject('X0801C.BENCH.TALK.PC.X08CHANK.DEFY')
+                            | async
+                    }}
+                    <br /><span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CCONNOR.SELFTEST'
+                        ) | async
+                    }}
+                </p>
+            </div>
+            <em>IRONIC</em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.HEAVEN01') }} <br />
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CHANK.HEAVEN02'
+                        ) | async
+                    }}
+                    <br />
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X0801C.BENCH.TALK.PC.X08CCONNOR.SELFTEST'
+                        ) | async
+                    }}
+                </p>
+            </div>
+            <em>NOTHING</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject('X0801C.BENCH.TALK.PC.X08CCONNOR.NOTHING')
+                        | async
+                }}
+            </div>
+        </div>
+
+        <div class="condition">
+            <span class="name">Hank left Connor alone </span> [
+            <i class="fas fa-lock-open fa-flip-horizontal"></i> if Hank isn't
+            hostile]
+            <div class="condition-text">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.END') }} <br /><span
+                        class="name"
+                        >Hank</span
+                    >:
+                    {{
+                        translateObject('X0801C.BENCH.TALK.PC.X08CHANK.END')
+                            | async
+                    }}
                 </p>
             </div>
         </div>
-        <em>STOP DRINKING</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: You should stop drinking,
-                Lieutenant. It could have serious consequences for your health.
-                <br /><span class="name">Hank</span>: That's the idea.
-            </p>
-        </div>
-        <em>BEFORE</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: Before what? <br /><span
-                    class="name"
-                    >Hank</span
-                >: Hm? <br /><span class="name">Connor</span>: You said "I used
-                to come here a lot before". Before what? <br /><span
-                    class="name"
-                    >Hank</span
-                >: Before...Before nothin'...
-            </p>
-        </div>
-        <em>GO BACK</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: It's late. Maybe you should go
-                home. <br /><span class="name">Hank</span>: I'm not tired...
-                Guess neither are you.
-            </p>
-        </div>
-    </div>
-
-    <p>
-        <span class="name">Connor</span>: We're not making any progress on this
-        investigation... The deviants have nothing in common. They're all
-        different models, produced at different times, in different places...
-        <br /><span class="name">Hank</span>: Well, there must be some link.
-    </p>
-
-    <div class="choices">
-        <em>[ rA9 ]</em> [
-        <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked by looking
-        at rA9 clues in previous chapters ]
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: What they have in common is
-                this obsession with rA9... It's almost like some kind of...myth.
-                Something they invented that wasn't part of their original
-                program... <br /><span class="name">Hank</span>: Androids
-                believing in God... Fuck, what's this world coming to?
-            </p>
-        </div>
-        <em>SHOCK</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: We know the deviants
-                experienced...an emotional shock, a violent trauma or a sense of
-                injustice... <br /><span class="name">Hank</span>: Those girls
-                at the Eden Club, sure had a reason to feel a sense of
-                injustice...
-            </p>
-        </div>
-        <em>SYSTEMS</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: It could be a hardware
-                problem...maybe a defective biocomponent? <br /><span
-                    class="name"
-                    >Hank</span
-                >: Well, I don't know much about biocomponents...but I bet
-                that's not the fucking reason...
-            </p>
-        </div>
-        <em>SOFTWARE</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: It could be a software
-                problem...that...only occurs under certain conditions?
-                <br /><span class="name">Hank</span>: Well, that's just a fancy
-                way of saying you have no fucking idea...
-            </p>
-        </div>
-    </div>
-
-    <p>
-        <span class="name">Connor</span>: You seem preoccupied, Lieutenant... Is
-        it something to do with what happened back at the Eden Club?
-    </p>
-
-    <div class="condition">
-        <span class="name"
-            >Found the Tracis in
-            <a [routerLink]="['/chapters', 20]">The Eden Club</a></span
-        >
-        <div class="condition-text">
-            <p>
-                <span class="name">Hank</span>: Those two girls... They just
-                wanted to be together... They really seemed in love...
-            </p>
-            <div class="choices">
-                <em>RATIONAL</em>
-                <div class="choice">
-                    <span class="name">Connor</span>: They can simulate human
-                    emotions, but they're machines. And machines don't feel
-                    anything.
-                </div>
-                <em>DEVIANTS</em>
-                <div class="choice">
-                    <span class="name">Connor</span>: They didn't want anything.
-                    They're deviants. End of story.
-                </div>
-                <em>IRONIC</em>
-                <div class="choice">
-                    <span class="name">Connor</span>: You seem troubled,
-                    Lieutenant. I didn't think machines could have such an
-                    effect on you...
-                </div>
-                <em>COLD</em> [
-                <span appRelation="small down">Software instability</span
-                ><span appRelation="small down">Hank</span>
-                ]
-                <div class="choice">
-                    <span class="name">Connor</span>: Nothing in their program
-                    allows them to love or desire anything. They're machines.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="condition">
-        <span class="name"
-            >Took too much time looking for the Traci in
-            <a [routerLink]="['/chapters', 20]">The Eden Club</a></span
-        >
-        <div class="condition-text">
-            <span class="name">Hank</span>: I wish we'd have found that girl
-            that killed that guy... Maybe she had a reason... Maybe she was just
-            defending herself...
-            <div class="choices">
-                <em>COLD</em> [
-                <span appRelation="small down">Software instability</span
-                ><span appRelation="small down">Hank</span>
-                ]
-                <div class="choice">
-                    <span class="name">Connor</span>: What difference would it
-                    make? We know what happened. A defective machine killed a
-                    human.
-                </div>
-                <em>IRONIC</em>
-                <div class="choice">
-                    <span class="name">Connor</span>: You seem troubled,
-                    Lieutenant. I didn't think machines could have such an
-                    effect on you...
-                </div>
-                <em>RATIONAL</em>
-                <div class="choice">
-                    <span class="name">Connor</span>: It didn't want anything,
-                    Lieutenant. It was a deviant. That's all there is to it.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <mat-divider></mat-divider>
-
-    <p>
-        <span class="name">Hank</span>: What about you, Connor?.. You look
-        human, you sound human, but what are you really?
-    </p>
-
-    <div class="choices">
-        <em>COLD</em> [
-        <span appRelation="small down">Software instability</span
-        ><span appRelation="small down">Hank</span>
-        ]
-        <div class="choice">
-            <span class="name">Connor</span>: I'm a machine, designed to
-            accomplish a task.
-        </div>
-        <em>AGGRESSIVE</em> [
-        <span appRelation="small down">Software instability</span
-        ><span appRelation="small down">Hank</span>
-        ]
-        <div class="choice">
-            <span class="name">Connor</span>: I'm a machine, designed to
-            accomplish a task. I know why I exist and who designed me. I have a
-            reason to live. I guess that's the difference between us,
-            Lieutenant.
-        </div>
-        <em>DEFENSIVE</em>
-        <div class="choice">
-            <span class="name">Connor</span>: You know exactly what I am. In any
-            case, I don't see how that's relevant to the investigation.
-        </div>
-        <em>NEUTRAL</em> [
-        <span appRelation="small up">Hank</span>
-        ]
-        <div class="choice">
-            <span class="name">Connor</span>: I'm whatever you want me to be,
-            Lieutenant. Your partner... Your buddy to drink with... Or just a
-            machine... Designed to accomplish a task.
-        </div>
-    </div>
-
-    <mat-divider></mat-divider>
-
-    <div class="condition">
-        <span class="name">Connor spared the Tracis</span>
-        <div class="condition-text">
-            <span class="name">Hank</span>: You could've shot those two girls,
-            but you didn't. Why didn't you shoot, Connor? Hm? Some scruples
-            suddenly enter into your program?
-            <div class="choices">
-                <em>LIE</em> [
-                <span appRelation="small down">Hank</span>
-                ]
-                <div class="choice">
-                    <span class="name">Connor</span>: I would've shot them if I
-                    could. Why would I let them escape?
-                </div>
-                <em>TRUTH</em> [
-                <span appRelation="small up">Software instability</span
-                ><span appRelation="small up">Hank</span>
-                ]
-                <div class="choice">
-                    <span class="name">Connor</span>: No... I just decided not
-                    to shoot, that's all...
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="condition">
-        <span class="name">Connor shot the Tracis in the back </span>
-        <div class="condition-text">
-            <p>
-                <span class="name">Hank</span>: Did you feel anything when you
-                shot those two girls, fucking bastard? Or were you just
-                executing some program?
-            </p>
-            <div class="choices">
-                <em>COLD</em> [
-                <span appRelation="small down">Software instability</span
-                ><span appRelation="small down">Hank</span>
-                ]
-                <div class="choice">
-                    <span class="name">Connor</span>: All I did was neutralize
-                    two machines, Lieutenant. I didn't hesitate for a second, if
-                    that's what you're asking.
-                </div>
-                <em>DEFENSIVE</em>
-                <div class="choice">
-                    <span class="name">Connor</span>: This is going nowhere,
-                    Lieutenant. I think I'll go back to the station.
-                </div>
-                <em>AGGRESSIVE</em> [
-                <span appRelation="small down">Hank</span>
-                ]
-                <div class="choice">
-                    <span class="name">Connor</span>: I'm glad to see you taking
-                    an interest in machines, Lieutenant. Who knows, maybe you'll
-                    even become useful to the investigation at some point...
-                </div>
-                <em>NEUTRAL</em> [
-                <span appRelation="small down">Software instability</span
-                ><span appRelation="small down">Hank</span>
-                ]
-                <div class="choice">
-                    <span class="name">Connor</span>: I did what I was
-                    programmed to do. I didn't have any doubts, if that's what
-                    you're asking.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="condition">
-        <span class="name">Connor shot one Traci</span>
-        <div class="condition-text">
-            <p>
-                <span class="name">Hank</span>: Did you feel anything when that
-                girl killed herself, Connor? Or did you just not give a shit one
-                way or the other?
-            </p>
-            <div class="choices">
-                <em>DISTURBED</em> [
-                <span appRelation="small up">Software instability</span> ]
-                <div class="choice">
-                    <span class="name">Connor</span>: I was just executing
-                    instructions. I did what I had to do.
-                </div>
-                <em>COLD</em> [ <span appRelation="small down">Hank</span
-                ><span appRelation="small down">Software instability</span>
-                ]
-                <div class="choice">
-                    <span class="name">Connor</span>: Of course, I didn't feel
-                    anything, Lieutenant... I'm a machine... Machines don't have
-                    emotions.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="condition">
-        <span class="name">Connor didn't find the Tracis </span>
-        <div class="condition-text">
-            <p>
-                <span class="name">Hank</span>: Nothing else matters to you but
-                your goddamn investigation, huh? No doubts, no mistakes, no
-                weaknesses... Human being, just like me... Only perfect...
-            </p>
-            <div class="choices">
-                <em>DEFENSIVE</em>
-                <div class="choice">
-                    <span class="name">Connor</span>: You should stop drinking,
-                    Lieutenant. Alcohol makes you aggressive.
-                </div>
-                <em>CYNICAL</em>
-                <div class="choice">
-                    <span class="name">Connor</span>: I believe your personal
-                    issues are clouding your judgement.
-                </div>
-                <em>UNDERSTANDING</em>
-                <div class="choice">
-                    <span class="name">Connor</span>: Nothing matters more to me
-                    than this investigation. But I understand if you have a
-                    different point of view.
-                </div>
-                <em>NEUTRAL</em>
-                <div class="choice">
-                    <span class="name">Connor</span>: I'm sorry, but... I don't
-                    see what you're getting at.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <mat-divider></mat-divider>
-
-    <div class="condition">
-        <span class="name"
-            >| <i class="fas fa-skull"></i> Connor died before</span
-        >
-        <div class="condition-text">
-            <span class="name">Hank</span>: I could kill you.. And you would
-            just come back as if nothing happened.
-        </div>
-    </div>
-
-    <p><span class="name">Hank</span>: But are you afraid to die, Connor?</p>
-
-    <div class="choices">
-        <em>YES</em> [ <span appRelation="small up">Software instability</span>]
-        <div class="choice">
-            <span class="name">Connor</span>: I would certainly find it
-            regrettable to be...interrupted...before I can finish this
-            investigation.
-        </div>
-        <em>NO</em> [ <span appRelation="small down">Software instability</span
-        ><span appRelation="small down">Hank</span>
-        ]
-        <div class="choice">
-            <span class="name">Connor</span>: Why would I be afraid?
-        </div>
-        <em>NOT ALIVE</em> [
-        <span appRelation="small down">Software instability</span
-        ><span appRelation="small down">Hank</span>
-        ]
-        <div class="choice">
-            <span class="name">Connor</span>: You can't kill me, Lieutenant. I'm
-            not alive.
-        </div>
-        <em>LOGICAL</em> [
-        <span appRelation="small down">Software instability</span
-        ><span appRelation="small down">Hank</span>
-        ]
-        <div class="choice">
-            <span class="name">Connor</span>: You shouldn't do that, Lieutenant.
-            Destroying me at this point would deal a blow to the investigation,
-            and have negative consequences for your personal situation.
-        </div>
-    </div>
-
-    <mat-divider></mat-divider>
-
-    <p>
-        <span class="name">Hank</span>: What will happen if I pull this trigger?
-        Hm? Nothing? Oblivion? Android heaven?
-    </p>
-
-    <div class="choices">
-        <em>DEFY</em> [
-        <span appRelation="small down">Hank</span>
-        ]
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: You know you're not going to
-                shoot me, Lieutenant. You're just trying to provoke a reaction.
-                I'm afraid I'm going to have to disappoint you. <br /><span
-                    class="name"
-                    >Hank</span
-                >: You think you're so fucking smart... Always one step ahead,
-                huh? Tell me this, smart ass... How do I know you're not a
-                deviant? <br /><span class="name">Connor</span>: I self-test
-                regularly. I know what I am, and what I am not.
-            </p>
-        </div>
-        <em>HANK'S ANGER</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: Where does all your anger come
-                from, Lieutenant? Some...unresolved trauma in your past?
-                <br /><span class="name">Hank</span>: You think you're so
-                fucking smart... Always one step ahead, huh? Tell me this, smart
-                ass... How do I know you're not a deviant? <br /><span
-                    class="name"
-                    >Connor</span
-                >: I self-test regularly. I know what I am, and what I am not.
-            </p>
-        </div>
-        <em>IRONIC</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: I doubt there's a heaven for
-                androids. <br /><span class="name">Hank</span>: Having
-                existential doubts, Connor? Sure you're not going deviant too?
-                <br /><span class="name">Connor</span>: I self-test regularly. I
-                know what I am, and what I am not.
-            </p>
-        </div>
-        <em>NOTHING</em>
-        <div class="choice">
-            <span class="name">Connor</span>: Nothing...There would be
-            nothing...
-        </div>
-    </div>
-
-    <div class="condition">
-        <span class="name">Hank left Connor alone </span> [
-        <i class="fas fa-lock-open fa-flip-horizontal"></i> if Hank isn't
-        hostile]
-        <div class="condition-text">
-            <p>
-                <span class="name">Connor</span>: Where are you going?
-                <br /><span class="name">Hank</span>: To get drunker. I need to
-                think.
-            </p>
-        </div>
-    </div>
-</section>
+    </section>
+</ng-container>

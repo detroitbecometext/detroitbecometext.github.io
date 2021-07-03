@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
-import { BaseChapterContentComponent } from '../../shared/components/base-chapter-content/base-chapter-content.component';
+import { BaseTranslationComponent } from '@app/shared/base-translation/base-translation.component';
 
 @Component({
     selector: 'app-opening-chapter-content',
@@ -9,7 +9,7 @@ import { BaseChapterContentComponent } from '../../shared/components/base-chapte
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OpeningChapterContentComponent
-    extends BaseChapterContentComponent
+    extends BaseTranslationComponent
     implements OnInit
 {
     constructor(translocoService: TranslocoService) {

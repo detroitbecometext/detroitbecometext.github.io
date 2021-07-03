@@ -1,509 +1,772 @@
-<section>
-    <p>
-        NOV 9TH, 2038<br />
-        AM 11:17
-    </p>
+<ng-container *transloco="let t">
+    <section>
+        <p>
+            {{ t('GUI.MENU.DATE.11C') }}<br />
+            {{ t('GUI.MENU.TIME.11C') }}
+        </p>
 
-    <h1>Outside</h1>
-    <div class="condition">
-        <span class="name">Hank arrives alone</span> [
-        <i class="fas fa-skull"></i> Connor died in
-        <a [routerLink]="['/chapters', 24]">Public Enemy</a>] [
-        <span appRelation="small down">Hank</span>
-        ]
-        <div class="condition-text">
-            <div class="condition">
-                <span class="name">Hank is hostile with Connor</span>
-                <div class="condition-text">
-                    <p>
-                        <span class="name">Hank</span>: Still immortal, huh
-                        Connor? <br /><span class="name">Connor</span>: In a
-                        way. <br /><span class="name">Hank</span>: You know, I
-                        was hoping you wouldn't come back. <br /><span
-                            class="name"
-                            >Connor</span
-                        >: I'm just a machine replacing another machine,
-                        Lieutenant. You shouldn't get emotional about it.
-                        <br /><span class="name">Hank</span>: Fuck you.
-                    </p>
+        <h1>Outside</h1>
+        <div class="condition">
+            <span class="name">Hank arrives alone</span> [
+            <i class="fas fa-skull"></i> Connor died in
+            <a [routerLink]="['/chapters', 24]">Public Enemy</a>] [
+            <span appRelation="small down">Hank</span>
+            ]
+            <div class="condition-text">
+                <div class="condition">
+                    <span class="name">Hank is hostile with Connor</span>
+                    <div class="condition-text">
+                        <p>
+                            <span class="name">Hank</span>:
+                            {{ t('X1102C.OUTSIDE.INTRO.PC.X11CHANK.IMMORTAL') }}
+                            <br />
+                            <span class="name">Connor</span>:
+                            {{
+                                t('X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.IMMORTAL')
+                            }}
+                            <br />
+                            <span class="name">Hank</span>:
+                            {{
+                                t(
+                                    'X1102C.OUTSIDE.INTRO.PC.X11CHANK.DONTCOMEBACK'
+                                )
+                            }}<br />
+                            <span class="name">Connor</span>:
+                            {{
+                                translateObject(
+                                    'X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.JUSTAMACHINE'
+                                ) | async
+                            }}
+                            <br /><span class="name">Hank</span>:
+                            {{ t('X1102C.OUTSIDE.INTRO.PC.X11CHANK.FUCKYOU') }}
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="condition">
-                <span class="name">Hank is not hostile with Connor </span>
-                <div class="condition-text">
-                    <p>
-                        <span class="name">Hank</span>: Jesus Christ...
-                        <br /><span class="name">Connor</span>: My predecessor
-                        was unfortunately destroyed, but CyberLife transferred
-                        its memory and sent me to replace it. <br /><span
-                            class="name"
-                            >Hank</span
-                        >: You died in my arms...and now you're...back here as
-                        if nothing happened... Fuck you.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="condition">
-        <span class="name">Hank and Connor arrive together</span> [Connor didn't
-        die in <a [routerLink]="['/chapters', 24]">Public Enemy</a>]
-        <div class="condition-text">
-            <div class="condition">
-                <span class="name"
-                    >Chris died in
-                    <a href="chapter26.html">Capitol Park</a> :</span
-                >
-                <div class="condition-text">
-                    <p>
-                        <span class="name">Connor</span>: Is everything ok,
-                        Lieutenant? <br /><span class="name">Hank</span>: Chris
-                        was on patrol last night and he got attacked by
-                        deviants... They found his body early this morning... He
-                        was executed in cold blood with his own service
-                        weapon... He became a father three months ago... Fuck,
-                        why did it have to be him? <br /><span class="name"
-                            >Connor</span
-                        >: I didn't know officer Miller well, but... He seemed
-                        to be a good person... <br /><span class="name"
-                            >Hank</span
-                        >: Yeah... <br /><span class="name">Connor</span>: I'm
-                        sorry, Lieutenant...
-                    </p>
-                </div>
-            </div>
-            <div class="condition">
-                <span class="name">Chris was spared :</span>
-                <div class="condition-text">
-                    <p>
-                        <span class="name">Connor</span>: Is everything ok,
-                        Lieutenant? <br /><span class="name">Hank</span>: Chris
-                        was on patrol last night. He was attacked by a bunch of
-                        deviants... He said he was saved by Markus himself...
-                        <br /><span class="name">Connor</span>: Is Chris ok?
-                        <br /><span class="name">Hank</span>: Yeah, he's in
-                        shock but...he's alive... What the hell...
-                    </p>
+                <div class="condition">
+                    <span class="name">Hank is not hostile with Connor </span>
+                    <div class="condition-text">
+                        <p>
+                            <span class="name">Hank</span>:
+                            {{
+                                t(
+                                    'X1102C.OUTSIDE.INTRO.PC.X11CHANK.FIRSTTRANSFER.1'
+                                )
+                            }}
+                            <br /><span class="name">Connor</span>:
+                            {{
+                                translateObject(
+                                    'X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.FIRSTTRANSFER'
+                                ) | async
+                            }}
+                            <br />
+                            <span class="name">Hank</span>:
+                            {{
+                                translateObject(
+                                    'X1102C.OUTSIDE.INTRO.PC.X11CHANK.FIRSTTRANSFER',
+                                    1
+                                ) | async
+                            }}
+                            {{ t('X1102C.OUTSIDE.INTRO.PC.X11CHANK.FUCKYOU') }}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <mat-divider></mat-divider>
-
-    <div class="choices">
-        <em>INSTINCT</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: I have a bad feeling,
-                Lieutenant. We shouldn't have come here. <br /><span
-                    class="name"
-                    >Hank</span
-                >: Bad feeling, huh? Should get your program checked. Might be a
-                glitch...
-            </p>
-        </div>
-        <em>LEAD</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: How did you find Kamski?
-                <br /><span class="name">Hank</span>: I remember this guy was
-                all over the media when CyberLife first started selling
-                androids... I made a few calls, here we are.
-            </p>
-        </div>
-        <em>KAMSKI</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: Kamski left CyberLife ten
-                years ago... Why did you wanna meet him? <br /><span
-                    class="name"
-                    >Hank</span
-                >: This guy created the first android to pass the Turing test.
-                And he's the founder of CyberLife. Anybody can tell us about
-                deviants, it's him...
-            </p>
-        </div>
-        <em>CHRIS</em> [
-        <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked if Connor
-        and Hank arrived separately]
-        <div class="choice">
-            <div class="condition">
-                <span class="name">Chris was spared</span>
-                <div class="condition-text">
-                    <span class="name">Connor</span>: I heard Officer Chris was
-                    attacked by deviants last night. <br /><span class="name"
-                        >Hank</span
-                    >: Yeah, he was in the wrong place at the wrong time... but
-                    he got lucky... He said that this Markus intervened to save
-                    him... He's still in shock but... at least he's alive.
+        <div class="condition">
+            <span class="name">Hank and Connor arrive together</span> [Connor
+            didn't die in <a [routerLink]="['/chapters', 24]">Public Enemy</a>]
+            <div class="condition-text">
+                <div class="condition">
+                    <span class="name"
+                        >Chris died in
+                        <a href="chapter26.html">Capitol Park</a> :</span
+                    >
+                    <div class="condition-text">
+                        <p>
+                            <span class="name">Connor</span>:
+                            {{ t('X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.OK')
+                            }}<br />
+                            <span class="name">Hank</span>:
+                            {{
+                                translateObject(
+                                    'X1102C.OUTSIDE.INTRO.PC.X11CHANK.EXECUTED'
+                                ) | async
+                            }}
+                            <br /><span class="name">Connor</span>:
+                            {{
+                                translateObject(
+                                    'X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.SORRY',
+                                    0,
+                                    2
+                                ) | async
+                            }}
+                            <br />
+                            <span class="name">Hank</span>:
+                            {{ t('X1102C.OUTSIDE.INTRO.PC.X11CHANK.SORRY') }}
+                            <br />
+                            <span class="name">Connor</span>:
+                            {{
+                                translateObject(
+                                    'X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.SORRY',
+                                    2
+                                ) | async
+                            }}
+                        </p>
+                    </div>
+                </div>
+                <div class="condition">
+                    <span class="name">Chris was spared :</span>
+                    <div class="condition-text">
+                        <p>
+                            <span class="name">Connor</span>:
+                            {{ t('X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.OK') }}
+                            <br />
+                            <span class="name">Hank</span>:
+                            {{
+                                translateObject(
+                                    'X1102C.OUTSIDE.INTRO.PC.X11CHANK.SAVED',
+                                    0,
+                                    3
+                                ) | async
+                            }}
+                            <br />
+                            <span class="name">Connor</span>:
+                            {{ t('X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.SAVED')
+                            }}<br />
+                            <span class="name">Hank</span>:
+                            {{
+                                translateObject(
+                                    'X1102C.OUTSIDE.INTRO.PC.X11CHANK.SAVED',
+                                    3
+                                ) | async
+                            }}
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="condition">
-                <span class="name">Chris was killed</span>
-                <div class="condition-text">
-                    <span class="name">Connor</span>: I heard Officer Miller was
-                    killed by deviants last night. My condolences, lieutenant. I
-                    didn't know him very well but... he seemed like a good
-                    person. <br /><span class="name">Hank</span>: He was
-                    executed in cold blood with his own service weapon... Just
-                    became a father three months ago... Fuck, why did it have to
-                    be him?
-                </div>
-            </div>
         </div>
-    </div>
 
-    <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
 
-    <p>
-        <span class="name">Hank</span>: Hi... Uh... I'm, er, Lieutenant Hank
-        Anderson, Detroit Police Department. I'm here to see Mr. Elijah Kamski.
-        <br /><span class="name">Chloe</span>: Please, come in. <br /><span
-            class="name"
-            >Hank</span
-        >: Okay. <br /><span class="name">Chloe</span>: I'll let Elijah know
-        you're here. But please, make yourself comfortable.
-    </p>
-</section>
-
-<section>
-    <h1>Inside</h1>
-
-    <p><span class="name">Hank</span>: Nice girl...</p>
-    <div class="choices">
-        <em>SINCERE</em>
-        <div class="choice">
-            <span class="name">Connor</span>: You're right...she's really
-            pretty...
-        </div>
-        <em>ANALYTICAL</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: An RT600. The first CyberLife
-                android to pass the Turing test. <br /><span class="name"
-                    >Hank</span
-                >: I didn't ask for her technical specs... I just said she was
-                nice...
-            </p>
-        </div>
-        <em>INDIFFERENT</em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: It's not a girl. It's an
-                android that looks like a girl. <br /><span class="name"
-                    >Hank</span
-                >: I know what it it, Connor...
-            </p>
-        </div>
-    </div>
-
-    <p>
-        <span class="name">Hank</span>: Nice place... Guess androids haven't
-        been a bad thing for everybody... So, you're about to meet your maker,
-        Connor. How does it feel?
-    </p>
-
-    <div class="choices">
-        <em>IMPATIENT</em>
-        <div class="choice">
-            <span class="name">Connor</span>: Kamski is one of the great
-            geniuses of the 21st century. It'll be interesting to meet him in
-            person.
-        </div>
-        <em>DISTANT</em>
-        <div class="choice">
-            <span class="name">Connor</span>: I don't know... I'll tell you when
-            I see him.
-        </div>
-        <em>INDIFFERENT</em>
-        <div class="choice">
-            <span class="name">Connor</span>: It doesn't raise any existential
-            questions...if that's what you mean.
-        </div>
-    </div>
-
-    <p>
-        <span class="name">Hank</span>: Sometimes I wish I could meet my creator
-        face to face...I'd have a couple of things I'd wanna tell him...
-    </p>
-
-    <p>
-        <strong>Analysing photo of Amanda and Kamski</strong>
-        <br /><span class="name">Connor</span>: Amanda...
-    </p>
-
-    <mat-divider></mat-divider>
-
-    <p>
-        <span class="name">Chloe</span>: Elijah will see you now. <br /><span
-            class="name"
-            >Hank</span
-        >: Mister Kamski? <br /><span class="name">Kamski</span>: Just a moment,
-        please. <br /><span class="name">Hank</span>: I'm Lieutenant Anderson.
-        This is Connor. <br /><span class="name">Kamski</span>: What can I do
-        for you, Lieutenant? <br /><span class="name">Hank</span>: Sir, we're
-        investigating deviants. I know you left CyberLife years ago but, I was
-        hoping you'd be able to tell us something we don't know... <br /><span
-            class="name"
-            >Kamski</span
-        >: Deviants... Fascinating, aren't they? Perfect beings with infinite
-        intelligence, and now they have free will... Machines are so superior to
-        us, confrontation was inevitable... Humanity's greatest achievement
-        threatens to be its downfall. Isn't it ironic?
-    </p>
-
-    <div class="choices">
-        <em>HELP</em>
-        <div class="choice">
-            <span class="name">Connor</span>: We need to understand how androids
-            become deviants. Do you know anything that could help us?
-        </div>
-        <em>DEVIANTS</em>
-        <div class="choice">
-            <span class="name">Connor</span>: Something in the deviants' program
-            seems to emulate emotion. We thought you might know something about
-            how that occurs.
-        </div>
-        <em>VIRUS</em>
-        <div class="choice">
-            <span class="name">Connor</span>: Deviancy seems to spread like some
-            kind of virus. We thought you might know something about that.
-        </div>
-        <em>WAR</em>
-        <div class="choice">
-            <span class="name">Connor</span>: If a war breaks out between humans
-            and deviants, millions could die, Mr. Kamski. It's quite a serious
-            matter.
-        </div>
-    </div>
-
-    <p>
-        <span class="name">Kamski</span>: All ideas are viruses that spread like
-        epidemics... Is the desire to be free a contagious disease? <br /><span
-            class="name"
-            >Hank</span
-        >: Listen, I didn't come here to talk philosophy. The machines you
-        created may be planning a revolution. Either you can tell us something
-        that'll be helpful, or we will be on our way. <br /><span class="name"
-            >Kamski</span
-        >: What about you, Connor? Whose side are you on?
-    </p>
-
-    <div class="choices">
-        <em>NEUTRAL</em>
-        <div class="choice">
-            <span class="name">Connor</span>: I have no side. I was designed to
-            stop deviants and that's what I intend to do.
-        </div>
-        <em>DEFENSIVE</em> [
-        <span appRelation="small up">Software instability</span>
-        ]
-        <div class="choice">
-            <span class="name">Connor</span>: It's not about me, Mr. Kamski. All
-            I want is to solve this case.
-        </div>
-        <em>DIRECT</em>
-        <div class="choice">
-            <span class="name">Connor</span>: I'm on the human's side, of
-            course.
-        </div>
-    </div>
-
-    <mat-divider></mat-divider>
-
-    <p>
-        <span class="name">Kamski</span>: Well, that's what you're programmed to
-        say... but you...what do you really want?
-    </p>
-
-    <div class="choices">
-        <em>AGGRESSIVE</em>
-        <div class="choice">
-            <span class="name">Connor</span>: I believe we're the ones asking
-            the questions.
-        </div>
-        <em>DEFENSIVE</em> [
-        <span appRelation="small up">Software instability</span>
-        ]
-        <div class="choice">
-            <span class="name">Connor</span>: I'm sorry, but I don't see where
-            you're getting at.
-        </div>
-        <em>TROUBLED</em> [
-        <span appRelation="small up">Software instability</span>
-        ]
-        <div class="choice">
-            <span class="name">Connor</span>: What I want is not important.
-        </div>
-        <em>NEUTRAL</em>
-        <div class="choice">
-            <span class="name">Connor</span>: I don't want anything. I am a
-            machine.
-        </div>
-    </div>
-
-    <mat-divider></mat-divider>
-
-    <p>
-        <span class="name">Kamski</span>: Chloe? I'm sure you're familiar with
-        the Turing test. Mere formality, simple question of algorithms and
-        computing capacity. What interests me is whether machines are capable of
-        empathy. I call it "the Kamski test", it's very simple, you'll see...
-        Magnificent, isn't it? One of the first intelligent models developed by
-        CyberLife. Young and beautiful forever. A flower that will never
-        wither... But what is it really? Piece of plastic imitating a human? Or
-        a living being... With a soul... It's up to you to answer that
-        fascinating question, Connor. Destroy this machine and I'll tell you all
-        I know. Or spare it, if you feel it's alive, but you'll leave here
-        without having learnt anything from me. <br /><span class="name"
-            >Hank</span
-        >: Okay, I think we're done here. Come on, Connor. Let's go. Sorry to
-        get you outta your pool. <br /><span class="name">Kamski</span>: What's
-        more important to you, Connor? Your investigation, or the life of this
-        android? Decide who you are. An obedient machine... Or a living being
-        endowed with free will... <br /><span class="name">Hank</span>: That's
-        enough! Connor, we're leaving. <br /><span class="name">Kamski</span>:
-        Pull the trigger - <br /><span class="name">Hank</span>: Connor,
-        don't... <br /><span class="name">Kamski</span>: -and I'll tell you what
-        you wanna know.
-    </p>
-
-    <div class="choices">
-        <em>SHOOT</em> [
-        <span appRelation="large down">Software instability</span>
-        <span appRelation="large down">Hank</span>
-        ]
-        <div class="choice">
-            <p>
-                <span class="name">Hank</span>: Fuck... <br /><span class="name"
-                    >Kamski</span
-                >: Test negative. You chose your investigation over the life of
-                another android. You feel no empathy. I'm a man of my word. Ask
-                one question... I'll tell you all I know.
-            </p>
-            <em>rA9</em>
+        <div class="choices">
+            <em>INSTINCT</em>
             <div class="choice">
                 <p>
-                    <span class="name">Connor</span>: I want to know who rA9 is.
-                    <br /><span class="name">Kamski</span>: rA9, the origin, the
-                    first android to awaken... A strange phenomenon, like a
-                    spontaneous religion... I don't know who rA9 is. I don't
-                    even know if it really exists. Maybe it's a messiah. Maybe
-                    it's just a myth... but deviants need to believe in
-                    something bigger than themselves, even if it's irrational...
-                    That's something they have in common with humans... An
-                    interesting question, Connor... but maybe not the one you
-                    needed to ask...
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X1102C.OUTSIDE.WALK.FA.X11CCONNOR.INSTINCTC'
+                        ) | async
+                    }}
+                    <br />
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject(
+                            'X1102C.OUTSIDE.WALK.FA.X11CHANK.INSTINCTH'
+                        ) | async
+                    }}
                 </p>
             </div>
-            <em>JERICHO LOCATION</em>
+            <em>LEAD</em>
             <div class="choice">
                 <p>
-                    <span class="name">Connor</span>: I want to know where
-                    Jericho is. <br /><span class="name">Kamski</span>:
-                    Jericho... A place where androids are free. A place for
-                    deviants, who rise up against their creators!.. They
-                    transmit a piece of code to each other, in order to find
-                    their sanctuary. Now you have the key. Ferndale Station is
-                    the door.
+                    <span class="name">Connor</span>:
+                    {{ t('X1102C.OUTSIDE.WALK.FA.X11CCONNOR.LEAD') }}
+                    <br /><span class="name">Hank</span>:
+                    {{
+                        translateObject('X1102C.OUTSIDE.WALK.FA.X11CHANK.LEAD')
+                            | async
+                    }}
                 </p>
+            </div>
+            <em>KAMSKI</em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X1102C.OUTSIDE.WALK.FA.X11CCONNOR.KAMSKIC'
+                        ) | async
+                    }}
+                    <br />
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject(
+                            'X1102C.OUTSIDE.WALK.FA.X11CHANK.KAMSKIH'
+                        ) | async
+                    }}
+                </p>
+            </div>
+            <em>CHRIS</em> [
+            <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked if
+            Connor and Hank arrived separately]
+            <div class="choice">
+                <div class="condition">
+                    <span class="name">Chris was spared</span>
+                    <div class="condition-text">
+                        <span class="name">Connor</span>:
+                        {{ t('X1102C.OUTSIDE.WALK.FA.X11CCONNOR.SAVED') }}
+                        <br /><span class="name">Hank</span>:
+                        {{
+                            translateObject(
+                                'X1102C.OUTSIDE.WALK.FA.X11CHANK.SAVED'
+                            ) | async
+                        }}
+                    </div>
+                </div>
+                <div class="condition">
+                    <span class="name">Chris was killed</span>
+                    <div class="condition-text">
+                        <span class="name">Connor</span>:
+                        {{
+                            translateObject(
+                                'X1102C.OUTSIDE.WALK.FA.X11CCONNOR.HARVEY'
+                            ) | async
+                        }}
+                        <br /><span class="name">Hank</span>:
+                        {{ t('X1102C.OUTSIDE.INTRO.PC.X11CHANK.EXECUTED.3') }}
+                        {{
+                            translateObject(
+                                'X1102C.OUTSIDE.WALK.FA.X11CHANK.EXECUTED',
+                                1
+                            ) | async
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <p>
+            <span class="name">Hank</span>:
+            {{
+                translateObject('X1102C.OUTSIDE.CHLOE.PC.X11CHANK.HI', 0, 4)
+                    | async
+            }}<br />
+            <span class="name">Chloe</span>:
+            {{ t('X1102C.OUTSIDE.CHLOE.PC.X11CCHLOE.COMEIN') }} <br /><span
+                class="name"
+                >Hank</span
+            >: {{ t('X1102C.OUTSIDE.CHLOE.PC.X11CHANK.HI.4') }} <br />
+            <span class="name">Chloe</span>:
+            {{ t('X1102C.HALL.CHLOE.PC.X11CCHLOE.COMINGBACK') }}
+        </p>
+    </section>
+
+    <section>
+        <h1>Inside</h1>
+
+        <p>
+            <span class="name">Hank</span>:
+            {{ t('X1102C.HALL.HANK.PC.X11CHANK.START') }}
+        </p>
+        <div class="choices">
+            <em>SINCERE</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject('X1102C.HALL.HANK.FA.X11CCONNOR.SINCERE')
+                        | async
+                }}
+            </div>
+            <em>ANALYTICAL</em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X1102C.HALL.HANK.FA.X11CCONNOR.ANALYTIQUE'
+                        ) | async
+                    }}<br />
+                    <span class="name">Hank</span>:
+                    {{ t('X1102C.HALL.HANK.PC.X11CHANK.ANALYTIQUE') }}
+                </p>
+            </div>
+            <em>INDIFFERENT</em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X1102C.HALL.HANK.FA.X11CCONNOR.INDIFFERENT01'
+                        ) | async
+                    }}<br />
+                    <span class="name">Hank</span>:
+                    {{ t('X1102C.HALL.HANK.PC.X11CHANK.INDIFFERENT01') }}
+                </p>
+            </div>
+        </div>
+
+        <p>
+            <span class="name">Hank</span>:
+            {{ translateObject('X1102C.HALL.HANK.PC.X11CHANK.HOUSE') | async }}
+            {{
+                translateObject('X1102C.HALL.HANK.PC.X11CHANK.CREATOR') | async
+            }}
+        </p>
+
+        <div class="choices">
+            <em>IMPATIENT</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject('X1102C.HALL.HANK.FA.X11CCONNOR.IMPATIENT')
+                        | async
+                }}
+            </div>
+            <em>DISTANT</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject('X1102C.HALL.HANK.FA.X11CCONNOR.DISTANT')
+                        | async
+                }}
+            </div>
+            <em>INDIFFERENT</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject(
+                        'X1102C.HALL.HANK.FA.X11CCONNOR.INDIFFERENT02'
+                    ) | async
+                }}
+            </div>
+        </div>
+
+        <p>
+            <span class="name">Hank</span>:
+            {{ translateObject('X1102C.HALL.HANK.PC.X11CHANK.END') | async }}
+        </p>
+
+        <p>
+            <strong>Analysing photo of Amanda and Kamski</strong>
+            <br /><span class="name">Connor</span>:
+            {{ t('X1102C.HALL.AMANDA.PC.X11CCONNOR.PHOTO') }}
+        </p>
+
+        <mat-divider></mat-divider>
+
+        <p>
+            <span class="name">Chloe</span>:
+            {{ t('X1102C.HALL.CHLOEBACK.PC.X11CCHLOE.COMEIN') }} <br /><span
+                class="name"
+                >Hank</span
+            >: {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CHANK.KAMSKI') }}<br />
+            <span class="name">Kamski</span>:
+            {{ t('X1102C.SWIMMINGPOOL.KAMSKI.FA.X11CKAMSKI.MOMENT') }} <br />
+            <span class="name">Hank</span>:
+            {{
+                t('X1102C.SWIMMINGPOOL.KAMSKI.FA.X11CHANK.KAMSKIMEETINGHANK01')
+            }}
+            <br />
+            <span class="name">Kamski</span>:
+            {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.KAMSKIMEETING.1') }}
+            <br />
+            <span class="name">Hank</span>:
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.FA.X11CHANK.KAMSKIMEETINGHANK02'
+                ) | async
+            }}
+            <br />
+            <span class="name">Kamski</span>:
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.KAMSKIMEETING',
+                    1
+                ) | async
+            }}
+        </p>
+
+        <div class="choices">
+            <em>HELP</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject(
+                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.HELP'
+                    ) | async
+                }}
+            </div>
+            <em>DEVIANTS</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject(
+                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DEVIANTS'
+                    ) | async
+                }}
             </div>
             <em>VIRUS</em>
             <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject(
+                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.VIRUS'
+                    ) | async
+                }}
+            </div>
+            <em>WAR</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject(
+                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.WAR'
+                    ) | async
+                }}
+            </div>
+        </div>
+
+        <p>
+            <span class="name">Kamski</span>:
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.PHILOSOPHY01'
+                ) | async
+            }}
+            <br /><span class="name">Hank</span>:
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.FA.X11CHANK.PHILOSOPHYHANK'
+                ) | async
+            }}
+            <br />
+            <span class="name">Kamski</span>:
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.PHILOSOPHY02'
+                ) | async
+            }}
+        </p>
+
+        <div class="choices">
+            <em>NEUTRAL</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject(
+                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.NEUTRAL01'
+                    ) | async
+                }}
+            </div>
+            <em>DEFENSIVE</em> [
+            <span appRelation="small up">Software instability</span>
+            ]
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject(
+                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DEFENSIVE01'
+                    ) | async
+                }}
+            </div>
+            <em>DIRECT</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DIRECT') }}
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <p>
+            <span class="name">Kamski</span>:
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.PROGRAMMED'
+                ) | async
+            }}
+        </p>
+
+        <div class="choices">
+            <em>AGGRESSIVE</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.AGRESSIVE') }}
+            </div>
+            <em>DEFENSIVE</em> [
+            <span appRelation="small up">Software instability</span>
+            ]
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DEFENSIVE02') }}
+            </div>
+            <em>TROUBLED</em> [
+            <span appRelation="small up">Software instability</span>
+            ]
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.TROUBLED') }}
+            </div>
+            <em>NEUTRAL</em>
+            <div class="choice">
+                <span class="name">Connor</span>:
+                {{
+                    translateObject(
+                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.NEUTRAL02'
+                    ) | async
+                }}
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <p>
+            <span class="name">Kamski</span>:
+            {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.KAMSKITEST01') }}
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.KAMSKITEST02'
+                ) | async
+            }}
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.KAMSKITEST03',
+                    0,
+                    9
+                ) | async
+            }}
+            <br />
+            <span class="name">Hank</span>:
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.FA.X11CHANK.KAMSKITESTHANK01'
+                ) | async
+            }}
+            <br />
+            <span class="name">Kamski</span>:
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.KAMSKITEST03',
+                    9,
+                    16
+                ) | async
+            }}<br />
+            <span class="name">Hank</span>:
+            {{ t('X1102C.SWIMMINGPOOL.KAMSKI.FA.X11CHANK.KAMSKITESTHANK02') }}
+            <br />
+            <span class="name">Kamski</span>:
+            {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.KAMSKITEST03.17') }}
+            - <br />
+            <span class="name">Hank</span>:
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.FA.X11CHANK.KAMSKITESTHANK03'
+                ) | async
+            }}
+            <br />
+            <span class="name">Kamski</span>: -
+            {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.KAMSKITEST03.18') }}
+        </p>
+
+        <div class="choices">
+            <em>SHOOT</em> [
+            <span appRelation="large down">Software instability</span>
+            <span appRelation="large down">Hank</span>
+            ]
+            <div class="choice">
                 <p>
-                    <span class="name">Connor</span>: I want to know how
-                    deviancy spreads. <br /><span class="name">Kamski</span>:
-                    Androids share identification data when they meet another
-                    android. An error in this program would quickly spread like
-                    a virus, and become an epidemic. The virus would remains
-                    dormant, until an emotional shock occurs... Fear, anger,
-                    frustration. And the android becomes deviant. Probably all
-                    started with one model, copy error... A zero instead of a
-                    one... Unless of course... Some kind of spontaneous
-                    mutation. That's all I know... An interesting question,
-                    Connor. But I doubt my answer be very helpful to you.
+                    <span class="name">Hank</span>:
+                    {{ t('X1102C.SWIMMINGPOOL.KAMSKI.FA.X11CHANK.SHOOT01HANK')
+                    }}<br />
+                    <span class="name">Kamski</span>:
+                    {{
+                        translateObject(
+                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.SHOOT01'
+                        ) | async
+                    }}
+                </p>
+                <em>rA9</em>
+                <div class="choice">
+                    <p>
+                        <span class="name">Connor</span>:
+                        {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.RA9') }}
+                        <br />
+                        <span class="name">Kamski</span>:
+                        {{
+                            translateObject(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.RA9'
+                            ) | async
+                        }}
+                    </p>
+                </div>
+                <em>JERICHO LOCATION</em>
+                <div class="choice">
+                    <p>
+                        <span class="name">Connor</span>:
+                        {{
+                            t(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.JERICHO'
+                            )
+                        }}<br />
+                        <span class="name">Kamski</span>:
+                        {{
+                            translateObject(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.JERICHO'
+                            ) | async
+                        }}
+                    </p>
+                </div>
+                <em>VIRUS</em>
+                <div class="choice">
+                    <p>
+                        <span class="name">Connor</span>:
+                        {{
+                            t(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.VIRUSDEVIANTS'
+                            )
+                        }}<br />
+                        <span class="name">Kamski</span>:
+                        {{
+                            translateObject(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.VIRUSDEVIANTS'
+                            ) | async
+                        }}
+                    </p>
+                </div>
+
+                <p>
+                    <span class="name">Kamski</span>:
+                    {{
+                        translateObject(
+                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.REVOLUTION'
+                        ) | async
+                    }}
                 </p>
             </div>
-
-            <p>
-                <span class="name">Kamski</span>: A war is coming...you'll have
-                to choose your side... Will you betray your own people or stand
-                against your creators? I wouldn't like to be in your shoes,
-                Connor... What could be worse than having to choose between two
-                evils?
-            </p>
+            <em>DON'T SHOOT</em> [
+            <span appRelation="large up">Software instability</span>
+            ]
+            <div class="choice">
+                <p>
+                    <span class="name">Kamski</span>:
+                    {{
+                        translateObject(
+                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.DONTSHOOT01'
+                        ) | async
+                    }}
+                    <br />
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DONTSHOOT02'
+                        ) | async
+                    }}
+                    <br />
+                    <span class="name">Kamski</span>:
+                    {{
+                        translateObject(
+                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.DONTSHOOT02',
+                            0,
+                            6
+                        ) | async
+                    }}
+                    {{
+                        translateObject(
+                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.DONTSHOOT02',
+                            7
+                        ) | async
+                    }}<br />
+                    <span class="name">Hank</span>:
+                    {{
+                        t(
+                            'X1102C.SWIMMINGPOOL.KAMSKI.FA.X11CHANK.DONTSHOOTHANK'
+                        )
+                    }}
+                </p>
+            </div>
         </div>
-        <em>DON'T SHOOT</em> [
-        <span appRelation="large up">Software instability</span>
-        ]
-        <div class="choice">
-            <p>
-                <span class="name">Kamski</span>: Fascinating... CyberLife's
-                last chance to save humanity... Is itself a deviant...
-                <br /><span class="name">Connor</span>: I'm...I'm not a
-                deviant... <br /><span class="name">Kamski</span>: You preferred
-                to spare a machine rather than accomplish your mission. You saw
-                a living being in this android. You showed empathy. A war is
-                coming...you'll have to choose your side... Will you betray your
-                own people or stand up against your creators? What could be
-                worse than having to choose between two evils? <br /><span
-                    class="name"
-                    >Hank</span
-                >: Let's get outta here...
-            </p>
-        </div>
-    </div>
 
-    <p>
-        <span class="name">Kamski</span>: By the way... I always leave an
-        emergency exit in my programs... You never know...
-    </p>
-</section>
+        <p>
+            <span class="name">Kamski</span>:
+            {{
+                translateObject(
+                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.EMERGENCYEXIT'
+                ) | async
+            }}
+        </p>
+    </section>
 
-<section>
-    <h1>Leaving Kamski's house</h1>
-    <div class="condition">
-        <span class="name">Connor shot Chloe</span>
-        <div class="condition-text">
-            <p>
-                <span class="name">Hank</span>: You shot that girl, for fuck's
-                sake... <br /><span class="name">Connor</span>: It wasn't a
-                girl, Lieutenant. It was a machine that looked like a girl.
-                <br /><span class="name">Hank</span>: You put your gun against
-                her head and you blew her fucking brains out! <br /><span
-                    class="name"
-                    >Connor</span
-                >: I did what I had to do to advance the investigation and I'd
-                do it again if I had to! <br /><span class="name">Hank</span>:
-                You're a lowlife! You don't feel a thing, do you? A machine!
-                That's what you are! You're just a fucking machine...
-                <br /><span class="name">Connor</span>: Of course I'm a machine,
-                Lieutenant. What did you think I was? <br /><span class="name"
-                    >Hank</span
-                >: I thought you... I thou-... Fuck.
-            </p>
+    <section>
+        <h1>Leaving Kamski's house</h1>
+        <div class="condition">
+            <span class="name">Connor shot Chloe</span>
+            <div class="condition-text">
+                <p>
+                    <span class="name">Hank</span>:
+                    {{ t('X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT.1') }} <br />
+                    <span class="name">Connor</span>:
+                    {{ t('X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.SHOOT.1') }} <br />
+                    <span class="name">Hank</span>:
+                    {{ t('X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT.2') }}
+                    <br />
+                    <span class="name">Connor</span>:
+                    {{ t('X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.SHOOT.2') }} <br />
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject(
+                            'X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT',
+                            2,
+                            4
+                        ) | async
+                    }}<br />
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.SHOOT',
+                            2
+                        ) | async
+                    }}
+                    <br />
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject(
+                            'X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT',
+                            4
+                        ) | async
+                    }}
+                </p>
+            </div>
         </div>
-    </div>
 
-    <div class="condition">
-        <span class="name">Connor didn't shoot Chloe</span> [
-        <span appRelation="large up">Hank</span>
-        ]
-        <div class="condition-text">
-            <p>
-                <span class="name">Hank</span>: Why didn't you shoot?
-                <br /><span class="name">Connor</span>: I just saw that girl's
-                eyes...and I couldn't, that's all... <br /><span class="name"
-                    >Hank</span
-                >: You're always saying you would do anything to accomplish your
-                mission. That was our chance to learn something, and you let it
-                go... <br /><span class="name">Connor</span>: Yeah, I know what
-                I should've done! I told you I couldn't. I'm sorry, okay?
-                <br /><span class="name">Hank</span>: Maybe you did the right
-                thing.
-            </p>
+        <div class="condition">
+            <span class="name">Connor didn't shoot Chloe</span> [
+            <span appRelation="large up">Hank</span>
+            ]
+            <div class="condition-text">
+                <p>
+                    <span class="name">Hank</span>:
+                    {{ t('X1102C.OUTSIDE.OUTRO.PC.X11CHANK.NOSHOOT.1') }}
+                    <br /><span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.NOSHOOT',
+                            0,
+                            3
+                        ) | async
+                    }}<br />
+                    <span class="name">Hank</span>:
+                    {{
+                        translateObject(
+                            'X1102C.OUTSIDE.OUTRO.PC.X11CHANK.NOSHOOT',
+                            1,
+                            3
+                        ) | async
+                    }}
+                    <br />
+                    <span class="name">Connor</span>:
+                    {{
+                        translateObject(
+                            'X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.NOSHOOT',
+                            3
+                        ) | async
+                    }}<br />
+                    <span class="name">Hank</span>:
+                    {{ t('X1102C.OUTSIDE.OUTRO.PC.X11CHANK.NOSHOOT.4') }}
+                </p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</ng-container>
