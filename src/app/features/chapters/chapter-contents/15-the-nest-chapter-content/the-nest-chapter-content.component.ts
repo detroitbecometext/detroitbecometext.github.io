@@ -1,16 +1,20 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { TranslocoService } from '@ngneat/transloco';
+import { BaseTranslationComponent } from '@app/shared/base-translation/base-translation.component';
 
 @Component({
-  selector: 'app-the-nest-chapter-content',
-  templateUrl: './the-nest-chapter-content.component.html',
-  styleUrls: ['./the-nest-chapter-content.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-the-nest-chapter-content',
+    templateUrl: './the-nest-chapter-content.component.html',
+    styleUrls: ['./the-nest-chapter-content.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TheNestChapterContentComponent implements OnInit {
+export class TheNestChapterContentComponent
+    extends BaseTranslationComponent
+    implements OnInit
+{
+    constructor(translocoService: TranslocoService) {
+        super(translocoService);
+    }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {}
 }

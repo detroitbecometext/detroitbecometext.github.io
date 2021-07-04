@@ -1,253 +1,271 @@
-<section>
-    <p>
-        NOV 10TH, 2038
-        <br />PM 07:31
-    </p>
+<ng-container *transloco="let t">
+    <section>
+        <p>
+            NOV 10TH, 2038
+            <br />PM 07:31 {{ t('GUI.MENU.DATE.') }}<br />
+            {{ t('GUI.MENU.TIME.') }}
+        </p>
 
-    <h1>In the Zen Garden</h1>
-    [if Connor stayed a machine or died in
-    <a [routerLink]="['/chapters', 31]">Crossroads</a>]
+        <h1>In the Zen Garden</h1>
+        [if Connor stayed a machine or died in
+        <a [routerLink]="['/chapters', 31]">Crossroads</a>]
 
-    <div class="condition">
-        <span class="name"
-            >| <i class="fas fa-skull"></i> Connor died in
-            <a [routerLink]="['/chapters', 31]">Crossroads</a></span
-        >
-        <div class="condition-text">
-            <p>
-                <span class="name">Amanda</span>: The previous Connor failed its
-                mission. You're going to replace it. You know what you have to
-                do, don't you? <br /><span class="name">Connor</span>: Destroy
-                the leader of the deviants. <br /><span class="name"
-                    >Amanda</span
-                >: Go, Connor. Don't disappoint me.
-            </p>
+        <div class="condition">
+            <span class="name"
+                >| <i class="fas fa-skull"></i> Connor died in
+                <a [routerLink]="['/chapters', 31]">Crossroads</a></span
+            >
+            <div class="condition-text">
+                <p>
+                    <span class="name">Amanda</span>: The previous Connor failed
+                    its mission. You're going to replace it. You know what you
+                    have to do, don't you? <br /><span class="name">Connor</span
+                    >: Destroy the leader of the deviants. <br /><span
+                        class="name"
+                        >Amanda</span
+                    >: Go, Connor. Don't disappoint me.
+                </p>
+            </div>
         </div>
-    </div>
 
-    <div class="condition">
-        <span class="name"
-            >Connor stayed a machine and didn't die in
-            <a [routerLink]="['/chapters', 31]">Crossroads</a> (killed Markus),
-            North is leading a violent revolution</span
-        >
-        <div class="condition-text">
-            <span class="name">Amanda</span>: The deviant leader has started a
-            revolution. It's leading an army to take Detroit by force. You have
-            to find it. Connor. Find it, and destroy it with your own hands.
+        <div class="condition">
+            <span class="name"
+                >Connor stayed a machine and didn't die in
+                <a [routerLink]="['/chapters', 31]">Crossroads</a> (killed
+                Markus), North is leading a violent revolution</span
+            >
+            <div class="condition-text">
+                <span class="name">Amanda</span>: The deviant leader has started
+                a revolution. It's leading an army to take Detroit by force. You
+                have to find it. Connor. Find it, and destroy it with your own
+                hands.
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- scene change to Markus if Hank is not hostile -->
+    <!-- scene change to Markus if Hank is not hostile -->
 
-<section>
-    <h1>At Hank's house</h1>
-    [if Hank was hostile in
-    <a [routerLink]="['/chapters', 29]">Last Chance, Connor</a> and resigned]
+    <section>
+        <h1>At Hank's house</h1>
+        [if Hank was hostile in
+        <a [routerLink]="['/chapters', 29]">Last Chance, Connor</a> and
+        resigned]
 
-    <div class="choices">
-        <em>GOODBYE</em>
-        <div class="choice">
-            <span class="name">Connor</span>: I came to say goodbye, Lieutenant.
+        <div class="choices">
+            <em>GOODBYE</em>
+            <div class="choice">
+                <span class="name">Connor</span>: I came to say goodbye,
+                Lieutenant.
+            </div>
+            <em>APOLOGIZE</em>
+            <div class="choice">
+                <span class="name">Connor</span>: I know I'm responsible for
+                what happened, Lieutenant. I want you to know I'm sorry.
+            </div>
+            <em>WORRIED ABOUT HANK</em>
+            <div class="choice">
+                <span class="name">Connor</span>: I was worried about you,
+                Lieutenant. I came by to see if you're all right.
+            </div>
+            <em>RECONCILE </em>
+            <div class="choice">
+                <span class="name">Connor</span>: I needed to see you,
+                Lieutenant. In spite of all of our differences, I'm glad I had
+                the chance to meet you.
+            </div>
         </div>
-        <em>APOLOGIZE</em>
-        <div class="choice">
-            <span class="name">Connor</span>: I know I'm responsible for what
-            happened, Lieutenant. I want you to know I'm sorry.
+
+        <mat-divider></mat-divider>
+
+        <div class="choices">
+            <em>[ PHOTO ]</em> [
+            <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked by
+            looking at Cole's photo in
+            <a [routerLink]="['/chapters', 18]">Russian Roulette</a>]
+            <div class="choice">
+                <span class="name">Connor</span>: You should stop looking at
+                that photo, Lieutenant. Nothing can change the past... But you
+                can learn to live again... For yourself... And for Cole...
+            </div>
+            <em>GUN</em>
+            <div class="choice">
+                <span class="name">Connor</span>: You should get rid of that
+                gun. And stop playing that game!
+            </div>
+            <em>ALCOHOL</em>
+            <div class="choice">
+                <span class="name">Connor</span>: I know I've said this before,
+                Lieutenant, but you should stop drinking. It's going to kill
+                you.
+            </div>
         </div>
-        <em>WORRIED ABOUT HANK</em>
-        <div class="choice">
-            <span class="name">Connor</span>: I was worried about you,
-            Lieutenant. I came by to see if you're all right.
+
+        <mat-divider></mat-divider>
+
+        <div class="condition">
+            <span class="name">Connor died before / choose [ PHOTO ] (?)</span>
+            <div class="condition-text">
+                <span class="name">Hank</span>: Y'know, every time you died and
+                came back... It made me think of Cole... I'd give anything to
+                hold him again... But humans don't come back...
+            </div>
         </div>
-        <em>RECONCILE </em>
-        <div class="choice">
-            <span class="name">Connor</span>: I needed to see you, Lieutenant.
-            In spite of all of our differences, I'm glad I had the chance to
-            meet you.
+        <div class="condition">
+            <span class="name"
+                >Connor didn't die before / don't choose [ PHOTO ] (?)</span
+            >
+            <div class="condition-text">
+                <span class="name">Hank</span>: For a while there, I believed in
+                you, Connor... I thought you might restore my faith in the
+                world... But you just showed me that androids... Are our
+                creation... Creation in our own image. Selfish, ruthless, and
+                brutal... You opened my eyes, Connor. Made me realize it's
+                hopeless...
+            </div>
         </div>
-    </div>
 
-    <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
 
-    <div class="choices">
-        <em>[ PHOTO ]</em> [
-        <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked by looking
-        at Cole's photo in
-        <a [routerLink]="['/chapters', 18]">Russian Roulette</a>]
-        <div class="choice">
-            <span class="name">Connor</span>: You should stop looking at that
-            photo, Lieutenant. Nothing can change the past... But you can learn
-            to live again... For yourself... And for Cole...
+        <div class="choices">
+            <em>CONVINCE</em>
+            <div class="choice"><span class="name">Connor</span>: Hank, I-</div>
+            <em>DON'T INSIST</em>
+            <div class="choice">
+                <span class="name">Connor</span>: I understand.
+            </div>
         </div>
-        <em>GUN</em>
-        <div class="choice">
-            <span class="name">Connor</span>: You should get rid of that gun.
-            And stop playing that game!
+
+        <p>
+            <span class="name">Hank</span>: Now leave me alone... Go on,
+            complete your mission, since that's all you care about. GET OUTTA
+            HERE!
+        </p>
+    </section>
+
+    <!-- scene change to Markus if he is still Leader of Jericho -->
+
+    <section>
+        <h1>In the church : Jericho was attacked</h1>
+
+        [ Connor became a deviant and Markus is dead / rejected and did not
+        return ]
+
+        <br /><strong>Talking with Kara</strong>
+        <div class="condition">
+            <span class="name"
+                >Connor went after Kara and Alice on the highway in
+                <a [routerLink]="['/chapters', 13]">On The Run</a></span
+            >
+            <div class="condition-text">
+                <p>
+                    <span class="name">Connor</span>: I thought I'd killed you
+                    on that highway... I'm sorry I put your lives in danger... I
+                    was just a machine taking orders... It wasn't really me...
+                    What are you gonna do now?.. <br /><span class="name"
+                        >Kara</span
+                    >: Getting Alice away from here is all that matters now...
+                    We have to catch the last bus... We might still have a
+                    chance to cross the border... <br /><span class="name"
+                        >Connor</span
+                    >: I hope you make it out safely. You deserve some
+                    happiness, after all you've been through...
+                </p>
+            </div>
         </div>
-        <em>ALCOHOL</em>
-        <div class="choice">
-            <span class="name">Connor</span>: I know I've said this before,
-            Lieutenant, but you should stop drinking. It's going to kill you.
+
+        <div class="condition">
+            <span class="name"
+                >Connor didn't find Kara and Alice in
+                <a [routerLink]="['/chapters', 13]">On The Run</a></span
+            >
+            <div class="condition-text">(???)</div>
         </div>
-    </div>
 
-    <mat-divider></mat-divider>
-
-    <div class="condition">
-        <span class="name">Connor died before / choose [ PHOTO ] (?)</span>
-        <div class="condition-text">
-            <span class="name">Hank</span>: Y'know, every time you died and came
-            back... It made me think of Cole... I'd give anything to hold him
-            again... But humans don't come back...
+        <strong>Talking with North</strong>
+        <div class="choices">
+            <em>MARKUS</em> [ <i class="fas fa-skull"></i> available if Markus
+            is dead ]
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>: I know how important
+                    Markus was to Jericho... and to your people. <br /><span
+                        class="name"
+                        >North</span
+                    >: He gave his life for us. He gave us the hope we'd lost
+                    and the courage to fight... We'll never forget him.
+                </p>
+            </div>
+            <em>SITUATION</em>
+            <div class="choice">
+                <span class="name">Connor</span>: The humans won't take any
+                risks... They're rounding up the androids and taking them to
+                camps for extermination... In a couple hours, we'll be the only
+                ones left.
+            </div>
+            <em>SURVIVORS </em>
+            <div class="choice">
+                <p>
+                    <span class="name">Connor</span>: How many survived the
+                    attack? <br /><span class="name">North</span>: A few
+                    hundred... maybe more if you count those hiding all over the
+                    city... We'd all be dead if you hadn't detonated that bomb.
+                </p>
+            </div>
         </div>
-    </div>
-    <div class="condition">
-        <span class="name"
-            >Connor didn't die before / don't choose [ PHOTO ] (?)</span
-        >
-        <div class="condition-text">
-            <span class="name">Hank</span>: For a while there, I believed in
-            you, Connor... I thought you might restore my faith in the world...
-            But you just showed me that androids... Are our creation... Creation
-            in our own image. Selfish, ruthless, and brutal... You opened my
-            eyes, Connor. Made me realize it's hopeless...
+
+        <p>
+            <span class="name">North</span>: Where are we supposed to go from
+            here?
+        </p>
+        <p>
+            <span class="name">Connor</span>: There are thousands of androids at
+            the CyberLife assembly plant. If we could wake them up, they might
+            join us and shift the balance of power... <br /><span class="name"
+                >North</span
+            >: You wanna infiltrate the CyberLife Tower? <br /><span
+                class="name"
+                >Connor</span
+            >: They trust me... they'll let me in. <br /><span class="name"
+                >North</span
+            >: Connor, that's suicide. <br /><span class="name">Connor</span>:
+            If anyone stands a chance of infiltrating CyberLife, it's me.
+            <br /><span class="name">North</span>: If you go there, they'll kill
+            you. <br /><span class="name">Connor</span>: There's a high
+            probability... but statistically speaking there's always a chance
+            for unlikely events to take place...
+        </p>
+
+        <h2>North calls to arms</h2>
+
+        [ In the church or In Jericho ]
+
+        <div class="condition">
+            <span class="name">| <i class="fas fa-skull"></i> Markus died</span>
+            <div class="condition-text">
+                <span class="name">North</span>: Markus gave his life for our
+                people. He showed us that we can choose our own destiny... But
+                he is not here to guide us anymore...
+            </div>
         </div>
-    </div>
 
-    <mat-divider></mat-divider>
-
-    <div class="choices">
-        <em>CONVINCE</em>
-        <div class="choice"><span class="name">Connor</span>: Hank, I-</div>
-        <em>DON'T INSIST</em>
-        <div class="choice">
-            <span class="name">Connor</span>: I understand.
+        <div class="condition">
+            <span class="name">Markus was rejected by Jericho</span>
+            <div class="condition-text">
+                <span class="name">North</span>: Markus is no longer with us...
+                He failed us as a leader and chose to walk away...
+            </div>
         </div>
-    </div>
 
-    <p>
-        <span class="name">Hank</span>: Now leave me alone... Go on, complete
-        your mission, since that's all you care about. GET OUTTA HERE!
-    </p>
-</section>
-
-<!-- scene change to Markus if he is still Leader of Jericho -->
-
-<section>
-    <h1>In the church : Jericho was attacked</h1>
-
-    [ Connor became a deviant and Markus is dead / rejected and did not return ]
-
-    <br /><strong>Talking with Kara</strong>
-    <div class="condition">
-        <span class="name"
-            >Connor went after Kara and Alice on the highway in
-            <a [routerLink]="['/chapters', 13]">On The Run</a></span
-        >
-        <div class="condition-text">
-            <p>
-                <span class="name">Connor</span>: I thought I'd killed you on
-                that highway... I'm sorry I put your lives in danger... I was
-                just a machine taking orders... It wasn't really me... What are
-                you gonna do now?.. <br /><span class="name">Kara</span>:
-                Getting Alice away from here is all that matters now... We have
-                to catch the last bus... We might still have a chance to cross
-                the border... <br /><span class="name">Connor</span>: I hope you
-                make it out safely. You deserve some happiness, after all you've
-                been through...
-            </p>
-        </div>
-    </div>
-
-    <div class="condition">
-        <span class="name"
-            >Connor didn't find Kara and Alice in
-            <a [routerLink]="['/chapters', 13]">On The Run</a></span
-        >
-        <div class="condition-text">(???)</div>
-    </div>
-
-    <strong>Talking with North</strong>
-    <div class="choices">
-        <em>MARKUS</em> [ <i class="fas fa-skull"></i> available if Markus is
-        dead ]
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: I know how important Markus
-                was to Jericho... and to your people. <br /><span class="name"
-                    >North</span
-                >: He gave his life for us. He gave us the hope we'd lost and
-                the courage to fight... We'll never forget him.
-            </p>
-        </div>
-        <em>SITUATION</em>
-        <div class="choice">
-            <span class="name">Connor</span>: The humans won't take any risks...
-            They're rounding up the androids and taking them to camps for
-            extermination... In a couple hours, we'll be the only ones left.
-        </div>
-        <em>SURVIVORS </em>
-        <div class="choice">
-            <p>
-                <span class="name">Connor</span>: How many survived the attack?
-                <br /><span class="name">North</span>: A few hundred... maybe
-                more if you count those hiding all over the city... We'd all be
-                dead if you hadn't detonated that bomb.
-            </p>
-        </div>
-    </div>
-
-    <p>
-        <span class="name">North</span>: Where are we supposed to go from here?
-    </p>
-    <p>
-        <span class="name">Connor</span>: There are thousands of androids at the
-        CyberLife assembly plant. If we could wake them up, they might join us
-        and shift the balance of power... <br /><span class="name">North</span>:
-        You wanna infiltrate the CyberLife Tower? <br /><span class="name"
-            >Connor</span
-        >: They trust me... they'll let me in. <br /><span class="name"
-            >North</span
-        >: Connor, that's suicide. <br /><span class="name">Connor</span>: If
-        anyone stands a chance of infiltrating CyberLife, it's me. <br /><span
-            class="name"
-            >North</span
-        >: If you go there, they'll kill you. <br /><span class="name"
-            >Connor</span
-        >: There's a high probability... but statistically speaking there's
-        always a chance for unlikely events to take place...
-    </p>
-
-    <h2>North calls to arms</h2>
-
-    [ In the church or In Jericho ]
-
-    <div class="condition">
-        <span class="name">| <i class="fas fa-skull"></i> Markus died</span>
-        <div class="condition-text">
-            <span class="name">North</span>: Markus gave his life for our
-            people. He showed us that we can choose our own destiny... But he is
-            not here to guide us anymore...
-        </div>
-    </div>
-
-    <div class="condition">
-        <span class="name">Markus was rejected by Jericho</span>
-        <div class="condition-text">
-            <span class="name">North</span>: Markus is no longer with us... He
-            failed us as a leader and chose to walk away...
-        </div>
-    </div>
-
-    <p>
-        <span class="name">North</span>: Now it is up to us to finish what he
-        started. Humans have decided to exterminate us... Our people are in
-        camps right now, being destroyed... The time has come for us to make a
-        choice, one that may decide the future of our people. They wanted a
-        war...they'll get it. We are going to fight for our freedom. And we will
-        win or we will die trying. <br /><span class="name">Androids</span>:
-        YEAH! YEAH! YES! YEAH! YES! North!
-    </p>
-</section>
+        <p>
+            <span class="name">North</span>: Now it is up to us to finish what
+            he started. Humans have decided to exterminate us... Our people are
+            in camps right now, being destroyed... The time has come for us to
+            make a choice, one that may decide the future of our people. They
+            wanted a war...they'll get it. We are going to fight for our
+            freedom. And we will win or we will die trying. <br /><span
+                class="name"
+                >Androids</span
+            >: YEAH! YEAH! YES! YEAH! YES! North!
+        </p>
+    </section>
+</ng-container>

@@ -48,6 +48,11 @@ import { MarkusDemonstrationChapterContentComponent } from './chapter-contents/3
 import { MarkusRevolutionChapterContentComponent } from './chapter-contents/32.6-markus-revolution-chapter-content/markus-revolution-chapter-content.component';
 import { TranslocoRootModule } from '@app/transloco/transloco-root.module';
 import { DialogueLineComponent } from './shared/components/dialogue-line/dialogue-line.component';
+import { UnusedContentComponent } from './shared/components/unused-content/unused-content.component';
+import { ConditionedContentComponent } from './shared/components/conditioned-content/conditioned-content.component';
+import { ChoiceGroupComponent } from './shared/components/choice-group/choice-group.component';
+import { ChoiceItemComponent } from './shared/components/choice-item/choice-item.component';
+import { RelationComponent } from './shared/components/relation/relation.component';
 
 @NgModule({
     declarations: [
@@ -96,6 +101,11 @@ import { DialogueLineComponent } from './shared/components/dialogue-line/dialogu
         MarkusDemonstrationChapterContentComponent,
         MarkusRevolutionChapterContentComponent,
         DialogueLineComponent,
+        UnusedContentComponent,
+        ConditionedContentComponent,
+        ChoiceGroupComponent,
+        ChoiceItemComponent,
+        RelationComponent,
     ],
     imports: [SharedModule, ChaptersRoutingModule, TranslocoRootModule],
 })
