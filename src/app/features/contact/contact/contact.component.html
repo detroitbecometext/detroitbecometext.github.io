@@ -1,13 +1,13 @@
-<main class="container" fxLayout="column" fxLayoutAlign="start center">
-    <mat-card>
+<main class="flex flex-col justify-start items-center">
+    <mat-card class="text-center w-5/6 sm:w-4/6">
         <mat-card-title>
-            <h1>Contact</h1>
+            <h1 class="mat-display-2 mb-5">Contact</h1>
         </mat-card-title>
         <mat-card-content>
             <form [formGroup]="contactForm" (ngSubmit)="sendMessage()">
-                <div fxLayout="column" fxLayoutGap="1em">
-                    <div fxLayout="row" fxLayoutGap="40px">
-                        <mat-form-field appearance="standard" fxFlex="1 1 0">
+                <div class="flex flex-col gap-4">
+                    <div class="flex flex-col md:flex-row gap-5">
+                        <mat-form-field appearance="standard" class="flex-1">
                             <mat-label>Name</mat-label>
                             <input
                                 matInput
@@ -20,7 +20,7 @@
                             >
                         </mat-form-field>
 
-                        <mat-form-field appearance="standard" fxFlex="1 1 0">
+                        <mat-form-field appearance="standard" class="flex-1">
                             <mat-label>Email</mat-label>
                             <input
                                 matInput
@@ -51,7 +51,7 @@
                         color="primary"
                         type="submit"
                         [disabled]="!contactForm.valid || (sending$ | async)"
-                        fxFlexAlign="center"
+                        class="self-center"
                     >
                         {{ (sending$ | async) ? 'Sending...' : 'Submit' }}
                         <fa-icon icon="paper-plane"></fa-icon>

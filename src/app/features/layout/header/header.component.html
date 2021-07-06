@@ -1,5 +1,5 @@
 <header>
-    <nav fxLayout="row" fxLayoutAlign="start center">
+    <nav class="flex flex-row justify-start items-center">
         <fa-icon icon="bars" (click)="sidenav.toggle()"></fa-icon>
         <fa-icon
             icon="home"
@@ -17,14 +17,14 @@
             matTooltip="Contact"
         ></fa-icon>
 
-        <span fxFlex></span>
+        <span class="flex-auto"></span>
         <div
             class="flag-icon-background flag-icon-{{ activeFlag }}"
             (click)="showFlagPanel = !showFlagPanel"
         ></div>
     </nav>
-    <div *ngIf="showFlagPanel" fxLayout="row" fxLayoutAlign="end">
-        <div class="flags" fxLayout="row wrap" fxLayoutAlign="end" fxFlex="50%">
+    <div *ngIf="showFlagPanel" class="flex flex-row justify-end">
+        <div class="flags flex flex-row flex-wrap justify-end max-w-1/2">
             <div
                 *ngFor="let lang of supportedLanguages"
                 class="flag-icon-background flag-icon-{{ lang.flag }}"

@@ -4,9 +4,11 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { LayoutModule } from '../layout/layout.module';
 import { TranslocoRootModule } from '@app/transloco/transloco-root.module';
+import { CardContainerComponent } from './card-container/card-container.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-    declarations: [HomeComponent],
+    declarations: [HomeComponent, CardContainerComponent, CardComponent],
     imports: [
         SharedModule,
         HomeRoutingModule,

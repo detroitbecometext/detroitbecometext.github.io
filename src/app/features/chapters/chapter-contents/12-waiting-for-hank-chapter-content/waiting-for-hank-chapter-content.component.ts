@@ -5,16 +5,10 @@ import { BaseTranslationComponent } from '@app/shared/base-translation/base-tran
 @Component({
     selector: 'app-waiting-for-hank-chapter-content',
     templateUrl: './waiting-for-hank-chapter-content.component.html',
-    styleUrls: ['./waiting-for-hank-chapter-content.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WaitingForHankChapterContentComponent
-    extends BaseTranslationComponent
-    implements OnInit
-{
+export class WaitingForHankChapterContentComponent extends BaseTranslationComponent {
     constructor(translocoService: TranslocoService) {
         super(translocoService);
     }
-
-    ngOnInit(): void {}
 }

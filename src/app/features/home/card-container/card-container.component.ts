@@ -1,10 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-    selector: 'app-footer',
-    templateUrl: './footer.component.html',
+    selector: 'app-card-container',
+    templateUrl: './card-container.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterComponent {
+export class CardContainerComponent {
     constructor() {}
 }

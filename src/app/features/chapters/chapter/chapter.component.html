@@ -1,7 +1,7 @@
-<main class="container" fxLayout="column" fxLayoutAlign="start">
-    <ng-container *ngIf="!(isLoading$ | async)">
+<main class="container flex flex-col justify-start">
+    <ng-container *ngIf="(isLoading$ | async) === false">
         <ng-container *transloco="let t">
-            <header fxFlexAlign="stretch">
+            <header class="self-stretch">
                 <h1>
                     {{ chapter.number }} -
                     {{ t('GUI.MENU.CHAPTERS.' + chapter.shortIdentifier) }}
@@ -10,10 +10,10 @@
         </ng-container>
     </ng-container>
 
-    <mat-card fxFlexAlign="center">
+    <mat-card class="self-center">
         <mat-card-content>
             <!-- Top nav -->
-            <ng-container *ngIf="!(isLoading$ | async); else loading">
+            <ng-container *ngIf="(isLoading$ | async) === false; else loading">
                 <app-chapter-nav [chapter]="chapter"></app-chapter-nav>
 
                 <mat-divider></mat-divider>
@@ -25,18 +25,14 @@
             </div>
 
             <!-- Bottom nav -->
-            <ng-container *ngIf="!(isLoading$ | async)">
+            <ng-container *ngIf="(isLoading$ | async) === false">
                 <mat-divider></mat-divider>
                 <app-chapter-nav [chapter]="chapter"></app-chapter-nav>
             </ng-container>
 
             <!-- Loading -->
             <ng-template #loading>
-                <div
-                    fxLayout="row"
-                    fxLayoutAlign="center center"
-                    class="spinner"
-                >
+                <div class="spinner flex flex-row justify-center items-center">
                     <mat-spinner></mat-spinner>
                 </div>
             </ng-template>

@@ -1,10 +1,6 @@
-<header>
-    <img src="assets/images/Detroit-become-human-logo.png" alt="logo" />
-</header>
-
-<main class="container" fxLayout="column" fxLayoutAlign="start center">
-    <div class="title" fxFlex="0 1 auto">
-        <fa-layers [fixedWidth]="true" class="led" fxHide.xs>
+<main class="px-8 sm:px-32 flex flex-col justify-start items-center">
+    <div class="flex flex-row justify-center items-center mt-12">
+        <fa-layers class="led hidden sm:inline-block">
             <fa-icon
                 icon="circle-notch"
                 class="led-1"
@@ -21,13 +17,16 @@
                 transform="rotate-135 grow-35 up-10"
             ></fa-icon>
         </fa-layers>
-        <h1>Detroit: Become Human - Text transcription</h1>
+        <h1 class="inline text-center mat-display-3 m-0">
+            Detroit: Become Human
+        </h1>
     </div>
+    <h1 class="mat-display-2 mt-4 mb-8 text-center">Text transcription</h1>
 
-    <div class="info" fxFlex="0 0 auto">
-        <div class="info-title">
+    <div class="flex-initial bg-blue-300 bg-opacity-50 rounded-xl p-8 mb-8">
+        <div class="mb-4 flex flex-row justify-start items-center">
             <fa-icon icon="info-circle" size="lg"></fa-icon>
-            <h2>01/24/2021 - Update</h2>
+            <h2 class="ml-2 text-xl mb-0">01/24/2021 - Update</h2>
         </div>
         <ul>
             <li>Fixed some typos.</li>
@@ -41,57 +40,39 @@
 
     <ng-container *transloco="let t">
         <h2>{{ t('GUI.MENU.CHAPTERS.VALUE') }}</h2>
-        <mat-divider fxFlexAlign="stretch"></mat-divider>
+        <mat-divider class="self-stretch"></mat-divider>
 
-        <div
-            gdAlignColumns="stretch stretch"
-            gdColumns="repeat(2, minmax(3em, 1fr))"
-            gdColumns.lt-md="100%"
-            gdRows="auto"
-            gdGap="2em"
-            class="cards-container"
-            fxFlex="0 1 auto"
-        >
-            <a
-                [routerLink]="['/chapters', chapters[i].id]"
+        <app-card-container>
+            <ng-container
                 *ngFor="let chapter of chapters; let i = index; let even = even"
             >
-                <div class="card">
-                    <img
-                        src="{{ chapters[i].image }}"
-                        alt="{{
-                            t(
-                                'GUI.MENU.CHAPTERS.' +
-                                    chapters[i].shortIdentifier
-                            )
-                        }}"
-                    />
-                    <div class="card-content">
-                        <h2>Chapter {{ chapters[i].number }}</h2>
-                        <p>
-                            {{
-                                t(
-                                    'GUI.MENU.CHAPTERS.' +
-                                        chapters[i].shortIdentifier
-                                )
-                            }}
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
+                <app-card
+                    [routerLink]="['/chapters', chapters[i].id]"
+                    [imageSource]="chapters[i].image"
+                    [imageAlt]="
+                        t('GUI.MENU.CHAPTERS.' + chapters[i].shortIdentifier)
+                    "
+                    [title]="'Chapter ' + chapters[i].number"
+                    [text]="
+                        t('GUI.MENU.CHAPTERS.' + chapters[i].shortIdentifier)
+                    "
+                ></app-card>
+            </ng-container>
+        </app-card-container>
     </ng-container>
 
     <h2>Extras</h2>
-    <mat-divider fxFlexAlign="stretch"></mat-divider>
+    <mat-divider class="self-stretch"></mat-divider>
     <div
-        gdAlignColumns="stretch stretch"
-        gdColumns="repeat(2, minmax(3em, 1fr))"
-        gdColumns.lt-md="100%"
-        gdRows="1"
-        gdGap="2em"
-        class="cards-container"
-        fxFlex="0 1 auto"
+        class="
+            mx-8
+            flex-initial
+            gap-2
+            grid-rows-1
+            justify-start
+            grid-cols-1
+            sm:grid-cols-2
+        "
     >
         <div>
             <a [routerLink]="['/chloe']">
@@ -124,18 +105,31 @@
     </div>
 
     <h2>Additional Links</h2>
-    <mat-divider fxFlexAlign="stretch"></mat-divider>
+    <mat-divider class="self-stretch"></mat-divider>
     <p>
         Want a link to appear here ? Send a request through the
-        <a [routerLink]="['/contact']" class="contact-link">contact form</a> !
+        <a
+            [routerLink]="['/contact']"
+            class="
+                transition-colors
+                ease-in-out
+                duration-500
+                text-blue-500
+                hover:text-blue-400
+            "
+            >contact form</a
+        >
+        !
     </p>
 
     <div
-        class="cards-container"
-        fxLayout="row wrap"
-        fxLayoutAlign="start stretch"
-        fxLayout.sm="column"
-        fxLayoutAlign.sm="start center"
+        class="
+            cards-container
+            flex flex-row flex-wrap
+            justify-start
+            items-stretch
+            sm:flex-col sm:items-center
+        "
     >
         <mat-card *ngFor="let link of additionalLinks">
             <mat-card-header>

@@ -24,6 +24,7 @@ export class TranslocoHttpLoader implements TranslocoLoader {
     providers: [
         {
             provide: TRANSLOCO_CONFIG,
+            // TODO: Add direction to language objects
             useValue: translocoConfig({
                 availableLangs: [
                     { id: 'ar', label: 'Arabic' },

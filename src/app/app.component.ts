@@ -4,8 +4,8 @@ import { GoatCounterService } from './core/services/goat-counter.service';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+    // TODO: Add observable to change ltr to rtl when language changes
     constructor(private readonly goatCounterService: GoatCounterService) {}
 }

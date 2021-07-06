@@ -1,19 +1,16 @@
-<mat-sidenav-container class="container">
+<mat-sidenav-container class="min-h-screen overflow-visible">
     <!-- Sidenav -->
-    <mat-sidenav #sidenav mode="side">
+    <mat-sidenav #sidenav mode="side" class="h-screen fixed">
         <app-sidenav [sidenav]="sidenav"></app-sidenav>
     </mat-sidenav>
     <!-- Page content -->
-    <mat-sidenav-content fxLayout="column">
-        <app-header fxFlex="0 1 auto" [sidenav]="sidenav"></app-header>
+    <mat-sidenav-content class="flex flex-col min-h-screen overflow-visible">
+        <app-header class="flex-initial" [sidenav]="sidenav"></app-header>
         <div
-            fxFlex="1 1 auto"
-            fxLayout="column"
-            fxLayoutAlign="start stretch"
-            class="content"
+            class="content flex-auto flex flex-col justify-start items-stretch"
         >
-            <router-outlet fxFlex="0 0 0"></router-outlet>
+            <router-outlet class="flex-grow-0 flex-shrink-0"></router-outlet>
         </div>
-        <app-footer fxFlex="0 1 auto"></app-footer>
+        <app-footer class="flex-initial"></app-footer>
     </mat-sidenav-content>
 </mat-sidenav-container>
