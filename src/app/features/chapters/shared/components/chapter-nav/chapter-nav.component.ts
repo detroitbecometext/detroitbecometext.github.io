@@ -10,16 +10,15 @@ import { ChapterService } from '@app/core/services';
 @Component({
     selector: 'app-chapter-nav',
     templateUrl: './chapter-nav.component.html',
-    styleUrls: ['./chapter-nav.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ChapterNavComponent implements OnInit {
+export class ChapterNavComponent {
     public chapterNav: ChapterNav;
-    public chapter: Chapter;
+    public currentChapter: Chapter;
 
-    @Input('chapter') set setChapter(value: Chapter) {
+    @Input() set chapter(value: Chapter) {
         if (value) {
-            this.chapter = value;
+            this.currentChapter = value;
             this.chapterNav = new ChapterNav(
                 this.chapterService.getPreviousChapterId(value.id),
                 this.chapterService.getNextChapterId(value.id),
@@ -32,6 +31,4 @@ export class ChapterNavComponent implements OnInit {
         }
     }
     constructor(private readonly chapterService: ChapterService) {}
-
-    ngOnInit(): void {}
 }

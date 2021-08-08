@@ -7,10 +7,8 @@ import { TranslocoService } from '@ngneat/transloco';
     templateUrl: './chloe.component.html',
     styleUrls: ['./chloe.component.scss'],
 })
-export class ChloeComponent extends BaseTranslationComponent implements OnInit {
+export class ChloeComponent extends BaseTranslationComponent {
     constructor(translocoService: TranslocoService) {
         super(translocoService);
     }
-
-    ngOnInit(): void {}
 }

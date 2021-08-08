@@ -10,210 +10,330 @@ export class MagazineService {
 
     constructor() {
         let i = 1;
-        new Magazine(i++, MagazineType.CENTURY, '', '');
         this.magazines = [
             new Magazine(
                 i++,
                 MagazineType.CENTURY,
                 'TECHADDICT',
-                'CONNECTTHEDOTS'
-            ),
-            new Magazine(i++, MagazineType.CENTURY, 'CENTURY', 'NORTHPOLE'),
-            new Magazine(i++, MagazineType.CENTURY, 'DNEWS', 'BEEDISASTER'),
-            new Magazine(i++, MagazineType.CENTURY, 'CENTURY', 'TAINTEDLOVE'),
-            new Magazine(i++, MagazineType.CENTURY, 'CENTURY', 'PULLTHEPLUG'),
-            new Magazine(
-                i++,
-                MagazineType.CENTURY,
-                'CENTURY',
-                'WARRENINTROUBLE'
+                'CONNECTTHEDOTS',
+                'TECHADDICT'
             ),
             new Magazine(
                 i++,
                 MagazineType.CENTURY,
                 'CENTURY',
-                'ANDROIDPRESIDENT'
+                'NORTHPOLE',
+                'CENTURY'
             ),
-            new Magazine(i++, MagazineType.CENTURY, 'CENTURY', 'KAMSKI'),
-            new Magazine(i++, MagazineType.CENTURY, 'CENTURY', 'WW3'),
+            new Magazine(
+                i++,
+                MagazineType.CENTURY,
+                'DNEWS',
+                'BEEDISASTER',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.CENTURY,
+                'CENTURY',
+                'TAINTEDLOVE',
+                'CENTURY'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.CENTURY,
+                'CENTURY',
+                'PULLTHEPLUG',
+                'CENTURY'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.CENTURY,
+                'CENTURY',
+                'WARRENINTROUBLE',
+                'CENTURY'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.CENTURY,
+                'CENTURY',
+                'ANDROIDPRESIDENT',
+                'CENTURY'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.CENTURY,
+                'CENTURY',
+                'KAMSKI',
+                'CENTURY'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.CENTURY,
+                'CENTURY',
+                'WW3',
+                'CENTURY'
+            ),
             new Magazine(
                 i++,
                 MagazineType.TECH_ADDICT,
                 'TECHADDICT',
-                'SECRETSANDROIDS'
+                'SECRETSANDROIDS',
+                'TECHADDICT'
             ),
             new Magazine(
                 i++,
                 MagazineType.TECH_ADDICT,
                 'CENTURY',
-                'PRICEONLIFE'
+                'PRICEONLIFE',
+                'CENTURY'
             ),
             new Magazine(
                 i++,
                 MagazineType.TECH_ADDICT,
                 'TECHADDICT',
-                'ANDROIDSPY'
+                'ANDROIDSPY',
+                'TECHADDICT'
             ),
             new Magazine(
                 i++,
                 MagazineType.TECH_ADDICT,
                 'TECHADDICT',
-                'ANDROIDASTRONAUTS'
+                'ANDROIDASTRONAUTS',
+                'TECHADDICT'
             ),
             new Magazine(
                 i++,
                 MagazineType.TECH_ADDICT,
                 'TECHADDICT',
-                'IMMORTALS'
+                'IMMORTALS',
+                'TECHADDICT'
             ),
             new Magazine(
                 i++,
                 MagazineType.TECH_ADDICT,
                 'TECHADDICT',
-                'FORTUNETELLER'
+                'FORTUNETELLER',
+                'TECHADDICT'
             ),
             new Magazine(
                 i++,
                 MagazineType.TECH_ADDICT,
                 'TECHADDICT',
-                'BLEEDINGBLUE'
+                'BLEEDINGBLUE',
+                'TECHADDICT'
             ),
             new Magazine(
                 i++,
                 MagazineType.TECH_ADDICT,
                 'TECHADDICT',
-                'SPACETOURISM'
+                'SPACETOURISM',
+                'TECHADDICT'
             ),
             new Magazine(
                 i++,
                 MagazineType.TECH_ADDICT,
                 'TECHADDICT',
-                'SPACERACE'
+                'SPACERACE',
+                'TECHADDICT'
             ),
             new Magazine(
                 i++,
                 MagazineType.GREEN_EARTH,
                 'CENTURY',
-                'CLIMATECHANGEUP'
+                'CLIMATECHANGEUP',
+                'CENTURY'
             ),
             new Magazine(
                 i++,
                 MagazineType.GREEN_EARTH,
                 'GREENEARTH',
-                'TIPPINGPOINT'
+                'TIPPINGPOINT',
+                'GREENEARTH'
             ),
             new Magazine(
                 i++,
                 MagazineType.GREEN_EARTH,
                 'GREENEARTH',
-                'CLEANFOOD'
+                'CLEANFOOD',
+                'GREENEARTH'
             ),
             new Magazine(
                 i++,
                 MagazineType.ALL_SPORTS,
                 'ALLSPORTS',
-                'ANDROIDMLB'
+                'ANDROIDMLB',
+                'ALLSPORTS'
             ),
             new Magazine(
                 i++,
                 MagazineType.ALL_SPORTS,
                 'ALLSPORTS',
-                'ANDROIDQB'
+                'ANDROIDQB',
+                'ALLSPORTS'
             ),
             new Magazine(
                 i++,
                 MagazineType.GOSSIPS_WEEKLY,
                 'GOSSIP',
-                'ANDROIDBAND'
+                'ANDROIDBAND',
+                'GOSSIP'
             ),
             new Magazine(
                 i++,
                 MagazineType.GOSSIPS_WEEKLY,
                 'GOSSIP',
-                'ANDROIDSEX'
+                'ANDROIDSEX',
+                'GOSSIP'
             ),
             new Magazine(
                 i++,
                 MagazineType.GOSSIPS_WEEKLY,
                 'DNEWS',
-                'FACETHEMUSIC'
+                'FACETHEMUSIC',
+                'DNEWS'
             ),
             new Magazine(
                 i++,
                 MagazineType.DETROIT_TODAY,
                 'DNEWS',
-                'LIFEONTITAN'
-            ),
-            new Magazine(i++, MagazineType.DETROIT_TODAY, 'DNEWS', 'CARLDEAD'),
-            new Magazine(
-                i++,
-                MagazineType.DETROIT_TODAY,
-                'DNEWS',
-                'LAWSOFROBOTIC'
+                'LIFEONTITAN',
+                'DNEWS'
             ),
             new Magazine(
                 i++,
                 MagazineType.DETROIT_TODAY,
                 'DNEWS',
-                'IVANOFFNIET'
+                'CARLDEAD',
+                'DNEWS'
             ),
             new Magazine(
                 i++,
                 MagazineType.DETROIT_TODAY,
                 'DNEWS',
-                'ANDROIDZOO'
+                'LAWSOFROBOTIC',
+                'DNEWS'
             ),
-            new Magazine(i++, MagazineType.DETROIT_TODAY, 'DNEWS', 'ONTHERUN'),
-            new Magazine(i++, MagazineType.DETROIT_TODAY, 'DTIMES', 'REDICE'),
             new Magazine(
                 i++,
                 MagazineType.DETROIT_TODAY,
                 'DNEWS',
-                'ARCTICTENSIONS'
+                'IVANOFFNIET',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DNEWS',
+                'ANDROIDZOO',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DNEWS',
+                'ONTHERUN',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DTIMES',
+                'REDICE',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DNEWS',
+                'ARCTICTENSIONS',
+                'DNEWS'
             ),
             new Magazine(
                 i++,
                 MagazineType.DETROIT_TODAY,
                 'CENTURY',
-                'ANDROIDSANDBRAIN'
+                'ANDROIDSANDBRAIN',
+                'CENTURY'
             ),
             new Magazine(
                 i++,
                 MagazineType.DETROIT_TODAY,
                 'DNEWS',
-                'NEWSUPERPOWERS'
-            ),
-            new Magazine(i++, MagazineType.DETROIT_TODAY, 'DNEWS', 'USSIOWA'),
-            new Magazine(i++, MagazineType.DETROIT_TODAY, 'DNEWS', 'GIANDROID'),
-            new Magazine(i++, MagazineType.DETROIT_TODAY, 'DTIMES', 'WHOISIT'),
-            new Magazine(
-                i++,
-                MagazineType.DETROIT_TODAY,
-                'DNEWS',
-                'MARKETSPREDICTION'
-            ),
-            new Magazine(i++, MagazineType.DETROIT_TODAY, 'DNEWS', 'HIGHWAY'),
-            new Magazine(
-                i++,
-                MagazineType.DETROIT_TODAY,
-                'DNEWS',
-                'ANDROIDARSON'
+                'NEWSUPERPOWERS',
+                'DNEWS'
             ),
             new Magazine(
                 i++,
                 MagazineType.DETROIT_TODAY,
                 'DNEWS',
-                'DETROITCHAOS'
+                'USSIOWA',
+                'DNEWS'
             ),
             new Magazine(
                 i++,
                 MagazineType.DETROIT_TODAY,
                 'DNEWS',
-                'ANDROIDTERROR'
+                'GIANDROID',
+                'DNEWS'
             ),
-            new Magazine(i++, MagazineType.DETROIT_TODAY, 'DNEWS', 'DEFYUS'),
-            new Magazine(i++, MagazineType.DETROIT_TODAY, 'DNEWS', 'CIVILWAR'),
-            new Magazine(i++, MagazineType.CANADA, 'DNEWS', 'CANADA'),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DTIMES',
+                'WHOISIT',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DNEWS',
+                'MARKETSPREDICTION',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DNEWS',
+                'HIGHWAY',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DNEWS',
+                'ANDROIDARSON',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DNEWS',
+                'DETROITCHAOS',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DNEWS',
+                'ANDROIDTERROR',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DNEWS',
+                'DEFYUS',
+                'DNEWS'
+            ),
+            new Magazine(
+                i++,
+                MagazineType.DETROIT_TODAY,
+                'DNEWS',
+                'CIVILWAR',
+                'DNEWS'
+            ),
+            new Magazine(i++, MagazineType.CANADA, 'DNEWS', 'CANADA', 'DNEWS'),
         ];
     }
 

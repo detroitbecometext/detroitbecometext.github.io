@@ -23,18 +23,15 @@ export class ChapterComponent implements OnInit, AfterViewInit {
     public chapterContent: string;
     public isLoading$: BehaviorSubject<boolean>;
 
-    public previousChapterId$: BehaviorSubject<
-        number | null
-    > = new BehaviorSubject(null);
+    public previousChapterId$: BehaviorSubject<number | null> =
+        new BehaviorSubject(null);
     public nextChapterId$: BehaviorSubject<number | null> = new BehaviorSubject(
         null
     );
-    public previousCharacterChapterId$: BehaviorSubject<
-        number | null
-    > = new BehaviorSubject(null);
-    public nextCharacterChapterId$: BehaviorSubject<
-        number | null
-    > = new BehaviorSubject(null);
+    public previousCharacterChapterId$: BehaviorSubject<number | null> =
+        new BehaviorSubject(null);
+    public nextCharacterChapterId$: BehaviorSubject<number | null> =
+        new BehaviorSubject(null);
 
     @ViewChild(ChapterContentDirective)
     contentHost: ChapterContentDirective;
@@ -68,16 +65,16 @@ export class ChapterComponent implements OnInit, AfterViewInit {
         }
 
         // Load the component
-        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-            this.chapter.component
-        );
+        const componentFactory =
+            this.componentFactoryResolver.resolveComponentFactory(
+                this.chapter.component
+            );
 
         const viewContainerRef = this.contentHost.viewContainerRef;
         viewContainerRef.clear();
 
-        const componentRef = viewContainerRef.createComponent<IChapterContent>(
-            componentFactory
-        );
+        const componentRef =
+            viewContainerRef.createComponent<IChapterContent>(componentFactory);
 
         this.isLoading$.next(false);
         this.viewPortScroller.scrollToPosition([0, 0]);

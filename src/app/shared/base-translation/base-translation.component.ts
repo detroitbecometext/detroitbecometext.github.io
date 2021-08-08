@@ -7,10 +7,8 @@ import { map } from 'rxjs/operators';
     template: '',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BaseTranslationComponent implements OnInit {
+export class BaseTranslationComponent {
     constructor(private readonly translocoService: TranslocoService) {}
-
-    ngOnInit(): void {}
 
     public translateObject(
         translationKey: string,

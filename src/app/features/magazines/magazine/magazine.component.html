@@ -1,15 +1,20 @@
 <ng-container *transloco="let t">
-    <main class="container" fxLayout="column" fxLayoutAlign="start">
-        <header fxFlexAlign="stretch"></header>
-
-        <mat-card fxFlexAlign="center">
+    <main class="main-with-centered-card">
+        <mat-card>
             <mat-card-content>
-                <div class="magazine-content">
-                    <mat-chip-list>
+                <div>
+                    <mat-chip-list
+                        class="
+                            flex flex-col
+                            items-center
+                            mb-2
+                            sm:float-right sm:mb-0
+                        "
+                    >
                         <mat-chip>{{ magazine.type }}</mat-chip>
                     </mat-chip-list>
 
-                    <h1>
+                    <h1 class="text-center sm:text-left">
                         {{
                             t(
                                 'GUI.MAGAZINE.' +
@@ -23,7 +28,7 @@
 
                     <mat-divider></mat-divider>
 
-                    <h2>
+                    <h2 class="text-center pt-4">
                         {{
                             t(
                                 'GUI.MAGAZINE.' +
@@ -35,8 +40,18 @@
                         }}
                     </h2>
 
-                    <mat-card-subtitle>
-                        {{ subHeadlines | async }}
+                    <mat-card-subtitle class="text-center">
+                        {{
+                            translateObject(
+                                'GUI.MAGAZINE.' +
+                                    this.magazine
+                                        .subHeadlineTranslationCategory +
+                                    '.SUBHEADLINE',
+                                undefined,
+                                undefined,
+                                ' ● '
+                            ) | async
+                        }}
                     </mat-card-subtitle>
                     <p>
                         {{
@@ -65,22 +80,24 @@
 
             <mat-divider></mat-divider>
 
-            <mat-card-footer fxLayout="row" class="nav">
-                <div fxFlex="50%">
-                    <a
-                        *ngIf="previousMagazineId != null"
-                        [routerLink]="['/magazines', previousMagazineId]"
-                    >
-                        <fa-icon icon="angle-left"></fa-icon> Previous
-                        magazine</a
-                    >
-                </div>
-                <div fxFlex="50%" class="next">
-                    <a
-                        *ngIf="nextMagazineId != null"
-                        [routerLink]="['/magazines', nextMagazineId]"
-                        >Next magazine <fa-icon icon="angle-right"></fa-icon
-                    ></a>
+            <mat-card-footer class="pt-4">
+                <div class="nav">
+                    <div>
+                        <a
+                            *ngIf="previousMagazineId !== null"
+                            [routerLink]="['/magazines', previousMagazineId]"
+                        >
+                            <fa-icon icon="angle-left"></fa-icon> Previous
+                            magazine</a
+                        >
+                    </div>
+                    <div class="next">
+                        <a
+                            *ngIf="nextMagazineId !== null"
+                            [routerLink]="['/magazines', nextMagazineId]"
+                            >Next magazine <fa-icon icon="angle-right"></fa-icon
+                        ></a>
+                    </div>
                 </div>
             </mat-card-footer>
         </mat-card>

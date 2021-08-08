@@ -39,7 +39,9 @@
     </div>
 
     <ng-container *transloco="let t">
-        <h2>{{ t('GUI.MENU.CHAPTERS.VALUE') }}</h2>
+        <h2 class="mat-display-1 mb-0">
+            {{ t('GUI.MENU.CHAPTERS.VALUE') }}
+        </h2>
         <mat-divider class="self-stretch"></mat-divider>
 
         <app-card-container>
@@ -61,50 +63,29 @@
         </app-card-container>
     </ng-container>
 
-    <h2>Extras</h2>
-    <mat-divider class="self-stretch"></mat-divider>
-    <div
-        class="
-            mx-8
-            flex-initial
-            gap-2
-            grid-rows-1
-            justify-start
-            grid-cols-1
-            sm:grid-cols-2
-        "
-    >
-        <div>
-            <a [routerLink]="['/chloe']">
-                <div class="card">
-                    <img
-                        src="assets/images/chloe.jpg"
-                        alt="Chloe in the main menu"
-                    />
-                    <div class="card-content">
-                        <h2>Chloe</h2>
-                        <p>Main menu interactions</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div>
-            <a [routerLink]="['/magazines']">
-                <div class="card">
-                    <img
-                        src="assets/images/magazine.png"
-                        alt="Magazine cover"
-                    />
-                    <div class="card-content">
-                        <h2>Magazines</h2>
-                        <p>The complete list</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
+    <h2 class="mat-display-1 mb-0 mt-14">Extras</h2>
 
-    <h2>Additional Links</h2>
+    <mat-divider class="self-stretch"></mat-divider>
+
+    <app-card-container>
+        <app-card
+            [routerLink]="['/chloe']"
+            imageSource="assets/images/chloe.jpg"
+            imageAlt="Chloe in the main menu"
+            title="Chloe"
+            text="Main menu interactions"
+        ></app-card>
+        <app-card
+            [routerLink]="['/magazines']"
+            imageSource="assets/images/magazine.png"
+            imageAlt="Magazine"
+            title="Magazines"
+            text="The complete list"
+        ></app-card>
+    </app-card-container>
+
+    <h2 class="mat-display-1 mb-0 mt-14">Additional Links</h2>
+
     <mat-divider class="self-stretch"></mat-divider>
     <p>
         Want a link to appear here ? Send a request through the
@@ -124,14 +105,19 @@
 
     <div
         class="
-            cards-container
-            flex flex-row flex-wrap
-            justify-start
+            grid
+            sm:mx-8
+            flex-initial
+            auto-rows-auto
             items-stretch
-            sm:flex-col sm:items-center
+            justify-items-stretch
+            grid-cols-1
+            lg:grid-cols-2
+            xl:grid-cols-3
+            gap-8
         "
     >
-        <mat-card *ngFor="let link of additionalLinks">
+        <mat-card class="w-full m-0" *ngFor="let link of additionalLinks">
             <mat-card-header>
                 <img
                     mat-card-avatar
@@ -142,8 +128,8 @@
                 <mat-card-subtitle>{{ link.subtitle }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <div fxLayoutAlign="space-between">
-                    <p>{{ link.description }}</p>
+                <div class="flex flex-row items-center justify-between">
+                    <p class="m-0">{{ link.description }}</p>
                     <a
                         mat-icon-button
                         aria-label="Icon button with an arrow icon"

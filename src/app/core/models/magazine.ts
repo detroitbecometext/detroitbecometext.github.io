@@ -5,6 +5,7 @@ export class Magazine {
         public readonly id: number,
         public readonly type: MagazineType,
         public readonly translationCategory: string,
-        public readonly translationKey: string
+        public readonly translationKey: string,
+        public readonly subHeadlineTranslationCategory: string
     ) {}
 }
