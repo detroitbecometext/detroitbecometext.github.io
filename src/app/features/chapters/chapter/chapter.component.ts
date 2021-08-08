@@ -3,6 +3,7 @@ import {
     AfterViewInit,
     Component,
     ComponentFactoryResolver,
+    HostListener,
     OnInit,
     ViewChild,
 } from '@angular/core';
@@ -78,5 +79,21 @@ export class ChapterComponent implements OnInit, AfterViewInit {
 
         this.isLoading$.next(false);
         this.viewPortScroller.scrollToPosition([0, 0]);
+    }
+
+    @HostListener('window:keyup', ['$event'])
+    keyEvent(event: KeyboardEvent) {
+        let newId: number | null = null;
+        if (event.key == 'ArrowRight') {
+            newId = this.chapter.id + 1;
+        } else if (event.key == 'ArrowLeft') {
+            newId = this.chapter.id - 1;
+        }
+
+        let chapterExists = this.chapterService.getChapter(newId) !== undefined;
+
+        if (newId !== null && chapterExists) {
+            this.router.navigate(['chapters', newId]);
+        }
     }
 }
