@@ -1,8 +1,8 @@
 <main class="main-with-centered-card">
     <ng-container *ngIf="(isLoading$ | async) === false">
         <ng-container *transloco="let t">
-            <header class="self-stretch">
-                <h1>
+            <header class="self-stretch bg-gray-200 bg-opacity-50 text-center">
+                <h1 class="mt-8 text-6xl">
                     {{ chapter.number }} -
                     {{ t('GUI.MENU.CHAPTERS.' + chapter.shortIdentifier) }}
                 </h1>
@@ -10,7 +10,7 @@
         </ng-container>
     </ng-container>
 
-    <mat-card>
+    <mat-card class="chapter-card">
         <mat-card-content>
             <!-- Top nav -->
             <ng-container *ngIf="(isLoading$ | async) === false; else loading">

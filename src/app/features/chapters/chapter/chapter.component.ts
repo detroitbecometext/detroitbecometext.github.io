@@ -17,7 +17,6 @@ import { IChapterContent } from '../shared/interfaces/chapter-component.interfac
 
 @Component({
     templateUrl: './chapter.component.html',
-    styleUrls: ['./chapter.component.scss'],
 })
 export class ChapterComponent implements OnInit, AfterViewInit {
     public chapter: Chapter;

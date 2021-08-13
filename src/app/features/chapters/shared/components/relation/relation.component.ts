@@ -4,6 +4,7 @@ import {
     ChangeDetectionStrategy,
     Input,
 } from '@angular/core';
+import { RelationType } from '@app/core/models/relation-type.enum';
 
 @Component({
     selector: 'app-relation',
@@ -13,7 +14,7 @@ import {
 })
 export class RelationComponent implements OnInit {
     @Input() public name: string;
-    @Input() public type: 'small up' | 'small down' | 'large up' | 'large down';
+    @Input() public type: RelationType;
     public imageSource: string;
     public imageAlt: string;
 
@@ -23,22 +24,22 @@ export class RelationComponent implements OnInit {
 
     ngOnInit(): void {
         switch (this.type) {
-            case 'small up':
+            case RelationType.SmallUp:
                 this.imageSource = 'assets/images/slight_increase.png';
                 this.imageAlt = 'slight_increase';
                 this.up = true;
                 break;
-            case 'large up':
+            case RelationType.LargeUp:
                 this.imageSource = 'assets/images/large_increase.png';
                 this.imageAlt = 'large_increase';
                 this.up = true;
                 break;
-            case 'small down':
+            case RelationType.SmallDown:
                 this.imageSource = 'assets/images/slight_decrease.png';
                 this.imageAlt = 'slight_decrease';
                 this.up = false;
                 break;
-            case 'large down':
+            case RelationType.LargeDown:
                 this.imageSource = 'assets/images/large_decrease.png';
                 this.imageAlt = 'large_decrease';
                 this.up = false;
