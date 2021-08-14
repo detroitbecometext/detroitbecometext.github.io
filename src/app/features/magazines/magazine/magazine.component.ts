@@ -1,14 +1,20 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    HostListener,
+    OnDestroy,
+    OnInit,
+} from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Magazine } from '@app/core/models';
 import { MagazineService } from '@app/core/services/magazine.service';
 import { BaseTranslationComponent } from '@app/shared/base-translation/base-translation.component';
 import { TranslocoService } from '@ngneat/transloco';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
 
 @Component({
     templateUrl: './magazine.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MagazineComponent
     extends BaseTranslationComponent

@@ -1,6 +1,11 @@
-<ng-container *transloco="let t">
-    <main class="main-with-centered-card">
-        <mat-card>
+<ng-template #loading>
+    <div class="spinner flex flex-row justify-center items-center">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>
+<main class="main-with-centered-card">
+    <mat-card>
+        <ng-container *transloco="let t; loadingTpl: loading">
             <mat-card-content>
                 <div>
                     <mat-chip-list
@@ -100,6 +105,6 @@
                     </div>
                 </div>
             </mat-card-footer>
-        </mat-card>
-    </main>
-</ng-container>
+        </ng-container>
+    </mat-card>
+</main>

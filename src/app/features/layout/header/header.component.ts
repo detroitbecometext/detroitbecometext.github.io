@@ -41,15 +41,17 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit(): void {
         this.langToFlagMapping = new Map([
+            ['ar', 'sa'],
             ['en', 'us'],
             ['da', 'dk'],
             ['ja', 'jp'],
-            ['ko', 'kp'],
+            ['ko', 'kr'],
             ['zh', 'cn'],
             ['el', 'gr'],
             ['cs', 'cz'],
             ['pt-br', 'br'],
             ['es-mx', 'mx'],
+            ['sv', 'se'],
         ]);
 
         this.translocoService.langChanges$.subscribe((lang) =>
@@ -57,10 +59,12 @@ export class HeaderComponent implements OnInit {
         );
         this.updateCurrentFlag(this.translocoService.getActiveLang());
 
-        this.supportedLanguages = (this.translocoService.getAvailableLangs() as {
-            id: string;
-            label: string;
-        }[]).map((l: { id: string; label: string }) => {
+        this.supportedLanguages = (
+            this.translocoService.getAvailableLangs() as {
+                id: string;
+                label: string;
+            }[]
+        ).map((l: { id: string; label: string }) => {
             return {
                 flag: this.langToFlagMapping.has(l.id)
                     ? this.langToFlagMapping.get(l.id)

@@ -2,7 +2,21 @@ app-conditioned-content {
     @apply block;
 }
 
+app-conditioned-content + *:not(app-conditioned-content):not(mat-divider) {
+    @apply inline-block mt-3 #{!important};
+}
+
+ul {
+    @apply mb-3;
+}
+
 app-choice-group {
+    @apply block;
+
+    &:not(:last-child) {
+        @apply mb-3;
+    }
+
     app-choice-item {
         @apply block;
 
@@ -38,6 +52,10 @@ pre {
 
         a {
             @apply text-blue-500 hover:text-blue-300 transition-colors duration-500 underline;
+        }
+
+        p:not(:last-child) {
+            @apply mb-3;
         }
     }
 }

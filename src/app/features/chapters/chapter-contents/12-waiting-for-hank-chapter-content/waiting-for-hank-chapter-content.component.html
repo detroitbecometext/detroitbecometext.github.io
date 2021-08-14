@@ -1,23 +1,31 @@
-<ng-container *transloco="let t">
+<ng-template #loading>
+    <div class="spinner flex flex-row justify-center items-center">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>
+<ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            {{ t('GUI.MENU.DATE.03C') }}<br />
+            {{ t('GUI.MENU.DATE.03C') }}
+            <br />
             {{ t('GUI.MENU.TIME.03C') }}
         </p>
 
         <h1>In the Zen Garden</h1>
 
-        <app-dialogue-line name="Connor">
-            {{ t('X0601C.AMANDA.INTRO.PC.X06CCONNOR.START') }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Amanda">
-            {{
-                translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.INTRO')
-                    | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <app-dialogue-line name="Connor">
+                {{ t('X0601C.AMANDA.INTRO.PC.X06CCONNOR.START') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Amanda">
+                {{
+                    translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.INTRO')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
 
-        <app-conditioned-content class="mt-4">
+        <app-conditioned-content>
             <div class="condition">
                 Connor didn't find the deviant in
                 <a [routerLink]="['/chapters', 6]">Partners</a>
@@ -115,7 +123,7 @@
                         <app-dialogue-line name="Connor">
                             {{
                                 t(
-                                    'X0301C.AMANDA.INTRO.PC.X03CCONNOR.CONNORDEAD["1"]'
+                                    'X0301C.AMANDA.INTRO.PC.X03CCONNOR.CONNORDEAD.1'
                                 )
                             }}
                         </app-dialogue-line>
@@ -130,7 +138,7 @@
                         <app-dialogue-line name="Connor">
                             {{
                                 t(
-                                    'X0301C.AMANDA.INTRO.PC.X03CCONNOR.CONNORDEAD["2"]'
+                                    'X0301C.AMANDA.INTRO.PC.X03CCONNOR.CONNORDEAD.2'
                                 )
                             }}
                         </app-dialogue-line>
@@ -176,13 +184,15 @@
 
                 <mat-divider></mat-divider>
 
-                <app-dialogue-line name="Amanda">
-                    {{
-                        translateObject(
-                            'X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT01'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Amanda">
+                        {{
+                            translateObject(
+                                'X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
 
                 <app-choice-group>
                     <app-choice-item
@@ -267,12 +277,14 @@
 
         <mat-divider></mat-divider>
 
-        <app-dialogue-line name="Amanda">
-            {{
-                translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT02')
-                    | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <app-dialogue-line name="Amanda">
+                {{
+                    translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT02')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
 
         <app-choice-group>
             <app-choice-item
@@ -323,12 +335,14 @@
             </app-choice-item>
         </app-choice-group>
 
-        <app-dialogue-line name="Amanda">
-            {{
-                translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT03')
-                    | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <app-dialogue-line name="Amanda">
+                {{
+                    translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT03')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
 
         <app-choice-group>
             <app-choice-item
@@ -385,19 +399,21 @@
             </app-choice-item>
         </app-choice-group>
 
-        <app-dialogue-line name="Amanda">
-            {{
-                translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT04A')
-                    | async
-            }}
-            {{
-                translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT04B')
-                    | async
-            }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Connor">
-            {{ t('X0301C.AMANDA.INTRO.PC.X03CCONNOR.CONT04C') }}
-        </app-dialogue-line>
+        <p>
+            <app-dialogue-line name="Amanda">
+                {{
+                    translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT04A')
+                        | async
+                }}
+                {{
+                    translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT04B')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0301C.AMANDA.INTRO.PC.X03CCONNOR.CONT04C') }}
+            </app-dialogue-line>
+        </p>
 
         <app-conditioned-content>
             <div class="condition">
@@ -423,12 +439,14 @@
             </div>
         </app-conditioned-content>
 
-        <app-dialogue-line name="Amanda">
-            {{
-                translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT05')
-                    | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <app-dialogue-line name="Amanda">
+                {{
+                    translateObject('X0301C.AMANDA.INTRO.PC.X03CAMANDA.CONT05')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
     </section>
 
     <section>
@@ -436,79 +454,104 @@
 
         <h2>At the reception</h2>
 
-        <strong>Talking to the android at the reception</strong>
-        <app-dialogue-line name="Android">
-            {{ t('X0302C.ARRIVAL.ENTRANCE.PC.X03CANDCOPWOM01.ATTHEDESK.1') }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Connor">
-            {{ t('X0302C.ARRIVAL.ENTRANCE.PC.X03CCONNOR.ATTHEDESKCON.1') }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Android">
-            {{ t('X0302C.ARRIVAL.ENTRANCE.PC.X03CANDCOPWOM01.ATTHEDESK.2') }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Connor">
-            {{ t('X0302C.ARRIVAL.ENTRANCE.PC.X03CCONNOR.ATTHEDESKCON.2') }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Android">
-            {{ t('X0302C.ARRIVAL.ENTRANCE.PC.X03CANDCOPWOM01.ATTHEDESK.3') }}
-        </app-dialogue-line>
+        <p>
+            <strong>Talking to the android at the reception</strong>
+            <app-dialogue-line name="Android">
+                {{
+                    t('X0302C.ARRIVAL.ENTRANCE.PC.X03CANDCOPWOM01.ATTHEDESK.1')
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0302C.ARRIVAL.ENTRANCE.PC.X03CCONNOR.ATTHEDESKCON.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android">
+                {{
+                    t('X0302C.ARRIVAL.ENTRANCE.PC.X03CANDCOPWOM01.ATTHEDESK.2')
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0302C.ARRIVAL.ENTRANCE.PC.X03CCONNOR.ATTHEDESKCON.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android">
+                {{
+                    t('X0302C.ARRIVAL.ENTRANCE.PC.X03CANDCOPWOM01.ATTHEDESK.3')
+                }}
+            </app-dialogue-line>
+        </p>
 
-        <strong>Couple at the reception</strong>
-        <app-dialogue-line name="Woman">
-            {{ t('X0302C.PBY.LINES.FA.X03CRECEPTIONW01.NERVOUS') }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Man">
-            {{
-                translateObject('X0302C.PBY.LINES.FA.X03CRECEPTIONM01.RELAX')
-                    | async
-            }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Woman">
-            {{
-                translateObject('X0302C.PBY.LINES.FA.X03CRECEPTIONW01.HISFACE')
-                    | async
-            }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Man">
-            {{
-                translateObject('X0302C.PBY.LINES.FA.X03CRECEPTIONM01.DETAIL')
-                    | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <strong>Couple at the reception</strong>
+            <app-dialogue-line name="Woman">
+                {{ t('X0302C.PBY.LINES.FA.X03CRECEPTIONW01.NERVOUS') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject(
+                        'X0302C.PBY.LINES.FA.X03CRECEPTIONM01.RELAX'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{
+                    translateObject(
+                        'X0302C.PBY.LINES.FA.X03CRECEPTIONW01.HISFACE'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject(
+                        'X0302C.PBY.LINES.FA.X03CRECEPTIONM01.DETAIL'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
 
-        <strong>Couple next to the TV</strong>
-        <app-dialogue-line name="Woman">
-            {{ t('X0302C.PBY.LINES.FA.X03CRECEPTIONW02.SHOCK') }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Man">
-            {{
-                translateObject('X0302C.PBY.LINES.FA.X03CRECEPTIONM02.WATER')
-                    | async
-            }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Woman">
-            {{
-                translateObject('X0302C.PBY.LINES.FA.X03CRECEPTIONW02', 0, 3)
-                    | async
-            }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Man">
-            {{
-                translateObject('X0302C.PBY.LINES.FA.X03CRECEPTIONM02.THANKS')
-                    | async
-            }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Woman">
-            {{ t('X0302C.PBY.LINES.FA.X03CRECEPTIONW02.TOOLONG') }}
-        </app-dialogue-line>
+        <p>
+            <strong>Couple next to the TV</strong>
+            <app-dialogue-line name="Woman">
+                {{ t('X0302C.PBY.LINES.FA.X03CRECEPTIONW02.SHOCK') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject(
+                        'X0302C.PBY.LINES.FA.X03CRECEPTIONM02.WATER'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{
+                    translateObject(
+                        'X0302C.PBY.LINES.FA.X03CRECEPTIONW02',
+                        0,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject(
+                        'X0302C.PBY.LINES.FA.X03CRECEPTIONM02.THANKS'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{ t('X0302C.PBY.LINES.FA.X03CRECEPTIONW02.TOOLONG') }}
+            </app-dialogue-line>
+        </p>
 
-        <strong>[ <fa-icon icon="tv"></fa-icon> ] Looking at television</strong>
-        <app-dialogue-line name="Michael Brinkley - CTN TV">
-            {{
-                translateObject('X0302C.TV.NEWS.PC.X03CBRINKLEY.RUSSIANCONFLIT')
-                    | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <strong
+                >[ <fa-icon icon="tv"></fa-icon> ] Looking at television</strong
+            >
+            <app-dialogue-line name="Michael Brinkley - CTN TV">
+                {{
+                    translateObject(
+                        'X0302C.TV.NEWS.PC.X03CBRINKLEY.RUSSIANCONFLIT'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
 
         <h2>In the station</h2>
 
@@ -528,21 +571,26 @@
             </div>
         </app-conditioned-content>
 
-        <strong>Asking police android about the desk</strong>
-        <app-dialogue-line name="Connor">
-            {{ t('X0302C.HANKDESK.LOOKINGFOR.PC.X03CCONNOR.HANK') }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Android">
-            {{ t('X0302C.HANKDESK.LOOKINGFOR.PC.X03CANDCOPWOM01.HANKCOP') }}
-        </app-dialogue-line>
+        <p>
+            <strong>Asking police android about the desk</strong>
+            <app-dialogue-line name="Connor">
+                {{ t('X0302C.HANKDESK.LOOKINGFOR.PC.X03CCONNOR.HANK') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android">
+                {{ t('X0302C.HANKDESK.LOOKINGFOR.PC.X03CANDCOPWOM01.HANKCOP') }}
+            </app-dialogue-line>
+        </p>
 
-        <strong>Looking at guy in cell</strong>
-        <app-dialogue-line name="Guy">
-            {{
-                translateObject('X0302C.CELLS.DRUNKGUY.PC.X03CDRUNKGUY.FUCKOFF')
-                    | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <strong>Looking at guy in cell</strong>
+            <app-dialogue-line name="Guy">
+                {{
+                    translateObject(
+                        'X0302C.CELLS.DRUNKGUY.PC.X03CDRUNKGUY.FUCKOFF'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
 
         <app-conditioned-content>
             <div class="condition">
@@ -552,9 +600,11 @@
                 <a [routerLink]="['/chapters', 9]">The Interrogation</a> ]
             </div>
             <div class="content">
-                <app-dialogue-line name="Deviant">
-                    {{ t('X0302C.CELLS.CARLOS.PC.X03CANDCARLOS.START') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Deviant">
+                        {{ t('X0302C.CELLS.CARLOS.PC.X03CANDCARLOS.START') }}
+                    </app-dialogue-line>
+                </p>
 
                 <app-choice-group>
                     <app-choice-item
@@ -611,13 +661,15 @@
                     </app-choice-item>
                 </app-choice-group>
 
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0302C.CELLS.CARLOS.PC.X03CCONNOR.TALKTOME'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0302C.CELLS.CARLOS.PC.X03CCONNOR.TALKTOME'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
 
                 <app-choice-group>
                     <app-choice-item
@@ -684,16 +736,18 @@
                     </app-choice-item>
                 </app-choice-group>
 
-                <app-dialogue-line name="Deviant">
-                    {{ t('X0302C.CELLS.CARLOS.PC.X03CANDCARLOS.GONNADIE') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Ben">
-                    {{
-                        translateObject(
-                            'X0302C.CELLS.ANDGAMEOVER.PC.X03CCHAD.ANDDEAD'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Deviant">
+                        {{ t('X0302C.CELLS.CARLOS.PC.X03CANDCARLOS.GONNADIE') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Ben">
+                        {{
+                            translateObject(
+                                'X0302C.CELLS.ANDGAMEOVER.PC.X03CCHAD.ANDDEAD'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
 
@@ -746,7 +800,7 @@
                                 <app-dialogue-line name="Gavin">
                                     {{
                                         t(
-                                            'X0302C.CAFET.BULLY.PC.X03CCURTIS.CONNORALIVE["4"]'
+                                            'X0302C.CAFET.BULLY.PC.X03CCURTIS.CONNORALIVE.4'
                                         )
                                     }}
                                 </app-dialogue-line>
@@ -801,12 +855,15 @@
             </app-choice-item>
         </app-choice-group>
 
-        <app-dialogue-line name="Gavin">
-            {{
-                translateObject('X0302C.CAFET.BULLY.PC.X03CCURTIS.NEVERSEEN')
-                    | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <app-dialogue-line name="Gavin">
+                {{
+                    translateObject(
+                        'X0302C.CAFET.BULLY.PC.X03CCURTIS.NEVERSEEN'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
 
         <app-choice-group>
             <app-choice-item
@@ -847,14 +904,16 @@
             </app-choice-item>
         </app-choice-group>
 
-        <app-dialogue-line name="Gavin">
-            {{
-                translateObject(
-                    'X0302C.CAFET.BULLY.PC.X03CCURTIS.ANOTHERCOFFEE',
-                    1
-                ) | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <app-dialogue-line name="Gavin">
+                {{
+                    translateObject(
+                        'X0302C.CAFET.BULLY.PC.X03CCURTIS.ANOTHERCOFFEE',
+                        1
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
 
         <app-choice-group>
             <app-choice-item
@@ -966,12 +1025,14 @@
             </div>
         </app-conditioned-content>
 
-        <app-dialogue-line name="Rosanna Cartland - KNC">
-            {{
-                translateObject('X0302C.TV.NEWS.PC.X03CCARTLAND.AIAUTHOR')
-                    | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <app-dialogue-line name="Rosanna Cartland - KNC">
+                {{
+                    translateObject('X0302C.TV.NEWS.PC.X03CCARTLAND.AIAUTHOR')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
 
         <strong>Background dialogues</strong>
         <ul>
@@ -1010,35 +1071,40 @@
             </li>
         </ul>
 
-        <strong>Finding Hank's desk</strong>
-        <app-dialogue-line name="Connor">
-            {{
-                translateObject(
-                    'X0302C.HANKDESK.LOOKINGFOR.PC.X03CCONNOR.HANKAGAIN01'
-                ) | async
-            }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Wilson">
-            {{
-                translateObject(
-                    'X0302C.HANKDESK.LOOKINGFOR.PC.X03CCOP01.HANKAGAIN02',
-                    1
-                ) | async
-            }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Connor">
-            {{ t('X0302C.HANKDESK.LOOKINGFOR.PC.X03CCONNOR.HANKAGAIN02') }}
-        </app-dialogue-line>
+        <p>
+            <strong>Finding Hank's desk</strong>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0302C.HANKDESK.LOOKINGFOR.PC.X03CCONNOR.HANKAGAIN01'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Wilson">
+                {{
+                    translateObject(
+                        'X0302C.HANKDESK.LOOKINGFOR.PC.X03CCOP01.HANKAGAIN02',
+                        1
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0302C.HANKDESK.LOOKINGFOR.PC.X03CCONNOR.HANKAGAIN02') }}
+            </app-dialogue-line>
+        </p>
 
-        <strong>Calling Hank</strong>
-        <app-dialogue-line name="Connor">
-            {{ t('X0302C.HANK.PHONE.PC.X03CCONNOR.CALL') }}
-        </app-dialogue-line>
-        <app-dialogue-line name="Hank">
-            {{
-                translateObject('X0302C.HANK.PHONE.VO.X03CHANK.NOTHERE') | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <strong>Calling Hank</strong>
+            <app-dialogue-line name="Connor">
+                {{ t('X0302C.HANK.PHONE.PC.X03CCONNOR.CALL') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject('X0302C.HANK.PHONE.VO.X03CHANK.NOTHERE')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
 
         <app-choice-group>
             <app-choice-item
@@ -1133,27 +1199,29 @@
             </div>
         </app-conditioned-content>
 
-        <strong>Wilson is on the phone</strong>
-        <app-dialogue-line name="Wilson">
-            {{
-                translateObject('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE01')
-                    | async
-            }}
-            {{ t('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE02') }}
-            {{ t('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE03') }}
-            {{
-                translateObject('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE04')
-                    | async
-            }}
-            {{
-                translateObject('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE05')
-                    | async
-            }}
-            {{
-                translateObject('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE06')
-                    | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <strong>Wilson is on the phone</strong>
+            <app-dialogue-line name="Wilson">
+                {{
+                    translateObject('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE01')
+                        | async
+                }}
+                {{ t('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE02') }}
+                {{ t('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE03') }}
+                {{
+                    translateObject('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE04')
+                        | async
+                }}
+                {{
+                    translateObject('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE05')
+                        | async
+                }}
+                {{
+                    translateObject('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE06')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
 
         <h3>Hank arrives at his desk</h3>
 
@@ -1208,75 +1276,80 @@
             </div>
         </app-conditioned-content>
 
-        <app-dialogue-line name="Fowler">
-            {{
-                translateObject(
-                    'X0302C.HANK.CONNORBACK.PC.X03CFOWLER.INMYOFFICE',
-                    0,
-                    2
-                ) | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <app-dialogue-line name="Fowler">
+                {{
+                    translateObject(
+                        'X0302C.HANK.CONNORBACK.PC.X03CFOWLER.INMYOFFICE',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
 
         <app-conditioned-content>
             <div class="condition">Entering and listening</div>
             <div class="content">
-                <app-dialogue-line name="Fowler">
-                    {{
-                        translateObject(
-                            'X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB00A'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Hank">
-                    {{
-                        translateObject('X0302C.FOWLER.MEET.PC.X03CHANK.JOB00A')
-                            | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Fowler">
-                    {{ t('X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB00B.1') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Hank">
-                    {{ t('X0302C.FOWLER.MEET.PC.X03CHANK.JOB00B') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Fowler">
-                    {{
-                        translateObject(
-                            'X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB00B',
-                            1
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Hank">
-                    {{ t('X0302C.FOWLER.MEET.PC.X03CHANK.JOB01') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Fowler">
-                    {{ t('X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB02.1') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Hank">
-                    {{ t('X0302C.FOWLER.MEET.PC.X03CHANK.JOB02.1') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Fowler">
-                    {{
-                        translateObject(
-                            'X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB02',
-                            1,
-                            3
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Hank">
-                    {{ t('X0302C.FOWLER.MEET.PC.X03CHANK.JOB02.2') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Fowler">
-                    {{
-                        translateObject(
-                            'X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB02',
-                            3
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Fowler">
+                        {{
+                            translateObject(
+                                'X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB00A'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0302C.FOWLER.MEET.PC.X03CHANK.JOB00A'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Fowler">
+                        {{ t('X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB00B.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0302C.FOWLER.MEET.PC.X03CHANK.JOB00B') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Fowler">
+                        {{
+                            translateObject(
+                                'X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB00B',
+                                1
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0302C.FOWLER.MEET.PC.X03CHANK.JOB01') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Fowler">
+                        {{ t('X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB02.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0302C.FOWLER.MEET.PC.X03CHANK.JOB02.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Fowler">
+                        {{
+                            translateObject(
+                                'X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB02',
+                                1,
+                                3
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0302C.FOWLER.MEET.PC.X03CHANK.JOB02.2') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Fowler">
+                        {{
+                            translateObject(
+                                'X0302C.FOWLER.MEET.PC.X03CFOWLER.JOB02',
+                                3
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
 
                 <app-choice-group>
                     <app-choice-item
@@ -1552,7 +1625,7 @@
                     {{ t('X0302C.HANK.PARTNER2.PC.X03CHANK.BASKET') }}
                 </app-dialogue-line>
                 <app-dialogue-line name="Connor">
-                    {{ t('X0302C.HANK.PARTNER2.PC.X03CCONNOR.BASKET["4"]') }}
+                    {{ t('X0302C.HANK.PARTNER2.PC.X03CCONNOR.BASKET.4') }}
                 </app-dialogue-line>
             </app-choice-item>
             <app-choice-item
@@ -1648,22 +1721,25 @@
             <app-choice-item
                 [choiceLabel]="t('X0302C.HANK.PARTNER2.PC.CHOICEGROUP02.FILE')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0302C.HANK.PARTNER2.PC.X03CCONNOR.FILE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Hank">
-                    {{ t('X0302C.HANK.PARTNER2.PC.X03CHANK.FILE') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject('X0302C.DESK.FILES.PC.X03CCONNOR.START')
-                            | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0302C.HANK.PARTNER2.PC.X03CCONNOR.FILE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0302C.HANK.PARTNER2.PC.X03CHANK.FILE') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0302C.DESK.FILES.PC.X03CCONNOR.START'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
 
                 <app-conditioned-content>
                     <div class="condition">
@@ -1711,9 +1787,11 @@
                     </div>
                 </app-conditioned-content>
 
-                <app-dialogue-line name="Hank">
-                    {{ t('X0302C.DESK.FILES.PC.X03CHANK.TOCHOICE01CYC') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0302C.DESK.FILES.PC.X03CHANK.TOCHOICE01CYC') }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
@@ -1822,12 +1900,14 @@
             </app-choice-item>
         </app-choice-group>
 
-        <app-dialogue-line name="Hank">
-            {{
-                translateObject('X0302C.DESK.FILES.PC.X03CHANK.GRABCOLLAR')
-                    | async
-            }}
-        </app-dialogue-line>
+        <p>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject('X0302C.DESK.FILES.PC.X03CHANK.GRABCOLLAR')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
 
         <app-conditioned-content>
             <div class="condition">
