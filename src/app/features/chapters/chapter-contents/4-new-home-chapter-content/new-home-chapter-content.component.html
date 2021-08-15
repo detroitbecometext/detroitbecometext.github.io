@@ -6,333 +6,449 @@
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            {{ t('GUI.MENU.DATE.01K2') }}<br />
+            {{ t('GUI.MENU.DATE.01K2') }}
+            <br />
             {{ t('GUI.MENU.TIME.01K2') }}
         </p>
 
         <h1>At Todd's house</h1>
 
+        <h2>
+            [ <fa-icon icon="hourglass-end"></fa-icon> ] Not coming immediately
+        </h2>
         <p>
-            <strong
-                ><fa-icon icon="hourglass-end"></fa-icon> Not coming
-                immediately</strong
-            >
-            <br /><span class="name">Todd</span>:
-            {{ t('X0101K.HOUSE.ARRIVAL.PC.X01KINTDAD.INTROINSIDE.1') }}
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.HOUSE.ARRIVAL.PC.X01KINTDAD.INTROINSIDE.1') }}
+            </app-dialogue-line>
         </p>
 
         <h2>Inside</h2>
 
         <p>
-            <span class="name">Todd</span>:
-            {{
-                translateObject(
-                    'X0101K.HOUSE.ARRIVAL.PC.X01KINTDAD.INTROINSIDE',
-                    1,
-                    10
-                ) | async
-            }}
-            <br /><span class="name">Kara</span>:
-            {{ t('X0101K.HOUSE.ARRIVAL.PC.X01KKARA.KARAV2["1"]') }} <br />
-            <span class="name">Todd</span>:
-            {{ t('X0101K.HOUSE.ARRIVAL.PC.X01KINTDAD.INTROINSIDE.11') }}
-        </p>
-
-        <p>
-            <strong>Todd in the living room</strong>
-            <br /><span class="name">Todd</span>: TV on.
-        </p>
-        <p>
-            <strong>Todd on the phone</strong>
-            <br /><span class="name">Todd</span>:
-            {{
-                translateObject('X0101K.HOUSE.DRUGCALL.PC.X01KINTDAD.PHONE01')
-                    | async
-            }}
-        </p>
-
-        <p>
-            <strong>Doing the dishes</strong> [
-            <span appRelation="small up">Alice</span> ] <br />
-            <span class="name">Todd</span>:
-            {{ t('X0101K.BEER.ASK.PC.X01KINTDAD.CALL01["1"]') }} <br />
-            <span class="name">Kara</span>:
-            {{ t('X0101K.BEER.ASK.FA.X01KKARA.CALL02["1"]') }} <br /><span
-                class="name"
-                >Todd</span
-            >: {{ t('X0101K.BEER.ASK.PC.X01KINTDAD.CALL01["2"]') }}<br />
-            <span class="name">Kara</span>:
-            {{ t('X0101K.BEER.ASK.FA.X01KKARA.CALL02["2"]') }} <br />
-            <span class="name">Todd</span>:
-            {{ t('X0101K.BEER.ASK.PC.X01KINTDAD.CALL01["3"]') }}
-        </p>
-
-        <p>
-            <strong>Looking at the TV for too long</strong>
-            <br />
-            <span class="name">Todd</span>:
-            {{
-                translateObject('X0101K.TV.ENDTIMER.PC.X01KINTDAD.GO01') | async
-            }}
-            <br />
-            <span class="name">Kara</span>:
-            {{ t('X0101K.TV.ENDTIMER.PC.X01KKARA.GOLEFT') }}
-        </p>
-
-        <p>
-            <strong>Going in front of the TV</strong>
-            <br /><span class="name">Todd</span>:
-            {{ t('X0101K.TV.WARNING.FA.X01KINTDAD.CLEAROFF01') }} <br /><span
-                class="name"
-                >Kara</span
-            >: {{ t('X0101K.TV.WARNING.PC.X01KKARA.CLEAROFFLEFT') }}
-        </p>
-
-        <p>
-            <strong>Activating vacuum</strong>
-            <br /><span class="name">Todd</span>:
-            {{
-                translateObject('X0101K.NPCTODD.VACUUM.PC.X01KINTDAD.STOP')
-                    | async
-            }}
-        </p>
-
-        <strong>Going in the garden - Talking with Alice</strong>
-        <div class="choices">
-            <em>GAME</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>:
+            <app-dialogue-line name="Todd">
                 {{
                     translateObject(
-                        'X0101K.GARDEN.ALICE.PC.X01KKARA.BASKETPLAY'
+                        'X0101K.HOUSE.ARRIVAL.PC.X01KINTDAD.INTROINSIDE',
+                        1,
+                        10
                     ) | async
                 }}
-            </div>
-            <em>BACKYARD</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>:
-                {{ t('X0101K.GARDEN.ALICE.PC.X01KKARA.BASKETGARDEN') }}
-            </div>
-            <em>WEATHER</em>
-            <div class="choice">
-                <span class="name">Kara</span>:
-                {{
-                    translateObject(
-                        'X0101K.GARDEN.ALICE.PC.X01KKARA.BASKETCOLD'
-                    ) | async
-                }}
-            </div>
-            <em>SCHOOL</em>
-            <div class="choice">
-                <span class="name">Kara</span>:
-                {{ t('X0101K.GARDEN.ALICE.PC.X01KKARA.BASKETSCHOOL') }}
-            </div>
-        </div>
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{ t('X0101K.HOUSE.ARRIVAL.PC.X01KKARA.KARAV2.1') }}
+            </app-dialogue-line>
 
-        <p>
-            <strong>Rewash clothes - Find Red Ice</strong>
-            <br />
-            <span class="name">Todd</span>:
-            {{
-                translateObject(
-                    'X0101K.LAUNDRY.DETERGENT.PC.X01KINTDAD.DRUG',
-                    0,
-                    2
-                ) | async
-            }}
-            <br />
-            <span class="name">Kara</span>:
-            {{ t('X0101K.LAUNDRY.DETERGENT.FA.X01KKARA.KARAVAR') }} <br />
-            <span class="name">Todd</span>:
-            {{
-                translateObject(
-                    'X0101K.LAUNDRY.DETERGENT.PC.X01KINTDAD.DRUG',
-                    2
-                ) | async
-            }}<br />
-            <span class="name">Kara</span>:
-            {{ t('X0101K.LAUNDRY.DETERGENT.FA.X01KKARA.KARA') }}
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.HOUSE.ARRIVAL.PC.X01KINTDAD.INTROINSIDE.11') }}
+            </app-dialogue-line>
         </p>
 
-        <strong>Talk to Alice (next to the window)</strong>
-        <div class="choices">
-            <em>TOY</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>:
+        <h2>Todd in the living room</h2>
+        <p>
+            <app-dialogue-line name="Todd"> TV on. </app-dialogue-line>
+        </p>
+
+        <h2>Todd on the phone</h2>
+        <p>
+            <app-dialogue-line name="Todd">
                 {{
-                    translateObject('X0101K.ALICE.DOLLNAME.PC.X01KKARA.DOLLY')
+                    translateObject(
+                        'X0101K.HOUSE.DRUGCALL.PC.X01KINTDAD.PHONE01'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Doing the dishes</h2>
+        <p>
+            <app-relation
+                name="Alice"
+                [type]="RelationType.SmallUp"
+            ></app-relation>
+
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.BEER.ASK.PC.X01KINTDAD.CALL01.1') }}
+            </app-dialogue-line>
+
+            <app-dialogue-line name="Kara">
+                {{ t('X0101K.BEER.ASK.FA.X01KKARA.CALL02.1') }}
+            </app-dialogue-line>
+            <span class="name">Todd</span>:
+            {{ t('X0101K.BEER.ASK.PC.X01KINTDAD.CALL01.2') }}
+
+            <app-dialogue-line name="Kara">
+                {{ t('X0101K.BEER.ASK.FA.X01KKARA.CALL02.2') }}
+            </app-dialogue-line>
+
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.BEER.ASK.PC.X01KINTDAD.CALL01.3') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Looking at the TV for too long</h2>
+        <p>
+            <app-dialogue-line name="Todd">
+                {{
+                    translateObject('X0101K.TV.ENDTIMER.PC.X01KINTDAD.GO01')
                         | async
                 }}
-            </div>
-        </div>
-        <p>
-            <strong>Taking out the trash – enter the house again</strong>
-            <br />
-            <!-- TODO: Check if the rest of the dialogue triggers -->
-            <span class="name">Todd</span>:
-            {{ t('X0101K.NPCTODD.ADDICTED.PC.X01KINTDAD.FINDLIGHTER01["5"]') }}
+            </app-dialogue-line>
+
+            <app-dialogue-line name="Kara">
+                {{ t('X0101K.TV.ENDTIMER.PC.X01KKARA.GOLEFT') }}
+            </app-dialogue-line>
         </p>
+
+        <h2>Going in front of the TV</h2>
         <p>
-            <strong>Background dialogues</strong>
-            <br /><span class="name">Todd</span>:
-            {{
-                translateObject('X0101K.NPCTODD.SMOKE.VO.X01KINTDAD.IDLE03')
-                    | async
-            }}
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.TV.WARNING.FA.X01KINTDAD.CLEAROFF01') }}
+            </app-dialogue-line>
+            <span class="name">Kara</span>:
+            {{ t('X0101K.TV.WARNING.PC.X01KKARA.CLEAROFFLEFT') }}
+        </p>
+
+        <h2>Activating vacuum</h2>
+        <p>
+            <app-dialogue-line name="Todd">
+                {{
+                    translateObject('X0101K.NPCTODD.VACUUM.PC.X01KINTDAD.STOP')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Going in the garden - Talking with Alice</h2>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101K.GARDEN.ALICE.PC.BASKETCHOICE.BASKETPLAY')
+                "
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0101K.GARDEN.ALICE.PC.X01KKARA.BASKETPLAY'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101K.GARDEN.ALICE.PC.BASKETCHOICE.BASKETGARDEN')
+                "
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{ t('X0101K.GARDEN.ALICE.PC.X01KKARA.BASKETGARDEN') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101K.GARDEN.ALICE.PC.BASKETCHOICE.BASKETCOLD')
+                "
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0101K.GARDEN.ALICE.PC.X01KKARA.BASKETCOLD'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101K.GARDEN.ALICE.PC.BASKETCHOICE.BASKETSCHOOL')
+                "
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0101K.GARDEN.ALICE.PC.X01KKARA.BASKETSCHOOL') }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
+
+        <h2>Rewash clothes - Find Red Ice</h2>
+        <p>
+            <app-dialogue-line name="Todd">
+                {{
+                    translateObject(
+                        'X0101K.LAUNDRY.DETERGENT.PC.X01KINTDAD.DRUG',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+
+            <app-dialogue-line name="Kara">
+                {{ t('X0101K.LAUNDRY.DETERGENT.FA.X01KKARA.KARAVAR') }}
+            </app-dialogue-line>
+
+            <app-dialogue-line name="Todd">
+                {{
+                    translateObject(
+                        'X0101K.LAUNDRY.DETERGENT.PC.X01KINTDAD.DRUG',
+                        2
+                    ) | async
+                }}</app-dialogue-line
+            >
+
+            <app-dialogue-line name="Kara">
+                {{ t('X0101K.LAUNDRY.DETERGENT.FA.X01KKARA.KARA') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Talk to Alice (next to the window)</h2>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0101K.ALICE.DOLLNAME.PC.CROUCH.DOLLY')"
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0101K.ALICE.DOLLNAME.PC.X01KKARA.DOLLY'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
+
+        <h2>Taking out the trash – enter the house again</h2>
+        <p>
+            <!-- TODO: Check if the rest of the dialogue triggers -->
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.NPCTODD.ADDICTED.PC.X01KINTDAD.FINDLIGHTER01.5') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Background dialogues</h2>
+        <p>
+            <app-dialogue-line name="Todd">
+                {{
+                    translateObject('X0101K.NPCTODD.SMOKE.VO.X01KINTDAD.IDLE03')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <h2>Upstairs</h2>
         <p>
-            <span class="name">Kara</span>:
-            {{ t('X0101K.FATHER.TASKS.PC.X01KKARA.FLOOR01V2') }} <br />
-            <span class="name">Todd</span>:
-            {{ t('X0101K.FATHER.TASKS.FA.X01KINTDAD.FLOOR02') }}
+            <app-dialogue-line name="Kara">
+                {{ t('X0101K.FATHER.TASKS.PC.X01KKARA.FLOOR01V2') }}
+            </app-dialogue-line>
+
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.FATHER.TASKS.FA.X01KINTDAD.FLOOR02') }}
+            </app-dialogue-line>
         </p>
 
-        <h3>In Todd's room</h3>
+        <h1>In Todd's room</h1>
+        <h2>[ <fa-icon icon="tv"></fa-icon> ] Looking at the TV</h2>
         <p>
-            <strong><fa-icon icon="tv"></fa-icon> Looking at the TV</strong>
-            <br /><span class="name">Michael Webb - Channel 16</span>:
-            {{ translateObject('X0101K.TV.NEWS.PC.X01KWEBB.SPORTS') | async }}
-            <br /><span class="name">Michael Brinkley - CTN TV</span>:
-            {{ t('X0101K.TV.NEWS.PC.X01KBRINKLEY.UNEMPLOYMENT01') }} <br />
-            <span class="name">Rosanna Cartland - KNC</span>:
-            {{
-                translateObject('X0101K.TV.NEWS.PC.X01KCARTLAND.PRESIDENT')
-                    | async
-            }}
-        </p>
-
-        <p>
-            <strong>Running into Todd</strong>
-            <br /><span class="name">Todd</span>:
-            {{ t('X0101K.NPCTODD.JUSTAMAN.PC.X01KINTDAD.TOILET') }}
-        </p>
-
-        <h3>In Alice's room</h3>
-        <div class="condition">
-            <strong>Todd's room was cleaned before Alice's room</strong>
-            <div class="condition-text">
-                <span class="name">Kara</span>:
+            <app-dialogue-line name="Michael Webb - Channel 16">
                 {{
-                    translateObject('X0101K.ALICE.ROOM.PC.X01KKARA.TIDY')
+                    translateObject('X0101K.TV.NEWS.PC.X01KWEBB.SPORTS') | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Michael Brinkley - CTN TV">
+                {{ t('X0101K.TV.NEWS.PC.X01KBRINKLEY.UNEMPLOYMENT01') }}
+            </app-dialogue-line>
+
+            <app-dialogue-line name="Rosanna Cartland - KNC">
+                {{
+                    translateObject('X0101K.TV.NEWS.PC.X01KCARTLAND.PRESIDENT')
                         | async
                 }}
-            </div>
-        </div>
-
-        <p>
-            <strong>Looking at the book on the floor</strong> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <br /><span class="name">Kara</span>:
-            {{ translateObject('X0101K.ALICE.BOOK.PC.X01KKARA.TITLE') | async }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Running into Todd</h2>
         <p>
-            <strong>Looking at books</strong>
-            <br /><span class="name">Kara</span>:
-            {{ t('X0101K.ALICE.SHELF.PC.X01KKARA.READ') }}
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.NPCTODD.JUSTAMAN.PC.X01KINTDAD.TOILET') }}
+            </app-dialogue-line>
         </p>
 
-        <strong>Talking with Alice</strong>
-        <div class="choices">
-            <em>FACTUAL</em>
-            <div class="choice">
-                <span class="name">Kara</span>:
-                {{ t('X0101K.ALICE.TENT.PC.X01KKARA.RATIONAL') }}
+        <h1>In Alice's room</h1>
+        <app-conditioned-content>
+            <div class="condition">
+                Todd's room was cleaned before Alice's room
             </div>
-            <em>FRIENDLY</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>:
+            <div class="content">
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0101K.ALICE.ROOM.PC.X01KKARA.TIDY')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+
+        <h2>Looking at the book on the floor</h2>
+        <p>
+            <app-relation
+                name="Alice"
+                [type]="RelationType.SmallUp"
+            ></app-relation>
+
+            <app-dialogue-line name="Kara">
                 {{
-                    translateObject('X0101K.ALICE.TENT.PC.X01KKARA.FRIENDLY')
+                    translateObject('X0101K.ALICE.BOOK.PC.X01KKARA.TITLE')
                         | async
                 }}
-            </div>
-            <em>DIPLOMATIC</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>:
-                {{
-                    translateObject('X0101K.ALICE.TENT.PC.X01KKARA.CAUTIOUS')
-                        | async
-                }}
-            </div>
-        </div>
+            </app-dialogue-line>
+        </p>
+
+        <h2>Looking at books</h2>
+        <p>
+            <app-dialogue-line name="Kara">
+                {{ t('X0101K.ALICE.SHELF.PC.X01KKARA.READ') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Talking with Alice</h2>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0101K.ALICE.TENT.PC.TENTCHOICE01.RATIONAL')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0101K.ALICE.TENT.PC.X01KKARA.RATIONAL') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0101K.ALICE.TENT.PC.TENTCHOICE01.FRIENDLY')"
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0101K.ALICE.TENT.PC.X01KKARA.FRIENDLY'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0101K.ALICE.TENT.PC.TENTCHOICE01.CAUTIOUS')"
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0101K.ALICE.TENT.PC.X01KKARA.CAUTIOUS'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
-        <div class="choices">
-            <em>NAME KARA</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>:
-                {{
-                    translateObject('X0101K.ALICE.TENT.PC.X01KKARA.NAME')
-                        | async
-                }}
-            </div>
-            <em>INTERESTS?</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>:
-                {{
-                    translateObject('X0101K.ALICE.TENT.PC.X01KKARA.TASTES')
-                        | async
-                }}
-            </div>
-            <em>SEEM QUIET</em>
-            <div class="choice">
-                <span class="name">Kara</span>:
-                {{
-                    translateObject('X0101K.ALICE.TENT.PC.X01KKARA.TIMID')
-                        | async
-                }}
-            </div>
-            <em>MOTHER?</em> [
-            <span appRelation="small down">Alice</span>
-            ]
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0101K.ALICE.TENT.PC.TENTCHOICE02.NAME')"
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
 
-            <div class="choice">
-                <span class="name">Kara</span>:
-                {{
-                    translateObject('X0101K.ALICE.TENT.PC.X01KKARA.MOTHER')
-                        | async
-                }}
-            </div>
-            <em>LEAVE ALONE</em>
-            <div class="choice">
-                <span class="name">Kara</span>:
-                {{
-                    translateObject('X0101K.ALICE.TENT.PC.X01KKARA.ALONE')
-                        | async
-                }}
-            </div>
-        </div>
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0101K.ALICE.TENT.PC.X01KKARA.NAME')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0101K.ALICE.TENT.PC.TENTCHOICE02.TASTES')"
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0101K.ALICE.TENT.PC.X01KKARA.TASTES')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0101K.ALICE.TENT.PC.TENTCHOICE02.TIMID')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0101K.ALICE.TENT.PC.X01KKARA.TIMID')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0101K.ALICE.TENT.PC.TENTCHOICE02.MOTHER')"
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0101K.ALICE.TENT.PC.X01KKARA.MOTHER')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0101K.ALICE.TENT.PC.TENTCHOICE02.ALONE')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0101K.ALICE.TENT.PC.X01KKARA.ALONE')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
 
         <h2>Going back downstairs</h2>
         <p>
-            <span class="name">Todd</span>:
-            {{ t('X0101K.END.HOMEWORKS.PC.X01KINTDAD.ATTACK["1"]') }}
-            <br /><span class="name">Alice</span>:
-            {{ t('X0101K.END.HOMEWORKS.FA.X01KALICE.ALICE') }} <br />
-            <span class="name">Todd</span>:
-            {{
-                translateObject('X0101K.END.HOMEWORKS.PC.X01KINTDAD.ATTACK', 1)
-                    | async
-            }}
+            <app-dialogue-line name="Todd">
+                {{ t('X0101K.END.HOMEWORKS.PC.X01KINTDAD.ATTACK.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Alice">
+                {{ t('X0101K.END.HOMEWORKS.FA.X01KALICE.ALICE') }}
+            </app-dialogue-line>
+
+            <app-dialogue-line name="Todd">
+                {{
+                    translateObject(
+                        'X0101K.END.HOMEWORKS.PC.X01KINTDAD.ATTACK',
+                        1
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
     </section>
 </ng-container>
