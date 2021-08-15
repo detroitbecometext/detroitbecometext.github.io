@@ -1,45 +1,70 @@
-<ng-container *transloco="let t">
+<ng-template #loading>
+    <div class="spinner flex flex-row justify-center items-center">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>
+<ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            {{ t('GUI.MENU.DATE.01C') }}<br />
+            {{ t('GUI.MENU.DATE.01C') }}
+            <br />
             {{ t('GUI.MENU.TIME.01C') }}
         </p>
 
         <h1>Out of the elevator</h1>
         <p>
-            <span class="name">SWAT</span>:
-            {{ t('X0101X.INTRO.SWAT.VO.X01SWAT01.NEGOCIATOR') }}
-            {{ t('X0101X.INTRO.SWAT.VO.X01SWAT01.NEGOCIATOR02') }}<br />
-            <span class="name">Caroline Phillips</span>:
-            {{
-                translateObject(
-                    'X0101X.INTRO.MUM.FA.X01MOTHER.ENCOUNTERS',
-                    0,
-                    4
-                ) | async
-            }}<br />
-            <span class="name">SWAT</span>:
-            {{ t('X0101X.INTRO.MUM.VO.X01SWAT11.MUM') }}<br />
-            <span class="name">Caroline Phillips</span>:
-            {{
-                translateObject('X0101X.INTRO.MUM.FA.X01MOTHER.ENCOUNTERS', 4)
-                    | async
-            }}
-            {{ translateObject('X0101X.INTRO.MUM.FA.X01MOTHER.LEAVE') | async }}
+            <app-dialogue-line name="SWAT">
+                {{ t('X0101X.INTRO.SWAT.VO.X01SWAT01.NEGOCIATOR') }}
+                {{
+                    t('X0101X.INTRO.SWAT.VO.X01SWAT01.NEGOCIATOR02')
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Caroline Phillips">
+                {{
+                    translateObject(
+                        'X0101X.INTRO.MUM.FA.X01MOTHER.ENCOUNTERS',
+                        0,
+                        4
+                    ) | async
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="SWAT">
+                {{ t('X0101X.INTRO.MUM.VO.X01SWAT11.MUM') }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Caroline Phillips">
+                {{
+                    translateObject(
+                        'X0101X.INTRO.MUM.FA.X01MOTHER.ENCOUNTERS',
+                        4
+                    ) | async
+                }}
+                {{
+                    translateObject('X0101X.INTRO.MUM.FA.X01MOTHER.LEAVE')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
         <p>
-            <span class="name">Allen</span>:
-            {{
-                translateObject(
-                    'X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.NEGOCIATORV2'
-                ) | async
-            }}
+            <app-dialogue-line name="Allen">
+                {{
+                    translateObject(
+                        'X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.NEGOCIATORV2'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
         <p><strong>Background dialogues</strong></p>
         <p>
-            <span class="name">SWAT 1</span>: That bastard's gonna jump...
-            <br /><span class="name">SWAT 2</span>: Fuck, man... I got the same
-            model at home.
+            <app-dialogue-line name="SWAT 1">
+                {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT03.TALK02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="SWAT 2">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT04.TALK02'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
     </section>
 
@@ -48,74 +73,111 @@
     <section>
         <h1>Talking to Allen</h1>
         <p>
-            <span class="name">Connor</span>:
-            {{
-                translateObject('X0101X.ALLEN.TOPO.PC.X01CONNOR.SITUATIONC')
-                    | async
-            }}<br />
-            <span class="name">Allen</span>:
-            {{
-                translateObject(
-                    'X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.SITUATIONV2'
-                ) | async
-            }}
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject('X0101X.ALLEN.TOPO.PC.X01CONNOR.SITUATIONC')
+                        | async
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Allen">
+                {{
+                    translateObject(
+                        'X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.SITUATIONV2'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="choices">
-            <em>{{ t('X0101X.ALLEN.TOPO.PC.SITUATIONCHOICE.ANDROIDNAME') }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{ t('X0101X.ALLEN.TOPO.PC.X01CONNOR.ANDROIDNAMEC') }}<br />
-                <span class="name">Allen</span>:
-                {{ t('X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.FIRSTQUESTIONV2')
-                }}<br />
-                <span class="name">Connor</span>:
-                {{ t('X0101X.ALLEN.TOPO.PC.X01CONNOR.FIRSTQUESTIONC') }}
-            </div>
-            <em>{{ t('X0101X.ALLEN.TOPO.PC.SITUATIONCHOICE.BEHAVIOR') }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{ t('X0101X.ALLEN.TOPO.PC.X01CONNOR.BEHAVIORC') }}<br />
-                <span class="name">Allen</span>:
-                {{ t('X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.FIRSTQUESTIONV2')
-                }}<br />
-                <span class="name">Connor</span>:
-                {{ t('X0101X.ALLEN.TOPO.PC.X01CONNOR.FIRSTQUESTIONC') }}
-            </div>
-            <em>{{
-                t('X0101X.ALLEN.TOPO.PC.SITUATIONCHOICE.EMOTIONALSHOCK')
-            }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{ t('X0101X.ALLEN.TOPO.PC.X01CONNOR.EMOTIONALSHOCKC') }}<br />
-                <span class="name">Allen</span>:
-                {{ t('X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.FIRSTQUESTIONV2')
-                }}<br />
-                <span class="name">Connor</span>:
-                {{ t('X0101X.ALLEN.TOPO.PC.X01CONNOR.FIRSTQUESTIONC') }}
-            </div>
-            <em>{{
-                t('X0101X.ALLEN.TOPO.PC.SITUATIONCHOICE.DEACTIVATION')
-            }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{ t('X0101X.ALLEN.TOPO.PC.X01CONNOR.DEACTIVATIONC') }}<br />
-                <span class="name">Allen</span>:
-                {{ t('X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.DEACTIVATIONV2.1') }}
-            </div>
-        </div>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.ALLEN.TOPO.PC.SITUATIONCHOICE.ANDROIDNAME')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        t('X0101X.ALLEN.TOPO.PC.X01CONNOR.ANDROIDNAMEC')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Allen">
+                    {{
+                        t('X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.FIRSTQUESTIONV2')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Connor">
+                    {{ t('X0101X.ALLEN.TOPO.PC.X01CONNOR.FIRSTQUESTIONC') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.ALLEN.TOPO.PC.SITUATIONCHOICE.BEHAVIOR')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        t('X0101X.ALLEN.TOPO.PC.X01CONNOR.BEHAVIORC')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Allen">
+                    {{
+                        t('X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.FIRSTQUESTIONV2')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Connor">
+                    {{ t('X0101X.ALLEN.TOPO.PC.X01CONNOR.FIRSTQUESTIONC') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.ALLEN.TOPO.PC.SITUATIONCHOICE.EMOTIONALSHOCK')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        t('X0101X.ALLEN.TOPO.PC.X01CONNOR.EMOTIONALSHOCKC')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Allen">
+                    {{
+                        t('X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.FIRSTQUESTIONV2')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Connor">
+                    {{ t('X0101X.ALLEN.TOPO.PC.X01CONNOR.FIRSTQUESTIONC') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.ALLEN.TOPO.PC.SITUATIONCHOICE.DEACTIVATION')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        t('X0101X.ALLEN.TOPO.PC.X01CONNOR.DEACTIVATIONC')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Allen">
+                    {{
+                        t(
+                            'X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.DEACTIVATIONV2.1'
+                        )
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
 
         <p>
             <span class="note"
                 >Allen will always answer this to the second choice, and end the
                 dialogue</span
-            ><br />
-            <span class="name">Allen</span>:
-            {{
-                translateObject(
-                    'X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.SECONDQUESTIONV2'
-                ) | async
-            }}
+            >
+            <app-dialogue-line name="Allen">
+                {{
+                    translateObject(
+                        'X0101X.ALLEN.TOPO.PC.X01SWATCAPTAIN.SECONDQUESTIONV2'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
     </section>
 
@@ -123,191 +185,248 @@
 
     <section>
         <h1>Investigating</h1>
+
+        <h2>Looking at Emma's tablet</h2>
         <p>
-            <strong>Looking at Emma's tablet</strong>
-            <br /><span class="name">Emma</span>:
-            {{ t('X0101X.HOLOPHOTO.HAPPYDAYS.PC.X01HOSTAGE.DANIELV2.1') }}<br />
-            <span class="name">Daniel</span>:
-            {{ t('X0101X.HOLOPHOTO.HAPPYDAYS.PC.X01ANDROID.DANIELV2') }}<br />
-            <span class="name">Emma</span>:
-            {{ t('X0101X.HOLOPHOTO.HAPPYDAYS.PC.X01HOSTAGE.DANIELV2.2') }}
-        </p>
-        <p>
-            <strong>Coming into the living room</strong>
-            <br /><span class="name">Allen</span>:
-            {{ t('X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS01V2') }}
-        </p>
-        <p>
-            <span class="name">SWAT</span>:
-            {{ t('X0101X.SWAT.TIMER.VO.X01SWAT01.READY') }}
-        </p>
-        <p>
-            <strong>Looking at the father's tablet</strong>
-            <br /><span class="name">Tablet</span>:
-            {{
-                translateObject('X0101X.LIVINGROOM.TABLET.VO.WOMGEN.THANK')
-                    | async
-            }}
-        </p>
-        <p><strong>Background dialogues</strong></p>
-        <p>
-            <span class="name">Daniel</span>:
-            {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01ANDROID.SHOUTS01') }}
-        </p>
-        <p>
-            <span class="name">Allen</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS02V2'
-                ) | async
-            }}
-        </p>
-        <p>
-            <span class="name">Daniel</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.VO.X01ANDROID.SHOUTS02'
-                ) | async
-            }}
-        </p>
-        <p>
-            <span class="name">Allen</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS03V2'
-                ) | async
-            }}
-        </p>
-        <p>
-            <span class="name">Daniel</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.VO.X01ANDROID.SHOUTS03'
-                ) | async
-            }}
-        </p>
-        <p>
-            <span class="name">Allen</span>:
-            {{ t('X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS04V2') }}
-        </p>
-        <p>
-            <span class="name">SWAT 1</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT09.TALK04'
-                ) | async
-            }}<br />
-            <span class="name">SWAT 2</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT10.TALK04'
-                ) | async
-            }}
-        </p>
-        <p>
-            <strong>SWAT gets shot</strong>
-            <br /><span class="name">SWAT 1</span>:
-            {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT10.WOUNDED01') }}<br />
-            <span class="name">Allen</span>:
-            {{ t('X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.EVACUATION')
-            }}<br />
-            <span class="name">SWAT 1</span>:
-            {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT10.WOUNDED02') }}<br />
-            <span class="name">SWAT 2</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT07.WOUNDED02'
-                ) | async
-            }}
-        </p>
-        <p>
-            <strong>Dialogues after SWAT changed positions</strong>
-            <br /><span class="name">SWAT 1</span>:
-            {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT13.TOOCLOSE03') }}
-        </p>
-        <p>
-            <strong>In the kitchen</strong>
-        </p>
-        <p>
-            <span class="name">SWAT</span>:
-            {{ t('X0101X.SWAT.TIMER.VO.X01SWAT01.READY') }}
-        </p>
-        <p>
-            <span class="name">SWAT</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT06.TALK05'
-                ) | async
-            }}
-        </p>
-        <p>
-            <strong>At the window</strong>
-            <br /><span class="name">SWAT 1</span>:
-            {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT09.TALK01') }}
-            <br /><span class="name">SWAT 2</span>:
-            {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT10.TALK01') }}
-        </p>
-        <p>
-            <strong>Be in the way</strong>
-            <br /><span class="name">SWAT</span>:
-            {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT06.TOOCLOSE02') }}
-        </p>
-        <p>
-            <strong>Standing idle in the kitchen</strong>
-            <br /><span class="name">SWAT</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT04.TOOCLOSE01'
-                ) | async
-            }}
-        </p>
-        <p>
-            <strong>Standing idle elsewhere</strong>
-        </p>
-        <p>
-            <span class="name">Daniel</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.VO.X01ANDROID.SHOUTS04'
-                ) | async
-            }}
-        </p>
-        <p>
-            <span class="name">Allen</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS05V2'
-                ) | async
-            }}
-        </p>
-        <p>
-            <span class="name">Daniel</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.GUNSHOTS.VO.X01ANDROID.SHOUTS06'
-                ) | async
-            }}
-        </p>
-        <p>
-            <span class="name">Allen</span>:
-            {{ t('X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS06V2') }}
-        </p>
-        <p>
-            <strong><fa-icon icon="tv"></fa-icon> Looking at television</strong>
-            <br /><span class="name">Reporter - ITM TV</span> :
-            {{ t('X0101X.TV.NEWS.PC.X01TVSPEAKER.TVNEWSV2') }}
-        </p>
-        <p>
-            <strong
-                ><fa-icon icon="hourglass-end"></fa-icon> Taking too much
-                time</strong
+            <app-dialogue-line name="Emma">
+                {{
+                    t('X0101X.HOLOPHOTO.HAPPYDAYS.PC.X01HOSTAGE.DANIELV2.1')
+                }}</app-dialogue-line
             >
-            <br /><span class="name">Allen</span>:
-            {{
-                translateObject(
-                    'X0101X.LIVINGROOM.ENDTIMER.PC.X01SWATCAPTAIN.GOTALKV2'
-                ) | async
-            }}
+            <app-dialogue-line name="Daniel">
+                {{
+                    t('X0101X.HOLOPHOTO.HAPPYDAYS.PC.X01ANDROID.DANIELV2')
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Emma">
+                {{ t('X0101X.HOLOPHOTO.HAPPYDAYS.PC.X01HOSTAGE.DANIELV2.2') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Coming into the living room</h2>
+        <p>
+            <app-dialogue-line name="Allen">
+                {{
+                    t('X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS01V2')
+                }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="SWAT">
+                {{ t('X0101X.SWAT.TIMER.VO.X01SWAT01.READY') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Looking at the father's tablet</h2>
+        <p>
+            <app-dialogue-line name="Tablet">
+                {{
+                    translateObject('X0101X.LIVINGROOM.TABLET.VO.WOMGEN.THANK')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Background dialogues</h2>
+        <p>
+            <app-dialogue-line name="Daniel">
+                {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01ANDROID.SHOUTS01') }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="Allen">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS02V2'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="Daniel">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.VO.X01ANDROID.SHOUTS02'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="Allen">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS03V2'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="Daniel">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.VO.X01ANDROID.SHOUTS03'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="Allen">
+                {{
+                    t('X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS04V2')
+                }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="SWAT 1">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT09.TALK04'
+                    ) | async
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="SWAT 2">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT10.TALK04'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>SWAT gets shot</h2>
+        <p>
+            <app-dialogue-line name="SWAT 1">
+                {{
+                    t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT10.WOUNDED01')
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Allen">
+                {{
+                    t('X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.EVACUATION')
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="SWAT 1">
+                {{
+                    t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT10.WOUNDED02')
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="SWAT 2">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT07.WOUNDED02'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Dialogues after SWAT changed positions</h2>
+        <p>
+            <app-dialogue-line name="SWAT 1">
+                {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT13.TOOCLOSE03') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>In the kitchen</h2>
+        <p>
+            <app-dialogue-line name="SWAT">
+                {{ t('X0101X.SWAT.TIMER.VO.X01SWAT01.READY') }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="SWAT">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT06.TALK05'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>At the window</h2>
+        <p>
+            <app-dialogue-line name="SWAT 1">
+                {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT09.TALK01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="SWAT 2">
+                {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT10.TALK01') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Be in the way</h2>
+        <p>
+            <app-dialogue-line name="SWAT">
+                {{ t('X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT06.TOOCLOSE02') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Standing idle in the kitchen</h2>
+        <p>
+            <app-dialogue-line name="SWAT">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.VO.X01SWAT04.TOOCLOSE01'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Standing idle elsewhere</h2>
+        <p>
+            <app-dialogue-line name="Daniel">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.VO.X01ANDROID.SHOUTS04'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="Allen">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS05V2'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="Daniel">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.GUNSHOTS.VO.X01ANDROID.SHOUTS06'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="Allen">
+                {{
+                    t('X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS06V2')
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>[ <fa-icon icon="tv"></fa-icon> ] Looking at television</h2>
+        <p>
+            <app-dialogue-line name="Reporter - ITM TV">
+                {{
+                    translateObject('X0101X.TV.NEWS.PC.X01TVSPEAKER.TVNEWSV2')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>
+            [ <fa-icon icon="hourglass-end"></fa-icon> ] Taking too much time
+        </h2>
+        <p>
+            <app-dialogue-line name="Allen">
+                {{
+                    translateObject(
+                        'X0101X.LIVINGROOM.ENDTIMER.PC.X01SWATCAPTAIN.GOTALKV2'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
     </section>
 
@@ -316,658 +435,856 @@
     <section>
         <h1>Going outside</h1>
         <p>
-            <span class="name">Daniel</span>:
-            {{
-                translateObject('X0101X.TERRACE.ARRIVAL.PC.X01ANDROID.THREATV2')
-                    | async
-            }}<br />
-            <span class="name">Emma</span>:
-            {{ t('X0101X.TERRACE.ARRIVAL.PC.X01HOSTAGE.THREATV2') }}<br />
-            <span class="name">SWAT</span>:
-            {{ t('X0101X.SWAT.SNIPESETUP.VO.X01SNIPER01.GO') }}
+            <app-dialogue-line name="Daniel">
+                {{
+                    translateObject(
+                        'X0101X.TERRACE.ARRIVAL.PC.X01ANDROID.THREATV2'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Emma">
+                {{ t('X0101X.TERRACE.ARRIVAL.PC.X01HOSTAGE.THREATV2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="SWAT">
+                {{ t('X0101X.SWAT.SNIPESETUP.VO.X01SNIPER01.GO') }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <span class="name">Knowing the deviant's name</span> [
-            <fa-icon
-                icon="lock-open"
-                flip="horizontal"
-                class="important"
-            ></fa-icon>
-            unlocked by looking at Emma's tablet]
-            <div class="condition-text">
-                <span class="name">Connor</span>:
-                {{ t('X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01.1') }}<br />
-                <span class="name">Daniel</span>:
-                {{ t('X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEHOLO02.1') }}<br />
-                <span class="name">Connor</span>:
-                {{ t('X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01.2') }}<br />
-                <span class="name">Daniel</span>:
-                {{ t('X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEHOLO02.2') }}<br />
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01',
-                        2
-                    ) | async
-                }}
+        <app-conditioned-content>
+            <div class="condition">
+                <span>Knowing the deviant's name</span>
             </div>
-        </div>
-        <div class="condition">
-            <span class="name">Not knowing the name</span>
-            <div class="condition-text">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.NAME01V2'
-                    ) | async
-                }}<br />
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject('X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEV2')
-                        | async
-                }}
+            <div class="content">
+                <span
+                    >[
+                    <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
+                    unlocked by looking at Emma's tablet ]</span
+                >
+                <app-dialogue-line name="Connor">
+                    {{
+                        t('X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01.1')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{
+                        t('X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEHOLO02.1')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Connor">
+                    {{
+                        t('X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01.2')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{
+                        t('X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEHOLO02.2')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01',
+                            2
+                        ) | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                <span>Not knowing the name</span>
+            </div>
+            <div class="content">
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.NAME01V2'
+                        ) | async
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
 
         <mat-divider></mat-divider>
 
-        <div class="choices">
-            <em>{{ t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP1.REASSURE') }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:{{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.REASSURE01V2'
-                    ) | async
-                }}
-                <br />
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01ANDROID.REASSUREV2'
-                    ) | async
-                }}
-            </div>
-            <em>{{ t('X0101X.TERRACE.PARTI.PC.CHOICEPART1.RELEASE') }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.RELEASE01',
-                        0,
-                        2
-                    ) | async
-                }}<br />
-                <span class="name">Daniel</span>:
-                {{ t('X0101X.TERRACE.PARTI.PC.X01ANDROID.RELEASE02') }}
-            </div>
-            <em>{{ t('X0101X.TERRACE.PARTI.PC.CHOICEPART1.REASSURE') }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.REASSUREV2A'
-                    )
-                }}
-                <br />
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01ANDROID.REASSUREV2B'
-                    )
-                }}
-            </div>
-            <em>{{ t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP1.ANDROID') }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.ANDROID01V2'
-                    )
-                }}<br />
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01ANDROID.ANDROIDV2'
-                    )
-                }}
-            </div>
-        </div>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP1.REASSURE')
+                "
+            >
+                <app-dialogue-line name="Connor"
+                    >{{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.REASSURE01V2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01ANDROID.REASSUREV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0101X.TERRACE.PARTI.PC.CHOICEPART1.RELEASE')"
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.RELEASE01',
+                            0,
+                            2
+                        ) | async
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{ t('X0101X.TERRACE.PARTI.PC.X01ANDROID.RELEASE02') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTI.PC.CHOICEPART1.REASSURE')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.REASSUREV2A'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01ANDROID.REASSUREV2B'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP1.ANDROID')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.ANDROID01V2'
+                        ) | async
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01ANDROID.ANDROIDV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
         <p>
             <strong>Looking at the wounded cop</strong>
-            <br /><span class="name">Cop</span>:
-            {{
-                translateObject(
-                    'X0101X.TERRACE.HEALCOP.FA.X01HURTCOP01.EVACUATE01V2'
-                ) | async
-            }}<br />
-            <span class="name">Connor</span>:
-            {{
-                translateObject(
-                    'X0101X.TERRACE.HEALCOP.PC.X01CONNOR.EVACUATE02V2',
-                    0,
-                    2
-                ) | async
-            }}<br />
-            <span class="name">Daniel</span>:
-            {{
-                translateObject(
-                    'X0101X.TERRACE.HEALCOP.PC.X01ANDROID.EVACUATE03V2'
-                ) | async
-            }}<br />
-            <span class="name">Connor</span>:
-            {{
-                translateObject(
-                    'X0101X.TERRACE.HEALCOP.PC.X01CONNOR.EVACUATE02V2',
-                    2
-                ) | async
-            }}<br />
-            <span class="name">Daniel</span>:
-            {{
-                translateObject(
-                    'X0101X.TERRACE.HEALCOP.PC.X01ANDROID.EVACUATE03V2B'
-                ) | async
-            }}<br />
-        </p>
-        <div class="choices">
-            <em>IGNORE</em> [
-            <span appRelation="small up">Public opinion</span> ]
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{ t('X0101X.TERRACE.HEALCOP.PC.X01CONNOR.NOTALIVE01V2') }}
-            </div>
-            <em>OBEY</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{ t('X0101X.TERRACE.HEALCOP.PC.X01CONNOR.OK02V2') }}
-            </div>
-        </div>
-
-        <mat-divider></mat-divider>
-
-        <div class="condition">
-            <span class="name">Took the gun</span>
-            <div class="condition-text">
-                <span class="name">Daniel</span>:
-                {{ t('X0101X.TERRACE.PARTI.PC.X01ANDROID.GUNV2') }}<br />
-                <div class="choices">
-                    <em>{{
-                        t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPGUN1.LIE')
-                    }}</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>:
-                        {{
-                            translateObject(
-                                'X0101X.TERRACE.PARTI.PC.X01CONNOR.LIE0101V2'
-                            ) | async
-                        }}<br />
-                        <span class="name">Daniel</span>:
-                        {{
-                            translateObject(
-                                'X0101X.TERRACE.PARTI.PC.X01ANDROID.LIE01V2'
-                            ) | async
-                        }}<br />
-                        <span class="name">Connor</span>:
-                        {{
-                            translateObject(
-                                'X0101X.TERRACE.PARTI.PC.X01CONNOR.LIE0201V2'
-                            ) | async
-                        }}
-                    </div>
-                    <em>{{
-                        t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPGUN1.TRUTH')
-                    }}</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>:
-                        {{
-                            translateObject(
-                                'X0101X.TERRACE.PARTI.PC.X01CONNOR.TRUTH0101V2',
-                                0,
-                                2
-                            ) | async
-                        }}<br />
-                        <span class="name">Daniel</span>:
-                        {{
-                            translateObject(
-                                'X0101X.TERRACE.PARTI.PC.X01ANDROID.TRUTH01V2'
-                            ) | async
-                        }}<br />
-                        <span class="name">Connor</span>:
-                        {{
-                            translateObject(
-                                'X0101X.TERRACE.PARTI.PC.X01CONNOR.TRUTH0101V2',
-                                2
-                            ) | async
-                        }}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <mat-divider></mat-divider>
-
-        <div class="choices">
-            <em
-                >[
-                {{ t('X0101X.TERRACE.PARTI.PC.CHOICEGROUP2V2.EMOTIONALSHOCK') }}
-                ]</em
+            <app-dialogue-line name="Cop">
+                {{
+                    translateObject(
+                        'X0101X.TERRACE.HEALCOP.FA.X01HURTCOP01.EVACUATE01V2'
+                    ) | async
+                }}</app-dialogue-line
             >
-            [
-            <fa-icon
-                icon="lock-open"
-                flip="horizontal"
-                class="important"
-            ></fa-icon>
-            unlocked by looking at the father's tablet]
-            <div class="choice">
-                <span class="name">Connor</span>:
+            <app-dialogue-line name="Connor">
                 {{
                     translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.EMOTIONALSHOCK01'
-                    ) | async
-                }}<br />
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01ANDROID.EMOTIONALSHOCK02'
-                    ) | async
-                }}
-            </div>
-            <em
-                >[
-                {{ t('X0101X.TERRACE.PARTI.PC.CHOICEGROUP2V2.EMAANDYOU') }}
-                ]</em
-            >
-            [
-            <fa-icon
-                icon="lock-open"
-                flip="horizontal"
-                class="important"
-            ></fa-icon>
-            unlocked by looking at Emma's tablet]
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.EMMAANDYOU01'
-                    ) | async
-                }}<br />
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01ANDROID.EMMAANDYOU02'
-                    ) | async
-                }}<br />
-                <span class="name">Emma</span>:
-                {{ t('X0101X.TERRACE.PARTI.PC.X01HOSTAGE.EMMAANDYOU02') }}
-            </div>
-            <em>{{
-                t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP2.REALISTIC')
-            }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.REALISTIC01V2'
-                    ) | async
-                }}<br />
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01ANDROID.REALISTICV2'
-                    ) | async
-                }}
-            </div>
-            <em>{{ t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP2.BLAME') }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.BLAME01V2'
-                    ) | async
-                }}<br />
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01ANDROID.BLAMEV2'
-                    ) | async
-                }}
-            </div>
-            <em>{{ t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP2.COMPATIR') }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.FEELINGS01V2'
-                    ) | async
-                }}<br />
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01ANDROID.FEELINGSV2'
-                    ) | async
-                }}
-            </div>
-            <em>{{ t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP2.BUG') }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject('X0101X.TERRACE.PARTI.PC.X01CONNOR.BUG01V2')
-                        | async
-                }}<br />
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject('X0101X.TERRACE.PARTI.PC.X01ANDROID.BUGV2')
-                        | async
-                }}
-            </div>
-            <em>{{ t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP2.HOSTAGE') }}</em>
-            [
-            <fa-icon
-                icon="lock-open"
-                flip="horizontal"
-                class="important"
-            ></fa-icon>
-            if close enough to Daniel and didn't take the gun]
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{ t('X0101X.TERRACE.PARTI.PC.X01CONNOR.HOSTAGE01V2.1') }}<br />
-                <span class="name">Emma</span>:
-                {{ t('X0101X.TERRACE.PARTI.PC.X01HOSTAGE.HOSTAGEV2') }}<br />
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.HOSTAGE01V2',
-                        1,
+                        'X0101X.TERRACE.HEALCOP.PC.X01CONNOR.EVACUATE02V2',
+                        0,
                         2
                     ) | async
-                }}
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Daniel">
+                {{
+                    translateObject(
+                        'X0101X.TERRACE.HEALCOP.PC.X01ANDROID.EVACUATE03V2'
+                    ) | async
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0101X.TERRACE.HEALCOP.PC.X01CONNOR.EVACUATE02V2',
+                        2
+                    ) | async
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Daniel">
+                {{
+                    translateObject(
+                        'X0101X.TERRACE.HEALCOP.PC.X01ANDROID.EVACUATE03V2B'
+                    ) | async
+                }}</app-dialogue-line
+            >
+        </p>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.HEALCOP.FA.DD.CHOICEGROUP.IGNORE')
+                "
+            >
+                <app-relation
+                    name="Public opinion"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-dialogue-line name="Connor">
+                    {{ t('X0101X.TERRACE.HEALCOP.PC.X01CONNOR.NOTALIVE01V2') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.HEALCOP.FA.DD.CHOICEGROUP.OBEY')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{ t('X0101X.TERRACE.HEALCOP.PC.X01CONNOR.OK02V2') }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
+
+        <mat-divider></mat-divider>
+
+        <app-conditioned-content>
+            <div class="condition">
+                <span>Took the gun</span>
             </div>
-        </div>
+            <div class="content">
+                <p>
+                    <app-dialogue-line name="Daniel">
+                        {{ t('X0101X.TERRACE.PARTI.PC.X01ANDROID.GUNV2') }}
+                    </app-dialogue-line>
+                </p>
+
+                <app-choice-group>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPGUN1.LIE')
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0101X.TERRACE.PARTI.PC.X01CONNOR.LIE0101V2'
+                                ) | async
+                            }}</app-dialogue-line
+                        >
+                        <app-dialogue-line name="Daniel">
+                            {{
+                                translateObject(
+                                    'X0101X.TERRACE.PARTI.PC.X01ANDROID.LIE01V2'
+                                ) | async
+                            }}</app-dialogue-line
+                        >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0101X.TERRACE.PARTI.PC.X01CONNOR.LIE0201V2'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPGUN1.TRUTH'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0101X.TERRACE.PARTI.PC.X01CONNOR.TRUTH0101V2',
+                                    0,
+                                    2
+                                ) | async
+                            }}</app-dialogue-line
+                        >
+                        <app-dialogue-line name="Daniel">
+                            {{
+                                translateObject(
+                                    'X0101X.TERRACE.PARTI.PC.X01ANDROID.TRUTH01V2'
+                                ) | async
+                            }}</app-dialogue-line
+                        >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0101X.TERRACE.PARTI.PC.X01CONNOR.TRUTH0101V2',
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                </app-choice-group>
+            </div>
+        </app-conditioned-content>
+
+        <mat-divider></mat-divider>
+
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTI.PC.CHOICEGROUP2V2.EMOTIONALSHOCK')
+                "
+                [brackets]="true"
+            >
+                <span
+                    >[
+                    <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
+                    Unlocked by looking at the father's tablet ]</span
+                >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.EMOTIONALSHOCK01'
+                        ) | async
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01ANDROID.EMOTIONALSHOCK02'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTI.PC.CHOICEGROUP2V2.EMAANDYOU')
+                "
+                [brackets]="true"
+            >
+                <span>
+                    [
+                    <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
+                    Unlocked by looking at Emma's tablet ]
+                </span>
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.EMMAANDYOU01'
+                        ) | async
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01ANDROID.EMMAANDYOU02'
+                        ) | async
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Emma">
+                    {{ t('X0101X.TERRACE.PARTI.PC.X01HOSTAGE.EMMAANDYOU02') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP2.REALISTIC')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.REALISTIC01V2'
+                        ) | async
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01ANDROID.REALISTICV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP2.BLAME')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.BLAME01V2'
+                        ) | async
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01ANDROID.BLAMEV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP2.COMPATIR')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.FEELINGS01V2'
+                        ) | async
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01ANDROID.FEELINGSV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP2.BUG')"
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.BUG01V2'
+                        ) | async
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01ANDROID.BUGV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUP2.HOSTAGE')
+                "
+            >
+                <span
+                    >[
+                    <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
+                    If close enough to Daniel and didn't take the gun ]</span
+                >
+
+                <app-dialogue-line name="Connor">
+                    {{
+                        t('X0101X.TERRACE.PARTI.PC.X01CONNOR.HOSTAGE01V2.1')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Emma">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01HOSTAGE.HOSTAGEV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.HOSTAGE01V2',
+                            1,
+                            2
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
         <p>
-            <span class="name">Daniel</span>:
-            {{
-                translateObject('X0101X.TERRACE.PARTI.PC.X01ANDROID.HELICOV2')
-                    | async
-            }}
-        </p>
-
-        <div class="choices">
-            <em>{{
-                t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPHELICO.ACCEPT')
-            }}</em>
-            <div class="choice">
-                <span class="name">SWAT</span>:
-                {{ t('X0101X.SWAT.HELICOLEAVING.VO.X01HELISNIPER.OUT') }}<br />
-                <span class="name">Connor</span>:
+            <app-dialogue-line name="Daniel">
                 {{
                     translateObject(
-                        'X0101X.TERRACE.PARTI.PC.X01CONNOR.HELICOLEAVE01V2'
+                        'X0101X.TERRACE.PARTI.PC.X01ANDROID.HELICOV2'
                     ) | async
                 }}
-            </div>
-            <em>{{
-                t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPHELICO.REFUSE')
-            }}</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{ t('X0101X.TERRACE.PARTI.PC.X01CONNOR.SORRY01V2') }}
-            </div>
-        </div>
+            </app-dialogue-line>
+        </p>
+
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPHELICO.ACCEPT')
+                "
+            >
+                <app-dialogue-line name="SWAT">
+                    {{
+                        t('X0101X.SWAT.HELICOLEAVING.VO.X01HELISNIPER.OUT')
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTI.PC.X01CONNOR.HELICOLEAVE01V2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPHELICO.REFUSE')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{ t('X0101X.TERRACE.PARTI.PC.X01CONNOR.SORRY01V2') }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
-        <div class="choices">
-            <em>LAST CHANCE</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTII.PC.X01CONNOR.LASTCHANCE01V2'
-                    ) | async
-                }}
-            </div>
-            <em>TRUST</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTII.PC.X01CONNOR.CONFIDENCE01V2'
-                    ) | async
-                }}
-            </div>
-            <em>BLUFF</em> [
-            <fa-icon
-                icon="lock-open"
-                flip="horizontal"
-                class="important"
-            ></fa-icon>
-            if close enough to Daniel]
-            <div class="choice">
-                <p>
-                    <span class="name">Connor</span>:
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTII.FA.DD.CHOICEGROUP1.LASTCHANCE')
+                "
+            >
+                <app-dialogue-line name="Connor">
                     {{
                         translateObject(
-                            'X0101X.TERRACE.PARTII.PC.X01CONNOR.BLUFF01V2'
-                        ) | async
-                    }}<br />
-                    <span class="name">Daniel</span>:
-                    {{
-                        translateObject(
-                            'X0101X.TERRACE.PARTII.PC.X01ANDROID.BLUFFV2'
+                            'X0101X.TERRACE.PARTII.PC.X01CONNOR.LASTCHANCE01V2'
                         ) | async
                     }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTII.FA.DD.CHOICEGROUP1.CONFIDENCE')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTII.PC.X01CONNOR.CONFIDENCE01V2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTII.FA.DD.CHOICEGROUP1.BLUFF')
+                "
+            >
+                <span
+                    >[
+                    <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
+                    If close enough to Daniel ]</span
+                >
+
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0101X.TERRACE.PARTII.PC.X01CONNOR.BLUFF01V2'
+                            ) | async
+                        }}</app-dialogue-line
+                    >
+                    <app-dialogue-line name="Daniel">
+                        {{
+                            translateObject(
+                                'X0101X.TERRACE.PARTII.PC.X01ANDROID.BLUFFV2'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
-                <em>MOVE CLOSER</em>
-                <div class="choice">
+                <app-choice-item
+                    [choiceLabel]="
+                        t(
+                            'X0101X.TERRACE.PARTII.FA.CHOICEGROUPBLUFF.MOVECLOSER'
+                        )
+                    "
+                >
                     <span class="note"
                         >leads to 'probability of success too low' ending</span
                     >
-                </div>
-                <em>GIVE UP</em>
-                <div class="choice">
-                    <span class="name">Connor</span>:
-                    {{
-                        translateObject(
-                            'X0101X.TERRACE.PARTII.PC.X01CONNOR.GIVEUPV2'
-                        ) | async
-                    }}
-                </div>
-            </div>
-            <em>RATIONAL</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTII.PC.X01CONNOR.SNIPERS01V2'
-                    ) | async
-                }}
-            </div>
-        </div>
-
-        <mat-divider></mat-divider>
-
-        <div>
-            <span class="name">Daniel</span>:
-            {{
-                translateObject(
-                    'X0101X.TERRACE.PARTII.PC.X01ANDROID.CONDITIONSV2'
-                ) | async
-            }}
-        </div>
-
-        <div class="choices">
-            <em>USE GUN</em> [
-            <fa-icon
-                icon="lock-open"
-                flip="horizontal"
-                class="important"
-            ></fa-icon>
-            unlocked if kept the gun and close enough to Daniel]
-            <div class="choice">
-                <em>INTIMIDATE</em>
-                <div class="choice">
-                    <p>
-                        <span class="name">Connor</span>:
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0101X.TERRACE.PARTII.FA.CHOICEGROUPBLUFF.GIVEUP')
+                    "
+                >
+                    <app-dialogue-line name="Connor">
                         {{
                             translateObject(
-                                'X0101X.TERRACE.GUN.PC.X01CONNOR.GUN01V2'
-                            ) | async
-                        }}<br />
-                        <span class="name">Daniel</span>:
-                        {{ t('X0101X.TERRACE.GUN.PC.X01ANDROID') }}
-                    </p>
-                    <em>CONVINCE</em> [
-                    <span appRelation="small up">Software instability</span> ]
-                    <div class="choice">
-                        <span class="name">Connor</span>:
-                        {{
-                            translateObject(
-                                'X0101X.TERRACE.GUN.PC.X01CONNOR.CONVINCE01V2'
-                            ) | async
-                        }}<br />
-                        <span class="name">Daniel</span>:
-                        {{
-                            translateObject(
-                                'X0101X.TERRACE.WARNING3.PC.X01ANDROID.WARNING3V2'
+                                'X0101X.TERRACE.PARTII.PC.X01CONNOR.GIVEUPV2'
                             ) | async
                         }}
-                    </div>
-                    <em>SHOOT</em> [
-                    <span appRelation="small up">Software instability</span> ]
-                    <div class="choice">&oslash;</div>
-                </div>
-                <em>EXECUTE</em> [
-                <span appRelation="small up">Software instability</span> ]
-                <div class="choice">
-                    <div>&oslash;</div>
-                </div>
-            </div>
-            <em>COMPROMISE</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTII.PC.X01CONNOR.COMPROMISE01V2'
-                    ) | async
-                }}
-            </div>
-            <em>REFUSE</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTII.PC.X01CONNOR.REFUSEV2'
-                    ) | async
-                }}<br /><span class="note"
-                    >leads to 'probability of success too low' ending</span
-                >
-            </div>
-            <em>SACRIFICE SELF</em> [
-            <fa-icon
-                icon="lock-open"
-                flip="horizontal"
-                class="important"
-            ></fa-icon>
-            if close enough to Daniel] [
-            <span appRelation="small up">Software instability</span> ]
-            <div class="choice">&oslash;</div>
-        </div>
+                    </app-dialogue-line>
+                </app-choice-item>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTII.FA.DD.CHOICEGROUP1.LUCID')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTII.PC.X01CONNOR.SNIPERS01V2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
-        <div>
-            <span class="name">Daniel</span>:
-            {{ t('X0101X.TERRACE.PARTII.PC.X01ANDROID.COMPROMISEV2') }}
-        </div>
+        <p>
+            <app-dialogue-line name="Daniel">
+                {{
+                    translateObject(
+                        'X0101X.TERRACE.PARTII.PC.X01ANDROID.CONDITIONSV2'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
 
-        <div class="choices">
-            <em>REASSURE</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTII.PC.X01CONNOR.PROMISE01V2'
-                    ) | async
-                }}
-            </div>
-            <em>TRUTH</em>
-            <div class="choice">
-                <span class="name">Connor</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTII.PC.X01CONNOR.DONTKILLAGAIN01V2'
-                    ) | async
-                }}
-                <br /><span class="note"
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0101X.TERRACE.CHOICE.PC.CHOICE.USEGUN')"
+            >
+                [
+                <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
+                Unlocked if kept the gun and close enough to Daniel ]
+
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0101X.TERRACE.CHOICE.PC.CHOICE.INTIMIDATE')
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0101X.TERRACE.GUN.PC.X01CONNOR.GUN01V2'
+                                ) | async
+                            }}</app-dialogue-line
+                        >
+                        <app-dialogue-line name="Daniel">
+                            {{ t('X0101X.TERRACE.GUN.PC.X01ANDROID.GUNV2') }}
+                        </app-dialogue-line>
+                    </p>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0101X.TERRACE.GUN.PC.SHOT01.CONVINCE')
+                        "
+                    >
+                        <app-relation
+                            name="Software instability"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0101X.TERRACE.GUN.PC.X01CONNOR.CONVINCE01V2'
+                                ) | async
+                            }}</app-dialogue-line
+                        >
+                        <app-dialogue-line name="Daniel">
+                            {{
+                                translateObject(
+                                    'X0101X.TERRACE.WARNING3.PC.X01ANDROID.WARNING3V2'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="t('X0101X.TERRACE.GUN.PC.SHOT01.SHOT')"
+                    >
+                        <app-relation
+                            name="Software instability"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <span>&oslash;</span>
+                    </app-choice-item>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0101X.TERRACE.CHOICE.PC.CHOICE.SHOOTHEAD')
+                    "
+                >
+                    <app-relation
+                        name="Software instability"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <span>&oslash;</span>
+                </app-choice-item>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTII.FA.DD.CHOICEGROUP2.COMPROMISE')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTII.PC.X01CONNOR.COMPROMISE01V2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTII.FA.DD.CHOICEGROUP2.REFUSE')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTII.PC.X01CONNOR.REFUSEV2'
+                        ) | async
+                    }}</app-dialogue-line
+                ><span class="note"
                     >leads to 'probability of success too low' ending</span
                 >
-            </div>
-            <em>USE GUN</em> [
-            <fa-icon
-                icon="lock-open"
-                flip="horizontal"
-                class="important"
-            ></fa-icon>
-            unlocked if kept the gun and close enough to Daniel]
-            <div class="choice">
-                <span class="note"
-                    >Same result as picking 'USE GUN' before</span
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0101X.TERRACE.CHOICE.PC.CHOICE.SACRIFICE')"
+            >
+                <span
+                    >[ <fa-icon icon="lock-open" flip="horizontal"></fa-icon> If
+                    close enough to Daniel ]</span
                 >
-            </div>
-            <em>SACRIFICE SELF</em> [
-            <fa-icon
-                icon="lock-open"
-                flip="horizontal"
-                class="important"
-            ></fa-icon>
-            if close enough to Daniel]
-            <div class="choice">&oslash;</div>
-        </div>
+                <app-relation
+                    name="Software instability"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <span>&oslash;</span>
+            </app-choice-item>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
-        <div class="condition">
-            <span class="name">Probability of success at 100%</span> [
-            <span appRelation="small up">Software instability</span>]
-            <div class="condition-text">
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTII.PC.X01ANDROID.GOODENDINGV2',
-                        0,
-                        2
-                    ) | async
-                }}<br />
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTII.PC.X01ANDROID.GOODENDINGV2',
-                        2,
-                        4
-                    ) | async
-                }}
+        <p>
+            <app-dialogue-line name="Daniel">
+                {{ t('X0101X.TERRACE.PARTII.PC.X01ANDROID.COMPROMISEV2') }}
+            </app-dialogue-line>
+        </p>
+
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTII.FA.DD.CHOICEGROUP3.REASSURE')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTII.PC.X01CONNOR.PROMISE01V2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0101X.TERRACE.PARTII.FA.DD.CHOICEGROUP3.TRUTH')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTII.PC.X01CONNOR.DONTKILLAGAIN01V2'
+                        ) | async
+                    }} </app-dialogue-line
+                ><span class="note"
+                    >leads to 'probability of success too low' ending</span
+                >
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0101X.TERRACE.CHOICE.PC.CHOICE.USEGUN')"
+            >
+                <span
+                    >[
+                    <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
+                    Unlocked if kept the gun and close enough to Daniel ]</span
+                >
+                <span class="note">
+                    Same result as picking 'USE GUN' before
+                </span>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0101X.TERRACE.CHOICE.PC.CHOICE.SACRIFICE')"
+            >
+                <span
+                    >[ <fa-icon icon="lock-open" flip="horizontal"></fa-icon> If
+                    close enough to Daniel ]</span
+                >
+                <span>&oslash;</span>
+            </app-choice-item>
+        </app-choice-group>
+
+        <mat-divider></mat-divider>
+
+        <app-conditioned-content>
+            <div class="condition">
+                <span>Probability of success at 100%</span>
             </div>
-        </div>
-        <div class="condition">
-            <span class="name">Probability of success too low</span> [
-            <span appRelation="small down">Software instability </span>if Connor
-            dies, <span appRelation="small up">Software instability</span>if
-            Connor survives]
-            <div class="condition-text">
-                <span class="name">Daniel</span>:
-                {{
-                    translateObject(
-                        'X0101X.TERRACE.PARTII.PC.X01ANDROID.BADENDINGV2'
-                    ) | async
-                }}<br />
+            <div class="content">
+                <app-relation
+                    name="Software instability"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTII.PC.X01ANDROID.GOODENDINGV2',
+                            0,
+                            2
+                        ) | async
+                    }}</app-dialogue-line
+                >
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTII.PC.X01ANDROID.GOODENDINGV2',
+                            2,
+                            4
+                        ) | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                <span>Probability of success too low</span>
+            </div>
+            <div class="content">
+                <app-relation
+                    name="Software instability (If Connor dies)"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Software instability (If Connor survives)"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-dialogue-line name="Daniel">
+                    {{
+                        translateObject(
+                            'X0101X.TERRACE.PARTII.PC.X01ANDROID.BADENDINGV2'
+                        ) | async
+                    }}</app-dialogue-line
+                >
+            </div>
+        </app-conditioned-content>
     </section>
 </ng-container>
