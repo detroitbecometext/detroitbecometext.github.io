@@ -1,14 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: './base-layout.component.html',
-  styleUrls: ['./base-layout.component.scss']
+    templateUrl: './base-layout.component.html',
 })
-export class BaseLayoutComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class BaseLayoutComponent {
+    constructor() {}
 }
