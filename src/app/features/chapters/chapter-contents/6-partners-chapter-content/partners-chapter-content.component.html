@@ -1,4 +1,9 @@
-<ng-container *transloco="let t">
+<ng-template #loading>
+    <div class="spinner flex flex-row justify-center items-center">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>
+<ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
             {{ t('GUI.MENU.DATE.02C') }}<br />
@@ -750,9 +755,7 @@
             <div class="choice">
                 <p>
                     <span class="name">Connor</span>:
-                    {{
-                        t('X0201C.RECON.MAIN.PC.X02CCONNOR["04LIVINGROOM01"]')
-                    }}
+                    {{ t('X0201C.RECON.MAIN.PC.X02CCONNOR["04LIVINGROOM01"]') }}
                     <br /><span class="name">Hank</span>:
                     {{
                         translateObject(

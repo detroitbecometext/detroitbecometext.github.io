@@ -1,20 +1,14 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
 import { BaseTranslationComponent } from '@app/shared/base-translation/base-translation.component';
 
 @Component({
     selector: 'app-on-the-run-chapter-content',
     templateUrl: './on-the-run-chapter-content.component.html',
-    styleUrls: ['./on-the-run-chapter-content.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OnTheRunChapterContentComponent
-    extends BaseTranslationComponent
-    implements OnInit
-{
+export class OnTheRunChapterContentComponent extends BaseTranslationComponent {
     constructor(translocoService: TranslocoService) {
         super(translocoService);
     }
-
-    ngOnInit(): void {}
 }

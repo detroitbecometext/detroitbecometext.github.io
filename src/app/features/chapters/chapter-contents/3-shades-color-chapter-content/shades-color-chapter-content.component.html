@@ -1,282 +1,308 @@
-<ng-container *transloco="let t">
+<ng-template #loading>
+    <div class="spinner flex flex-row justify-center items-center">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>
+<ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            {{ t('GUI.MENU.DATE.01M1') }}<br />
+            {{ t('GUI.MENU.DATE.01M1') }}
+            <br />
             {{ t('GUI.MENU.TIME.01M1') }}
         </p>
 
         <h1>Greek District</h1>
 
+        <h2>Man and android near the bench</h2>
         <p>
-            <strong>Man and android near the bench</strong><br />
-            <span class="name">Android</span>:
-            {{ t('X0101M.PBY.LINES.FA.X01MANDWOM03.HOME') }} <br />
-            <span class="name">Man</span>:
-            {{
-                translateObject('X0101M.PBY.LINES.FA.X01MOLDMAN02.ENOUGH')
-                    | async
-            }}
-            <br />
-            <span class="name">Android</span>:
-            {{
-                translateObject('X0101M.PBY.LINES.FA.X01MANDWOM03.HELP') | async
-            }}
-            <br />
-            <span class="name">Man</span>:
-            {{
-                translateObject('X0101M.PBY.LINES.FA.X01MOLDMAN02.THANKYOU')
-                    | async
-            }}
+            <app-dialogue-line name="Android">
+                {{ t('X0101M.PBY.LINES.FA.X01MANDWOM03.HOME') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject('X0101M.PBY.LINES.FA.X01MOLDMAN02.ENOUGH')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject('X0101M.PBY.LINES.FA.X01MANDWOM03.HELP')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject('X0101M.PBY.LINES.FA.X01MOLDMAN02.THANKYOU')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Man running</h2>
         <p>
-            <strong>Man running</strong>
-            <br /><span class="name">Man</span>:
-            {{
-                translateObject(
-                    'X0101M.NPCJOGGER.PARK.FA.X01MJOGGER.BREATHLESS'
-                ) | async
-            }}
-            <br />
-            <span class="name">Android</span>:
-            {{ t('X0101M.NPCJOGGER.PARK.FA.X01MJOGGERMAND.WATERAND01') }}
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject(
+                        'X0101M.NPCJOGGER.PARK.FA.X01MJOGGER.BREATHLESS'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android">
+                {{ t('X0101M.NPCJOGGER.PARK.FA.X01MJOGGERMAND.WATERAND01') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Road Workers</h2>
         <p>
-            <strong>Road Workers</strong>
-            <br /><span class="name">Road worker</span>:
-            {{ t('X0101M.PBY.LINES.FA.X01MSUPERVISOR.HURRY') }}
+            <app-dialogue-line name="Road worker">
+                {{ t('X0101M.PBY.LINES.FA.X01MSUPERVISOR.HURRY') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Looking at the Hot dog vendor</h2>
         <p>
-            <strong>Looking at the Hot dog vendor</strong>
-            <br /><span class="name">Vendor</span>:
-            {{ t('X0101M.HOTDOG.DIALS.PC.X01MHOTDOGSELLER.MARKUS1') }}
-            {{ t('X0101M.HOTDOG.DIALS.PC.X01MHOTDOGSELLER.MARKUS2') }}
+            <app-dialogue-line name="Vendor">
+                {{ t('X0101M.HOTDOG.DIALS.PC.X01MHOTDOGSELLER.MARKUS1') }}
+                {{ t('X0101M.HOTDOG.DIALS.PC.X01MHOTDOGSELLER.MARKUS2') }}
+            </app-dialogue-line>
         </p>
 
+        <!--<h2>Delivery truck</h2>
+			TODO: Check for X0602M.PBY.LINES.FA.X06MSUPERVISOR02 and X5071X.PBY.PHONE.FA.PHONEWOMAN
+		-->
+
+        <h2>Watch preacher</h2>
         <p>
-            <strong>Delivery truck</strong>
-            <br /><span class="name">Woman</span>: Hi. <br /><span class="name"
-                >Android</span
-            >: These are supposed to be in bay seven. <br /><span class="name"
-                >Woman</span
-            >: Sure, sounds good.
+            <app-dialogue-line name="Preacher">
+                {{
+                    translateObject(
+                        'X0101M.PREACHER.SLOGAN.PC.X01MPREACHER.SLOGANS01'
+                    ) | async
+                }}
+                {{
+                    translateObject(
+                        'X0101M.PREACHER.SLOGAN.PC.X01MPREACHER.SLOGANS02'
+                    ) | async
+                }}
+                {{
+                    translateObject(
+                        'X0101M.PREACHER.SLOGAN.PC.X01MPREACHER.SLOGANS03'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Preacher notices Markus</h2>
         <p>
-            <strong>Watch preacher</strong>
-            <br /><span class="name">Preacher</span>:
-            {{
-                translateObject(
-                    'X0101M.PREACHER.SLOGAN.PC.X01MPREACHER.SLOGANS01'
-                ) | async
-            }}
-            {{
-                translateObject(
-                    'X0101M.PREACHER.SLOGAN.PC.X01MPREACHER.SLOGANS02'
-                ) | async
-            }}
-            {{
-                translateObject(
-                    'X0101M.PREACHER.SLOGAN.PC.X01MPREACHER.SLOGANS03'
-                ) | async
-            }}
+            <app-dialogue-line name="Preacher">
+                {{
+                    translateObject(
+                        'X0101M.PREACHER.SLOGAN.PC.X01MPREACHER.MARKUS'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <p>
-            <strong>Preacher notices Markus</strong>
-            <br /><span class="name">Preacher</span>:
-            {{
-                translateObject('X0101M.PREACHER.SLOGAN.PC.X01MPREACHER.MARKUS')
-                    | async
-            }}
-        </p>
-
-        <p>
-            <strong>Background dialogues</strong>
-            <br />Woman: That new shirt really suits you! <br />Man: Yeah? So...
-            you think I look good? <br />Woman: Don't get cocky!
-            <br />
-            <br />- What are you doing, pick it up! Faster!
-            <br />
-            <br />Homeless man : Hey, listen, can you spare some cash? I don't
-            need much, just enough for a cup of coffee.
-            <br />
-            <br />- Wow! It looks great, don't you think?
-        </p>
+        <!-- TODO: Check for restaurant (X01MRESTAURANTGIRL / X01MRESTAURANTGUY / X01MRESTAURANTAND)-->
+        <!-- TODO: Check for shoppers (X01MSHOPPERGUY01 / X01MSHOPPERGIRL01 / X01MSHOPPERGUY02 / X01MSHOPPERGIRL02)-->
+        <!-- TODO: Check for child playing (X01MGIRL01)-->
+        <!-- TODO: Check for angry man (X01MANGRYMAN)-->
+        <!-- TODO: Check for driver (X01MDRIVER)-->
+        <!-- TODO: Check for beggar -->
 
         <h2>At Bellini paints</h2>
         <p>
-            <span class="name">Android</span>:
-            {{
-                translateObject(
-                    'X0101M.VASARI.PURCHASE.PC.X01MVASARISELLER.BUY',
-                    0,
-                    4
-                ) | async
-            }}
-            <br /><span class="name">Markus</span>:
-            {{ t('X0101M.VASARI.PURCHASE.FA.X01MMARKUS.BUYMARKUS') }}
-            <br /><span class="name">Android</span>:
-            {{ t('X0101M.VASARI.PURCHASE.PC.X01MVASARISELLER.BUY.5') }}
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject(
+                        'X0101M.VASARI.PURCHASE.PC.X01MVASARISELLER.BUY',
+                        0,
+                        4
+                    ) | async
+                }} </app-dialogue-line
+            ><app-dialogue-line name="Markus">
+                {{
+                    t('X0101M.VASARI.PURCHASE.FA.X01MMARKUS.BUYMARKUS')
+                }} </app-dialogue-line
+            ><app-dialogue-line name="Android">
+                {{ t('X0101M.VASARI.PURCHASE.PC.X01MVASARISELLER.BUY.5') }}
+            </app-dialogue-line>
         </p>
 
-        <h2>Going to take the bus</h2>
+        <h1>Going to take the bus</h1>
 
+        <h2>Couple looking at Android on display</h2>
         <p>
-            <strong>Couple looking at Android on display</strong>
-            <br /><span class="name">Man</span>:
-            {{ t('X0101M.PBY.LINES.FA.X01MSHOPPERGUY02.WHATSWRONG') }} <br />
-            <span class="name">Woman</span>:
-            {{ t('X0101M.PBY.LINES.FA.X01MSHOPPERGIRL02.OURFRIENDS') }} <br />
-            <span class="name">Man</span>:
-            {{
-                translateObject(
-                    'X0101M.PBY.LINES.FA.X01MSHOPPERGUY02.LETSCOMEBACK'
-                ) | async
-            }}
-            <br />
-            <span class="name">Woman</span>:
-            {{ t('X0101M.PBY.LINES.FA.X01MSHOPPERGIRL02.JESUS') }}
+            <app-dialogue-line name="Man">
+                {{ t('X0101M.PBY.LINES.FA.X01MSHOPPERGUY02.WHATSWRONG') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{ t('X0101M.PBY.LINES.FA.X01MSHOPPERGIRL02.OURFRIENDS') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject(
+                        'X0101M.PBY.LINES.FA.X01MSHOPPERGUY02.LETSCOMEBACK'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{ t('X0101M.PBY.LINES.FA.X01MSHOPPERGIRL02.JESUS') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Watching the protest</h2>
         <p>
-            <strong>Watching the protest</strong>
-            <br /><span class="name">Protester</span>:
-            {{
-                translateObject(
-                    'X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01',
-                    1,
-                    6
-                ) | async
-            }}<br />
-            <span class="name">Protesters</span>:
-            {{ t('X0101M.PROTEST.LISTENER01.FA.X01MMDEMONSTR02.IDLE01.1') }}
-            <br />
-            <span class="name">Protester</span>:
-            {{
-                translateObject(
-                    'X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01',
-                    6,
-                    8
-                ) | async
-            }}<br />
-            <span class="name">Protesters</span>:
-            {{ t('X0101M.PROTEST.LISTENER02.FA.X01MMDEMONSTR07.IDLE01.2') }}
-            <br />
-            <span class="name">Protester</span>:
-            {{
-                translateObject(
-                    'X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01',
-                    8,
-                    10
-                ) | async
-            }}<br />
-            <span class="name">Protesters</span>:
-            {{ t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.WEWANTL01["1"]') }} <br />
-            <span class="name">Protester</span>:
-            {{
-                translateObject(
-                    'X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01',
-                    10,
-                    12
-                ) | async
-            }}<br />
-            <span class="name">Protesters</span>:
-            {{ t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.BANL01') }} <br />
-            <span class="name">Protester</span>:
-            {{ t('X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01.13') }} <br />
-            <span class="name">Protesters</span>:
-            {{ t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.BANL02') }} <br /><span
-                class="name"
-                >Protester</span
-            >: {{ t('X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01["14"]') }}
-            <br /><span class="name">Protesters</span>:
-            {{ t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.WORKERL01') }} <br /><span
-                class="name"
-                >Protester</span
-            >: {{ t('X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01["15"]') }}
-            <br /><span class="name">Protesters</span>:
-            {{ t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.WORKERL02') }} <br /><span
-                class="name"
-                >Protester</span
-            >:{{ t('X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01["16"]') }}
-            <br />
-            <span class="name">Protesters</span>:
-            {{ t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.BANL01') }} <br />
-            <span class="name">Protester</span>:
-            {{ t('X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01["17"]') }}
-            <br />
-            <span class="name">Protesters</span>:
-            {{ t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.BANL02') }}
+            <app-dialogue-line name="Protester">
+                {{
+                    translateObject(
+                        'X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01',
+                        1,
+                        6
+                    ) | async
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Protesters">
+                {{ t('X0101M.PROTEST.LISTENER01.FA.X01MMDEMONSTR02.IDLE01.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Protester">
+                {{
+                    translateObject(
+                        'X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01',
+                        6,
+                        8
+                    ) | async
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Protesters">
+                {{ t('X0101M.PROTEST.LISTENER02.FA.X01MMDEMONSTR07.IDLE01.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Protester">
+                {{
+                    translateObject(
+                        'X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01',
+                        8,
+                        10
+                    ) | async
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Protesters">
+                {{ t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.WEWANTL01.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Protester">
+                {{
+                    translateObject(
+                        'X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01',
+                        10,
+                        12
+                    ) | async
+                }}</app-dialogue-line
+            >
+            <app-dialogue-line name="Protesters">
+                {{ t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.BANL01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Protester">
+                {{ t('X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01.13') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Protesters">
+                {{
+                    t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.BANL02')
+                }} </app-dialogue-line
+            ><span class="name">Protester</span>:
+            {{ t('X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01.14') }}
+            <app-dialogue-line name="Protesters">
+                {{
+                    t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.WORKERL01')
+                }} </app-dialogue-line
+            ><span class="name">Protester</span>:
+            {{ t('X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01.15') }}
+            <app-dialogue-line name="Protesters">
+                {{
+                    t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.WORKERL02')
+                }} </app-dialogue-line
+            ><span class="name">Protester</span>:{{
+                t('X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01.16')
+            }}
+
+            <app-dialogue-line name="Protesters">
+                {{ t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.BANL01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Protester">
+                {{ t('X0101M.PROTEST.SLOGAN.PC.X01MLEADER.SLOGANS01.17') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Protesters">
+                {{ t('X0101M.PROTEST.CROWD.VO.X01MCROWDL.BANL02') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Protester sees Markus</h2>
         <p>
-            <strong>Protester sees Markus</strong>
-            <br /><span class="name">Protester</span>:
-            {{
-                translateObject(
-                    'X0101M.PROTEST.ATTACKV2.PC.X01MLEADER.ATTACK01'
-                ) | async
-            }}
-            <br />
-            <span class="name">Woman</span>:
-            {{ t('X0101M.PROTEST.ATTACKV2.PC.X01MWDEMONSTR05.ATTACK01') }}
-            <br />
-            <span class="name">Protesters</span>:
-            {{
-                translateObject(
-                    'X0101M.PROTEST.CROWD.FA.MANGEN2.REACTION02',
-                    0,
-                    3
-                ) | async
-            }}
-            <br />
-            <span class="name">Woman</span>:
-            {{
-                translateObject(
-                    'X0101M.PROTEST.CROWD.FA.WOMGEN1.REACTION02',
-                    1,
-                    3
-                ) | async
-            }}
-            <br />
-            <span class="name">Protester</span>:
-            {{ t('X0101M.PROTEST.ATTACKV2.PC.X01MLEADER.ATTACK03.1') }} <br />
-            <span class="name">Protesters</span>:
-            {{ t('X0101M.PROTEST.ATTACKV2.PC.X01MMDEMONSTR06.ATTACK03') }}
-            <br />
-            <span class="name">Woman</span>: Do it! <br /><span class="name"
-                >Policeman</span
-            >:
-            {{
-                translateObject(
-                    'X0101M.PROTEST.ATTACKV2.PC.X01MSAVIORCOP.ATTACK03',
-                    0,
-                    3
-                ) | async
-            }}
-            <br />
-            <span class="name">Protester</span>:
-            {{ t('X0101M.PROTEST.ATTACKV2.PC.X01MLEADER.ATTACK03.2') }} <br />
-            <span class="name">Policeman</span>:
-            {{ t('X0101M.PROTEST.ATTACKV2.PC.X01MSAVIORCOP.ATTACK03.5') }}
-            <br />
-            <span class="name">Protester</span>:
-            {{
-                translateObject(
-                    'X0101M.PROTEST.ATTACKV2.PC.X01MLEADER.ATTACK03',
-                    2
-                ) | async
-            }}
-            <br /><span class="name">Policeman</span>:
-            {{
-                translateObject(
-                    'X0101M.PROTEST.ATTACKV2.PC.X01MSAVIORCOP.ATTACK03',
-                    5
-                ) | async
-            }}
+            <app-dialogue-line name="Protester">
+                {{
+                    translateObject(
+                        'X0101M.PROTEST.ATTACKV2.PC.X01MLEADER.ATTACK01'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{ t('X0101M.PROTEST.ATTACKV2.PC.X01MWDEMONSTR05.ATTACK01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Protesters">
+                {{
+                    translateObject(
+                        'X0101M.PROTEST.CROWD.FA.MANGEN2.REACTION02',
+                        0,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{
+                    translateObject(
+                        'X0101M.PROTEST.CROWD.FA.WOMGEN1.REACTION02',
+                        1,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Protester">
+                {{ t('X0101M.PROTEST.ATTACKV2.PC.X01MLEADER.ATTACK03.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Protesters">
+                {{ t('X0101M.PROTEST.ATTACKV2.PC.X01MMDEMONSTR06.ATTACK03') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman"> Do it! </app-dialogue-line>
+            <app-dialogue-line name="Policeman">
+                {{
+                    translateObject(
+                        'X0101M.PROTEST.ATTACKV2.PC.X01MSAVIORCOP.ATTACK03',
+                        0,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+
+            <app-dialogue-line name="Protester">
+                {{ t('X0101M.PROTEST.ATTACKV2.PC.X01MLEADER.ATTACK03.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Policeman">
+                {{ t('X0101M.PROTEST.ATTACKV2.PC.X01MSAVIORCOP.ATTACK03.5') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Protester">
+                {{
+                    translateObject(
+                        'X0101M.PROTEST.ATTACKV2.PC.X01MLEADER.ATTACK03',
+                        2
+                    ) | async
+                }} </app-dialogue-line
+            ><app-dialogue-line name="Policeman">
+                {{
+                    translateObject(
+                        'X0101M.PROTEST.ATTACKV2.PC.X01MSAVIORCOP.ATTACK03',
+                        5
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
     </section>
 </ng-container>
