@@ -9,7 +9,6 @@ import { RelationType } from '@app/core/models/relation-type.enum';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewHomeChapterContentComponent extends BaseTranslationComponent {
-    RelationType = RelationType;
     constructor(translocoService: TranslocoService) {
         super(translocoService);
     }

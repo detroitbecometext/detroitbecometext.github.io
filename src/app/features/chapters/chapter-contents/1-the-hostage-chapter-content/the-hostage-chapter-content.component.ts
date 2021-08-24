@@ -9,8 +9,6 @@ import { TranslocoService } from '@ngneat/transloco';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TheHostageChapterContentComponent extends BaseTranslationComponent {
-    RelationType = RelationType;
-
     constructor(translocoService: TranslocoService) {
         super(translocoService);
     }

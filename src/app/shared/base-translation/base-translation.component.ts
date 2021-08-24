@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Character } from '@app/core/models';
+import { RelationType } from '@app/core/models/relation-type.enum';
 import { TranslocoService } from '@ngneat/transloco';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -8,6 +10,9 @@ import { map } from 'rxjs/operators';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BaseTranslationComponent {
+    RelationType = RelationType;
+    Character = Character;
+
     constructor(private readonly translocoService: TranslocoService) {}
 
     public translateObject(

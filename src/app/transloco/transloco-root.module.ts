@@ -24,10 +24,10 @@ export class TranslocoHttpLoader implements TranslocoLoader {
     providers: [
         {
             provide: TRANSLOCO_CONFIG,
-            // TODO: Add direction to language objects
             useValue: translocoConfig({
                 availableLangs: [
-                    { id: 'ar', label: 'Arabic' },
+                    // TODO: Add arabic when right to left dir is supported
+                    //{ id: 'ar', label: 'Arabic' },
                     { id: 'pt-br', label: 'Portuguese (Brazil)' },
                     { id: 'zh', label: 'Chinese' },
                     { id: 'hr', label: 'Croatian' },
