@@ -8,6 +8,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 export class ChoiceItemComponent {
     @Input() public choiceLabel: string;
     @Input() public brackets: boolean = false;
+    @Input() public timeOutOption: boolean = false;
 
     constructor() {}
 }

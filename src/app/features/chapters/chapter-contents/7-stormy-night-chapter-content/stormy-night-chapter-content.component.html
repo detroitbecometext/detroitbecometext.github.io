@@ -13,7 +13,7 @@
 
         <h1>In Todd's House</h1>
         <p>
-            <app-dialogue-line [name]="Character.Kara">{{
+            <app-dialogue-line name="Kara">{{
                 t('X0201K.INTRO.DINNER.PC.X02KKARA.KARAV2.1')
             }}</app-dialogue-line>
 
@@ -269,9 +269,11 @@
 
         <mat-divider></mat-divider>
 
-        <div class="condition">
-            <span>Going upstairs before Todd</span>
-            <div class="condition-text">
+        <app-conditioned-content>
+            <div class="condition">
+                <span>Going upstairs before Todd</span>
+            </div>
+            <div class="content">
                 <h2>
                     [ <fa-icon icon="hourglass-end"></fa-icon> ] Stay in the
                     hallway
@@ -287,11 +289,10 @@
                 </p>
 
                 <h2>Take the gun</h2>
-                [
                 <p>
-                    [ <fa-icon icon="lock-open" flip="horizontal"></fa-icon> ]
-                    Possible if Kara saw the gun in
-                    <a [routerLink]="['/chapters', 4]">A New Home</a>]
+                    [ <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
+                    If Kara saw the gun in
+                    <a [routerLink]="['/chapters', 4]">A New Home</a> ]
 
                     <app-dialogue-line name="Todd">
                         {{ t('Get outta the way!') }}
@@ -316,7 +317,7 @@
                         {{ t('X0201K.FATHER.COMING.FA.X02KDAD.GOTOSTAIRS.3') }}
                     </app-dialogue-line>
                 </p>
-                <div class="choices">
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0201K.ALICEROOM.CHOICE.PC.CHOICEGROUP.RUN')
@@ -332,10 +333,10 @@
                                 {{ t('X0201K.ESCAPE.TODD.FA.X02KDAD.STAIRS') }}
                             </app-dialogue-line>
                         </p>
-                        <div class="condition">
-                            <h2>Hide</h2>
-                            <!-- TODO: Check the hiding dialogues (X0201K.ESCAPE.TODD.FA.X02KDAD.ALICEROOM01) -->
-                            <div class="condition-text">
+                        <app-conditioned-content>
+                            <div class="condition">Hide</div>
+                            <div class="content">
+                                <!-- TODO: Check the hiding dialogues (X0201K.ESCAPE.TODD.FA.X02KDAD.ALICEROOM01) -->
                                 <app-dialogue-line name="Todd">
                                     {{
                                         t(
@@ -358,10 +359,10 @@
                                     downstairs".</span
                                 >
                             </div>
-                        </div>
-                        <div class="condition">
-                            <h2>Fail to hide</h2>
-                            <div class="condition-text">
+                        </app-conditioned-content>
+                        <app-conditioned-content>
+                            <div class="condition">Fail to hide</div>
+                            <div class="content">
                                 <app-dialogue-line name="Todd">
                                     {{
                                         translateObject(
@@ -403,7 +404,7 @@
                                     upstairs after Todd".</span
                                 >
                             </div>
-                        </div>
+                        </app-conditioned-content>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
@@ -441,9 +442,9 @@
                             </app-dialogue-line>
                         </p>
 
-                        <div class="condition">
-                            <h2>Talk to Alice</h2>
-                            <div class="condition-text">
+                        <app-conditioned-content>
+                            <div class="condition">Talk to Alice</div>
+                            <div class="content">
                                 <app-dialogue-line name="Kara">
                                     {{
                                         t(
@@ -463,18 +464,20 @@
                                     much time".</span
                                 >
                             </div>
-                        </div>
+                        </app-conditioned-content>
 
-                        <div class="condition">
-                            <h2>Open the window</h2>
-                            <div class="condition-text">
-                                <app-dialogue-line name="Alice">
-                                    {{
-                                        t(
-                                            'X0201K.LOCKEDIN.WINDOW.PC.X02KALICE.OPEN'
-                                        )
-                                    }}
-                                </app-dialogue-line>
+                        <app-conditioned-content>
+                            <div class="condition">Open the window</div>
+                            <div class="content">
+                                <p>
+                                    <app-dialogue-line name="Alice">
+                                        {{
+                                            t(
+                                                'X0201K.LOCKEDIN.WINDOW.PC.X02KALICE.OPEN'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                </p>
                                 <div class="choices">
                                     <app-choice-item
                                         [choiceLabel]="
@@ -483,20 +486,22 @@
                                             )
                                         "
                                     >
-                                        <app-dialogue-line name="Kara">
-                                            {{
-                                                t(
-                                                    'X0201K.LOCKEDIN.WINDOW.PC.X02KKARA.ALICEGOOUT'
-                                                )
-                                            }}
-                                        </app-dialogue-line>
-                                        <app-dialogue-line name="Alice">
-                                            {{
-                                                t(
-                                                    'X0201K.LOCKEDIN.WINDOW.PC.X02KALICE.ALICEGOOUT'
-                                                )
-                                            }}
-                                        </app-dialogue-line>
+                                        <p>
+                                            <app-dialogue-line name="Kara">
+                                                {{
+                                                    t(
+                                                        'X0201K.LOCKEDIN.WINDOW.PC.X02KKARA.ALICEGOOUT'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Alice">
+                                                {{
+                                                    t(
+                                                        'X0201K.LOCKEDIN.WINDOW.PC.X02KALICE.ALICEGOOUT'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                        </p>
                                         <div class="choices">
                                             <app-choice-item
                                                 [choiceLabel]="
@@ -542,7 +547,7 @@
                                     </app-choice-item>
                                 </div>
                             </div>
-                        </div>
+                        </app-conditioned-content>
                     </app-choice-item>
 
                     <app-choice-item
@@ -559,7 +564,11 @@
                                 }}
                             </app-dialogue-line>
                             <app-dialogue-line name="Alice">
-                                KARA!
+                                {{
+                                    t(
+                                        'X0201K.ALICEROOM.CHOICE.PC.X02KALICE.SPEAK01'
+                                    )
+                                }}
                             </app-dialogue-line>
                             <app-dialogue-line name="Kara">
                                 {{
@@ -582,16 +591,20 @@
                         </p>
                     </app-choice-item>
                     <app-choice-item
-                        choiceLabel='[ <fa-icon icon="hourglass-end"></fa-icon> TAKE TOO MUCH TIME ]'
+                        [choiceLabel]="t('MENU.FLOWCHART.02K.TOOMUCH')"
+                        [brackets]="true"
+                        [timeOutOption]="true"
                     >
-                        <app-dialogue-line name="Todd">
-                            {{
-                                translateObject(
-                                    'X0201K.LOCKEDIN.TOUGHCHOICE.PC.X02KDAD.BEATIT'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                        <div class="choices">
+                        <p>
+                            <app-dialogue-line name="Todd">
+                                {{
+                                    translateObject(
+                                        'X0201K.LOCKEDIN.TOUGHCHOICE.PC.X02KDAD.BEATIT'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
+                        <app-choice-group>
                             <app-choice-item
                                 [choiceLabel]="
                                     t(
@@ -649,39 +662,43 @@
                                     >Leads to "Kara and Todd fighting"</span
                                 >
                             </app-choice-item>
-                        </div>
+                        </app-choice-group>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
             </div>
-        </div>
+        </app-conditioned-content>
 
         <mat-divider></mat-divider>
 
-        <div class="condition">
-            <span>Going upstairs after Todd</span>
-            <div class="condition-text">
-                <app-dialogue-line name="Todd">
-                    {{
-                        translateObject(
-                            'X0201K.FATHER.TOOLATE.FA.X02KDAD.TODD02'
-                        ) | async
-                    }}
-                    {{ t('X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT06BIS') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Alice">
-                    {{ t('X0201K.FATHER.ATTACK.FA.X02KALICE.BEATEN01') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Todd">
-                    {{
-                        translateObject(
-                            'X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT06'
-                        ) | async
-                    }}
-                    {{ t('X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT07') }}
-                    {{ t('X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT09') }}
-                    {{ t('X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT10') }}
-                    {{ t('X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT08') }}
-                </app-dialogue-line>
+        <app-conditioned-content>
+            <div class="condition">
+                <span>Going upstairs after Todd</span>
+            </div>
+            <div class="content">
+                <p>
+                    <app-dialogue-line name="Todd">
+                        {{
+                            translateObject(
+                                'X0201K.FATHER.TOOLATE.FA.X02KDAD.TODD02'
+                            ) | async
+                        }}
+                        {{ t('X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT06BIS') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Alice">
+                        {{ t('X0201K.FATHER.ATTACK.FA.X02KALICE.BEATEN01') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Todd">
+                        {{
+                            translateObject(
+                                'X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT06'
+                            ) | async
+                        }}
+                        {{ t('X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT07') }}
+                        {{ t('X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT09') }}
+                        {{ t('X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT10') }}
+                        {{ t('X0201K.FATHER.ATTACK.VO.X02KDAD.BEAT08') }}
+                    </app-dialogue-line>
+                </p>
                 <p>
                     [ <fa-icon icon="hourglass-end"></fa-icon> ] Taking too much
                     time
@@ -704,12 +721,19 @@
 
                 <app-conditioned-content>
                     <div class="condition">
-                        <span>Took the gun</span> [
-                        <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
-                        Possible if Kara saw the gun in
-                        <a [routerLink]="['/chapters', 4]">A New Home</a> ]
+                        <span>Took the gun</span>
                     </div>
                     <div class="content">
+                        <span>
+                            [
+                            <fa-icon
+                                icon="lock-open"
+                                flip="horizontal"
+                            ></fa-icon>
+                            If Kara saw the gun in
+                            <a [routerLink]="['/chapters', 4]">A New Home</a>
+                            ]</span
+                        >
                         <p>
                             <app-dialogue-line name="Kara">
                                 {{
@@ -756,11 +780,11 @@
                             </app-dialogue-line>
                         </p>
 
-                        <div class="condition">
-                            <strong
-                                >Win the fight unharmed: Kara kills Todd</strong
-                            >
-                            <div class="condition-text">
+                        <app-conditioned-content>
+                            <div class="condition">
+                                Win the fight unharmed: Kara kills Todd
+                            </div>
+                            <div class="content">
                                 <app-dialogue-line name="Alice">
                                     {{
                                         t(
@@ -781,12 +805,12 @@
                                     }}
                                 </app-dialogue-line>
                             </div>
-                        </div>
-                        <div class="condition">
-                            <strong
-                                >Get hit a few times: Kara kills Todd</strong
-                            >
-                            <div class="condition-text">
+                        </app-conditioned-content>
+                        <app-conditioned-content>
+                            <div class="condition">
+                                Get hit a few times: Kara kills Todd
+                            </div>
+                            <div class="content">
                                 <app-dialogue-line name="Alice">
                                     {{
                                         t(
@@ -812,13 +836,13 @@
                                     }}
                                 </app-dialogue-line>
                             </div>
-                        </div>
-                        <div class="condition">
-                            <strong
-                                >Lose the fight / Don't reach the gun in time:
-                                Alice kills Todd</strong
-                            >
-                            <div class="condition-text">
+                        </app-conditioned-content>
+                        <app-conditioned-content>
+                            <div class="condition">
+                                Lose the fight / Don't reach the gun in time:
+                                Alice kills Todd
+                            </div>
+                            <div class="content">
                                 <app-dialogue-line name="Alice">
                                     {{
                                         t(
@@ -849,7 +873,7 @@
                                     }}
                                 </app-dialogue-line>
                             </div>
-                        </div>
+                        </app-conditioned-content>
                     </div>
                 </app-conditioned-content>
 
@@ -925,7 +949,9 @@
                             </app-dialogue-line>
                         </p>
 
-                        <app-choice-item [choiceLabel]="t('RUN AWAY')">
+                        <app-choice-item
+                            [choiceLabel]="t('MENU.FLOWCHART.02K.RUNAWAY')"
+                        >
                             <app-dialogue-line name="Todd">
                                 {{
                                     translateObject(
@@ -940,9 +966,11 @@
                                     ) | async
                                 }}
                             </app-dialogue-line>
-                            <div class="condition">
-                                <h2>Try to open the door</h2>
-                                <div class="condition-text">
+                            <app-conditioned-content>
+                                <div class="condition">
+                                    Try to open the door
+                                </div>
+                                <div class="content">
                                     <app-dialogue-line name="Alice">
                                         {{
                                             t(
@@ -950,9 +978,12 @@
                                             )
                                         }}
                                     </app-dialogue-line>
-                                    <div class="condition">
-                                        <h2>Reach the bus</h2>
-                                        <div class="condition-text">
+
+                                    <app-conditioned-content>
+                                        <div class="condition">
+                                            Reach the bus
+                                        </div>
+                                        <div class="content">
                                             <app-dialogue-line name="Todd">
                                                 {{
                                                     translateObject(
@@ -963,15 +994,14 @@
                                                 }}
                                             </app-dialogue-line>
                                         </div>
-                                    </div>
+                                    </app-conditioned-content>
                                 </div>
-                            </div>
-                            <div class="condition">
-                                <strong
-                                    >Fail to open the door / Fight
-                                    downstairs</strong
-                                >
-                                <div class="condition-text">
+                            </app-conditioned-content>
+                            <app-conditioned-content>
+                                <div class="condition">
+                                    Fail to open the door / Fight downstairs
+                                </div>
+                                <div class="content">
                                     <app-dialogue-line name="Alice">
                                         {{
                                             t(
@@ -994,11 +1024,11 @@
                                             )
                                         }}
                                     </app-dialogue-line>
-                                    <div class="condition">
-                                        <strong
-                                            >Escape through the garden</strong
-                                        >
-                                        <div class="condition-text">
+                                    <app-conditioned-content>
+                                        <div class="condition">
+                                            Escape through the garden
+                                        </div>
+                                        <div class="content">
                                             <app-dialogue-line name="Todd">
                                                 {{
                                                     t(
@@ -1007,9 +1037,9 @@
                                                 }}
                                             </app-dialogue-line>
                                         </div>
-                                    </div>
+                                    </app-conditioned-content>
                                 </div>
-                            </div>
+                            </app-conditioned-content>
                         </app-choice-item>
 
                         <h2>Escape failed, Kara was destroyed</h2>
@@ -1027,6 +1057,6 @@
                     </div>
                 </app-conditioned-content>
             </div>
-        </div>
+        </app-conditioned-content>
     </section>
 </ng-container>
