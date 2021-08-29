@@ -53,6 +53,8 @@ import { ConditionedContentComponent } from './shared/components/conditioned-con
 import { ChoiceGroupComponent } from './shared/components/choice-group/choice-group.component';
 import { ChoiceItemComponent } from './shared/components/choice-item/choice-item.component';
 import { RelationComponent } from './shared/components/relation/relation.component';
+import { ObservationComponent } from './shared/components/observation/observation.component';
+import { UnlockConditionComponent } from './shared/components/unlock-condition/unlock-condition.component';
 
 @NgModule({
     declarations: [
@@ -106,6 +108,8 @@ import { RelationComponent } from './shared/components/relation/relation.compone
         ChoiceGroupComponent,
         ChoiceItemComponent,
         RelationComponent,
+        ObservationComponent,
+        UnlockConditionComponent,
     ],
     imports: [SharedModule, ChaptersRoutingModule, TranslocoRootModule],
 })

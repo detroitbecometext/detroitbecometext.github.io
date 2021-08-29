@@ -290,9 +290,10 @@
 
                 <h2>Take the gun</h2>
                 <p>
-                    [ <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
-                    If Kara saw the gun in
-                    <a [routerLink]="['/chapters', 4]">A New Home</a> ]
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        If Kara saw the gun in
+                        <a [routerLink]="['/chapters', 4]">A New Home</a>
+                    </app-unlock-condition>
 
                     <app-dialogue-line name="Todd">
                         {{ t('Get outta the way!') }}
@@ -724,16 +725,11 @@
                         <span>Took the gun</span>
                     </div>
                     <div class="content">
-                        <span>
-                            [
-                            <fa-icon
-                                icon="lock-open"
-                                flip="horizontal"
-                            ></fa-icon>
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
                             If Kara saw the gun in
                             <a [routerLink]="['/chapters', 4]">A New Home</a>
-                            ]</span
-                        >
+                        </app-unlock-condition>
+
                         <p>
                             <app-dialogue-line name="Kara">
                                 {{

@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Character } from '@app/core/models';
 import { RelationType } from '@app/core/models/relation-type.enum';
+import { UnlockType } from '@app/core/models/unlock-type.enum';
 import { TranslocoService } from '@ngneat/transloco';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,6 +13,7 @@ import { map } from 'rxjs/operators';
 export class BaseTranslationComponent {
     RelationType = RelationType;
     Character = Character;
+    UnlockType = UnlockType;
 
     constructor(private readonly translocoService: TranslocoService) {}
 
