@@ -25,6 +25,7 @@ import {
     faExternalLinkAlt,
     faCommentSlash,
     faEye,
+    faAngleUp
 } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
@@ -55,7 +56,8 @@ export class IconsModule {
             faExternalLinkAlt,
             faGithub,
             faCommentSlash,
-            faEye
+            faEye,
+            faAngleUp
         );
     }
 }

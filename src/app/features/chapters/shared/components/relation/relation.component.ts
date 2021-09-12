@@ -4,6 +4,7 @@ import {
     ChangeDetectionStrategy,
     Input,
 } from '@angular/core';
+import { RelationName } from '@app/core/models/relation-name.enum';
 import { RelationType } from '@app/core/models/relation-type.enum';
 
 @Component({
@@ -13,7 +14,7 @@ import { RelationType } from '@app/core/models/relation-type.enum';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RelationComponent implements OnInit {
-    @Input() public name: string;
+    @Input() public name: RelationName;
     @Input() public type: RelationType;
     public imageSource: string;
     public imageAlt: string;

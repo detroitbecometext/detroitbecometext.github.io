@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Character } from '@app/core/models';
+import { RelationName } from '@app/core/models/relation-name.enum';
 import { RelationType } from '@app/core/models/relation-type.enum';
 import { UnlockType } from '@app/core/models/unlock-type.enum';
 import { CommonTranslationKey } from '@app/core/utils/common-translation-keys.enum';
@@ -16,6 +17,7 @@ export class BaseTranslationComponent {
     Character = Character;
     UnlockType = UnlockType;
     CommonTranslationKey = CommonTranslationKey;
+    RelationName = RelationName;
 
     constructor(private readonly translocoService: TranslocoService) {}
 

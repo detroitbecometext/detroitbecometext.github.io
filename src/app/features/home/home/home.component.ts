@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chapter } from '@app/core/models';
 import { ChapterService } from '@app/core/services';
+import { LanguagePickerService } from '@app/core/services/language-picker.service';
 
 class AdditionalLink {
     img: string;
@@ -19,7 +20,10 @@ export class HomeComponent implements OnInit {
     public chapters: Chapter[];
     public additionalLinks: AdditionalLink[];
 
-    constructor(private chapterService: ChapterService) {}
+    constructor(
+        private chapterService: ChapterService,
+        public readonly languagePickerService: LanguagePickerService
+    ) {}
 
     ngOnInit(): void {
         this.chapters = this.chapterService.getChapters();
@@ -42,8 +46,7 @@ export class HomeComponent implements OnInit {
                 link: 'https://detroit-become-human.fandom.com/wiki/Main_Page',
             },
             {
-                img:
-                    'https://styles.redditmedia.com/t5_3ajb0/styles/communityIcon_sitp3wnsi1a41.png',
+                img: 'https://styles.redditmedia.com/t5_3ajb0/styles/communityIcon_sitp3wnsi1a41.png',
                 alt: 'Subreddit icon',
                 title: 'Detroit: Become Human Subreddit',
                 subtitle: 'r/DetroitBecomeHuman',

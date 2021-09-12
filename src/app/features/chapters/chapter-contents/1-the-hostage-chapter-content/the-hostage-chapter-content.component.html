@@ -641,7 +641,7 @@
                 "
             >
                 <app-relation
-                    name="Public opinion"
+                    [name]="RelationName.PublicOpinion"
                     [type]="RelationType.SmallUp"
                 ></app-relation>
                 <app-dialogue-line name="Connor">
@@ -1082,7 +1082,7 @@
                         "
                     >
                         <app-relation
-                            name="Software instability"
+                            [name]="RelationName.SoftwareInstability"
                             [type]="RelationType.SmallUp"
                         ></app-relation>
                         <app-dialogue-line name="Connor">
@@ -1104,7 +1104,7 @@
                         [choiceLabel]="t('X0101X.TERRACE.GUN.PC.SHOT01.SHOT')"
                     >
                         <app-relation
-                            name="Software instability"
+                            [name]="RelationName.SoftwareInstability"
                             [type]="RelationType.SmallUp"
                         ></app-relation>
                         <span>&oslash;</span>
@@ -1116,7 +1116,7 @@
                     "
                 >
                     <app-relation
-                        name="Software instability"
+                        [name]="RelationName.SoftwareInstability"
                         [type]="RelationType.SmallUp"
                     ></app-relation>
                     <span>&oslash;</span>
@@ -1158,7 +1158,7 @@
                 </app-unlock-condition>
 
                 <app-relation
-                    name="Software instability"
+                    [name]="RelationName.SoftwareInstability"
                     [type]="RelationType.SmallUp"
                 ></app-relation>
                 <span>&oslash;</span>
@@ -1232,7 +1232,7 @@
             </div>
             <div class="content">
                 <app-relation
-                    name="Software instability"
+                    [name]="RelationName.SoftwareInstability"
                     [type]="RelationType.SmallUp"
                 ></app-relation>
                 <app-dialogue-line name="Daniel">
@@ -1260,21 +1260,37 @@
                 <span>Probability of success too low</span>
             </div>
             <div class="content">
-                <app-relation
-                    name="Software instability (If Connor dies)"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    name="Software instability (If Connor survives)"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
+				<app-conditioned-content>
+					<div class="condition">
+						Connor dies
+					</div>
+					<div class="content">
+						<app-relation
+							[name]="RelationName.SoftwareInstability"
+							[type]="RelationType.SmallDown"
+						></app-relation>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						Connor survives
+					</div>
+					<div class="content">
+						<app-relation
+							[name]="RelationName.SoftwareInstability"
+							[type]="RelationType.SmallUp"
+						></app-relation>
+					</div>
+				</app-conditioned-content>
+
+
                 <app-dialogue-line name="Daniel">
                     {{
                         translateObject(
                             'X0101X.TERRACE.PARTII.PC.X01ANDROID.BADENDINGV2'
                         ) | async
-                    }}</app-dialogue-line
-                >
+                    }}
+				</app-dialogue-line>
             </div>
         </app-conditioned-content>
     </section>

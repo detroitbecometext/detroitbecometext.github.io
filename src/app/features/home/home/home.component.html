@@ -1,146 +1,170 @@
-<main class="px-8 sm:px-32 flex flex-col justify-start items-center">
-    <div class="flex flex-row justify-center items-center mt-12">
-        <fa-layers class="led hidden sm:inline-block">
-            <fa-icon
-                icon="circle-notch"
-                class="led-1"
-                transform="rotate-45 grow-35 up-10"
-            ></fa-icon>
-            <fa-icon
-                icon="circle-notch"
-                class="led-2"
-                transform="rotate-240 grow-35 up-10"
-            ></fa-icon>
-            <fa-icon
-                icon="circle-notch"
-                class="led-3"
-                transform="rotate-135 grow-35 up-10"
-            ></fa-icon>
-        </fa-layers>
-        <h1 class="inline text-center mat-display-3 m-0">
-            Detroit: Become Human
-        </h1>
-    </div>
-    <h1 class="mat-display-2 mt-4 mb-8 text-center">Text transcription</h1>
-
-    <div class="flex-initial bg-blue-300 bg-opacity-50 rounded-xl p-8 mb-8">
-        <div class="mb-4 flex flex-row justify-start items-center">
-            <fa-icon icon="info-circle" size="lg"></fa-icon>
-            <h2 class="ml-2 text-xl mb-0">01/24/2021 - Update</h2>
+<main>
+    <app-lang-picker-toggle
+        class="fixed top-0 right-0 mt-8 mr-8 z-10"
+    ></app-lang-picker-toggle>
+	<app-lang-picker
+            *ngIf="languagePickerService.showPicker | async"
+            class="fixed right-0 top-20 mr-6 z-10 max-w-1/2"
+    ></app-lang-picker>
+    <div class="px-8 sm:px-32 flex flex-col justify-start items-center">
+        <div class="flex flex-row justify-center items-center mt-12">
+            <fa-layers class="led hidden sm:inline-block">
+                <fa-icon
+                    icon="circle-notch"
+                    class="led-1"
+                    transform="rotate-45 grow-35 up-10"
+                ></fa-icon>
+                <fa-icon
+                    icon="circle-notch"
+                    class="led-2"
+                    transform="rotate-240 grow-35 up-10"
+                ></fa-icon>
+                <fa-icon
+                    icon="circle-notch"
+                    class="led-3"
+                    transform="rotate-135 grow-35 up-10"
+                ></fa-icon>
+            </fa-layers>
+            <h1 class="inline text-center mat-display-3 m-0">
+                Detroit: Become Human
+            </h1>
         </div>
-        <ul>
-            <li>Fixed some typos.</li>
-            <li>Added some missing dialogues.</li>
-            <li>
-                Added Chloe main menu lines, a link to a list of all magazines
-                as well as a "Additional links" category.
-            </li>
-        </ul>
-    </div>
+        <h1 class="mat-display-2 mt-4 mb-8 text-center">Text transcription</h1>
 
-    <ng-container *transloco="let t">
-        <h2 class="mat-display-1 mb-0">
-            {{ t('GUI.MENU.CHAPTERS.VALUE') }}
-        </h2>
+        
+
+        <div class="flex-initial bg-blue-300 bg-opacity-50 rounded-xl p-8 mb-8">
+            <div class="mb-4 flex flex-row justify-start items-center">
+                <fa-icon icon="info-circle" size="lg"></fa-icon>
+                <h2 class="ml-2 text-xl mb-0">01/24/2021 - Update</h2>
+            </div>
+            <ul>
+                <li>Fixed some typos.</li>
+                <li>Added some missing dialogues.</li>
+                <li>
+                    Added Chloe main menu lines, a link to a list of all
+                    magazines as well as a "Additional links" category.
+                </li>
+            </ul>
+        </div>
+
+        <ng-container *transloco="let t">
+            <h2 class="mat-display-1 mb-0">
+                {{ t('GUI.MENU.CHAPTERS.VALUE') }}
+            </h2>
+            <mat-divider class="self-stretch"></mat-divider>
+
+            <app-card-container>
+                <ng-container
+                    *ngFor="
+                        let chapter of chapters;
+                        let i = index;
+                        let even = even
+                    "
+                >
+                    <app-card
+                        [routerLink]="['/chapters', chapters[i].id]"
+                        [imageSource]="chapters[i].image"
+                        [imageAlt]="
+                            t(
+                                'GUI.MENU.CHAPTERS.' +
+                                    chapters[i].shortIdentifier
+                            )
+                        "
+                        [title]="'Chapter ' + chapters[i].number"
+                        [text]="
+                            t(
+                                'GUI.MENU.CHAPTERS.' +
+                                    chapters[i].shortIdentifier
+                            )
+                        "
+                    ></app-card>
+                </ng-container>
+            </app-card-container>
+        </ng-container>
+
+        <h2 class="mat-display-1 mb-0 mt-14">Extras</h2>
+
         <mat-divider class="self-stretch"></mat-divider>
 
         <app-card-container>
-            <ng-container
-                *ngFor="let chapter of chapters; let i = index; let even = even"
-            >
-                <app-card
-                    [routerLink]="['/chapters', chapters[i].id]"
-                    [imageSource]="chapters[i].image"
-                    [imageAlt]="
-                        t('GUI.MENU.CHAPTERS.' + chapters[i].shortIdentifier)
-                    "
-                    [title]="'Chapter ' + chapters[i].number"
-                    [text]="
-                        t('GUI.MENU.CHAPTERS.' + chapters[i].shortIdentifier)
-                    "
-                ></app-card>
-            </ng-container>
+            <app-card
+                [routerLink]="['/chloe']"
+                imageSource="assets/images/chloe.jpg"
+                imageAlt="Chloe in the main menu"
+                title="Chloe"
+                text="Main menu interactions"
+            ></app-card>
+            <app-card
+                [routerLink]="['/magazines']"
+                imageSource="assets/images/magazine.png"
+                imageAlt="Magazine"
+                title="Magazines"
+                text="The complete list"
+            ></app-card>
         </app-card-container>
-    </ng-container>
 
-    <h2 class="mat-display-1 mb-0 mt-14">Extras</h2>
+        <h2 class="mat-display-1 mb-0 mt-14">Additional Links</h2>
 
-    <mat-divider class="self-stretch"></mat-divider>
+        <mat-divider class="self-stretch"></mat-divider>
+        <p>
+            Want a link to appear here ? Send a request through the
+            <a
+                [routerLink]="['/contact']"
+                class="
+                    transition-colors
+                    ease-in-out
+                    duration-500
+                    text-blue-500
+                    hover:text-blue-400
+                "
+                >contact form</a
+            >
+            !
+        </p>
 
-    <app-card-container>
-        <app-card
-            [routerLink]="['/chloe']"
-            imageSource="assets/images/chloe.jpg"
-            imageAlt="Chloe in the main menu"
-            title="Chloe"
-            text="Main menu interactions"
-        ></app-card>
-        <app-card
-            [routerLink]="['/magazines']"
-            imageSource="assets/images/magazine.png"
-            imageAlt="Magazine"
-            title="Magazines"
-            text="The complete list"
-        ></app-card>
-    </app-card-container>
-
-    <h2 class="mat-display-1 mb-0 mt-14">Additional Links</h2>
-
-    <mat-divider class="self-stretch"></mat-divider>
-    <p>
-        Want a link to appear here ? Send a request through the
-        <a
-            [routerLink]="['/contact']"
+        <div
             class="
-                transition-colors
-                ease-in-out
-                duration-500
-                text-blue-500
-                hover:text-blue-400
+                grid
+                sm:mx-8
+                flex-initial
+                auto-rows-auto
+                items-stretch
+                justify-items-stretch
+                grid-cols-1
+                lg:grid-cols-2
+                xl:grid-cols-3
+                gap-8
             "
-            >contact form</a
         >
-        !
-    </p>
-
-    <div
-        class="
-            grid
-            sm:mx-8
-            flex-initial
-            auto-rows-auto
-            items-stretch
-            justify-items-stretch
-            grid-cols-1
-            lg:grid-cols-2
-            xl:grid-cols-3
-            gap-8
-        "
-    >
-        <mat-card class="w-full m-0" *ngFor="let link of additionalLinks">
-            <mat-card-header>
-                <img
-                    mat-card-avatar
-                    src="{{ link.img }}"
-                    alt="{{ link.alt }}"
-                />
-                <mat-card-title>{{ link.title }}</mat-card-title>
-                <mat-card-subtitle>{{ link.subtitle }}</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="flex flex-row items-center justify-between">
-                    <p class="m-0">{{ link.description }}</p>
-                    <a
-                        mat-icon-button
-                        aria-label="Icon button with an arrow icon"
-                        href="{{ link.link }}"
-                        target="_blank"
-                    >
-                        <fa-icon icon="external-link-alt" size="lg"></fa-icon>
-                    </a>
-                </div>
-            </mat-card-content>
-        </mat-card>
+            <mat-card class="w-full m-0" *ngFor="let link of additionalLinks">
+                <mat-card-header>
+                    <img
+                        mat-card-avatar
+                        src="{{ link.img }}"
+                        alt="{{ link.alt }}"
+                    />
+                    <mat-card-title>{{ link.title }}</mat-card-title>
+                    <mat-card-subtitle>{{ link.subtitle }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="flex flex-row items-center justify-between">
+                        <p class="m-0">{{ link.description }}</p>
+                        <a
+                            mat-icon-button
+                            aria-label="Icon button with an arrow icon"
+                            href="{{ link.link }}"
+                            target="_blank"
+                        >
+                            <fa-icon
+                                icon="external-link-alt"
+                                size="lg"
+                            ></fa-icon>
+                        </a>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
     </div>
 </main>
 

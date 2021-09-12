@@ -6,6 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { LangPickerComponent } from './lang-picker/lang-picker.component';
+import { LangPickerToggleComponent } from './lang-picker-toggle/lang-picker-toggle.component';
 
 @NgModule({
     declarations: [
@@ -14,8 +16,10 @@ import { SidenavComponent } from './sidenav/sidenav.component';
         HeaderComponent,
         InfoDialogComponent,
         SidenavComponent,
+        LangPickerComponent,
+        LangPickerToggleComponent,
     ],
     imports: [SharedModule, TranslocoRootModule],
-    exports: [FooterComponent, BaseLayoutComponent],
+    exports: [FooterComponent, BaseLayoutComponent, LangPickerComponent, LangPickerToggleComponent],
 })
 export class LayoutModule {}

@@ -18,19 +18,15 @@
         ></fa-icon>
 
         <span class="flex-auto"></span>
-        <div
-            class="flag-icon-background flag-icon-{{ activeFlag }}"
-            (click)="showFlagPanel = !showFlagPanel"
-        ></div>
+        <app-lang-picker-toggle
+            class="mr-4"
+            [switchCaretColor]="true"
+        ></app-lang-picker-toggle>
     </nav>
-    <div *ngIf="showFlagPanel" class="flex flex-row justify-end">
-        <div class="flags flex flex-row flex-wrap justify-end max-w-1/2">
-            <div
-                *ngFor="let lang of supportedLanguages"
-                class="flag-icon-background flag-icon-{{ lang.flag }}"
-                (click)="changeLanguage(lang.lang)"
-                matTooltip="{{ lang.label }}"
-            ></div>
-        </div>
+    <div class="flex flex-row justify-end">
+        <app-lang-picker
+            *ngIf="languagePickerService.showPicker | async"
+            class="max-w-1/2"
+        ></app-lang-picker>
     </div>
 </header>

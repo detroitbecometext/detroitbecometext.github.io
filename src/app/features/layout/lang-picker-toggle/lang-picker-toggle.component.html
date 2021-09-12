@@ -1,0 +1,17 @@
+<div
+    class="flex flex-row items-center cursor-pointer"
+    (click)="languagePickerService.togglePicker()"
+>
+    <fa-icon
+        icon="angle-up"
+        class="transition-all duration-200 transform mr-2 text-2xl"
+        [ngClass]="{ 'stroke-current text-white': switchCaretColor }"
+        [class.rotate-0]="(languagePickerService.showPicker | async) === false"
+        [class.rotate-180]="(languagePickerService.showPicker | async) === true"
+    ></fa-icon>
+    <div
+        class="flag-icon-background flag-icon-{{
+            languagePickerService.activeFlag | async
+        }}"
+    ></div>
+</div>
