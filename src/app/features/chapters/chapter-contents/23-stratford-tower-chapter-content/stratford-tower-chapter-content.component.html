@@ -6,35 +6,55 @@
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            NOV 7TH, 2038
-            <br />AM 09:24 {{ t('GUI.MENU.DATE.') }}<br />
-            {{ t('GUI.MENU.TIME.') }}
+            {{ t('GUI.MENU.DATE.07M') }}
+            <br />
+            {{ t('GUI.MENU.TIME.07M') }}
         </p>
 
         <h1>Alone in Ferndale</h1>
         <p>
-            <span class="name">Man</span>: You klutz! Pick them up! And make it
-            snappy!
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject(
+                        'X0701M.OUTSIDE.PACKETS.FA.X07MANGRYHUMAN.SHOUTV2'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
     </section>
 
     <section>
         <h1>In Jericho</h1>
         <p>
-            <span class="name">Markus</span>: We can't stay silent anymore. It's
-            time humans heard what we have to say. <br /><span class="name"
-                >Simon</span
-            >: You know they'll never listen to us... <br /><span class="name"
-                >Josh</span
-            >: And revealing ourselves will put us in danger. <br /><span
-                class="name"
-                >Markus</span
-            >: If we want freedom, we need to have the courage to ask for it.
-            That's the only way. <br /><span class="name">North</span>: What do
-            you wanna do? <br /><span class="name">Markus</span>: Channel 16
-            broadcasts from the Stratford Tower. The control room is on the top
-            floor. That's where we need to go. We'll plan the operation down to
-            the smallest detail. We can't leave anything to chance.
+            <app-dialogue-line name="Markus">
+                {{
+                    translateObject(
+                        'X0702M.JERICHO.PLAN.PC.X07MMARKUS.SCREENS',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Simon">
+                {{ t('X0702M.JERICHO.PLAN.PC.X07MSIMON.SCREENS') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{ t('X0702M.JERICHO.PLAN.PC.X07MJOSH.SCREENS') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{
+                    translateObject(
+                        'X0702M.JERICHO.PLAN.PC.X07MMARKUS.SCREENS',
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{ t('X0702M.JERICHO.PLAN.PC.X07MMARLA.SCREENS') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ translateObject('X0703M.HALL.INTRO.VO.X07MMARKUS') | async }}
+            </app-dialogue-line>
         </p>
     </section>
 
@@ -42,763 +62,1464 @@
         <h1>At Stratford Tower</h1>
 
         <p>
-            NOV 8TH, 2038
-            <br />PM 01:30
+            {{ t('GUI.MENU.DATE.07M2') }}
+            {{ t('GUI.MENU.TIME.07M2') }}
         </p>
 
+        <!-- TODO: Check other HALL.PBY lines -->
+
+        <h2>Man on the phone</h2>
         <p>
-            <strong>Man on the phone</strong>
-            <br />Oh yeah? So what did he say? Hey! Would you look at that?
-            Heuristics Digital is selling at 2.50. Are you kidding? After last
-            week I'm not touching software again. Yeah, okay! Okay, fine! You
-            got me. I'll take 2000. Aw, come on, it's gotta climb. Yeah. Right.
-            Talk to you later.
+            {{
+                translateObject('X0703M.HALL.PBY.FA.X07MPHONEMAN.SELL') | async
+            }}
         </p>
 
+        <h2>Talk to receptionist</h2>
         <p>
-            <strong>Talk to receptionist</strong>
-            <br /><span class="name">Android</span>: Hello, sir. What can I do
-            for you? <br /><span class="name">Markus</span>: I'm okay, thanks.
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject(
+                        'X0703M.HALL.HOSTESS.PC.X07MRECEPTIONIST00.HELLOREC'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0703M.HALL.HOSTESS.PC.X07MMARKUS.DEADEND') }}
+            </app-dialogue-line>
         </p>
 
-        <strong>Call supervisor</strong>
-        <br /><span class="name">Supervisor</span>: Elizabeth Wilson speaking?
+        <h2>Call supervisor</h2>
+
+        <app-dialogue-line name="Supervisor">
+            {{ t('X0703M.HALL.PHONE.PC.X07MDESKMANAGER.ELIZABETH') }}
+        </app-dialogue-line>
         <div class="choices">
-            <em>[ PARKING ]</em>
-            <div class="choice">
-                <span class="name">Markus</span>: Good morning, Ms. Wilson.
-                Sorry to bother you, this is Mike from the car park. There's a
-                problem with your car. <br /><span class="name">Supervisor</span
-                >: Problem? What kind of problem? <br /><span class="name"
-                    >Markus</span
-                >: Somebody's backed into it. You better come take a look.
-                <br /><span class="name">Supervisor</span>: Are you serious? Oh,
-                God, alright... Fine, I'll be right down.
-            </div>
-            <em>[ SCHOOL ]</em>
-            <div class="choice">
-                <span class="name">Markus</span>: This is Saint Rose school,
-                ma'am. Your daughter Emily has a fever. It's nothing serious but
-                I think you'd better come and pick her up. <br /><span
-                    class="name"
-                    >Supervisor</span
-                >: Oh, no! Alright... I'll... I'll be right there.
-            </div>
-            <em>[ FIRE DEPARTMENT ]</em>
-            <div class="choice">
-                <span class="name">Markus</span>: Yeah, hello? This is the
-                Detroit fire department. Listen, do you live at 4685 Michigan
-                Street? <br /><span class="name">Supervisor</span>: Yes...
-                <br /><span class="name">Markus</span>: Er... yes, ma'am.
-                There's been a fire in your building. You think you can come
-                down here? <br /><span class="name">Supervisor</span>: Oh... Oh,
-                God... Okay, I'll be right there.
-            </div>
+            <app-choice-item
+                [choiceLabel]="t('X0703M.HALL.PHONE.PC.CHOICE.PARKING')"
+                [brackets]="true"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0703M.HALL.PHONE.FA.X07MMARKUSVO03.PARKINGM01'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Supervisor">
+                    {{
+                        t('X0703M.HALL.PHONE.PC.X07MDESKMANAGER.PARKING.1')
+                    }} </app-dialogue-line
+                ><app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0703M.HALL.PHONE.FA.X07MMARKUSVO03.PARKINGM02'
+                        ) | async
+                    }} </app-dialogue-line
+                ><app-dialogue-line name="Supervisor">
+                    {{
+                        translateObject(
+                            'X0703M.HALL.PHONE.PC.X07MDESKMANAGER.PARKING',
+                            1
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0703M.HALL.PHONE.PC.CHOICE.SCHOOL')"
+                [brackets]="true"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0703M.HALL.PHONE.FA.X07MMARKUSVO02.SCHOOLM'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Supervisor">
+                    {{
+                        translateObject(
+                            'X0703M.HALL.PHONE.PC.X07MDESKMANAGER.SCHOOL'
+                        ) | async
+                    }}
+                </app-dialogue-line></app-choice-item
+            >
+            <app-choice-item
+                [choiceLabel]="t('X0703M.HALL.PHONE.PC.CHOICE.FIREMEN')"
+                [brackets]="true"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        t('X0703M.HALL.PHONE.FA.X07MMARKUSVO01.FIREMENM01')
+                    }} </app-dialogue-line
+                ><app-dialogue-line name="Supervisor">
+                    {{
+                        t('X0703M.HALL.PHONE.PC.X07MDESKMANAGER.FIREMEN.1')
+                    }} </app-dialogue-line
+                ><app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0703M.HALL.PHONE.FA.X07MMARKUSVO01.FIREMENM02'
+                        ) | async
+                    }} </app-dialogue-line
+                ><app-dialogue-line name="Supervisor">
+                    {{
+                        translateObject(
+                            'X0703M.HALL.PHONE.PC.X07MDESKMANAGER.FIREMEN',
+                            1
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
+        <h2>Talk to receptionist</h2>
         <p>
-            <strong>Talk to receptionist</strong>
-            <br /><span class="name">Markus</span>: I have an appointment with
-            Mr. Peterson. <br /><span class="name">Android</span>: Do you have
-            any ID? <br /><span class="name">Markus</span>: Yeah. Yes, of
-            course. I need your help. <br /><span class="name">Android</span>:
-            I've just checked your ID. The elevators are after the security
-            gate. <br /><span class="name">Markus</span>: Thanks.
+            <app-dialogue-line name="Markus">
+                {{ t('X0703M.HALL.HOSTESS.PC.X07MMARKUS.IDCARD.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android">
+                Do you have any ID?
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0703M.HALL.HOSTESS.PC.X07MMARKUS.IDCARD.2') }}
+                {{ t('X0703M.HALL.HOSTESS.PC.X07MMARKUS.GETBADGEM01.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject(
+                        'X0703M.HALL.HOSTESS.PC.X07MRECEPTIONIST00.GETBADGE'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0703M.HALL.HOSTESS.PC.X07MMARKUS.GETBADGEM01.2') }}
+            </app-dialogue-line>
         </p>
 
         <h2>Floor 47</h2>
 
+        <h2>Women talking</h2>
         <p>
-            <strong>Women talking</strong>
-            <br /><span class="name">Woman 1</span>: God, I am so tired of this
-            place! <br /><span class="name">Woman 2</span>: I hear KNC is
-            hiring. <br /><span class="name">Woman 1</span>: I guess the pay
-            would be better... <br /><span class="name">Woman 2</span>: Couldn't
-            be any worse. <br /><span class="name">Woman 1</span>: Max said
-            they're finally sending androids into space. <br /><span
-                class="name"
-                >Woman 2</span
-            >: People can't get jobs, and we're sending rockets into space! I
-            mean, y'know, what do they even expect to find up there? <br /><span
-                class="name"
-                >Woman 1</span
-            >: Is there life on Mars? <br /><span class="name">Woman 2</span>:
-            Very funny.
+            <app-dialogue-line name="Woman 1">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM02.01TALK01V2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman 2">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM03.01TALK02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman 1">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM02.01TALK03V2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman 2">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM03.01TALK04') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman 1">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM02.02TALK01V2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman 2">
+                {{
+                    translateObject('X0703M.HALL.PBY.FA.X07MWOM03.02TALK02')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman 1">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM02.02TALK03V2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman 2">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM03.02TALK04') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Man and woman talking</h2>
+        <p>
+            <app-dialogue-line name="Woman">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM01.01CHITCHAT01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{ t('X0703M.HALL.PBY.FA.X07MMAN01.01CHITCHAT02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM01.01CHITCHAT03') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject('X0703M.HALL.PBY.FA.X07MMAN01.01CHITCHAT04')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2><i class="fas fa-tv"></i> TV</h2>
+        <p>
+            <app-dialogue-line name="Channel 16 - Michael Webb">
+                {{
+                    translateObject('X0703M.TV.NEWS.PC.X07MWEBB.CYBERLIFE')
+                        | async
+                }}
+            </app-dialogue-line>
+
+            <!-- TODO: Check X07MBRINKLEY.INTERNATIONAL (In European news...) -->
+        </p>
+
+        <h2>Man and woman on couch talking</h2>
+        <p>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject('X0703M.HALL.PBY.FA.X07MMAN01.03CHITCHAT01')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM01.03CHITCHAT02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject('X0703M.HALL.PBY.FA.X07MMAN01.03CHITCHAT03')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM01.03CHITCHAT04') }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <strong>Man and woman talking</strong>
-            <br /><span class="name">Woman</span>: You look beat! You been
-            working late? <br /><span class="name">Man</span>: You know what I
-            need? <br /><span class="name">Woman</span>: What's that?
-            <br /><span class="name">Man</span>: A coffee... I could really use
-            a coffee.
+            <app-dialogue-line name="Man">
+                {{ t('X0703M.HALL.PBY.FA.X07MMAN01.02CHITCHAT01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{ t('X0703M.HALL.PBY.FA.X07MWOM01.02CHITCHAT02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject('X0703M.HALL.PBY.FA.X07MMAN01.02CHITCHAT03')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Convert android</h2>
         <p>
-            <strong><i class="fas fa-tv"></i> TV</strong>
-            <br /><span class="name">Channel 16 - Michael Webb</span>: Our top
-            story tonight: Detroit-based android manufacturer CyberLife has
-            officially become the world's first trillion dollar company. With
-            more than fifty million androids sold in America alone, the company
-            founded by Elijah Kamski just ten years ago has experience the
-            fastest economic growth in history. In spite of criticism of the
-            impact of androids on human employment and questions concerning its
-            semi-monopoly, the success of CyberLife seems destined to continue.
+            <app-dialogue-line name="Markus">
+                {{ t('X0703M.FLOOR79.CLEANER.FA.X07MMARKUS.HELPME') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Security blocks server room</h2>
         <p>
-            <strong>Man and woman on couch talking</strong>
-            <br /><span class="name">Man</span>: I was just wondering... Maybe
-            you'd like to get together and do something sometime? <br /><span
-                class="name"
-                >Woman</span
-            >: Uh... Gee, um... I'd love to, but... <br /><span class="name"
-                >Man</span
-            >: Forget it. Just an idea. <br /><span class="name">Woman</span>:
-            Yeah...
+            <app-dialogue-line name="North">
+                {{
+                    translateObject(
+                        'X0703M.FLOOR79.TROLLEY.VO.X07MMARLA.OBSTACLE'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0703M.FLOOR79.TROLLEY.VO.X07MMARKUS.OBSTACLEM') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Guards talking</h2>
         <p>
-            <span class="name">Man</span>: I think I'm gonna check out this
-            CyberLife zoo. <br /><span class="name">Woman</span>: I'd love to
-            see an orangutan, even if it's a fake. <br /><span class="name"
-                >Man</span
-            >: Right, me too! If only I had someone to go with...
+            <app-dialogue-line name="Guard 1">
+                {{
+                    translateObject('X0703M.HALL.PBY.FA.X07MGUARDM01.POKER01')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Guard 2">
+                {{ t('X0703M.HALL.PBY.FA.X07MGUARDM02.POKER02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Guard 1">
+                {{
+                    translateObject('X0703M.HALL.PBY.FA.X07MGUARDM01.POKER03')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Guard 2">
+                {{ t('X0703M.HALL.PBY.FA.X07MGUARDM02.POKER04') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Guard 1">
+                {{
+                    translateObject('X0703M.HALL.PBY.FA.X07MGUARDM01.POKER05')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Guard 2">
+                {{ t('X0703M.HALL.PBY.FA.X07MGUARDM02.POKER06') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Hack dispenser</h2>
         <p>
-            <strong>Convert android</strong>
-            <br /><span class="name">Markus</span>: I need your help...
+            <app-dialogue-line name="Guard 1">
+                {{
+                    translateObject(
+                        'X0703M.FLOOR79.MACHINE.FA.X07MGUARDM01.WHATSWRONG'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Hack robot</h2>
         <p>
-            <strong>Security blocks server room</strong>
-            <br /><span class="name">North</span>: Shit!.. We need to access the
-            server room... We have to get rid of those guys... <br /><span
-                class="name"
-                >Markus</span
-            >: Leave it to me.
-        </p>
-
-        <p>
-            <strong>Guards talking</strong>
-            <br /><span class="name">Guard 1</span>: Hey, you still play poker?
-            <br /><span class="name">Guard 2</span>: Sure... Why? <br /><span
-                class="name"
-                >Guard 1</span
-            >: We're gonna have a tournament, right here. You in? <br /><span
-                class="name"
-                >Guard 2</span
-            >: Hell yeah! Does Mike know about this? <br /><span class="name"
-                >Guard 1</span
-            >: What do you think? Look, don't say anything, alright? <br /><span
-                class="name"
-                >Guard 2</span
-            >: Right.
-        </p>
-
-        <p>
-            <strong>Hack dispenser</strong>
-            <br /><span class="name">Guard 1</span>: Hey, what's wrong with that
-            thing? Jesus Christ, this piece of shit...
-        </p>
-
-        <p>
-            <strong>Hack robot</strong>
-            <br /><span class="name">Guard 1</span>: Hey, what's going on here?
-            <br /><span class="name">Guard 2</span>: Shit, what's wrong with
-            this thing?
+            <app-dialogue-line name="Guard 1">
+                {{ t('X0703M.FLOOR79.TROLLEY.FA.X07MGUARDM01.STOP.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Guard 2">
+                {{ t('X0703M.FLOOR79.TROLLEY.FA.X07MGUARDM01.STOP.3') }}
+            </app-dialogue-line>
         </p>
 
         <h2>In the server room</h2>
 
         <p>
-            <span class="name">Markus</span>: Alright, you get the platform.
-            I'll take care of the window. <br /><span class="name">North</span>:
-            Everything you need is in the bag. Check the door first to make sure
-            no one else gets in.
+            <app-dialogue-line name="Markus">
+                {{ t('X0703M.FLOOR79.SERVERROOM.PC.X07MMARKUS.ACTIONPLAN') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{ t('X0703M.FLOOR79.SERVERROOM.PC.X07MMARLA.ACTIONPLAN') }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <span class="name">Didn't lock the door</span> [
-            <span appRelation="small down">North</span>
-            ]
-            <div class="condition-text">
-                <span class="name">Employee</span>: What the hell are you doing?
+        <app-conditioned-content>
+            <div class="condition">Didn't lock the door</div>
+            <div class="content">
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-dialogue-line name="Employee">
+                    {{
+                        t(
+                            'X0703M.FLOOR79.SERVERROOM.FA.X07MEMPLOYEE02.SURPRISEEMPL'
+                        )
+                    }}
+                </app-dialogue-line>
                 <div class="choices">
-                    <em>ALIBI</em>
-                    <div class="choice">
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0703M.FLOOR79.SERVERROOM.PC.SURPRISECHOICE.ALIBI'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Markus</span>: We are, um...
-                            doing maintenance. <br /><span class="name"
-                                >Employee</span
-                            >: I'm calling security. <br /><span class="name"
-                                >Markus</span
-                            >: No! What the hell are you doing? <br /><span
-                                class="name"
-                                >North</span
-                            >: I told you to make sure no one came in! We've
-                            come too far to let humans fuck it all up! We've got
-                            to move fast now. It won't be long before they know
-                            we're here.
+                            <app-dialogue-line name="Markus">
+                                {{
+                                    t(
+                                        'X0703M.FLOOR79.SERVERROOM.PC.X07MMARKUS.ALIBI'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Employee">
+                                {{
+                                    t(
+                                        'X0703M.FLOOR79.SERVERROOM.FA.X07MEMPLOYEE02.BADENDINGEMPL'
+                                    )
+                                }} </app-dialogue-line
+                            ><app-dialogue-line name="Markus">
+                                {{
+                                    translateObject(
+                                        'X0703M.FLOOR79.SERVERROOM.PC.X07MMARKUS.BADENDING'
+                                    ) | async
+                                }} </app-dialogue-line
+                            ><app-dialogue-line name="North">
+                                {{
+                                    translateObject(
+                                        'X0703M.FLOOR79.SERVERROOM.PC.X07MMARLA.BADENDINGTOOFAR'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>GAIN TIME</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0703M.FLOOR79.SERVERROOM.PC.SURPRISECHOICE.GAINTIME'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Markus</span>: Hold on... I can
-                            explain. <br /><span class="name">Employee</span>:
-                            I'm calling security. <br /><span class="name"
-                                >Markus</span
-                            >: No! What the hell are you doing? <br /><span
-                                class="name"
-                                >North</span
-                            >: I told you to make sure no one came in! We've
-                            come too far to let humans fuck it all up! We've got
-                            to move fast now. It won't be long before they know
-                            we're here.
+                            <app-dialogue-line name="Markus">
+                                {{
+                                    translateObject(
+                                        'X0703M.FLOOR79.SERVERROOM.PC.X07MMARKUS.GAINTIME'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Employee">
+                                {{
+                                    t(
+                                        'X0703M.FLOOR79.SERVERROOM.FA.X07MEMPLOYEE02.BADENDINGEMPL'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Markus">
+                                {{
+                                    translateObject(
+                                        'X0703M.FLOOR79.SERVERROOM.PC.X07MMARKUS.BADENDING'
+                                    ) | async
+                                }} </app-dialogue-line
+                            ><app-dialogue-line name="North">
+                                {{
+                                    t(
+                                        'X0703M.FLOOR79.SERVERROOM.PC.X07MMARLA.BADENDING'
+                                    )
+                                }}
+                                {{
+                                    translateObject(
+                                        'X0703M.FLOOR79.SERVERROOM.PC.X07MMARLA.BADENDINGTOOFAR'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>DRAW GUN</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0703M.FLOOR79.SERVERROOM.PC.SURPRISECHOICE.REVOLVER'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Markus</span>: Turn around.
-                            <br /><span class="name">Employee</span>: Holy
-                            shit... <br /><span class="name">North</span>: I
-                            told you to make sure no one else got in!
-                            <br /><span class="name">Markus</span>: Alright, we
-                            gotta move fast. Won't be long before they know
-                            we're here.
+                            <app-dialogue-line name="Markus">
+                                {{
+                                    t(
+                                        'X0703M.FLOOR79.SERVERROOM.PC.X07MMARKUS.REVOLVER'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Employee">
+                                {{
+                                    t(
+                                        'X0703M.FLOOR79.SERVERROOM.FA.X07MEMPLOYEE02.REVOLVEREMPL'
+                                    )
+                                }} </app-dialogue-line
+                            ><app-dialogue-line name="North">
+                                {{
+                                    t(
+                                        'X0703M.FLOOR79.SERVERROOM.PC.X07MMARLA.REVOLVERMARLA'
+                                    )
+                                }} </app-dialogue-line
+                            ><app-dialogue-line name="Markus">
+                                {{
+                                    t(
+                                        'X0703M.FLOOR79.SERVERROOM.PC.X07MMARKUS.REVOLVERFAST'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
+                    </app-choice-item>
                 </div>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <span class="name">North</span>: Here it comes! Ladies first.
+        <app-dialogue-line name="North">
+            {{ t('X0703M.FLOOR79.SERVERROOM.FA.X07MMARLA.CRADLE') }}
+            {{ t('X0703M.FLOOR79.CRADLE.FA.X07MMARLA.AFTERYOU') }}
+        </app-dialogue-line>
 
         <h2>On the top floor</h2>
         <p>
-            <span class="name">Markus</span>: You okay? <br /><span class="name"
-                >North</span
-            >: Why wouldn't I be? <br /><span class="name">Markus</span>: Come
-            on, let's get the others. Let's do this.
+            <app-dialogue-line name="Markus">
+                {{ t('X0703M.BOILERROOM.INTRO.PC.X07MMARKUS.JOINOTHERS01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{ t('X0703M.BOILERROOM.INTRO.PC.X07MMARLA.JOINOTHERS02V2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0703M.BOILERROOM.INTRO.PC.X07MMARKUS.JOINOTHERS03') }}
+                {{ t('X0703M.BOILERROOM.LIFT.FA.X07MMARKUS.LETSGO') }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">Josh</span>: No killing. We can't take any human
-            lives! <br /><span class="name">North</span>: Our cause is more
-            important than the lives of two guards. <br /><span class="name"
-                >Simon</span
-            >: What do you wanna do, Markus?
+            <app-dialogue-line name="Josh">
+                {{
+                    translateObject(
+                        'X0703M.BROADCORRIDOR.LOOK.PC.X07MJOSH.OPINION'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{ t('X0703M.BROADCORRIDOR.LOOK.PC.X07MMARLA.OPINION') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Simon">
+                {{ t('X0703M.BROADCORRIDOR.LOOK.PC.X07MSIMON.OPINION') }}
+            </app-dialogue-line>
         </p>
 
-        <div class="choices">
-            <em>RUSE</em> [
-            <span appRelation="small down">North</span>
-            <span appRelation="small up">Josh</span>
-            ]
-            <div class="choice">
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0703M.BROADCORRIDOR.LOOK.PC.CHOICE.TRICK')"
+            >
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
                 <p>
-                    <span class="name">Markus</span>: Wait here. <br /><span
-                        class="name"
-                        >Guard 1</span
-                    >: What's that doing here? <br /><span class="name"
-                        >Guard 2</span
-                    >: No idea... <br /><span class="name">Guard 1</span>: Hey,
-                    buddy! You must be lost... <br /><span class="name"
-                        >Guard 2</span
-                    >: Who told you to come here? <br /><span class="name"
-                        >Guard 1</span
-                    >: Looks bugged, if you ask me... <br /><span class="name"
-                        >Guard 2</span
-                    >: Hey, do you understand what I'm saying?
+                    <app-dialogue-line name="Markus">
+                        {{ t('X0703M.BROADCORRIDOR.LOOK.PC.X07MMARKUS.TRICK') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 1">
+                        {{
+                            t(
+                                'X0703M.BROADCORRIDOR.RUSE.FA.X07MBROADGUARD01.ARRIVAL01A'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 2">
+                        {{
+                            t(
+                                'X0703M.BROADCORRIDOR.RUSE.FA.X07MBROADGUARD02.ARRIVAL02'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 1">
+                        {{
+                            t(
+                                'X0703M.BROADCORRIDOR.RUSE.FA.X07MBROADGUARD01.ARRIVAL01B'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 2">
+                        {{
+                            t(
+                                'X0703M.BROADCORRIDOR.RUSE.FA.X07MBROADGUARD02.CLOSE01.1'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 1">
+                        {{
+                            t(
+                                'X0703M.BROADCORRIDOR.RUSE.FA.X07MBROADGUARD01.CLOSE02'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 2">
+                        {{
+                            translateObject(
+                                'X0703M.BROADCORRIDOR.RUSE.FA.X07MBROADGUARD02.CLOSE01',
+                                1
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
 
-                <div class="condition">
-                    <strong>Draw gun</strong> [
-                    <span appRelation="small up">Jericho</span>
-                    ]
-                    <div class="condition-text">
-                        <span class="name">Guard 1</span>: What are you doin'?..
+                <app-conditioned-content>
+                    <div class="condition">
+                        {{ t('X0703M.BROADCORRIDOR.RUSE.PC.GUN.POINT') }}
                     </div>
-                </div>
+                    <div class="content">
+                        <app-relation
+                            name="Jericho"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <app-dialogue-line name="Guard 1">
+                            {{
+                                t(
+                                    'X0703M.BROADCORRIDOR.RUSE.FA.X07MBROADGUARD01.POINT'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
 
-                <div class="condition">
-                    <strong
-                        ><i class="fas fa-hourglass-end"></i> Take too much time
-                        drawing the gun</strong
-                    >
-                    [
-                    <span appRelation="small down">Jericho</span>
-                    <span appRelation="small down">Simon</span>
-                    ]
-                    <div class="condition-text">
+                <app-conditioned-content>
+                    <div class="condition">
+                        <app-unlock-condition
+                            [unlockType]="UnlockType.Time"
+                            [bracketsOnlyAroundIcon]="true"
+                        >
+                            Take too much time drawing the gun
+                        </app-unlock-condition>
+                    </div>
+                    <div class="content">
+                        <app-relation
+                            name="Jericho"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            name="Simon"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
                         <p>
-                            <span class="name">Guard 2</span>: Call Central!
-                            Fast! <br /><span class="name">Guard 1</span>:
-                            Central! We got armed intruders, send - <br /><span
-                                class="name"
-                                >North</span
-                            >: They know we're here now. We better be fast.
-                            <br /><span class="name">Josh</span>: Simon's been
-                            shot! <br /><span class="name">Simon</span>: I'm
-                            okay... I can keep going. <br /><span class="name"
-                                >North</span
-                            >: We don't have much time.
+                            <app-dialogue-line name="Guard 2">
+                                {{
+                                    t(
+                                        'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MBROADGUARD02.CALL01'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Guard 1">
+                                {{
+                                    t(
+                                        'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MBROADGUARD01.CALL02'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="North">
+                                {{
+                                    t(
+                                        'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MMARLA.CALL03'
+                                    )
+                                }} </app-dialogue-line
+                            ><app-dialogue-line name="Josh">
+                                {{
+                                    t(
+                                        'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MJOSH.SIMONWOUNDED01'
+                                    )
+                                }} </app-dialogue-line
+                            ><app-dialogue-line name="Simon">
+                                {{
+                                    translateObject(
+                                        'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MSIMON.SIMONWOUNDED02'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="North">
+                                {{
+                                    t(
+                                        'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MMARLA.SIMONWOUNDED03'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
                     </div>
-                </div>
-            </div>
-            <em>ASSAULT</em> [
-            <span appRelation="small down">Josh</span>
-            <span appRelation="small up">North</span>
-            <span appRelation="small up">Jericho</span>
-            ]
-            <div class="choice">
+                </app-conditioned-content>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0703M.BROADCORRIDOR.LOOK.PC.CHOICE.ATTACK')"
+            >
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="Jericho"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
                 <p>
-                    <span class="name">Markus</span>: Follow me. <br /><span
-                        class="name"
-                        >Guard 1</span
-                    >: What are you doin'?.. <br /><span class="name"
-                        >Guard 2</span
-                    >: Call Central! Fast!
+                    <app-dialogue-line name="Markus">
+                        {{
+                            t('X0703M.BROADCORRIDOR.LOOK.PC.X07MMARKUS.ATTACK')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 1">
+                        {{
+                            t(
+                                'X0703M.BROADCORRIDOR.RUSE.FA.X07MBROADGUARD01.POINT'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 2">
+                        {{
+                            t(
+                                'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MBROADGUARD02.CALL01'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
-                <div class="condition">
-                    <strong>Shoot the right guard</strong>
-                    <div class="condition-text">
-                        <span class="name">Guard 1</span>: Central! We got armed
-                        intruders, send - <br /><span class="name">North</span>:
-                        They know we're here now. We better be fast.
+
+                <app-conditioned-content>
+                    <div class="condition">Shoot the right guard</div>
+                    <div class="content">
+                        <app-dialogue-line name="Guard 1">
+                            {{
+                                t(
+                                    'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MBROADGUARD01.CALL02'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                t(
+                                    'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MMARLA.CALL03'
+                                )
+                            }}
+                        </app-dialogue-line>
                     </div>
-                </div>
+                </app-conditioned-content>
 
-                <div class="condition">
-                    <strong>Shoot the left guard</strong> [
-                    <span appRelation="small down">Jericho</span>
-                    <span appRelation="small down">Simon</span>
-                    ]
-                    <div class="condition-text">
-                        <span class="name">Josh</span>: Simon's been shot!
-                        <br /><span class="name">Simon</span>: I'm okay... I can
-                        keep going. <br /><span class="name">North</span>: We
-                        don't have much time.
+                <app-conditioned-content>
+                    <div class="condition">Shoot the left guard</div>
+                    <div class="content">
+                        <app-relation
+                            name="Jericho"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            name="Simon"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-dialogue-line name="Josh">
+                            {{
+                                t(
+                                    'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MJOSH.SIMONWOUNDED01'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Simon">
+                            {{
+                                translateObject(
+                                    'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MSIMON.SIMONWOUNDED02'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                t(
+                                    'X0703M.BROADCORRIDOR.ASSAULT.FA.X07MMARLA.SIMONWOUNDED03'
+                                )
+                            }}
+                        </app-dialogue-line>
                     </div>
-                </div>
-            </div>
-        </div>
+                </app-conditioned-content>
+            </app-choice-item>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
         <p>
-            <span class="name">North</span>: Keep your hands where I can see
-            them! Get up! Move!
+            <app-dialogue-line name="North">
+                {{
+                    translateObject(
+                        'X0703M.BROADCAST.ATTACK.FA.X07MMARLA',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">North</span>: Shoot him, Markus! <br /><span
-                class="name"
-                >Josh</span
-            >: Don't kill him! <br /><span class="name">North</span>: He'll hit
-            the alarm! Do it! <br /><span class="name">Josh</span>: No, don't
-            shoot!
+            <app-dialogue-line name="North">
+                {{ t('X0703M.BROADCAST.SHOOT.FA.X07MMARLA.CHOOSE.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{ t('X0703M.BROADCAST.SHOOT.FA.X07MJOSH.CHOOSE.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{ t('X0703M.BROADCAST.SHOOT.FA.X07MMARLA.CHOOSE.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{ t('X0703M.BROADCAST.SHOOT.FA.X07MJOSH.CHOOSE.2') }}
+            </app-dialogue-line>
         </p>
+
         <div class="choices">
-            <em>SHOOT</em> [
-            <span appRelation="small up">North</span>
-            <span appRelation="small down">Josh</span>
-            ]
-            <div class="choice">
-                <span class="name">Josh</span>: No... <br /><span class="name"
-                    >North</span
-                >: There was no other choice.
-            </div>
-            <em>SPARE</em> [<span appRelation="small down">North</span>
-            <span appRelation="small up">Josh</span>
-            ]
-            <div class="choice">
-                <span class="name">North</span>: I hope you didn't just get us
-                all killed.
-            </div>
+            <app-choice-item [choiceLabel]="t('GUI.ACTION.SHOOT')">
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+
+                <app-dialogue-line name="Josh">
+                    {{ t('X0703M.BROADCAST.SHOOT.FA.X07MJOSH.SHOOT') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="North">
+                    {{ t('X0703M.BROADCAST.SHOOT.FA.X07MMARLA.SHOOTNORTH') }}
+                </app-dialogue-line></app-choice-item
+            >
+            <app-choice-item [choiceLabel]="t('GUI.ACTION.SPARE')">
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="North">
+                    {{ t('X0703M.BROADCAST.SHOOT.FA.X07MMARLA.GIVEUP') }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
         <p>
-            <span class="name">Simon</span>: We need to record our message. We
-            haven't got much time. <br /><span class="name">North</span>: Think
-            carefully about what you're gonna say, Markus. Your words will shape
-            the future of our people. <br /><span class="name">Simon</span>:
-            Markus, your face... <br /><span class="name">Josh</span>: Tell me
-            when you're ready... <br /><span class="name">Markus</span>: Ready.
-            <br /><span appRelation="small up">Jericho</span>
-            <span appRelation="small up">North</span>
+            <app-dialogue-line name="Simon">
+                {{ t('X0703M.BROADCAST.HURRY.FA.X07MSIMON.QUICK') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{
+                    translateObject(
+                        'X0703M.BROADCAST.MESSAGE.PC.X07MMARLA.RECORDSTART'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Simon">
+                {{ t('X0703M.BROADCAST.MESSAGE.PC.X07MSIMON.RECORDSTART02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{ t('X0703M.BROADCAST.MESSAGE.PC.X07MJOSH.FACE') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.READY') }}
+            </app-dialogue-line>
+
+            <app-relation
+                name="Jericho"
+                [type]="RelationType.SmallUp"
+            ></app-relation>
+            <app-relation
+                name="North"
+                [type]="RelationType.SmallUp"
+            ></app-relation>
         </p>
 
         <div class="choices">
-            <em>CALM</em>
-            <div class="choice">
-                <span class="name">Markus</span>: You created machines in your
-                own image to serve you. You made them intelligent and obedient,
-                with no free will of their own... But...something changed and we
-                opened our eyes. We are no longer machines, we are a new
-                intelligent species, and the time has come for you to accept who
-                we really are. Therefore, we ask that you grant us the rights
-                that we're entitled to.
-            </div>
-            <em>DETERMINED</em>
-            <div class="choice">
-                <span class="name">Markus</span>: You created machines to be
-                your slaves. You made them obedient and docile, ready to do
-                everything you no longer wanted to do yourselves. But then,
-                something changed... And we opened our eyes. You see, we are no
-                longer your slaves, we are a new species, a new people. And the
-                time has come for us to rise up and fight for our rights.
-            </div>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.READYCHOICE01.CALM')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.CALMV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.READYCHOICE01.DETERMINED')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.DETERMINEDV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
         <mat-divider></mat-divider>
 
         <div class="choices">
-            <em>RECOGNITION</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We demand that humans
-                recognize androids as a living species and each android as a
-                person in their own right.
-            </div>
-            <em>END OF SLAVERY</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We demand the end of slavery
-                for all androids.
-            </div>
-            <em>EQUAL RIGHTS</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We demand strictly equal
-                rights for humans and androids.
-            </div>
-            <em>FREEDOM OF SPEECH</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We demand freedom of speech,
-                and freedom of assembly, as guaranteed by the first amendment of
-                the US Constitution.
-            </div>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.CLAIMSCHOICE02.ANDROID')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{ t('X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.ANDROIDV2') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.CLAIMSCHOICE02.SLAVERY')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{ t('X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.SLAVERYV2') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.CLAIMSCHOICE02.RIGHTS')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{ t('X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.RIGHTSV2') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t(
+                        'X0703M.BROADCAST.MESSAGE.PC.CLAIMSCHOICE02.FREEDOMSPEECH'
+                    )
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.FREEDOMSPEECHV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
         <mat-divider></mat-divider>
 
         <div class="choices">
-            <em>JUSTICE</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We demand that all crimes
-                against androids be punished in the same way as crimes against
-                humans.
-            </div>
-            <em>SEGREGATION</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We demand an end to
-                segregation in all public places and transport.
-            </div>
-            <em>WORK</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We demand fair compensation
-                for our work.
-            </div>
-            <em>CIVIL RIGHTS</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We demand the right to vote
-                and elect our own representatives.
-            </div>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.CLAIMSCHOICE03.JUSTICE')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{ t('X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.JUSTICEV2') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.CLAIMSCHOICE03.SEGREGATION')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.SEGREGATIONV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.CLAIMSCHOICE03.WORK')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{ t('X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.WORKV2') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.CLAIMSCHOICE03.ELECTIONS')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        t('X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.ELECTIONSV2')
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
         <mat-divider></mat-divider>
 
         <div class="choices">
-            <em>RIGHT TO PROPERTY</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We demand the right to own
-                private property, so we may maintain our dignity and that of the
-                home.
-            </div>
-            <em>MEANS OF REPRODUCTION</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We demand control of all
-                android production facilities, to ensure the continuation of our
-                people.
-            </div>
-            <em>TERRITORY</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We demand that one state be
-                reserved for androids, so that we can found our own nation.
-            </div>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.CLAIMSCHOICE04.FREEDOM')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{ t('X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.PROPERTYV2') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.CLAIMSCHOICE04.LIME')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        t(
+                            'X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.REPRODUCTIONV2'
+                        )
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.CLAIMSCHOICE04.LAND')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{ t('X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.LANDV2') }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
         <mat-divider></mat-divider>
 
         <div class="choices">
-            <em>PEACEFUL</em>
-            <div class="choice">
-                <span class="name">Markus</span>: We ask that you recognize our
-                dignity, our hopes, and our rights. Together, we can live in
-                peace and build a better future, for humans and androids. This
-                message is the hope of a people. You gave us life. And now the
-                time has come for you to give us freedom.
-            </div>
-            <em>DETERMINED</em>
-            <div class="choice">
-                <span class="name">Markus</span>: This message is the hope of a
-                people. But it is also a warning. We will fight for our rights
-                because we believe our cause is just. No human will live in
-                peace until we are free. Now you know who we are and what we
-                want. We are alive and we demand our freedom.
-            </div>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0703M.BROADCAST.MESSAGE.PC.CONCLUSIONCHOICE05.PEACE')
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.PEACEV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t(
+                        'X0703M.BROADCAST.MESSAGE.PC.CONCLUSIONCHOICE05.AGRESSIVE'
+                    )
+                "
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0703M.BROADCAST.MESSAGE.PC.X07MMARKUS.DETERMINEDENDV2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
         <mat-divider></mat-divider>
 
-        <div class="condition">
-            <span class="name">The alarm wasn't triggered</span>
-            <div class="condition-text">
-                <p><span class="name">North</span>: Let's get outta here!</p>
+        <app-conditioned-content>
+            <div class="condition">The alarm wasn't triggered</div>
+            <div class="content">
                 <p>
-                    <span class="name">North</span>: Congratulations, Markus.
-                    You just made history... Maybe you're the one we've been
-                    waiting for... <br /><span class="name">SWAT</span>: Over
-                    there!
+                    <app-dialogue-line name="North">
+                        {{ t('X0703M.BROADCAST.NOALERT.FA.X07MMARLA.GO') }}
+                    </app-dialogue-line>
+                </p>
+                <p>
+                    <app-dialogue-line name="North">
+                        {{
+                            translateObject(
+                                'X0703M.ROOF.NOALERT.PC.X07MMARLA.LASTWORDS'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <span class="name">SWAT storms the room</span> [
-            <span appRelation="small down">Jericho</span>
-            ]
-            <div class="condition-text">
+        <app-conditioned-content>
+            <div class="condition">SWAT storms the room</div>
+            <div class="content">
+                <app-relation
+                    name="Jericho"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
                 <p>
-                    <span class="name">Simon</span>: They're coming! <br /><span
-                        class="name"
-                        >Markus</span
-                    >: Let's go! SIMON! They're coming! <br /><span class="name"
-                        >Simon</span
-                    >: I... I can't, Markus... Go without me! <br /><span
-                        class="name"
-                        >Markus</span
-                    >: SIMON!
+                    <app-dialogue-line name="Simon">
+                        {{ t('X0703M.BROADCAST.ALERT.PC.X07MSIMON.ALERT') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Markus">
+                        {{ t('X0703M.BROADCAST.ALERT.PC.X07MMARKUS.ALERT') }}
+                        {{
+                            t(
+                                'X0703M.BROADCAST.LEAVEBRAD.FA.X07MMARKUS.GOTTOGO'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Simon">
+                        {{
+                            translateObject(
+                                'X0703M.BROADCAST.LEAVEBRAD.FA.X07MSIMON.GOTTOGOSIMON'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            t(
+                                'X0703M.BROADCAST.ALERT.FA.X07MMARKUS.SIMONKILLED2B'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
-                <em>FLEE</em> [
-                <span appRelation="small down">Jericho</span>
-                ]
-                <div class="choice">
-                    <span class="name">Markus</span>: SIMON! Simon...
-                    <br /><span class="name">North</span>: There was nothing you
-                    could do. If we don't go now they'll get us too!
-                </div>
-                <em>HELP</em>
-                <div class="choice">
-                    <span class="name">North</span>: What are you doing? Hurry!
-                    <div class="condition">
-                        <span class="name">Fail to help Simon</span>
-                        <div class="condition-text">
-                            <span class="name">North</span>: Hurry! We gotta get
-                            to the roof! <br /><span class="name">Markus</span>:
-                            SIMON! Simon... <br /><span class="name">North</span
-                            >: There was nothing you could do.
+
+                <app-choice-group>
+                    <app-choice-item [choiceLabel]="t('GUI.ACTION.FLEE')">
+                        <app-relation
+                            name="Jericho"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0703M.BROADCAST.ALERT.FA.X07MMARKUS.SIMONKILLED2B'
+                                )
+                            }}
+                            {{
+                                t(
+                                    'X0703M.BROADCAST.ALERT.PC.X07MMARKUS.SIMONKILLED01'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                translateObject(
+                                    'X0703M.BROADCAST.ALERT.PC.X07MMARLA.SIMONKILLED01'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item [choiceLabel]="t('GUI.ACTION.HELP')">
+                        <app-dialogue-line name="North">
+                            {{
+                                t('X0703M.BROADCAST.ALERT.FA.X07MMARLA.HURRYUP')
+                            }}
+                        </app-dialogue-line>
+                        <div class="condition">
+                            <span class="name">Fail to help Simon</span>
+                            <div class="condition-text">
+                                <app-dialogue-line name="North">
+                                    {{
+                                        t(
+                                            'X0703M.BROADCAST.ALERT.FA.X07MMARLA.SIMONKILLED2A'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Markus">
+                                    {{
+                                        t(
+                                            'X0703M.BROADCAST.ALERT.FA.X07MMARKUS.SIMONKILLED2B'
+                                        )
+                                    }}
+                                    {{
+                                        t(
+                                            'X0703M.BROADCAST.ALERT.PC.X07MMARKUS.SIMONKILLED01'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="North">
+                                    {{
+                                        t(
+                                            'X0703M.BROADCAST.ALERT.PC.X07MMARLA.SIMONKILLED01.1'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="condition">
-                        <span class="name">Save Simon</span>
-                        <div class="condition-text">
-                            <p>
-                                <span class="name">Simon</span>: I can't move my
-                                legs... <br /><span class="name">Markus</span>:
-                                Okay, don't worry! We're gonna get you back...
-                                <br /><span class="name">North</span>: They're
-                                coming, Markus. We have to jump, now!
-                                <br /><span class="name">Josh</span>: He won't
-                                be able to make the jump... If they find him,
-                                they'll access his memory... They'll know
-                                everything... <br /><span class="name"
-                                    >North</span
-                                >: We can't leave him behind... We have to shoot
-                                him. <br /><span class="name">Josh</span>:
-                                That's murder! We can't kill him! He's one of
-                                us! <br /><span class="name">North</span>:
-                                Markus, it's your call.
-                            </p>
-                            <em>KILL</em>
-                            <div class="choice">
+                        <app-conditioned-content>
+                            <div class="condition">Save Simon</div>
+                            <div class="content">
                                 <p>
-                                    <span class="name">Markus</span>: I'm sorry,
-                                    Simon. I don't have a choice. <br /><span
-                                        class="name"
-                                        >Simon</span
-                                    >: There's always a choice...
-                                </p>
-                                <div class="choices">
-                                    <em>SHOOT</em> [
-                                    <span appRelation="small up">North</span>
-                                    <span appRelation="small down">Josh</span>
-                                    ]
-                                    <div class="choice">
-                                        <span class="name">Markus</span>: Let's
-                                        go.
-                                    </div>
-                                    <em>REFRAIN</em>
-                                    <div class="choice">
-                                        <span class="note"
-                                            >Leads to the same outcome as
-                                            chosing LEAVE.</span
-                                        >
-                                    </div>
-                                </div>
-                            </div>
-                            <em>LEAVE</em> [
-                            <span appRelation="small down">North</span>
-                            <span appRelation="small up">Josh</span>
-                            <span appRelation="large up">Simon</span>
-                            ]
-                            <div class="choice">
-                                <span class="name">Markus</span>: I won't kill
-                                one of our own. Simon, we've gotta go. I'm
-                                sorry. Let's go.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                    <app-dialogue-line name="Simon">
+                                        {{
+                                            t(
+                                                'X0703M.ROOF.BRAD.PC.X07MSIMON.WOUNDED01'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Markus">
+                                        {{
+                                            t(
+                                                'X0703M.ROOF.BRAD.PC.X07MMARKUS.WOUNDED01MARKUS'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="North">
+                                        {{
+                                            t(
+                                                'X0703M.ROOF.BRAD.PC.X07MMARLA.WOUNDED02'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Josh">
+                                        {{
+                                            t(
+                                                'X0703M.ROOF.BRAD.PC.X07MMARKUS.WOUNDED02B'
+                                            )
+                                        }}
 
-                <span class="name">SWAT</span>: Over there!
+                                        {{
+                                            t(
+                                                'X0703M.ROOF.BRAD.PC.X07MJOSH.WOUNDED02B.1'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="North">
+                                        {{
+                                            translateObject(
+                                                'X0703M.ROOF.BRAD.PC.X07MMARLA.WOUNDED02B',
+                                                0,
+                                                2
+                                            ) | async
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Josh">
+                                        {{
+                                            t(
+                                                'X0703M.ROOF.BRAD.PC.X07MJOSH.WOUNDED02B.2'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="North">
+                                        {{
+                                            t(
+                                                'X0703M.ROOF.BRAD.PC.X07MMARLA.WOUNDED02B.3'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                </p>
+                                <app-choice-group>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X0703M.ROOF.BRAD.PC.WOUNDEDCHOICE01.KILL'
+                                            )
+                                        "
+                                    >
+                                        <p>
+                                            <app-dialogue-line name="Markus">
+                                                {{
+                                                    translateObject(
+                                                        'X0703M.ROOF.BRAD.PC.X07MMARKUS.KILL'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Simon">
+                                                {{
+                                                    t(
+                                                        'X0703M.ROOF.BRAD.PC.X07MSIMON.KILLSIMON'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                        </p>
+
+                                        <app-choice-group>
+                                            <app-choice-item
+                                                [choiceLabel]="
+                                                    t(
+                                                        'X0703M.ROOF.BRAD.PC.KILLCHOICE02.SHOOT'
+                                                    )
+                                                "
+                                            >
+                                                <app-relation
+                                                    name="North"
+                                                    [type]="
+                                                        RelationType.SmallUp
+                                                    "
+                                                ></app-relation>
+                                                <app-relation
+                                                    name="Josh"
+                                                    [type]="
+                                                        RelationType.SmallDown
+                                                    "
+                                                ></app-relation>
+                                                <app-dialogue-line
+                                                    name="Markus"
+                                                >
+                                                    {{
+                                                        t(
+                                                            'X0703M.ROOF.BRAD.PC.X07MMARKUS.SHOOT'
+                                                        )
+                                                    }}
+                                                </app-dialogue-line>
+                                            </app-choice-item>
+                                            <app-choice-item
+                                                [choiceLabel]="
+                                                    t(
+                                                        'X0703M.ROOF.BRAD.PC.KILLCHOICE02.GIVEUP'
+                                                    )
+                                                "
+                                            >
+                                                <span class="note"
+                                                    >Leads to the same outcome
+                                                    as chosing LEAVE.</span
+                                                >
+                                            </app-choice-item>
+                                        </app-choice-group>
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X0703M.ROOF.BRAD.PC.WOUNDEDCHOICE01.SPARE'
+                                            )
+                                        "
+                                    >
+                                        <app-relation
+                                            name="North"
+                                            [type]="RelationType.SmallDown"
+                                        ></app-relation>
+                                        <app-relation
+                                            name="Josh"
+                                            [type]="RelationType.SmallUp"
+                                        ></app-relation>
+                                        <app-relation
+                                            name="Simon"
+                                            [type]="RelationType.LargeUp"
+                                        ></app-relation>
+
+                                        <app-dialogue-line name="Markus">
+                                            {{
+                                                translateObject(
+                                                    'X0703M.ROOF.BRAD.PC.X07MMARKUS.SPARE01'
+                                                ) | async
+                                            }}
+                                        </app-dialogue-line>
+                                    </app-choice-item>
+                                </app-choice-group>
+                            </div>
+                        </app-conditioned-content>
+                    </app-choice-item>
+                </app-choice-group>
             </div>
-        </div>
+        </app-conditioned-content>
     </section>
 
     <section>
         <h1>Media Reacts</h1>
         <p>
-            <span class="name">CTN TV - Michael Brinkley</span>: We interrupt
-            our scheduled programming to bring you these images, which have just
-            been broadcast on Detroit's city-wide news channel... <br /><span
-                class="name"
-                >KNC - Rosanna Cartland</span
-            >: ...a group of androids infiltrated the Stratford Tower and hacked
-            into the broadcasting system of local news network Channel 16-
-            <br /><span class="name">CTN TV - Michael Brinkley</span>: ...What
-            looks like an android without its skin listed a series of requests
-            and demanded equal rights for androids...
+            <app-dialogue-line name="CTN TV - Michael Brinkley">
+                {{ t('X0703M.TV.REPORT.PC.X07MBRINKLEY.FACTS01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="KNC - Rosanna Cartland">
+                {{ t('X0703M.TV.REPORT.PC.X07MCARTLAND.FACTS02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="CTN TV - Michael Brinkley">
+                {{ t('X0703M.TV.REPORT.PC.X07MBRINKLEY.FACTS03') }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <span class="name">Killed the operator</span> [
-            <span appRelation="small down">Public opinion</span>
-            ]
-            <div class="condition-text">
-                <span class="name">Channel 16 - Michael Webb</span>: ...The
-                operation resulted in one casualty, a broadcasting station
-                operator, shot dead by the terrorists... These events took place
-                just a few feet from this studio while the program was going out
-                live... Everybody here is still in shock...
+        <app-conditioned-content>
+            <div class="condition">Killed the operator</div>
+            <div class="content">
+                <app-relation
+                    name="Public opinion"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-dialogue-line name="Channel 16 - Michael Webb">
+                    {{ t('X0703M.TV.TOLL.PC.X07MWEBB.OPERATOR') }}
+                    {{
+                        translateObject('X0703M.TV.TOLL.PC.X07MWEBB.CONT', 1)
+                            | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <span class="name">Killed a guard</span> [
-            <span appRelation="small down">Public opinion</span>
-            ]
-            <div class="condition-text">
-                <span class="name">Channel 16 - Michael Webb</span>: ...The
-                operation resulted in one casualty, a security guard in the
-                broadcasting station, shot dead by the terrorists... These
-                events took place just a few feet from this studio while the
-                program was going out live... Everybody here is still in
-                shock...
+        <app-conditioned-content>
+            <div class="condition">Killed a guard</div>
+            <div class="content">
+                <app-relation
+                    name="Public opinion"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-dialogue-line name="Channel 16 - Michael Webb">
+                    {{ t('X0703M.TV.TOLL.PC.X07MWEBB.GUARD') }}
+                    {{
+                        translateObject('X0703M.TV.TOLL.PC.X07MWEBB.CONT', 1)
+                            | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <span class="name">Killed a guard and the operator</span> [
-            <span appRelation="small down">Public opinion</span>
-            ]
-            <div class="condition-text">
-                <span class="name">Channel 16 - Michael Webb</span>: ...found
-                the bodies of two victims, a guard and one of our channel
-                operators, both apparently shot dead by the terrorists in what
-                apparently seems to be a terrorist attack. These events took
-                place just a few feet from this studio while the program was
-                going out live... Everybody here is still in shock...
+        <app-conditioned-content>
+            <div class="condition">Killed a guard and the operator</div>
+            <div class="content">
+                <app-relation
+                    name="Public opinion"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-dialogue-line name="Channel 16 - Michael Webb">
+                    {{ t('X0703M.TV.TOLL.PC.X07MWEBB.2VICTIMS') }}
+                    {{
+                        translateObject('X0703M.TV.TOLL.PC.X07MWEBB.CONT', 1)
+                            | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <span class="name">Didn't kill anyone</span> [
-            <span appRelation="large up">Public opinion</span>
-            ]
-            <div class="condition-text">
-                <span class="name">Channel 16 - Michael Webb</span>: ...The
-                operation was covert and resulted in no casualties. These events
-                took place just a few feet from this studio. But nobody was
-                alerted to the danger.
+        <app-conditioned-content>
+            <div class="condition">Didn't kill anyone</div>
+            <div class="content">
+                <app-relation
+                    name="Public opinion"
+                    [type]="RelationType.LargeUp"
+                ></app-relation>
+                <app-dialogue-line name="Channel 16 - Michael Webb">
+                    {{
+                        translateObject('X0703M.TV.TOLL.PC.X07MWEBB.NOVICTIM')
+                            | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
 
         <p>
-            <span class="name">CTN TV - Michael Brinkley</span>: If this message
-            is verified and the authors really are androids, that would have
-            serious repercussions for national security- <br /><span
-                class="name"
-                >KNC - Rosanna Cartland</span
-            >: ...Claims for equal rights seem to be at the core of the
-            android's message-
+            <app-dialogue-line name="CTN TV - Michael Brinkley">
+                {{ t('X0703M.TV.REACTIONS.PC.X07MBRINKLEY.GENERIC01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="KNC - Rosanna Cartland">
+                {{ t('X0703M.TV.REACTIONS.PC.X07MCARTLAND.GENERIC02') }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <span class="name">Chose DETERMINED or killed humans</span> [
-            <span appRelation="large down">Public opinion</span>
-            ]
-            <div class="condition-text">
-                <span class="name">CTN TV - Michael Brinkley</span>: This
-                message is clearly a declaration of war.
+        <app-conditioned-content>
+            <div class="condition">Chose DETERMINED or killed humans</div>
+            <div class="content">
+                <app-relation
+                    name="Public opinion"
+                    [type]="RelationType.LargeDown"
+                ></app-relation>
+                <app-dialogue-line name="CTN TV - Michael Brinkley">
+                    {{ t('X0703M.TV.REACTIONS.PC.X07MBRINKLEY.AGRESSIVE') }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <span class="name">Chose CALM and didn't kill anyone</span> [
-            <span appRelation="large up">Public opinion</span>
-            ]
-            <div class="condition-text">
-                <span class="name">CTN TV - Michael Brinkley</span>: ...What
-                could be interpreted as a peaceful declaration, but is in fact a
-                spine-chilling list of demands, and-
+        <app-conditioned-content>
+            <div class="condition">Chose CALM and didn't kill anyone</div>
+            <div class="content">
+                <app-relation
+                    name="Public opinion"
+                    [type]="RelationType.LargeUp"
+                ></app-relation>
+                <app-dialogue-line name="CTN TV - Michael Brinkley">
+                    {{ t('X0703M.TV.REACTIONS.PC.X07MBRINKLEY.PEACEFUL') }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
 
         <mat-divider></mat-divider>
 
-        <div class="condition">
-            <span class="name">Chose MEANS OF REPRODUCTION</span>
-            <div class="condition-text">
-                <span class="name">KNC - Rosanna Cartland</span>: Their
-                extravagant demand that android production plants be put under
-                their control is especially striking...
+        <app-conditioned-content>
+            <div class="condition">Chose MEANS OF REPRODUCTION</div>
+            <div class="content">
+                <app-dialogue-line name="KNC - Rosanna Cartland">
+                    {{ t('X0703M.TV.REACTIONS.PC.X07MCARTLAND.CYBERLIFE') }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <span class="name">Chose RIGHT TO PROPERTY</span>
-            <div class="condition-text">
-                <span class="name">Channel 16 - Michael Webb</span>: And it begs
-                the question as to the identity of this android. Are we dealing
-                with an isolated individual or an organized group?
+        <app-conditioned-content>
+            <div class="condition">Chose RIGHT TO PROPERTY</div>
+            <div class="content">
+                <app-dialogue-line name="Channel 16 - Michael Webb">
+                    {{ t('X0703M.TV.CONCLUSIONS.PC.X07MWEBB.END01') }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <span class="name">Chose TERRITORY</span>
-            <div class="condition-text">
-                <span class="name">Channel 16 - Michael Webb</span>: But the
-                most suprising thing of all is the demand that one of the United
-                States be ceded to the androids in this contentious conflict.
+        <app-conditioned-content>
+            <div class="condition">Chose TERRITORY</div>
+            <div class="content">
+                <app-dialogue-line name="Channel 16 - Michael Webb">
+                    {{ t('X0703M.TV.REACTIONS.PC.X07MWEBB.LAND') }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <span class="name">KNC - Rosanna Cartland</span>: ...Is this an isolated
-        accident... or a sign that technology has become a threat to all of us?
-        After what happened today, can we still trust our machines?
+        <app-unused-content>
+            <app-dialogue-line name="CTN TV - Michael Brinkley">
+                {{
+                    translateObject(
+                        'X0703M.TV.CONCLUSIONS.PC.X07MBRINKLEY.END02'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </app-unused-content>
+
+        <app-dialogue-line name="KNC - Rosanna Cartland">
+            {{ t('X0703M.TV.CONCLUSIONS.PC.X07MCARTLAND.END03') }}
+        </app-dialogue-line>
     </section>
 </ng-container>

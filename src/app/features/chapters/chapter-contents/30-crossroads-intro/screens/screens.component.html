@@ -1,0 +1,113 @@
+<ng-container *transloco="let t">
+    <!-- TODO: Check other news (NEWHORIZON, SPACEMAN, ...) -->
+
+    <!-- TODO: news not impacted by march, only witnesses ? -->
+
+    <h2><i class="fas fa-tv"></i> Looking at screens</h2>
+    <app-conditioned-content>
+        <div class="condition">
+            Markus didn't attack the police in
+            <a [routerLink]="['/chapters', 28]">Freedom March</a>
+        </div>
+        <div class="content">
+            <p>
+                <app-dialogue-line name="KNC - Rosanna Cartland">
+                    {{
+                        translateObject(
+                            'X0202A.TV.NEWS03.PC.X02ATVCARTLAND.NEWS'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Channel 16 - Interviewee 1">
+                    {{
+                        translateObject(
+                            'X0202A.TV.WITNESS.PC.X02APBY01.NOATTACK01'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Channel 16 - Interviewee 2">
+                    {{
+                        translateObject(
+                            'X0202A.TV.WITNESS.PC.X02APBY02.NOATTACK02'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Channel 16 - Interviewee 3">
+                    {{
+                        translateObject(
+                            'X0202A.TV.WITNESS.PC.X02APBY03.NOATTACK03'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="KNC - Rosanna Cartland">
+                    {{ t('X1001M.TV.NEWS.PC.X10MCARTLAND.VIOLENCE02') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="CTN TV - Michael Brinkley">
+                    {{
+                        translateObject(
+                            'X1001M.TV.NEWS.PC.X10MBRINKLEY.DESTROYMACHINES'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Channel 16 - Michael Webb">
+                    {{ t('X1001M.TV.NEWS.PC.X10MWEBB.STATECHAOS') }}
+                </app-dialogue-line>
+            </p>
+        </div>
+    </app-conditioned-content>
+    <app-conditioned-content>
+        <div class="condition">
+            Markus attacked the police in
+            <a [routerLink]="['/chapters', 28]">Freedom March</a>
+        </div>
+        <div class="content">
+            <app-dialogue-line name="KNC - Rosanna Cartland">
+                {{
+                    translateObject(
+                        'X0202A.TV.NEWS02.PC.X02ATVCARTLAND.ALARMING'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Channel 16 - Interviewee 1">
+                {{ t('X0202A.TV.WITNESS.PC.X02APBY01.ATTACK01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Channel 16 - Interviewee 2">
+                {{ t('X0202A.TV.WITNESS.PC.X02APBY02.ATTACK02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Channel 16 - Interviewee 3">
+                {{
+                    translateObject(
+                        'X0202A.TV.WITNESS.PC.X02APBY03.ATTACK03',
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="KNC - Rosanna Cartland">
+                {{
+                    translateObject('X1001M.TV.NEWS.PC.X10MCARTLAND.VIOLENCE01')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="CTN TV - Michael Brinkley">
+                {{
+                    translateObject(
+                        'X1001M.TV.NEWS.PC.X10MBRINKLEY.POLICEINTERVENTION'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Channel 16 - Michael Webb">
+                {{ t('X1001M.TV.NEWS.PC.X10MWEBB.PITILESS') }}
+            </app-dialogue-line>
+        </div>
+    </app-conditioned-content>
+
+    <p>
+        <app-dialogue-line name="CTN TV - Michael Brinkley">
+            {{
+                translateObject(
+                    'X0202A.TV.NEWS.PC.X02ATVBRINKLEY.RUSSIANCONFLICT'
+                ) | async
+            }}
+        </app-dialogue-line>
+    </p>
+</ng-container>

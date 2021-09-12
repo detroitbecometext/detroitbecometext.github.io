@@ -6,108 +6,168 @@
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            NOV 6TH, 2038
-            <br />PM 04:30 {{ t('GUI.MENU.DATE.') }}<br />
-            {{ t('GUI.MENU.TIME.') }}
+            {{ t('GUI.MENU.DATE.05M') }}
+            <br />
+            {{ t('GUI.MENU.TIME.05M') }}
         </p>
 
         <h1>At Ferndale station</h1>
 
+        <h2>Man on the phone</h2>
         <p>
-            <strong>Man on the phone</strong>
-            <br /><span class="name">Man</span>: Hey. Yeah, I'm good. How about
-            you? Oh yeah? So what did he say? Really? I'm not surprised.
-            Apparently she did, yeah. I know! It's crazy, right? Sure, I'll talk
-            to you later.
+            <app-dialogue-line name="Man">
+                Hey. Yeah, I'm good. How about you? Oh yeah? So what did he say?
+                Really? I'm not surprised. Apparently she did, yeah. I know!
+                It's crazy, right? Sure, I'll talk to you later.
+            </app-dialogue-line>
         </p>
 
+        <h2>Homeless man</h2>
         <p>
-            <strong>Homeless man</strong>
-            <br /><span class="name">Man</span>: Hey, mister, can you spare some
-            change?
+            <app-dialogue-line name="Man">
+                {{
+                    translateObject('X0501M.PBY.LINES.PC.X05MBEGGAR.BUDDY')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
+        <h2>Two people talking</h2>
         <p>
-            <strong>Two people talking</strong>
-            <br /><span class="name">Man</span>: I heard that android boyband is
-            going to win some music prize. <br /><span class="name">Woman</span
-            >: You mean Here4u? God, they are so creepy. <br /><span
-                class="name"
-                >Man</span
-            >: My kids don't listen to anything else.
-        </p>
-
-        <p>
-            <strong>Run into someone down the escalator</strong>
-            <br /><span class="name">Man</span>: Oh, sorry... excuse me...
-        </p>
-        <p>
-            <strong>Mother and child talking on a bench</strong>
-            <br /><span class="name">Girl</span>: Are we really going to get rid
-            of Mandy? <br /><span class="name">Mother</span>: Grandma says it
-            leaves her with nothing to do, sweetie. <br /><span class="name"
-                >Girl</span
-            >: But she's so cool! <br /><span class="name">Mother</span>: I
-            know, honey.
+            <app-dialogue-line name="Man">
+                {{ t('X1001M.PBY.LINES.FA.X10MSHOPPINGMAN01.BOYBAND') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Woman">
+                {{ t('X1001M.PBY.LINES.FA.X10MSHOPPINGWOM01.CREEPY') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Man">
+                {{ t('X1001M.PBY.LINES.FA.X10MSHOPPINGMAN01.MYKIDS') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Run into someone down the escalator</h2>
         <p>
-            <strong>Talking to parked android</strong>
-            <br /><span class="name">Markus</span>: Do you know where Jericho
-            is?
+            <app-dialogue-line name="Man">
+                {{ t('X0501M.NPCMANBUMP.STATION.FA.X05MMANBUMP.SORRY') }}
+            </app-dialogue-line>
         </p>
 
-        <strong>Two people talking on the street</strong>
-        <div class="condition">
-            <span class="name"
-                >Carl died in
-                <a [routerLink]="['/chapters', 8]">Broken</a></span
-            >
-            <div class="condition-text">
+        <h2>Mother and child talking on a bench</h2>
+        <p>
+            <app-dialogue-line name="Girl">
+                {{
+                    t('X0501M.PBY.LINES.FA.X05MGIRL.GETRID')
+                }} </app-dialogue-line
+            ><app-dialogue-line name="Mother">
+                {{ t('X0501M.PBY.LINES.FA.X05MMOM.SWEETIE') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Girl">
+                {{ t('X0501M.PBY.LINES.FA.X05MGIRL.SOCOOL') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Mother">
+                {{ t('X0501M.PBY.LINES.FA.X05MMOM.IKNOW') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Talking to parked android</h2>
+        <p>
+            <app-dialogue-line name="Markus">
+                {{ t('X0501M.NPCFRIEND.ANDPARK.FA.X05MMARKUS.WHERE') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Two people talking on the street</h2>
+        <app-conditioned-content>
+            <div class="condition">
+                Carl died in
+                <a [routerLink]="['/chapters', 8]">Broken</a>
+            </div>
+            <div class="content">
                 <p>
-                    <span class="name">Man</span>: You hear about that artist,
-                    Carl Manfred? <br /><span class="name">Woman</span>: Yeah...
-                    Kinda sad. <br /><span class="name">Man</span>: I heard his
-                    android killed him. <br /><span class="name">Woman</span>:
-                    Wh... Where d'you hear that? <br /><span class="name"
-                        >Man</span
-                    >: I read it somewhere. <br /><span class="name">Woman</span
-                    >: Don't believe everything you read.
+                    <app-dialogue-line name="Man">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSMAN.CARL') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Woman">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSWOMAN.CARLDEAD01') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Man">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSMAN.CARLDEAD02') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Woman">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSWOMAN.CONT01') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Man">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSMAN.CONT02') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Woman">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSWOMAN.CONT03') }}
+                    </app-dialogue-line>
                 </p>
             </div>
-        </div>
-        <div class="condition">
-            <span class="name">Carl is alive</span>
-            <div class="condition-text">
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">Carl is alive</div>
+            <div class="content">
                 <p>
-                    <span class="name">Man</span>: You hear about that artist,
-                    Carl Manfred? <br /><span class="name">Woman</span>: Yeah...
-                    I hope he makes it. <br /><span class="name">Man</span>: I
-                    heard his android attacked him. <br /><span class="name"
-                        >Woman</span
-                    >: Wh... Where d'you hear that? <br /><span class="name"
-                        >Man</span
-                    >: I read it somewhere. <br /><span class="name">Woman</span
-                    >: Don't believe everything you read.
+                    <app-dialogue-line name="Man">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSMAN.CARL') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Woman">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSWOMAN.CARLALIVE01') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Man">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSMAN.CARLALIVE02') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Woman">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSWOMAN.CONT01') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Man">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSMAN.CONT02') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Woman">
+                        {{ t('X0501M.PBY.LINES.FA.X05MBUSWOMAN.CONT03') }}
+                    </app-dialogue-line>
                 </p>
             </div>
-        </div>
+        </app-conditioned-content>
 
+        <h2>Homeless man on the street</h2>
         <p>
-            <strong>Homeless man on the street</strong>
-            <br /><span class="name">Man</span>: Hey, you got a dollar?
-            <br /><span class="name">Man</span>: I need a dollar, I haven't
-            eaten all day! <br /><span class="name">Man</span>: Hey, listen, can
-            you spare some cash?
+            <app-dialogue-line name="Man">
+                Hey, you got a dollar? </app-dialogue-line
+            ><app-dialogue-line name="Man">
+                I need a dollar, I haven't eaten all day! </app-dialogue-line
+            ><app-dialogue-line name="Man">
+                Hey, listen, can you spare some cash?
+            </app-dialogue-line>
         </p>
 
-        <p>
-            <strong>Children playing</strong>
-            <br />- Come on, pass it!
-        </p>
+        <h2>Children playing</h2>
+        <ul>
+            <li>
+                {{ t('X0101M.PBY.LINES.FA.X01MGIRL01.TAG') }}
+            </li>
+            <li>
+                {{ t('X0101M.PBY.LINES.FA.X01MGIRL01.CATCH') }}
+            </li>
+            <li>
+                {{ t('X0101M.PBY.LINES.FA.X01MGIRL01.COMEON') }}
+            </li>
+            <li>
+                {{ t('X0101M.PBY.LINES.FA.X01MGIRL01.OVERTHERE') }}
+            </li>
+            <li>
+                {{ t('X0101M.PBY.LINES.FA.X01MGIRL01.GOLONG') }}
+            </li>
+            <li>
+                {{ t('X0101M.PBY.LINES.FA.X01MGIRL01.CATCHTHIS') }}
+            </li>
+        </ul>
 
+        <h2>Finding Jericho</h2>
         <p>
-            <strong>Finding Jericho</strong>
-            <br /><span class="name">Simon</span>: Welcome to Jericho.
+            <app-dialogue-line name="Simon">
+                {{ t('X0503M.JERICHO.ENCOUNTER.PC.X05MSIMON.WELCOME.1') }}
+            </app-dialogue-line>
         </p>
     </section>
 </ng-container>

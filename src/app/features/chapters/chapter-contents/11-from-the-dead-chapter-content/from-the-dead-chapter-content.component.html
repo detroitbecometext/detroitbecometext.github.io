@@ -6,112 +6,126 @@
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            {{ t('GUI.MENU.DATE.03M') }}<br />
+            {{ t('GUI.MENU.DATE.03M') }}
+            <br />
             {{ t('GUI.MENU.TIME.03M') }}
         </p>
 
         <h1>At the solid waste landfill</h1>
 
+        <h2>Android grabs Markus</h2>
         <p>
-            <strong>Android grabs Markus</strong>
-            <br />
-            <span class="name">Phileas</span>:
-            {{
-                translateObject(
-                    'X0302M.LANDFILL.SLOPE.PC.X03MPHILEAS.PHILEASV2'
-                ) | async
-            }}
-        </p>
-
-        <p>
-            <strong>Other android grabs Markus</strong>
-            <br /><span class="name">Android</span>:
-            {{ t('X0302M.LANDFILL.ARMS.FA.X03MARMAND.WHERE') }}
-        </p>
-
-        <p>
-            <strong>Android begs to die</strong>
-            <br /><span class="name">Android</span>:
-            {{
-                translateObject(
-                    'X0302M.LANDFILL.EVENTDYINGV2.FA.X03MANGRYAND01.BEGGING'
-                ) | async
-            }}
-        </p>
-        <div class="choices">
-            <em>{{ t('X0302M.LANDFILL.EVENTDYINGV2.FA.CHOICEGROUP.KILL') }}</em>
-            <div class="choice">
-                <span class="name">Android</span>:
-                {{ t('X0302M.LANDFILL.EVENTDYINGV2.FA.X03MANGRYAND01.KILL') }}
-            </div>
-            <em>{{
-                t('X0302M.LANDFILL.EVENTDYINGV2.FA.CHOICEGROUP.SPARE')
-            }}</em>
-            <div class="choice">
-                <span class="name">Android</span>:
+            <app-dialogue-line name="Phileas">
                 {{
                     translateObject(
-                        'X0302M.LANDFILL.EVENTDYINGV2.FA.X03MANGRYAND01.SPARE'
+                        'X0302M.LANDFILL.SLOPE.PC.X03MPHILEAS.PHILEASV2'
                     ) | async
                 }}
-            </div>
-        </div>
-
-        <p>
-            <strong>Try to take pump regulator from android</strong>
-            <br /><span class="name">Android</span>:
-            {{
-                translateObject(
-                    'X0302M.LANDFILL.GOODBALANCE.FA.X03MHEARTANDROID01.PLEASE'
-                ) | async
-            }}
+            </app-dialogue-line>
         </p>
-        <div class="choices">
-            <em>{{ t('X0302M.LANDFILL.GOODBALANCE.FA.KILLCHOICE.KILL') }}</em>
-            <div class="choice">&oslash;</div>
-            <em>{{ t('X0302M.LANDFILL.GOODBALANCE.FA.KILLCHOICE.SPARE') }}</em>
-            <div class="choice">
-                <span class="name">Android</span>:
+
+        <h2>Other android grabs Markus</h2>
+        <p>
+            <app-dialogue-line name="Android">
+                {{ t('X0302M.LANDFILL.ARMS.FA.X03MARMAND.WHERE') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Android begs to die</h2>
+        <p>
+            <app-dialogue-line name="Android">
                 {{
-                    t('X0302M.LANDFILL.GOODBALANCE.FA.X03MHEARTANDROID01.SPARE')
+                    translateObject(
+                        'X0302M.LANDFILL.EVENTDYINGV2.FA.X03MANGRYAND01.BEGGING'
+                    ) | async
                 }}
-            </div>
-        </div>
-
-        <p>
-            <strong>Take head</strong>
-            <br /><span class="name">Android</span>:
-            {{
-                translateObject('X0302M.LANDFILL.EYE.FA.X03MHEAD01.MODEL')
-                    | async
-            }}
-            <br />
-            <strong>Remove optical unit</strong>
-            <br />
-            <span class="name">Android</span>:
-            {{
-                translateObject('X0302M.LANDFILL.EYE.FA.X03MHEAD01.ANOMALY')
-                    | async
-            }}
+            </app-dialogue-line>
         </p>
-
-        <p>
-            <strong>Singing Android</strong>
-            <br /><span class="name">AX400</span>: ...Sakura sakura <br /><span
-                class="name"
-                >AX400</span
-            >: yayoi no sora wa <br /><span class="name">AX400</span>: mi-watasu
-            kagiri... <br /><span class="note"
-                >Always repeats these lines until Markus takes a close look at
-                her and she shuts down</span
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0302M.LANDFILL.EVENTDYINGV2.FA.CHOICEGROUP.KILL')
+                "
             >
+                <app-dialogue-line name="Android">
+                    {{
+                        t('X0302M.LANDFILL.EVENTDYINGV2.FA.X03MANGRYAND01.KILL')
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0302M.LANDFILL.EVENTDYINGV2.FA.CHOICEGROUP.SPARE')
+                "
+            >
+                <app-dialogue-line name="Android">
+                    {{
+                        translateObject(
+                            'X0302M.LANDFILL.EVENTDYINGV2.FA.X03MANGRYAND01.SPARE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
+
+        <h2>Try to take pump regulator from android</h2>
+        <p>
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject(
+                        'X0302M.LANDFILL.GOODBALANCE.FA.X03MHEARTANDROID01.PLEASE'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0302M.LANDFILL.GOODBALANCE.FA.KILLCHOICE.KILL')
+                "
+            >
+                <span>&oslash;</span>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0302M.LANDFILL.GOODBALANCE.FA.KILLCHOICE.SPARE')
+                "
+            >
+                <app-dialogue-line name="Android">
+                    {{
+                        t(
+                            'X0302M.LANDFILL.GOODBALANCE.FA.X03MHEARTANDROID01.SPARE'
+                        )
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
+
+        <h2>Take head</h2>
+        <p>
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject('X0302M.LANDFILL.EYE.FA.X03MHEAD01.MODEL')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Remove optical unit</h2>
         <p>
-            <strong>Climb the slope</strong>
-            <br />
-            <span class="name">Markus</span>:
-            {{ t('X0302M.LANDFILL.FINALWORDS.PC.X03MMARKUS.NAME["2"]') }}
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject('X0302M.LANDFILL.EYE.FA.X03MHEAD01.ANOMALY')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Climb the slope</h2>
+        <p>
+            <app-dialogue-line name="Markus">
+                {{ t('X0302M.LANDFILL.FINALWORDS.PC.X03MMARKUS.NAME.2') }}
+            </app-dialogue-line>
         </p>
     </section>
 </ng-container>

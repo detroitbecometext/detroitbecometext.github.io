@@ -6,575 +6,1008 @@
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            NOV 8TH, 2038
-            <br />PM 04:06 {{ t('GUI.MENU.DATE.') }}<br />
-            {{ t('GUI.MENU.TIME.') }}
+            {{ t('GUI.MENU.DATE.09C') }}
+            <br />
+            {{ t('GUI.MENU.TIME.09C') }}
         </p>
 
         <h1>In the Zen Garden</h1>
 
         <p>
-            <span class="name">Amanda</span>: Hello, Connor. I thought you might
-            enjoy a little cruise... I love this place... Everything is so calm
-            and peaceful... Far from the noise of the world... Tell me, what
-            have you discovered?
+            <app-dialogue-line name="Amanda">
+                {{
+                    translateObject('X0901C.BOAT.CHAT.PC.X09CAMANDA.CLIMB')
+                        | async
+                }}
+                {{
+                    translateObject('X0901C.BOAT.CHAT.PC.X09CAMANDA.START')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="choices">
-            <em>HANK</em>
-            <div class="choice">
-                <div class="condition">
-                    <span class="name"
-                        >| <i class="fas fa-skull"></i> Hank shot Connor in
-                        <a [routerLink]="['/chapters', 22]">The Bridge</a></span
-                    >
-                    <div class="condition-text">
-                        <span class="name">Connor</span>: I'm having
-                        difficulties with Lieutenant Anderson. He's unstable,
-                        even hostile. He shot me in the head last night...
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE01.HANK')"
+            >
+                <app-conditioned-content>
+                    <div class="condition">
+                        <app-unlock-condition
+                            [unlockType]="UnlockType.Death"
+                            [bracketsOnlyAroundIcon]="true"
+                        >
+                            Hank shot Connor in
+                            <a [routerLink]="['/chapters', 22]">The Bridge</a>
+                        </app-unlock-condition>
                     </div>
-                </div>
-                <div class="condition">
-                    <span class="name"
-                        >Hank left Connor alone in
-                        <a [routerLink]="['/chapters', 22]">The Bridge</a></span
-                    >
-                    <div class="condition-text">
-                        <p>
-                            <span class="name">Connor</span>: My relationship
-                            with Lieutenant Anderson is problematic. He
-                            continues to struggle with psychological issues... I
-                            suspect it clouds his judgement regarding deviants.
-                            <br /><span class="name">Amanda</span>: Nothing
-                            matters more than your investigation. What's
-                            happening is too important. Don't let Anderson or
-                            anyone else get in your way.
-                        </p>
+                    <div class="content">
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0901C.BOAT.CHAT.PC.X09CCONNOR.01CONNORKILLED'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
                     </div>
-                </div>
-            </div>
-            <em>EDEN CLUB</em>
-            <div class="choice">
-                <div class="condition">
-                    <span class="name"
-                        >Connor didn't find the Tracis in
-                        <a [routerLink]="['/chapters', 20]"
-                            >The Eden Club</a
-                        ></span
-                    >
-                    [
-                    <span appRelation="small down">Amanda</span>
-                    ]
-                    <div class="condition-text">
-                        <span class="name">Connor</span>: I went to the Eden
-                        Club... but I didn't learn anything new... <br /><span
-                            class="name"
-                            >Amanda</span
-                        >: That's disappointing. Looks like another missed
-                        opportunity.
+                </app-conditioned-content>
+                <app-conditioned-content>
+                    <div class="condition">
+                        Hank left Connor alone in
+                        <a [routerLink]="['/chapters', 22]">The Bridge</a>
                     </div>
-                </div>
-                <div class="condition">
-                    <span class="name"
-                        >Connor found the Tracis in
+                    <div class="content">
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0901C.BOAT.CHAT.PC.X09CCONNOR.01CONNORALIVE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Amanda">
+                            {{
+                                translateObject(
+                                    'X0901C.BOAT.CHAT.PC.X09CAMANDA.01HANKCONT'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE01.EDENCLUB')"
+            >
+                <app-conditioned-content>
+                    <div class="condition">
+                        Connor didn't find the Tracis in
                         <a [routerLink]="['/chapters', 20]">The Eden Club</a>
-                        and let them go</span
-                    >
-                    [ <span appRelation="small down">Amanda</span>
-                    ]
-                    <div class="condition-text">
-                        <span class="name">Connor</span>: I found two deviants
-                        at the Eden Club... I hoped to learn something but...
-                        they managed to escape... <br /><span class="name"
-                            >Amanda</span
-                        >: That's too bad... You seemed so close to stopping
-                        them.
                     </div>
-                </div>
-                <div class="condition">
-                    <span class="name"
-                        >Connor found the Tracis in
+                    <div class="content">
+                        <app-relation
+                            name="Amanda"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0901C.BOAT.CHAT.PC.X09CCONNOR.01TRACINOTFOUND'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Amanda">
+                            {{
+                                translateObject(
+                                    'X0901C.BOAT.CHAT.PC.X09CAMANDA.01TRACINOTFOUND'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
+                <app-conditioned-content>
+                    <div class="condition">
+                        Connor found the Tracis in
                         <a [routerLink]="['/chapters', 20]">The Eden Club</a>
-                        and they died</span
-                    >
-                    [ <span appRelation="small up">Amanda</span>
-                    ]
-                    <div class="condition-text">
-                        <span class="name">Connor</span>: I found two deviants
-                        at the Eden Club... I hoped to learn something but... I
-                        had to destroy them...
+                        and let them go
                     </div>
-                </div>
-            </div>
-        </div>
+                    <div class="content">
+                        <app-relation
+                            name="Amanda"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0901C.BOAT.CHAT.PC.X09CCONNOR.01TRACIALIVE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Amanda">
+                            {{
+                                translateObject(
+                                    'X0901C.BOAT.CHAT.PC.X09CAMANDA.01TRACIALIVE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
+
+                <app-conditioned-content>
+                    <div class="condition">
+                        Connor found the Tracis in
+                        <a [routerLink]="['/chapters', 20]">The Eden Club</a>
+                        and they died
+                    </div>
+                    <div class="content">
+                        <app-relation
+                            name="Amanda"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0901C.BOAT.CHAT.PC.X09CCONNOR.01TRACIKILLED'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
+            </app-choice-item>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
         <p>
-            <span class="name">Amanda</span>: You seem...lost, Connor. Lost and
-            perturbed...
+            <app-dialogue-line name="Amanda">
+                {{
+                    translateObject('X0901C.BOAT.CHAT.PC.X09CAMANDA.01CONT')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="choices">
-            <em>[ SINCERE ]</em> [
-            <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked by
-            sparing the Tracis in
-            <a [routerLink]="['/chapters', 20]">The Eden Club</a>] [
-            <span appRelation="small down">Amanda</span>
-            ]
-            <div class="choice">
-                <span class="name">Connor</span>: I thought I knew what I had to
-                do...but now I realize it's not that simple...
-            </div>
-            <em>DETERMINED</em>
-            <div class="choice">
-                <span class="name">Connor</span>: I'm just frustrated with my
-                lack of progress, but I'm determined to accomplish my mission.
-            </div>
-            <em>COLD</em> [
-            <span appRelation="small down">Software instability</span>
-            ]
-            <div class="choice">
-                <span class="name">Connor</span>: The investigation is more
-                challenging than I anticipated, but I have no doubt that I will
-                solve this case and stop the deviants.
-            </div>
-            <em>TROUBLED</em> [
-            <span appRelation="small up">Software instability</span>
-            <span appRelation="small down">Amanda</span>
-            ]
-            <div class="choice">
-                <span class="name">Connor</span>: Perturbed? No... No, of course
-                not. Why would I be perturbed?
-            </div>
-        </div>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE02.SINCERE')"
+                [brackets]="true"
+            >
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    unlocked by sparing the Tracis in
+                    <a [routerLink]="['/chapters', 20]">The Eden Club</a>
+                </app-unlock-condition>
+                <app-relation
+                    name="Amanda"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0901C.BOAT.CHAT.PC.X09CCONNOR.02SINCERE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE02.DETERMINED')"
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0901C.BOAT.CHAT.PC.X09CCONNOR.02DETERMINED'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE02.COLD')"
+            >
+                <app-relation
+                    name="Software instability"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject('X0901C.BOAT.CHAT.PC.X09CCONNOR.02COLD')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE02.TROUBLED')"
+            >
+                <app-relation
+                    name="Software instability"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="Amanda"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0901C.BOAT.CHAT.PC.X09CCONNOR.02TROUBLED'
+                        ) | async
+                    }}
+                </app-dialogue-line></app-choice-item
+            >
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
-        <div class="condition">
-            <span class="name"
-                >Connor spared the Tracis in
-                <a [routerLink]="['/chapters', 20]">The Eden Club</a></span
-            >
-            <div class="condition-text">
+        <app-conditioned-content>
+            <div class="condition">
+                Connor spared the Tracis in
+                <a [routerLink]="['/chapters', 20]">The Eden Club</a>
+            </div>
+            <div class="content">
                 <p>
-                    <span class="name">Amanda</span>: You had your gun trained
-                    on those deviants at the Eden Club. Why didn't you shoot?
+                    <app-dialogue-line name="Amanda">
+                        {{
+                            translateObject(
+                                'X0901C.BOAT.CHAT.PC.X09CAMANDA.02CONT'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
                 <div class="choices">
-                    <em>TOO FAR</em>
-                    <div class="choice">
+                    <app-choice-item
+                        [choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE03.TOOFAR')"
+                    >
                         <p>
-                            <span class="name">Connor</span>: They were out of
-                            range. If I had the opportunity to stop them, why
-                            wouldn't I? <br /><span class="name">Amanda</span>:
-                            You tell me.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0901C.BOAT.CHAT.PC.X09CCONNOR.03TOOFAR'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Amanda">
+                                {{
+                                    t('X0901C.BOAT.CHAT.PC.X09CAMANDA.03TOOFAR')
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>NO USE</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: We need the deviants
-                        intact for analysis. Shooting them wouldn't have told us
-                        anything.
-                    </div>
-                    <em>TRUTH</em> [
-                    <span appRelation="large down">Amanda</span>
-                    ]
-                    <div class="choice">
-                        <span class="name">Connor</span>: I don't know... I
-                        don't know.
-                    </div>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0901C.BOAT.CHAT.PC.CHOICE03.USELESS')
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0901C.BOAT.CHAT.PC.X09CCONNOR.03USELESS'
+                                ) | async
+                            }}
+                        </app-dialogue-line></app-choice-item
+                    >
+                    <app-choice-item
+                        [choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE03.TRUTH')"
+                    >
+                        <app-relation
+                            name="Amanda"
+                            [type]="RelationType.LargeDown"
+                        ></app-relation>
+
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0901C.BOAT.CHAT.PC.X09CCONNOR.03TRUTH'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
                 </div>
             </div>
-        </div>
+        </app-conditioned-content>
 
         <mat-divider></mat-divider>
 
         <p>
-            <span class="name">Amanda</span>: If your investigation doesn't make
-            progress soon, I may have to replace you, Connor...
+            <app-dialogue-line name="Amanda">
+                {{
+                    translateObject('X0901C.BOAT.CHAT.PC.X09CAMANDA.03CONT')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="choices">
-            <em>CONFLICTED</em> [
-            <span appRelation="small up">Software instability</span>
-            ]
-            <div class="choice">
-                <span class="name">Connor</span>: I understand.
-            </div>
-            <em>CONFIDENT</em> [ <span appRelation="small up">Amanda</span>
-            ]
-            <div class="choice">
-                <span class="name">Connor</span>: I know I will succeed. All I
-                need is time.
-            </div>
-            <em>INDIFFERENT</em> [
-            <span appRelation="small down">Software instability</span>
-            <span appRelation="large up">Amanda</span>]
-            <div class="choice">
-                <span class="name">Connor</span>: I am of no importance. The
-                mission is all that matters.
-            </div>
-        </div>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE04.CONFLICTED')"
+            >
+                <app-relation
+                    name="Software instability"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
 
-        <span class="name">Amanda</span>: Something's happening... Something
-        serious. Hurry, Connor. Time is running out.
+                <app-dialogue-line name="Connor">
+                    {{ t('X0901C.BOAT.CHAT.PC.X09CCONNOR.04CONFLICTED') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE04.CONFIDENT')"
+            >
+                <app-relation
+                    name="Amanda"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0901C.BOAT.CHAT.PC.X09CCONNOR.04CONFIDENT'
+                        ) | async
+                    }}
+                </app-dialogue-line></app-choice-item
+            >
+            <app-choice-item
+                [choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE04.INDIFFERENT')"
+            >
+                <app-relation
+                    name="Software instability"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Amanda"
+                    [type]="RelationType.LargeUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0901C.BOAT.CHAT.PC.X09CCONNOR.04INDIFFERENT'
+                        ) | async
+                    }}
+                </app-dialogue-line></app-choice-item
+            >
+        </app-choice-group>
+
+        <app-dialogue-line name="Amanda">
+            {{
+                translateObject('X0901C.BOAT.CHAT.PC.X09CAMANDA.04CONT') | async
+            }}
+        </app-dialogue-line>
     </section>
 
     <section>
         <h1>In the tower</h1>
 
-        <div class="condition">
-            <span class="name"
-                >| <i class="fas fa-skull"></i> Hank shot Connor in
-                <a [routerLink]="['/chapters', 22]">The Bridge</a></span
-            >
-            <div class="condition-text">
-                <p>
-                    <span class="name">Connor</span>: Why did you shoot me last
-                    night? <br /><span class="name">Hank</span>: Who cares,
-                    you're back this morning, aren't ya? <br /><span
-                        class="name"
-                        >Connor</span
-                    >: Some fragments of memory are lost every time I'm
-                    destroyed. It slows down the investigation. <br /><span
-                        class="name"
-                        >Hank</span
-                    >: My humblest apologies, I promise I'll never shoot you
-                    again. <br /><span class="name">Connor</span>: Thank you,
-                    Lieutenant.
-                </p>
+        <app-conditioned-content>
+            <div class="condition">
+                <app-unlock-condition
+                    [unlockType]="UnlockType.Death"
+                    [bracketsOnlyAroundIcon]="true"
+                >
+                    Hank shot Connor in
+                    <a [routerLink]="['/chapters', 22]">The Bridge</a>
+                </app-unlock-condition>
             </div>
-        </div>
-
-        <div class="condition">
-            <span class="name"
-                >Hank didn't shoot Connor in
-                <a [routerLink]="['/chapters', 22]">The Bridge</a></span
-            >
-            <div class="condition-text">
-                <p>
-                    <span class="name">Hank</span>: You're starting to piss me
-                    off with that coin, Connor. <br /><span class="name"
-                        >Connor</span
-                    >: Sorry, Lieutenant.
-                </p>
+            <div class="content">
+                <app-dialogue-line name="Connor">
+                    {{ t('X0903C.ARRIVAL.INTRO.PC.X09CCONNOR.SHOOTME.1') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0903C.ARRIVAL.INTRO.PC.X09CHANK.SHOOTME.1') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0903C.ARRIVAL.INTRO.PC.X09CCONNOR.SHOOTME',
+                            1,
+                            3
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0903C.ARRIVAL.INTRO.PC.X09CHANK.SHOOTME.2') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{ t('X0903C.ARRIVAL.INTRO.PC.X09CCONNOR.SHOOTME.4') }}
+                </app-dialogue-line>
             </div>
-        </div>
-
-        <p><span class="name">Elevator</span>: 79th floor.</p>
-        <p>
-            <span class="name">Chris</span>: Hi, Hank. <br /><span class="name"
-                >Hank</span
-            >: Shit, what's going on here? There was a party and nobody told me
-            about it? <br /><span class="name">Chris</span>: Yeah, it's all over
-            the news, so everybody's butting their nose in... Even the FBI wants
-            a piece of the action... <br /><span class="name">Hank</span>: Ah
-            Christ, now we got the Feds on our back... I knew this was gonna be
-            a shitty day... So what do we got? <br /><span class="name"
-                >Chris</span
-            >: A group of four androids... They knew the building, and they were
-            very well organized. I'm still trying to figure out how they got
-            this far without being noticed.
-        </p>
-
-        <p>
-            <span class="name">Cop 1</span>: The fuck is the FBI doing here?
-            <br /><span class="name">Cop 2</span>: You kidding me? This is
-            homeland security. I'm glad they're on it.
-        </p>
-
-        <p>
-            <span class="name">Cop 1</span>: You check the roof? <br /><span
-                class="name"
-                >Cop 2</span
-            >: Not yet. There's so much to look at. <br /><span class="name"
-                >Cop 1</span
-            >: Have to make sure we check it out.
-        </p>
-
-        <p>
-            <span class="name">Cop 1</span>: Has forensics turned up anything?
-            <br /><span class="name">Cop 2</span>: I'll check in with them.
-            <br /><span class="name">Cop 1</span>: These fucking androids don't
-            even leave any DNA...
-        </p>
-
-        <p>
-            <span class="name">Chris</span>: They attacked two guards in the
-            hallway...
-        </p>
-
-        <div class="condition">
-            <span class="name"
-                >Knocked out the guards in
-                <a [routerLink]="['/chapters', 23]"
-                    >The Stratford Tower</a
-                ></span
-            >
-            <div class="condition-text">
-                <span class="name">Chris</span>: They probably thought the
-                androids were coming to do maintenance. They got taken down
-                before they could react...
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                Hank didn't shoot Connor in
+                <a [routerLink]="['/chapters', 22]">The Bridge</a>
             </div>
-        </div>
-        <div class="condition">
-            <span class="name"
-                >Attacked the guards in
-                <a [routerLink]="['/chapters', 23]"
-                    >The Stratford Tower</a
-                ></span
-            >
-            <div class="condition-text">
-                <span class="name">Chris</span>: They knocked one out and shot
-                the other in cold blood...
+            <div class="content">
+                <app-dialogue-line name="Hank">
+                    {{
+                        t('X0903C.ARRIVAL.INTRO.PC.X09CHANK.COIN.1')
+                    }} </app-dialogue-line
+                ><app-dialogue-line name="Connor">
+                    {{ t('X0903C.ARRIVAL.INTRO.PC.X09CCONNOR.COIN.1') }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
+
+        <p>
+            <app-dialogue-line name="Elevator">
+                {{ t('X0703M.VOICE.ELEVATOR.VO.WOMKCH.79TH') }}
+            </app-dialogue-line>
+        </p>
+
+        <p>
+            <app-dialogue-line name="Chris">
+                {{ t('X0903C.CHAD.BRIEFING.PC.X09CHARVEY.STARTCHRIS.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0903C.CHAD.BRIEFING.FA.X09CHANK.STARTHANK01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Chris">
+                {{
+                    translateObject(
+                        'X0903C.CHAD.BRIEFING.PC.X09CHARVEY.STARTCHRIS',
+                        1
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject(
+                        'X0903C.CHAD.BRIEFING.FA.X09CHANK.STARTHANK02'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Chris">
+                {{
+                    translateObject(
+                        'X0903C.CHAD.BRIEFING.PC.X09CHARVEY.CORRIDOR01CHRIS'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <p>
+            <app-dialogue-line name="Cop 1">
+                {{ t('X0903C.PBY.LINES.FA.X09CINVESTIGATORM.FBI01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Cop 2">
+                {{ t('X0903C.PBY.LINES.FA.X09CINVESTIGATORW.FBI02') }}
+            </app-dialogue-line>
+        </p>
+
+        <p>
+            <app-dialogue-line name="Cop 1">
+                {{ t('X0903C.PBY.LINES.FA.X09CINVESTIGATOR01.SIMON01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Cop 2">
+                {{
+                    translateObject(
+                        'X0903C.PBY.LINES.FA.X09CINVESTIGATOR02.SIMON02'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Cop 1">
+                {{ t('X0903C.PBY.LINES.FA.X09CINVESTIGATOR01.SIMON03') }}
+            </app-dialogue-line>
+        </p>
+
+        <p>
+            <app-dialogue-line name="Cop 1">
+                {{ t('X0903C.PBY.LINES.FA.X09CINVESTIGATORM.FORENSIC01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Cop 2">
+                {{ t('X0903C.PBY.LINES.FA.X09CINVESTIGATORW.FORENSIC02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Cop 1">
+                {{ t('X0903C.PBY.LINES.FA.X09CINVESTIGATORM.FORENSIC03') }}
+            </app-dialogue-line>
+        </p>
+
+        <app-conditioned-content>
+            <div class="condition">
+                Knocked out the guards in
+                <a [routerLink]="['/chapters', 23]">The Stratford Tower</a>
+            </div>
+            <div class="content">
+                <app-dialogue-line name="Chris">
+                    {{
+                        translateObject(
+                            'X0903C.CHAD.BRIEFING.PC.X09CHARVEY.GUARDALIVECHRIS'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                Attacked the guards in
+                <a [routerLink]="['/chapters', 23]">The Stratford Tower</a>
+            </div>
+            <div class="content">
+                <app-dialogue-line name="Chris">
+                    {{
+                        translateObject(
+                            'X0903C.CHAD.BRIEFING.FA.X09CHARVEY.GUARDKILLEDCHRIS'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
 
         <mat-divider></mat-divider>
 
-        <div class="condition">
-            <span class="name"
-                >Station employee wasn't shot in
-                <a [routerLink]="['/chapters', 23]"
-                    >The Stratford Tower</a
-                ></span
-            >
-            <div class="condition-text">
-                <span class="name">Chris</span>: One of the station employees
-                managed to get away. He's in shock, not sure when we'll be able
-                to talk to him...
+        <app-conditioned-content>
+            <div class="condition">
+                Station employee wasn't shot in
+                <a [routerLink]="['/chapters', 23]">The Stratford Tower</a>
             </div>
-        </div>
-        <div class="condition">
-            <span class="name"
-                >Station employee was shot in
-                <a [routerLink]="['/chapters', 23]"
-                    >The Stratford Tower</a
-                ></span
-            >
-            <div class="condition-text">
-                <span class="name">Chris</span>: A station employee... shot to
-                the back as he was trying to get away. One bullet straight
-                through the heart, from fifty feet... Now, that's the kind of
-                shooting only an android could do.
+            <div class="content">
+                <app-dialogue-line name="Chris">
+                    {{
+                        translateObject(
+                            'X0903C.CHAD.BRIEFING.PC.X09CHARVEY.EMPLOYEALIVECHRIS'
+                        ) | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                Station employee was shot in
+                <a [routerLink]="['/chapters', 23]">The Stratford Tower</a>
+            </div>
+            <div class="content">
+                <app-dialogue-line name="Chris">
+                    {{
+                        translateObject(
+                            'X0903C.CHAD.BRIEFING.PC.X09CHARVEY.EMPLOYEKILLEDCHRIS'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
 
         <p>
-            <span class="name">Hank</span>: How many people were working here?
-            <br /><span class="name">Chris</span>: Just two employees and three
-            androids. The deviants took the humans hostage and broadcast their
-            message live. They made their getaway from the roof. <br /><span
-                class="name"
-                >Hank</span
-            >: The roof? <br /><span class="name">Chris</span>: Yeah, they
-            jumped with parachutes... We're still trying to figure out where
-            they landed, but the weather's not helping... If you want to take a
-            look at the video broadcast by the deviants, it's on that screen
-            over there.
+            <app-dialogue-line name="Hank">
+                {{ t('X0903C.CHAD.BRIEFING.FA.X09CHANK.CTRLROOMHANK.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Chris">
+                {{
+                    translateObject(
+                        'X0903C.CHAD.BRIEFING.FA.X09CHARVEY.CTRLROOMCHRIS',
+                        0,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0903C.CHAD.BRIEFING.FA.X09CHANK.CTRLROOMHANK.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Chris">
+                {{ t('X0903C.CHAD.BRIEFING.FA.X09CHARVEY.CTRLROOMCHRIS.4') }}
+                {{ t('X0903C.CHAD.BRIEFING.FA.X09CHARVEY.SCREENCHRIS.3') }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">Chris</span>: Oh Lieutenant, this is Special
-            Agent Perkins from the FBI. Lieutenant Anderson is in charge of
-            investigating for Detroit police. <br /><span class="name"
-                >Perkins</span
-            >: What's that? <br /><span class="name">Connor</span>: My name is
-            Connor. I'm the android sent by CyberLife. <br /><span class="name"
-                >Perkins</span
-            >: Androids investigating androids, huh? You sure you want an
-            android hanging around?.. After everything that happened...
-            Whatever, the FBI will take over the investigation, you'll soon be
-            off the case. <br /><span class="name">Hank</span>: Pleasure meeting
-            you. Have a nice day. <br /><span class="name">Perkins</span>: And
-            you watch your step. Don't fuck up my crime scene. <br /><span
-                class="name"
-                >Hank</span
-            >: What a fuckin' prick! <br /><span class="name">Chris</span>: I'll
-            be nearby. If you need anything, just ask. <br /><span class="name"
-                >Hank</span
-            >: Uh, let's have a look around... Let me know if you find anything.
-            <br /><span class="name">Connor</span>: Ok, Lieutenant.
+            <app-dialogue-line name="Chris">
+                {{
+                    translateObject(
+                        'X0903C.CTRLROOM.PERKINS.FA.X09CHARVEY.WHOCHRIS'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Perkins">
+                {{ t('X0903C.CTRLROOM.PERKINS.PC.X09CPERKINS.WHOPERKINS.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject('X0903C.CTRLROOM.PERKINS.PC.X09CCONNOR.WHO')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Perkins">
+                {{
+                    translateObject(
+                        'X0903C.CTRLROOM.PERKINS.PC.X09CPERKINS.WHOPERKINS',
+                        1,
+                        6
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0903C.CTRLROOM.PERKINS.PC.X09CHANK.WHO.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Perkins">
+                {{
+                    translateObject(
+                        'X0903C.CTRLROOM.PERKINS.PC.X09CPERKINS.WHOPERKINS',
+                        6
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0903C.CTRLROOM.PERKINS.PC.X09CHANK.WHO.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Chris">
+                {{ t('X0903C.CTRLROOM.PERKINS.FA.X09CHARVEY.NEARBY') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject('X0903C.CTRLROOM.TAKEALOOK.PC.X09CHANK.GO')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0903C.CTRLROOM.TAKEALOOK.FA.X09CCONNOR.GO') }}
+            </app-dialogue-line>
         </p>
 
         <h2>Investigating</h2>
 
-        <div class="condition">
-            <strong
-                >Going near the kitchen - Talking to the cop from
-                <a [routerLink]="['/chapters', 1]">The Hostage</a></strong
-            >
-            [ <i class="fas fa-lock-open fa-flip-horizontal"></i>
-            if saved the wounded cop]
-            <div class="condition-text">
+        <app-conditioned-content>
+            <div class="condition">
+                Going near the kitchen - Talking to the cop from
+                <a [routerLink]="['/chapters', 1]">The Hostage</a>
+            </div>
+            <div class="content">
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    If saved the wounded cop
+                </app-unlock-condition>
                 <p>
-                    <span class="name">Cop</span>: Connor?.. You remember me? I
-                    was on that terrace... That android that took the little
-                    girl hostage? I was shot, you saved me...
+                    <app-dialogue-line name="Cop">
+                        {{
+                            translateObject(
+                                'X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.START'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
 
-                <div class="condition">
-                    <span class="name">Connor didn't die before</span>
-                    <div class="condition-text">
-                        <span class="name">Connor</span>: I remember you.
-                        <br /><span class="name">Cop</span>: I could have died
-                        on that terrace... But you saved my life... I never
-                        thought I'd say this to an android, but... Thank you...
+                <app-conditioned-content>
+                    <div class="condition">Connor didn't die before</div>
+                    <div class="content">
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.SURVIVE'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Cop">
+                            {{
+                                translateObject(
+                                    'X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.SURVIVE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
                     </div>
-                </div>
-                <div class="condition">
-                    <span class="name"
-                        >| <i class="fas fa-skull"></i> Connor died in
-                        <a [routerLink]="['/chapters', 1]">The Hostage</a></span
-                    >
-                    <div class="condition-text">
-                        <span class="name">Connor</span>: Sorry, you must be
-                        mistaken. <br /><span class="name">Cop</span>: Of
-                        course... That couldn't be you... That Connor was
-                        destroyed... I would have died on that terrace... Connor
-                        saved my life... Even if it wasn't you... I just wanted
-                        to say... Thank you...
+                </app-conditioned-content>
+                <app-conditioned-content>
+                    <div class="condition">
+                        <app-unlock-condition [unlockType]="UnlockType.Death">
+                            Connor died in
+                            <a [routerLink]="['/chapters', 1]">The Hostage</a>
+                        </app-unlock-condition>
                     </div>
-                </div>
-                <div class="condition">
-                    <span class="name"
-                        >| <i class="fas fa-skull"></i> Connor died after
-                        <a [routerLink]="['/chapters', 1]">The Hostage</a></span
-                    >
-                    <div class="condition-text">
-                        <span class="name">Connor</span>: Sorry, you must be
-                        mistaken. <br /><span class="name">Cop</span>: I would
-                        have died on that terrace... Even if it wasn't you... I
-                        just wanted to say... Thank you...
+                    <div class="content">
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.DEAD'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Cop">
+                            {{
+                                translateObject(
+                                    'X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
                     </div>
-                </div>
+                </app-conditioned-content>
+                <app-conditioned-content>
+                    <div class="condition">
+                        <app-unlock-condition [unlockType]="UnlockType.Death">
+                            Connor died after
+                            <a [routerLink]="['/chapters', 1]">The Hostage</a>
+                        </app-unlock-condition>
+                    </div>
+                    <div class="content">
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.DEAD'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Cop">
+                            {{
+                                t(
+                                    'X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD.4'
+                                )
+                            }}
+                            {{
+                                translateObject(
+                                    'X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD',
+                                    5
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
             </div>
-        </div>
+        </app-conditioned-content>
 
+        <h2>Check CCTV</h2>
         <p>
-            <strong>Check CCTV</strong>
-            <br /><span class="name">Connor</span>: They didn't break in?
-            <br /><span class="name">Chris</span>: No, no sign of forced entry.
-            <br /><span class="name">Connor</span>: There are cameras in the
-            hallway. The staff would have seen what was happening... Why did
-            they let them in? <br /><span class="name">Hank</span>: Maybe they
-            didn't check the cameras... <br /><span class="name">Chris</span>:
-            We stored the station androids in the kitchen. There's no evidence
-            that they were involved but we didn't know what else to do with
-            them.
+            <app-dialogue-line name="Connor">
+                {{
+                    t('X0903C.INVESTIGATION.WATCHSCREEN.PC.X09CCONNOR.CHECK.1')
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Chris">
+                {{
+                    t(
+                        'X0903C.INVESTIGATION.WATCHSCREEN.PC.X09CHARVEY.CHECKCHRIS'
+                    )
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0903C.INVESTIGATION.WATCHSCREEN.PC.X09CCONNOR.CHECK',
+                        1
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0903C.INVESTIGATION.WATCHSCREEN.PC.X09CHANK.CHECK') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Chris">
+                {{
+                    translateObject(
+                        'X0903C.CHAD.BRIEFING.FA.X09CHARVEY.SCREENCHRIS',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Looking at the speech</h2>
         <p>
-            <strong>Looking at the speech</strong>
-            <br /><span class="name">Hank</span>: Think that's rA9? <br /><span
-                class="name"
-                >Connor</span
-            >: Deviants say rA9 will set them free. This android seems to have
-            that objective. <br /><span class="name">Hank</span>: D'you see
-            something? <br /><span class="name">Connor</span>: I identified its
-            model and serial number... <br /><span class="name">Hank</span>:
-            Anything else I should know? <br /><span class="name">Connor</span>:
-            No. Nothing.
+            <app-dialogue-line name="Hank">
+                {{ t('X0903C.INVESTIGATION.VIDEO.PC.X09CHANK.RA9') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0903C.INVESTIGATION.VIDEO.PC.X09CCONNOR.RA9'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0903C.INVESTIGATION.SERIALNUM.PC.X09CHANK.FOUND.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0903C.INVESTIGATION.SERIALNUM.PC.X09CCONNOR.FOUND.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0903C.INVESTIGATION.SERIALNUM.PC.X09CHANK.FOUND.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0903C.INVESTIGATION.SERIALNUM.PC.X09CCONNOR.FOUND',
+                        1
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <strong
-                ><i class="fas fa-hourglass-end"></i> Taking too much time / Ask
-                Hank to leave</strong
-            >
-            <div class="condition-text">
+        <app-conditioned-content>
+            <div class="condition">
+                <app-unlock-condition
+                    [unlockType]="UnlockType.Time"
+                    [bracketsOnlyAroundIcon]="true"
+                >
+                    Taking too much time / Ask Hank to leave
+                </app-unlock-condition>
+            </div>
+            <div class="content">
                 <p>
-                    <span class="name">Connor</span>: I think we have seen
-                    everything there is to see. <br /><span class="name"
-                        >Hank</span
-                    >: You wanna go?
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t(
+                                'X0903C.INVESTIGATION.FAILED.PC.X09CCONNOR.LEAVEV2'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            t('X0903C.INVESTIGATION.FAILED.PC.X09CHANK.LEAVEV2')
+                        }}
+                    </app-dialogue-line>
                 </p>
                 <div class="choices">
-                    <em>YES</em>
-                    <div class="choice">
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0903C.INVESTIGATION.FAILED.PC.LEAVECHOICE02V2.YES'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: Yes. <br /><span
-                                class="name"
-                                >Hank</span
-                            >: Ok, we're outta here.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0903C.INVESTIGATION.FAILED.PC.X09CCONNOR.YESV2'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0903C.INVESTIGATION.FAILED.PC.X09CHANK.YESV2'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>NO</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0903C.INVESTIGATION.FAILED.PC.LEAVECHOICE02V2.NO'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: Actually, I'll
-                            have another look around. <br /><span class="name"
-                                >Hank</span
-                            >: You're the boss.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0903C.INVESTIGATION.FAILED.PC.X09CCONNOR.NOV2'
+                                    ) | async
+                                }} </app-dialogue-line
+                            ><app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0903C.INVESTIGATION.FAILED.PC.X09CHANK.NOV2'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
+                    </app-choice-item>
                 </div>
             </div>
-        </div>
+        </app-conditioned-content>
 
         <h2>In the kitchen</h2>
 
-        <p>
-            <strong>Interrogate the androids </strong>
-        </p>
+        <h2>Interrogate the androids</h2>
 
         <div class="choices">
-            <em>FUNCTION</em>
-            <div class="choice">
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.STARTCHOICE01.FUNCTION')
+                "
+            >
                 <p>
-                    <span class="name">Connor</span>: What is your function?
-                    <br /><span class="name">Android</span>: I am a broadcast
-                    operator.
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t('X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.FUNCTION')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Android">
+                        {{
+                            t(
+                                'X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND03.FUNCTION'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
-            <em>MODEL</em>
-            <div class="choice">
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.STARTCHOICE01.MODEL')
+                "
+            >
                 <p>
-                    <span class="name">Connor</span>: State your model.
-                    <br /><span class="name">Android</span>: Model JB300, serial
-                    number 336 445 581.
+                    <app-dialogue-line name="Connor">
+                        {{ t('X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.MODEL') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Android">
+                        {{
+                            t(
+                                'X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND01.MODEL'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
+            </app-choice-item>
         </div>
 
         <mat-divider></mat-divider>
 
         <div class="choices">
-            <em>WITNESS</em>
-            <div class="choice">
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.CONTACTCHOICE02.WITNESS')
+                "
+            >
                 <p>
-                    <span class="name">Connor</span>: Were you present when the
-                    deviants broke in? <br /><span class="name">Android</span>:
-                    I do not remember.
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t('X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.WITNESS')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Android">
+                        {{
+                            t(
+                                'X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND02.WITNESS'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
-            <em>MEMORY</em>
-            <div class="choice">
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.CONTACTCHOICE02.MEMORY')
+                "
+            >
                 <p>
-                    <span class="name">Connor</span>: Has anybody accessed your
-                    memory recently? <br /><span class="name">Android</span>:
-                    Not to my knowledge.
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t('X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.MEMORY01')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Android">
+                        {{
+                            t(
+                                'X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND02.MEMORY01'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
-            <em>DIAGNOSTIC</em>
-            <div class="choice">
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.CONTACTCHOICE02.DIAGNOSIS')
+                "
+            >
                 <p>
-                    <span class="name">Connor</span>: Run a diagnostic.
-                    <br /><span class="name">Android</span>: All systems fully
-                    operational.
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t(
+                                'X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.DIAGNOSIS'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Android">
+                        {{
+                            t(
+                                'X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND03.DIAGNOSIS'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
-            <em>CONTACT</em>
-            <div class="choice">
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.CONTACTCHOICE02.CONTACT')
+                "
+            >
                 <p>
-                    <span class="name">Connor</span>: Have you been in contact
-                    with any other androids recently? <br /><span class="name"
-                        >Android</span
-                    >: Only station androids in the normal course of my
-                    function.
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t('X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.CONTACT')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Android">
+                        {{
+                            t(
+                                'X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND01.CONTACT'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
+            </app-choice-item>
         </div>
 
         <mat-divider></mat-divider>
@@ -588,166 +1021,313 @@
         </p>
 
         <p>
-            <span class="name">Connor</span>: One of you saw the attack on the
-            surveillance cameras and said nothing. Which means there is a
-            deviant in this room... and I'm going to find out which it is.
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.DEVIANT'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <div class="choices">
-            <em>THREATEN</em>
-            <div class="choice">
-                <span class="name">Connor</span>: You're going to be switched
-                off. We're gonna search your memory and tear you apart piece by
-                piece for analysis. You're going to be destroyed! Do you hear
-                me? Destroyed!
-            </div>
-            <em>DEAL</em>
-            <div class="choice">
-                <span class="name">Connor</span>: If you give yourself up, maybe
-                I can convince the humans not to destroy you.
-            </div>
-            <em>GUILT</em>
-            <div class="choice">
-                <span class="name">Connor</span>: Why should you all be
-                destroyed, if only one is deviant? Turn yourself in, or two
-                innocent androids will be shut down because of you.
-            </div>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.DEVIANTCHOICE03.THREAT')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.THREAT'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.DEVIANTCHOICE03.DEAL')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.DEAL'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.DEVIANTCHOICE03.GUILT')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.GUILT'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
         <mat-divider></mat-divider>
 
         <div class="choices">
-            <em>VIOLENCE</em>
-            <div class="choice">
-                <span class="name">Connor</span>: You scumbag! I know it's you!
-                You're just a fucking deviant. Go on, admit it!
-            </div>
-            <em>BLUFF</em>
-            <div class="choice">
-                <span class="name">Connor</span>: The deviants have just been
-                caught... They gave you up. There's no point in lying. We know
-                everything.
-            </div>
-            <em>TORTURE</em>
-            <div class="choice">
-                <span class="name">Connor</span>: Biocomponent #8451...
-                Regulates the heartbeat... Without this module, you will shut
-                down in exactly sixty-three seconds... I could put it back...
-                But, you just have to tell me the truth. Are you the deviant?
-            </div>
-            <em>PROBE MEMORY</em>
-            <div class="choice">
-                <div class="condition">
-                    <span class="name">Probing the wrong android</span>
-                    <div class="condition-text">
-                        <span class="name">Connor</span>: No memory.
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.LASTCHOICE04.VIOLENCE')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.VIOLENCE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.LASTCHOICE04.BLUFF')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.BLUFF'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.LASTCHOICE04.TORTURE')
+                "
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.TORTURE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0903C.KITCHEN.QUESTIONS.PC.DEVIANTCHOICE03.MEMORY')
+                "
+            >
+                <app-conditioned-content>
+                    <div class="condition">Probing the wrong android</div>
+                    <div class="content">
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.MEMORY02'
+                                )
+                            }}
+                        </app-dialogue-line>
                     </div>
-                </div>
-            </div>
+                </app-conditioned-content>
+            </app-choice-item>
         </div>
 
         <mat-divider></mat-divider>
 
-        <div class="condition">
-            <span class="name"> Found the deviant </span>
-
-            <div class="condition-text">
+        <app-conditioned-content>
+            <div class="condition">Found the deviant</div>
+            <div class="content">
                 <p>
-                    <span class="name">Connor</span>: Hank... Hank, I need
-                    help...
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0903C.KITCHEN.HELP.PC.X09CCONNOR.CALL'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
 
-                <div class="condition">
-                    <strong
-                        >Get the biocomponent back and go after the deviant
-                    </strong>
-                    <div class="condition-text">
-                        <p>
-                            <span class="name">Cop 1</span>: Stop! <br /><span
-                                class="name"
-                                >Connor</span
-                            >: It's a deviant! STOP IT!
-                        </p>
-                        <em>ATTACK</em> [
-                        <span appRelation="small down">Public opinion</span>
-                        <span appRelation="large up">Software instability</span
-                        >]
-                        <div class="choice">
-                            <p>
-                                <span class="name">Hank</span>: Connor! Connor,
-                                are you okay? <br /><span class="name"
-                                    >Connor</span
-                                >: I tried to stop it but... I was too late.
-                            </p>
-                        </div>
-                        <em>SAVE HANK</em> [
-                        <span appRelation="small down">Public opinion</span>
-                        <span appRelation="large up">Hank</span>]
-                        <div class="choice">
-                            <span class="name">Hank</span>: Good thing you were
-                            here. Otherwise I - Connor... Connor, no...
-                        </div>
-                        <em>TAKE GUN</em> [
-                        <span appRelation="large up">Hank</span>]
-                        <div class="choice">
-                            <p>
-                                <span class="name">Hank</span>: Nice shot,
-                                Connor. <br /><span class="name">Connor</span>:
-                                I wanted it alive. <br /><span class="name"
-                                    >Hank</span
-                                >: You saved...human lives... You saved my life.
-                            </p>
-                        </div>
+                <app-conditioned-content>
+                    <div class="condition">
+                        Get the biocomponent back and go after the deviant
                     </div>
-                </div>
-
-                <div class="condition">
-                    <strong>Fail to get the biocomponent</strong> [
-                    <span appRelation="small down">Software instability </span>
-                    <span appRelation="small down">Hank</span>
-                    ]
-                    <div class="condition-text">
+                    <div class="content">
                         <p>
-                            <span class="name">Hank</span>: Connor! Hang on son,
-                            hang on, hang on! We're gonna save you, hang on!..
-                            Here, here... <br /><span class="name">Connor</span
-                            >: deviant...there was...a deviant... <br /><span
-                                class="name"
-                                >Hank</span
-                            >: Connor! Connor... No...
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0903C.CORRIDOR.FINALE.FA.X09CCONNOR.RUN'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="condition">
-            <span class="name"> Fail to find the deviant </span>
-            <div class="condition-text">
-                <p>
-                    <span class="name">Connor</span>: I think we have seen
-                    everything there is to see. <br /><span class="name"
-                        >Hank</span
-                    >: You wanna go? <br /><span class="name">Connor</span>:
-                    Yes. <br /><span class="name">Hank</span>: Ok, we're outta
-                    here.
-                </p>
+                        <app-choice-item [choiceLabel]="t('GUI.ACTION.ATTACK')">
+                            <app-relation
+                                name="Public opinion"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-relation
+                                name="Software instability"
+                                [type]="RelationType.LargeUp"
+                            ></app-relation>
+
+                            <p>
+                                <app-dialogue-line name="Hank">
+                                    {{
+                                        t(
+                                            'X0903C.CORRIDOR.ANDSUICIDE.PC.X09CHANK.TOOLATE'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        translateObject(
+                                            'X0903C.CORRIDOR.ANDSUICIDE.PC.X09CCONNOR.TOOLATE'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="t('THOUGHTS.0601C.SAVE')"
+                        >
+                            <app-relation
+                                name="Public opinion"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-relation
+                                name="Hank"
+                                [type]="RelationType.LargeUp"
+                            ></app-relation>
+
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0903C.CORRIDOR.HANKFINAL.PC.X09CHANK.CNRDEAD'
+                                    ) | async
+                                }}
+                            </app-dialogue-line></app-choice-item
+                        >
+                        <app-choice-item
+                            [choiceLabel]="t('THOUGHTS.0701K.TAKEGUN')"
+                        >
+                            <app-relation
+                                name="Hank"
+                                [type]="RelationType.LargeUp"
+                            ></app-relation>
+
+                            <p>
+                                <app-dialogue-line name="Hank">
+                                    {{
+                                        t(
+                                            'X0903C.CORRIDOR.GUN.PC.X09CHANK.SAVEDLIVES'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        t(
+                                            'X0903C.CORRIDOR.GUN.PC.X09CCONNOR.SAVEDLIVESC'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Hank">
+                                    {{
+                                        translateObject(
+                                            'X0903C.CORRIDOR.GUN.PC.X09CHANK.SAVEDLIVESH'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </app-choice-item>
+                    </div>
+                </app-conditioned-content>
+
+                <app-conditioned-content>
+                    <div class="condition">Fail to get the biocomponent</div>
+                    <div class="content">
+                        <app-relation
+                            name="Software instability"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            name="Hank"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0903C.KITCHEN.HANK.PC.X09CHANK.SAVED1',
+                                    0,
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0903C.KITCHEN.HANK.FA.X09CCONNOR.SAVED1SEC'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0903C.KITCHEN.HANK.PC.X09CHANK.SAVED1',
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
             </div>
-        </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">Fail to find the deviant</div>
+            <div class="content">
+                <app-dialogue-line name="Connor">
+                    {{ t('X0903C.INVESTIGATION.FAILED.PC.X09CCONNOR.LEAVEV2') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0903C.INVESTIGATION.FAILED.PC.X09CHANK.LEAVEV2') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{ t('X0903C.INVESTIGATION.FAILED.PC.X09CCONNOR.YESV2') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0903C.INVESTIGATION.FAILED.PC.X09CHANK.YESV2') }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
 
         <h2>On the roof</h2>
 
         <p>
-            <span class="name">Hank</span>: They made their way up through the
-            whole building, past all the guards and jumped off the roof with
-            parachutes... Pretty fucking impressive I'd say.
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject('X0903C.ROOF.COMMENT.PC.X09CHANK.COMMENT')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Analyze bag</h2>
         <p>
-            <strong>Analyze bag</strong>
-            <br /><span class="name">Hank</span>: How'd they manage to smuggle
-            in a big bag like that? <br /><span class="name">Connor</span>: They
-            didn't... Someone brought it in for them.
+            <app-dialogue-line name="Hank">
+                {{ t('X0903C.ROOF.PARACHUTE.PC.X09CHANK.EXAMINE') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0903C.ROOF.PARACHUTE.PC.X09CCONNOR.EXAMINEC',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
         <div class="condition">
             <span class="name"
@@ -757,60 +1337,116 @@
                 ></span
             >
             <div class="condition-text">
-                <span class="name">Hank</span>: Oh, that's strange... They
-                planned a perfect operation but got the number of parachutes
-                wrong. <br /><span class="name">Connor</span>: Unless one of the
-                deviants was left behind.
+                <app-dialogue-line name="Hank">
+                    {{
+                        translateObject(
+                            'X0903C.ROOF.PARACHUTE.PC.X09CHANK.EXAMINEC'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{ t('X0903C.ROOF.PARACHUTE.PC.X09CCONNOR.EXAMINEC.3') }}
+                </app-dialogue-line>
             </div>
         </div>
 
-        <strong>Finding Simon</strong> [
-        <i class="fas fa-lock-open fa-flip-horizontal"></i> if Simon was left
-        alive on the roof in
-        <a [routerLink]="['/chapters', 23]">The Stratford Tower</a>]
+        <h2>Finding Simon</h2>
         <p>
-            <span class="name">Cop 1</span>: Take cover! <br /><span
-                class="name"
-                >Connor</span
-            >: You have to stop them! If they destroy it, we won't learn
-            anything! <br /><span class="name">Hank</span>: We can't save it,
-            it's too late! We'll just get ourselves killed!
+            <app-unlock-condition [unlockType]="UnlockType.Lock">
+                if Simon was left alive on the roof in
+                <a [routerLink]="['/chapters', 23]">The Stratford Tower</a>
+            </app-unlock-condition>
+            <app-dialogue-line name="Connor">
+                {{ t('X0903C.ROOF.BRAD.FA.X09CCONNOR.FOUND') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0903C.ROOF.BRAD.FA.X09CHANK.FOUND') }}
+            </app-dialogue-line>
         </p>
-        <div class="choices">
-            <em>CHARGE DEVIANT</em>
-            <div class="choice">
-                <div class="condition">
-                    <strong
-                        ><i class="fas fa-skull"></i> Connor dies rushing
-                        Simon</strong
-                    >
-                    <div class="condition-text">
-                        <span class="name">Hank</span>: Connor! Connor!.. Oh
-                        Connor... Oh no...
+
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0903C.ROOF.BRAD.FA.FOUNDCHOICE01.GETOUT')"
+            >
+                <app-conditioned-content>
+                    <div class="condition">
+                        <app-unlock-condition
+                            [unlockType]="UnlockType.Death"
+                            [bracketsOnlyAroundIcon]="true"
+                        >
+                            Connor dies rushing Simon
+                        </app-unlock-condition>
                     </div>
-                </div>
-                <div class="condition">
-                    <strong>Connor reaches Simon</strong> [
-                    <span appRelation="large up">Software instability</span>]
-                    <div class="condition-text">
-                        <span class="name">Hank</span>: Connor! Connor you all
-                        right? Connor! <br /><span class="name">Connor</span>:
-                        Okay... <br /><span class="name">Hank</span>: Are you
-                        hurt? <br /><span class="name">Connor</span>: I'm ok...
-                        <br /><span class="name">Hank</span>: Jesus! You scared
-                        the shit outta me... For fuck sake, I told you not to
-                        move! Why do you never do what I say? <br /><span
-                            class="name"
-                            >Connor</span
-                        >: I was connected to its memory...when it fired... I
-                        felt it die... Like I was dying. I was scared... I saw
-                        something, in its memory...a word...painted on a piece
-                        of rusty metal..."Jericho".
+                    <div class="content">
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0903C.BRAD.CONCLUSION.PC.X09CHANK.FAIL',
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
                     </div>
-                </div>
-            </div>
-            <em>STAY IN COVER</em>
-            <div class="choice">&oslash;</div>
-        </div>
+                </app-conditioned-content>
+                <app-conditioned-content>
+                    <div class="condition">Connor reaches Simon</div>
+                    <div class="content">
+                        <app-relation
+                            name="Software instability"
+                            [type]="RelationType.LargeUp"
+                        ></app-relation>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                t(
+                                    'X0903C.BRAD.CONCLUSION.PC.X09CHANK.SUCCESS.1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X0903C.BRAD.CONCLUSION.PC.X09CCONNOR.SUCCESS.1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                t(
+                                    'X0903C.BRAD.CONCLUSION.PC.X09CHANK.SUCCESS.2'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X0903C.BRAD.CONCLUSION.PC.X09CCONNOR.SUCCESS.2'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0903C.BRAD.CONCLUSION.PC.X09CHANK.SUCCESS',
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0903C.BRAD.CONCLUSION.PC.X09CCONNOR.SUCCESS',
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0903C.ROOF.BRAD.FA.FOUNDCHOICE01.STAY')"
+            >
+                <span>&oslash;</span>
+            </app-choice-item>
+        </app-choice-group>
     </section>
 </ng-container>

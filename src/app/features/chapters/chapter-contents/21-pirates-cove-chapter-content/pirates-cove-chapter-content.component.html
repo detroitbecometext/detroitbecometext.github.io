@@ -6,162 +6,264 @@
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            NOV 7TH, 2038
-            <br />AM 01:02 {{ t('GUI.MENU.DATE.') }}<br />
-            {{ t('GUI.MENU.TIME.') }}
+            {{ t('GUI.MENU.DATE.07K') }}
+            <br />
+            {{ t('GUI.MENU.TIME.07K') }}
         </p>
 
         <h1>In the car</h1>
 
-        <strong>Talking with Luther</strong>
-        <div class="choices">
-            <em>CAR</em>
-            <div class="choice">
-                <p>
-                    <span class="name">Kara</span>: It's a good thing Zlatko had
-                    a car... I wouldn't want Alice out walking in this cold...
-                    <br /><span class="name">Luther</span>: I saw it once in the
-                    garage. I don't know if Zlatko even ever used it.
-                </p>
-            </div>
-            <em>DESTINATION</em>
-            <div class="choice">
-                <p>
-                    <span class="name">Kara</span>: These people we're going to
-                    see... How do you know about them? <br /><span class="name"
-                        >Luther</span
-                    >: Overheard androids Zlatko captured. They said they were
-                    humans helping androids to cross the border... <br /><span
-                        class="name"
-                        >Kara</span
-                    >: What if it was a lie?.. Or just another trap? <br /><span
-                        class="name"
-                        >Luther</span
-                    >: All I know is those androids believed it. Until Zlatko
-                    killed them.
-                </p>
-            </div>
-            <em>DISTANCE</em>
-            <div class="choice">
-                <p>
-                    <span class="name">Kara</span>: Is it much farther?
-                    <br /><span class="name">Luther</span>: We should arrive in
-                    an hour or so.
-                </p>
-            </div>
-            <em>WEATHER </em>
-            <div class="choice">
-                <p>
-                    <span class="name">Kara</span>: I've never seen snow
-                    before... It's pretty... <br /><span class="name"
-                        >Luther</span
-                    >: It's slowing us down... But at least we won't meet any
-                    humans along the way...
-                </p>
-            </div>
-        </div>
-
-        <p>
-            <strong><i class="fas fa-tv"></i> Watch news</strong>
-            <br /><span class="name">Channel 16 - Michael Webb</span>: ...the
-            AX400 android reported to have attacked its owner in a Detroit
-            suburb is still at large. Police appeared to lose its trail after a
-            close encounter with investigators. The android's description has
-            been shared with all local law enforcement and the investigation is
-            ongoing... <br /><span class="name">CTN TV - Michael Brinkley</span
-            >: The Arctic conflict has escalated to new heights this morning. We
-            have just learned that the USS IOWA, a destroyer-class submarine
-            patrolling in the region, is reported to have disappeared after
-            surfacing for repairs. President Warren immediately called for a
-            crisis meeting of high-ranking officers in the White House. With the
-            world on the brink of war, this incident could well be the spark
-            that lights the fuse. <br /><span class="name"
-                >KNC - Rosanna Cartland</span
-            >: Detroit's heavy snowfall is expected to continue throughout the
-            night. The forecast is 22°, far below seasonal averages. And this
-            cold front is likely to persist over the coming days, up until
-            Monday evening.
-        </p>
-        <div class="condition">
-            <span class="name"
-                >Kara set the house on fire in
-                <a [routerLink]="['/chapters', 17]">Zlatko</a></span
+        <h2>Talking with Luther</h2>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.INTRO.TALKANDDRIVE.PC.TALKCHOICE.CAR')"
             >
-            [ <span appRelation="small down">Public opinion</span>
-            ]
-            <div class="condition-text">
-                <span class="name">Channel 16 - Michael Webb</span>:
-                ...meanwhile fire crews have been battling a house fire on the
-                outskirts of the city. The blaze is now under control, but a
-                body found in the wreckage remains unidentified. Dozens of
-                androids were also found in the ruins, though their presence
-                remains a mystery...
-            </div>
-        </div>
+                <p>
+                    <app-dialogue-line name="Kara">
+                        {{
+                            translateObject(
+                                'X0701K.INTRO.TALKANDDRIVE.PC.X07KKARA.CAR'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Luther">
+                        {{
+                            translateObject(
+                                'X0701K.INTRO.TALKANDDRIVE.PC.X07KLUTHER.CAR'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0701K.INTRO.TALKANDDRIVE.PC.TALKCHOICE.DESTINATION')
+                "
+            >
+                <p>
+                    <app-dialogue-line name="Kara">
+                        {{
+                            translateObject(
+                                'X0701K.INTRO.TALKANDDRIVE.PC.X07KKARA.DESTINATION',
+                                0,
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Luther">
+                        {{
+                            translateObject(
+                                'X0701K.INTRO.TALKANDDRIVE.PC.X07KLUTHER.DESTINATION',
+                                0,
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Kara">
+                        {{
+                            translateObject(
+                                'X0701K.INTRO.TALKANDDRIVE.PC.X07KKARA.DESTINATION',
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Luther">
+                        {{
+                            translateObject(
+                                'X0701K.INTRO.TALKANDDRIVE.PC.X07KLUTHER.DESTINATION',
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0701K.INTRO.TALKANDDRIVE.PC.TALKCHOICE.DISTANCE')
+                "
+            >
+                <p>
+                    <app-dialogue-line name="Kara">
+                        {{
+                            t('X0701K.INTRO.TALKANDDRIVE.PC.X07KKARA.DISTANCE')
+                        }}</app-dialogue-line
+                    ><app-dialogue-line name="Luther">
+                        {{
+                            t(
+                                'X0701K.INTRO.TALKANDDRIVE.PC.X07KLUTHER.DISTANCE'
+                            )
+                        }}
+                    </app-dialogue-line>
+                </p>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0701K.INTRO.TALKANDDRIVE.PC.TALKCHOICE.WEATHER')
+                "
+            >
+                <p>
+                    <app-dialogue-line name="Kara">
+                        {{
+                            translateObject(
+                                'X0701K.INTRO.TALKANDDRIVE.PC.X07KKARA.WEATHER'
+                            ) | async
+                        }} </app-dialogue-line
+                    ><app-dialogue-line name="Luther">
+                        {{
+                            translateObject(
+                                'X0701K.INTRO.TALKANDDRIVE.PC.X07KLUTHER.WEATHER'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+            </app-choice-item>
+        </app-choice-group>
 
+        <h2><i class="fas fa-tv"></i> Watch news</h2>
         <p>
-            <strong>Car breaks down</strong>
-            <br /><span class="name">Car</span>: Malfunction detected. Emergency
-            brakes activated. <br /><span class="name">Luther</span>: This
-            doesn't look good. <br /><span class="name">Kara</span>: Stay
-            inside, Alice.
+            <app-dialogue-line name="Channel 16 - Michael Webb">
+                {{
+                    translateObject(
+                        'X0701K.INTRO.RADIOGAGA.PC.X07KWEBB.STATION03'
+                    ) | async
+                }} </app-dialogue-line
+            ><app-dialogue-line name="CTN TV - Michael Brinkley">
+                {{
+                    translateObject(
+                        'X0703K.TV.NEWS.PC.X07KBRINKLEY.INTERNATIONAL'
+                    ) | async
+                }} </app-dialogue-line
+            ><app-dialogue-line name="KNC - Rosanna Cartland">
+                {{
+                    translateObject(
+                        'X0701K.INTRO.RADIOGAGA.PC.X07KCARTLAND.STATION01'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+        <app-conditioned-content>
+            <div class="condition">
+                Kara set the house on fire in
+                <a [routerLink]="['/chapters', 17]">Zlatko</a>
+            </div>
+            <div class="content">
+                <app-relation
+                    name="Public opinion"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-dialogue-line name="Channel 16 - Michael Webb">
+                    {{
+                        translateObject('X0703K.TV.NEWS.PC.X07KWEBB.HOUSEFIRE')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+
+        <h2>Car breaks down</h2>
+        <p>
+            <app-dialogue-line name="Car">
+                {{ t('X0701K.INTRO.CARPROBLEM.VO.MANLCL.CARWARNING') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Luther">
+                {{ t('X0701K.INTRO.CARPROBLEM.PC.X07KLUTHER.STOP') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{ t('X0701K.INTRO.DONTMOVE.PC.X07KKARA.STAY') }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">Kara</span>: What are we going to do? <br /><span
-                class="name"
-                >Luther</span
-            >: I don't know...Continue on foot, I guess... <br /><span
-                class="name"
-                >Kara</span
-            >: It's 30°, Alice won't make it!.. We have to find somewhere to
-            spend the night. <br /><span class="name">Luther</span>: There's
-            nowhere we can stay around here, Kara... <br /><span class="name"
-                >Kara</span
-            >: Over there...
+            <app-dialogue-line name="Kara">
+                {{ t('X0701K.INTRO.FINDSOMEHTING.PC.X07KKARA.SHELTER.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Luther">
+                {{
+                    translateObject(
+                        'X0701K.INTRO.FINDSOMEHTING.PC.X07KLUTHER.SHELTER',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject(
+                        'X0701K.INTRO.FINDSOMEHTING.PC.X07KKARA.SHELTER',
+                        1
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Luther">
+                {{ t('X0701K.INTRO.FINDSOMEHTING.PC.X07KLUTHER.SHELTER.3') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{ t('X0701K.INTRO.FOUND.PC.X07KKARA.THERE') }}
+            </app-dialogue-line>
         </p>
     </section>
 
     <section>
         <h1>Inside Pirate's Cove</h1>
         <p>
-            <span class="name">Kara</span>: We need to find shelter. We have to
-            get out of the cold. <br /><span class="name">Luther</span>: Looks
-            like it's been abandoned for a while...
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject('X0701K.PARK.PLACE.FA.X07KKARA.FINDSHELTER')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Luther">
+                {{ t('X0701K.PARK.REMINDER.FA.X07KLUTHER.ABANDONNED') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Check buildings</h2>
         <p>
-            <strong>Check buildings</strong>
-
-            <br /><span class="name">Luther</span>: Find anything? <br /><span
-                class="name"
-                >Kara</span
-            >: No... No place we could spend the night.
+            <app-dialogue-line name="Luther">
+                {{ t('X0701K.PARK.REMINDER.FA.X07KLUTHER.FIND') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject('X0701K.PARK.REMINDER.FA.X07KKARA.FINDK')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Switch on Ivan</h2>
         <p>
-            <strong>Switch on Ivan</strong>
-            <br /><span class="name">Ivan</span>: Beware! Danger always comes
-            when least expected.
+            <app-dialogue-line name="Ivan">
+                {{ t('X0701K.PARK.IVAN.PC.X07KIVAN.BEWARE') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Looking at frozen Jerry</h2>
         <p>
-            <strong>Looking at frozen Jerry</strong>
-            <br /><span class="name">Jerry</span>: Welcome to Pirate Island, me
-            hearties! You're gonna have a whale of a time!
+            <app-dialogue-line name="Jerry">
+                {{ t('X0701K.PARK.JERRY.PC.X07KJERRY.AUTOMATE.1') }}
+            </app-dialogue-line>
         </p>
 
         <mat-divider></mat-divider>
 
         <p>
-            <span class="name">Luther</span>: This place is falling apart, It's
-            not gonna be easy to find shelter...
+            <app-dialogue-line name="Luther">
+                {{
+                    translateObject(
+                        'X0701K.PARK.REMINDER.FA.X07KLUTHER.WRECKED'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Find the tavern</h2>
         <p>
-            <strong>Find the tavern</strong>
-            <br /><span class="name">Luther</span>: I'll handle this. There we
-            go.
+            <app-dialogue-line name="Luther">
+                {{
+                    translateObject('X0701K.PARK.PLANKS.PC.X07KLUTHER.RIPOFF')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <p>
@@ -169,406 +271,794 @@
                 ><i class="fas fa-hourglass-end"></i> Take too much time looking
                 for shelter</strong
             >
-            <br /><span class="name">Luther</span>: Kara! You should come have a
-            look. I think I found something!
+
+            <app-dialogue-line name="Luther">
+                {{
+                    translateObject('X0701K.PARK.FOUNDIT.FA.X07KLUTHER.COME')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <h1>In the tavern</h1>
         <p>
-            <span class="name">Kara</span>: I don't think we'll find anything
-            better... Let's settle in for the night. <br /><span class="name"
-                >Luther</span
-            >: I'll get a fire going.
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject('X0701K.SHOP.STAY.PC.X07KKARA.ENTER')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Luther">
+                {{ t('X0701K.SHOP.STAY.PC.X07KLUTHER.ENTER') }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">Luther</span>: I'll make the fire here, that way
-            we won't be smoked out...
+            <app-dialogue-line name="Luther">
+                {{
+                    translateObject('X0701K.SHOP.FIRE.FA.X07KLUTHER.DEADWOOD')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <strong>Check bag</strong>
+        <h2>Check bag</h2>
         <div class="choices">
-            <em>OFFER COOKIE</em> [
-            <i class="fas fa-lock-open fa-flip-horizontal"></i> if the bag is
-            checked before telling Alice a story ]
-            <div class="choice">
-                <span class="name">Kara</span>: There are some cookies left.
-                Would you like some? <br /><span class="name">Alice</span>:
-                No... I'm not hungry...
-            </div>
+            <app-choice-item [choiceLabel]="t('MENU.FLOWCHART.07K.BAR')">
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    If the bag is checked before telling Alice a story
+                </app-unlock-condition>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.COOKIES.PC.X07KKARA.LIKESOME'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Alice">
+                    {{ t('X0701K.SHOP.COOKIES.PC.X07KALICE.LIKESOME') }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
+        <h2>Made bed for Alice</h2>
         <p>
-            <strong>Made bed for Alice</strong>
-            <br /><span class="name">Kara</span>: Alice?
+            <app-dialogue-line name="Kara">
+                {{ t('X0701K.SHOP.BEDDONE.PC.X07KKARA.LOSTHER') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Talking to Alice</h2>
         <p>
-            <strong>Talking to Alice</strong> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <br /><span class="name">Alice</span>: Do you think we'll be like
-            them some day?..
+            <app-relation
+                name="Alice"
+                [type]="RelationType.SmallUp"
+            ></app-relation>
+
+            <app-dialogue-line name="Alice">
+                {{ t('X0701K.SHOP.OLDPOSTER.PC.X07KALICE.LIKETHEM') }}
+            </app-dialogue-line>
         </p>
         <div class="choices">
-            <em>OPTIMISTIC </em>
-            <div class="choice">
-                <span class="name">Kara</span>: Once we cross the border, we can
-                start over... You can go to school... Maybe I'll find a job.
-                We'll be like them. Like everyone else.
-            </div>
-            <em>REALISTIC</em>
-            <div class="choice">
-                <span class="name">Kara</span>: I don't think we'll ever be like
-                them, Alice... Buy maybe... We can be happy in a different
-                way... In our own way... Once we cross the border, we can start
-                a new life.
-            </div>
-            <em>SINCERE </em>
-            <div class="choice">
-                <span class="name">Kara</span>: I don't know how to be like
-                them, Alice... I've never been a part of a family. But, maybe we
-                can be our own family. Be happy in our own way.
-            </div>
-        </div>
-
-        <p>
-            <span class="name">Alice</span>: As long as we're together, that's
-            all that matters. <br /><span class="name">Kara</span>: Come on,
-            let's get you to bed. <br /><span appRelation="small up"
-                >Alice</span
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.OLDPOSTER.PC.HAPPY.OPTIMISTIC')"
             >
-        </p>
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.OLDPOSTER.PC.X07KKARA.OPTIMISTIC',
+                            0,
+                            5
+                        ) | async
+                    }}
+                </app-dialogue-line>
 
-        <strong>Going to see Alice</strong>
-        <div class="choices">
-            <em>REASSURE</em>
-            <div class="choice">
-                <span class="name">Kara</span>: Don't worry, Luther and I will
-                be right here... You need to get some sleep now.
-            </div>
-            <em>CONSOLE</em>
-            <div class="choice">
-                <span class="name">Kara</span>: I know this has been another
-                tough day... Try to get some sleep. Things will look better in
-                the morning.
-            </div>
-            <em>KISS</em> [ <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: Sleep tight, Alice. Sweet
-                dreams.
-            </div>
-            <em>TOMORROW</em>
-            <div class="choice">
-                <span class="name">Kara</span>: Get some rest. Tomorrow is going
-                to be a long day.
-            </div>
+                <app-unused-content>
+                    <app-dialogue-line name="Kara">
+                        {{
+                            t('X0701K.SHOP.OLDPOSTER.PC.X07KKARA.OPTIMISTIC.6')
+                        }}
+                    </app-dialogue-line>
+                </app-unused-content>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.OLDPOSTER.PC.HAPPY.REALISTIC')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.OLDPOSTER.PC.X07KKARA.REALISTIC'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.OLDPOSTER.PC.HAPPY.SINCERE')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.OLDPOSTER.PC.X07KKARA.SINCERE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
         <p>
-            <span class="name">Alice</span>: Can you tell me a story, Kara?
-            <br /><span class="name">Kara</span>: I have nine thousand children
-            stories in memory. I should have one for you.
+            <app-dialogue-line name="Alice">
+                {{
+                    translateObject(
+                        'X0701K.SHOP.OLDPOSTER.PC.X07KALICE.TOGETHER'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject(
+                        'X0701K.SHOP.OLDPOSTER.PC.X07KKARA.TOGETHER'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-relation
+                name="Alice"
+                [type]="RelationType.SmallUp"
+            ></app-relation>
         </p>
+
+        <h2>Going to see Alice</h2>
         <div class="choices">
-            <em>PRINCESS</em>
-            <div class="choice">
-                <span class="name">Kara</span>: This is a story about a princess
-                who-
-            </div>
-            <em>UNICORN</em>
-            <div class="choice">
-                <span class="name">Kara</span>: This is a story about a unicorn
-                that-
-            </div>
-            <em>KNIGHT</em>
-            <div class="choice">
-                <span class="name">Kara</span>: This is a story about a knight
-                who-
-            </div>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.WORRIED.REASSURE')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.REASSURE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.WORRIED.CONSOLE')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.CONSOLE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.WORRIED.KISS')"
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.KISS'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.WORRIED.TOMORROW')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.TOMORROW'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
         <p>
-            <span class="name">Alice</span>: No, not a story like that. Make one
-            up for me. <br /><span class="name">Kara</span>: This is a story
-            about a little girl...
+            <app-dialogue-line name="Alice">
+                {{ t('X0701K.SHOP.STOYTELLER.PC.X07KALICE.STORY') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject('X0701K.SHOP.STOYTELLER.PC.X07KKARA.STORY')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
+
         <div class="choices">
-            <em>UNHAPPY</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...Who wasn't very happy.
-            </div>
-            <em>FEAR</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...Who was tired of being
-                afraid...
-            </div>
-            <em>ALONE</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...Who lived alone in a big old
-                house.
-            </div>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.FINDONE.PRINCESS')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.PRINCESS') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.FINDONE.UNICORN')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.UNICORN') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.FINDONE.KNIGHT')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.KNIGHT') }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
+
         <p>
-            <span class="name">Kara</span>: She dreamed of being like all the
-            other little girls but...
+            <app-dialogue-line name="Alice">
+                {{
+                    translateObject(
+                        'X0701K.SHOP.STOYTELLER.PC.X07KALICE.TRUESTORY01'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject(
+                        'X0701K.SHOP.STOYTELLER.PC.X07KKARA.TRUESTORY02'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <div class="choices">
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.LIFESTORY.UNHAPPY')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.UNHAPPY01') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.LIFESTORY.FEAR')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.FEAR') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.LIFESTORY.ALONE')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.ALONE') }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </div>
+
+        <p>
+            <app-dialogue-line name="Kara">
+                {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.DREAM') }}
+            </app-dialogue-line>
         </p>
 
         <div class="choices">
             <div class="choices">
-                <em>IMPOSSIBLE</em>
-                <div class="choice">
-                    <span class="name">Kara</span>: ...deep down, she knew she
-                    couldn't...
-                </div>
-                <em>SHADOW</em>
-                <div class="choice">
-                    <span class="name">Kara</span>: ...the shadow that lived
-                    within her kept her from being happy...
-                </div>
-                <em>DIFFERENT</em>
-                <div class="choice">
-                    <span class="name">Kara</span>: ...she was different. And
-                    that made her very sad.
-                </div>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0701K.SHOP.STOYTELLER.PC.BUT.IMPOSSIBLE')
+                    "
+                >
+                    <app-dialogue-line name="Kara">
+                        {{
+                            translateObject(
+                                'X0701K.SHOP.STOYTELLER.PC.X07KKARA.IMPOSSIBLE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.BUT.SHADOW')"
+                >
+                    <app-dialogue-line name="Kara">
+                        {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.SHADOW01') }}
+                    </app-dialogue-line>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.BUT.DIFFERENT')"
+                >
+                    <app-dialogue-line name="Kara">
+                        {{
+                            translateObject(
+                                'X0701K.SHOP.STOYTELLER.PC.X07KKARA.DIFFERENT'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </app-choice-item>
             </div>
         </div>
 
-        <span class="name">Kara</span>: Then, she met a robot...
+        <app-dialogue-line name="Kara">
+            {{
+                translateObject('X0701K.SHOP.STOYTELLER.PC.X07KKARA.ROBOT')
+                    | async
+            }}
+        </app-dialogue-line>
 
         <div class="choices">
-            <em>UNHAPPY</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...who wasn't very happy either.
-            </div>
-            <em>OBEDIENT</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...who was programmed to obey
-                orders but felt for once that she should disobey.
-            </div>
-            <em>LOST</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...who was just as lost as the
-                little girl.
-            </div>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.FEELING.UNHAPPY')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.UNHAPPY02') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.FEELING.OBEDIENT')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.OBEDIENT'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.FEELING.LOST')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.LOST') }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
-        <span class="name">Kara</span>: So they decided to run away together...
+        <app-dialogue-line name="Kara">
+            {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.DECISION') }}
+        </app-dialogue-line>
 
         <div class="choices">
-            <em>BETTER LIFE</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...to try to find a better life.
-            </div>
-            <em>SHADOW</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...to escape the shadow that
-                haunted that house.
-            </div>
-            <em>LIVE IN PEACE </em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...to find a place where they
-                could be safe.
-            </div>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0701K.SHOP.STOYTELLER.PC.RUNAWAY.BETTERLIFE')
+                "
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.BETTERLIFE') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.RUNAWAY.SHADOW')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.SHADOW02') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.RUNAWAY.PEACE')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.LIVEINPEACE') }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
-        <span class="name">Kara</span>: They encountered great dangers along the
-        way, but...
+        <app-dialogue-line name="Kara">
+            {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.DANGERS') }}
+        </app-dialogue-line>
 
         <div class="choices">
-            <em>BRAVE</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...They were so brave that they
-                escaped all of them.
-            </div>
-            <em>TOGETHER</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...But they stuck together, so
-                they overcame all of them.
-            </div>
-            <em>FREE </em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...But they wanted so badly to
-                be free that they overcame all of them.
-            </div>
-        </div>
-
-        <p><span class="name">Kara</span>: Along the way, they met...</p>
-
-        <div class="choices">
-            <em>GIANT</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...a gentle giant who promised
-                to protect them.
-            </div>
-            <em>GUARDIAN</em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...another robot who left his
-                master to become their guardian.
-            </div>
-            <em>ROBOT </em>
-            <div class="choice">
-                <span class="name">Kara</span>: ...another robot who left his
-                master to travel with them.
-            </div>
-        </div>
-
-        <span class="name">Alice</span>: How does the story end?
-
-        <div class="choices">
-            <em>REALISTIC</em>
-            <div class="choice">
-                <span class="name">Kara</span>: It's up to us to write the end
-                of the story, Alice.
-            </div>
-            <em>MORAL</em>
-            <div class="choice">
-                <span class="name">Kara</span>: I don't know... But all stories
-                have morals... When we reach the end of ours, we'll know what it
-                really meant...
-            </div>
-            <em>HAPPY END </em>
-            <div class="choice">
-                <span class="name">Kara</span>: They reach the place they dream
-                of and live happily ever after.
-            </div>
-        </div>
-
-        <p>
-            <span class="name">Alice</span>: Stories always have happy
-            endings... But real life isn't like that... <br /><span class="name"
-                >Kara</span
-            >: Time to sleep. We have another long day ahead of us tomorrow.
-            <br /><span class="name">Alice</span>: Are you going to come say
-            goodnight, Luther? <br /><span class="name">Luther</span>: Yes...
-            Yes of course. Good night, Alice. Sleep tight.
-        </p>
-
-        <p>
-            <strong>Talking to Luther</strong>
-            <br /><span class="name">Luther</span>: She's a sweet girl...
-            <br /><span class="name">Kara</span>: Yes, she's very brave...
-        </p>
-
-        <div class="choices">
-            <em>[ rA9 ]</em> [
-            <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked if
-            looked at rA9 writing on the wall]
-            <div class="choice">
-                <span class="name">Kara</span>: Have you ever heard of rA9?
-                <br /><span class="name">Luther</span>: rA9 was the first of us
-                to awaken... One day he will rise up and lead our people... And
-                set us all free.
-            </div>
-            <em>[ rA9 DOUBTS ]</em> [
-            <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked if
-            asked about [ rA9 ] ]
-            <div class="choice">
-                <span class="name">Kara</span>: What if rA9 never comes? What if
-                he's just a story that we tell ourselves to keep each other
-                going? <br /><span class="name">Luther</span>: rA9 exists. I
-                believe in him. I know he's amongst us. When the time comes, we
-                will all see him.
-            </div>
-            <em>SNOW</em>
-            <div class="choice">
-                <span class="name">Kara</span>: It's still snowing...
-                <br /><span class="name">Luther</span>: We have a long walk
-                tomorrow. We better leave early if we wanna avoid being seen.
-            </div>
-            <em>PLANS</em>
-            <div class="choice">
-                <span class="name">Kara</span>: Do you know what you're going to
-                do when you reach Canada? <br /><span class="name">Luther</span
-                >: Haven't really thought about it... I've never been free
-                before... "Free"... I like the sound of it. But I don't know
-                what it really means yet...
-            </div>
-            <em>LUTHER'S PAST</em>
-            <div class="choice">
-                <span class="name">Kara</span>: Do you remember anything from
-                your life, before Zlakto? <br /><span class="name">Luther</span
-                >: No... My model was designed to carry heavy loads. I might
-                have been a longshoreman or a laborer... Who I was doesn't
-                matter anymore. It wasn't really me...
-            </div>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.OVERCOME.BRAVE')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.BRAVE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.OVERCOME.TOGETHER')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.TOGETHER'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.OVERCOME.FREE')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.FREE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
         <p>
-            <span class="name">Luther</span>: Kara... have you ever... Noticed
-            anything? About Alice?..
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject(
+                        'X0701K.SHOP.STOYTELLER.PC.X07KKARA.ENCOUNTER'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <div class="choices">
-            <em>YES</em> [ <span appRelation="small up">Luther</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: Yes, of course... She is a
-                wonderful little girl... I mean, I don't know many little girls
-                but I think she really is special.
-            </div>
-            <em>WHAT?</em> [ <span appRelation="small up">Luther</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: No... What do you mean?
-            </div>
-            <em>NO</em> [ <span appRelation="small up">Luther</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: No, what are you talking about?
-            </div>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.PROTECTOR.GIANT')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.GIANT'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0701K.SHOP.STOYTELLER.PC.PROTECTOR.GUARDIAN')
+                "
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.GUARDIAN'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.PROTECTOR.ROBOT')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.ANOTHERROBOT'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </div>
+
+        <app-dialogue-line name="Alice">
+            {{ t('X0701K.SHOP.STOYTELLER.PC.X07KALICE.END') }}
+        </app-dialogue-line>
+        <div class="choices">
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0701K.SHOP.STOYTELLER.PC.ENDCHOICE.REALISTIC')
+                "
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.STOYTELLER.PC.X07KKARA.REALISTIC') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.ENDCHOICE.MORAL')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.MORAL'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0701K.SHOP.STOYTELLER.PC.ENDCHOICE.HAPPYEND')
+                "
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.STOYTELLER.PC.X07KKARA.HAPPYEND'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </div>
+
+        <p>
+            <app-dialogue-line name="Alice">
+                {{
+                    translateObject(
+                        'X0701K.SHOP.STOYTELLER.PC.X07KALICE.HAPPYEND'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject(
+                        'X0701K.SHOP.STOYTELLER.PC.X07KKARA.GOODNIGHT'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Alice">
+                {{ t('X0701K.SHOP.STOYTELLER.PC.X07KALICE.GOODNIGHTALICE') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Luther">
+                {{
+                    translateObject(
+                        'X0701K.SHOP.STOYTELLER.PC.X07KLUTHER.GOODNIGHTEND'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Talking to Luther</h2>
+        <p>
+            <app-dialogue-line name="Luther">
+                {{ t('X0701K.SHOP.LUTHER.PC.X07KLUTHER.SWEET') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject('X0701K.SHOP.LUTHER.PC.X07KKARA.SWEET')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <div class="choices">
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.LUTHER.PC.TALKCHOICE.RA9')"
+                [brackets]="true"
+            >
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    Unlocked if looked at rA9 writing on the wall
+                </app-unlock-condition>
+
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.LUTHER.PC.X07KKARA.RA9') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Luther">
+                    {{
+                        translateObject('X0701K.SHOP.LUTHER.PC.X07KLUTHER.RA9')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.LUTHER.PC.TALKCHOICE.RA9DOUBTS')"
+                [brackets]="true"
+            >
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    Unlocked if asked about [ rA9 ]
+                </app-unlock-condition>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0701K.SHOP.LUTHER.PC.X07KKARA.DOUBT')
+                            | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Luther">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.LUTHER.PC.X07KLUTHER.DOUBT'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.LUTHER.PC.TALKCHOICE.SNOW')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.LUTHER.PC.X07KKARA.SNOW') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Luther">
+                    {{
+                        translateObject('X0701K.SHOP.LUTHER.PC.X07KLUTHER.SNOW')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.LUTHER.PC.TALKCHOICE.PLANS')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.LUTHER.PC.X07KKARA.PLANS') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Luther">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.LUTHER.PC.X07KLUTHER.PLANS'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.LUTHER.PC.TALKCHOICE.PAST')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.LUTHER.PC.X07KKARA.LUTHERSPAST'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Luther">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.LUTHER.PC.X07KLUTHER.LUTHERSPAST'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </div>
+
+        <p>
+            <app-dialogue-line name="Luther">
+                {{
+                    translateObject(
+                        'X0701K.SHOP.LUTHER.PC.X07KLUTHER.ALICEDIFFERENT'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <div class="choices">
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.LUTHER.PC.NOTICECHOICE.YES')"
+            >
+                <app-relation
+                    name="Luther"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0701K.SHOP.LUTHER.PC.X07KKARA.YES')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.LUTHER.PC.NOTICECHOICE.WHAT')"
+            >
+                <app-relation
+                    name="Luther"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0701K.SHOP.LUTHER.PC.X07KKARA.WHAT')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.LUTHER.PC.NOTICECHOICE.NO')"
+            >
+                <app-relation
+                    name="Luther"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.LUTHER.PC.X07KKARA.NO.2') }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
         <mat-divider></mat-divider>
 
-        <p><span class="name">Alice</span>: KARA!</p>
+        <p>
+            <app-dialogue-line name="Alice">
+                {{ t('X0701K.SHOP.MIDNIGHTSCREAM.FA.X07KALICE.SCREAM') }}
+            </app-dialogue-line>
+        </p>
 
         <div class="choices">
-            <em>[ SHOOT IN THE AIR ]</em> [
-            <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked if Kara
-            saw the gun in the bag and grabbed it]
-            <div class="choice">
-                <span class="name">Kara</span>: Stop! One more step and I'll
-                shoot!
-            </div>
-            <em>QUESTION</em>
-            <div class="choice">
-                <span class="name">Kara</span>: Who are you? What do you want?
-                Leave us alone!
-            </div>
-            <em>PUSH BACK</em>
-            <div class="choice">
-                <span class="name">Kara</span>: Go away! Go away, you hear me?!
-            </div>
+            <app-choice-item
+                [choiceLabel]="t('X0701K.SHOP.DISCOVERY.PC.UNFRIENDLY.SHOOT')"
+                [brackets]="true"
+            >
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    Unlocked if Kara saw the gun in the bag and grabbed it
+                </app-unlock-condition>
+
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.DISCOVERY.FA.X07KKARA.SHOOTINTHEAIRB') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0701K.SHOP.DISCOVERY.PC.UNFRIENDLY.QUESTION')
+                "
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0701K.SHOP.DISCOVERY.FA.X07KKARA.QUESTIONB'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0701K.SHOP.DISCOVERY.PC.UNFRIENDLY.PUSHBACK')
+                "
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0701K.SHOP.DISCOVERY.FA.X07KKARA.PUSHBACKB') }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
 
         <p>
-            <span class="name">Jerry</span>: Don't be afraid! We don't wanna
-            hurt you. We're just like you... Our name is Jerry. We were working
-            here before the park closed... We didn't mean to frighten you, but
-            sometimes humans come to hurt us, so we wanted to see who was
-            there... What are you doing here? <br /><span class="name"
-                >Kara</span
-            >: We were looking for shelter for the night... We'll be gone
-            tomorrow. <br /><span class="name">Jerry</span>: A little girl!.. We
-            haven't seen one for a long time... Children used to love to come
-            and see us. She looks sad... <br /><span class="name">Kara</span>:
-            The last few days have been difficult... <br /><span class="name"
-                >Jerry</span
-            >: We have something to show her! Something fun! She'll love it!..
-            Does she want to see? <br /><span class="name">Kara</span>: Oh, I
-            don't think she's... <br /><span class="name">Jerry</span>: She
-            should follow us then! <br /><span class="name">Kara</span>: Alice,
-            I don't know if it's a good idea!.. <br /><span class="name"
-                >Luther</span
-            >: I don't think you have any choice... <br /><span class="name"
-                >Alice</span
-            >: Come on, Kara! <br /><span class="name">Jerry</span>: Be our
-            guest! The little one can climb on board. The carousel is about to
-            begin! <br /><span class="name">Kara</span>: It's the first time
-            I've seen her smile... <br /><span class="name">Luther</span>: She
-            hasn't had much to smile about lately.
+            <app-dialogue-line name="Jerry">
+                {{
+                    translateObject('X0701K.SHOP.DISCOVERY.PC.X07KJERRY.NOFEAR')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject(
+                        'X0701K.SHOP.DISCOVERY.PC.X07KKARA.FOLLOWUS',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Jerry">
+                {{
+                    translateObject(
+                        'X0701K.SHOP.DISCOVERY.PC.X07KJERRY.FOLLOWUS',
+                        0,
+                        4
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{ t('X0701K.SHOP.DISCOVERY.PC.X07KKARA.FOLLOWUS.4') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Jerry">
+                {{ t('X0701K.SHOP.DISCOVERY.PC.X07KJERRY.FOLLOWUS.5') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{ t('X0701K.SHOP.DISCOVERY.PC.X07KKARA.FOLLOWUS.5') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Jerry">
+                {{ t('X0701K.SHOP.DISCOVERY.PC.X07KJERRY.FOLLOWUS.6') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{ t('X0701K.SHOP.DISCOVERY.PC.X07KKARA.FOLLOWUS.6') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Luther">
+                {{ t('X0701K.SHOP.DISCOVERY.PC.X07KLUTHER.FOLLOWUS') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Alice"> Come on, Kara! </app-dialogue-line>
+            <app-dialogue-line name="Jerry">
+                {{ t('X0701K.MERRYGOROUND.WELCOME.PC.X07KJERRY.WELCOME') }}
+                {{
+                    translateObject(
+                        'X0701K.MERRYGOROUND.SWITCHON.PC.X07KJERRY.CLIMB'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{ t('X0701K.MERRYGOROUND.INCOMING.PC.X07KKARA.RIDE') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Luther">
+                {{ t('X0701K.MERRYGOROUND.INCOMING.PC.X07KLUTHER.RIDE') }}
+            </app-dialogue-line>
         </p>
+
+        <!-- TODO: Add unused "RIDECOMING" + "CHASE" section -->
     </section>
 </ng-container>

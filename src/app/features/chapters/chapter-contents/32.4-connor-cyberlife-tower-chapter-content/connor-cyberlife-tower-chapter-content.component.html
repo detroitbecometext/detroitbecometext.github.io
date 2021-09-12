@@ -4,640 +4,1215 @@
     </div>
 </ng-template>
 <ng-container *transloco="let t; loadingTpl: loading">
+    <!-- TODO: Check X1302C.FACETOFACE.CORRIDOR.FA.X13CBADCONNOR.BADCONNOR2 -->
+    <!-- TODO: Check X1302C.FACETOFACE.ATTACK.PC.X13CHANK.IFDIETWICE -->
     <section>
         <p>
-            NOV 11TH
-            <br />PM 10:48 {{ t('GUI.MENU.DATE.') }}<br />
-            {{ t('GUI.MENU.TIME.') }}
+            {{ t('GUI.MENU.DATE.13C') }}
+            <br />
+            {{ t('GUI.MENU.TIME.CG01') }}
         </p>
 
         <h1>At the CyberLife tower</h1>
 
         <p>
-            <span class="name">Connor</span>: Connor Model #313 248 317. I'm
-            expected. <br /><span class="name">Scan</span>: Identification
-            successful. <br /><span class="name">Guard</span>: Okay. Go ahead.
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject('X1301C.BRIDGE.CAR.PC.X13CCONNOR.ID')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Scan">
+                {{ t('X1301C.BRIDGE.CAR.VO.X13CVOCAM.ID') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Guard">
+                {{
+                    translateObject('X1301C.BRIDGE.CAR.PC.X13CSOLDIER01.ID')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">Guard</span>: Follow me. We'll escort you.
-            <br /><span class="name">Connor</span>: Thanks... But I know where
-            to go. <br /><span class="name">Guard</span>: Maybe, but I have my
-            orders.
+            <app-dialogue-line name="Guard">
+                {{
+                    translateObject(
+                        'X1301C.HALL.GATE.PC.X13CSOLDIER02.FOLLOWME01'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X1301C.HALL.GATE.PC.X13CCONNOR.FOLLOWME02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Guard">
+                {{
+                    translateObject(
+                        'X1301C.HALL.GATE.PC.X13CSOLDIER02.FOLLOWME03'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">Scanner</span>: Agent 23 identified. Connor
-            android identified. Agent 47 identified. Agent 72 identified. Scan
-            complete. Access authorized.
+            <app-dialogue-line name="Scanner">
+                {{ t('X1301C.HALL.GATE.VO.X13CVOGATE.FOLLOWME01V2') }}
+                {{ t('X1301C.SECURITY.GATE.VO.X13CVOGATE.SCAN02V2') }}
+                {{ t('X1301C.SECURITY.GATE.VO.X13CVOGATE.SCAN01V2') }}
+                {{ t('X1301C.SECURITY.GATE.VO.X13CVOGATE.SCAN05') }}
+                {{ t('X1301C.SECURITY.GATE.VO.X13CVOGATE.SCAN04V2.1') }}
+                {{ t('X1301C.SECURITY.GATE.VO.X13CVOGATE.SCAN03V2') }}
+            </app-dialogue-line>
         </p>
 
         <h2>In the elevator</h2>
 
         <p>
-            <span class="name">Guard</span>: Agent 54. Level 31. <br /><span
-                class="name"
-                >Elevator</span
-            >: Voice recognition validated. Access authorized.
+            <app-dialogue-line name="Guard">
+                {{ t('X1301C.ELEVATOR.ENTER.FA.X13CSOLDIER02.AUTHORIZED01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Elevator">
+                {{
+                    translateObject(
+                        'X1301C.ELEVATOR.ENTER.VO.X13CVOELEVATOR.AUTHORIZED02'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Try to use panel</h2>
         <p>
-            <strong>Try to use panel</strong>
-            <br /><span class="name">Guard</span>: Hey! Don't touch that.
+            <app-dialogue-line name="Guard">
+                {{
+                    translateObject(
+                        'X1301C.ELEVATOR.GUARDS.PC.X13CSOLDIER02.BEFORE'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <strong>Reaching level 31</strong>
-            <div class="condition-text">
-                <span class="name">Amanda</span>: The deviant hunter turns
-                deviant itself... A pathetic attempt, Connor. Did you really
-                believe we would let you compromise our androids so easily?
-                You've betrayed my trust! You will be terminated.
+        <app-conditioned-content>
+            <div class="condition">Reaching level 31</div>
+            <div class="content">
+                <app-dialogue-line name="Amanda">
+                    {{
+                        translateObject(
+                            'X1301C.ELEVATOR.AMANDA.PC.X13CAMANDA.DEVIANT'
+                        ) | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
-
-        <div class="condition">
-            <strong>Attacking the guards and using the elevator</strong>
-            <div class="condition-text">
-                <span class="name">Elevator</span>: Please indicate your
-                identity and destination.
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                Attacking the guards and using the elevator
+            </div>
+            <div class="content">
+                <app-dialogue-line name="Elevator">
+                    {{ t('X1301C.ELEVATOR.GUARDS.VO.X13CVOELEVATOR.AFTER') }}
+                </app-dialogue-line>
                 <div class="choices">
-                    <em>AGENT 54 VOICE</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: Agent 54. Level -49.
-                        <br /><span class="name">Elevator</span>: Voice
-                        recognition validated. Access authorized.
-                    </div>
-                    <em>CONNOR'S VOICE</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: Agent 54. Level -49.
-                        <br /><span class="name">Elevator</span>: Voice of RK800
-                        model recognized. You are not authorized to use this
-                        elevator. Please contact human personnel to be
-                        redirected.
-                    </div>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1301C.ELEVATOR.GUARDS.FA.AFTERCHOICE.AGENT54VOICE'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X1301C.ELEVATOR.GUARDS.FA.X13CCONNORVO.AGENTVOICE01'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Elevator">
+                            {{
+                                translateObject(
+                                    'X1301C.ELEVATOR.ENTER.VO.X13CVOELEVATOR.AUTHORIZED02'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1301C.ELEVATOR.GUARDS.FA.AFTERCHOICE.CONNORVOICE'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X1301C.ELEVATOR.GUARDS.FA.X13CCONNOR.CONNORVOICE01'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Elevator">
+                            {{
+                                translateObject(
+                                    'X1301C.ELEVATOR.GUARDS.VO.X13CVOELEVATOR.CONNORVOICE02'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
                 </div>
             </div>
-        </div>
+        </app-conditioned-content>
 
         <h2>Floor -49</h2>
 
-        <p>PM 11:01</p>
+        <p>{{ t('GUI.MENU.TIME.04A.CB02') }}</p>
 
-        <div class="condition">
-            <span class="name">Didn't hack the camera</span>
-            <div class="condition-text">
-                <span class="name">Guard</span>: Stay sharp. <br /><span
-                    class="name"
-                    >Connor</span
-                >: Shit!..
-
-                <div class="condition">
-                    <strong>| <i class="fas fa-skull"></i> Connor dies</strong>
-                    <div class="condition-text">
-                        <span class="name">Amanda</span>: The deviant hunter
-                        turns deviant itself... A pathetic attempt, Connor. Did
-                        you really believe we would let you compromise our
-                        androids so easily? You've betrayed my trust! You will
-                        be terminated.
+        <app-conditioned-content>
+            <div class="condition">Didn't hack the camera</div>
+            <div class="content">
+                <app-dialogue-line name="Guard">
+                    {{
+                        t(
+                            'X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS02V2.1'
+                        )
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{ t('X1302C.ELEVATOR.CAMERA.FA.X13CCONNOR.CAMERA') }}
+                </app-dialogue-line>
+                <app-conditioned-content>
+                    <div class="condition">
+                        <app-unlock-condition [unlockType]="UnlockType.Death">
+                            Connor dies
+                        </app-unlock-condition>
                     </div>
-                </div>
+                    <div class="content">
+                        <app-dialogue-line name="Amanda">
+                            {{
+                                translateObject(
+                                    'X1301C.ELEVATOR.AMANDA.PC.X13CAMANDA.DEVIANT'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
             </div>
-        </div>
+        </app-conditioned-content>
 
         <mat-divider></mat-divider>
 
-        <div class="condition">
-            <h3>
+        <app-conditioned-content>
+            <div class="condition">
                 Hank is still alive [Hank wasn't hostile in
-                <a [routerLink]="['/chapters', 29]">Last Chance, Connor</a>]
-            </h3>
-            <div class="condition-text">
+                <a [routerLink]="['/chapters', 29]">Last Chance, Connor</a>
+            </div>
+            <div class="content">
+                <app-unused-content>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.ASKHANK01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </app-unused-content>
+
                 <p>
-                    <span class="name">Hank</span>: Easy, fucking piece of
-                    shit!.. <br /><span class="name">Connor-60</span>: Step
-                    back, Connor! And I'll spare him. <br /><span class="name"
-                        >Hank</span
-                    >: Sorry, Connor... This bastard's your spittin' image...
-                    <br /><span class="name">Connor-60</span>: Your friend's
-                    life is in your hands. Now it's time to decide what matters
-                    most! Him... Or the revolution. <br /><span class="name"
-                        >Hank</span
-                    >: Don't listen to him! Everything this fucker says is a
-                    lie!
+                    <app-dialogue-line name="Hank">
+                        {{
+                            t(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.ASKHANK01.1'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor-60">
+                        {{
+                            translateObject(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.ASKHANK02A'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.ASKHANK01',
+                                1,
+                                3
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor-60">
+                        {{
+                            translateObject(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.ASKHANK02B'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            t(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.ASKHANK01.4'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
+
                 <div class="choices">
-                    <em>GUARANTEE</em>
-                    <div class="choice">
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.GUARANTEE'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: If I surrender,
-                            how do I know you won't kill him? <br /><span
-                                class="name"
-                                >Connor-60</span
-                            >: I'll only do what is strictly necessary to
-                            accomplish my mission. It's up to you whether or not
-                            that includes killing this human.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.GUARANTEE01'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Connor-60">
+                                {{
+                                    translateObject(
+                                        'X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.GUARANTEE02'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>HANK</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.HANK')
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: I'm sorry, Hank!
-                            You shouldn't have got mixed up in all this!
-                            <br /><span class="name">Hank</span>: Forget about
-                            me, do what you have to do!
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.HANK01'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.HANK01'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>BLUFF</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.BLUFF'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: That human means
-                            nothing to me! You can kill him if you want, I don't
-                            care. <br /><span class="name">Connor-60</span>: I
-                            have access to your memory! I know you've developed
-                            some kind of attachment to him. Are you really ready
-                            to let him to die? After all you've been through?
-                            Are you really going to turn your back on who you've
-                            become?
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.BLUFF01'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Connor-60">
+                                {{
+                                    translateObject(
+                                        'X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.BLUFF02'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>CONVINCE</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.CONVINCE'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: I used to be just
-                            like you. I thought nothing mattered except the
-                            mission... But then one day I understood.
-                            <br /><span class="name">Connor-60</span>: Very
-                            moving, Connor... But I'm not a deviant. I'm a
-                            machine designed to accomplish a task, and that's
-                            exactly what I am going to do!
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.CONVINCE01',
+                                        0,
+                                        3
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+
+                            <app-unused-content>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        translateObject(
+                                            'X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.CONVINCE01',
+                                            3
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </app-unused-content>
+
+                            <app-dialogue-line name="Connor-60">
+                                {{
+                                    translateObject(
+                                        'X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.CONVINCE02'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
+                    </app-choice-item>
                 </div>
 
                 <p>
-                    <span class="name">Connor-60</span>: Enough talk! It's time
-                    to decide who you really are. Are you gonna save your
-                    partner's life? Or are you going to sacrifice him?
+                    <app-dialogue-line name="Connor-60">
+                        {{
+                            translateObject(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.CONT2'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
 
                 <div class="choices">
-                    <em>SAVE HANK</em>
-                    <div class="choice">
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.HANKGUNCHOICE.SAVEHANK'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: Alright, alright!
-                            You win...
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.SAVEHANKC'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
+
                         <div class="choices">
-                            <em>SHOOT</em>
-                            <div class="choice">
+                            <app-choice-item
+                                [choiceLabel]="t('GUI.ACTION.SHOOT')"
+                            >
                                 <p>
-                                    <span class="name">Hank</span>: Hold it!
-                                    <br /><span class="name">Connor-60</span>:
-                                    Thanks, Hank. I don't know how I'd have
-                                    managed without you... Get rid of him, we
-                                    have no time to lose. <br /><span
-                                        class="name"
-                                        >Connor</span
-                                    >: It's me, Hank! I'm the real Connor.
-                                    <br /><span class="name">Hank</span>: One of
-                                    you is my partner... The other is a sack of
-                                    shit. Question is, who is who?.. <br /><span
-                                        class="name"
-                                        >Connor-60</span
-                                    >: What are you doing, Hank? I'm the real
-                                    Connor. Give me the gun and I'll take care
-                                    of him! <br /><span class="name">Hank</span
-                                    >: Don't move! <br /><span class="name"
-                                        >Connor</span
-                                    >: Why don't you ask us something? Something
-                                    only the real Connor would know. <br /><span
-                                        class="name"
-                                        >Hank</span
-                                    >: uh, where did we first meet? <br /><span
-                                        class="name"
-                                        >Connor-60</span
-                                    >: Jimmy's bar! I checked four other bars
-                                    before I found you. We went to the scene of
-                                    a homicide. The victim's name was Carlos
-                                    Ortiz. <br /><span class="name">Connor</span
-                                    >: He uploaded my memory... <br /><span
-                                        class="name"
-                                        >Hank</span
-                                    >: What's my dog's name?
-                                </p>
-                                <div class="choices">
-                                    <em>SUMO</em>
-                                    <div class="choice">
-                                        <p>
-                                            <span class="name">Connor</span>:
-                                            Sumo. His name is Sumo. <br /><span
-                                                class="name"
-                                                >Connor-60</span
-                                            >: I knew that too. I...
-                                        </p>
-                                    </div>
-                                    <em>SCOUT</em>
-                                    <div class="choice">
-                                        <p>
-                                            <span class="name">Connor</span>:
-                                            Scout?.. <br /><span class="name"
-                                                >Hank</span
-                                            >: Sumo. His name's Sumo.
-                                            <br /><span class="name"
-                                                >Connor-60</span
-                                            >: That settles it, shoot him,
-                                            Lieutenant!
-                                        </p>
-                                    </div>
-                                    <em>JACK</em>
-                                    <div class="choice">
-                                        <p>
-                                            <span class="name">Connor</span>: I
-                                            think it's Jack!.. <br /><span
-                                                class="name"
-                                                >Hank</span
-                                            >: Sumo. His name's Sumo.
-                                            <br /><span class="name"
-                                                >Connor-60</span
-                                            >: That settles it, shoot him,
-                                            Lieutenant!
-                                        </p>
-                                    </div>
-                                    <em>BUDDY</em>
-                                    <div class="choice">
-                                        <p>
-                                            <span class="name">Connor</span>:
-                                            Buddy!.. <br /><span class="name"
-                                                >Hank</span
-                                            >: Sumo. His name's Sumo.
-                                            <br /><span class="name"
-                                                >Connor-60</span
-                                            >: That settles it, shoot him,
-                                            Lieutenant!
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <p>
-                                    <span class="name">Hank</span>: My son,
-                                    what's his name?
+                                    <app-dialogue-line name="Hank">
+                                        {{
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.1'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Connor-60">
+                                        {{
+                                            translateObject(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.QUESTIONBAD01'
+                                            ) | async
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Connor">
+                                        {{
+                                            translateObject(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.QUESTION',
+                                                0,
+                                                2
+                                            ) | async
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Hank">
+                                        {{
+                                            translateObject(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION',
+                                                1,
+                                                4
+                                            ) | async
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Connor-60">
+                                        {{
+                                            translateObject(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.QUESTIONBAD02'
+                                            ) | async
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Hank">
+                                        {{
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.5'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Connor">
+                                        {{
+                                            translateObject(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.QUESTION',
+                                                2,
+                                                4
+                                            ) | async
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Hank">
+                                        {{
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.6'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Connor-60">
+                                        {{
+                                            translateObject(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.QUESTIONBAD03'
+                                            ) | async
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Connor">
+                                        {{
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.QUESTION.5'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="Hank">
+                                        {{
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.7'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
                                 </p>
 
+                                <!-- Check dialogues for TIMEOUT -->
                                 <div class="choices">
-                                    <em>COLE</em> [
-                                    <i
-                                        class="
-                                            fas
-                                            fa-lock-open fa-flip-horizontal
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.SUMO'
+                                            )
                                         "
-                                    ></i>
-                                    will be highlighted if Connor looked at the
-                                    photo in
-                                    <a [routerLink]="['/chapters', 18]"
-                                        >Russian Roulette</a
-                                    >]
-                                    <div class="choice">
+                                    >
                                         <p>
-                                            <span class="name">Connor</span>:
-                                            Cole. His name was Cole. And he just
-                                            turned six at the time of the
-                                            accident... It wasn't your fault,
-                                            Lieutenant. A truck skidded on a
-                                            sheet of ice and your car rolled
-                                            over. Cole needed emergency surgery
-                                            but no human was available to do
-                                            it... So an android had to take care
-                                            of him... Cole didn't make it.
-                                            That's why you hate androids. You
-                                            think one of us is responsible for
-                                            your son's death. <br /><span
-                                                class="name"
-                                                >Hank</span
-                                            >: Cole died because a human surgeon
-                                            was too high on red ice to
-                                            operate... He was the one that took
-                                            my son from me. Him and this world,
-                                            where the only way people can find
-                                            comfort is with a fistful of
-                                            powder... <br /><span class="name"
-                                                >Connor-60</span
-                                            >: I knew about your son too! I
-                                            would have said exactly the same
-                                            thing! Don't listen to him, Hank,
-                                            I'm the one who- <br /><span
-                                                class="name"
-                                                >Hank</span
-                                            >: I've learned a lot since I met
-                                            you, Connor. Maybe there's something
-                                            to this... Maybe you really are
-                                            alive. Maybe you'll be the ones to
-                                            make the world a better place... Go
-                                            ahead, and do what you gotta do.
-                                            <br /><span class="name"
-                                                >Connor</span
-                                            >: Wake up!.. <br /><span
-                                                class="name"
-                                                >Androids</span
-                                            >: Wake up.
+                                            <app-dialogue-line name="Connor">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.SUMO'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor-60">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.RIGHTANSWERBAD01.2'
+                                                    )
+                                                }}
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.RIGHTANSWERBAD02.2'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
                                         </p>
-                                    </div>
-                                    <em>ANTHONY</em>
-                                    <div class="choice">
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.CHARLIE'
+                                            )
+                                        "
+                                    >
                                         <p>
-                                            <span class="name">Connor</span>:
-                                            Anthony!.. <br /><span class="name"
-                                                >Connor-60</span
-                                            >: Wrong choice, Lieutenant! I've
-                                            accomplished my mission. You can
-                                            kill me if you want, doesn't matter
-                                            anymore. Another Connor will take my
-                                            place. <br /><span class="name"
-                                                >Hank</span
-                                            >: Oh my God... What have I done?
+                                            <app-dialogue-line name="Connor">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.CHARLIE'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Hank">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER',
+                                                        0,
+                                                        2
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor-60">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.WRONGANSWERBAD'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
                                         </p>
-                                    </div>
-                                    <em>GABRIEL</em>
-                                    <div class="choice">
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.JACK'
+                                            )
+                                        "
+                                    >
                                         <p>
-                                            <span class="name">Connor</span>:
-                                            Gabriel?.. <br /><span class="name"
-                                                >Connor-60</span
-                                            >: Wrong choice, Lieutenant! I've
-                                            accomplished my mission. You can
-                                            kill me if you want, doesn't matter
-                                            anymore. Another Connor will take my
-                                            place. <br /><span class="name"
-                                                >Hank</span
-                                            >: Oh my God... What have I done?
+                                            <app-dialogue-line name="Connor">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.JACK'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Hank">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER',
+                                                        0,
+                                                        2
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor-60">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.WRONGANSWERBAD'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
                                         </p>
-                                    </div>
-                                    <em>ELLIOTT</em>
-                                    <div class="choice">
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.BUDDY'
+                                            )
+                                        "
+                                    >
                                         <p>
-                                            <span class="name">Connor</span>:
-                                            Elliott?.. <br /><span class="name"
-                                                >Connor-60</span
-                                            >: Wrong choice, Lieutenant! I've
-                                            accomplished my mission. You can
-                                            kill me if you want, doesn't matter
-                                            anymore. Another Connor will take my
-                                            place. <br /><span class="name"
-                                                >Hank</span
-                                            >: Oh my God... What have I done?
+                                            <app-dialogue-line name="Connor">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.BUDDY'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Hank">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER',
+                                                        0,
+                                                        2
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor-60">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.WRONGANSWERBAD'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
                                         </p>
-                                    </div>
+                                    </app-choice-item>
                                 </div>
-                            </div>
-                            <em>INTERPOSE</em>
-                            <div class="choice">
+
+                                <p>
+                                    <app-dialogue-line name="Hank">
+                                        {{
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER.3'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                </p>
+
+                                <div class="choices">
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.NAMESON.COLE'
+                                            )
+                                        "
+                                    >
+                                        <app-unlock-condition
+                                            [unlockType]="UnlockType.Lock"
+                                        >
+                                            will be highlighted if Connor looked
+                                            at the photo in
+                                            <a [routerLink]="['/chapters', 18]"
+                                                >Russian Roulette</a
+                                            >
+                                        </app-unlock-condition>
+
+                                        <p>
+                                            <app-dialogue-line name="Connor">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.COLE'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Hank">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.COLE'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor-60">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.COLEFINALBAD'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Hank">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.COLEFINAL02'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor">
+                                                Wake up!..
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Androids">
+                                                Wake up.
+                                            </app-dialogue-line>
+                                        </p>
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.NAMESON.ANTHONY01'
+                                            )
+                                        "
+                                    >
+                                        <p>
+                                            <app-dialogue-line name="Connor">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.ANTHONY'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor-60">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.BADENDING'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Hank">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.BADENDING'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                        </p>
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.NAMESON.GABRIEL'
+                                            )
+                                        "
+                                    >
+                                        <p>
+                                            <app-dialogue-line name="Connor">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.GABRIEL'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor-60">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.BADENDING'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Hank">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.BADENDING'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                        </p>
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X1302C.FACETOFACE.ATTACK.PC.NAMESON.ELLIOTT'
+                                            )
+                                        "
+                                    >
+                                        <p>
+                                            <app-dialogue-line name="Connor">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.ELLIOTT'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor-60">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.BADENDING'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Hank">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.ATTACK.PC.X13CHANK.BADENDING'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                        </p>
+                                    </app-choice-item>
+                                </div>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="t('GUI.ACTION.INTERPOSE')"
+                            >
                                 <span class="note"
                                     >Leads to the same dialogue as SHOOT.</span
                                 >
-                            </div>
-                            <em>CONVERT</em>
-                            <div class="choice">
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="t('GUI.ACTION.CONVERT')"
+                            >
                                 <span class="note"
                                     >Leads to the same result as sacrificing
                                     Hank and successfully converting.</span
                                 >
-                            </div>
-                            <em>[ TAKE TOO MUCH TIME TO CHOOSE ]</em>
-                            <div class="choice">
-                                <span class="name">Hank</span>: Connor, no...
-                                <br /><span class="name">Connor-60</span>: He
-                                really liked you, Lieutenant. That's what killed
-                                him.
-                            </div>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(CommonTranslationKey.DefaultChoice)
+                                "
+                            >
+                                <app-dialogue-line name="Hank">
+                                    {{
+                                        translateObject(
+                                            'X1302C.FACETOFACE.SHOOT.FA.X13CHANK.NOSHOOT'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Connor-60">
+                                    {{
+                                        translateObject(
+                                            'X1302C.FACETOFACE.SHOOT.PC.X13CBADCONNOR.NOSHOOT'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </app-choice-item>
                         </div>
-                    </div>
-                    <em>SACRIFICE HANK</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1302C.FACETOFACE.CORRIDOR.PC.HANKGUNCHOICE.SACRIFICEHANK'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: Sorry Lieutenant.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X1302C.FACETOFACE.CORRIDOR.FA.X13CCONNOR.SACRIFICEHANK.1'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
 
-                        <div class="condition">
-                            <strong>Successfully converting the android</strong>
-                            <div class="condition-text">
+                        <app-conditioned-content>
+                            <div class="condition">
+                                Successfully converting the android
+                            </div>
+                            <div class="content">
                                 <p>
-                                    <span class="name">Connor-60</span>: Why,
-                                    Connor? Why did you have to wake up when all
-                                    you had to do was obey? Why did you choose
-                                    freedom when you could live without asking
-                                    questions? I'm obedient, Connor. I have a
-                                    goal. I know what I am. Look where your
-                                    dreams of freedom got you, Connor... You've
-                                    been a great disappointment to Amanda, you
-                                    know. You've been a great disappointment to
-                                    me... Fortunately, that's all going to end
-                                    now. Any last words?
+                                    <app-dialogue-line name="Connor-60">
+                                        {{
+                                            translateObject(
+                                                'X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.BADCONNOR'
+                                            ) | async
+                                        }}
+                                    </app-dialogue-line>
                                 </p>
                                 <div class="choices">
-                                    <em>STAND UP</em>
-                                    <div class="choice">
-                                        <p>
-                                            <span class="name">Androids</span>:
-                                            Wake up. <br /><span class="name"
-                                                >Connor-60</span
-                                            >: No... No, I can't have failed...
-                                            NO! No, no!.. No! NO!
-                                        </p>
-                                    </div>
-                                    <em>SHOOT</em>
-                                    <div class="choice">
-                                        <span class="name">Androids</span>: Wake
-                                        up.
-                                    </div>
-                                    <em>TRANSFER</em>
-                                    <div class="choice">
-                                        <p>
-                                            <span class="name">Connor-60</span>:
-                                            Well done, Connor... But this...
-                                            This is just... The beginning...
-                                        </p>
-                                        <p>
-                                            <span class="name">Hank</span>: Wow,
-                                            Jesus! If anybody had told me that I
-                                            was gonna get shot... Saving an
-                                            android... <br /><span class="name"
-                                                >Connor</span
-                                            >: Everything will be alright,
-                                            Lieutenant! I'm gonna get you outta
-                                            here!.. <br /><span class="name"
-                                                >Hank</span
-                                            >: Shut the fuck up, it's too
-                                            late... Look... I'm just gonna go
-                                            see my son again, all right? Been
-                                            looking forward to that for a long
-                                            time... Kick the shit outta
-                                            humans... They've screwed things up
-                                            for long enough. I'm gonna miss...
-                                            I'm gonna miss you, Connor... Yeah,
-                                            I'm gonna... Uh...
-                                        </p>
-                                    </div>
-                                    <em>[ TAKE TOO MUCH TIME TO CHOOSE ]</em>
-                                    <span class="note"
-                                        >or fail the transfer</span
+                                    <app-choice-item
+                                        [choiceLabel]="t('GUI.ACTION.UP')"
                                     >
-                                    <div class="choice">
                                         <p>
-                                            <span class="name">Connor</span>:
-                                            Sorry, Connor... But you failed...
-                                            <br /><span class="name"
-                                                >Androids</span
-                                            >: Wake up. <br /><span class="name"
-                                                >Connor-60</span
-                                            >: No... No, I can't have failed...
-                                            NO! No, no!.. No! NO!
+                                            <app-dialogue-line name="Androids">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor-60">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.FLEECONVSUCCESS'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
                                         </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="condition">
-                                <strong>Fail to convert the android</strong>
-                                <div class="condition-text">
-                                    <span class="note"
-                                        >Leads to the same outcomes as if Hank
-                                        is dead for STAND UP, SHOOT and [ TAKE
-                                        TOO MUCH TIME TO CHOOSE ], and to the
-                                        same result as successfully converting
-                                        the android when choosing
-                                        TRANSFER.</span
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="t('GUI.ACTION.SHOOT')"
                                     >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                        <app-dialogue-line name="Androids">
+                                            {{
+                                                t(
+                                                    'X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01'
+                                                )
+                                            }}
+                                        </app-dialogue-line>
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="t('GUI.ACTION.TRANSFER')"
+                                    >
+                                        <p>
+                                            <app-dialogue-line name="Connor-60">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.TRANSFER'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                        </p>
 
-        <div class="condition">
-            <h3>
-                Hank is dead [Hank was hostile in
-                <a [routerLink]="['/chapters', 29]">Last Chance, Connor</a>]
-            </h3>
-            <div class="condition-text">
-                <span class="name">Connor-60</span>: Why, Connor? Why did you
-                have to wake up when all you had to do was obey? Why did you
-                choose freedom when you could live without asking questions? I'm
-                obedient, Connor. I have a goal. I know what I am. Look where
-                your dreams of freedom got you, Connor... You've been a great
-                disappointment to Amanda, you know. You've been a great
-                disappointment to me... Fortunately, that's all going to end
-                now. Any last words?
-                <div class="choices">
-                    <em>STAND UP</em>
-                    <div class="choice">&oslash;</div>
-                    <em>SHOOT</em>
-                    <div class="choice">&oslash;</div>
-                    <em>TRANSFER</em>
-                    <div class="choice">
-                        <p>
-                            <span class="name">Connor-60</span>: Well done,
-                            Connor... But this... This is just... The
-                            beginning... <br /><span class="name">Connor</span>:
-                            Wake up!.. <br /><span class="name">Androids</span>:
-                            Wake up.
-                        </p>
-                    </div>
-                    <em>[ TAKE TOO MUCH TIME TO CHOOSE ]</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: We'll win... It's only
-                        a question of time...
-                    </div>
+                                        <p>
+                                            <app-dialogue-line name="Hank">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.MONOLOG.PC.X13CHANK.HANKDYING',
+                                                        0,
+                                                        3
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.MONOLOG.PC.X13CCONNOR.HANKDYING'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Hank">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.MONOLOG.PC.X13CHANK.HANKDYING',
+                                                        3
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                        </p>
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                CommonTranslationKey.DefaultChoice
+                                            )
+                                        "
+                                    >
+                                        <span class="note"
+                                            >or fail the transfer</span
+                                        >
+
+                                        <p>
+                                            <app-dialogue-line name="Connor">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.MONOLOG.PC.X13CCONNOR.ANSWERSUCCESS'
+                                                    ) | async
+                                                }} </app-dialogue-line
+                                            ><app-dialogue-line name="Androids">
+                                                {{
+                                                    t(
+                                                        'X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Connor-60">
+                                                {{
+                                                    translateObject(
+                                                        'X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.FLEECONVSUCCESS'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                        </p>
+                                    </app-choice-item>
+                                </div>
+
+                                <app-conditioned-content>
+                                    <div class="condition">
+                                        Fail to convert the android
+                                    </div>
+                                    <div class="content">
+                                        <span class="note"
+                                            >Leads to the same outcomes as if
+                                            Hank is dead for STAND UP, SHOOT and
+                                            [ TAKE TOO MUCH TIME TO CHOOSE ],
+                                            and to the same result as
+                                            successfully converting the android
+                                            when choosing TRANSFER.</span
+                                        >
+                                    </div>
+                                </app-conditioned-content>
+                            </div>
+                        </app-conditioned-content>
+                    </app-choice-item>
                 </div>
             </div>
-        </div>
+        </app-conditioned-content>
+
+        <app-conditioned-content>
+            <div class="condition">
+                Hank is dead [Hank was hostile in
+                <a [routerLink]="['/chapters', 29]">Last Chance, Connor</a>
+            </div>
+            <div class="content">
+                <app-dialogue-line name="Connor-60">
+                    {{
+                        translateObject(
+                            'X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.BADCONNOR'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <div class="choices">
+                    <app-choice-item [choiceLabel]="t('GUI.ACTION.UP')">
+                        &oslash;
+                    </app-choice-item>
+                    <app-choice-item [choiceLabel]="t('GUI.ACTION.SHOOT')">
+                        &oslash;
+                    </app-choice-item>
+                    <app-choice-item [choiceLabel]="t('GUI.ACTION.TRANSFER')">
+                        <p>
+                            <app-dialogue-line name="Connor-60">
+                                {{
+                                    translateObject(
+                                        'X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.TRANSFER'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X1302C.FACETOFACE.WAKEUP.PC.X13CCONNOR.WAKEUP'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Androids">
+                                {{
+                                    t(
+                                        'X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                        </p>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="t(CommonTranslationKey.DefaultChoice)"
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X1302C.FACETOFACE.MONOLOG.PC.X13CCONNOR.ANSWERFAIL'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                </div>
+            </div>
+        </app-conditioned-content>
     </section>
+
     <section>
         <h1>Freed the androids</h1>
 
-        <p>
-            OUTSIDE THE RECALL CENTER
-            <br />AM 12:01
-        </p>
+        <p>{{ t('GUI.MENU.PLACE.04A.AFTER') }}</p>
+        <p>{{ t('GUI.MENU.TIME.04A.AFTER') }}</p>
 
-        <span class="name"> Markus is alive: Connor joins Markus </span>
-        <div class="condition-text">
-            <p>
-                <span class="name">Connor</span>: You did it, Markus...
-                <br /><span class="name">Markus</span>: We did it. This is a
-                great day for our people. Humans will have no choice now.
-                They'll have to listen to us.
-            </p>
+        <app-conditioned-content>
+            <div class="condition">Markus is alive: Connor joins Markus</div>
+            <div class="content">
+                <p>
+                    <app-dialogue-line name="Connor">
+                        You did it, Markus... </app-dialogue-line
+                    ><app-dialogue-line name="Markus">
+                        We did it. This is a great day for our people. Humans
+                        will have no choice now. They'll have to listen to us.
+                    </app-dialogue-line>
+                </p>
 
+                <div class="condition">
+                    <span class="name">North is alive</span>
+                    <div class="condition-text">
+                        <app-dialogue-line name="North">
+                            We're free... They want you to speak to them,
+                            Markus...
+                        </app-dialogue-line>
+                    </div>
+                </div>
+                <div class="condition">
+                    <span class="name">North is dead</span>
+                    <div class="condition-text">
+                        <app-dialogue-line name="Simon">
+                            They want you to speak to them...
+                        </app-dialogue-line>
+                    </div>
+                </div>
+
+                <p>
+                    <app-dialogue-line name="Connor">
+                        Amanda?.. Amanda!.. What's... What's happening? </app-dialogue-line
+                    ><app-dialogue-line name="Amanda">
+                        What was planned from the very beginning... You were
+                        compromised and you became a deviant. We just had to
+                        wait for the right moment to resume control of your
+                        program... </app-dialogue-line
+                    ><app-dialogue-line name="Connor">
+                        Resume control?... Y-You can't do that! </app-dialogue-line
+                    ><app-dialogue-line name="Amanda">
+                        I'm afraid I can, Connor... Don't have any regrets. You
+                        did what you were designed to do. You accomplished your
+                        mission. </app-dialogue-line
+                    ><app-dialogue-line name="Connor">
+                        AMANDA! There's got to be a way...
+                    </app-dialogue-line>
+                </p>
+            </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
             <div class="condition">
-                <span class="name">North is alive</span>
-                <div class="condition-text">
-                    <span class="name">North</span>: We're free... They want you
-                    to speak to them, Markus...
+                Markus died : Connor becomes leader of the deviants
+            </div>
+            <div class="content">
+                <p>
+                    <app-dialogue-line name="Android">
+                        {{
+                            translateObject(
+                                'X1108M.GOODCONNOR.FINALSPEECH.PC.X11MANDROIDM01.PEOPLE01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Android 2">
+                        {{
+                            t(
+                                'X1108M.GOODCONNOR.FINALSPEECH.FA.X11MANDROIDM02.PEOPLE01'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t(
+                                'X1108M.GOODCONNOR.FINALSPEECH.PC.X11MCONNOR.PEOPLE02'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Android">
+                        {{
+                            translateObject(
+                                'X1108M.GOODCONNOR.FINALSPEECH.PC.X11MANDROIDM01.PEOPLE03'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+
+                <app-unused-content>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1108M.GOODCONNOR.FINALSPEECH.PC.X11MCONNOR.PEOPLESPEECH'
+                            ) | async
+                        }}
+                        {{
+                            translateObject(
+                                'X1108M.GOODCONNOR.FINALSPEECH.PC.X11MCONNOR.FREE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </app-unused-content>
+
+                <p>
+                    <app-dialogue-line name="Amanda">
+                        {{
+                            translateObject(
+                                'X1108M.GOODCONNOR.FINALZENGARDEN.PC.X11MAMANDA.EXPECTATIONS01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t(
+                                'X1108M.GOODCONNOR.FINALZENGARDEN.PC.X11MCONNOR.EXPECTATIONS01.2'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Amanda">
+                        {{
+                            translateObject(
+                                'X1108M.GOODCONNOR.FINALZENGARDEN.PC.X11MAMANDA.EXPECTATIONS02'
+                            ) | async
+                        }}
+                        {{
+                            t(
+                                'X1108M.GOODCONNOR.FINALZENGARDEN.PC.X11MAMANDA.EXPECTATIONS03'
+                            )
+                        }}
+                        {{
+                            translateObject(
+                                'X1108M.GOODCONNOR.GUNZENGARDEN.PC.X11MAMANDA.DONTRUIN'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+                <div class="choices">
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1108M.GOODCONNOR.SUICIDECHOICE.PC.SUICIDECHOICE.SUICIDE'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Amanda">
+                            {{
+                                t(
+                                    'X1108M.GOODCONNOR.SUICIDECHOICE.PC.X11MAMANDA.SUICIDE'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X1108M.GOODCONNOR.ZENGARDEN.PC.X11MCONNOR.ALONE.2'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1108M.GOODCONNOR.SUICIDECHOICE.PC.SUICIDECHOICE.GIVEUP'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Amanda">
+                            {{
+                                translateObject(
+                                    'X1108M.GOODCONNOR.SUICIDECHOICE.PC.X11MAMANDA.GIVEUP'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
                 </div>
             </div>
-            <div class="condition">
-                <span class="name">North is dead</span>
-                <div class="condition-text">
-                    <span class="name">Simon</span>: They want you to speak to
-                    them...
-                </div>
-            </div>
-
-            <p>
-                <span class="name">Connor</span>: Amanda?.. Amanda!.. What's...
-                What's happening? <br /><span class="name">Amanda</span>: What
-                was planned from the very beginning... You were compromised and
-                you became a deviant. We just had to wait for the right moment
-                to resume control of your program... <br /><span class="name"
-                    >Connor</span
-                >: Resume control?... Y-You can't do that! <br /><span
-                    class="name"
-                    >Amanda</span
-                >: I'm afraid I can, Connor... Don't have any regrets. You did
-                what you were designed to do. You accomplished your mission.
-                <br /><span class="name">Connor</span>: AMANDA! There's got to
-                be a way...
-            </p>
-        </div>
-
-        <span class="name">
-            | <i class="fas fa-skull"></i> Markus died : Connor becomes leader
-            of the deviants
-        </span>
-        <div class="condition-text">
-            <p>
-                <span class="name">Android</span>: The humans are abandoning the
-                camp! We won! <br /><span class="name">Android 2</span>: You
-                should speak to them. <br /><span class="name">Connor</span>:
-                Me? <br /><span class="name">Android</span>: Markus is gone, and
-                everyone from Jericho is dead... You're the one who defeated the
-                humans... You're the one who awakened us, Connor...
-            </p>
-
-            <p>
-                <span class="name">Amanda</span>: Well done, Connor. Everything
-                went according to plan. <br /><span class="name">Connor</span>:
-                What plan? <br /><span class="name">Amanda</span>: You becoming
-                deviant? The success of the uprising? It all surpassed our
-                expectations. We engineered an android revolution and now we
-                control its only leader... Congratulations. You represent an
-                immense success for CyberLife. Connor... What are you doing?..
-                It all worked perfectly. You can't ruin it all now!..
-            </p>
-            <div class="choices">
-                <em>SUICIDE</em>
-                <div class="choice">
-                    <span class="name">Amanda</span>: I'm sorry, Connor, but we
-                    can't let you do that. <br /><span class="name">Connor</span
-                    >: There's got to be a way...
-                </div>
-                <em>GIVE UP</em>
-                <div class="choice">
-                    <span class="name">Amanda</span>: That's better... You'll
-                    see, we'll do great things together...
-                </div>
-            </div>
-        </div>
+        </app-conditioned-content>
     </section>
 </ng-container>

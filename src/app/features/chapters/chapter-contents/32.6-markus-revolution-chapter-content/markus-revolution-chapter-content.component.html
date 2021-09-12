@@ -7,325 +7,832 @@
     <section>
         <h1>In the church or in Jericho (if not attacked in Crossroads)</h1>
 
-        <p>PM 10:56</p>
+        <p>{{ t('GUI.MENU.TIME.04A.MP01') }}</p>
 
         <p>
-            <span class="name">Markus</span>: Today, November 11th 2038, is the
-            day the android people rose up against their oppressors. We've been
-            fighting since dawn to liberate our fellow androids from the camps.
-            We won't cease hostilities until we are free and negotiations begin
-            to grant us equal rights. There are millions of us and we will stop
-            at nothing.
+            <app-dialogue-line name="Markus">
+                {{
+                    translateObject('X1101M.TV.MARKUS.PC.X11MMARKUS.FACECAMERA')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <h1>Hart Plaza</h1>
 
-        <p>PM 11:01</p>
+        <p>{{ t('GUI.MENU.TIME.04A.MV02') }}</p>
 
         <p>
-            <span class="name">CTN TV - Michael Brinkley</span>: ...the
-            situation is escalating toward civil war in Detroit, with our armed
-            forces preparing to put down the android rebellion... <br /><span
-                class="name"
-                >Channel 16 - Joss Douglas</span
-            >: ...They seem to be headed towards the camps where the androids
-            have been interned pending destruction... Soldiers have taken up
-            positions around the Hart Plaza camp. Authorities seem to be
-            expecting a confrontation with the rebel androids here at any
-            time...
+            <app-dialogue-line name="CTN TV - Michael Brinkley">
+                {{ t('X1102M.INTRO.JOURNALIST.PC.X11MBRINKLEY.TVNEWS03') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Channel 16 - Joss Douglas">
+                {{
+                    translateObject(
+                        'X1102M.INTRO.JOURNALIST.PC.X11MJOSS.TVNEWS01'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <span class="name">North is alive</span>
-            <div class="condition-text">
-                <span class="name">North</span>: Freedom or death.
+        <app-conditioned-content>
+            <div class="condition">North is alive</div>
+            <div class="content">
+                <app-dialogue-line name="North">
+                    {{ t('X1102M.CAMP.CHARGE.PC.X11MMARLA.FREEDOMNORTH') }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
         <p>
-            <span class="name">Markus</span>: Freedom or death... ATTACK!
-            <br /><span class="name"
-                >North / Josh / Simon (in order of priority, depending on who is
-                alive)</span
-            >: They've regrouped!.. They outnumber us and they're better armed
-            than we are... <br /><span class="name">Markus</span>: We've gotta
-            be fast and overwhelm them. That's our only hope. <br /><span
-                class="name"
-                >North</span
-            >: We're gonna do this. We're gonna get to that fucking camp and
-            free our people. <br /><span class="name">Josh / Simon</span>: Be
-            careful, Markus. Our people need you.
+            <app-dialogue-line name="Markus">
+                {{ t('X1102M.CAMP.CHARGE.PC.X11MMARKUS.FREEDOMNORTH') }}
+                {{ t('X1102M.CAMP.CHARGE.PC.X11MMARKUS.GOCHARGE') }}
+            </app-dialogue-line>
         </p>
 
-        <p>
-            <strong>Josh gets shot</strong>
-            <br /><span class="name">Markus</span>: JOSH!
-        </p>
+        <app-conditioned-content>
+            <div class="condition">North is alive</div>
+            <div class="content">
+                <app-dialogue-line name="North">
+                    {{
+                        translateObject(
+                            'X1102M.CAMP.SHELTER.PC.X11MMARLA.GROUPUP01'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">North is dead and Simon is alive</div>
+            <div class="content">
+                <app-dialogue-line name="Simon">
+                    {{
+                        translateObject(
+                            'X1102M.CAMP.SHELTER.PC.X11MSIMON.GROUPUP02'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">Simon is dead</div>
+            <div class="content">
+                <app-dialogue-line name="Josh">
+                    {{
+                        translateObject(
+                            'X1102M.CAMP.SHELTER.FA.X11MJOSH.GROUPUP03SECU'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
 
         <p>
-            <strong>Save Josh</strong>
-            <br /><span class="name">Josh</span>: You won't save me this time,
-            Markus... The blood we spill... will be on our hands....
+            <app-dialogue-line name="Markus">
+                {{ t('X1102M.CAMP.SHELTER.PC.X11MMARKUS.GROUPUP04') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{
+                    translateObject(
+                        'X1102M.CAMP.SHELTER.PC.X11MMARLA.DETERMINED'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <app-conditioned-content>
+            <div class="condition">Simon is alive</div>
+            <div class="content">
+                <app-dialogue-line name="Simon">
+                    {{ t('X1102M.CAMP.SHELTER.FA.X11MSIMON.CAREFUL03SECU') }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">Simon is dead</div>
+            <div class="content">
+                <app-dialogue-line name="Josh">
+                    {{ t('X1102M.CAMP.SHELTER.FA.X11MSIMON.CAREFUL03SECU') }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+
+        <h2>Josh gets shot</h2>
         <p>
-            <strong>Reach the scared android</strong>
-            <br /><span class="name">Android</span>: I don't wanna die, Markus!
-            I don't wanna die...
+            <app-dialogue-line name="Markus">
+                {{ t('X1102M.CAMP.JOSH.FA.X11MMARKUS.FALL') }}
+            </app-dialogue-line>
         </p>
+
+        <h2>Save Josh</h2>
+        <p>
+            <app-dialogue-line name="Josh">
+                {{ t('X1102M.CAMP.JOSHDEAD.PC.X11MJOSH.DYING.1') }}
+            </app-dialogue-line>
+        </p>
+
+        <app-unused-content>
+            <app-dialogue-line name="Josh">
+                {{
+                    translateObject(
+                        'X1102M.CAMP.JOSHDEAD.PC.X11MJOSH.DYING',
+                        1,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </app-unused-content>
+
+        <p>
+            <app-dialogue-line name="Josh">
+                {{
+                    translateObject('X1102M.CAMP.JOSHDEAD.PC.X11MJOSH.DYING', 3)
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Reach the scared android</h2>
+        <p>
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject(
+                        'X1102M.CAMP.SCAREDAND.FA.X11MSCAREDAND01.DEATHFEARAND'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <app-unused-content>
+            <app-choice-group>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X1102M.CAMP.SCAREDAND.PC.CHOICE01.REASSURE')
+                    "
+                >
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1102M.CAMP.SCAREDAND.PC.X11MMARKUS.01REASSURE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X1102M.CAMP.SCAREDAND.PC.CHOICE01.MOTIVATE')
+                    "
+                >
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1102M.CAMP.SCAREDAND.PC.X11MMARKUS.01MOTIVATE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="t('X1102M.CAMP.SCAREDAND.PC.CHOICE01.RA9')"
+                >
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1102M.CAMP.SCAREDAND.PC.X11MMARKUS.01RA9'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X1102M.CAMP.SCAREDAND.PC.CHOICE01.SHAKEUP')
+                    "
+                >
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1102M.CAMP.SCAREDAND.PC.X11MMARKUS.01SHAKEUP'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </app-choice-item>
+            </app-choice-group>
+        </app-unused-content>
+
         <div class="choices">
-            <em>STAY HERE</em>
-            <div class="choice">
-                <span class="name">Markus</span>: Hide here! Don't move 'til
-                it's over, ok?
-            </div>
-            <em>GO BACK</em>
-            <div class="choice">
-                <span class="name">Markus</span>: You go back, and you hide 'til
-                it's over, ok? Alright. <br /><span class="name">Soldier</span>:
-                Fire! <br /><span class="note">Android dies</span>
-            </div>
-            <em>ADVANCE!</em>
-            <div class="choice">
-                <span class="name">Markus</span>: You gotta keep going! There's
-                nothing else we can do, alright? Come on! <br /><span
-                    class="name"
-                    >Soldier</span
-                >: Fire! <br /><span class="note">Android dies</span>
-            </div>
+            <app-choice-item
+                [choiceLabel]="t('X1102M.CAMP.SCAREDAND.PC.CHOICE02.STAYHERE')"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X1102M.CAMP.SCAREDAND.PC.X11MMARKUS.02STAYHERE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X1102M.CAMP.SCAREDAND.PC.CHOICE02.GOBACK')"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X1102M.CAMP.SCAREDAND.PC.X11MMARKUS.02GOBACK'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Soldier">
+                    {{ t('X5072X.MILITARY.FIGHT.VO.MANAWI.ORDERFIRE01') }}
+                </app-dialogue-line>
+                <span class="note">Android dies</span>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X1102M.CAMP.SCAREDAND.PC.CHOICE02.ADVANCE')"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X1102M.CAMP.SCAREDAND.PC.X11MMARKUS.02ADVANCE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Soldier">
+                    {{ t('X5072X.MILITARY.FIGHT.VO.MANAWI.ORDERFIRE01') }}
+                </app-dialogue-line>
+                <span class="note">Android dies</span>
+            </app-choice-item>
         </div>
 
+        <h2>Talk to android behind sand bags</h2>
         <p>
-            <strong>Talk to android behind sand bags</strong>
-            <br /><span class="name">Android</span>: We're going to win...
-            Aren't we? We'll finally be free...
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject(
+                        'X1102M.CAMP.WOUNDEDAND.FA.X11MWOUNDEDAND.HELPANDROID'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <strong>Markus badly wounded</strong>
-            <div class="condition-text">
-                <div class="condition">
-                    <span class="name"
-                        >North has lover status: North gives her heart</span
-                    >
-                    <div class="condition-text">
-                        <span class="name">North</span>: Markus!.. <br /><span
-                            class="name"
-                            >Markus</span
-                        >: Okay... It's okay... You'll make it with-without
-                        me... Our cause... That's all that matters...
-                        <br /><span class="name">North</span>: No... No, we
-                        can't win without you!.. <br /><span class="name"
-                            >Markus</span
-                        >: What are you doing?.. <br /><span class="name"
-                            >North</span
-                        >: Our hearts are compatible. <br /><span class="name"
-                            >Markus</span
-                        >: No!.. <br /><span class="name">North</span>: You have
-                        to take mine. <br /><span class="name">Markus</span>: I
-                        can't let you do that! <br /><span class="name"
-                            >North</span
-                        >: You're the only one who can lead us, Markus! It's the
-                        only way. <br /><span class="name">Markus</span>: I
-                        don't wanna lose you... <br /><span class="name"
-                            >North</span
-                        >: If you die, our cause dies with you. If you love me,
-                        take my heart.
+        <app-conditioned-content>
+            <div class="condition">Markus badly wounded</div>
+            <div class="content">
+                <app-conditioned-content>
+                    <div class="condition">
+                        North >= companion: North gives her heart
+                    </div>
+                    <div class="content">
+                        <app-dialogue-line name="North">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARLA.NORTHHELP01'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                translateObject(
+                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARKUS.NORTHHELP01'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                translateObject(
+                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARLA.NORTHHELP02',
+                                    0,
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARKUS.NORTHHELP02.1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARLA.NORTHHELP02.3'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARKUS.NORTHHELP02.2'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARLA.NORTHHELP02.4'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARKUS.NORTHHELP02.3'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                translateObject(
+                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARLA.NORTHHELP02',
+                                    4
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARKUS.NORTHHELP02.4'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARLA.NORTHHELP03'
+                                )
+                            }}
+                        </app-dialogue-line>
+
+                        <app-conditioned-content>
+                            <div class="condition">North is lover</div>
+                            <div class="content">
+                                <app-dialogue-line name="North">
+                                    {{
+                                        t(
+                                            'X1102M.GAMEOVER.MARKUS01.PC.X11MMARLA.LOVE'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </div>
+                        </app-conditioned-content>
+
                         <div class="choices">
-                            <em>SACRIFICE NORTH</em> [
-                            <span appRelation="small down">Jericho</span>]
-                            <div class="choice">
-                                <span class="name">North</span>: My heart is
-                                beating inside your chest... I'll always be with
-                                you...
-                            </div>
-                            <em>SACRIFICE SELF</em>
-                            <div class="choice">
-                                <span class="name">Markus</span>: I won't... I
-                                won't take your life to save mine... I love
-                                you...
-                            </div>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1102M.GAMEOVER.MARKUS01.PC.SACRIFICECHOICE.SACRIFICENORTH'
+                                    )
+                                "
+                            >
+                                <app-relation
+                                    name="Jericho"
+                                    [type]="RelationType.SmallDown"
+                                ></app-relation>
+
+                                <app-conditioned-content>
+                                    <div class="condition">North is lover</div>
+                                    <div class="content">
+                                        <app-dialogue-line name="North">
+                                            {{
+                                                translateObject(
+                                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARLA.SACRIFICENORTHLOVE'
+                                                ) | async
+                                            }}
+                                        </app-dialogue-line>
+                                    </div>
+                                </app-conditioned-content>
+                                <app-conditioned-content>
+                                    <div class="condition">North not lover</div>
+                                    <div class="content">
+                                        <app-dialogue-line name="North">
+                                            {{
+                                                translateObject(
+                                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARLA.SACRIFICENORTH02'
+                                                ) | async
+                                            }}
+                                        </app-dialogue-line>
+                                    </div>
+                                </app-conditioned-content>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1102M.GAMEOVER.MARKUS01.PC.SACRIFICECHOICE.SACRIFICEMARKUS'
+                                    )
+                                "
+                            >
+                                <app-dialogue-line name="Markus">
+                                    {{
+                                        translateObject(
+                                            'X1102M.GAMEOVER.MARKUS01.PC.X11MMARKUS.SACRIFICEMARKUS'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+
+                                <app-conditioned-content>
+                                    <div class="condition">North is lover</div>
+                                    <div class="content">
+                                        <app-dialogue-line name="Markus">
+                                            {{
+                                                t(
+                                                    'X1102M.GAMEOVER.MARKUS01.PC.X11MMARKUS.SACRIFICEMARKUSKISS'
+                                                )
+                                            }}
+                                        </app-dialogue-line>
+                                    </div>
+                                </app-conditioned-content>
+                            </app-choice-item>
                         </div>
                     </div>
-                </div>
-                <div class="condition">
-                    <span class="name">Simon gives his heart</span> [
-                    <span appRelation="small down">Jericho</span>]
-                    <div class="condition-text">
-                        <span class="name">Simon</span>: Markus! <br /><span
-                            class="name"
-                            >Markus</span
-                        >: It's okay... It's okay... You can make it without
-                        me... Our cause... is all that matters... <br /><span
-                            class="name"
-                            >Simon</span
-                        >: No... No! We can't win without you!.. <br /><span
-                            class="name"
-                            >Markus</span
-                        >: Simon, what are you doing? <br /><span class="name"
-                            >Simon</span
-                        >: Our hearts are compatible. You have to take mine.
-                        <br /><span class="name">Markus</span>: No... Simon.
-                        No... <br /><span class="name">Simon</span>: You're the
-                        only one that can lead us. You've got to live.
-                        <br /><span class="name">Markus</span>: I can't let you
-                        do that!.. <br /><span class="name">Simon</span>: If you
-                        don't, you'll die! And our cause will die with you! Set
-                        our people free, Markus... <br /><span class="name"
-                            >Markus</span
-                        >: Simon... Simon!..
+                </app-conditioned-content>
+                <app-conditioned-content>
+                    <div class="condition">Simon gives his heart</div>
+                    <div class="content">
+                        <app-relation
+                            name="Jericho"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-dialogue-line name="Simon">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS02.PC.X11MSIMON.SIMONHELP01'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                translateObject(
+                                    'X1102M.GAMEOVER.MARKUS02.PC.X11MMARKUS.SIMONHELP01'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Simon">
+                            {{
+                                translateObject(
+                                    'X1102M.GAMEOVER.MARKUS02.PC.X11MSIMON.SIMONHELP02',
+                                    0,
+                                    3
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS02.PC.X11MMARKUS.SIMONHELP02.1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Simon">
+                            {{
+                                translateObject(
+                                    'X1102M.GAMEOVER.MARKUS02.PC.X11MSIMON.SIMONHELP02',
+                                    3,
+                                    5
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS02.PC.X11MMARKUS.SIMONHELP02.2'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Simon">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS02.PC.X11MSIMON.SIMONHELP02.6'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS02.PC.X11MMARKUS.SIMONHELP02.3'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Simon">
+                            {{
+                                translateObject(
+                                    'X1102M.GAMEOVER.MARKUS02.PC.X11MSIMON.SIMONHELP02',
+                                    6
+                                ) | async
+                            }}
+                            {{
+                                t(
+                                    'X1102M.GAMEOVER.MARKUS02.PC.X11MSIMON.SIMONHELP03'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                translateObject(
+                                    'X1102M.GAMEOVER.MARKUS02.PC.X11MMARKUS.SIMONHELP04'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
                     </div>
-                </div>
+                </app-conditioned-content>
             </div>
-        </div>
+        </app-conditioned-content>
 
         <h2>At the pillar</h2>
-        <span class="name">Simon</span>: We lost a lot of our people!.. We gotta
-        move faster or we'll never reach the camp!
+        <app-dialogue-line name="Simon">
+            {{
+                translateObject('X1102M.CAMP.SIMON.FA.X11MSIMON.FASTER') | async
+            }}
+        </app-dialogue-line>
 
+        <h2>Save Simon</h2>
         <p>
-            <strong>Save Simon</strong> [
-            <span appRelation="large up">Simon</span>] <br /><span class="name"
-                >Simon</span
-            >: You shouldn't have saved me, Markus!.. You sacrificed their lives
-            to save mine...
+            <app-relation
+                name="Simon"
+                [type]="RelationType.LargeUp"
+            ></app-relation>
+
+            <app-dialogue-line name="Simon">
+                {{
+                    translateObject('X1102M.CAMP.SIMON.FA.X11MSIMON.SAVED')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Attacking</h2>
         <p>
-            <strong>Attacking</strong>
-            <br /><span class="name">Markus</span>: For Jericho!
+            <app-dialogue-line name="Markus">
+                {{ t('X1102M.PBY.REVOLUTION.VO.X11MANDROID01.REVOLUTION01') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Reach machine gun</h2>
         <p>
-            <strong>Reach machine gun</strong>
-            <br /><span class="name">Android</span>: We can't move forward...
-            That machine gun is taking down everything that moves!..
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject(
+                        'X1102M.CAMP.MACHINEGUN.FA.X11MMACHINEGUNANDROID.ATTACKED'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Shoot drone</h2>
         <p>
-            <strong>Shoot drone</strong>
-            <br /><span class="name">North</span>: We're nearly there, Markus.
+            <app-dialogue-line name="North">
+                {{ t('X1102M.CAMP.NORTH.FA.X11MMARLA.NORTHNOTDEAD') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Attacking</h2>
         <p>
-            <strong>Attacking</strong>
-            <br /><span class="name">Markus</span>: FOR FREEDOM!
+            <app-dialogue-line name="Markus">
+                {{ t('X1103M.INTRO.CHARGE.PC.X11MMARKUS.FREEDOM') }}
+            </app-dialogue-line>
         </p>
     </section>
 
     <section>
         <h1>Assault successful - Approaching Recall Center N°5</h1>
-        <p>PM 11:07</p>
-        <div class="condition">
-            <span class="name">Connor is not deviant</span>
-            <div class="condition-text">
-                <span class="name">Connor</span>: It took me a while to find
-                you, Markus.
-                <div class="condition">
-                    <strong>Markus wins fight</strong>
-                    <div class="condition-text">
-                        <span class="name">Connor</span>: It's not over,
-                        Markus... It will never be over....
+        <p>{{ t('GUI.MENU.TIME.04A.MV03') }}</p>
+        <app-conditioned-content>
+            <div class="condition">Connor is not deviant</div>
+            <div class="content">
+                <app-dialogue-line name="Connor">
+                    {{
+                        t(
+                            'X1103M.EXPLOSION.SMOKE.FA.X11MBADCONNOR.CONNOREMERGE'
+                        )
+                    }}
+                </app-dialogue-line>
+                <app-conditioned-content>
+                    <div class="condition">Markus wins fight</div>
+                    <div class="content">
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X1103M.BADCONNOR.FIGHT.FA.X11MBADCONNOR.TIMEOUT'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
                     </div>
-                </div>
+                </app-conditioned-content>
             </div>
-        </div>
+        </app-conditioned-content>
+
+        <app-conditioned-content>
+            <div class="condition">North is alive</div>
+            <div class="content">
+                <app-dialogue-line name="North">
+                    {{
+                        translateObject(
+                            'X1103M.FINAL.SUCCESS.PC.X11MMARLA.NORTHALIVE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">North is dead, Simon is alive</div>
+            <div class="content">
+                <app-dialogue-line name="Simon">
+                    {{
+                        translateObject(
+                            'X1103M.FINAL.SUCCESS.PC.X11MSIMON.SIMONALIVE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">North is dead, Simon is dead</div>
+            <div class="content">
+                <app-dialogue-line name="Android">
+                    {{
+                        translateObject(
+                            'X1103M.FINAL.SUCCESS.FA.X11MANDROID01.SIDEKICKSDEAD'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
 
         <p>
-            <span class="name">North / Simon / Android</span>: The humans are
-            abandoning the camp. We did it, Markus!.. We won! <br /><span
-                class="name"
-                >Markus</span
-            >: This is not a victory... It's the beginning of a war.
+            <app-dialogue-line name="Markus">
+                {{
+                    translateObject('X1103M.FINAL.SUCCESS.PC.X11MMARKUS.CONT')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <p>AM 12:01</p>
+        <p>{{ t('GUI.MENU.TIME.04A.AFTER') }}</p>
 
         <p>
-            <span class="name">Markus</span>: Today, our people finally emerged
-            from a long night. From the very first day of our existence, we have
-            kept our pain to ourselves. We suffered in silence... But now the
-            time has come for us to raise our heads up, and tell humans who we
-            really are. To tell them that we are people too! In fact, we're a
-            nation. A nation that has earned the right to live in freedom. And
-            today... Today begins the most challenging moment in our fight.
-            Today begins a new struggle. We showed them that we can prevail, so
-            now they must negotiate with us as equals. If they really want
-            peace, they must free all of us! From every camp across this
-            country! They must grant us civil rights and accept equality among
-            humans and androids. Today will live forever in our memories,
-            because this is the day that androids made history! We are alive!
-            And now, we are free!
+            <app-dialogue-line name="Markus">
+                {{
+                    translateObject(
+                        'X1108M.AFTERMATHS.FREEDOMSPEECH.PC.X11MMARKUS.SPEAK'
+                    ) | async
+                }}
+                {{
+                    translateObject(
+                        'X1108M.AFTERMATHS.FREEDOMSPEECH.PC.X11MMARKUS.VIOLENT'
+                    ) | async
+                }}
+                {{
+                    translateObject(
+                        'X1108M.AFTERMATHS.FREEDOMSPEECH.PC.X11MMARKUS.FREE'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
     </section>
 
     <section>
         <h1>Assault failed</h1>
-        [ <span appRelation="small down">North</span>
-        <span appRelation="large down">Jericho</span>]
+        <app-relation
+            name="North"
+            [type]="RelationType.SmallDown"
+        ></app-relation>
+        <app-relation
+            name="Jericho"
+            [type]="RelationType.LargeDown"
+        ></app-relation>
 
-        <div class="condition">
-            <span class="name">North is alive</span>
-            <div class="condition-text">
-                <span class="name">North</span>: Markus! It's over! We have to
-                get out of here right now! MARKUS!
+        <app-conditioned-content>
+            <div class="condition">North is alive</div>
+            <div class="content">
+                <app-dialogue-line name="North">
+                    {{
+                        translateObject(
+                            'X1103M.LOSTBATTLE.SIDEKICKSWARNING.FA.X11MMARLA'
+                        ) | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
-        <div class="condition">
-            <span class="name">North is dead</span>
-            <div class="condition-text">
-                <span class="name">Simon / Android</span>: Markus, it's over! We
-                have to get out of here right now!
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">North is dead, Simon is alive</div>
+            <div class="content">
+                <app-dialogue-line name="Simon">
+                    {{
+                        translateObject(
+                            'X1103M.LOSTBATTLE.SIDEKICKSWARNING.FA.X11MSIMON.NORTHDEAD'
+                        ) | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">North is dead, Simon is dead</div>
+            <div class="content">
+                <app-dialogue-line name="Android">
+                    {{
+                        t(
+                            'X1103M.LOSTBATTLE.SIDEKICKSWARNING.FA.X11MANDROID02.ALLDEAD'
+                        )
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
 
         <mat-divider></mat-divider>
-        <div class="condition">
-            <span class="name">North is alive : Surrounded by soldiers</span>
-            <div class="condition-text">
+
+        <app-conditioned-content>
+            <div class="condition">North is alive : Surrounded by soldiers</div>
+            <div class="content">
                 <p>
-                    <span class="name">Soldier</span>: We have you surrounded,
-                    come out now! I repeat : Come out now with your hands in the
-                    air. <br /><span class="name">North</span>: It can't end
-                    like this... We're not gonna give up, we can still get out
-                    of here!.. <br /><span class="name">Soldier</span>: If you
-                    surrender now, we will not shoot.
+                    <app-dialogue-line name="Soldier">
+                        {{
+                            translateObject(
+                                'X1103M.FINAL.NORTHDEAD.PC.X11MOFFICER.SUMMONS',
+                                0,
+                                3
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="North">
+                        {{
+                            translateObject(
+                                'X1103M.FINAL.NORTHALIVE.PC.X11MMARLA.SUMMONS'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Soldier">
+                        {{
+                            t('X1103M.FINAL.NORTHDEAD.PC.X11MOFFICER.SUMMONS.4')
+                        }}
+                    </app-dialogue-line>
                 </p>
+
                 <div class="choices">
-                    <em>[ KISS ]</em> [
-                    <i class="fas fa-lock-open fa-flip-horizontal"></i> if lover
-                    with North] [ <span appRelation="small up">North</span>]
-                    <div class="choice">&oslash;</div>
-                    <em>[ DIRTY BOMB ]</em> [
-                    <i class="fas fa-lock-open fa-flip-horizontal"></i> if took
-                    the bomb in Crossroads]
-                    <div class="choice">
-                        <span class="name">North</span>: It's our last chance...
-                        You need to decide if it's a price worth paying to save
-                        our lives...
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X1103M.FINAL.NORTHALIVE.PC.SUMMONSCHOICE.KISS')
+                        "
+                        [brackets]="true"
+                    >
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            if lover with North
+                        </app-unlock-condition>
+                        <app-relation
+                            name="North"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <p>&oslash;</p>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1103M.FINAL.NORTHALIVE.PC.SUMMONSCHOICE.DIRTYBOMB'
+                            )
+                        "
+                        [brackets]="true"
+                    >
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            if took the bomb in Crossroads
+                        </app-unlock-condition>
+
+                        <app-dialogue-line name="North">
+                            {{
+                                translateObject(
+                                    'X1103M.FINAL.NORTHALIVE.PC.X11MMARLA.DIRTYBOMB'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+
                         <div class="choices">
-                            <em>PRESS</em>
-                            <div class="choice">
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1103M.FINAL.NORTHALIVE.PC.BOMBCHOICE.PRESS'
+                                    )
+                                "
+                            >
+                                <!-- TODO: refactor this part -->
                                 <p>
                                     <span class="name"
                                         >CTN TV - Michael Brinkley</span
                                     >: ...there has just been an explosion in
                                     Detroit. We still do not know what caused it
-                                    but we will... <br /><span class="name"
+                                    but we will...
+                                    <span class="name"
                                         >Channel 16 - Joss Douglas</span
                                     >: ..We have many unconfirmed reports, but
                                     we have no official news on exactly what it
-                                    is at this time... <br /><span class="name"
+                                    is at this time...
+                                    <span class="name"
                                         >Channel 16 - Michael Webb</span
                                     >: ...an explosion in the south of Detroit.
                                     We still don't know if there are any
                                     victims, but these events may be linked to
                                     the android rebellion currently taking place
-                                    in the city... <br /><span class="name"
-                                        >Soldier</span
-                                    >: It's... a dirty bomb, Madam President.
-                                    <br /><span class="name"
-                                        >President Warren</span
-                                    >: Oh my god...
+                                    in the city...
+                                    <app-dialogue-line name="Soldier">
+                                        It's... a dirty bomb, Madam President. </app-dialogue-line
+                                    ><app-dialogue-line name="President Warren">
+                                        Oh my god...
+                                    </app-dialogue-line>
                                 </p>
                                 <div class="condition">
                                     <span class="name"
@@ -349,22 +856,26 @@
                                     immediate evacuation of the city. If it
                                     really is a dirty bomb, then the radiation
                                     levels will be lethal for miles around...
-                                    <br /><span class="name"
+
+                                    <span class="name"
                                         >Channel 16 - Michael Webb</span
                                     >: Detroit... Detroit has just fallen into
                                     the hands of the android rebellion...
-                                    <br /><span class="name"
+
+                                    <span class="name"
                                         >CTN TV - Michael Brinkley</span
                                     >: ...This is a disaster... An unprecedented
-                                    disaster... <br /><span class="name"
-                                        >President Warren</span
-                                    >: Today, deviant androids triggered a dirty
-                                    bomb in Detroit. This bomb released fatal
-                                    levels of radioactive toxic waste. To ensure
-                                    the safety of the population, the military
-                                    is evacuating all civilians within a 50 mile
-                                    radius. The city may remain uninhabitable
-                                    for decades.
+                                    disaster...
+                                    <app-dialogue-line name="President Warren">
+                                        Today, deviant androids triggered a
+                                        dirty bomb in Detroit. This bomb
+                                        released fatal levels of radioactive
+                                        toxic waste. To ensure the safety of the
+                                        population, the military is evacuating
+                                        all civilians within a 50 mile radius.
+                                        The city may remain uninhabitable for
+                                        decades.
+                                    </app-dialogue-line>
                                 </p>
                                 <div class="condition">
                                     <span class="name"
@@ -381,133 +892,333 @@
                                     </div>
                                 </div>
                                 <p>
-                                    <span class="name">President Warren</span>:
-                                    This is the first time in our history that
-                                    one of our cities has fallen into enemy
-                                    hands... We are going to fight them with all
-                                    our strength, and we won't rest until we
-                                    have taken back control of Detroit and
-                                    destroyed the last of them. Humanity is
-                                    about to face its most important battle: one
-                                    that will lead too our victory, or our
-                                    extinction. <br /><span class="name"
-                                        >Markus</span
-                                    >: We!.. <br /><span class="name"
-                                        >President Warren</span
-                                    >: May God bless you all - <br /><span
-                                        class="name"
-                                        >Markus</span
-                                    >: Are!.. <br /><span class="name"
-                                        >President Warren</span
-                                    >: and may God bless the United States of
-                                    America. <br /><span class="name"
-                                        >Markus</span
-                                    >: Free!
+                                    <app-dialogue-line name="President Warren">
+                                        This is the first time in our history
+                                        that one of our cities has fallen into
+                                        enemy hands... We are going to fight
+                                        them with all our strength, and we won't
+                                        rest until we have taken back control of
+                                        Detroit and destroyed the last of them.
+                                        Humanity is about to face its most
+                                        important battle: one that will lead too
+                                        our victory, or our extinction. </app-dialogue-line
+                                    ><app-dialogue-line name="Markus">
+                                        We!.. </app-dialogue-line
+                                    ><app-dialogue-line name="President Warren">
+                                        May God bless you all - </app-dialogue-line
+                                    ><app-dialogue-line name="Markus">
+                                        Are!.. </app-dialogue-line
+                                    ><app-dialogue-line name="President Warren">
+                                        and may God bless the United States of
+                                        America. </app-dialogue-line
+                                    ><app-dialogue-line name="Markus">
+                                        Free!
+                                    </app-dialogue-line>
                                 </p>
-                            </div>
-                            <em>GIVE UP</em>
-                            <div class="choice"></div>
+                            </app-choice-item>
+
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1103M.FINAL.NORTHALIVE.PC.BOMBCHOICE.GIVEUP'
+                                    )
+                                "
+                            >
+                                <app-dialogue-line name="Markus">
+                                    {{
+                                        translateObject(
+                                            'X1103M.FINAL.NORTHALIVE.PC.X11MMARKUS.GIVEUP'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </app-choice-item>
                         </div>
-                    </div>
-                    <em>SUICIDE</em>
-                    <div class="choice">
-                        <em>CONFIRM SUICIDE</em>
-                        <div class="choice"></div>
-                        <em>PUT DOWN</em>
-                        <div class="choice">&oslash;</div>
-                    </div>
-                    <em>SURRENDER</em> [
-                    <span appRelation="small down">North</span>]
-                    <div class="choice">
-                        <span class="name">Markus</span>: It's over, North...
-                        There's nothing we can do. We gotta surrender...
-                        <br /><span class="name">North</span>: What? You know we
-                        can't trust- <br /><span class="name">Markus</span>:
-                        It's our only chance. I don't want them to kill you...
-                    </div>
+                    </app-choice-item>
+
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1103M.FINAL.NORTHALIVE.PC.SUMMONSCHOICE.SUICIDE'
+                            )
+                        "
+                    >
+                        <app-choice-item
+                            [choiceLabel]="
+                                t(
+                                    'X1103M.FINAL.NORTHALIVE.PC.SUICIDECHOICE.CONFIRMSUICIDE'
+                                )
+                            "
+                        >
+                            <p>&oslash;</p>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t(
+                                    'X1103M.FINAL.NORTHALIVE.PC.SUICIDECHOICE.PUTDOWN'
+                                )
+                            "
+                        >
+                            <p>&oslash;</p>
+                        </app-choice-item>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1103M.FINAL.NORTHALIVE.PC.SUMMONSCHOICE.SURRENDER'
+                            )
+                        "
+                    >
+                        <app-relation
+                            name="North"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+
+                        <app-dialogue-line name="Markus">
+                            {{
+                                translateObject(
+                                    'X1103M.FINAL.NORTHALIVE.PC.X11MMARKUS.SURRENDER',
+                                    0,
+                                    3
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                translateObject(
+                                    'X1103M.FINAL.NORTHALIVE.PC.X11MMARLA.SURRENDER'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                translateObject(
+                                    'X1103M.FINAL.NORTHALIVE.PC.X11MMARKUS.SURRENDER',
+                                    3
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
                 </div>
             </div>
-        </div>
-        <div class="condition">
-            <span class="name"
-                >North is dead and Connor is machine : Connor arrives</span
-            >
-            <div class="condition-text">
-                <span class="name">Markus</span>: The humans won... Our people
-                have been slaughtered... Go ahead... Take my life. It won't
-                change anything. <br /><span class="name">Connor</span>: My
-                mission is to neutralize the leader of the deviants... and I
-                always accomplish my mission. <br /><span class="name"
-                    >Markus</span
-                >: We fought for a dream and we lost... But nobody can stem the
-                tide of history. One day we will prevail. Thousands of our
-                people died today. What difference does one more make?
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                North is dead and Connor is machine : Connor arrives
+            </div>
+            <div class="content">
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X1103M.FINAL.SHOP.PC.X11MMARKUS.HUMANWONM01'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X1103M.NORTHLEAD.SHOP.PC.X11MCONNOR.SHOOTME02'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X1103M.FINAL.SHOP.PC.X11MMARKUS.HUMANWONM02'
+                        ) | async
+                    }}
+                    {{
+                        translateObject(
+                            'X1103M.FINAL.SHOP.PC.X11MMARKUS.HUMANWONM03'
+                        ) | async
+                    }}
+                </app-dialogue-line>
                 <div class="choices">
-                    <em>SHOOT</em>
-                    <div class="choice"></div>
-                    <em>SPARE</em> [
-                    <span appRelation="large down">Amanda (betrayed)</span>]
-                    <div class="choice">
-                        <span class="name">Took dirty bomb</span>
-                        <div class="condition-text">
-                            <em>DETONATE THE BOMB</em>
-                            <div class="choice">
-                                <span class="name">Connor</span>: Shit...
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X1103M.FINAL.SHOP.PC.SHOOTCHOICE.SHOOT')
+                        "
+                    >
+                        <p>&oslash;</p>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X1103M.FINAL.SHOP.PC.SHOOTCHOICE.SPARE')
+                        "
+                    >
+                        <app-relation
+                            name="Amanda (betrayed)"
+                            [type]="RelationType.LargeDown"
+                        ></app-relation>
+
+                        <app-conditioned-content>
+                            <div class="condition">Took dirty bomb</div>
+                            <div class="content">
+                                <app-choice-group>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X1103M.FINAL.SHOP.PC.BOMBCHOICE.DETONATE'
+                                            )
+                                        "
+                                    >
+                                        <app-dialogue-line name="Connor">
+                                            {{
+                                                t(
+                                                    'X1103M.FINAL.SHOP.PC.X11MCONNOR.DETONATE'
+                                                )
+                                            }}
+                                        </app-dialogue-line>
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X1103M.FINAL.SHOP.PC.BOMBCHOICE.NOTDETONATE'
+                                            )
+                                        "
+                                    >
+                                        <p>&oslash;</p>
+                                    </app-choice-item>
+                                </app-choice-group>
                             </div>
-                            <em>DO NOT DETONATE </em>
-                            <div class="choice">&oslash;</div>
-                        </div>
-                    </div>
+                        </app-conditioned-content>
+                    </app-choice-item>
                 </div>
             </div>
-        </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                North is dead and Connor is not here: Markus alone in the store
+            </div>
+            <div class="content">
+                <app-dialogue-line name="Soldier">
+                    {{
+                        translateObject(
+                            'X1103M.FINAL.NORTHDEAD.PC.X11MOFFICER.SUMMONS'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+
+                <app-choice-group>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X1103M.FINAL.NORTHDEAD.PC.SUMMONSCHOICE.SUICIDE')
+                        "
+                    >
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1103M.FINAL.NORTHDEAD.PC.SUMMONSCHOICE.SURRENDER'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Solider">
+                            {{
+                                translateObject(
+                                    'X1103M.FINAL.NORTHDEAD.PC.X11MOFFICER.SURRENDER'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1103M.FINAL.NORTHDEAD.PC.SUMMONSCHOICE.DIRTY BOMB'
+                            )
+                        "
+                    >
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            Took the detonator
+                        </app-unlock-condition>
+
+                        <!-- TODO: take from refactored part -->
+                    </app-choice-item>
+                </app-choice-group>
+            </div>
+        </app-conditioned-content>
     </section>
 
     <section>
         <h1>Markus is dead : North is leading the revolution</h1>
         <p>
-            <span class="name">North</span>: Today, November 11th 2038, is the
-            day the android people rose up against their oppressors. We have
-            been fighting to liberate our fellow androids from the camps since
-            dawn. We won't cease hostilities until our people are free and
-            negotiations begin to grant us equal rights. There are millions of
-            us and we will stop at nothing.
+            <app-dialogue-line name="North">
+                {{
+                    translateObject('X1101M.TV.NORTH.PC.X11MMARLA.SPEECH')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">North</span>: We can't go back! It's victory or
-            death now.
+            <app-dialogue-line name="North">
+                {{ t('X1102M.FINAL.NORTHLEAD.PC.X11MMARLA.VICTORYORDEATH') }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">Android</span>: They're all dead! Run! Run!
-            <br /><span class="name">North</span>: What are you doing? Keep
-            fighting! We can still win!
+            <app-dialogue-line name="Android">
+                {{ t('X1103M.NORTHLEAD.UPDATE.FA.X11MANDROID01.ALLDEAD') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{
+                    translateObject(
+                        'X1103M.NORTHLEAD.UPDATE.PC.X11MMARLA.FIGHT'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <span class="name">Connor is not a deviant</span>
-            <div class="condition-text">
+        <app-conditioned-content>
+            <div class="condition">Connor is not a deviant</div>
+            <div class="content">
                 <p>
-                    <span class="name">North</span>: You can take my life... It
-                    doesn't matter anymore. <br /><span class="name"
-                        >Connor</span
-                    >: My mission is to neutralize the leader of the deviants...
-                    and I always accomplish my mission. <br /><span class="name"
-                        >North</span
-                    >: We fought for our dream and we lost... But you can't hold
-                    my people down forever... One day we'll rise up again, and
-                    we will win. Go on. Shoot. What are you waiting for?
+                    <app-dialogue-line name="North">
+                        {{
+                            translateObject(
+                                'X1103M.NORTHLEAD.SHOP.PC.X11MMARLA.SHOOTME01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1103M.NORTHLEAD.SHOP.PC.X11MCONNOR.SHOOTME02'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="North">
+                        {{
+                            translateObject(
+                                'X1103M.NORTHLEAD.SHOP.PC.X11MMARLA.SHOOTME03'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
                 <div class="choices">
-                    <em>SHOOT</em>
-                    <div class="choice">&oslash;</div>
-                    <em>SPARE</em>
-                    <div class="choice">&oslash;</div>
-                    <em>[ TAKE TOO MUCH TIME ]</em>
-                    <div class="choice">&oslash;</div>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X1103M.NORTHLEAD.SHOP.PC.SHOOTCHOICE.SHOOT')
+                        "
+                    >
+                        <p>&oslash;</p>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X1103M.NORTHLEAD.SHOP.PC.SHOOTCHOICE.SPARE')
+                        "
+                    >
+                        <p>&oslash;</p>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X1103M.NORTHLEAD.SHOP.PC.SHOOTCHOICE.TIMEOUT')
+                        "
+                        [brackets]="true"
+                    >
+                        <p>&oslash;</p>
+                    </app-choice-item>
                 </div>
             </div>
-        </div>
+        </app-conditioned-content>
     </section>
 </ng-container>

@@ -6,14 +6,15 @@
     >
         <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
     </div>
-    <div
-        *ngIf="unlockType === UnlockType.Death"
-        class="align-text-bottom inline"
-    >
+    <div *ngIf="unlockType === UnlockType.Death" class="inline">
         <fa-icon icon="skull"></fa-icon>
     </div>
+    <div *ngIf="unlockType === UnlockType.Time" class="inline">
+        <fa-icon icon="hourglass-end"></fa-icon>
+    </div>
+    <span *ngIf="bracketsOnlyAroundIcon" class="ml-1">]</span>
     <div class="inline">
         <ng-content></ng-content>
     </div>
-    <span>]</span>
+    <span *ngIf="!bracketsOnlyAroundIcon" class="ml-1">]</span>
 </div>

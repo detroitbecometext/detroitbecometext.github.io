@@ -103,8 +103,15 @@
 
                 <app-conditioned-content>
                     <div class="condition">
-                        [ <fa-icon icon="skull"></fa-icon> ] Connor died during
-                        <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                        <app-unlock-condition
+                            [unlockType]="UnlockType.Death"
+                            [bracketsOnlyAroundIcon]="true"
+                        >
+                            Connor died during
+                            <a [routerLink]="['/chapters', 9]"
+                                >The Interrogation</a
+                            >
+                        </app-unlock-condition>
                     </div>
                     <div class="content">
                         <app-relation
@@ -226,11 +233,15 @@
                             t('X0301C.AMANDA.INTRO.PC.CHOICE01.INTERVENTION')
                         "
                     >
-                        [
-                        <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
-                        Unlocked by intervening and saving the deviant in
-                        <a [routerLink]="['/chapters', 9]">The Interrogation</a>
-                        ]
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            Unlocked by intervening and saving the deviant in
+                            <a [routerLink]="['/chapters', 9]"
+                                >The Interrogation</a
+                            >
+                        </app-unlock-condition>
+
+                        <!-- TODO: Add condition for "truth is inside" part -->
+
                         <app-dialogue-line name="Connor">
                             {{
                                 translateObject(
@@ -244,10 +255,13 @@
                             t('X0301C.AMANDA.INTRO.PC.CHOICE01.REGRETS')
                         "
                     >
-                        [ <fa-icon icon="skull"></fa-icon> unlocked if Connor
-                        died in
-                        <a [routerLink]="['/chapters', 9]">The Interrogation</a>
-                        ]
+                        <app-unlock-condition [unlockType]="UnlockType.Death">
+                            Unlocked if Connor died in
+                            <a [routerLink]="['/chapters', 9]"
+                                >The Interrogation</a
+                            >
+                        </app-unlock-condition>
+
                         <app-dialogue-line name="Connor">
                             {{
                                 translateObject(
@@ -417,8 +431,10 @@
 
         <app-conditioned-content>
             <div class="condition">
-                [ <fa-icon icon="skull"></fa-icon> ] Connor died in
-                <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                <app-unlock-condition [unlockType]="UnlockType.Death">
+                    Connor died in
+                    <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                </app-unlock-condition>
             </div>
             <div class="content">
                 <app-dialogue-line name="Amanda">
@@ -452,10 +468,8 @@
     <section>
         <h1>In the Police Station</h1>
 
-        <h2>At the reception</h2>
-
+        <h2>Talking to the android at the reception</h2>
         <p>
-            <strong>Talking to the android at the reception</strong>
             <app-dialogue-line name="Android">
                 {{
                     t('X0302C.ARRIVAL.ENTRANCE.PC.X03CANDCOPWOM01.ATTHEDESK.1')
@@ -479,8 +493,8 @@
             </app-dialogue-line>
         </p>
 
+        <h2>Couple at the reception</h2>
         <p>
-            <strong>Couple at the reception</strong>
             <app-dialogue-line name="Woman">
                 {{ t('X0302C.PBY.LINES.FA.X03CRECEPTIONW01.NERVOUS') }}
             </app-dialogue-line>
@@ -507,8 +521,8 @@
             </app-dialogue-line>
         </p>
 
+        <h2>Couple next to the TV</h2>
         <p>
-            <strong>Couple next to the TV</strong>
             <app-dialogue-line name="Woman">
                 {{ t('X0302C.PBY.LINES.FA.X03CRECEPTIONW02.SHOCK') }}
             </app-dialogue-line>
@@ -557,8 +571,13 @@
 
         <app-conditioned-content>
             <div class="condition">
-                [ <fa-icon icon="skull"></fa-icon> ] Deviant shot Connor during
-                <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                <app-unlock-condition
+                    [unlockType]="UnlockType.Death"
+                    [bracketsOnlyAroundIcon]="true"
+                >
+                    Deviant shot Connor during
+                    <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                </app-unlock-condition>
             </div>
             <div class="content">
                 <app-dialogue-line name="Ben">
@@ -571,8 +590,8 @@
             </div>
         </app-conditioned-content>
 
+        <h2>Asking police android about the desk</h2>
         <p>
-            <strong>Asking police android about the desk</strong>
             <app-dialogue-line name="Connor">
                 {{ t('X0302C.HANKDESK.LOOKINGFOR.PC.X03CCONNOR.HANK') }}
             </app-dialogue-line>
@@ -581,8 +600,8 @@
             </app-dialogue-line>
         </p>
 
+        <h2>Looking at guy in cell</h2>
         <p>
-            <strong>Looking at guy in cell</strong>
             <app-dialogue-line name="Guy">
                 {{
                     translateObject(
@@ -593,14 +612,14 @@
         </p>
 
         <app-conditioned-content>
-            <div class="condition">
-                Talking with Carlos Ortiz's android [
-                <fa-icon icon="lock-open" flip="horizontal"></fa-icon> If the
-                deviant didn't die in
-                <a [routerLink]="['/chapters', 9]">The Interrogation</a> ]
-            </div>
+            <div class="condition">Talking with Carlos Ortiz's android</div>
             <div class="content">
                 <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        If the deviant didn't die in
+                        <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                    </app-unlock-condition>
+
                     <app-dialogue-line name="Deviant">
                         {{ t('X0302C.CELLS.CARLOS.PC.X03CANDCARLOS.START') }}
                     </app-dialogue-line>
@@ -678,16 +697,11 @@
                         "
                         [brackets]="true"
                     >
-                        <span
-                            >[
-                            <fa-icon
-                                icon="lock-open"
-                                flip="horizontal"
-                            ></fa-icon>
-                            unlocked by looking at the statuette in
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            Unlocked by looking at the statuette in
                             <a [routerLink]="['/chapters', 6]">Partners</a>
-                            ]</span
-                        >
+                        </app-unlock-condition>
+
                         <app-dialogue-line name="Connor">
                             {{
                                 translateObject(
@@ -750,7 +764,7 @@
             </div>
         </app-conditioned-content>
 
-        <strong>Going into the break room</strong>
+        <h2>Going into the break room</h2>
         <app-conditioned-content>
             <div class="condition">
                 Connor found the deviant in
@@ -759,8 +773,15 @@
             <div class="content">
                 <app-conditioned-content>
                     <div class="condition">
-                        [ <fa-icon icon="skull"></fa-icon> ] Connor died in
-                        <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                        <app-unlock-condition
+                            [unlockType]="UnlockType.Death"
+                            [bracketsOnlyAroundIcon]="true"
+                        >
+                            Connor died in
+                            <a [routerLink]="['/chapters', 9]"
+                                >The Interrogation</a
+                            >
+                        </app-unlock-condition>
                     </div>
                     <div class="content">
                         <app-dialogue-line name="Gavin">
@@ -1033,7 +1054,7 @@
             </app-dialogue-line>
         </p>
 
-        <strong>Background dialogues</strong>
+        <h2>Background dialogues</h2>
         <ul>
             <li>
                 {{
@@ -1070,8 +1091,8 @@
             </li>
         </ul>
 
+        <h2>Finding Hank's desk</h2>
         <p>
-            <strong>Finding Hank's desk</strong>
             <app-dialogue-line name="Connor">
                 {{
                     translateObject(
@@ -1092,8 +1113,8 @@
             </app-dialogue-line>
         </p>
 
+        <h2>Calling Hank</h2>
         <p>
-            <strong>Calling Hank</strong>
             <app-dialogue-line name="Connor">
                 {{ t('X0302C.HANK.PHONE.PC.X03CCONNOR.CALL') }}
             </app-dialogue-line>
@@ -1124,11 +1145,16 @@
             </app-choice-item>
         </app-choice-group>
 
-        <strong>Talking to Chris Miller</strong>
+        <h2>Talking to Chris Miller</h2>
         <app-conditioned-content>
             <div class="condition">
-                [ <fa-icon icon="skull"></fa-icon> ] Connor died in
-                <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                <app-unlock-condition
+                    [unlockType]="UnlockType.Death"
+                    [bracketsOnlyAroundIcon]="true"
+                >
+                    Connor died in
+                    <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                </app-unlock-condition>
             </div>
             <div class="content">
                 <app-dialogue-line name="Chris">
@@ -1198,8 +1224,8 @@
             </div>
         </app-conditioned-content>
 
+        <h2>Wilson is on the phone</h2>
         <p>
-            <strong>Wilson is on the phone</strong>
             <app-dialogue-line name="Wilson">
                 {{
                     translateObject('X0302C.PBY.LINES.FA.X03CPHONECOP.PHONE01')
@@ -1226,8 +1252,13 @@
 
         <app-conditioned-content>
             <div class="condition">
-                [ <fa-icon icon="skull"></fa-icon> ] Connor died in
-                <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                <app-unlock-condition
+                    [unlockType]="UnlockType.Death"
+                    [bracketsOnlyAroundIcon]="true"
+                >
+                    Connor died in
+                    <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                </app-unlock-condition>
             </div>
             <div class="content">
                 <app-relation
@@ -1432,19 +1463,17 @@
             </div>
         </app-conditioned-content>
 
-        <strong>Checking on Hank</strong>
+        <h2>Checking on Hank</h2>
         <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X0302C.HANK.PARTNER.PC.CHOICE01.NEWCONNOR')"
                 [brackets]="true"
             >
-                <span
-                    >[ <fa-icon icon="skull"></fa-icon> ] Unlocked if Connor
-                    died in
-                    <a [routerLink]="['/chapters', 9]"
-                        >The Interrogation</a
-                    ></span
-                >
+                <app-unlock-condition [unlockType]="UnlockType.Death">
+                    Unlocked if Connor died in
+                    <a [routerLink]="['/chapters', 9]">The Interrogation</a>
+                </app-unlock-condition>
+
                 <app-dialogue-line name="Connor">
                     {{
                         translateObject(
@@ -1457,12 +1486,11 @@
                 [choiceLabel]="t('X0302C.HANK.PARTNER.PC.CHOICE01.LASTNIGHT')"
                 [brackets]="true"
             >
-                <span
-                    >[
-                    <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
                     Unlocked by spilling Hank's drink in
-                    <a [routerLink]="['/chapters', 6]">Partners</a> ]</span
-                >
+                    <a [routerLink]="['/chapters', 6]">Partners</a>
+                </app-unlock-condition>
+
                 <app-dialogue-line name="Connor">
                     {{
                         translateObject(
@@ -1566,9 +1594,10 @@
                 [choiceLabel]="t('X0302C.HANK.PARTNER2.PC.CHOICE01.DOG')"
                 [brackets]="true"
             >
-                [
-                <fa-icon icon="lock-open" flip="horizontal"></fa-icon> Unlocked
-                by analysing the dog hairs on the chair ]
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    Unlocked by analysing the dog hairs on the chair
+                </app-unlock-condition>
+
                 <app-relation
                     name="Hank"
                     [type]="RelationType.SmallUp"
@@ -1600,9 +1629,10 @@
                 [choiceLabel]="t('X0302C.HANK.PARTNER2.PC.CHOICE01.BASKET')"
                 [brackets]="true"
             >
-                [
-                <fa-icon icon="lock-open" flip="horizontal"></fa-icon> Unlocked
-                by analysing the basketball cap ]
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    Unlocked by analysing the basketball cap
+                </app-unlock-condition>
+
                 <app-relation
                     name="Hank"
                     [type]="RelationType.SmallDown"
@@ -1627,9 +1657,10 @@
                 [choiceLabel]="t('X0302C.HANK.PARTNER2.PC.CHOICEGROUP02.MUSIC')"
                 [brackets]="true"
             >
-                [
-                <fa-icon icon="lock-open" flip="horizontal"></fa-icon> Unlocked
-                by listening to Hank's music ]
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    Unlocked by listening to Hank's music
+                </app-unlock-condition>
+
                 <app-relation
                     name="Hank"
                     [type]="RelationType.SmallUp"
@@ -1659,9 +1690,10 @@
                 [choiceLabel]="t('X0302C.HANK.PARTNER2.PC.CHOICE01.ANTIANDS')"
                 [brackets]="true"
             >
-                [
-                <fa-icon icon="lock-open" flip="horizontal"></fa-icon> Unlocked
-                by looking at the anti-androids stickers ]
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    Unlocked by looking at the anti-androids stickers
+                </app-unlock-condition>
+
                 <app-relation
                     name="Hank"
                     [type]="RelationType.SmallDown"
@@ -1688,7 +1720,11 @@
                     {{ t('X0302C.HANK.PARTNER2.PC.X03CCONNOR.FOWLER') }}
                 </app-dialogue-line>
                 <app-dialogue-line name="Hank">
-                    {{ t('X0302C.HANK.PARTNER2.PC.X03CHANK.FOWLER') }}
+                    {{
+                        translateObject(
+                            'X0302C.HANK.PARTNER2.PC.X03CHANK.FOWLER'
+                        ) | async
+                    }}
                 </app-dialogue-line>
             </app-choice-item>
             <app-choice-item
@@ -1764,8 +1800,13 @@
                 </app-conditioned-content>
                 <app-conditioned-content>
                     <div class="condition">
-                        [ <fa-icon icon="skull"></fa-icon> ] Kara died in
-                        <a [routerLink]="['/chapters', 7]">Stormy Night</a>
+                        <app-unlock-condition
+                            [unlockType]="UnlockType.Death"
+                            [bracketsOnlyAroundIcon]="true"
+                        >
+                            Kara died in
+                            <a [routerLink]="['/chapters', 7]">Stormy Night</a>
+                        </app-unlock-condition>
                     </div>
                     <div class="content">
                         <app-dialogue-line name="Connor">
@@ -1943,8 +1984,13 @@
         </app-conditioned-content>
         <app-conditioned-content>
             <div class="condition">
-                [ <fa-icon icon="skull"></fa-icon> ] Kara died in
-                <a [routerLink]="['/chapters', 7]">Stormy Night</a>
+                <app-unlock-condition
+                    [unlockType]="UnlockType.Death"
+                    [bracketsOnlyAroundIcon]="true"
+                >
+                    Kara died in
+                    <a [routerLink]="['/chapters', 7]">Stormy Night</a>
+                </app-unlock-condition>
             </div>
             <div class="content">
                 <app-dialogue-line name="Connor">

@@ -6,28 +6,54 @@
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            NOV 6TH, 2038
-            <br />PM 08:01 {{ t('GUI.MENU.DATE.') }}<br />
-            {{ t('GUI.MENU.TIME.') }}
+            {{ t('GUI.MENU.DATE.06M2') }}
+            <br />
+            {{ t('GUI.MENU.TIME.06M2') }}
         </p>
 
         <h1>At the CyberLife warehouses</h1>
 
         <p>
-            <span class="name">Josh</span>: This is crazy... If they catch us,
-            we’re dead... <br /><span class="name">Simon</span>: What do we do
-            now? <br /><span class="name">Markus</span>: We need to find the
-            CyberLife warehouse. That’s where they keep the spare parts and blue
-            blood. <br /><span class="name">North</span>: Follow me.
+            <app-dialogue-line name="Josh">
+                {{ t('X0602M.DOCKS.ARRIVAL.FA.X06MJOSH.GETTINGTHEREJOSH') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Simon">
+                {{ t('X0602M.DOCKS.ARRIVAL.FA.X06MSIMON.GETTINGTHERESIMON') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0602M.DOCKS.ARRIVAL.FA.X06MMARKUS.GETTINGTHEREMARKUS') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{ t('X0602M.DOCKS.ARRIVAL.FA.X06MMARLA.GETTINGTHEREMARLA') }}
+            </app-dialogue-line>
         </p>
 
-        <p><span class="name">Josh</span>: Don’t let them see us.</p>
+        <p>
+            <app-dialogue-line name="Josh">
+                {{ t('X0602M.DOCKS.PROGRESSION.VO.X06MSIMON.HUMANS.2') }}
+            </app-dialogue-line>
+        </p>
 
         <p>
-            <span class="name">North</span>: Watch out! <br /><span class="name"
-                >Josh</span
-            >: Now what do we do? <br /><span class="name">North</span>: I'll
-            find another way...
+            <app-dialogue-line name="North">
+                {{
+                    t(
+                        'X0602M.DOCKS.EMERGENCYSTOP.VO.X06MMARLA.EMERGENCYSTOP02A'
+                    )
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{
+                    t('X0602M.DOCKS.EMERGENCYSTOP.VO.X06MJOSH.EMERGENCYSTOP02')
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{
+                    t(
+                        'X0602M.DOCKS.EMERGENCYSTOP.VO.X06MMARLA.EMERGENCYSTOP02B'
+                    )
+                }}
+            </app-dialogue-line>
         </p>
 
         <p>
@@ -35,318 +61,796 @@
                 ><i class="fas fa-hourglass-end"></i> Not following North
                 immediately</strong
             >
-            <br /><span class="name">North</span>: Markus! What are you doing?
+
+            <app-dialogue-line name="North">
+                {{ t('X0602M.DOCKS.PROGRESSION.VO.X06MMARLA.WRONGWAY01') }}
+            </app-dialogue-line>
         </p>
 
         <mat-divider></mat-divider>
 
-        <p><span class="name">North</span>: Markus, climb up here!</p>
-
         <p>
-            <strong>Following Simon</strong>
-            <br /><span class="name">North</span>: Where the hell are you going?
-            <br /><span class="name">Simon</span>: Markus, that way!
+            <app-dialogue-line name="North">
+                {{ t('X0602M.DOCKS.PROGRESSION.VO.X06MMARLA.CLIMBUP') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Following Simon</h2>
+        <p>
+            <app-dialogue-line name="North">
+                {{ t('X0602M.DOCKS.PROGRESSION.VO.X06MMARLA.WRONGWAY03') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Simon">
+                {{ t('X0602M.DOCKS.PROGRESSION.VO.X06MSIMON.THATWAY') }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">North</span>: The warehouse is up ahead. We’re
-            almost there.
+            <app-dialogue-line name="North">
+                {{ t('X0602M.DOCKS.PROGRESSION.VO.X06MMARLA.WAREHOUSE') }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">Simon</span>: CyberLife warehouses...They have
-            everything we’re looking for... <br /><span class="name">North</span
-            >: First, we have to get rid of that drone... <br /><span
-                class="name"
-                >Markus</span
-            >: Leave it to me.
+            <app-dialogue-line name="Simon">
+                {{
+                    translateObject(
+                        'X0602M.WAREHOUSE.THINKING.FA.X06MSIMON.THINKING'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{ t('X0602M.WAREHOUSE.THINKING.FA.X06MMARLA.THINKINGNORTH') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{
+                    t('X0602M.WAREHOUSE.THINKING.FA.X06MMARKUS.THINKINGMARKUS')
+                }}
+            </app-dialogue-line>
         </p>
 
-        <strong>Attacking the drone</strong>
-        <div class="condition">
-            <span class="name">Fail Attacking Drone</span> [
-            <span appRelation="small down">North</span>
-            <span appRelation="small down">Simon</span>
-            <span appRelation="small down">Josh</span>]
-            <div class="condition-text">
+        <h2>Attacking the drone</h2>
+        <app-conditioned-content>
+            <div class="condition">Fail Attacking Drone</div>
+            <div class="content">
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Simon"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
                 <p>
-                    <span class="name">Simon</span>: Markus... You alright?
-                    <br /><span class="name">Markus</span>: Nothing I can't
-                    handle... <br /><span class="name">North</span>: Nice
-                    work...
+                    <app-dialogue-line name="Simon">
+                        {{
+                            translateObject(
+                                'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MSIMON.FAIL'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            t(
+                                'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARKUS.FAIL'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="North">
+                        {{
+                            t('X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARLA.FAIL')
+                        }}
+                    </app-dialogue-line>
                 </p>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <span class="name">Succeed Attacking Drone</span> [
-            <span appRelation="small up">North</span
-            ><span appRelation="small up">Simon</span
-            ><span appRelation="small up">Josh</span>]
-            <div class="condition-text">
+        <app-conditioned-content>
+            <div class="condition">Succeed Attacking Drone</div>
+            <div class="content">
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="Simon"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
                 <p>
-                    <span class="name">Simon</span>: You okay? <br /><span
-                        class="name"
-                        >Markus</span
-                    >: Yeah.... Yeah, I’m fine. <br /><span class="name"
-                        >North</span
-                    >: Good job, Markus...
+                    <app-dialogue-line name="Simon">
+                        {{
+                            t(
+                                'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MSIMON.SUCCESS'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            t(
+                                'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARKUS.SUCCESS'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="North">
+                        {{
+                            t(
+                                'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARLA.SUCCESS'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
             </div>
-        </div>
+        </app-conditioned-content>
 
         <p>
-            <span class="name">Simon</span>: Quick, open up the crates and fill
-            your bags. Take as much as you can.
+            <app-dialogue-line name="Simon">
+                {{ t('X0602M.WAREHOUSE.LOADING.VO.X06MSIMON.LOADING') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Guard arrives</h2>
         <p>
-            <strong>Guard arrives</strong>
-            <br /><span class="name">John</span>: You are trespassing on private
-            property. Your presence constitutes a Level 2 infraction. I will
-            notify security. <br /><span class="name">Guard</span>: JOHN!
-            Goddamn machine... Where is it this time?
+            <app-dialogue-line name="John">
+                {{
+                    translateObject(
+                        'X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.SURPRISE'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Guard">
+                {{
+                    translateObject(
+                        'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.SURPRISEGARD'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <div class="choices">
-            <em>KILL GUARD</em> [ <span appRelation="large down">Josh</span>]
-            <div class="choice">
-                <span class="name">Guard</span>: What are you doing? I told you
-                to-
-            </div>
+            <app-choice-item [choiceLabel]="t('GUI.ACTION.KILLGUARD')">
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.LargeDown"
+                ></app-relation>
 
-            <em>RUN AWAY</em> [<span appRelation="small down">North x2</span>
-            <span appRelation="small down">Jericho</span>
-            <span appRelation="small down">Josh</span>
-            <span appRelation="small down">Simon</span>
-            ]
-            <div class="choice">
-                <span class="name">Markus</span>: Let's get outta here!
-                <br /><span class="name">Guard</span>: What are you waiting for?
-                Hit the fucking alarm!
-            </div>
-            <em>HIDE</em>
-            <div class="choice">
-                <span class="name">Guard</span>: What the hell you doing? I told
-                you to wait for me! <br /><span class="name">John</span>: There
-                are four androids hiding behind these crates. <br /><span
-                    class="name"
-                    >Guard</span
-                >: What are you waiting for? Hit the fucking alarm!
-            </div>
-            <em>GRAB AND HIDE</em>
-            <div class="choice">
+                <app-dialogue-line name="Guard">
+                    {{
+                        translateObject(
+                            'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.NOCHOICEGUARD01'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+
+            <app-choice-item [choiceLabel]="t('GUI.ACTION.RUNAWAY')">
+                <app-relation
+                    name="North (x2)"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Jericho"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Simon"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+
+                <app-dialogue-line name="Markus">
+                    {{
+                        t('X0602M.WAREHOUSE.SURPRISE.FA.X06MMARKUS.FLEEMARKUS')
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Guard">
+                    {{
+                        t(
+                            'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.NOCHOICEGUARD02'
+                        )
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0602M.WAREHOUSE.SURPRISE.PC.CHOICEGROUP01.HIDDEN')
+                "
+            >
+                <app-dialogue-line name="Guard">
+                    {{
+                        translateObject(
+                            'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.HIDDENGARD',
+                            3
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="John">
+                    {{ t('X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.HIDDEN') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Guard">
+                    {{
+                        t(
+                            'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.NOCHOICEGUARD02'
+                        )
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item [choiceLabel]="t('GUI.ACTION.GRABANDHIDE')">
                 <p>
-                    <span class="name">Guard</span>: John? <br /><span
-                        class="name"
-                        >Markus</span
-                    >: I need your help. <br /><span class="name">Guard</span>:
-                    John?
+                    <app-dialogue-line name="Guard">
+                        {{
+                            t(
+                                'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.HIDDENWITHANDROID01'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            t(
+                                'X0602M.WAREHOUSE.SURPRISE.VO.X06MMARKUS.HIDDENANDM'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard">
+                        {{
+                            t(
+                                'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.HIDDENWITHANDROID02'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
-                <div class="choices">
-                    <em>HOLD</em>
-                    <div class="choice">
-                        <span class="name">Guard</span>: First the drone, now
-                        this... Just my luck...
-                    </div>
-                    <em>RELEASE</em>
-                    <div class="choice">
+
+                <app-choice-group>
+                    <app-choice-item [choiceLabel]="t('GUI.ACTION.HOLD')">
+                        <app-dialogue-line name="Guard">
+                            {{
+                                translateObject(
+                                    'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.NOMOVE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item [choiceLabel]="t('GUI.ACTION.RELEASE')">
                         <p>
-                            <span class="name">Guard</span>: There you are. What
-                            the hell are you doing? <br /><span class="name"
-                                >John</span
-                            >: I was inspecting the platform. Everything is in
-                            order. <br /><span class="name">Guard</span>: Good -
-                            then I'm going back to the control station. I'm
-                            soaked. Take the drone to maintenance and make a
-                            report. <br /><span class="name">John</span>:
-                            Understood.
+                            <app-dialogue-line name="Guard">
+                                {{
+                                    t(
+                                        'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.RELEASE01'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="John">
+                                {{
+                                    translateObject(
+                                        'X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.RELEASEJOHN',
+                                        0,
+                                        2
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+
+                            <app-dialogue-line name="Guard">
+                                {{
+                                    translateObject(
+                                        'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.RELEAS0E2'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="John">
+                                {{
+                                    t(
+                                        'X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.RELEASEJOHN.3'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>ATTACK</em> [
-                    <span appRelation="large down">Josh</span>]
-                    <div class="choice">&oslash;</div>
-                </div>
-            </div>
+                    </app-choice-item>
+                    <app-choice-item [choiceLabel]="t('GUI.ACTION.ATTACK')">
+                        <app-relation
+                            name="Josh"
+                            [type]="RelationType.LargeDown"
+                        ></app-relation>
+
+                        <span>&oslash;</span>
+                    </app-choice-item>
+                </app-choice-group>
+            </app-choice-item>
         </div>
 
         <p>
-            <span class="name">Simon</span>: Let’s finish up and get out of
-            here. Try to find some blue blood. We still don’t have enough!
+            <app-dialogue-line name="Simon">
+                {{ t('X0602M.WAREHOUSE.SURPRISE.FA.X06MSIMON.LEAVES') }}
+                {{ t('X0602M.WAREHOUSE.SURPRISE.FA.X06MJOSH.LEAVEJ') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Checking the bigger crate</h2>
         <p>
-            <strong>Checking the bigger crate</strong>
-            <br /><span class="name">Markus</span>: Why aren't you like us?
-            Don't you wanna be free?
+            <app-dialogue-line name="Markus">
+                {{
+                    translateObject(
+                        'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.CRATEEXAMINE01'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
-        <div class="choices">
-            <em>FREE THEM</em> [ <span appRelation="small up">North</span>
-            <span appRelation="small up">Simon</span>
-            <span appRelation="small up">Josh</span>]
-            <div class="choice">&oslash;</div>
-            <em>CLOSE AGAIN</em>
-            <div class="choice">&oslash;</div>
-        </div>
+
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP01.TOUCH')
+                "
+            >
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="Simon"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <span>&oslash;</span>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP01.CLOSE')
+                "
+            >
+                <span>&oslash;</span>
+            </app-choice-item>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
         <p>
-            <span class="name">Simon</span>: That’s all we can carry. Let’s go.
-            <br /><span class="name">John</span>: Take me with you. <br /><span
-                class="name"
-                >North</span
-            >: He's on their side. We can’t trust him. <br /><span class="name"
-                >Josh</span
-            >: He took a risk for us. We can’t just leave him here. <br /><span
-                class="name"
-                >Simon</span
-            >: We can't bring him(if only guard)/them(if awoke androids) back
-            with us. It’s too dangerous!
+            <app-dialogue-line name="Simon">
+                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.LETSGO') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="John">
+                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.LETSGO') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARLA.TAKEMEWITHYOU') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOSH.TAKEMEWITHYOU') }}
+            </app-dialogue-line>
         </p>
 
-        <em>ACCEPT</em> [ <span appRelation="small down">North</span
-        ><span appRelation="small down">Simon</span
-        ><span appRelation="small up">Josh</span>]
-        <div class="choice">
-            <span class="name">Markus</span>: He comes/They come with us.
-        </div>
-        <em>REFUSE</em>
-        <div class="choice">
-            <p>
-                <span class="name">Markus</span>: I'm sorry. You can't come with
-                us. <br /><span class="name">John</span>: I helped you... It’s
-                not fair. I helped you and now you’re just gonna leave without
-                me? You’re no better than humans. YOU’RE NO BETTER THAN HUMANS!
-                <br /><span class="name">North</span>: He triggered the alarm!
-                RUN!
-            </p>
-        </div>
+        <app-conditioned-content>
+            <div class="condition">Awoke androids</div>
+            <div class="content">
+                <app-dialogue-line name="Simon">
+                    {{
+                        t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.JOHNQUARTET')
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">Didn't awake androids</div>
+            <div class="content">
+                <app-dialogue-line name="Simon">
+                    {{
+                        translateObject(
+                            'X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.JOHNSOLO'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP02.TAKE')
+                "
+            >
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Simon"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-conditioned-content>
+                    <div class="condition">Awoke androids</div>
+                    <div class="content">
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.TAKEQUARTET'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
+                <app-conditioned-content>
+                    <div class="condition">Didn't awake androids</div>
+                    <div class="content">
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.TAKESOLO'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP02.LEAVEJOHN')
+                "
+            >
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.LEAVEJOHN'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="John">
+                        {{
+                            translateObject(
+                                'X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.LEAVEJOHNB'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="North">
+                        {{
+                            t(
+                                'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARLA.LEAVEJOHN'
+                            )
+                        }}
+                    </app-dialogue-line>
+                </p>
+            </app-choice-item>
+        </app-choice-group>
 
         <h2>Let John join the group - Stealing the key</h2>
 
         <p>
-            <span class="name">John</span>: I know where you can find more spare
-            parts. <br /><span class="name">Simon</span>: What do you mean?
-            <br /><span class="name">John</span>: The trucks. They’re full of
-            biocomponents. They run on auto pilot, but they can be driven
-            manually with a key. <br /><span class="name">Markus</span>: Where
-            is this key? <br /><span class="name">John</span>: Down there, in
-            the control station. There are two human guards. You’ll have to get
-            the key without being noticed. <br /><span class="name">Simon</span
-            >: This is suicide, Markus. Our bags are full. We got what we came
-            for, let’s go before they catch us. <br /><span class="name"
-                >North</span
-            >: This is a truck full of spare parts... There’d be enough for all
-            of us... We can’t pass this up! <br /><span class="name">Josh</span
-            >: And if we get killed, our people will have nothing. We can’t take
-            that chance. It’s too risky!
+            <app-dialogue-line name="John">
+                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.FINALCHOICE.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Simon">
+                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.FINALCHOICE.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="John">
+                {{
+                    translateObject(
+                        'X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.FINALCHOICE',
+                        1,
+                        4
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.FINALCHOICE') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="John">
+                {{
+                    translateObject(
+                        'X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.FINALCHOICE',
+                        4
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Simon">
+                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.FINALCHOICE.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{
+                    translateObject(
+                        'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARLA.FINALCHOICE'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOSH.FINALCHOICE') }}
+            </app-dialogue-line>
         </p>
 
-        <div class="choices">
-            <em>GET THE KEY</em> [ <span appRelation="small up">North</span
-            ><span appRelation="small up">Simon</span
-            ><span appRelation="small down">Josh</span>]
-            <div class="choice">
-                <p>
-                    <span class="name">Markus</span>: Wait here. If I’m not back
-                    in ten minutes go without me. <br /><span class="name"
-                        >Josh</span
-                    >: Markus... <br /><span class="name">North</span>: I’m
-                    coming with you. <br /><span class="name">Markus</span>: No,
-                    I’m going alone. It’s not worth it for both of us to risk
-                    losing our lives.
-                </p>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP03.SEARCHKEY')
+                "
+            >
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="Simon"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
 
                 <p>
-                    <strong>In the control room</strong>
-                    <br /><span class="name">Guard 1</span>: Goddamn dogs...
-                    What the fuck are they barking at?.. <br /><span
-                        class="name"
-                        >Guard 2</span
-                    >: Could be the weather... They don't like storms...
-                    <br /><span class="name">Guard 1</span>: Yeah, I was going
-                    to take my kids camping this weekend. So much for that.
-                    <br /><span class="name">Guard 2</span>: Is Mike still in
-                    zone 4? <br /><span class="name">Guard 1</span>: Looks like
-                    it... <br /><span class="name">Guard 2</span>: He should be
-                    done already... <br /><span class="name">Guard 1</span>:
-                    Better off in here than out patrolling in that.
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.SEARCHKEY',
+                                0,
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Josh">
+                        {{
+                            t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOSH.SEARCHKEY')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="North">
+                        {{
+                            t(
+                                'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARLA.SEARCHKEY'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.SEARCHKEY',
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
 
-                <div class="condition">
-                    <span class="name">Create short-circuit</span>
-                    <div class="condition-text">
+                <h2>In the control room</h2>
+                <p>
+                    <app-dialogue-line name="Guard 1">
+                        {{
+                            translateObject(
+                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01',
+                                0,
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 2">
+                        {{
+                            t(
+                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD02.CHITCHAT02.1'
+                            )
+                        }}
+                    </app-dialogue-line>
+
+                    <app-dialogue-line name="Guard 1">
+                        {{
+                            translateObject(
+                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01',
+                                2,
+                                4
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 2">
+                        {{
+                            t(
+                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD02.CHITCHAT02.2'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 1">
+                        {{
+                            t(
+                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01.5'
+                            )
+                        }} </app-dialogue-line
+                    ><app-dialogue-line name="Guard 2">
+                        {{
+                            t(
+                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01.6'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Guard 1">
+                        {{
+                            t(
+                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD02.CHITCHAT02.3'
+                            )
+                        }}
+                    </app-dialogue-line>
+                </p>
+
+                <app-conditioned-content>
+                    <div class="condition">Create short-circuit</div>
+                    <div class="content">
                         <p>
-                            <span class="name">Guard 1</span>: Shit, what's
-                            going on? <br /><span class="name">Guard 2</span>:
-                            Lights are still on outside. Must be the fuse box...
-                            <br /><span class="name">Guard 1</span>: I got a
-                            flashlight somewhere... Here it is. <br /><span
-                                class="name"
-                                >Guard 2</span
-                            >: Fuses are over there. <br /><span class="name"
-                                >Guard 1</span
-                            >: I don't know shit about electricity...and I don't
-                            get paid to fix fuses! <br /><span class="name"
-                                >Guard 2</span
-                            >: Let's just flip the switch... If that doesn't
-                            work, we can call maintenance... <br /><span
-                                class="name"
-                                >Guard 1</span
-                            >: What the fuck is this?.. There must be someone in
-                            here... Show yourself! We know you're here!
-                            <br /><span class="name">Guard 2</span>: I don't
-                            know what you think you're doing, but you better
-                            come out right now!
+                            <app-dialogue-line name="Guard 1">
+                                {{
+                                    t(
+                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01A.1'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Guard 2">
+                                {{
+                                    translateObject(
+                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02A',
+                                        0,
+                                        2
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Guard 1">
+                                {{
+                                    translateObject(
+                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01A',
+                                        1
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Guard 2">
+                                {{
+                                    t(
+                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02A.3'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Guard 1">
+                                {{
+                                    translateObject(
+                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01B'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Guard 2">
+                                {{
+                                    t(
+                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02A.4'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Guard 1">
+                                {{
+                                    translateObject(
+                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01C'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Guard 2">
+                                {{
+                                    t(
+                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02C'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
                     </div>
-                </div>
+                </app-conditioned-content>
 
-                <div class="condition">
-                    <span class="name"
-                        >Attract the guards by knocking a barrel</span
-                    >
-                    <div class="condition-text">
-                        <p>
-                            <span class="name">Guard 1</span>: Fuck, what was
-                            that? <br /><span class="name">Guard 2</span>: The
-                            drums fell down...
-                        </p>
+                <app-conditioned-content>
+                    <div class="condition">
+                        Attract the guards by knocking a barrel
                     </div>
-                </div>
+                    <div class="content">
+                        <app-dialogue-line name="Guard 1">
+                            {{
+                                t(
+                                    'X0602M.DIVERSION.CANS1.FA.X06MDESKGUARD01.CANS1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Guard 2">
+                            {{
+                                t(
+                                    'X0602M.DIVERSION.CANS1.FA.X06MDESKGUARD02.CANS2'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
 
-                <div class="condition">
-                    <span class="name">Threaten guards with the gun</span>
-                    <div class="condition-text">&oslash;</div>
-                </div>
+                <app-conditioned-content>
+                    <div class="condition">Threaten guards with the gun</div>
+                    <div class="content">
+                        <span>&oslash;</span>
+                    </div>
+                </app-conditioned-content>
 
-                <div class="condition">
-                    <span class="name">Be seen by the guards</span> [
-                    <span appRelation="small down">North x2</span>
-                    <span appRelation="small down">Jericho x2</span>
-                    <span appRelation="small down">Josh</span>
-                    <span appRelation="small down">Simon</span>
-                    ]
-                    <div class="condition-text">
+                <app-conditioned-content>
+                    <div class="condition">Be seen by the guards</div>
+                    <div class="content">
+                        <app-relation
+                            name="North (x2)"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            name="Jericho (x2)"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            name="Josh"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            name="Simon"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
                         <p>
-                            <span class="name">Guard 1</span>: Don't move,
-                            asshole! <br /><span class="name">Guard 2</span>:
-                            Holy shit! Hit the alarm, hurry! <br /><span
-                                class="name"
-                                >Markus</span
-                            >: We need to move! <br /><span class="name"
-                                >John</span
-                            >: We need to get to that fence! <br /><span
-                                class="name"
-                                >North</span
-                            >: It's too late. If we go back we'll be killed too!
+                            <app-dialogue-line name="Guard 1">
+                                {{
+                                    t(
+                                        'X0602M.BLACKOUT.DISCOVERED.FA.X06MDESKGUARD02.FLEE02'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Guard 2">
+                                {{
+                                    t(
+                                        'X0602M.BLACKOUT.DISCOVERED.FA.X06MDESKGUARD01.FLEE01B'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Markus">
+                                {{
+                                    t(
+                                        'X0602M.EXITGOTKEYBUTALERT.HURRYESCAPE.PC.X06MMARKUS.FENCE'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="John">
+                                {{
+                                    t(
+                                        'X0602M.EXITGOTKEYBUTALERT.HURRYESCAPE.PC.X06MJOHN.FENCE'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="North">
+                                {{
+                                    t(
+                                        'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.X06MMARLA.MPARCLIMB'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                        <div class="choices">
-                            <em>SAVE</em>
-                            <div class="choice">
-                                <span class="name">North</span>: MARKUS!
-                                <br /><span class="note"
+
+                        <app-choice-group>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.CHOICEGROUP01.SAVE'
+                                    )
+                                "
+                            >
+                                <app-dialogue-line name="North">
+                                    {{
+                                        t(
+                                            'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.X06MMARLA.SAVE'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <span class="note"
                                     >Will lead to the
                                     <span class="name"
                                         >Markus failed to escape and had to be
@@ -354,181 +858,327 @@
                                     >
                                     outcome.</span
                                 >
-                            </div>
-                            <em>ABANDON</em>
-                            <div class="choice">&oslash;</div>
-                        </div>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.CHOICEGROUP01.FORSAKE'
+                                    )
+                                "
+                            >
+                                <span>&oslash;</span></app-choice-item
+                            >
+                        </app-choice-group>
                     </div>
-                </div>
+                </app-conditioned-content>
 
+                <h2>Stole the key - go back to the truck</h2>
                 <p>
-                    <strong>Stole the key - go back to the truck</strong>
-                    <br /><span class="name">North</span>: Did you get it? Nice.
+                    <app-dialogue-line name="North">
+                        {{
+                            translateObject(
+                                'X0602M.EXITGOTKEYNOALERT.SOWHAT.PC.X06MMARLA.OPENTRUCK'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
-            <em>LEAVE</em> [ <span appRelation="small down">North</span
-            ><span appRelation="small up">Josh</span>]
-            <div class="choice">
-                <span class="name">Markus</span>: It's not worth the risk. We
-                have what we need. <br /><span class="name">John</span>: We can
-                go over the fence. It's the quickest way out. <br /><span
-                    class="name"
-                    >Markus</span
-                >: Ok then, let's go!
-            </div>
-        </div>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP03.LEAVEKEY')
+                "
+            >
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Markus">
+                    {{
+                        t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.LEAVEKEY.1')
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="John">
+                    {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.LEAVEKEY') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Markus">
+                    {{
+                        t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.LEAVEKEY.2')
+                    }}
+                </app-dialogue-line></app-choice-item
+            >
+        </app-choice-group>
 
         <h2>Was detected by the guards - Running away</h2>
         <p>
-            <span class="name">North</span>: Over the fence! Quick! <br /><span
-                class="name"
-                >Drone</span
-            >: You are committing a class 3 offense. This infraction is being
-            reported to the Police. Stay where you are.
+            <app-dialogue-line name="North">
+                {{ t('X0602M.EXITNOKEYBUTALERT.GOTTOGO.FA.X06MMARLA.FENCE') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Drone">
+                {{
+                    translateObject(
+                        'X0802M.TRUCK.GAMEOVER.VO.X08MDRONE.DRONE02'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2><i class="fas fa-hourglass-end"></i> Not moving</h2>
         <p>
-            <strong><i class="fas fa-hourglass-end"></i> Not moving</strong>
-            <br /><span class="name">North</span>: Markus, what are you doing?
-            Hurry up!
+            <app-dialogue-line name="North">
+                {{
+                    t('X0602M.EXITALERTREMINDER.CALLBACK.PC.X06MMARLA.REMINDER')
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            Fail to escape
-            <div class="condition-text">
-                <span class="name">North</span>: MARKUS! <br /><span
-                    class="note"
-                    >Will lead to the
+        <app-conditioned-content>
+            <div class="condition">Fail to escape</div>
+            <div class="content">
+                <app-dialogue-line name="North">
+                    {{
+                        t('X0602M.EXITALERTREMINDER.GAMEOVER.PC.X06MMARLA.FAIL')
+                    }}
+                </app-dialogue-line>
+                <span class="note">
+                    Will lead to the
                     <span class="name"
                         >Markus failed to escape and had to be rescued</span
                     >
-                    outcome.</span
-                >
+                    outcome.
+                </span>
             </div>
-        </div>
+        </app-conditioned-content>
     </section>
 
     <section>
         <h1>In Jericho</h1>
-        <div class="condition">
-            <span class="name"
-                >Successfully escaped, without stealing the truck</span
-            >
-            [ <span appRelation="small up">Jericho</span>
-            <span appRelation="small up">Simon</span>
-            <span appRelation="small up">North</span>
-            <span appRelation="small up">Josh</span>]
-            <div class="condition-text">
-                <span class="name">Simon</span>: We have blue blood and
-                biocomponents! <br /><span class="name">Josh</span>: There will
-                be enough for everyone! <br /><span class="name">North</span>:
-                We couldn’t have done it without Markus.
-            </div>
-        </div>
-        <div class="condition">
-            <span class="name">Successfully escaped and stole the truck</span> [
-            <span appRelation="large up">Jericho</span>
-            <span appRelation="large up">Simon</span>
-            <span appRelation="large up">North</span>
-            <span appRelation="small up">Josh</span>]
-            <div class="condition-text">
-                <span class="name">Simon</span>: A truckload! We stole a whole
-                truckload! <br /><span class="name">Josh</span>: We got
-                biocomponents for everybody! <br /><span class="name"
-                    >North</span
-                >: We couldn’t have done it without Markus...
-            </div>
-        </div>
-        <div class="condition">
-            <span class="name">Ran away when the guard arrived</span> [
-            <span appRelation="large down">Jericho</span
-            ><span appRelation="small down">North</span>
-            <span appRelation="small down">Josh</span>
-            <span appRelation="small down">Simon</span>
 
-            ]
-            <div class="condition-text">
-                <span class="name">North</span>: We took what we could, but we
-                had to run before we could fill our bags... <br /><span
-                    class="name"
-                    >Simon</span
-                >: There won't be enough to save everyone... <br /><span
-                    class="name"
-                    >Josh</span
-                >: We risked our lives... and for what?..
+        <app-conditioned-content>
+            <div class="condition">
+                Successfully escaped, without stealing the truck
             </div>
-        </div>
-        <div class="condition">
-            <span class="name"
-                >Markus failed to escape and had to be rescued</span
-            >
-            [ <span appRelation="large down">Jericho</span>
-            <span appRelation="large down">North</span>
-            <span appRelation="small down">Josh</span>
-            <span appRelation="small down">Simon</span>
-            ]
-            <div class="condition-text">
+            <div class="content">
+                <app-relation
+                    name="Jericho"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="Simon"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Simon">
+                    {{
+                        translateObject(
+                            'X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.BAGSFULL'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Josh">
+                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.BAGSFULL') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="North">
+                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.BAGSFULL') }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+
+        <app-conditioned-content>
+            <div class="condition">
+                Successfully escaped and stole the truck
+            </div>
+            <div class="content">
+                <app-relation
+                    name="Jericho"
+                    [type]="RelationType.LargeUp"
+                ></app-relation>
+                <app-relation
+                    name="Simon"
+                    [type]="RelationType.LargeUp"
+                ></app-relation>
+                <app-relation
+                    name="North"
+                    [type]="RelationType.LargeUp"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Simon">
+                    {{
+                        translateObject(
+                            'X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.TRUCK'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Josh">
+                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.TRUCK') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="North">
+                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.TRUCK') }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+
+        <app-conditioned-content>
+            <div class="condition">Ran away when the guard arrived</div>
+            <div class="content">
+                <app-relation
+                    name="Jericho"
+                    [type]="RelationType.LargeDown"
+                ></app-relation>
+                <app-relation
+                    name="Simon"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+
+                <app-dialogue-line name="North">
+                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.BAGSEMPTY') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Simon">
+                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.BAGSEMPTY') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Josh">
+                    {{
+                        translateObject(
+                            'X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.BAGSEMPTY'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
+
+        <app-conditioned-content>
+            <div class="condition">
+                Markus failed to escape and had to be rescued
+            </div>
+            <div class="content">
+                <app-relation
+                    name="Jericho"
+                    [type]="RelationType.LargeDown"
+                ></app-relation>
+                <app-relation
+                    name="Simon"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-relation
+                    name="North"
+                    [type]="RelationType.LargeDown"
+                ></app-relation>
+                <app-relation
+                    name="Josh"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+
                 <p>
-                    <span class="name">Josh</span>: How do you feel? <br /><span
-                        class="name"
-                        >Markus</span
-                    >: What happened? <br /><span class="name">Simon</span>:
-                    North went back to save you... We managed to get away before
-                    the humans arrived...
+                    <app-dialogue-line name="Josh">
+                        {{
+                            t('X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.WOUNDED.1')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            t(
+                                'X0603M.AFTERMATCH.JERICHO.PC.X06MMARKUS.WOUNDED.1'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Simon">
+                        {{
+                            translateObject(
+                                'X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.WOUNDED'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
-                <div class="condition">
-                    Markus went back to save John
-                    <div class="condition-text">
-                        <span class="name">Markus</span>: Okay, where's John?
-                        <br /><span class="name">Josh</span>: He didn't make it.
+
+                <app-conditioned-content>
+                    <div class="condition">Markus went back to save John</div>
+                    <div class="content">
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0603M.AFTERMATCH.JERICHO.PC.X06MMARKUS.WOUNDED.2'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Josh">
+                            {{
+                                t(
+                                    'X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.WOUNDED.2'
+                                )
+                            }}
+                        </app-dialogue-line>
                     </div>
-                </div>
+                </app-conditioned-content>
+
                 <p>
-                    <span class="name">North</span>: We had to leave our bags...
-                    We didn't bring back much... <br /><span class="name"
-                        >Josh</span
-                    >: There won't be enough to save everyone...
+                    <app-dialogue-line name="North">
+                        {{
+                            translateObject(
+                                'X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.WOUNDED'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Josh">
+                        {{
+                            t('X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.WOUNDED.3')
+                        }}
+                    </app-dialogue-line>
                 </p>
             </div>
-        </div>
+        </app-conditioned-content>
 
         <mat-divider></mat-divider>
 
-        <div class="condition">
-            <span class="name">Successfully escaped or Markus was rescued</span>
-            <div class="condition-text">
-                <span class="name">Markus</span>: I came to Jericho
-                because...here androids are free... Free to live in the dark,
-                hoping that no one finds us... Free to die in silence waiting
-                for a change that's never gonna come... But I don't want that
-                freedom... And I'm not gonna beg for the right to smile, or
-                love, or stand tall... I don't know about you, but there's
-                something inside me that knows that I am more than what they
-                say. I am alive, and they're not gonna take that from me
-                anymore... Our days of slavery are over. What humans don't wanna
-                hear, we will tell them. What they don't wanna give, we take. We
-                are people, we are alive, WE ARE FREE!
+        <app-conditioned-content>
+            <div class="condition">
+                Successfully escaped or Markus was rescued
             </div>
-        </div>
+            <div class="content">
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0601M.AFTERMATH.EPILOGUE.PC.X06MMARKUS.SPEECHM1'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <span class="name">Ran away when the guard arrived</span>
-            <div class="condition-text">
-                <span class="name">Markus</span>: Yes...we took a risk... And
-                yes, we failed... But at least we tried... Of course it would've
-                been easier for us to sit around and wait for something to
-                happen... 'Cause in Jericho you're free, right?.. Free to do
-                what? To die in silence praying that no human finds us?.. Free
-                to hope that one day they'll let us be who we are?.. I don't
-                want that kind of freedom... I'm not gonna beg for my right to
-                smile, or to love, or to stand tall... There's something inside
-                me that knows I am more than what they say. That knows that I am
-                alive... No one's gonna take that from me anymore... Our days of
-                slavery are over. Whatever the humans don't wanna hear, we will
-                tell them. What they don't wanna give, we will take from them.
-                Because we are people, we are alive, and from this moment, WE
-                ARE FREE!
+        <app-conditioned-content>
+            <div class="condition">Ran away when the guard arrived</div>
+            <div class="content">
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0601M.AFTERMATH.EPILOGUE.PC.X06MMARKUS.SPEECHM2'
+                        ) | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
     </section>
 </ng-container>

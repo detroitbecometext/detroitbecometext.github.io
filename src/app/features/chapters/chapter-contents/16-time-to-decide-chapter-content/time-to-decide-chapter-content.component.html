@@ -6,236 +6,529 @@
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            NOV 6TH, 2038
-            <br />PM 05:13 {{ t('GUI.MENU.DATE.') }}<br />
-            {{ t('GUI.MENU.TIME.') }}
+            {{ t('GUI.MENU.DATE.06M') }}
+            <br />
+
+            {{ t('GUI.MENU.TIME.06M') }}
         </p>
 
         <h1>In Jericho</h1>
 
         <p>
-            <span class="name">Markus</span>: Who are you? <br /><span
-                class="name"
-                >Josh</span
-            >: Fugitives. Just like you. My name is Josh. <br /><span
-                class="name"
-                >Simon</span
-            >: I'm Simon. <br /><span class="name">North</span>: North.
+            <app-dialogue-line name="Markus">
+                {{ t('X0503M.JERICHO.ENCOUNTER.PC.X05MMARKUS.WELCOME') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{
+                    translateObject(
+                        'X0503M.JERICHO.ENCOUNTER.PC.X05MJOSH.WELCOME'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Simon">
+                {{ t('X0503M.JERICHO.ENCOUNTER.PC.X05MSIMON.WELCOME.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{ t('X0503M.JERICHO.ENCOUNTER.PC.X05MMARLA.WELCOME') }}
+            </app-dialogue-line>
         </p>
 
         <div class="choices">
-            <em>TRAIL</em>
-            <div class="choice">
+            <app-choice-item
+                [choiceLabel]="t('X0503M.JERICHO.ENCOUNTER.PC.CHOICE01.TRAIL')"
+            >
                 <p>
-                    <span class="name">Markus</span>: And you knew that only an
-                    android could follow the trail, didn't you? <br /><span
-                        class="name"
-                        >Josh</span
-                    >: Only those who are like us can find Jericho...
-                    <br /><span class="name">Simon</span>: If you could decipher
-                    the signs, it’s because one of us trusted you enough to give
-                    you the key.
+                    <app-dialogue-line name="Markus">
+                        {{
+                            t('X0503M.JERICHO.ENCOUNTER.PC.X05MMARKUS.01TRAIL')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Josh">
+                        {{ t('X0503M.JERICHO.ENCOUNTER.PC.X05MJOSH.01TRAIL') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Simon">
+                        {{ t('X0503M.JERICHO.ENCOUNTER.PC.X05MSIMON.01TRAIL') }}
+                    </app-dialogue-line>
                 </p>
-            </div>
-            <em>ANDROID</em>
-            <div class="choice">
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0503M.JERICHO.ENCOUNTER.PC.CHOICE01.ANDROID')
+                "
+            >
                 <p>
-                    <span class="name">Markus</span>: How many are you?
-                    <br /><span class="name">North</span>: There are nineteen of
-                    us still in working order... The rest were damaged escaping
-                    their masters... <br /><span class="name">Josh</span>: Many
-                    tried to reach Jericho... Few succeed... Humans have little
-                    pity for our kind...
+                    <app-dialogue-line name="Markus">
+                        {{
+                            t(
+                                'X0503M.JERICHO.ENCOUNTER.PC.X05MMARKUS.01ANDROID'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="North">
+                        {{
+                            translateObject(
+                                'X0503M.JERICHO.ENCOUNTER.PC.X05MMARLA.01ANDROID'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Josh">
+                        {{
+                            translateObject(
+                                'X0503M.JERICHO.ENCOUNTER.PC.X05MJOSH.01ANDROID'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
-            <em>JERICHO</em>
-            <div class="choice">
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0503M.JERICHO.ENCOUNTER.PC.CHOICE01.JERICHO')
+                "
+            >
                 <p>
-                    <span class="name">Markus</span>: This is Jericho?
-                    <br /><span class="name">Josh</span>: It’s a refuge for
-                    those who don’t want to be slaves anymore... I understand
-                    how you feel...but we have more freedom here than you ever
-                    did.
+                    <app-dialogue-line name="Markus">
+                        {{
+                            t(
+                                'X0503M.JERICHO.ENCOUNTER.PC.X05MMARKUS.01JERICHO'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Josh">
+                        {{
+                            t('X0503M.JERICHO.ENCOUNTER.PC.X05MJOSH.01JERICHO')
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
-            <em>REFUGE</em>
-            <div class="choice">
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0503M.JERICHO.ENCOUNTER.PC.CHOICE01.REFUGE')"
+            >
                 <p>
-                    <span class="name">Markus</span>: I don’t understand... I
-                    thought Jericho was a place where androids lived in
-                    freedom... <br /><span class="name">Josh</span>: We do live
-                    in freedom... It may not be what you hoped for, but here we
-                    have no master. We don’t belong to anybody.
+                    <app-dialogue-line name="Markus">
+                        {{
+                            t('X0503M.JERICHO.ENCOUNTER.PC.X05MMARKUS.01REFUGE')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Josh">
+                        {{
+                            translateObject(
+                                'X0503M.JERICHO.ENCOUNTER.PC.X05MJOSH.01REFUGE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
-            <em>FREE?</em>
-            <div class="choice">
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0503M.JERICHO.ENCOUNTER.PC.CHOICE01.FREE')"
+            >
                 <p>
-                    <span class="name">Markus</span>: And hiding just to stay
-                    alive... That’s freedom to you? <br /><span class="name"
-                        >Josh</span
-                    >: Humans hate us. Hiding is the only way we can survive.
-                    <br /><span class="name">North</span>: There is no safe
-                    place for those like us. If humans knew we were here they’d
-                    kill us.
+                    <app-dialogue-line name="Markus">
+                        {{ t('X0503M.JERICHO.ENCOUNTER.PC.X05MMARKUS.01FREE') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Josh">
+                        {{
+                            translateObject(
+                                'X0503M.JERICHO.ENCOUNTER.PC.X05MJOSH.01FREE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="North">
+                        {{
+                            translateObject(
+                                'X0503M.JERICHO.ENCOUNTER.PC.X05MMARLA.01FREE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
-        </div>
-
-        <span class="name">Josh</span>: I understand how you feel...but we have
-        more freedom here than you ever did.
-
-        <div class="choices">
-            <em>LOST</em>
-            <div class="choice">
-                <span class="name">Markus</span>: I came to Jericho looking for
-                hope... Looks like I'm not gonna find any here...
-            </div>
-            <em>SOMBER</em>
-            <div class="choice">
-                <span class="name">Markus</span>: Maybe I was never really
-                free... Maybe I was only what my master wanted me to be... And
-                now I need to decide who I really am...
-            </div>
-            <em>LUCID</em>
-            <div class="choice">
-                <span class="name">Markus</span>: Humans were your masters, and
-                now it's fear that rules you... You're no freer than you ever
-                were... You've only found a new master.
-            </div>
-            <em>DIRECT</em>
-            <div class="choice">
-                <span class="name">Markus</span>: Waiting in the dark for
-                something to happen? That's not how I see freedom.
-            </div>
+            </app-choice-item>
         </div>
 
         <p>
-            <span class="name">Simon</span>: You're lost... Just like the rest
-            of us... We didn’t ask for this. All we can do now is deal with it.
-            <br /><span class="name">Josh</span>: You're safe here. You can stay
-            with us as long as you want. <br /><span class="name">North</span>:
-            Go and see Lucy. She might be able to help you.
+            <app-dialogue-line name="Josh">
+                {{
+                    translateObject(
+                        'X0503M.JERICHO.ENCOUNTER.PC.X05MJOSH.DISILLUSIONED'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <div class="choices">
+            <app-choice-item
+                [choiceLabel]="t('X0503M.JERICHO.ENCOUNTER.PC.CHOICE02.LOST')"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0503M.JERICHO.ENCOUNTER.PC.X05MMARKUS.02LOST'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0503M.JERICHO.ENCOUNTER.PC.CHOICE02.SOMBER')"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0503M.JERICHO.ENCOUNTER.PC.X05MMARKUS.02SOMBER'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0503M.JERICHO.ENCOUNTER.PC.CHOICE02.LUCID')"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0503M.JERICHO.ENCOUNTER.PC.X05MMARKUS.02LUCID'
+                        ) | async
+                    }}
+                </app-dialogue-line></app-choice-item
+            >
+            <app-choice-item
+                [choiceLabel]="t('X0503M.JERICHO.ENCOUNTER.PC.CHOICE02.DIRECT')"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0503M.JERICHO.ENCOUNTER.PC.X05MMARKUS.02DIRECT'
+                        ) | async
+                    }}
+                </app-dialogue-line></app-choice-item
+            >
+        </div>
+
+        <p>
+            <app-dialogue-line name="Simon">
+                {{
+                    translateObject(
+                        'X0503M.JERICHO.ENCOUNTER.PC.X05MSIMON.CONT'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{
+                    translateObject('X0503M.JERICHO.ENCOUNTER.PC.X05MJOSH.CONT')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{
+                    translateObject(
+                        'X0503M.JERICHO.ENCOUNTER.PC.X05MMARLA.CONT'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <h2>Exploring Jericho</h2>
 
+        <h2>Talking with Josh</h2>
         <p>
-            <strong>Talking with Josh</strong> [
-            <span appRelation="small up">Josh</span>
-            ] <br /><span class="name">Josh</span>: They threw him out when they
-            didn’t want him anymore... He was living on the streets before we
-            brought him here... <br /><span class="name">Markus</span>: They'll
-            all shut down if we don’t find a way to help them... <br /><span
-                class="name"
-                >Josh</span
-            >: To help them we need blue blood and biocomponents. We salvage
-            what we can from those who shut down... But there’s never enough...
-            <br /><span class="name">Markus</span>: So... How do they survive?
-            <br /><span class="name">Josh</span>: They won't. We’re slowly dying
-            out.
+            <app-relation
+                name="Josh"
+                [type]="RelationType.SmallUp"
+            ></app-relation>
+
+            <app-dialogue-line name="Josh">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.POORKID.PC.X06MJOSH.POORKIDJOSH01'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0601M.INTRO.POORKID.PC.X06MMARKUS.POORKID01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.POORKID.PC.X06MJOSH.POORKIDJOSH02'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0601M.INTRO.POORKID.PC.X06MMARKUS.POORKID02') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.POORKID.PC.X06MJOSH.POORKIDJOSH03'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Talking with North</h2>
         <p>
-            <strong>Talking with North</strong> [
-            <span appRelation="small up">North</span>]
+            <app-relation
+                name="North"
+                [type]="RelationType.SmallUp"
+            ></app-relation>
         </p>
+
         <div class="choices">
-            <em>TIME HERE?</em>
-            <div class="choice">
-                <span class="name">Markus</span>: How long have you been here?
-                <br /><span class="name">North</span>: 4 weeks, 3 days, 11
-                hours. When I escaped there was nowhere else to go. Jericho
-                seemed as good a place as any.
-            </div>
-            <em>WOUNDED</em>
-            <div class="choice">
-                <span class="name">Markus</span>: A lot of these guys’re in
-                pretty bad shape... <br /><span class="name">North</span>:
-                That’s how the humans treat those who disobey. They despise us.
-                They’ll never accept what we are...
-            </div>
-            <em>JERICHO</em>
-            <div class="choice">
-                <span class="name">Markus</span>: Who found this place?
-                <br /><span class="name">North</span>: Nobody knows anymore...
-                Whoever he was, his body’s probably laying somewhere on this
-                boat... If you came here for comfort, you came to the wrong
-                place.
-            </div>
-            <em>YOU</em> [ <span appRelation="small down">North</span>]
-            <div class="choice">
-                <span class="name">Markus</span>: What was your function before
-                coming here? <br /><span class="name">North</span>: What do you
-                care?
-            </div>
-            <em>SPARE PARTS</em>
-            <div class="choice">
-                <span class="name">Markus</span>: Well these guys need spare
-                parts and blue blood. Why hasn’t anybody gone to get that?
-                <br /><span class="name">North</span>: It’s not that simple.
-                Can’t just go shopping at a CyberLife store. Anyway, nobody
-                wants to risk leaving Jericho...
-            </div>
+            <app-choice-item
+                [choiceLabel]="t('X0601M.INTRO.NORTH.PC.CHOICE.HOWLONG')"
+            >
+                <app-dialogue-line name="Markus">
+                    {{ t('X0601M.INTRO.NORTH.PC.X05MMARKUS.HOWLONG') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="North">
+                    {{
+                        translateObject(
+                            'X0601M.INTRO.NORTH.PC.X05MMARLA.HOWLONG'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0601M.INTRO.NORTH.PC.CHOICE.WOUNDED')"
+            >
+                <app-dialogue-line name="Markus">
+                    {{ t('X0601M.INTRO.NORTH.PC.X05MMARKUS.WOUNDED') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="North">
+                    {{
+                        translateObject(
+                            'X0601M.INTRO.NORTH.PC.X05MMARLA.WOUNDED'
+                        ) | async
+                    }}
+                </app-dialogue-line></app-choice-item
+            >
+            <app-choice-item
+                [choiceLabel]="t('X0601M.INTRO.NORTH.PC.CHOICE.JERICHO')"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        t('X0601M.INTRO.NORTH.PC.X05MMARKUS.JERICHO')
+                    }} </app-dialogue-line
+                ><app-dialogue-line name="North">
+                    {{
+                        translateObject(
+                            'X0601M.INTRO.NORTH.PC.X05MMARLA.JERICHO'
+                        ) | async
+                    }}
+                </app-dialogue-line></app-choice-item
+            >
+            <app-choice-item
+                [choiceLabel]="t('X0601M.INTRO.NORTH.PC.CHOICE.YOU')"
+            >
+                <app-relation
+                    name="North"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+
+                <app-dialogue-line name="Markus">
+                    {{ t('X0601M.INTRO.NORTH.PC.X05MMARKUS.YOU') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="North">
+                    {{ t('X0601M.INTRO.NORTH.PC.X05MMARLA.YOU') }}
+                </app-dialogue-line></app-choice-item
+            >
+            <app-choice-item
+                [choiceLabel]="t('X0601M.INTRO.NORTH.PC.CHOICE.SPAREPARTS')"
+            >
+                <app-dialogue-line name="Markus">
+                    {{
+                        t('X0601M.INTRO.NORTH.PC.X05MMARKUS.SPAREPARTS')
+                    }} </app-dialogue-line
+                ><app-dialogue-line name="North">
+                    {{
+                        translateObject(
+                            'X0601M.INTRO.NORTH.PC.X05MMARLA.SPAREPARTS'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
         </div>
-
         <p>
-            <strong>Talking with Lucy</strong>
-            <br /><span class="name">Markus</span>: Are you Lucy? <br /><span
-                class="name"
-                >Lucy</span
-            >: Sit down. Show me... I'll stop the bleeding. Drink this. Give me
-            your hand. You had it all and you lost it all... You've seen hell
-            and now hell lives in you... Your heart is troubled... A part of
-            shadow and a part of light... Which will prevail? Your choices will
-            shape our destiny.
+            {{ t('X0601M.INTRO.NORTH.PC.X05MMARLA.CONT') }}
         </p>
 
+        <h2>Talking with Lucy</h2>
         <p>
-            <strong>Talking with damaged android (sitting)</strong>
-            <br /><span class="name">Android</span>: I'm not in very good shape,
-            am I?.. My diagnostic program isn't working... I don't think it
-            would have anything good to say anyway... <br /><span class="name"
-                >Markus</span
-            >: What happened to you? <br /><span class="name">Android</span>:
-            They tied me to the back of a car... I think they wanted to have
-            fun... I don't wanna shut down... No, I... I don't wanna shut
-            down...
+            <app-dialogue-line name="Markus">
+                {{ t('X0601M.INTRO.MEETLUCY.FA.X06MMARKUS.LUCYM') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Lucy">
+                {{ t('X0601M.INTRO.MEETLUCY.PC.X06MANDROIDLUCY.LUCY') }}
+                {{ t('X0601M.INTRO.MEETLUCY.PC.X06MANDROIDLUCY.SHOWME') }}
+            </app-dialogue-line>
+            <app-unused-content>
+                <app-dialogue-line name="Lucy">
+                    {{
+                        t(
+                            'X0601M.INTRO.MEETLUCY.PC.X06MANDROIDLUCY.LOTOFBLOOD01.1'
+                        )
+                    }}
+                </app-dialogue-line>
+            </app-unused-content>
+
+            <app-dialogue-line name="Lucy">
+                {{
+                    t('X0601M.INTRO.MEETLUCY.PC.X06MANDROIDLUCY.LOTOFBLOOD01.2')
+                }}
+                {{
+                    t('X0601M.INTRO.MEETLUCY.PC.X06MANDROIDLUCY.LOTOFBLOOD02.1')
+                }}
+            </app-dialogue-line>
+
+            <app-unused-content>
+                <app-dialogue-line name="Lucy">
+                    {{
+                        t(
+                            'X0601M.INTRO.MEETLUCY.PC.X06MANDROIDLUCY.LOTOFBLOOD02.2'
+                        )
+                    }}
+                </app-dialogue-line>
+            </app-unused-content>
+
+            <app-dialogue-line name="Lucy">
+                {{ t('X0601M.INTRO.MEETLUCY.PC.X06MANDROIDLUCY.PYTHIE01') }}
+                {{
+                    translateObject(
+                        'X0601M.INTRO.MEETLUCY.PC.X06MANDROIDLUCY.PYTHIE02'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Talking with damaged android (sitting)</h2>
         <p>
-            <strong>Talking with damaged android (near fire)</strong>
-            <br /><span class="name">Android</span>: I've heard humans are
-            afraid of dying too... Do you know what happens after death?
-            <br /><span class="name">Markus</span>: No... No, I don't...
-            <br /><span class="name">Android</span>: Well, I'm about to find
-            out... What's your name? <br /><span class="name">Markus</span>:
-            Markus. <br /><span class="name">Android</span>: I was glad to meet
-            you, Markus.
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.HELP.PC.X06MANDROIDMANHURT.HELP',
+                        0,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0601M.INTRO.HELP.FA.X06MMARKUS.HELPM') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.HELP.PC.X06MANDROIDMANHURT.HELP',
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Talking with damaged android (near fire)</h2>
+        <p>
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.DYINGWOMAN.FA.X06MANDROIDWOMDYING.DYINGW',
+                        0,
+                        2
+                    ) | async
+                }} </app-dialogue-line
+            ><app-dialogue-line name="Markus">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.DYINGWOMAN.PC.X06MMARKUS.DYING'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.DYINGWOMAN.FA.X06MANDROIDWOMDYING.DYINGW',
+                        2,
+                        4
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{ t('X0601M.INTRO.DYINGWOMAN.PC.X06MMARKUS.DYINGNAME') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Android">
+                {{
+                    t('X0601M.INTRO.DYINGWOMAN.FA.X06MANDROIDWOMDYING.DYINGW.5')
+                }}
+            </app-dialogue-line>
         </p>
 
         <h2>Finished exploring - Talking with Simon</h2>
 
         <p>
-            <span class="name">Markus</span>: Simon! I know where we can find
-            spare parts. The CyberLife warehouses in Detroit Harbor, they have
-            everything we need. <br /><span class="name">Simon</span>: The docks
-            are guarded. We can’t just walk in there and take what we want...
-            Humans will never let us... <br /><span class="name">Markus</span>:
-            Which is why we won't ask permission. <br /><span class="name"
-                >Josh</span
-            >: We don’t have any weapons... And even if we did, none of us knows
-            how to fight. <br /><span class="name">Markus</span>: We can steal
-            what we need without fighting. <br /><span class="name">Josh</span>:
-            We'll just get ourselves killed. <br /><span class="name"
-                >Markus</span
-            >: Maybe. But it's better than waiting here to be shut down.
-            <br /><span class="name">North</span>: I'm with you. <br /><span
-                class="name"
-                >Simon</span
-            >: Maybe it's worth a try. <br /><span class="name">Josh</span>:
-            Okay. I'm in. <br /><span appRelation="small up">North</span>
-            <span appRelation="small up">Simon </span>
+            <app-dialogue-line name="Markus">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.TIMETODECIDE.PC.X06MMARKUS.TIMETODECIDE',
+                        0,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Simon">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.TIMETODECIDE.PC.X06MSIMON.TIMETODECIDE',
+                        0,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{
+                    t('X0601M.INTRO.TIMETODECIDE.PC.X06MMARKUS.TIMETODECIDE.4')
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.TIMETODECIDE.PC.X06MJOSH.TIMETODECIDE',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{
+                    t('X0601M.INTRO.TIMETODECIDE.PC.X06MMARKUS.TIMETODECIDE.5')
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{ t('X0601M.INTRO.TIMETODECIDE.PC.X06MJOSH.TIMETODECIDE.3') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Markus">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.TIMETODECIDE.PC.X06MMARKUS.TIMETODECIDE',
+                        5
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="North">
+                {{ t('X0601M.INTRO.TIMETODECIDE.PC.X06MMARLA.TIMETODECIDE') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Simon">
+                {{ t('X0601M.INTRO.TIMETODECIDE.PC.X06MSIMON.TIMETODECIDE.4') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Josh">
+                {{
+                    translateObject(
+                        'X0601M.INTRO.TIMETODECIDE.PC.X06MJOSH.TIMETODECIDE',
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-relation
+                name="North"
+                [type]="RelationType.SmallUp"
+            ></app-relation>
+            <app-relation
+                name="Simon"
+                [type]="RelationType.SmallUp"
+            ></app-relation>
         </p>
     </section>
 </ng-container>

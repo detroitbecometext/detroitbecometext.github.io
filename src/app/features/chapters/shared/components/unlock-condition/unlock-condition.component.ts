@@ -10,6 +10,7 @@ export class UnlockConditionComponent {
     UnlockType = UnlockType;
 
     @Input() unlockType: UnlockType;
+    @Input() bracketsOnlyAroundIcon: boolean;
 
     constructor() {}
 }

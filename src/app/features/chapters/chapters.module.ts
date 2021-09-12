@@ -55,6 +55,8 @@ import { ChoiceItemComponent } from './shared/components/choice-item/choice-item
 import { RelationComponent } from './shared/components/relation/relation.component';
 import { ObservationComponent } from './shared/components/observation/observation.component';
 import { UnlockConditionComponent } from './shared/components/unlock-condition/unlock-condition.component';
+import { BackgroundDialoguesComponent } from './chapter-contents/30-crossroads-intro/background-dialogues/background-dialogues.component';
+import { ScreensComponent } from './chapter-contents/30-crossroads-intro/screens/screens.component';
 
 @NgModule({
     declarations: [
@@ -110,6 +112,8 @@ import { UnlockConditionComponent } from './shared/components/unlock-condition/u
         RelationComponent,
         ObservationComponent,
         UnlockConditionComponent,
+        ScreensComponent,
+        BackgroundDialoguesComponent,
     ],
     imports: [SharedModule, ChaptersRoutingModule, TranslocoRootModule],
 })

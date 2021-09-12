@@ -6,67 +6,137 @@
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            NOV 6TH, 2038
-            <br />AM 10:25 {{ t('GUI.MENU.DATE.') }}<br />
-            {{ t('GUI.MENU.TIME.') }}
+            {{ t('GUI.MENU.DATE.04K') }}
+            <br />
+            {{ t('GUI.MENU.TIME.04K') }}
         </p>
 
         <h1>Kara stayed at the Parking lot</h1>
 
         <p>
-            <span class="name">Kara</span>: Alice... Wake up, Alice...
-            <br /><span class="name">Alice</span>: So it wasn't a nightmare...
-            <br /><span class="name">Kara</span>: No... No, it wasn't a
-            nightmare. How do you feel? <br /><span class="name">Alice</span>:
-            I'm cold... What are we gonna do now?.. <br /><span class="name"
-                >Kara</span
-            >: That android we saw yesterday... He gave me an address, he said
-            we could get help there. The train passes just on the other side of
-            the road, the station can't be far... You feel okay to walk a
-            little? Let's go then.
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject(
+                        'X0404K.CAR.WAKEUP.PC.X04KKARA.WAKEUPV2',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Alice">
+                {{ t('X0404K.CAR.WAKEUP.PC.X04KALICE.WAKEUPV2.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject(
+                        'X0404K.CAR.WAKEUP.PC.X04KKARA.WAKEUPV2',
+                        2,
+                        5
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Alice">
+                {{
+                    translateObject(
+                        'X0404K.CAR.WAKEUP.PC.X04KALICE.WAKEUPV2',
+                        1
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject('X0404K.CAR.WAKEUP.PC.X04KKARA.WAKEUPV2', 5)
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">Alice</span>: You're pretty like that. You really
-            look like a human now.
+            <app-dialogue-line name="Alice">
+                {{
+                    translateObject(
+                        'X0401K.MOTEL.COMPLIMENT.PC.X04KALICE.COMPLIMENT'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <p><span class="name">Kara</span>: The police are on our trail...</p>
+        <p>
+            <app-dialogue-line name="Kara">
+                {{ t('X0404K.PARKING.FENCEGATE.PC.X04KKARA.POLICE.1') }}
+            </app-dialogue-line>
+        </p>
 
         <h2>The police are outside the supermarket</h2>
 
         <p>
-            <span class="name">Hank</span>: Alright, that's all for now. Free to
-            go. <br /><span class="name">Ben</span>: We've got officers sweeping
-            the neighborhood, in case anybody saw anything. <br /><span
-                class="name"
-                >Hank</span
-            >: Okay. Well, let me know if they turn anything up. <br /><span
-                class="name"
-                >Ben</span
-            >: What are you gonna do with that? <br /><span class="name"
-                >Hank</span
-            >: I've no idea... <br /><span class="name">Connor</span>: It took
-            the first bus that came along...and stayed at the end of the line.
-            Its decision wasn't planned, it was driven by fear. <br /><span
-                class="name"
-                >Hank</span
-            >: Androids don't feel fear. <br /><span class="name">Connor</span>:
-            Deviants do. They get overwhelmed by their emotions and make
-            irrational decisions. <br /><span class="name">Hank</span>: Ah well,
-            that still doesn't tell us where it went. <br /><span class="name"
-                >Connor</span
-            >: It didn't have a plan, and it had nowhere to go. Maybe it didn't
-            go far... <br /><span class="name">Hank</span>: Maybe...
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject('X0402K.SQUAT.CONNOR.PC.X04KHANK.BUSDRIVER')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Ben">
+                {{ t('X0402K.SQUAT.CONNOR.PC.X04KCHAD.ROUND.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0402K.SQUAT.CONNOR.PC.X04KHANK.ROUND.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Ben">
+                {{ t('X0402K.SQUAT.CONNOR.PC.X04KCHAD.ROUND.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0402K.SQUAT.CONNOR.PC.X04KHANK.ROUND.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY',
+                        0,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY',
+                        3,
+                        5
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY',
+                        5
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.3') }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <strong>Kara reach the train station unnoticed</strong>
-            <div class="condition-text">
-                <span class="name">Hank</span>: It won't get far. We'll find it
-                sooner or later. Let's go.
+        <app-conditioned-content>
+            <div class="condition">Kara reach the train station unnoticed</div>
+            <div class="content">
+                <app-dialogue-line name="Hank">
+                    {{
+                        translateObject(
+                            'X0405K.CHASEV2.NOTNOTICED.PC.X04KHANK.LATER'
+                        ) | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
     </section>
 
     <section>
@@ -74,194 +144,385 @@
 
         <h2>The police are outside the supermarket</h2>
         <p>
-            <span class="name">Hank</span>: Alright, that's all for now. Free to
-            go. <br /><span class="name">Ben</span>: We've got officers sweeping
-            the neighborhood, in case anybody saw anything. <br /><span
-                class="name"
-                >Hank</span
-            >: Okay. Well, let me know if they turn anything up. <br /><span
-                class="name"
-                >Ben</span
-            >: What are you gonna do with that? <br /><span class="name"
-                >Hank</span
-            >: I've no idea...
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject('X0402K.SQUAT.CONNOR.PC.X04KHANK.BUSDRIVER')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Ben">
+                {{ t('X0402K.SQUAT.CONNOR.PC.X04KCHAD.ROUND.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0402K.SQUAT.CONNOR.PC.X04KHANK.ROUND.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Ben">
+                {{ t('X0402K.SQUAT.CONNOR.PC.X04KCHAD.ROUND.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0402K.SQUAT.CONNOR.PC.X04KHANK.ROUND.2') }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <span class="name"
-                >Kara stole wire cutters from the supermarket in
-                <a [routerLink]="['/chapters', 10]">Fugitives</a></span
-            >
-            <div class="condition-text">
-                <span class="name">Hank</span>: So, what do we got here? Bus
-                driver saw it at 2.30, seen at a convenience store...
-                <br /><span class="name">Connor</span>: It stole wire cutters.
-                There must be a reason. <br /><span class="name">Hank</span>:
-                Wire cutters? The fuck you talkin' about? <br /><span
-                    class="name"
-                    >Connor</span
-                >: I checked the CCTV while you were questioning the clerk. The
-                android was caught on camera stealing them. It had wire cutters
-                and it was looking for a place to hide. <br /><span class="name"
-                    >Hank</span
-                >: So, what's your conclusion, Sherlock? <br /><span
-                    class="name"
-                    >Connor</span
-                >: Maybe it didn't go far...
+        <app-conditioned-content>
+            <div class="condition">
+                Kara stole wire cutters from the supermarket in
+                <a [routerLink]="['/chapters', 10]">Fugitives</a>
             </div>
-        </div>
+            <div class="content">
+                <!-- TODO: Check difference STEAL vs NOSTEAL clothes -->
 
-        <div class="condition">
-            <span class="name">Kara didn't steal the wire cutters</span>
-            <div class="condition-text">
-                <span class="name">Connor</span>: It took the first bus that
-                came along...and stayed at the end of the line. Its decision
-                wasn't planned, it was driven by fear. <br /><span class="name"
-                    >Hank</span
-                >: Androids don't feel fear. <br /><span class="name"
-                    >Connor</span
-                >: Deviants do. They get overwhelmed by their emotions and make
-                irrational decisions. <br /><span class="name">Hank</span>: Ah
-                well, that still doesn't tell us where it went. <br /><span
-                    class="name"
-                    >Connor</span
-                >: It didn't have a plan, and it had nowhere to go. Maybe it
-                didn't go far... <br /><span class="name">Hank</span>: Maybe...
+                <app-dialogue-line name="Hank">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.CONNOR.PC.X04KHANK.STEAL',
+                            0,
+                            2
+                        ) | async
+                    }}
+                    {{ t('X0402K.SQUAT.CONNOR.PC.X04KHANK.STEAL.4') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.CONNOR.PC.X04KCONNOR.DIALCONNOR',
+                            0,
+                            2
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.CONNOR.PC.X04KHANK.DIALCONNOR',
+                            0,
+                            2
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.CONNOR.PC.X04KCONNOR.DIALCONNOR',
+                            2,
+                            6
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0402K.SQUAT.CONNOR.PC.X04KHANK.DIALCONNOR.3') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{ t('X0402K.SQUAT.CONNOR.PC.X04KCONNOR.DIALCONNOR.7') }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
+
+        <app-conditioned-content>
+            <div class="condition">Kara didn't steal the wire cutters</div>
+            <div class="content">
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY',
+                            0,
+                            3
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.1') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY',
+                            3,
+                            5
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.2') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY',
+                            5
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.3') }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
 
         <h2>In the squat with Ralph</h2>
 
         <p>
-            <span class="name">Ralph</span>: Ralph found this to feed the little
-            girl. It's good for her... A present... To make up for past
-            misunderstandings... Ralph'll cook... We will do just like humans
-            do. Humans like burnt meat... Come! Come and sit down!
+            <app-dialogue-line name="Ralph">
+                {{
+                    translateObject('X0402K.SQUAT.COYPU.PC.X04KRALPH.START')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="choices">
-            <em>SIT</em>
-            <div class="choice">&oslash;</div>
-            <em>REFUSE</em>
-            <div class="choice">
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP01.SIT')"
+            >
+                <span>&oslash;</span>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP01.REFUSE')"
+            >
                 <p>
-                    <span class="name">Kara</span>: That's very kind of you,
-                    Ralph...but we have to go... <br /><span class="name"
-                        >Ralph</span
-                    >: Go? Ha ha! No, you will go once the little girl has
-                    eaten. We will eat together, just like a family... You know,
-                    the father, the mother, and the little girl...
+                    <app-dialogue-line name="Kara">
+                        {{
+                            translateObject(
+                                'X0402K.SQUAT.COYPU.PC.X04KKARA.REFUSE01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Ralph">
+                        {{
+                            translateObject(
+                                'X0402K.SQUAT.COYPU.PC.X04KRALPH.REFUSE01',
+                                1
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
-                <div class="choices">
-                    <em>SIT</em>
-                    <div class="choice">&oslash;</div>
-                    <em>REFUSE</em> [
-                    <span appRelation="small up">Alice</span>
-                    ]
-                    <div class="choice">
-                        <span class="name">Kara</span>: No, Ralph. We're leaving
-                        now. Come on, Alice. <br /><span class="name"
-                            >Ralph</span
-                        >: The little girl's going nowhere.
-                    </div>
-                </div>
-            </div>
-        </div>
+                <app-choice-group>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP02.SIT')
+                        "
+                    >
+                        &oslash;</app-choice-item
+                    >
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP02.REFUSE')
+                        "
+                    >
+                        [
+                        <app-relation
+                            name="Alice"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+
+                        <app-dialogue-line name="Kara">
+                            {{
+                                translateObject(
+                                    'X0402K.SQUAT.COYPU.PC.X04KKARA.REFUSE02'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Ralph">
+                            {{ t('X0402K.SQUAT.COYPU.PC.X04KRALPH.REFUSE02') }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                </app-choice-group>
+            </app-choice-item>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
-        <div class="choices">
-            <em>[ CHECK GUN ]</em> [
-            <i class="fas fa-lock-open fa-flip-horizontal"></i> if took the gun
-            in <a [routerLink]="['/chapters', 7]">Stormy Night</a> and didn't
-            forget it upstairs]
-            <div class="choice">&oslash;</div>
-            <em>WORRIED</em>
-            <div class="choice">
-                <span class="name">Kara</span>: You're not gonna hurt her, are
-                you? We're friends, remember? <br /><span class="name"
-                    >Ralph</span
-                >: No, Ralph doesn't want to hurt the little girl... He just
-                wants her to eat, that's all...
-            </div>
-            <em>EXPLAIN</em>
-            <div class="choice">
-                <span class="name">Kara</span>: Humans don't eat that, Ralph.
-                <br /><span class="name">Ralph</span>: WRONG! Humans eat dead
-                animals! I know that!
-            </div>
-            <em>AGREE</em>
-            <div class="choice">
-                <span class="name">Kara</span>: Okay. We'll eat together...like
-                a family...
-            </div>
-        </div>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP03.GUN')"
+                [brackets]="true"
+            >
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    If took the gun in
+                    <a [routerLink]="['/chapters', 7]">Stormy Night</a> and
+                    didn't forget it upstairs
+                </app-unlock-condition>
+                <span>&oslash;</span></app-choice-item
+            >
+            <app-choice-item
+                [choiceLabel]="t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP03.WORRIED')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.COYPU.PC.X04KKARA.WORRIED'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Ralph">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.COYPU.PC.X04KRALPH.WORRIED',
+                            1
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP03.EXPLAIN')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0402K.SQUAT.COYPU.PC.X04KKARA.EXPLAIN') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Ralph">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.COYPU.PC.X04KRALPH.EXPLAIN'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP03.AGREE')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0402K.SQUAT.COYPU.PC.X04KKARA.AGREE')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
 
         <p>
-            <span class="name">Ralph</span>: That's better. Ralph went to a lot
-            of trouble to find something for the little girl to eat. It wouldn't
-            be polite for her to refuse, would it? Great. It's going to be
-            great. Succulent you'll see. Succulent. Succulent. Father, mother,
-            little girl. <br /><span class="name">Alice</span>: Please, Kara. I
-            don't wanna eat that! <br /><span class="name">Ralph</span>: What
-            did she say?
+            <app-dialogue-line name="Ralph">
+                {{
+                    translateObject('X0402K.SQUAT.COYPU.PC.X04KRALPH.SIT01')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Alice">
+                {{
+                    translateObject('X0402K.SQUAT.COYPU.PC.X04KALICE.SIT02')
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Ralph">
+                {{ t('X0402K.SQUAT.COYPU.PC.X04KRALPH.SIT02') }}
+            </app-dialogue-line>
         </p>
 
-        <div class="choices">
-            <em>LIE</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: She said she can't wait to eat
-                it! She's very hungry. <br /><span class="name">Ralph</span>:
-                The little human is not gonna regret it! Ralph found the best,
-                the biggest one he could find! This is going to be succulent!
-                Succulent!
-            </div>
-            <em>TRUTH</em> [
-            <span appRelation="small down">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: She said she doesn't want to eat
-                it. <br /><span class="name">Ralph</span>: Well maybe it's not
-                good enough? Maybe... she's used to better things? But Ralph did
-                this for her, so she's going to eat!
-            </div>
-        </div>
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP04.LIE')"
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
 
-        <p><span class="name">Ralph</span>: Go ahead, eat. EAT! Eat.</p>
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0402K.SQUAT.COYPU.PC.X04KKARA.LIE')
+                            | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Ralph">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.COYPU.PC.X04KRALPH.LIE',
+                            1
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP04.TRUTH')"
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
 
-        <div class="choices">
-            <em>[ ASK ABOUT CORPSE ]</em> [
-            <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked if saw
-            the body in the bathroom]
-            <div class="choice">
-                <span class="name">Kara</span>: I saw the body upstairs. You
-                killed that human, didn't you? <br /><span class="name"
-                    >Ralph</span
-                >: No... No, he was like that when Ralph found him...
-            </div>
-            <em>[ INSIST ABOUT CORPSE ]</em> [available if asked about corpse]
-            <div class="choice">
-                <span class="name">Kara</span>: You killed that man, Ralph.
-                There's no point in lying. You hate humans, but you're just like
-                them. You're a murderer! <br /><span class="name">Ralph</span>:
-                Ralph didn't mean any harm... No...it's just that... Ralph can't
-                control his anger... When his anger comes, Ralph doesn't know
-                what he's doing... he... he becomes stupid...full of hatred...
-                Ralph is sorry... He just wanted to be your friend. <br /><span
-                    class="name"
-                    >Kara</span
-                >: Then let us go.
-            </div>
-            <em>THREATEN</em>
-            <div class="choice">
-                <div class="condition">
-                    <span class="name">No gun : Kara takes a knife</span>
-                    <div class="condition-text">
-                        <span class="name">Kara</span>: Get back!
+                <app-dialogue-line name="Kara">
+                    {{ t('X0402K.SQUAT.COYPU.PC.X04KKARA.TRUTH') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Ralph">
+                    {{
+                        translateObject('X0402K.SQUAT.COYPU.PC.X04KRALPH.TRUTH')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
+
+        <p>
+            <app-dialogue-line name="Ralph">
+                {{
+                    translateObject('X0402K.SQUAT.COYPU.PC.X04KRALPH.EAT')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP06.BATHBODY')
+                "
+                [brackets]="true"
+            >
+                <app-unlock-condition [unlockType]="UnlockType.Lock">
+                    Unlocked if saw the body in the bathroom
+                </app-unlock-condition>
+
+                <app-dialogue-line name="Kara">
+                    I saw the body upstairs. You killed that human, didn't you?
+                </app-dialogue-line>
+                <app-dialogue-line name="Ralph">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.COYPU.PC.X04KRALPH.BATHBODY'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP06.INSISTBODY')
+                "
+                [brackets]="true"
+            >
+                [ Available if asked about corpse ]
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.COYPU.PC.X04KKARA.INSISTBODY',
+                            0,
+                            3
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Ralph">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.COYPU.PC.X04KRALPH.INSISTBODY'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Kara">
+                    {{ t('X0402K.SQUAT.COYPU.PC.X04KKARA.INSISTBODY.4') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP06.THREATEN')
+                "
+            >
+                <app-conditioned-content>
+                    <div class="condition">No gun : Kara takes a knife</div>
+                    <div class="content">
+                        <app-dialogue-line name="Kara">
+                            {{ t('X0402K.SQUAT.COYPU.PC.X04KKARA.THREATEN') }}
+                        </app-dialogue-line>
                     </div>
-                </div>
+                </app-conditioned-content>
 
                 <div class="condition">
                     <span class="name"
@@ -269,482 +530,963 @@
                         gun</span
                     >
                     <div class="condition-text">
-                        <span class="name">Kara</span>: Get back, or I swear
-                        I'll blow your head off!
+                        <app-dialogue-line name="Kara">
+                            {{ t('X0402K.SQUAT.COYPU.PC.X04KKARA.DRAWGUN') }}
+                        </app-dialogue-line>
                     </div>
                 </div>
-            </div>
-            <em>BLUFF </em>
-            <div class="choice">
-                <span class="name">Kara</span>: We're going to stand up now, and
-                we're going to leave, Ralph. <br /><span class="name"
-                    >Ralph</span
-                >: No... No, you're not going to leave. Not until Ralph says so.
-            </div>
-            <em>FAMILY</em>
-            <div class="choice">
-                <span class="name">Kara</span>: You said you wanted to be like a
-                family, Ralph... Father, mother, the little girl, remember?.. A
-                father would never threaten his little girl with a knife to make
-                her eat... <br /><span class="name">Ralph</span>: Ralph went to
-                a lot of trouble... That's why...he just wanted the little girl
-                to eat... But Ralph is not bad, no, not bad... <br /><span
-                    class="name"
-                    >Kara</span
-                >: Then let us go.
-            </div>
-        </div>
+            </app-choice-item>
 
-        <p><span class="name">Connor</span>: Anybody home?</p>
+            <app-choice-item
+                [choiceLabel]="t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP05.BLUFF')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0402K.SQUAT.COYPU.PC.X04KKARA.BLUFF')
+                            | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Ralph">
+                    {{
+                        translateObject('X0402K.SQUAT.COYPU.PC.X04KRALPH.BLUFF')
+                            | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP06.FAMILY')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.COYPU.PC.X04KKARA.FAMILY',
+                            0,
+                            6
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Ralph">
+                    {{
+                        translateObject(
+                            'X0402K.SQUAT.COYPU.PC.X04KRALPH.FAMILY'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Kara">
+                    {{ t('X0402K.SQUAT.COYPU.PC.X04KKARA.FAMILY.7') }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
+
+        <p>
+            <app-dialogue-line name="Connor">
+                {{ t('X0402K.SQUAT.COYPU.VO.X04CCONNOR.CONNOR') }}
+            </app-dialogue-line>
+        </p>
 
         <h2>Connor investigates the squat</h2>
 
         <p>
-            <span class="name">Connor</span>: There's blue blood on the fence. I
-            know another android was here.
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.BLUEBLOOD'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <span class="name">Kara was nice with Ralph</span>
-            <div class="condition-text">
-                <div class="choices">
-                    <em>AX400</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: I'm looking for an
-                        AX400. Have you seen it? <br /><span class="name"
-                            >Ralph</span
-                        >: Ralph's seen nobody...
-                    </div>
-                    <em>DEVIANTS</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: Are there any other
-                        androids here? <br /><span class="name">Ralph</span>:
-                        Other androids?.. No... Ralph is alone...
-                    </div>
-                    <em>REASSURE</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: Don't be afraid. I'm
-                        not gonna hurt you.
-                    </div>
-                    <em>BLUE BLOOD </em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: There's blue blood on
-                        the fence. I know another android was here. <br /><span
-                            class="name"
-                            >Ralph</span
-                        >: Ralph scratched himself coming through... That's
-                        Ralph's blood...
-                    </div>
-                </div>
-
-                <p>
-                    <strong>Connor finds Kara</strong>
-                    <br /><span class="name">Ralph</span>: RUN! QUICK! KARA!
-                    <br /><span class="name">Hank</span>: Connor, what's going
-                    on? <br /><span class="name">Connor</span>: It's here! Call
-                    it in! <br /><span class="note"
-                        >Leads to Connor pursues Kara.</span
+        <app-conditioned-content>
+            <div class="condition">Kara was nice with Ralph</div>
+            <div class="content">
+                <app-choice-group>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.AX400')
+                        "
                     >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.AX400'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Ralph">
+                            {{
+                                t('X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.AX400R')
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.DEVIANTS'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.DEVIANTS'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Ralph">
+                            {{
+                                translateObject(
+                                    'X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.DEVIANTSR'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.REASSURE'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.REASSURE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.BLUEBLOOD'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.BLUEBLOOD'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Ralph">
+                            {{
+                                translateObject(
+                                    'X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.BLUEBLOOD'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                </app-choice-group>
+
+                <h2>Connor finds Kara</h2>
+                <p>
+                    <app-dialogue-line name="Ralph">
+                        {{ t('X0402K.SQUAT.KARAFOUND.PC.X04KRALPH.RUN') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0402K.SQUAT.KARAFOUND.PC.X04CHANK.HANK') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X0402K.SQUAT.KARAFOUND.PC.X04CCONNOR.CONNOR') }}
+                    </app-dialogue-line>
+                    <span class="note">Leads to Connor pursues Kara.</span>
                 </p>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <span class="name">Kara threatened Ralph</span>
-            <div class="condition-text">
-                <div class="choices">
-                    <em>AX400</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: I'm looking for an
-                        AX400. Have you seen it?
-                    </div>
-                    <em>DEVIANTS</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: Are there any other
-                        androids here?
-                    </div>
-                    <em>REASSURE</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: Don't be afraid. I'm
-                        not gonna hurt you.
-                    </div>
-                    <em>BLUE BLOOD </em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: There's blue blood on
-                        the fence. I know another android was here.
-                    </div>
-                    <em>PRESSURIZE</em>
-                    <div class="choice">
-                        <span class="name">Connor</span>: You've seen it,
-                        haven't you? I know you've seen it.
-                    </div>
-                </div>
+        <app-conditioned-content>
+            <div class="condition">Kara threatened Ralph</div>
+            <div class="content">
+                <app-choice-group>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.AX400')
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.AX400'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.DEVIANTS'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.DEVIANTS'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.REASSURE'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.REASSURE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.BLUEBLOOD'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.BLUEBLOOD'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.PRESSURIZE'
+                            )
+                        "
+                    >
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.PRESSURIZE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
+                </app-choice-group>
 
                 <p>
                     <span class="note"
                         >Ralph will answer the same to all choices</span
                     >
-                    <br /><span class="name">Ralph</span>: Ralph just wanted to
-                    be nice... Ralph wanted to help.. <br /><span class="name"
-                        >Connor</span
-                    >: Where is it? <br /><span class="name">Ralph</span>: She
-                    ran out the back door! <br /><span class="name">Hank</span>:
-                    Connor, what's going on? <br /><span class="name"
-                        >Connor</span
-                    >: It's in the area... Call it in! <br /><span class="note"
-                        >Leads to Connor pursues Kara.</span
-                    >
+
+                    <app-dialogue-line name="Ralph">
+                        {{
+                            translateObject(
+                                'X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.REPORTR',
+                                0,
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.REPORTR') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Ralph">
+                        {{
+                            t('X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.REPORTR.3')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0402K.SQUAT.SPEAKRALPH.PC.X04KHANK.REPORT') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X0402K.SQUAT.SPEAKRALPH.PC.X04CCONNOR.REPORT') }}
+                    </app-dialogue-line>
+                    <span class="note">Leads to Connor pursues Kara.</span>
                 </p>
             </div>
-        </div>
+        </app-conditioned-content>
 
+        <h2>Going upstairs</h2>
         <p>
-            <strong>Going upstairs</strong>
-            <br /><span class="name">Connor</span>: Is anyone upstairs?
-            <br /><span class="name">Ralph</span>: No. Nobody.
+            <app-dialogue-line name="Connor">
+                {{ t('X0402K.SQUAT.EXPLORE.PC.X04KCONNOR.UPSTAIRS') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Ralph">
+                {{
+                    translateObject(
+                        'X0402K.SQUAT.EXPLORE.PC.X04KRALPH.UPSTAIRS'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <strong
-                ><i class="fas fa-hourglass-end"></i> Taking too much
-                time</strong
-            >
-            <div class="condition-text">
+        <!-- TODO: Check MAINDOOR (taking Ralph into custody)-->
+
+        <app-conditioned-content>
+            <div class="condition">
+                [ <fa-icon icon="hourglass-end"></fa-icon> ] Taking too much
+                time
+            </div>
+            <div class="content">
                 <p>
-                    <span class="name">Hank</span>: Connor, what the hell you
-                    doin' in there?! <br /><span class="name">Connor</span>:
-                    Coming, Lieutenant!
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0402K.SQUAT.EXPLORE.VO.X04KHANK.HANK') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X0402K.SQUAT.EXPLORE.FA.X04CCONNOR.COMING') }}
+                    </app-dialogue-line>
+                </p>
+
+                <h2>Taking too much time again</h2>
+                <p>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0402K.SQUAT.NOKARA.PC.X04KHANK.LEAVE',
+                                0,
+                                3
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0402K.SQUAT.NOKARA.PC.X04KCONNOR.LEAVE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0402K.SQUAT.NOKARA.PC.X04KHANK.LEAVE',
+                                3
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
 
                 <p>
-                    <strong>Taking too much time again</strong>
-                    <br /><span class="name">Hank</span>: Connor, the fuck are
-                    you doing? Did you find something? <br /><span class="name"
-                        >Connor</span
-                    >: No...No, it's not here... <br /><span class="name"
-                        >Hank</span
-                    >: Yeah, just like I said in the first place... C'mon, let's
-                    get outta here.
-                </p>
-
-                <p>
-                    <span class="name">Kara</span>: Thanks. <br /><span
-                        class="name"
-                        >Ralph</span
-                    >: Protect the little girl... The humans must not find her.
+                    <app-dialogue-line name="Kara">
+                        {{ t('X0402K.SQUAT.NOKARA.PC.X04KKARA.THANKS') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Ralph">
+                        {{
+                            translateObject(
+                                'X0402K.SQUAT.NOKARA.PC.X04KRALPH.THANKS'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
             </div>
-        </div>
+        </app-conditioned-content>
     </section>
 
     <section>
         <h1>Kara stayed at the Motel</h1>
 
         <p>
-            <span class="name">Kara</span>: I'm sorry, I didn't mean to wake
-            you... <br /><span class="name">Alice</span>: So, it wasn't a
-            nightmare... <br /><span class="name">Kara</span>: No... No, it
-            wasn't a nightmare...
+            <app-dialogue-line name="Kara">
+                {{ t('X0401K.MOTEL.WAKEUP.PC.X04KKARA.SORRY.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Alice">
+                {{ t('X0401K.MOTEL.WAKEUP.PC.X04KALICE.SORRY') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject('X0401K.MOTEL.WAKEUP.PC.X04KKARA.SORRY', 1)
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="choices">
-            <em>BATH?</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: How about a nice, warm bath? And
-                then we can go out and try to get you something to eat. What do
-                you say?
-            </div>
-            <em>HUNGRY?</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: You must be starving... You
-                should take a bath, and then we'll go out and find you something
-                to eat. What do you say?
-            </div>
-            <em>TIRED?</em>
-            <div class="choice">
-                <span class="name">Kara</span>: It's still early. You should try
-                to get some more sleep. <br /><span class="name">Alice</span> :
-                I'm not tired anymore.
-            </div>
-        </div>
-
-        <p><span class="name">Kara</span>: Okay. I'll run you a bath.</p>
-
-        <p>
-            <span class="name">Alice</span>: You're pretty like that. You really
-            look like a human now. <br /><span class="name">Kara</span>: Your
-            bath's ready.
-        </p>
-
-        <strong><i class="fas fa-tv"></i> Watching TV</strong>
-        <div class="condition">
-            <span class="name"
-                >Todd was killed in
-                <a [routerLink]="['/chapters', 7]">Stormy Night</a></span
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0401K.MOTEL.WAKEUP.PC.CHOICEGROUP01.BATH')"
             >
-            [
-            <span appRelation="small down">Public opinion </span>
-            ]
-            <div class="condition-text">
-                <span class="name">Channel 16 - Joss Douglas</span>: The
-                victim's name was Todd Williams, an unemployed man from
-                Corktown. According to initial reports, he was shot by his
-                android, an AX400. The android fled the scene and a police
-                search is now in progress. Reporting live for Channel 16 News,
-                I'm Joss Douglas.
-                <div class="condition">
-                    <span class="name">Kara shot Todd</span>
-                    <div class="condition-text">
-                        <span class="name">Alice</span>: You had no choice... He
-                        would have killed me if you hadn't stopped him...
-                    </div>
-                </div>
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
 
-                <div class="condition">
-                    <span class="name">Alice shot Todd</span>
-                    <div class="condition-text">
-                        <span class="name">Alice</span>: I didn't wanna hurt
-                        him, but he was gonna kill us...
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="condition">
-            <span class="name">Todd is alive</span> [
-            <span appRelation="small down">Public opinion </span>
-            ]
-            <div class="condition-text">
-                <span class="name">Channel 16 - Joss Douglas</span>: Thanks,
-                Michael. I'm joined by Corktown resident Todd Williams, who was
-                violently attacked by his AX400 around 11 PM last night. Todd,
-                can you tell us what happened? <br /><span class="name"
-                    >Todd</span
-                >: I was having dinner, I was minding my own business. Damn
-                thing jumped on me. Managed to defend myself, but it went crazy.
-                I thought it was gonna kill me... So I fought it off, but it ran
-                away. <br /><span class="name">Channel 16 - Joss Douglas</span>:
-                Thank you, Todd. Disturbing news for android owners everywhere.
-                Police have launched a search to find the android. Let's hope
-                they find it fast. <br /><span class="name">Alice</span>: It's
-                not true... He's lying... He's the one who tried to hurt us...
-            </div>
-        </div>
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.WAKEUP.PC.X04KKARA.BATH',
+                            0,
+                            4
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0401K.MOTEL.WAKEUP.PC.CHOICEGROUP01.HUNGRY')"
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
 
-        <mat-divider></mat-divider>
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.WAKEUP.PC.X04KKARA.HUNGRY',
+                            0,
+                            3
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0401K.MOTEL.WAKEUP.PC.CHOICEGROUP01.SLEEP')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject('X0401K.MOTEL.WAKEUP.PC.X04KKARA.SLEEP')
+                            | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Alice">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.WAKEUP.PC.X04KALICE.SLEEP'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
 
         <p>
-            <span class="name">Alice</span>: What are we gonna do? We have
-            nowhere to go... And the police are looking for us now.
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject('X0401K.MOTEL.WAKEUP.PC.X04KKARA.BATH', 4)
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="choices">
-            <em>CAN'T STAY HERE</em>
-            <div class="choice">
-                <span class="name">Kara</span>: We can't stay here, we don't
-                have any money...
+        <p>
+            <app-dialogue-line name="Alice">
+                {{
+                    translateObject(
+                        'X0401K.MOTEL.COMPLIMENT.PC.X04KALICE.COMPLIMENT'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Kara">
+                {{ t('X0401K.MOTEL.COMPLIMENT.PC.X04KKARA.COMPLIMENT') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>[ <fa-icon icon="tv"></fa-icon> ] Watching TV</h2>
+        <app-conditioned-content>
+            <div class="condition">
+                Todd was killed in
+                <a [routerLink]="['/chapters', 7]">Stormy Night</a>
             </div>
-            <em>FAMILY</em>
-            <div class="choice">
-                <span class="name">Kara</span>: Do you have any family? Anyone
-                who could help us? <br /><span class="name">Alice</span>:
-                No...there was just dad.
+            <div class="content">
+                <app-relation
+                    name="Public opinion"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-dialogue-line name="Channel 16 - Joss Douglas">
+                    {{
+                        translateObject(
+                            'X0401K.TV.TODDONTV.PC.X04KJOSS.TODDDEAD01'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-conditioned-content>
+                    <div class="condition">Kara shot Todd</div>
+                    <div class="content">
+                        <app-dialogue-line name="Alice">
+                            {{
+                                translateObject(
+                                    'X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.KARAKILLEDTODD'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
+                <app-conditioned-content>
+                    <div class="condition">Alice shot Todd</div>
+                    <div class="content">
+                        <app-dialogue-line name="Alice">
+                            {{
+                                translateObject(
+                                    'X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.ALICEKILLEDTODD'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
             </div>
-            <em>CONTACT ANDROID </em>
-            <div class="choice">
-                <span class="name">Kara</span>: That android yesterday...he gave
-                me an address... He said we could get help there... Could be
-                worth a try.
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">Todd is alive</div>
+            <div class="content">
+                <app-relation
+                    name="Public opinion"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
+                <app-dialogue-line name="Channel 16 - Joss Douglas">
+                    {{
+                        translateObject(
+                            'X0401K.TV.TODDONTV.PC.X04KJOSS.TODDALIVE01A'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Todd">
+                    {{
+                        translateObject(
+                            'X0401K.TV.TODDONTV.PC.X04KDAD.TODDALIVE01T'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Channel 16 - Joss Douglas">
+                    {{
+                        translateObject(
+                            'X0401K.TV.TODDONTV.PC.X04KJOSS.TODDALIVE01B'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Alice">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.TODDNOTKILLED'
+                        ) | async
+                    }}
+                </app-dialogue-line>
             </div>
-        </div>
+        </app-conditioned-content>
+
+        <app-unused-content>
+            <app-choice-group>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0401K.MOTEL.TOUGHTALK.PC.01CHOICE.REASSURING')
+                    "
+                >
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.01REASSURING'
+                        ) | async
+                    }}
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0401K.MOTEL.TOUGHTALK.PC.01CHOICE.ANALYTICAL')
+                    "
+                >
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.01ANALYTICAL'
+                        ) | async
+                    }}
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0401K.MOTEL.TOUGHTALK.PC.01CHOICE.VULNERABLE')
+                    "
+                >
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.01VULNERABLE'
+                        ) | async
+                    }}
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0401K.MOTEL.TOUGHTALK.PC.01CHOICE.SINCERE')
+                    "
+                >
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.01SINCERE'
+                        ) | async
+                    }}
+                </app-choice-item>
+            </app-choice-group>
+        </app-unused-content>
 
         <mat-divider></mat-divider>
 
-        <div class="choices">
-            <em>MOVING</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: I know I'm just a... a
-                machine... But, I feel as if something ties us together... I
-                want you to know, no matter what happens... nothing will ever
-                separate us.
-            </div>
-            <em>DETERMINED</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: We're going to pull through
-                this, Alice. As long as we're together, nothing can hurt us.
-            </div>
-            <em>COMFORTING</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: We can't change the past,
-                Alice... But we can decide the future... We're gonna pull
-                through, and soon all this will just be a bad memory.
-            </div>
-            <em>SUPPORTIVE</em> [
-            <span appRelation="small up">Alice</span>
-            ]
-            <div class="choice">
-                <span class="name">Kara</span>: It's us against the world,
-                Alice... Just the two of us... We have to learn to trust each
-                other... I only have you and you only have me... And I'm going
-                to do everything I can to make you happy again.
-            </div>
-        </div>
+        <p>
+            <app-dialogue-line name="Alice">
+                {{
+                    translateObject(
+                        'X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.01NEXTSTEP'
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0401K.MOTEL.TOUGHTALK.PC.02CHOICE.STAYHERE')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{ t('X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.02STAYHERE') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0401K.MOTEL.TOUGHTALK.PC.02CHOICE.HELP')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.02HELP'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Alice">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.02HELP'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0401K.MOTEL.TOUGHTALK.PC.02CHOICE.ANDROID')"
+            >
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.02ANDROID'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
+
+        <mat-divider></mat-divider>
+
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0401K.MOTEL.TOUGHTALK.PC.03CHOICE.MOVING')"
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.03MOVING'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0401K.MOTEL.TOUGHTALK.PC.03CHOICE.DETERMINED')
+                "
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.03DETERMINED'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0401K.MOTEL.TOUGHTALK.PC.03CHOICE.COMFORTING')
+                "
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.03COMFORTING'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X0401K.MOTEL.TOUGHTALK.PC.03CHOICE.SUPPORTIVE')
+                "
+            >
+                <app-relation
+                    name="Alice"
+                    [type]="RelationType.SmallUp"
+                ></app-relation>
+
+                <app-dialogue-line name="Kara">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.03SUPPORTIVE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
 
         <p>
-            <span class="name">Kara</span>: Finish getting ready. I'll go out
-            and find some food for you, then we can get going.
+            <app-dialogue-line name="Kara">
+                {{
+                    translateObject('X0401K.MOTEL.TOUGHTALK.PC.X04KKARA.03HUG')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
         <h2>Police is at the motel</h2>
         <p>
-            <span class="name">Hank</span>: Lieutenant Anderson, Detroit Police.
-            We're looking for a female android, robbed a store down the road
-            last night. You see anything? <br /><span class="name"
-                >Receptionist</span
-            >: An android? No... I don't take androids here. <br /><span
-                class="name"
-                >Connor</span
-            >: Have you see anyone that looks like this? <br /><span
-                class="name"
-                >Receptionist</span
-            >: Fuck... I knew there was something weird about her... She came in
-            last night - she was dressed normal, you know... There was no way I
-            could tell. <br /><span class="name">Hank</span>: Is it still here?
-            <br /><span class="name">Receptionist</span>: Yeah, probably. Room
-            28. <br /><span class="name">Hank</span>: Thank you.
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject(
+                        'X0401K.MOTEL.RECEPTION.PC.X04KHANK.AX400',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Receptionist">
+                {{
+                    translateObject(
+                        'X0401K.MOTEL.RECEPTION.PC.X04KRECEPTIONIST.AX400REC',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0401K.MOTEL.RECEPTION.PC.X04KCONNOR.AX400.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Receptionist">
+                {{
+                    translateObject(
+                        'X0401K.MOTEL.RECEPTION.PC.X04KRECEPTIONIST.AX400REC',
+                        2,
+                        5
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0401K.MOTEL.RECEPTION.PC.X04KHANK.AX400.3') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Receptionist">
+                {{ t('X0401K.MOTEL.RECEPTION.PC.X04KRECEPTIONIST.AX400REC.6') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0401K.MOTEL.RECEPTION.PC.X04KHANK.AX400.4') }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">Hank</span>: Ben?.. Yeah, it's still at the
-            motel. Send some uniforms and cordon off the area. I'm heading to
-            its room now.
+            <app-dialogue-line name="Hank">
+                {{ t('X0401K.MOTEL.RECEPTION.PC.X04KHANK.RADIOCHAD') }}
+            </app-dialogue-line>
         </p>
-        <p><span class="name">Hank</span>: You wait in the car.</p>
-        <div class="choices">
-            <em>RATIONAL</em>
-            <div class="choice">
-                <span class="name">Connor</span>: You're going to need me,
-                Lieutenant. I know more about androids than you do.
-            </div>
-            <em>DIPLOMATIC</em>
-            <div class="choice">
-                <span class="name">Connor</span>: I think it's best if I go with
-                you.
-            </div>
-            <em>DIRECT </em>
-            <div class="choice">
-                <span class="name">Connor</span>: Out of the question. I'm
-                coming with you.
-            </div>
-        </div>
-
         <p>
-            <span class="name">Hank</span>: Listen, I'm tired of you talkin'
-            back to me. You're a machine, so the fuck up and do what I say!
-            <br /><span class="name">Connor</span>: All I want is to accomplish
-            my mission. I'm sorry if that upsets you. <br /><span class="name"
-                >Hank</span
-            >: Wanna see the end of your mission? Stop busting my fucking
-            balls...
+            <app-dialogue-line name="Hank">
+                {{ t('X0401K.MOTEL.OUTSIDE.PC.X04KHANK.WAITME') }}
+            </app-dialogue-line>
         </p>
 
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0401K.MOTEL.OUTSIDE.PC.CHOICE.RATIONAL')"
+            >
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0401K.MOTEL.OUTSIDE.PC.X04KCONNOR.RATIONAL'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0401K.MOTEL.OUTSIDE.PC.CHOICE.DIPLOMATIC')"
+            >
+                <app-dialogue-line name="Connor">
+                    {{ t('X0401K.MOTEL.OUTSIDE.PC.X04KCONNOR.DIPLOMATIC') }}
+                </app-dialogue-line>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0401K.MOTEL.OUTSIDE.PC.CHOICE.DIRECT')"
+            >
+                <app-dialogue-line name="Connor">
+                    {{ t('X0401K.MOTEL.OUTSIDE.PC.X04KCONNOR.DIRECT') }}
+                </app-dialogue-line>
+            </app-choice-item>
+        </app-choice-group>
+
         <p>
-            <strong>Going into the room</strong>
-            <br /><span class="name">Hank</span>: It's gone...
+            <app-dialogue-line name="Hank">
+                {{ t('X0401K.MOTEL.OUTSIDE.PC.X04KHANK.OBEY.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0401K.MOTEL.OUTSIDE.PC.X04KCONNOR.OBEY') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0401K.MOTEL.OUTSIDE.PC.X04KHANK.OBEY.2') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Going into the room</h2>
+        <p>
+            <app-dialogue-line name="Hank">
+                {{ t('X0401K.MOTEL.ROOM.PC.X04KHANK.LEFT') }}
+            </app-dialogue-line>
         </p>
     </section>
 
     <section>
         <h1>Kara and Alice in the street</h1>
-        <strong>Spotted by Police</strong>
+        <h2>Spotted by Police</h2>
         <p>
-            <span class="name">Cop</span>: Shit, that's them! STOP! POLICE!
-            <br /><span class="name">Cop</span>: Quick, call it in!
+            <app-dialogue-line name="Cop">
+                {{ t('X0405K.CHASEV2.PART05.FA.X04KCOP05.NOTICE01') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Cop">
+                {{ t('X0405K.CHASEV2.PART05.FA.X04KCOP05.NOTICE02') }}
+            </app-dialogue-line>
         </p>
 
         <p>
-            <span class="name">Cop</span>: Holy fuck, that's them! HEY, STOP!
-            POLICE!
+            <app-dialogue-line name="Cop">
+                {{
+                    translateObject(
+                        'X0405K.CHASEV2.PART02.FA.X04KCOP01.NOTICE01'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <p><span class="name">Cop</span>: Hey, wait a minute!</p>
+        <p>
+            <app-dialogue-line name="Cop">
+                {{
+                    translateObject('X0405K.CHASEV2.PART03.FA.X04KCOP03.NOTICE')
+                        | async
+                }}
+            </app-dialogue-line>
+        </p>
     </section>
 
     <section>
         <h1>Connor pursues Kara</h1>
         <p>
-            <span class="name">Connor</span>: Which way did it go? <br /><span
-                class="name"
-                >Cop</span
-            >: That way - they're headed for the train station!
+            <app-dialogue-line name="Connor">
+                {{ t('X0405K.CHASEV2.NOTICED.FA.X04KCONNOR.TRACKING') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Cop">
+                {{ t('X0405K.CHASEV2.NOTICED.PC.X04KCOP08.TRACKINGCOP') }}
+            </app-dialogue-line>
         </p>
 
-        <p><span class="name">Cop</span>: They're over there!</p>
-
         <p>
-            <strong
-                ><i class="fas fa-hourglass-end"></i> Take too much time</strong
+            <app-dialogue-line name="Cop">
+                {{ t('X0502K.CHASE.SPARELINES.FA.X05KZLATKO.HERE') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>[ <fa-icon icon="hourglass-end"></fa-icon> ] Take too much time</h2>
+        <p>
+            <app-dialogue-line name="Connor">
+                {{ t('X0405K.CHASEV2.NOTNOTICED.PC.X04KCONNOR.LOST') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0405K.CHASEV2.NOTNOTICED.PC.X04KHANK.LOST') }}
+            </app-dialogue-line>
+        </p>
+
+        <h2>Reach the fence</h2>
+        <p>
+            <app-dialogue-line name="Connor">
+                {{ t('X0405K.CHASEV2.NOTICED.PC.X04KCONNOR.CLIMBFENCE') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0405K.HIGHWAY.CONNOR.PC.X04CHANK.GETIN.1') }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="Hank">
+                {{ t('X0405K.HIGHWAY.CONNOR.PC.X04CHANK.GETIN.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0405K.HIGHWAY.CONNOR.PC.X04KCONNOR.GETIN.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0405K.HIGHWAY.CONNOR.PC.X04CHANK.GETIN.3') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0405K.HIGHWAY.CONNOR.PC.X04KCONNOR.GETIN.2') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject(
+                        'X0405K.HIGHWAY.CONNOR.PC.X04CHANK.GETIN',
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <app-choice-group>
+            <app-choice-item
+                [choiceLabel]="t('X0405K.HIGHWAY.CONNOR.PC.CHOICEGROUP.GO')"
             >
-            <br /><span class="name">Connor</span>: We lost it. <br /><span
-                class="name"
-                >Hank</span
-            >: Game over, Connor.
-        </p>
+                <p>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0405K.HIGHWAY.CONNOR.FA.X04KHANK.GO') }}
+                    </app-dialogue-line>
+                </p>
+
+                <h2>Connor dies on the highway</h2>
+                <p>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK.2') }}
+                    </app-dialogue-line>
+                </p>
+
+                <h2>Kara gets hit by a car</h2>
+                <p>
+                    <app-dialogue-line name="Alice">
+                        {{ t('X0201K.FIGHT.ALICE.FA.X02KALICE.CUE03') }}
+                        {{ t('X0201K.FIGHT.ALICE.FA.X02KALICE.CUE06') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK.1') }}
+                    </app-dialogue-line>
+                </p>
+
+                <h2>Kara escapes and Connor survives</h2>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        <!-- TODO: Find correct line -->
+                        {{ t('X0303K.STATION.HOLDUP.PC.X03KSELLER.SHIT') }}
+                    </app-dialogue-line>
+                </p>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="t('X0405K.HIGHWAY.CONNOR.PC.CHOICEGROUP.GIVEUP')"
+            >
+                <span>&oslash;</span>
+            </app-choice-item>
+        </app-choice-group>
 
         <p>
-            <strong>Reach the fence</strong>
-            <br /><span class="name">Connor</span>: Don't shoot! We need it
-            alive! <br /><span class="name">Hank</span>: Oh fuck, that's
-            insane...
+            <app-dialogue-line name="Kara">
+                {{ t('X0405K.HIGHWAY.SUCCESS.PC.X04KKARA.OKAY') }}
+            </app-dialogue-line>
         </p>
-        <p>
-            <span class="name">Hank</span>: Hey! Where you goin'? <br /><span
-                class="name"
-                >Connor</span
-            >: I can't let them get away. <br /><span class="name">Hank</span>:
-            They won't! They'll never make it to the other side. <br /><span
-                class="name"
-                >Connor</span
-            >: I can't take that chance. <br /><span class="name">Hank</span>:
-            Hey, you will get yourself killed! Do NOT go after 'em, Connor,
-            that's an order!
-        </p>
-
-        <div class="choices">
-            <em>GO</em>
-            <div class="choice">
-                <p><span class="name">Hank</span>: Connor, goddammit!</p>
-
-                <p>
-                    <strong>Connor dies on the highway</strong>
-                    <br /><span class="name">Hank</span>: Argh, jesus Christ!..
-                    <br /><span class="name">Connor</span>: Uh, fuck!
-                </p>
-
-                <p>
-                    <strong>Kara gets hit by a car</strong>
-                    <br /><span class="name">Alice</span>: Watch out, Kara! NO!
-                    <br /><span class="name">Hank</span>: Argh, jesus Christ!..
-                </p>
-
-                <p>
-                    <strong>Kara escapes and Connor survives</strong>
-                    <br /><span class="name">Connor</span>: Shit...
-                </p>
-            </div>
-            <em>GIVE UP</em>
-            <div class="choice">&oslash;</div>
-        </div>
-
-        <p><span class="name">Kara</span>: Are you okay?</p>
     </section>
 </ng-container>

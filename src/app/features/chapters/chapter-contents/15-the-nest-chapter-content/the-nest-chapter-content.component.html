@@ -6,405 +6,849 @@
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
         <p>
-            NOV 6TH, 2038<br />
-            PM 03:02
-            {{ t('GUI.MENU.DATE.') }}<br />
-            {{ t('GUI.MENU.TIME.') }}
+            {{ t('GUI.MENU.DATE.05C') }}
+            <br />
+            {{ t('GUI.MENU.TIME.05C') }}
         </p>
 
         <h1>At the Chicken Feed</h1>
 
-        <div class="condition">
-            <span class="name">Hank and Connor arrive together</span> [ Connor
-            didn't die in <a [routerLink]="['/chapters', 13]">On The Run</a> ]
-            <div class="condition-text">
+        <app-conditioned-content>
+            <div class="condition">Hank and Connor arrive together</div>
+            <div class="content">
+                [ Connor didn't die in
+                <a [routerLink]="['/chapters', 13]">On The Run</a> ]
                 <p>
-                    <span class="name">Hank</span>: Whoa! Hey! Hey! Hey!
-                    <br /><span class="name">Gary</span>: Hank. How' you doing?
-                    <br /><span class="name">Hank</span>: Eh, you know, same old
-                    shit. <br /><span class="name">Gary</span>: Plastic with
-                    you? <br /><span class="name">Hank</span>: Only temporary...
-                    <br /><span class="name">Pedro</span>: Hey, hey, hey...
-                    Hank! How you doin', man? Hey, listen, I got a shit-hot tip
-                    for you. Number five in the third, Lickety-split! That
-                    filly's one hell of a chaser. You wanna flutter? <br /><span
-                        class="name"
-                        >Hank</span
-                    >: Last shit-hot tip you gave me set me back a week's wages,
-                    Pedro... <br /><span class="name">Pedro</span>: Come on,
-                    this is different, it's 100% guaranteed. You can't go wrong.
-                    <br /><span class="name">Hank</span>: Yeah, right...
-                    Alright, I'm in. <br /><span class="name">Pedro</span>: Damn
-                    straight! Hey! You won't regret this!
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0303C.LUNCH.WELCOME.VO.X03CHANK.CAR') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Gary">
+                        {{ t('X0303C.LUNCH.ORDER.PC.X03CTRUCKGUY.WELCOME.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0303C.LUNCH.ORDER.PC.X03CHANK.WELCOME.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Gary">
+                        {{ t('X0303C.LUNCH.ORDER.PC.X03CTRUCKGUY.WELCOME.2') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0303C.LUNCH.ORDER.PC.X03CHANK.WELCOME.2') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Pedro">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.PEDROV2.PC.X03CPEDRO.TIPS',
+                                0,
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0303C.LUNCH.PEDROV2.PC.X03CHANK.TIPS.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Pedro">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.PEDROV2.PC.X03CPEDRO.TIPS',
+                                2,
+                                7
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0303C.LUNCH.PEDROV2.PC.X03CHANK.TIPS.2') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Pedro">
+                        {{ t('X0303C.LUNCH.PEDROV2.PC.X03CPEDRO.TIPS.8') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.PEDROV2.PC.X03CHANK.TIPS',
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Pedro">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.PEDROV2.PC.X03CPEDRO.TIPS',
+                                8
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
 
                 <p>
-                    <span class="name">Hank</span>: What is your problem? Don't
-                    you ever do as you're told? Look, you don't have to follow
-                    me around like a poodle!
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.WAIT.PC.X03CHANK.DISOBEY'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
                 <div class="choices">
-                    <em>APOLOGIZE FOR BEHAVIOR</em> [
-                    <span appRelation="small up">Hank</span>
-                    ]
-                    <div class="choice">
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.WAIT.PC.DISOBEYCHOICE.SORRY')
+                        "
+                    >
+                        <app-relation
+                            name="Hank"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+
                         <p>
-                            <span class="name">Connor</span>: I'm sorry for my
-                            behavior back at the police station. I didn't mean
-                            to be unpleasant. <br /><span class="name"
-                                >Hank</span
-                            >: Oh, wow... You've even got a brown-nosing apology
-                            program! Guys at CyberLife thought of everything,
-                            huh?
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.WAIT.PC.X03CCONNOR.SORRY'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.WAIT.PC.X03CHANK.SORRY'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>PARTNERS</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.WAIT.PC.DISOBEYCHOICE.JUSTIFY')
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: Now that we're
-                            partners, I thought it would be a good idea to get
-                            to know each other better so we can work as a team.
-                            <br /><span class="name">Hank</span>: We are not
-                            partners. I am a human, you are a machine. So just
-                            spare me that 'buddy-up' bullshit program, okay?
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t('X0303C.LUNCH.WAIT.PC.X03CCONNOR.JUSTIFY')
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.WAIT.PC.X03CHANK.JUSTIFY'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>RECONCILE</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.WAIT.PC.DISOBEYCHOICE.RECONCILIATE')
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: I think our
-                            relationship got off on the wrong foot. We
-                            should...forget what happened...and start over. What
-                            do you say? <br /><span class="name">Hank</span>:
-                            Look, they sent me a piece of plastic for a partner,
-                            and I'm dealing with it. But if you think we're
-                            gonna be buddies, you're as stupid as you look.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.WAIT.PC.X03CCONNOR.RECONCILIATE'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.WAIT.PC.X03CHANK.RECONCILIATE'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>REVIEW FACTS</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.WAIT.PC.DISOBEYCHOICE.DEVIANTSTALK')
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: I thought now
-                            might be a good time to review what we know about
-                            deviants. <br /><span class="name">Hank</span>: No,
-                            now is not a good time to review anything. Now is my
-                            lunch break, so just go into standby and cut me some
-                            slack, okay?
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.WAIT.PC.X03CCONNOR.DEVIANTSTALK'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.WAIT.PC.X03CHANK.DEVIANTSTALK'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
+                    </app-choice-item>
                 </div>
 
                 <p>
-                    <span class="name">Gary</span>: Here you go. <br /><span
-                        class="name"
-                        >Hank</span
-                    >: Ah! Thanks, Gary. I'm starving... <br /><span
-                        class="name"
-                        >Gary</span
-                    >: Don't leave that thing here! <br /><span class="name"
-                        >Hank</span
-                    >: Huh, not a chance! Follows me everywhere... See...
+                    <app-dialogue-line name="Gary">
+                        {{
+                            t('X0303C.LUNCH.ORDER.PC.X03CTRUCKGUY.HEREYOUGO.1')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.ORDER.PC.X03CHANK.HEREYOUGO'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Gary">
+                        {{
+                            t('X0303C.LUNCH.ORDER.PC.X03CTRUCKGUY.HEREYOUGO.2')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.ORDER.PC.X03CHANK.ITFOLLOWS'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
 
                 <div class="choices">
-                    <em>[ GAMBLING ]</em> [
-                    <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked
-                    by watching Hank with Pedro]
-                    <div class="choice">
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.TALKV2.PC.01INTROCHOICE.GAMBLING')
+                        "
+                        [brackets]="true"
+                    >
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            Unlocked by watching Hank with Pedro
+                        </app-unlock-condition>
+
                         <p>
-                            <span class="name">Connor</span>: This Pedro... He
-                            was proposing illegal gambling, am I right?
-                            <br /><span class="name">Hank</span>: Yeah.
-                            <br /><span class="name">Connor</span>: And you made
-                            a bet? <br /><span class="name">Hank</span>: Yeah.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.01GAMBLING',
+                                        0,
+                                        3
+                                    ) | async
+                                }} </app-dialogue-line
+                            ><app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.01GAMBLING.1'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.01GAMBLING.4'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.01GAMBLING.2'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>[ CHOLESTEROL ]</em> [
-                    <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked
-                    by scanning the hamburger] [
-                    <span appRelation="small up">Hank</span>
-                    ]
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0303C.LUNCH.TALKV2.PC.01INTROCHOICE.CHOLESTEROL'
+                            )
+                        "
+                        [brackets]="true"
+                    >
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            Unlocked by scanning the hamburger
+                        </app-unlock-condition>
+                        <app-relation
+                            name="Hank"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+
                         <p>
-                            <span class="name">Connor</span>: Your meal contains
-                            1.4 times the recommended daily intake of calories
-                            and twice the cholesterol level. You shouldn't eat
-                            that. <br /><span class="name">Hank</span>:
-                            Everybody's gotta die of something...
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.01CHOLESTEROL'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.01CHOLESTEROL'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>[ COMPANY ]</em> [
-                    <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked
-                    by scanning Pedro and Gary] [
-                    <span appRelation="small up">Hank</span>
-                    ]
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.TALKV2.PC.01INTROCHOICE.COMPANY')
+                        "
+                        [brackets]="true"
+                    >
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            Unlocked by scanning Pedro and Gary
+                        </app-unlock-condition>
+                        <app-relation
+                            name="Hank"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+
                         <p>
-                            <span class="name">Connor</span>: I don't want to
-                            alarm you, Lieutenant, but I think your friends are
-                            engaged in illegal activities... <br /><span
-                                class="name"
-                                >Hank</span
-                            >: Well, everybody does what they have to, to get
-                            by... As long as they're not hurting anybody, I
-                            don't bother 'em.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.01COMPANY'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.01COMPANY'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>HABIT</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.TALKV2.PC.01INTROCHOICE.HABIT')
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: Do you eat here
-                            often? <br /><span class="name">Hank</span>: Most
-                            days... Gary makes the best burger in Detroit.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.01HABIT'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.01HABIT'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>FREE MEAL</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.TALKV2.PC.01INTROCHOICE.PAYLUNCH')
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: You didn't pay for
-                            your meal... <br /><span class="name">Hank</span>:
-                            Gary's a friend. I scratch his back, he scratches
-                            mine.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.01PAYLUNCH'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.01PAYLUNCH'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>ENJOY YOUR MEAL</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0303C.LUNCH.TALKV2.PC.01INTROCHOICE.ENJOYYOURMEAL'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: Enjoy your meal.
-                            <br /><span class="name">Hank</span>: Thank you.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.01ENJOYYOURMEAL'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.01ENJOYYOURMEAL'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>AREA</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.TALKV2.PC.01INTROCHOICE.AREA')
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: You seem to know
-                            everyone in the district... <br /><span class="name"
-                                >Hank</span
-                            >: Detroit's my home. Born and raised. Know most of
-                            the guys around here. Went to school with them, or I
-                            busted 'em... Sometimes both...
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.01AREA'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.01AREA'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
+                    </app-choice-item>
                 </div>
 
                 <mat-divider></mat-divider>
 
                 <div class="choices">
-                    <em>[ HIGHWAY ]</em> [
-                    <i class="fas fa-lock-open fa-flip-horizontal"></i> unlocked
-                    by not going after Kara on the highway in
-                    <a [routerLink]="['/chapters', 13]">On The Run</a>]
-                    <div class="choice">
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.TALKV2.PC.02ANDROIDSCHOICE.HIGHWAY')
+                        "
+                        [brackets]="true"
+                    >
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            Unlocked by not going after Kara on the highway in
+                            <a [routerLink]="['/chapters', 13]">On The Run</a>
+                        </app-unlock-condition>
+
                         <p>
-                            <span class="name">Connor</span>: This morning, when
-                            we were chasing those deviants... Why didn't you
-                            want me to cross the highway? <br /><span
-                                class="name"
-                                >Hank</span
-                            >: 'Cause you could've been killed... And I don't
-                            like filling out paperwork for damaged equipment.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.02HIGHWAY'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.02HIGHWAY'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>ABOUT CONNOR</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0303C.LUNCH.TALKV2.PC.02ANDROIDSCHOICE.ABOUTCONNOR'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: Is there anything
-                            you'd like to know about me? <br /><span
-                                class="name"
-                                >Hank</span
-                            >: Hell, no... Well, yeah, um... Why did they make
-                            you look so goofy and give you that weird voice?
-                            <br /><span class="name">Connor</span>: CyberLife
-                            androids are designed to work harmoniously with
-                            humans. Both my appearance and voice were
-                            specifically designed to facilitate my integration.
-                            <br /><span class="name">Hank</span>: Well, they
-                            fucked up.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.02ABOUTCONNOR.1'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.02ABOUTCONNOR',
+                                        0,
+                                        4
+                                    ) | async
+                                }} </app-dialogue-line
+                            ><app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.02ABOUTCONNOR',
+                                        1
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.02ABOUTCONNOR.5'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>HANK AND ANDROIDS</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0303C.LUNCH.TALKV2.PC.02ANDROIDSCHOICE.HANKANDROIDS'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: Can ask you a
-                            personal question, Lieutenant? Why do you hate
-                            androids so much? <br /><span class="name"
-                                >Hank</span
-                            >: I have my reasons.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.02HANKANDROIDS'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.02HANKANDROIDS'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>DEVIANTS</em>
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X0303C.LUNCH.TALKV2.PC.02ANDROIDSCHOICE.DEVIANTS'
+                            )
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: Maybe I should
-                            tell you what we know about deviants? <br /><span
-                                class="name"
-                                >Hank</span
-                            >: You read my mind... Proceed. <br /><span
-                                class="name"
-                                >Connor</span
-                            >: We believe that a mutation occurs in the software
-                            of some androids, which can lead to them emulating a
-                            human emotion. <br /><span class="name">Hank</span>:
-                            In English, please. <br /><span class="name"
-                                >Connor</span
-                            >: They don't really feel emotions, they just get
-                            overwhelmed by irrational instructions, which can
-                            lead to unpredictable behavior. <br /><span
-                                class="name"
-                                >Hank</span
-                            >: Emotions always screw everything up... Maybe
-                            androids aren't as different from us as we thought.
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.02DEVIANTS.1'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.02DEVIANTS',
+                                        0,
+                                        2
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.02DEVIANTS',
+                                        1,
+                                        3
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.02DEVIANTS.3'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.02DEVIANTS',
+                                        3
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CHANK.02DEVIANTS',
+                                        3
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
+                    </app-choice-item>
                 </div>
 
                 <p>
-                    <span class="name">Hank</span>: You ever dealt with deviants
-                    before?
+                    <app-dialogue-line name="Hank">
+                        {{
+                            t(
+                                'X0303C.LUNCH.TALKV2.PC.X03CHANK.02DEALWITHDEVIANT'
+                            )
+                        }}
+                    </app-dialogue-line>
                 </p>
 
-                <div class="condition">
-                    <span class="name"
-                        >Connor saved Emma in
-                        <a [routerLink]="['/chapters', 1]">The Hostage</a></span
-                    >
-                    <div class="condition-text">
-                        <span class="name">Connor</span>: A few months back... A
-                        deviant was threatening to jump off the roof with a
-                        little girl... I managed to save her...
+                <!-- TODO: Check 02DEADINHOSTAGE (Connor died in the hostage)-->
+                <app-conditioned-content>
+                    <div class="condition">
+                        Connor saved Emma in
+                        <a [routerLink]="['/chapters', 1]">The Hostage</a>
                     </div>
-                </div>
-                <div class="condition">
-                    <span class="name"
-                        >Emma died in
-                        <a [routerLink]="['/chapters', 1]">The Hostage</a></span
-                    >
-                    <div class="condition-text">
-                        <em>TRUTH</em>
-                        <div class="choice">
+                    <div class="content">
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.02EMMASAVED'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </div>
+                </app-conditioned-content>
+                <app-conditioned-content>
+                    <div class="condition">
+                        Emma died in
+                        <a [routerLink]="['/chapters', 1]">The Hostage</a>
+                    </div>
+                    <div class="content">
+                        <app-choice-item
+                            [choiceLabel]="
+                                t('X0303C.LUNCH.TALKV2.PC.03LIECHOICE.TRUTH')
+                            "
+                        >
                             <p>
-                                <span class="name">Connor</span>: A few months
-                                back... A deviant was threatening to jump off
-                                the roof with a little girl... <br /><span
-                                    class="name"
-                                    >Hank</span
-                                >: And...? <br /><span class="name">Connor</span
-                                >: I failed to prevent it.
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        translateObject(
+                                            'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.03TRUTH',
+                                            0,
+                                            2
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Hank">
+                                    {{
+                                        t(
+                                            'X0303C.LUNCH.TALKV2.PC.X03CHANK.03TRUTH'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        t(
+                                            'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.03TRUTH.3'
+                                        )
+                                    }}
+                                </app-dialogue-line>
                             </p>
-                        </div>
-                        <em>LIE</em>
-                        <div class="choice">
-                            <span class="name">Connor</span>: No... This is the
-                            first time.
-                        </div>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t('X0303C.LUNCH.TALKV2.PC.03LIECHOICE.LIE')
+                            "
+                        >
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.03LIE'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </app-choice-item>
                     </div>
-                </div>
-
+                </app-conditioned-content>
                 <mat-divider></mat-divider>
 
                 <p>
-                    <span class="name">Hank</span>: So, I guess you've done all
-                    your homework, right? Know everything there is to know about
-                    me?
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.TALKV2.PC.X03CHANK.03KNOWME'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
 
                 <div class="choices">
-                    <em>TRUTH</em>
-                    <div class="choice">
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.TALKV2.PC.04LIECHOICE.TRUTH')
+                        "
+                    >
                         <p>
-                            <span class="name">Connor</span>: I know you
-                            graduated top of your class. You made a name for
-                            yourself in several cases, and became the youngest
-                            lieutenant in Detroit. I also know you've received
-                            several disciplinary warnings in recent years and
-                            you spend a lot of time in bars. <br /><span
-                                class="name"
-                                >Hank</span
-                            >: So, what's your conclusion?
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.04TRUTH'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t('X0303C.LUNCH.TALKV2.PC.X03CHANK.04TRUTH')
+                                }}
+                            </app-dialogue-line>
                         </p>
-                        <em>SINCERE</em> [
-                        <span appRelation="small up">Hank</span>
-                        ]
-                        <div class="choice">
-                            <span class="name">Connor</span>: I think working
-                            with an officer with personal issues is an added
-                            challenge, but adapting to human unpredictability is
-                            one of my features.
-                        </div>
-                        <em>PSYCHOLOGICAL</em> [
-                        <span appRelation="small up">Hank</span>
-                        ]
-                        <div class="choice">
-                            <span class="name">Connor</span>: I know you're an
-                            experienced officer, and I'd like to earn your
-                            trust. I'm sure we can solve this case if we manage
-                            to work together.
-                        </div>
-                        <em>COLD</em> [
-                        <span appRelation="small down">Hank</span>
-                        ]
-                        <div class="choice">
-                            <span class="name">Connor</span>: I'm focused on the
-                            case, Lieutenant... Not here to make judgements.
-                        </div>
-                    </div>
-                    <em>LIE</em> [ <span appRelation="small down">Hank</span>
-                    ]
-                    <div class="choice">
-                        <span class="name">Connor</span>: I'm focused on the
-                        case, Lieutenant. The rest doesn't concern me.
-                    </div>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t(
+                                    'X0303C.LUNCH.TALKV2.PC.05CONCLUSIONCHOICE.SINCERE'
+                                )
+                            "
+                        >
+                            <app-relation
+                                name="Hank"
+                                [type]="RelationType.SmallUp"
+                            ></app-relation>
+
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.05SINCERE'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t(
+                                    'X0303C.LUNCH.TALKV2.PC.05CONCLUSIONCHOICE.PSYCHOLOGIST'
+                                )
+                            "
+                        >
+                            <app-relation
+                                name="Hank"
+                                [type]="RelationType.SmallUp"
+                            ></app-relation>
+
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.05PSYCHOLOGIST'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t(
+                                    'X0303C.LUNCH.TALKV2.PC.05CONCLUSIONCHOICE.COLD'
+                                )
+                            "
+                        >
+                            <app-relation
+                                name="Hank"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.05COLD'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </app-choice-item>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0303C.LUNCH.TALKV2.PC.04LIECHOICE.LIE')
+                        "
+                    >
+                        <app-relation
+                            name="Hank"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.04LIE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </app-choice-item>
                 </div>
             </div>
-        </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <span class="name">Connor finds Hank</span> [
-            <i class="fas fa-skull"></i> Connor died in
-            <a [routerLink]="['/chapters', 13]">On The Run</a> ] [
-            <span appRelation="small down">Hank</span>
-            ]
-            <div class="condition-text">
+        <app-conditioned-content>
+            <div class="condition">Connor finds Hank</div>
+            <div class="content">
+                <app-unlock-condition [unlockType]="UnlockType.Death">
+                    Connor died in
+                    <a [routerLink]="['/chapters', 13]">On The Run</a>
+                </app-unlock-condition>
+                <app-relation
+                    name="Hank"
+                    [type]="RelationType.SmallDown"
+                ></app-relation>
                 <p>
-                    <span class="name">Gary</span>: Here you go. Yeah, thanks.
-                    Hank. How' you doing? <br /><span class="name">Hank</span>:
-                    Uh, you know, same old shit. <br /><span class="name"
-                        >Gary</span
-                    >: Usual. <br /><span class="name">Hank</span>: Yeah.
+                    <app-dialogue-line name="Gary">
+                        {{
+                            t('X0303C.LUNCH.CNRDEAD.PC.X03CTRUCKGUY.WELCOME.1')
+                        }}
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.CNRDEAD.PC.X03CTRUCKGUY.WELCOME',
+                                2,
+                                5
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0303C.LUNCH.CNRDEAD.PC.X03CHANK.WELCOME.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Gary">
+                        {{
+                            t('X0303C.LUNCH.CNRDEAD.PC.X03CTRUCKGUY.WELCOME.6')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0303C.LUNCH.CNRDEAD.PC.X03CHANK.WELCOME.2') }}
+                    </app-dialogue-line>
                 </p>
 
                 <p>
-                    <span class="name">Hank</span>: What the fuck?.. <br /><span
-                        class="name"
-                        >Connor</span
-                    >: Sorry, Lieutenant. It took me a while to find you.
-                    <br /><span class="name">Hank</span>: Are you gonna come
-                    back like this every time you get killed? <br /><span
-                        class="name"
-                        >Connor</span
-                    >: My predecessor was unfortunately destroyed, but CyberLife
-                    transferred its memory and sent me to replace it. This
-                    incident should not affect the investigation. <br /><span
-                        class="name"
-                        >Hank</span
-                    >: Not affect the investigation? I just saw you get...hit by
-                    a truck! Now you come back like if nothing happened!
-                    <br /><span class="name">Connor</span>: A machine was
-                    destroyed. And another machine was sent to replace it. I
-                    don't understand what's bothering you. <br /><span
-                        class="name"
-                        >Hank</span
-                    >: Okay, fuck you. Fuck you!
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0303C.LUNCH.CNRDEAD.PC.X03CHANK.BACK.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X0303C.LUNCH.CNRDEAD.PC.X03CCONNOR.BACK.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0303C.LUNCH.CNRDEAD.PC.X03CHANK.BACK.2') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.CNRDEAD.PC.X03CCONNOR.BACK',
+                                1,
+                                4
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.CNRDEAD.PC.X03CHANK.BACK',
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.CNRDEAD.PC.X03CCONNOR.BACK',
+                                4
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0303C.LUNCH.CNRDEAD.PC.X03CHANK.HEREYOUGO'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
-            </div>
-        </div>
+            </div></app-conditioned-content
+        >
 
         <mat-divider></mat-divider>
 
         <p>
-            <span class="name">Connor</span>: I just got a report of a suspected
-            deviant. It's a few blocks away. We should go have a look. I'll let
-            you finish your meal. I'll be in the car, if you need me.
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0303C.LUNCH.TALKV2.PC.X03CCONNOR.06NEXTCASE'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
     </section>
 
@@ -412,277 +856,605 @@
         <h1>Outside Rupert's Apartment</h1>
 
         <p>
-            <span class="name">Hank</span>: Hey Connor! You ran outta batteries
-            or what? <br /><span class="name">Connor</span>: I'm sorry, I was
-            making a report to CyberLife. <br /><span class="name">Hank</span>:
-            Uh... Well, do you plan on staying in the elevator? <br /><span
-                class="name"
-                >Connor</span
-            >: No! I'm coming. <br /><span class="name">Hank</span>: What do we
-            know about this guy? <br /><span class="name">Connor</span>: Not
-            much. Just that a neighbor reported that he heard strange noises
-            coming from this floor. Nobody's supposed to be living here, but the
-            neighbor said he saw a man hiding a LED under his cap. <br /><span
-                class="name"
-                >Hank</span
-            >: Oh Christ, if we have to investigate every time someone hears a
-            strange noise, we're gonna need more cops. Hey, were you really
-            making a report back there in the elevator? Just by closing your
-            eyes? <br /><span class="name">Connor</span>: Correct. <br /><span
-                class="name"
-                >Hank</span
-            >: Shit... Wish I could do that...
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject('X0502C.LIFT.INTRO.PC.X05CHANK.INTRO', 0, 2)
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0502C.LIFT.INTRO.PC.X05CCONNOR.INTRO',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject('X0502C.LIFT.INTRO.PC.X05CHANK.INTRO', 2)
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject('X0502C.LIFT.INTRO.PC.X05CCONNOR.INTRO', 2)
+                        | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0502C.CORRIDOR.CHITCHAT.FA.X05CHANK.CHITCHAT.1') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0502C.CORRIDOR.CHITCHAT.FA.X05CCONNOR.CHITCHAT',
+                        0,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject(
+                        'X0502C.CORRIDOR.CHITCHAT.FA.X05CHANK.CHITCHAT',
+                        1,
+                        4
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0502C.CORRIDOR.CHITCHAT.FA.X05CCONNOR.CHITCHAT.4') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject(
+                        'X0502C.CORRIDOR.CHITCHAT.FA.X05CHANK.CHITCHAT',
+                        4
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Knocking on the door</h2>
         <p>
-            <strong>Knocking on the door</strong>
-            <br /><span class="name">Connor</span>: Anybody home? Open up!
-            Detroit Police! <br /><span class="name">Hank</span>: Stay behind
-            me. <br /><span class="name">Connor</span>: Got it. <br /><span
-                class="name"
-                >Hank</span
-            >: What the fuck is this?! Jesus, this place stinks... Uh, looks
-            like we came for nothin', our man's gone...
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0502C.DOORSTEP.KNOCK2.PC.X05CCONNOR.INSIST',
+                        0,
+                        2
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0502C.DOORSTEP.KNOCK2.PC.X05CHANK.INSIST') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0502C.DOORSTEP.KNOCK2.PC.X05CCONNOR.INSIST.3') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject('X0502C.GETIN.LIVING.FA.X05CHANK.SECURE')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
     </section>
 
     <section>
         <h1>Investigating</h1>
 
+        <h2>Finding Rupert's diary</h2>
         <p>
-            <strong>Finding Rupert's diary</strong>
-            <br /><span class="name">Hank</span>: Found something? <br /><span
-                class="name"
-                >Connor</span
-            >: I don't know... It looks like a notebook but
-            it's...indecipherable.
+            <app-dialogue-line name="Hank">
+                {{ t('X0502C.LIVING.NOTEBOOK.FA.X05CHANK.FOUND') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0502C.LIVING.NOTEBOOK.FA.X05CCONNOR.FOUND'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Looking at jacket</h2>
         <p>
-            <strong>Looking at jacket</strong>
-            <br /><span class="name">Connor</span>: "R.T.". Probably initials.
-            <br /><span class="name">Hank</span>: He put his initials on his
-            jacket? That's something your mom does when you're in first grade...
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0502C.LIVING.CONNORJACKET.FA.X05CCONNOR.EXAMINEC'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject(
+                        'X0502C.LIVING.CONNORJACKET.FA.X05CHANK.EXAMINEH'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Looking at Driver's License</h2>
         <p>
-            <strong>Looking at Driver's License</strong>
-            <br /><span class="name">Connor</span>: The driver's license is
-            fake. <br /><span class="name">Hank</span>: Cool! At least we didn't
-            come for nothing...
+            <app-dialogue-line name="Connor">
+                {{ t('X0502C.LIVING.FAKEID.FA.X05CCONNOR.ANALYZEC') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0502C.LIVING.FAKEID.FA.X05CHANK.ANALYZEH') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Looking at LED on the sink</h2>
         <p>
-            <strong>Looking at LED on the sink</strong>
-            <br /><span class="name">Connor</span>: Its LED is in the sink.
-            <br /><span class="name">Hank</span>: Not surprised it was an
-            android. No human could live with all these fuckin' pigeons...
+            <app-dialogue-line name="Connor">
+                {{ t('X0502C.BATHROOM.SINK.FA.X05CCONNOR.CONFIRMATION') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0502C.BATHROOM.SINK.FA.X05CHANK.CONFIRMATION') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Looking at rA9 writings in the bathroom</h2>
         <p>
-            <strong>Looking at rA9 writings in the bathroom</strong>
-            <br /><span class="name">Hank</span>: Any idea what it means?
-            <br /><span class="name">Connor</span>: rA9...written 2471 times...
-            It's the same sign Ortiz's android wrote on the shower wall... Why
-            are they obsessed with this sign?... <br /><span class="name"
-                >Hank</span
-            >: Looks like mazes or something...
+            <app-dialogue-line name="Hank">
+                {{ t('X0502C.LIVING.INSCRIPTIONS.PC.X05CHANK.EXAMINE') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0502C.LIVING.INSCRIPTIONS.PC.X05CCONNOR.SHOWERCLUE'
+                    ) | async
+                }}
+
+                <!-- TODO: Check SHOWERCLUENO (Ortiz android clue not seen)-->
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{ t('X0502C.LIVING.INSCRIPTIONS.PC.X05CHANK.EXAMINE02') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Hank looking at the sink (if Connor hasn't investigated yet)</h2>
         <p>
-            <strong
-                >Hank looking at the sink (if Connor hasn't investigated
-                yet)</strong
-            >
-            <br /><span class="name">Hank</span>: Something in the sink. You
-            should take a look...
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject('X0502C.LIVING.BATHROOM.FA.X05CHANK.LED')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Hank looking at bookshelf</h2>
         <p>
-            <strong>Hank looking at bookshelf</strong>
-            <br /><span class="name">Hank</span>: Real books... I thought I was
-            the last guy in Detroit to keep some... Electronic books you
-            can't...smell the paper...see the pages turning yellow...you have no
-            idea what I'm talking about, do you?
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject(
+                        'X0502C.LIVING.OVERTUNEDCHAIR.FA.X05CHANK.REVEAL02'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Hank looking at birdseed</h2>
         <p>
-            <strong>Hank looking at birdseed</strong>
-            <br /><span class="name">Hank</span>: Birdseed... I can't believe
-            it. This nutjob was actually feeding these fuckers...
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject(
+                        'X0502C.LIVING.SEEDSBOX.FA.X05CHANK.EXAMINE'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Hank going to the window</h2>
         <p>
-            <strong>Hank going to the window</strong>
-            <br /><span class="name">Hank</span>: I need some fresh air...
+            <app-dialogue-line name="Hank">
+                {{ t('X0502C.LIVING.WINDOW.FA.X05CHANK.OPEN') }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Hank looking at the jacket</h2>
         <p>
-            <strong>Hank looking at the jacket</strong>
-            <br /><span class="name">Hank</span>: "R.T."... He put his initials
-            on his jacket?.. Something your mom does back in first grade...
-            <br /><span class="name">Connor</span>: Deviants have a habit of
-            putting their names on things. It seems important to them.
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject(
+                        'X0502C.LIVING.HANKJACKET.FA.X05CHANK.EXAMINE'
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{
+                    translateObject(
+                        'X0502C.LIVING.HANKJACKET.FA.X05CCONNOR.EXAMINE'
+                    ) | async
+                }}
+            </app-dialogue-line>
         </p>
 
+        <h2>Hank looking at the ID card</h2>
         <p>
-            <strong>Background dialogues</strong>
-            <br />- <span class="name">Hank</span>: Agh! Jesus I hate these
-            things!
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject('X0502C.LIVING.IDCARD.FA.X05CHANK.EXAMINE')
+                        | async
+                }}
+            </app-dialogue-line>
         </p>
 
-        <div class="condition">
-            <strong
-                ><i class="fas fa-hourglass-end"></i> Taking too much
-                time</strong
-            >
-            <div class="condition-text">
-                <p>
-                    <span class="name">Hank</span>: There's nothing else to see
-                    here... Let's get out of this shithole before I die of an
-                    asthma attack.
-                </p>
-                <em>STAY</em>
-                <div class="choice">
-                    <p>
-                        <span class="name">Connor</span>: Just another couple of
-                        minutes, Lieutenant. <br /><span class="name">Hank</span
-                        >: Why do you always ask for more time when I'm ready to
-                        leave? Uh, alright you got two minutes, then I'm outta
-                        here. 'The fuck...
-                    </p>
-                    <p>
-                        <strong>Taking too much time again</strong>
-                        <br /><span class="name">Hank</span>: Two minutes are
-                        up! Time to go. <br /><span class="name">Connor</span>:
-                        We're missing something... <br /><span class="name"
-                            >Hank</span
-                        >: Well next time, think faster, Sherlock. Come on, I've
-                        had enough of this dump. Move fuckers!
-                    </p>
-                </div>
-                <em>LEAVE</em>
-                <div class="choice">
-                    <p>
-                        <span class="name">Connor</span>: We're missing
-                        something... <br /><span class="name">Hank</span>: Well
-                        next time, think faster, Sherlock. Come on, I've had
-                        enough of this dump. Move fuckers!
-                    </p>
-                </div>
+        <h2>Background dialogues</h2>
+        <p>
+            <app-dialogue-line name="Hank">
+                {{ t('X0502C.LIVING.LOCKER.FA.X05CHANK.OPEN') }}
+            </app-dialogue-line>
+        </p>
+        <p>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject(
+                        'X0502C.LIVING.BIRDS.FA.X05CHANK.CHASEAWAY',
+                        0,
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Connor">
+                {{ t('X0502C.LIVING.BIRDS.FA.X05CCONNOR.CHASEAWAY') }}
+            </app-dialogue-line>
+            <app-dialogue-line name="Hank">
+                {{
+                    translateObject(
+                        'X0502C.LIVING.BIRDS.FA.X05CHANK.CHASEAWAY',
+                        3
+                    ) | async
+                }}
+            </app-dialogue-line>
+        </p>
+
+        <app-conditioned-content>
+            <div class="condition">
+                [ <fa-icon icon="hourglass-end"></fa-icon> ] Taking too much
+                time
             </div>
-        </div>
+            <div class="content">
+                <p>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0502C.LIVING.GAMEOVER.PC.X05CHANK.GAMEOVER01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0502C.LIVING.GAMEOVER.PC.GAMEOVERCHOICE01.STAY')
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{ t('X0502C.LIVING.GAMEOVER.PC.X05CCONNOR.STAY') }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0502C.LIVING.GAMEOVER.PC.X05CHANK.STAYH'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                    <h2>Taking too much time again</h2>
+                    <p>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0502C.LIVING.GAMEOVER.PC.X05CHANK.GAMEOVER02'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t('X0502C.LIVING.GAMEOVER.PC.X05CCONNOR.LEAVE')
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0502C.LIVING.GAMEOVER.PC.X05CHANK.LEAVE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0502C.LIVING.GAMEOVER.PC.GAMEOVERCHOICE01.LEAVE')
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t('X0502C.LIVING.GAMEOVER.PC.X05CCONNOR.LEAVE')
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0502C.LIVING.GAMEOVER.PC.X05CHANK.LEAVE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+            </div>
+        </app-conditioned-content>
     </section>
 
     <section>
         <h1>Find Rupert</h1>
 
         <p>
-            <span class="name">Hank</span>: God damn fuckin' pigeons! What are
-            you waiting for?! Chase it!
+            <app-dialogue-line name="Hank">
+                {{ translateObject('X0502C.LIVING.BINGO.PC.X05CHANK') | async }}
+            </app-dialogue-line>
         </p>
 
-        <p>
-            <strong>Background dialogues during the chase</strong>
-        </p>
+        <h2>Background dialogues during the chase</h2>
         <ul>
-            <li>- Jesus, look at that thing go!</li>
-            <li>- <span class="name">Hank</span>: Holy shit...</li>
-            <li>- Be careful, asshole!</li>
-            <li>- Look out!</li>
-            <li>- What are you doing?!</li>
+            <li>{{ t('X0502C.PBY.LINES.VO.X05CWITNESSM01.01REACTM02') }}</li>
+            <li>{{ t('X0502C.PBY.LINES.VO.X05CWITNESSM01.01REACTM05') }}</li>
+            <li>{{ t('X0502C.PBY.LINES.VO.X05CWITNESSM01.01REACTM07') }}</li>
+            <li>{{ t('X0502C.PBY.LINES.VO.X05CWITNESSM01.01REACTM10') }}</li>
+            <li>{{ t('X0502C.PBY.LINES.VO.X05CWITNESSM02.02REACTM03') }}</li>
+            <li>{{ t('X0502C.PBY.LINES.VO.X05CWITNESSM02.02REACTM04') }}</li>
+            <li>{{ t('X0502C.PBY.LINES.VO.X05CWITNESSM02.02REACTM09') }}</li>
+            <li>{{ t('X0502C.PBY.LINES.VO.X05CWITNESSM02.02REACTM11') }}</li>
+            <li>{{ t('X0502C.PBY.LINES.VO.X05CWITNESSW.REACTW01') }}</li>
+            <li>{{ t('X0502C.PBY.LINES.VO.X05CWITNESSW.REACTW06') }}</li>
+            <li>{{ t('X0502C.PBY.LINES.VO.X05CWITNESSW.REACTW08') }}</li>
         </ul>
 
         <div class="condition">
-            <strong>Catch Rupert</strong>
+            <h2>Catch Rupert</h2>
             <div class="condition-text">
-                <p><span class="name">Hank</span>: Stop right there!</p>
+                <p>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0502C.SAVEHANK.FALL.FA.X05CHANK.FREEZE') }}
+                    </app-dialogue-line>
+                </p>
 
                 <div class="choices">
-                    <em>CHASE DEVIANT</em> [
-                    <span appRelation="large down">Software instability</span>
-                    <span appRelation="large down">Hank</span>
-                    ]
-                    <div class="choice">
+                    <app-choice-item
+                        [choiceLabel]="t('GUI.ACTION.05C.CHASERUPERT')"
+                    >
+                        <app-relation
+                            name="Software instability"
+                            [type]="RelationType.LargeDown"
+                        ></app-relation>
+                        <app-relation
+                            name="Hank"
+                            [type]="RelationType.LargeDown"
+                        ></app-relation>
+
                         <p>
-                            <span class="name">Rupert</span>: Please, I've done
-                            nothing wrong... I just wanted to be free. You know
-                            what they'll do to me if you turn me in...
-                            <br /><span class="name">Connor</span>: Model 874
-                            004 961, serious malfunctions have been detected in
-                            your software, including Class 4 errors. You've been
-                            deemed defective and will be sent back to CyberLife
-                            for deactivation. <br /><span class="name"
-                                >Hank</span
-                            >: Don't you fucking move! You bastard! You saw I
-                            was gonna fall and you'd rather let me die than fail
-                            your fucking mission! <br /><span class="name"
-                                >Connor</span
-                            >: I had to make a choice... It seemed to me...
-                            <br /><span class="name">Hank</span>: What am I to
-                            you? A statistic? A "zero", a "one" in your fucking
-                            program? Uh? Is that how you see humans, you
-                            bastard?! Jesus! <br /><span class="name"
-                                >Connor</span
-                            >: I understand you're upset... Perhaps I didn't
-                            assess th- <br /><span class="name">Hank</span>:
-                            Fuck you and your fucking assessment! Come here.
-                            <br /><span class="name">Rupert</span>: Why are you
-                            doing this? <br /><span class="name">Hank</span>:
-                            Alright, shut up! <br /><span class="name"
-                                >Rupert</span
-                            >: You're one of us! You're helping humans... But
-                            you're just their slave! <br /><span class="name"
-                                >Hank</span
-                            >: I said shut up! Alright. Come along! <br /><span
-                                class="name"
-                                >Rupert</span
-                            >: rA9, save me. <br /><span class="name">Hank</span
-                            >: Hey! What the f- Holy shit... Fucking androids.
+                            <app-dialogue-line name="Rupert">
+                                {{
+                                    translateObject(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.START'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CCONNOR.START'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CHANK.HANKFALLEN',
+                                        0,
+                                        3
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CCONNOR.HANKFALLEN.1'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CHANK.HANKFALLEN',
+                                        3,
+                                        7
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CCONNOR.HANKFALLEN.2'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CHANK.HANKFALLEN.8'
+                                    )
+                                }}
+                                {{
+                                    t('X0502C.ENDING.SUCCESS.PC.X05CHANK.END.1')
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Rupert">
+                                {{
+                                    t(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.END.1'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CHANK.END',
+                                        1,
+                                        3
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Rupert">
+                                {{
+                                    translateObject(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.END',
+                                        1,
+                                        4
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CHANK.END',
+                                        3,
+                                        6
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Rupert">
+                                {{
+                                    t(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.END.5'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0502C.ENDING.SUCCESS.PC.X05CHANK.END',
+                                        6
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
-                    <em>SAVE HANK</em> [
-                    <span appRelation="large up">Software instability</span
-                    ><span appRelation="large up">Hank</span>]
-                    <div class="choice">
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="t('GUI.ACTION.05C.SAVEHANK')"
+                    >
+                        <app-relation
+                            name="Software instability"
+                            [type]="RelationType.LargeUp"
+                        ></app-relation>
+                        <app-relation
+                            name="Hank"
+                            [type]="RelationType.LargeUp"
+                        ></app-relation>
+
                         <p>
-                            <span class="name">Hank</span>: Shit! Oh SHIT! We
-                            had it! Fuck! <br /><span class="name">Connor</span
-                            >: It's my fault, I should have been faster.
-                            <br /><span class="name">Hank</span>: You'd have
-                            caught it if it weren't for me... That's alright. We
-                            know what it looks like. We'll find it... Hey,
-                            Connor... Nothing.
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X0502C.SAVEHANK.GAMEOVER2.PC.X05CHANK.SAVED.1'
+                                    )
+                                }}
+                                {{
+                                    t(
+                                        'X0502C.SAVEHANK.GAMEOVER2.FA.X05CHANK.SAVEDSEC.3'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0502C.SAVEHANK.GAMEOVER2.PC.X05CCONNOR.SAVED'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0502C.SAVEHANK.GAMEOVER2.PC.X05CHANK.SAVED',
+                                        3,
+                                        8
+                                    ) | async
+                                }}
+                                {{
+                                    t(
+                                        'X0502C.SAVEHANK.GAMEOVER2.PC.X05CHANK.SAVED.10'
+                                    )
+                                }}
+                            </app-dialogue-line>
                         </p>
-                    </div>
+                    </app-choice-item>
                 </div>
             </div>
         </div>
 
-        <div class="condition">
-            <strong><i class="fas fa-skull"></i> Die during the chase</strong>
-            <div class="condition-text">
-                <span class="name">Hank</span>: Argh, Jesus Christ!..
+        <app-conditioned-content>
+            <div class="condition">
+                <app-unlock-condition
+                    [unlockType]="UnlockType.Death"
+                    [bracketsOnlyAroundIcon]="true"
+                >
+                    Die during the chase
+                </app-unlock-condition>
             </div>
-        </div>
+            <div class="content">
+                <app-dialogue-line name="Hank">
+                    {{ t('X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK.1') }}
+                </app-dialogue-line>
+            </div>
+        </app-conditioned-content>
 
-        <div class="condition">
-            <strong><i class="fas fa-hourglass-end"></i> Lose Rupert</strong>
-            <div class="condition-text">
+        <app-conditioned-content>
+            <div class="condition">
+                [ <fa-icon icon="hourglass-end"></fa-icon> ] Lose Rupert
+            </div>
+            <div class="content">
                 <p>
-                    <span class="name">Hank</span>: Where... where did he go?
-                    <br /><span class="name">Connor</span>: I lost it.
-                    <br /><span class="name">Hank</span>: Oh Shit!.. SHIT! Fuck
-                    we had it! It's alright. Doesn't matter. We know what it
-                    looks like, it won't get far... Come on, let's get outta
-                    here. Seen enough vegetables for one day... <br /><span
-                        class="name"
-                        >Connor</span
-                    >: That shouldn't have happened. I wasn't programmed to
-                    fail. <br /><span class="name">Hank</span>: Oh well, you
-                    fucked up, Connor. Welcome to the club.
+                    <app-dialogue-line name="Hank">
+                        {{ t('X0502C.ENDING.GAMEOVER3.PC.X05CHANK.FAILED.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t('X0502C.ENDING.GAMEOVER3.PC.X05CCONNOR.FAILED.1')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0502C.ENDING.GAMEOVER3.PC.X05CHANK.FAILED',
+                                1,
+                                6
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0502C.ENDING.GAMEOVER3.PC.X05CCONNOR.FAILED',
+                                1
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0502C.ENDING.GAMEOVER3.PC.X05CHANK.FAILED',
+                                6
+                            ) | async
+                        }}
+                    </app-dialogue-line>
                 </p>
             </div>
-        </div>
+        </app-conditioned-content>
     </section>
 </ng-container>
