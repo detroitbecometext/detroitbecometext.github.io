@@ -20,38 +20,19 @@
                     </mat-chip-list>
 
                     <h1 class="text-center sm:text-left">
-                        {{
-                            t(
-                                'GUI.MAGAZINE.' +
-                                    magazine.translationCategory +
-                                    '.' +
-                                    magazine.translationKey +
-                                    '.TITLE'
-                            )
-                        }}
+                        {{ t(magazine.titleTranslationKey) }}
                     </h1>
 
                     <mat-divider></mat-divider>
 
                     <h2 class="text-center pt-4">
-                        {{
-                            t(
-                                'GUI.MAGAZINE.' +
-                                    magazine.translationCategory +
-                                    '.' +
-                                    magazine.translationKey +
-                                    '.SUBTITLE'
-                            )
-                        }}
+                        {{ t(magazine.subtitleTranslationKey) }}
                     </h2>
 
                     <mat-card-subtitle class="text-center">
                         {{
                             translateObject(
-                                'GUI.MAGAZINE.' +
-                                    this.magazine
-                                        .subHeadlineTranslationCategory +
-                                    '.SUBHEADLINE',
+                                this.magazine.subheadlineTranslationKey,
                                 undefined,
                                 undefined,
                                 ' ● '
@@ -59,26 +40,10 @@
                         }}
                     </mat-card-subtitle>
                     <p>
-                        {{
-                            t(
-                                'GUI.MAGAZINE.' +
-                                    magazine.translationCategory +
-                                    '.' +
-                                    magazine.translationKey +
-                                    '.ARTICLE1'
-                            )
-                        }}
+                        {{ t(magazine.article1TranslationKey) }}
                     </p>
                     <p>
-                        {{
-                            t(
-                                'GUI.MAGAZINE.' +
-                                    magazine.translationCategory +
-                                    '.' +
-                                    magazine.translationKey +
-                                    '.ARTICLE2'
-                            )
-                        }}
+                        {{ t(magazine.article2TranslationKey) }}
                     </p>
                 </div>
             </mat-card-content>
@@ -86,7 +51,7 @@
             <mat-divider></mat-divider>
 
             <mat-card-footer class="pt-4">
-                <div class="nav">
+                <nav>
                     <div>
                         <a
                             *ngIf="previousMagazineId !== null"
@@ -103,7 +68,7 @@
                             >Next magazine <fa-icon icon="angle-right"></fa-icon
                         ></a>
                     </div>
-                </div>
+                </nav>
             </mat-card-footer>
         </ng-container>
     </mat-card>

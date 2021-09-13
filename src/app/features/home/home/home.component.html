@@ -2,9 +2,9 @@
     <app-lang-picker-toggle
         class="fixed top-0 right-0 mt-8 mr-8 z-10"
     ></app-lang-picker-toggle>
-	<app-lang-picker
-            *ngIf="languagePickerService.showPicker | async"
-            class="fixed right-0 top-20 mr-6 z-10 max-w-1/2"
+    <app-lang-picker
+        *ngIf="languagePickerService.showPicker | async"
+        class="fixed right-0 top-20 mr-6 z-10 max-w-1/2"
     ></app-lang-picker>
     <div class="px-8 sm:px-32 flex flex-col justify-start items-center">
         <div class="flex flex-row justify-center items-center mt-12">
@@ -30,8 +30,6 @@
             </h1>
         </div>
         <h1 class="mat-display-2 mt-4 mb-8 text-center">Text transcription</h1>
-
-        
 
         <div class="flex-initial bg-blue-300 bg-opacity-50 rounded-xl p-8 mb-8">
             <div class="mb-4 flex flex-row justify-start items-center">
@@ -65,19 +63,9 @@
                     <app-card
                         [routerLink]="['/chapters', chapters[i].id]"
                         [imageSource]="chapters[i].image"
-                        [imageAlt]="
-                            t(
-                                'GUI.MENU.CHAPTERS.' +
-                                    chapters[i].shortIdentifier
-                            )
-                        "
+                        [imageAlt]="t(chapters[i].titleTranslationKey)"
                         [title]="'Chapter ' + chapters[i].number"
-                        [text]="
-                            t(
-                                'GUI.MENU.CHAPTERS.' +
-                                    chapters[i].shortIdentifier
-                            )
-                        "
+                        [text]="t(chapters[i].titleTranslationKey)"
                     ></app-card>
                 </ng-container>
             </app-card-container>

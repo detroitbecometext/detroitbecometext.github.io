@@ -28,18 +28,10 @@ export class SidenavComponent implements OnInit {
     ngOnInit(): void {
         this.chapterLinks = this.chapterService
             .getChapters()
-            .map(
-                (c) => new Link(`GUI.MENU.CHAPTERS.${c.shortIdentifier}`, c.id)
-            );
+            .map((c) => new Link(c.titleTranslationKey, c.id));
 
         this.magazineLinks = this.magazineService
             .getMagazines()
-            .map(
-                (m) =>
-                    new Link(
-                        `GUI.MAGAZINE.${m.translationCategory}.${m.translationKey}.TITLE`,
-                        m.id
-                    )
-            );
+            .map((m) => new Link(m.titleTranslationKey, m.id));
     }
 }

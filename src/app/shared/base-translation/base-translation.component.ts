@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Character } from '@app/core/models';
 import { RelationName } from '@app/core/models/relation-name.enum';
 import { RelationType } from '@app/core/models/relation-type.enum';
@@ -31,9 +31,11 @@ export class BaseTranslationComponent {
             .selectTranslateObject(translationKey)
             .pipe(
                 map((value) =>
-                    Object.values(value)
-                        .slice(startIndex, endIndex)
-                        .join(separator)
+                    typeof value === 'string'
+                        ? value
+                        : Object.values(value)
+                              .slice(startIndex, endIndex)
+                              .join(separator)
                 )
             );
     }

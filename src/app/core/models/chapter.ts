@@ -30,4 +30,8 @@ export class Chapter {
     ) {
         this.image = 'assets/images/' + image;
     }
+
+    public get titleTranslationKey(): string {
+        return `GUI.MENU.CHAPTERS.${this.shortIdentifier}`;
+    }
 }
