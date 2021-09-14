@@ -1,0 +1,76 @@
+<ng-template #loading>
+    <div class="spinner flex flex-row justify-center items-center">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>
+<main class="main-with-centered-card">
+    <mat-card>
+        <ng-container *transloco="let t; loadingTpl: loading">
+            <mat-card-content>
+                <div>
+                    <h1 class="text-center">
+                        {{ t(galleryItem.nameTranslationKey) }}
+                    </h1>
+
+                    <p
+                        class="text-center -mt-4 mb-4 text-gray-500"
+                        *ngIf="galleryItem.unused"
+                    >
+                        (Not available in game)
+                    </p>
+
+                    <mat-divider></mat-divider>
+
+                    <mat-card-subtitle
+                        class="pt-6 flex flex-row justify-around"
+                    >
+                        <div>
+                            <h2 class="mb-0 text-xs">
+                                {{ t(galleryItem.text1LabelTranslationKey) }}
+                            </h2>
+                            <p class="text-lg">
+                                {{ t(galleryItem.text1TranslationKey) }}
+                            </p>
+                        </div>
+                        <div>
+                            <h2 class="mb-0 text-xs">
+                                {{ t(galleryItem.text2LabelTranslationKey) }}
+                            </h2>
+                            <p class="text-lg">
+                                {{ t(galleryItem.text2TranslationKey) }}
+                            </p>
+                        </div>
+                    </mat-card-subtitle>
+
+                    <p class="text-justify">
+                        {{ t(galleryItem.resumeTranslationKey) }}
+                    </p>
+                </div>
+            </mat-card-content>
+
+            <mat-divider></mat-divider>
+
+            <mat-card-footer class="pt-4">
+                <nav>
+                    <div>
+                        <a
+                            *ngIf="previousItemId !== null"
+                            [routerLink]="['/gallery', previousItemId]"
+                        >
+                            <fa-icon icon="angle-left"></fa-icon> Previous
+                            gallery item</a
+                        >
+                    </div>
+                    <div class="next">
+                        <a
+                            *ngIf="nextItemId !== null"
+                            [routerLink]="['/gallery', nextItemId]"
+                            >Next gallery item
+                            <fa-icon icon="angle-right"></fa-icon
+                        ></a>
+                    </div>
+                </nav>
+            </mat-card-footer>
+        </ng-container>
+    </mat-card>
+</main>

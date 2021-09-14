@@ -14,7 +14,6 @@ import { Observable } from 'rxjs';
 
 @Component({
     templateUrl: './magazine.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MagazineComponent
     extends BaseTranslationComponent

@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const modules = [
     MatCardModule,
@@ -25,6 +26,7 @@ const modules = [
     MatInputModule,
     MatTooltipModule,
     MatChipsModule,
+    MatExpansionModule,
 ];
 
 @NgModule({

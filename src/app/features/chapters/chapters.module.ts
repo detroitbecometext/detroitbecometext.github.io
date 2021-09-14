@@ -59,6 +59,7 @@ import { BackgroundDialoguesComponent } from './chapter-contents/30-crossroads-i
 import { ScreensComponent } from './chapter-contents/30-crossroads-intro/screens/screens.component';
 import { ChapterLinkComponent } from './shared/components/chapter-link/chapter-link.component';
 import { ObservationItemComponent } from './shared/components/observation-item/observation-item.component';
+import { EndingsComponent } from './chapter-contents/endings/endings.component';
 
 @NgModule({
     declarations: [
@@ -118,6 +119,7 @@ import { ObservationItemComponent } from './shared/components/observation-item/o
         BackgroundDialoguesComponent,
         ChapterLinkComponent,
         ObservationItemComponent,
+        EndingsComponent,
     ],
     imports: [SharedModule, ChaptersRoutingModule, TranslocoRootModule],
 })

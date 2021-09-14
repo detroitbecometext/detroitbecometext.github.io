@@ -7,6 +7,7 @@ import {
 import { MatSidenav } from '@angular/material/sidenav';
 import { Link } from '@app/core/models';
 import { ChapterService } from '@app/core/services';
+import { GalleryService } from '@app/core/services/gallery.service';
 import { MagazineService } from '@app/core/services/magazine.service';
 
 @Component({
@@ -19,10 +20,12 @@ export class SidenavComponent implements OnInit {
     @Input() sidenav: MatSidenav;
     public chapterLinks: Link[];
     public magazineLinks: Link[];
+    public galleryLinks: Link[];
 
     constructor(
         private chapterService: ChapterService,
-        private magazineService: MagazineService
+        private magazineService: MagazineService,
+        private galleryService: GalleryService
     ) {}
 
     ngOnInit(): void {
@@ -33,5 +36,9 @@ export class SidenavComponent implements OnInit {
         this.magazineLinks = this.magazineService
             .getMagazines()
             .map((m) => new Link(m.titleTranslationKey, m.id));
+
+        this.galleryLinks = this.galleryService
+            .getItems()
+            .map((m) => new Link(m.nameTranslationKey, m.id));
     }
 }

@@ -51,6 +51,7 @@ const routes: Routes = [
                 (m) => m.MagazinesModule
             ),
     },
+    { path: 'gallery', loadChildren: () => import('./features/gallery/gallery.module').then(m => m.GalleryModule) },
 
     // Redirect to 404
     { path: '**', redirectTo: '/not-found' },
