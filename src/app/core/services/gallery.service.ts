@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GalleryItem } from '../models/gallery-item';
 import { GalleryItemType } from '../models/gallery-item-type.enum';
+import { BaseDataService } from './base-data-service';
 
 type CharacterCostumes = {
     name: string;
@@ -13,10 +14,10 @@ type CharacterCostumes = {
 @Injectable({
     providedIn: 'root',
 })
-export class GalleryService {
-    private items: GalleryItem[];
-
+export class GalleryService extends BaseDataService<GalleryItem> {
     constructor() {
+        super();
+
         let costumes: CharacterCostumes[] = [
             { name: 'CONNOR', type: GalleryItemType.Android, count: 3 },
             { name: 'HANK', type: GalleryItemType.Human, count: 4 },
@@ -125,8 +126,6 @@ export class GalleryService {
         ];
 
         let i = 1;
-        this.items = [];
-
         for (let costume of costumes) {
             for (let j = costume.startAt ?? 0; j < costume.count; j++) {
                 this.items.push(
@@ -139,16 +138,5 @@ export class GalleryService {
                 );
             }
         }
-    }
-
-    /**
-     * Get a list of all gallery items.
-     */
-    public getItems(): GalleryItem[] {
-        return this.items;
-    }
-
-    public getItem(id: number): GalleryItem {
-        return this.items.find((item) => item.id === id);
     }
 }

@@ -48,31 +48,6 @@
         </div>
 
         <mat-divider></mat-divider>
-
-        <h2>Progress</h2>
-        <div gdColumns="auto 1fr" gdRows="auto">
-            <ng-container *ngFor="let chapter of chapters">
-                <div class="chapter-progress-title">
-                    {{ chapter.number }}. {{ chapter.title }}
-                </div>
-
-                <div *ngIf="chapter.status === Status.Done" class="done">
-                    <fa-icon icon="check"></fa-icon> Done
-                </div>
-                <div
-                    *ngIf="chapter.status === Status.NotStarted"
-                    class="not-started"
-                >
-                    <fa-icon icon="times"></fa-icon> Not available
-                </div>
-                <div
-                    *ngIf="chapter.status === Status.InProgress"
-                    class="in-progress"
-                >
-                    <fa-icon icon="ellipsis-h"></fa-icon> In progress
-                </div>
-            </ng-container>
-        </div>
     </mat-dialog-content>
     <mat-dialog-actions fxFlex="1 0 auto">
         <br />

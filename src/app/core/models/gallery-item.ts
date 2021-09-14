@@ -1,12 +1,15 @@
+import { DataItem } from './data-item';
 import { GalleryItemType } from './gallery-item-type.enum';
 
-export class GalleryItem {
+export class GalleryItem extends DataItem {
     constructor(
-        public readonly id: number,
+        id: number,
         public readonly type: GalleryItemType,
         public readonly translationKey: string,
         public readonly unused: boolean
-    ) {}
+    ) {
+        super(id);
+    }
 
     public get nameTranslationKey(): string {
         return `${this.translationKey}.NAME`;

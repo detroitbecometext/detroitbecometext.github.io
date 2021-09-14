@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Chapter, Status, Character, Magazine } from '../models';
 
 import { TheHostageChapterContentComponent } from '@app/features/chapters/chapter-contents/1-the-hostage-chapter-content/the-hostage-chapter-content.component';
 import { OpeningChapterContentComponent } from '@app/features/chapters/chapter-contents/2-opening-chapter-content/opening-chapter-content.component';
@@ -41,25 +40,26 @@ import { ConnorsLastMissionChapterContentComponent } from '@app/features/chapter
 import { ConnorCyberlifeTowerChapterContentComponent } from '@app/features/chapters/chapter-contents/32.4-connor-cyberlife-tower-chapter-content/connor-cyberlife-tower-chapter-content.component';
 import { MarkusDemonstrationChapterContentComponent } from '@app/features/chapters/chapter-contents/32.5-markus-demonstration-chapter-content/markus-demonstration-chapter-content.component';
 import { MarkusRevolutionChapterContentComponent } from '@app/features/chapters/chapter-contents/32.6-markus-revolution-chapter-content/markus-revolution-chapter-content.component';
+import { BaseDataService } from './base-data-service';
+import { Chapter } from '../models/chapter';
+import { Character } from '../models/character.enum';
 
 @Injectable({
     providedIn: 'root',
 })
-export class ChapterService {
-    private chapters: Chapter[];
-
+export class ChapterService extends BaseDataService<Chapter> {
     constructor() {
+        super();
+
         // Create all the chapters
         let i = 1;
-        this.chapters = [
+        this.items = [
             new Chapter(
                 i++,
                 '1',
                 Character.Connor,
                 'Chapter1.jpg',
-                Status.Done,
                 '01C',
-                'X0101X',
                 TheHostageChapterContentComponent
             ),
             new Chapter(
@@ -67,9 +67,7 @@ export class ChapterService {
                 '2',
                 Character.Kara,
                 'Chapter2.jpg',
-                Status.Done,
                 '01KA',
-                '',
                 OpeningChapterContentComponent
             ),
             new Chapter(
@@ -77,9 +75,7 @@ export class ChapterService {
                 '3',
                 Character.Markus,
                 'Chapter3.jpg',
-                Status.Done,
                 '01MA',
-                '',
                 ShadesColorChapterContentComponent
             ),
             new Chapter(
@@ -87,9 +83,7 @@ export class ChapterService {
                 '4',
                 Character.Kara,
                 'Chapter4.jpg',
-                Status.Done,
                 '01KB',
-                '',
                 NewHomeChapterContentComponent
             ),
             new Chapter(
@@ -97,9 +91,7 @@ export class ChapterService {
                 '5',
                 Character.Markus,
                 'Chapter5.jpg',
-                Status.Done,
                 '01MB',
-                '',
                 PainterChapterContentComponent
             ),
             new Chapter(
@@ -107,9 +99,7 @@ export class ChapterService {
                 '6',
                 Character.Connor,
                 'Chapter6.jpg',
-                Status.Done,
                 '02C',
-                '',
                 PartnersChapterContentComponent
             ),
             new Chapter(
@@ -117,9 +107,7 @@ export class ChapterService {
                 '7',
                 Character.Kara,
                 'Chapter7.jpg',
-                Status.Done,
                 '02K',
-                '',
                 StormyNightChapterContentComponent
             ),
             new Chapter(
@@ -127,9 +115,7 @@ export class ChapterService {
                 '8',
                 Character.Markus,
                 'Chapter8.jpg',
-                Status.Done,
                 '02M',
-                '',
                 BrokenChapterContentComponent
             ),
             new Chapter(
@@ -137,9 +123,7 @@ export class ChapterService {
                 '9',
                 Character.Connor,
                 'Chapter9.jpg',
-                Status.Done,
                 '04C',
-                '',
                 TheInterrogationChapterContentComponent
             ),
             new Chapter(
@@ -147,9 +131,7 @@ export class ChapterService {
                 '10',
                 Character.Kara,
                 'Chapter10.jpg',
-                Status.InProgress,
                 '03K',
-                '',
                 FugitivesChapterContentComponent
             ),
             new Chapter(
@@ -157,9 +139,7 @@ export class ChapterService {
                 '11',
                 Character.Markus,
                 'Chapter11.jpg',
-                Status.Done,
                 '03M',
-                '',
                 FromTheDeadChapterContentComponent
             ),
             new Chapter(
@@ -167,9 +147,7 @@ export class ChapterService {
                 '12',
                 Character.Connor,
                 'Chapter12.jpg',
-                Status.Done,
                 '03C',
-                '',
                 WaitingForHankChapterContentComponent
             ),
             new Chapter(
@@ -177,9 +155,7 @@ export class ChapterService {
                 '13',
                 Character.Kara,
                 'Chapter13.jpg',
-                Status.Done,
                 '04K',
-                '',
                 OnTheRunChapterContentComponent
             ),
             new Chapter(
@@ -187,9 +163,7 @@ export class ChapterService {
                 '14',
                 Character.Markus,
                 'Chapter14.jpg',
-                Status.Done,
                 '05M',
-                '',
                 JerichoChapterContentComponent
             ),
             new Chapter(
@@ -197,9 +171,7 @@ export class ChapterService {
                 '15',
                 Character.Connor,
                 'Chapter15.jpg',
-                Status.Done,
                 '05C',
-                '',
                 TheNestChapterContentComponent
             ),
             new Chapter(
@@ -207,9 +179,7 @@ export class ChapterService {
                 '16',
                 Character.Markus,
                 'Chapter16.jpg',
-                Status.Done,
                 '06MA',
-                '',
                 TimeToDecideChapterContentComponent
             ),
             new Chapter(
@@ -217,9 +187,7 @@ export class ChapterService {
                 '17',
                 Character.Kara,
                 'Chapter17.jpg',
-                Status.Done,
                 '05K',
-                '',
                 ZlatkoChapterContentComponent
             ),
             new Chapter(
@@ -227,9 +195,7 @@ export class ChapterService {
                 '18',
                 Character.Connor,
                 'Chapter18.jpg',
-                Status.Done,
                 '06CA',
-                '',
                 RussianRouletteChapterContentComponent
             ),
             new Chapter(
@@ -237,9 +203,7 @@ export class ChapterService {
                 '19',
                 Character.Markus,
                 'Chapter19.jpg',
-                Status.Done,
                 '06MB',
-                '',
                 SparePartsChapterContentComponent
             ),
             new Chapter(
@@ -247,9 +211,7 @@ export class ChapterService {
                 '20',
                 Character.Connor,
                 'Chapter20.jpg',
-                Status.Done,
                 '06CB',
-                '',
                 EdenClubChapterContentComponent
             ),
             new Chapter(
@@ -257,9 +219,7 @@ export class ChapterService {
                 '21',
                 Character.Kara,
                 'Chapter21.jpg',
-                Status.Done,
                 '07K',
-                '',
                 PiratesCoveChapterContentComponent
             ),
             new Chapter(
@@ -267,9 +227,7 @@ export class ChapterService {
                 '22',
                 Character.Connor,
                 'Chapter22.jpg',
-                Status.Done,
                 '08C',
-                '',
                 TheBridgeChapterContentComponent
             ),
             new Chapter(
@@ -277,9 +235,7 @@ export class ChapterService {
                 '23',
                 Character.Markus,
                 'Chapter23.jpg',
-                Status.Done,
                 '07M',
-                '',
                 StratfordTowerChapterContentComponent
             ),
             new Chapter(
@@ -287,9 +243,7 @@ export class ChapterService {
                 '24',
                 Character.Connor,
                 'Chapter24.jpg',
-                Status.Done,
                 '09C',
-                '',
                 PublicEnemyChapterContentComponent
             ),
             new Chapter(
@@ -297,9 +251,7 @@ export class ChapterService {
                 '25',
                 Character.Kara,
                 'Chapter25.jpg',
-                Status.Done,
                 '08K',
-                '',
                 MidnightTrainChapterContentComponent
             ),
             new Chapter(
@@ -307,9 +259,7 @@ export class ChapterService {
                 '26',
                 Character.Markus,
                 'Chapter26.jpg',
-                Status.InProgress,
                 '08M',
-                '',
                 CapitolParkChapterContentComponent
             ),
             new Chapter(
@@ -317,9 +267,7 @@ export class ChapterService {
                 '27',
                 Character.Connor,
                 'Chapter27.jpg',
-                Status.Done,
                 '11C',
-                '',
                 MeetKamskiChapterContentComponent
             ),
             new Chapter(
@@ -327,9 +275,7 @@ export class ChapterService {
                 '28',
                 Character.Markus,
                 'Chapter28.jpg',
-                Status.InProgress,
                 '10M',
-                '',
                 FreedomMarchChapterContentComponent
             ),
             new Chapter(
@@ -337,9 +283,7 @@ export class ChapterService {
                 '29',
                 Character.Connor,
                 'Chapter29.jpg',
-                Status.Done,
                 '12C',
-                '',
                 LastChanceConnorChapterContentComponent
             ),
             new Chapter(
@@ -347,9 +291,7 @@ export class ChapterService {
                 '30.1',
                 Character.Kara,
                 'Chapter30.jpg',
-                Status.Done,
                 '02AK',
-                '',
                 CrossroadsKaraChapterContentComponent
             ),
             new Chapter(
@@ -357,9 +299,7 @@ export class ChapterService {
                 '30.2',
                 Character.Connor,
                 'Chapter30.jpg',
-                Status.Done,
                 '02AC',
-                '',
                 CrossroadsConnorChapterContentComponent
             ),
             new Chapter(
@@ -367,9 +307,7 @@ export class ChapterService {
                 '30.3',
                 Character.Markus,
                 'Chapter30.jpg',
-                Status.Done,
                 '02AM',
-                '',
                 CrossroadsMarkusChapterContentComponent
             ),
             new Chapter(
@@ -377,9 +315,7 @@ export class ChapterService {
                 '31.1',
                 Character.Markus,
                 'Chapter31.jpg',
-                Status.Done,
                 '03A.MARKUS',
-                '',
                 NightSoulMarkusChapterContentComponent
             ),
             new Chapter(
@@ -387,9 +323,7 @@ export class ChapterService {
                 '31.2',
                 Character.Connor,
                 'Chapter31.jpg',
-                Status.InProgress,
                 '03A.CONNOR',
-                '',
                 NightSoulConnorChapterContentComponent
             ),
             new Chapter(
@@ -397,9 +331,7 @@ export class ChapterService {
                 '32.1',
                 Character.Kara,
                 'Chapter32.1.jpg',
-                Status.InProgress,
                 '04AKA',
-                '',
                 KaraLeavingDetroitChapterContentComponent
             ),
             new Chapter(
@@ -407,9 +339,7 @@ export class ChapterService {
                 '32.2',
                 Character.Kara,
                 'Chapter32.2.jpg',
-                Status.InProgress,
                 '04AKB',
-                '',
                 KaraCapturedChapterContentComponent
             ),
             new Chapter(
@@ -417,9 +347,7 @@ export class ChapterService {
                 '32.3',
                 Character.Connor,
                 'Chapter32.3.jpg',
-                Status.Done,
                 '04ACA',
-                '',
                 ConnorsLastMissionChapterContentComponent
             ),
             new Chapter(
@@ -427,9 +355,7 @@ export class ChapterService {
                 '32.4',
                 Character.Connor,
                 'Chapter32.4.jpg',
-                Status.Done,
                 '04ACB',
-                '',
                 ConnorCyberlifeTowerChapterContentComponent
             ),
             new Chapter(
@@ -437,9 +363,7 @@ export class ChapterService {
                 '32.5',
                 Character.Markus,
                 'Chapter32.5.jpg',
-                Status.Done,
                 '04AMB',
-                '',
                 MarkusDemonstrationChapterContentComponent
             ),
             new Chapter(
@@ -447,27 +371,10 @@ export class ChapterService {
                 '32.6',
                 Character.Markus,
                 'Chapter32.6.jpg',
-                Status.InProgress,
                 '04AMA',
-                '',
                 MarkusRevolutionChapterContentComponent
             ),
         ];
-    }
-
-    /**
-     * Get a list of all chapters.
-     */
-    public getChapters(): Chapter[] {
-        return this.chapters;
-    }
-
-    /**
-     * Get a chapter by its id.
-     * @param chapterNumber The number for the chapter.
-     */
-    public getChapter(id: number): Chapter {
-        return this.chapters.find((chapter) => chapter.id === id);
     }
 
     public getNextChapterId(
@@ -476,8 +383,8 @@ export class ChapterService {
     ): number | null {
         const chapters =
             character != null
-                ? this.chapters.filter((c) => c.character === character)
-                : this.chapters;
+                ? this.items.filter((c) => c.character === character)
+                : this.items;
         const nextChapters = chapters.filter((c) => c.id > id);
         return nextChapters.length !== 0 ? nextChapters[0].id : null;
     }
@@ -488,8 +395,8 @@ export class ChapterService {
     ): number | null {
         const chapters =
             character != null
-                ? this.chapters.filter((c) => c.character === character)
-                : this.chapters;
+                ? this.items.filter((c) => c.character === character)
+                : this.items;
         const previousChapters = chapters
             .filter((c) => c.id < id)
             .sort((a, b) => b.id - a.id);

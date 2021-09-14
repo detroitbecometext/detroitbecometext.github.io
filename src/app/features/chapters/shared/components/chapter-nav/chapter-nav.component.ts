@@ -4,7 +4,8 @@ import {
     ChangeDetectionStrategy,
     Input,
 } from '@angular/core';
-import { Chapter, ChapterNav } from '@app/core/models';
+import { Chapter } from '@app/core/models/chapter';
+import { ChapterNav } from '@app/core/models/chapter-nav';
 import { ChapterService } from '@app/core/services';
 
 @Component({
@@ -30,5 +31,6 @@ export class ChapterNavComponent {
             );
         }
     }
+
     constructor(private readonly chapterService: ChapterService) {}
 }

@@ -1,5 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Character } from '@app/core/models';
+import { Character } from '@app/core/models/character.enum';
 import { RelationName } from '@app/core/models/relation-name.enum';
 import { RelationType } from '@app/core/models/relation-type.enum';
 import { UnlockType } from '@app/core/models/unlock-type.enum';
@@ -8,11 +7,7 @@ import { TranslocoService } from '@ngneat/transloco';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-@Component({
-    template: '',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class BaseTranslationComponent {
+export abstract class BaseTranslationComponent {
     RelationType = RelationType;
     Character = Character;
     UnlockType = UnlockType;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Chapter } from '@app/core/models';
+import { Chapter } from '@app/core/models/chapter';
 import { ChapterService } from '@app/core/services';
 import { LanguagePickerService } from '@app/core/services/language-picker.service';
 
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.chapters = this.chapterService.getChapters();
+        this.chapters = this.chapterService.getAll();
         this.additionalLinks = [
             {
                 img: 'assets/images/cyberlife.webp',

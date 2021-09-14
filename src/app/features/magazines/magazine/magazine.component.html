@@ -5,71 +5,75 @@
 </ng-template>
 <main class="main-with-centered-card">
     <mat-card>
-        <ng-container *transloco="let t; loadingTpl: loading">
-            <mat-card-content>
-                <div>
-                    <mat-chip-list
-                        class="
-                            flex flex-col
-                            items-center
-                            mb-2
-                            sm:float-right sm:mb-0
-                        "
-                    >
-                        <mat-chip>{{ magazine.type }}</mat-chip>
-                    </mat-chip-list>
-
-                    <h1 class="text-center sm:text-left">
-                        {{ t(magazine.titleTranslationKey) }}
-                    </h1>
-
-                    <mat-divider></mat-divider>
-
-                    <h2 class="text-center pt-4">
-                        {{ t(magazine.subtitleTranslationKey) }}
-                    </h2>
-
-                    <mat-card-subtitle class="text-center">
-                        {{
-                            translateObject(
-                                this.magazine.subheadlineTranslationKey,
-                                undefined,
-                                undefined,
-                                ' ● '
-                            ) | async
-                        }}
-                    </mat-card-subtitle>
-                    <p>
-                        {{ t(magazine.article1TranslationKey) }}
-                    </p>
-                    <p>
-                        {{ t(magazine.article2TranslationKey) }}
-                    </p>
-                </div>
-            </mat-card-content>
-
-            <mat-divider></mat-divider>
-
-            <mat-card-footer class="pt-4">
-                <nav>
+        <ng-container *ngIf="currentItem$ | async as currentItem">
+            <ng-container *transloco="let t; loadingTpl: loading">
+                <mat-card-content>
                     <div>
-                        <a
-                            *ngIf="previousMagazineId !== null"
-                            [routerLink]="['/magazines', previousMagazineId]"
+                        <mat-chip-list
+                            class="
+                                flex flex-col
+                                items-center
+                                mb-2
+                                sm:float-right sm:mb-0 sm:ml-2
+                                ml-0
+                            "
                         >
-                            <fa-icon icon="angle-left"></fa-icon> Previous
-                            magazine</a
-                        >
+                            <mat-chip>{{ currentItem.type }}</mat-chip>
+                        </mat-chip-list>
+
+                        <h1 class="text-center sm:text-left">
+                            {{ t(currentItem.titleTranslationKey) }}
+                        </h1>
+
+                        <mat-divider></mat-divider>
+
+                        <h2 class="text-center pt-4">
+                            {{ t(currentItem.subtitleTranslationKey) }}
+                        </h2>
+
+                        <mat-card-subtitle class="text-center">
+                            {{
+                                translateObject(
+                                    this.currentItem.subheadlineTranslationKey,
+                                    undefined,
+                                    undefined,
+                                    ' ● '
+                                ) | async
+                            }}
+                        </mat-card-subtitle>
+                        <p>
+                            {{ t(currentItem.article1TranslationKey) }}
+                        </p>
+                        <p>
+                            {{ t(currentItem.article2TranslationKey) }}
+                        </p>
                     </div>
-                    <div class="next">
-                        <a
-                            *ngIf="nextMagazineId !== null"
-                            [routerLink]="['/magazines', nextMagazineId]"
-                            >Next magazine <fa-icon icon="angle-right"></fa-icon
-                        ></a>
-                    </div>
-                </nav>
-            </mat-card-footer>
+                </mat-card-content>
+
+                <mat-divider></mat-divider>
+
+                <mat-card-footer class="pt-4">
+                    <nav>
+                        <div>
+                            <a
+                                *ngIf="previousItemId !== null"
+                                [routerLink]="['/magazines', previousItemId]"
+                            >
+                                <fa-icon icon="angle-left"></fa-icon> Previous
+                                magazine</a
+                            >
+                        </div>
+                        <div class="next">
+                            <a
+                                *ngIf="nextItemId !== null"
+                                [routerLink]="['/magazines', nextItemId]"
+                                >Next magazine
+                                <fa-icon icon="angle-right"></fa-icon
+                            ></a>
+                        </div>
+                    </nav>
+                </mat-card-footer>
+            </ng-container>
         </ng-container>
     </mat-card>
 </main>

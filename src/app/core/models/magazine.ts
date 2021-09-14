@@ -1,13 +1,16 @@
+import { DataItem } from './data-item';
 import { MagazineType } from './magazine-type.enum';
 
-export class Magazine {
+export class Magazine extends DataItem {
     constructor(
-        public readonly id: number,
+        id: number,
         public readonly type: MagazineType,
         public readonly translationCategory: string,
         public readonly translationKey: string,
         public readonly subHeadlineTranslationCategory: string
-    ) {}
+    ) {
+        super(id);
+    }
 
     private get baseTranslationKey(): string {
         return `GUI.MAGAZINE.${this.translationCategory}.${this.translationKey}`;

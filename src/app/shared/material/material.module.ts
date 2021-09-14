@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { PortalModule } from '@angular/cdk/portal';
 const modules = [
     MatCardModule,
     MatSidenavModule,
@@ -27,6 +27,7 @@ const modules = [
     MatTooltipModule,
     MatChipsModule,
     MatExpansionModule,
+    PortalModule,
 ];
 
 @NgModule({

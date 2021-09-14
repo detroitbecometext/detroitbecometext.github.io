@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Magazine } from '../models';
+import { Magazine } from '../models/magazine';
 import { MagazineType } from '../models/magazine-type.enum';
+import { BaseDataService } from './base-data-service';
 
 @Injectable({
     providedIn: 'root',
 })
-export class MagazineService {
-    private magazines: Magazine[];
-
+export class MagazineService extends BaseDataService<Magazine> {
     constructor() {
+        super();
         let i = 1;
-        this.magazines = [
+        this.items = [
             new Magazine(
                 i++,
                 MagazineType.CENTURY,
@@ -335,17 +335,6 @@ export class MagazineService {
             ),
             new Magazine(i++, MagazineType.CANADA, 'DNEWS', 'CANADA', 'DNEWS'),
         ];
-    }
-
-    /**
-     * Get a list of all magazines.
-     */
-    public getMagazines(): Magazine[] {
-        return this.magazines;
-    }
-
-    public getMagazine(id: number): Magazine {
-        return this.magazines.find((magazine) => magazine.id === id);
     }
 
     public getMagazineSubheadlinesCount(type: MagazineType): number {

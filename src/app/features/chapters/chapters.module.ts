@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { ChaptersRoutingModule } from './chapters-routing.module';
 import { ChapterComponent } from './chapter/chapter.component';
 import { SharedModule } from '@app/shared/shared.module';
-import { ChapterContentDirective } from './shared/directives/chapter-content.directive';
 import { ChapterNavComponent } from './shared/components/chapter-nav/chapter-nav.component';
-import { RelationDirective } from './shared/directives/relation.directive';
 import { TheHostageChapterContentComponent } from './chapter-contents/1-the-hostage-chapter-content/the-hostage-chapter-content.component';
 import { OpeningChapterContentComponent } from './chapter-contents/2-opening-chapter-content/opening-chapter-content.component';
 import { ShadesColorChapterContentComponent } from './chapter-contents/3-shades-color-chapter-content/shades-color-chapter-content.component';
@@ -64,9 +62,7 @@ import { EndingsComponent } from './chapter-contents/endings/endings.component';
 @NgModule({
     declarations: [
         ChapterComponent,
-        ChapterContentDirective,
         ChapterNavComponent,
-        RelationDirective,
         TheHostageChapterContentComponent,
         OpeningChapterContentComponent,
         ShadesColorChapterContentComponent,
