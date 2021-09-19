@@ -4,4 +4,5 @@ export enum UnlockType {
     Time,
     Tv,
     Observation,
+    None,
 }
