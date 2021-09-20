@@ -5,13 +5,13 @@
 </ng-template>
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
+        <h1>In the Zen Garden</h1>
+
         <p>
             {{ t('GUI.MENU.DATE.06C') }}
             <br />
             {{ t('GUI.MENU.TIME.06C') }}
         </p>
-
-        <h1>In the Zen Garden</h1>
 
         <p>
             <app-dialogue-line name="Connor">
@@ -27,93 +27,108 @@
 
         <app-conditioned-content>
             <div class="condition">
-                Rupert wasn't caught in
-                <a [routerLink]="['/chapters', 15]">The Nest</a>
+                <p>
+                    Rupert wasn't caught in
+                    <a [routerLink]="['/chapters', 15]">The Nest</a>
+                </p>
             </div>
             <div class="content">
                 <app-conditioned-content>
                     <div class="condition">
-                        Ortiz's android wasn't found in
-                        <a [routerLink]="['/chapters', 6]">Partners</a>
+                        <p>
+                            Ortiz's android wasn't found in
+                            <a [routerLink]="['/chapters', 6]">Partners</a>
+                        </p>
                     </div>
                     <div class="content">
-                        <app-relation
-                            [name]="RelationName.Amanda"
-                            [type]="RelationType.LargeDown"
-                        ></app-relation>
-                        <app-dialogue-line name="Amanda">
-                            {{
-                                translateObject(
-                                    'X0601C.AMANDA.INTRO.PC.X06CAMANDA.CARLOSANDROIDNOTFOUND'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-relation
+                                [name]="RelationName.Amanda"
+                                [type]="RelationType.LargeDown"
+                            ></app-relation>
+                            <app-dialogue-line name="Amanda">
+                                {{
+                                    translateObject(
+                                        'X0601C.AMANDA.INTRO.PC.X06CAMANDA.CARLOSANDROIDNOTFOUND'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </div>
                 </app-conditioned-content>
                 <app-conditioned-content>
                     <div class="condition">
-                        Ortiz's android was found in
-                        <a [routerLink]="['/chapters', 6]">Partners</a>
+                        <p>
+                            Ortiz's android was found in
+                            <a [routerLink]="['/chapters', 6]">Partners</a>
+                        </p>
                     </div>
                     <div class="content">
-                        <app-dialogue-line name="Amanda">
-                            {{
-                                translateObject(
-                                    'X0601C.AMANDA.INTRO.PC.X06CAMANDA.CARLOSANDROIDFOUND'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Amanda">
+                                {{
+                                    translateObject(
+                                        'X0601C.AMANDA.INTRO.PC.X06CAMANDA.CARLOSANDROIDFOUND'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </div>
                 </app-conditioned-content>
 
                 <mat-divider></mat-divider>
 
-                <div class="choices">
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0601C.AMANDA.INTRO.PC.CHOICE01.PRAGMATIC')
                         "
                     >
-                        <app-relation
-                            [name]="RelationName.Amanda"
-                            [type]="RelationType.SmallUp"
-                        ></app-relation>
-
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0601C.AMANDA.INTRO.PC.X06CCONNOR.01PRAGMATIC'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-relation
+                                [name]="RelationName.Amanda"
+                                [type]="RelationType.SmallUp"
+                            ></app-relation>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.01PRAGMATIC'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0601C.AMANDA.INTRO.PC.CHOICE01.EXPLAIN')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0601C.AMANDA.INTRO.PC.X06CCONNOR.01EXPLAIN'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.01EXPLAIN'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0601C.AMANDA.INTRO.PC.CHOICE01.NOEXCUSE')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0601C.AMANDA.INTRO.PC.X06CCONNOR.01NOEXCUSE'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.01NOEXCUSE'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
 
                 <p>
                     <app-dialogue-line name="Amanda">
@@ -125,56 +140,64 @@
 
         <app-conditioned-content>
             <div class="condition">
-                Rupert was caught in
-                <a [routerLink]="['/chapters', 15]">The Nest</a>
+                <p>
+                    Rupert was caught in
+                    <a [routerLink]="['/chapters', 15]">The Nest</a>
+                </p>
             </div>
             <div class="content">
-                <app-relation
-                    [name]="RelationName.Amanda"
-                    [type]="RelationType.LargeUp"
-                ></app-relation>
-                <app-dialogue-line name="Amanda">
-                    {{
-                        translateObject(
-                            'X0601C.AMANDA.INTRO.PC.X06CAMANDA.NESTRUPERTSUICIDED'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.Amanda"
+                        [type]="RelationType.LargeUp"
+                    ></app-relation>
+                    <app-dialogue-line name="Amanda">
+                        {{
+                            translateObject(
+                                'X0601C.AMANDA.INTRO.PC.X06CAMANDA.NESTRUPERTSUICIDED'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
 
         <app-conditioned-content>
             <div class="condition">
-                <app-unlock-condition
-                    [unlockType]="UnlockType.Death"
-                    [bracketsOnlyAroundIcon]="true"
-                >
-                    Connor died in
-                    <a [routerLink]="['/chapters', 15]">The Nest</a>
-                </app-unlock-condition>
+                <p>
+                    <app-unlock-condition
+                        [unlockType]="UnlockType.Death"
+                        [bracketsOnlyAroundIcon]="true"
+                    >
+                        Connor died in
+                        <a [routerLink]="['/chapters', 15]">The Nest</a>
+                    </app-unlock-condition>
+                </p>
             </div>
             <div class="content">
-                <app-relation
-                    [name]="RelationName.Amanda"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-dialogue-line name="Amanda">
-                    {{
-                        translateObject(
-                            'X0601C.AMANDA.INTRO.PC.X06CAMANDA.DEADNEST'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Connor">
-                    {{ t('X0601C.AMANDA.INTRO.PC.X06CCONNOR.CONT01A') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Amanda">
-                    {{
-                        translateObject(
-                            'X0601C.AMANDA.INTRO.PC.X06CAMANDA.CONT01B'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.Amanda"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-dialogue-line name="Amanda">
+                        {{
+                            translateObject(
+                                'X0601C.AMANDA.INTRO.PC.X06CAMANDA.DEADNEST'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X0601C.AMANDA.INTRO.PC.X06CCONNOR.CONT01A') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Amanda">
+                        {{
+                            translateObject(
+                                'X0601C.AMANDA.INTRO.PC.X06CAMANDA.CONT01B'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
 
@@ -185,18 +208,17 @@
                 [choiceLabel]="t('X0601C.AMANDA.INTRO.PC.CHOICE02.DEVIANT')"
                 [brackets]="true"
             >
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Unlocked by finding Rupert's ID in
-                    <a [routerLink]="['/chapters', 15]">The Nest </a>
-                </app-unlock-condition>
-
                 <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Found Rupert's ID in
+                        <a [routerLink]="['/chapters', 15]">The Nest </a>
+                    </app-unlock-condition>
+
                     <span class="note"
                         >While this option is supposed to be unlocked by finding
-                        Rupert's ID, it's actually impossible to access it in
-                        the game. However, it can still be found in the game's
-                        files.</span
-                    >
+                        Rupert's ID, it seems that it's actually impossible to
+                        access it in the game.</span
+                    ><br />
 
                     <app-dialogue-line name="Connor">
                         {{
@@ -211,18 +233,19 @@
                 [choiceLabel]="t('X0601C.AMANDA.INTRO.PC.CHOICE02.DIARY')"
                 [brackets]="true"
             >
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Unlocked by finding Rupert's diary in
-                    <a [routerLink]="['/chapters', 15]">The Nest </a>
-                </app-unlock-condition>
-
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.02DIARY'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Found Rupert's diary in
+                        <a [routerLink]="['/chapters', 15]">The Nest </a>
+                    </app-unlock-condition>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0601C.AMANDA.INTRO.PC.X06CCONNOR.02DIARY'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
@@ -230,28 +253,32 @@
                 "
                 [brackets]="true"
             >
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Unlocked by observing the signs on the wall in
-                    <a [routerLink]="['/chapters', 15]">The Nest</a>
-                </app-unlock-condition>
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.02SIGNS'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Observed the signs on the wall in
+                        <a [routerLink]="['/chapters', 15]">The Nest</a>
+                    </app-unlock-condition>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0601C.AMANDA.INTRO.PC.X06CCONNOR.02SIGNS'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X0601C.AMANDA.INTRO.PC.CHOICE02.BIRDS')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.02BIRDS'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0601C.AMANDA.INTRO.PC.X06CCONNOR.02BIRDS'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
         </app-choice-group>
 
@@ -259,6 +286,7 @@
             <span class="note"
                 >Amanda will always answer this after the first choice
             </span>
+            <br />
 
             <app-dialogue-line name="Amanda">
                 {{ t('X0601C.AMANDA.INTRO.PC.X06CAMANDA.WHATELSE') }}
@@ -269,6 +297,7 @@
             <span class="note"
                 >Amanda will always answer this after the second choice</span
             >
+            <br />
 
             <app-dialogue-line name="Amanda">
                 {{ t('X0601C.AMANDA.INTRO.PC.X06CAMANDA.CONT03.1') }}
@@ -279,90 +308,108 @@
 
         <app-conditioned-content>
             <div class="condition">
-                Connor caught Rupert in
-                <a [routerLink]="['/chapters', 15]">The Nest</a>
+                <p>
+                    Connor caught Rupert in
+                    <a [routerLink]="['/chapters', 15]">The Nest</a>
+                </p>
             </div>
             <div class="content">
-                <app-relation
-                    [name]="RelationName.Amanda"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
                 <p>
+                    <app-relation
+                        [name]="RelationName.Amanda"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
                     <app-dialogue-line name="Amanda">
                         {{ t('X0601C.AMANDA.INTRO.PC.X06CAMANDA.CONT03.2') }}
                     </app-dialogue-line>
                 </p>
-                <div class="choices">
+
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0601C.AMANDA.INTRO.PC.CHOICE03.EXCUSE')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0601C.AMANDA.INTRO.PC.X06CCONNOR.03EXCUSE'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.03EXCUSE'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0601C.AMANDA.INTRO.PC.CHOICE03.CONFUSED')
                         "
                     >
-                        [
-                        <span appRelation="small down">Amanda</span>
-                        ]
+                        <p>
+                            <app-relation
+                                name="Amanda"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
 
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0601C.AMANDA.INTRO.PC.X06CCONNOR.03CONFUSED'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.03CONFUSED'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0601C.AMANDA.INTRO.PC.CHOICE03.LASTWORDS')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0601C.AMANDA.INTRO.PC.X06CCONNOR.03LASTWORDS'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.03LASTWORDS'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0601C.AMANDA.INTRO.PC.CHOICE03.EXPLAIN')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0601C.AMANDA.INTRO.PC.X06CCONNOR.03EXPLAIN'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.03EXPLAIN'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
             </div>
         </app-conditioned-content>
 
         <app-unused-content>
             <app-conditioned-content>
                 <div class="condition">
-                    Connor failed to catch Rupert in
-                    <a [routerLink]="['/chapters', 15]">The Nest</a>
+                    <p>
+                        Connor failed to catch Rupert in
+                        <a [routerLink]="['/chapters', 15]">The Nest</a>
+                    </p>
                 </div>
                 <div class="content">
-                    <app-dialogue-line name="Amanda">
-                        {{ t('X0601C.AMANDA.INTRO.PC.X06CAMANDA.CONT04.2') }}
-                    </app-dialogue-line>
+                    <p>
+                        <app-dialogue-line name="Amanda">
+                            {{
+                                t('X0601C.AMANDA.INTRO.PC.X06CAMANDA.CONT04.2')
+                            }}
+                        </app-dialogue-line>
+                    </p>
 
                     <app-choice-group>
                         <app-choice-item
@@ -370,48 +417,53 @@
                                 t('X0601C.AMANDA.INTRO.PC.CHOICE04.TRUTH')
                             "
                         >
-                            <app-dialogue-line name="Connor">
-                                {{
-                                    translateObject(
-                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.04TRUTH',
-                                        0,
-                                        2
-                                    ) | async
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Amanda">
-                                {{
-                                    translateObject(
-                                        'X0601C.AMANDA.INTRO.PC.X06CAMANDA.04TRUTH'
-                                    ) | async
-                                }}
-                            </app-dialogue-line>
-
-                            <app-dialogue-line name="Connor">
-                                {{
-                                    t(
-                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.04TRUTH.3'
-                                    )
-                                }}
-                            </app-dialogue-line>
+                            <p>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        translateObject(
+                                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.04TRUTH',
+                                            0,
+                                            2
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Amanda">
+                                    {{
+                                        translateObject(
+                                            'X0601C.AMANDA.INTRO.PC.X06CAMANDA.04TRUTH'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        t(
+                                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.04TRUTH.3'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </p>
                         </app-choice-item>
                         <app-choice-item
                             [choiceLabel]="
                                 t('X0601C.AMANDA.INTRO.PC.CHOICE04.LIE')
                             "
                         >
-                            <app-dialogue-line name="Connor">
-                                {{
-                                    translateObject(
-                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.04LIE'
-                                    ) | async
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Amanda">
-                                {{
-                                    t('X0601C.AMANDA.INTRO.PC.X06CAMANDA.04LIE')
-                                }}
-                            </app-dialogue-line>
+                            <p>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        translateObject(
+                                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.04LIE'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Amanda">
+                                    {{
+                                        t(
+                                            'X0601C.AMANDA.INTRO.PC.X06CAMANDA.04LIE'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </p>
                         </app-choice-item>
                     </app-choice-group>
                 </div>
@@ -431,18 +483,19 @@
                 [choiceLabel]="t('X0601C.AMANDA.INTRO.PC.CHOICE05.SAVINGHANK')"
                 [brackets]="true"
             >
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Unlocked by saving Hank in
-                    <a [routerLink]="['/chapters', 15]">The Nest</a>
-                </app-unlock-condition>
-
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.05SAVINGHANK'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Saved Hank in
+                        <a [routerLink]="['/chapters', 15]">The Nest</a>
+                    </app-unlock-condition>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0601C.AMANDA.INTRO.PC.X06CCONNOR.05SAVINGHANK'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
@@ -450,80 +503,94 @@
                 "
                 [brackets]="true"
             >
-                <app-unlock-condition [unlockType]="UnlockType.Death">
-                    Unlocked if Connor died before
-                </app-unlock-condition>
-
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.05CONNORDEATH'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Death">
+                        Connor died before
+                    </app-unlock-condition>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0601C.AMANDA.INTRO.PC.X06CCONNOR.05CONNORDEATH'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X0601C.AMANDA.INTRO.PC.CHOICE05.NEGATIVE')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.05NEGATIVE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0601C.AMANDA.INTRO.PC.X06CCONNOR.05NEGATIVE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X0601C.AMANDA.INTRO.PC.CHOICE05.AMBIGUOUS')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.05AMBIGUOUS'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0601C.AMANDA.INTRO.PC.X06CCONNOR.05AMBIGUOUS'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X0601C.AMANDA.INTRO.PC.CHOICE05.POSITIVE')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.05POSITIVE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0601C.AMANDA.INTRO.PC.X06CCONNOR.05POSITIVE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
         </app-choice-group>
 
         <app-unused-content>
-            <app-dialogue-line name="Amanda">
-                {{
-                    translateObject('X0601C.AMANDA.INTRO.PC.X06CAMANDA.CONT06')
-                        | async
-                }}
-            </app-dialogue-line>
+            <p>
+                <app-dialogue-line name="Amanda">
+                    {{
+                        translateObject(
+                            'X0601C.AMANDA.INTRO.PC.X06CAMANDA.CONT06'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </p>
 
             <app-conditioned-content>
-                <div class="condition">Kara not found</div>
+                <div class="condition"><p>Kara not found</p></div>
                 <div class="content">
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0601C.AMANDA.INTRO.PC.X06CCONNOR.KARANOTFOUND'
-                            ) | async
-                        }}
-                    </app-dialogue-line>
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0601C.AMANDA.INTRO.PC.X06CCONNOR.KARANOTFOUND'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
                 </div>
             </app-conditioned-content>
 
             <app-conditioned-content>
-                <div class="condition">Found Kara, obeyed Hank</div>
+                <div class="condition"><p>Found Kara, obeyed Hank</p></div>
                 <div class="content">
-                    <app-dialogue-line name="Amanda">
-                        {{ t('X0601C.AMANDA.INTRO.PC.X06CAMANDA.NOCHASE') }}
-                    </app-dialogue-line>
+                    <p>
+                        <app-dialogue-line name="Amanda">
+                            {{ t('X0601C.AMANDA.INTRO.PC.X06CAMANDA.NOCHASE') }}
+                        </app-dialogue-line>
+                    </p>
 
                     <app-choice-group>
                         <app-choice-item
@@ -531,82 +598,95 @@
                                 t('X0601C.AMANDA.INTRO.PC.CHOICE06.RATIONAL')
                             "
                         >
-                            <app-dialogue-line name="Connor">
-                                {{
-                                    t(
-                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.06RATIONAL'
-                                    )
-                                }}
-                            </app-dialogue-line>
+                            <p>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        translateObject(
+                                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.06RATIONAL'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </p>
                         </app-choice-item>
                         <app-choice-item
                             [choiceLabel]="
                                 t('X0601C.AMANDA.INTRO.PC.CHOICE06.EXCUSE')
                             "
                         >
-                            <app-dialogue-line name="Connor">
-                                {{
-                                    t(
-                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.06EXCUSE.1'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Amanda">
-                                {{
-                                    translateObject(
-                                        'X0601C.AMANDA.INTRO.PC.X06CAMANDA.06EXCUSE'
-                                    ) | async
-                                }}
-                            </app-dialogue-line>
-
-                            <app-dialogue-line name="Connor">
-                                {{
-                                    t(
-                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.06EXCUSE.2'
-                                    )
-                                }}
-                            </app-dialogue-line>
+                            <p>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        t(
+                                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.06EXCUSE.1'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Amanda">
+                                    {{
+                                        translateObject(
+                                            'X0601C.AMANDA.INTRO.PC.X06CAMANDA.06EXCUSE'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        t(
+                                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.06EXCUSE.2'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </p>
                         </app-choice-item>
                         <app-choice-item
                             [choiceLabel]="
                                 t('X0601C.AMANDA.INTRO.PC.CHOICE06.TROUBLED')
                             "
                         >
-                            <app-dialogue-line name="Connor">
-                                {{
-                                    translateObject(
-                                        'X0601C.AMANDA.INTRO.PC.X06CCONNOR.06TROUBLED'
-                                    ) | async
-                                }}
-                            </app-dialogue-line>
+                            <p>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        translateObject(
+                                            'X0601C.AMANDA.INTRO.PC.X06CCONNOR.06TROUBLED'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </p>
                         </app-choice-item>
                     </app-choice-group>
                 </div>
             </app-conditioned-content>
 
             <app-conditioned-content>
-                <div class="condition">Found Kara, chased her and survived</div>
+                <div class="condition">
+                    <p>Found Kara, chased her and survived</p>
+                </div>
                 <div class="content">
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0601C.AMANDA.INTRO.PC.X06CCONNOR.CONNORALIVE'
-                            ) | async
-                        }}
-                    </app-dialogue-line>
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0601C.AMANDA.INTRO.PC.X06CCONNOR.CONNORALIVE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
                 </div>
             </app-conditioned-content>
 
             <app-conditioned-content>
-                <div class="condition">Found Kara, chased her and died</div>
+                <div class="condition">
+                    <p>Found Kara, chased her and died</p>
+                </div>
                 <div class="content">
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0601C.AMANDA.INTRO.PC.X06CCONNOR.CONNORDIED'
-                            ) | async
-                        }}
-                    </app-dialogue-line>
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0601C.AMANDA.INTRO.PC.X06CCONNOR.CONNORDIED'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
                 </div>
             </app-conditioned-content>
         </app-unused-content>
@@ -634,7 +714,7 @@
     </section>
 
     <section>
-        <h1>At Hank's house</h1>
+        <h1>Arriving at Hank's house</h1>
 
         <p>
             <app-dialogue-line name="Taxi">
@@ -649,404 +729,454 @@
             </app-dialogue-line>
         </p>
 
-        <h2>Going through the window</h2>
-        <app-conditioned-content>
-            <div class="condition">Connor knows Sumo's name</div>
-            <div class="content">
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Unlocked by analyzing the dog hairs on Hank's chair in
-                    <a [routerLink]="['/chapters', 12]">Waiting for Hank...</a>
-                </app-unlock-condition>
+        <section>
+            <h2>Going through the window</h2>
+            <app-conditioned-content>
+                <div class="condition"><p>Connor knows Sumo's name</p></div>
+                <div class="content">
+                    <p>
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            Asked Hank about his dog in
+                            <a [routerLink]="['/chapters', 12]"
+                                >Waiting for Hank...</a
+                            >
+                        </app-unlock-condition>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.DOG.PC.X06CCONNOR.NAME'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </div>
+            </app-conditioned-content>
+            <app-conditioned-content>
+                <div class="condition">
+                    <p>Connor doesn't know Sumo's name</p>
+                </div>
+                <div class="content">
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0602C.HANKHOUSE.DOG.PC.X06CCONNOR.NONAME'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </div>
+            </app-conditioned-content>
+            <p>
                 <app-dialogue-line name="Connor">
                     {{
                         translateObject(
-                            'X0602C.HANKHOUSE.DOG.PC.X06CCONNOR.NAME'
+                            'X0602C.HANKHOUSE.WAKEUP.PC.X06CCONNOR.LIEUTENANT'
                         ) | async
                     }}
                 </app-dialogue-line>
-            </div>
-        </app-conditioned-content>
-        <app-conditioned-content>
-            <div class="condition">Connor doesn't know Sumo's name</div>
-            <div class="content">
-                {{
-                    translateObject('X0602C.HANKHOUSE.DOG.PC.X06CCONNOR.NONAME')
-                        | async
-                }}
-            </div>
-        </app-conditioned-content>
-
-        <p>
-            <app-dialogue-line name="Connor">
-                {{
-                    translateObject(
-                        'X0602C.HANKHOUSE.WAKEUP.PC.X06CCONNOR.LIEUTENANT'
-                    ) | async
-                }}
-            </app-dialogue-line>
-        </p>
-
-        <app-conditioned-content>
-            <div class="condition">
-                <app-unlock-condition
-                    [unlockType]="UnlockType.Death"
-                    [bracketsOnlyAroundIcon]="true"
-                >
-                    Connor died in
-                    <a [routerLink]="['/chapters', 15]">The Nest</a>
-                </app-unlock-condition>
-            </div>
-            <div class="content">
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
+            </p>
+            <app-conditioned-content>
+                <div class="condition">
+                    <p>
+                        <app-unlock-condition
+                            [unlockType]="UnlockType.Death"
+                            [bracketsOnlyAroundIcon]="true"
+                        >
+                            Connor died in
+                            <a [routerLink]="['/chapters', 15]">The Nest</a>
+                        </app-unlock-condition>
+                    </p>
+                </div>
+                <div class="content">
+                    <p>
+                        <app-relation
+                            [name]="RelationName.Hank"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.WAKEUP.PC.X06CHANK.CONNORDEAD'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.WAKEUP.PC.X06CCONNOR.CONNORDEAD'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </div>
+            </app-conditioned-content>
+            <p>
+                <app-dialogue-line name="Connor">
+                    {{ t('X0602C.HANKHOUSE.WALKING.FA.X06CCONNOR.MOVIE.1') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{
+                        t('X0602C.HANKHOUSE.WAKEUP.PC.X06CHANK.CONNORNOTDEAD.1')
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{ t('X0602C.HANKHOUSE.WALKING.FA.X06CCONNOR.MOVIE.2') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{
+                        t('X0602C.HANKHOUSE.WAKEUP.PC.X06CHANK.CONNORNOTDEAD.2')
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0602C.HANKHOUSE.GETUP.PC.X06CCONNOR.MOVIE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0602C.HANKHOUSE.GETUP.PC.X06CHANK.MOVIE') }}
+                    {{
+                        translateObject(
+                            'X0602C.HANKHOUSE.DRUNK.FA.X06CHANK.DRUNK03'
+                        ) | async
+                    }}
+                    {{ t('X0602C.HANKHOUSE.DRUNK.FA.X06CHANK.DRUNK05') }}
+                    {{ t('X0602C.HANKHOUSE.DRUNK.FA.X06CHANK.DRUNK01') }}
+                    {{
+                        translateObject(
+                            'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.START'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{
+                        translateObject(
+                            'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.START'
+                        ) | async
+                    }}
+                </app-dialogue-line>
                 <app-dialogue-line name="Hank">
                     {{
                         translateObject(
-                            'X0602C.HANKHOUSE.WAKEUP.PC.X06CHANK.CONNORDEAD'
+                            'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.OPEN',
+                            0,
+                            2
                         ) | async
                     }}
                 </app-dialogue-line>
                 <app-dialogue-line name="Connor">
                     {{
                         translateObject(
-                            'X0602C.HANKHOUSE.WAKEUP.PC.X06CCONNOR.CONNORDEAD'
+                            'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.OPEN'
                         ) | async
                     }}
                 </app-dialogue-line>
-            </div>
-        </app-conditioned-content>
+                <app-dialogue-line name="Hank">
+                    {{
+                        translateObject(
+                            'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.OPEN',
+                            2
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </p>
+            <app-choice-group>
+                <app-choice-item
+                    [choiceLabel]="
+                        t(
+                            'X0602C.HANKHOUSE.SHOWERING.PC.CHOICEGROUP01.RATIONAL'
+                        )
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.RATIONAL',
+                                    0,
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                t(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.RATIONAL'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.RATIONAL',
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t(
+                            'X0602C.HANKHOUSE.SHOWERING.PC.CHOICEGROUP01.AGRESSIVE'
+                        )
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.AGRESSIVE.1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                t(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.AGRESSIVE'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.AGRESSIVE',
+                                    1
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t(
+                            'X0602C.HANKHOUSE.SHOWERING.PC.CHOICEGROUP01.SOLUTION'
+                        )
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.SOLUTION'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t(
+                            'X0602C.HANKHOUSE.SHOWERING.PC.CHOICEGROUP01.PRAGMATIC'
+                        )
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.PRAGMATIC.1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                t(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.PRAGMATIC'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.PRAGMATIC',
+                                    1
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+            </app-choice-group>
+            <p>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.END') }}
+                </app-dialogue-line>
+            </p>
 
-        <p>
-            <app-dialogue-line name="Connor">
-                {{ t('X0602C.HANKHOUSE.WALKING.FA.X06CCONNOR.MOVIE.1') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Hank">
-                {{ t('X0602C.HANKHOUSE.WAKEUP.PC.X06CHANK.CONNORNOTDEAD.1') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Connor">
-                {{ t('X0602C.HANKHOUSE.WALKING.FA.X06CCONNOR.MOVIE.2') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Hank">
-                {{ t('X0602C.HANKHOUSE.WAKEUP.PC.X06CHANK.CONNORNOTDEAD.2') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Connor">
-                {{
-                    translateObject(
-                        'X0602C.HANKHOUSE.GETUP.PC.X06CCONNOR.MOVIE'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Hank">
-                {{ t('X0602C.HANKHOUSE.GETUP.PC.X06CHANK.MOVIE') }}
-                {{
-                    translateObject(
-                        'X0602C.HANKHOUSE.DRUNK.FA.X06CHANK.DRUNK03'
-                    ) | async
-                }}
-                {{ t('X0602C.HANKHOUSE.DRUNK.FA.X06CHANK.DRUNK05') }}
-                {{ t('X0602C.HANKHOUSE.DRUNK.FA.X06CHANK.DRUNK01') }}
-                {{
-                    translateObject(
-                        'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.START'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Connor">
-                {{
-                    translateObject(
-                        'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.START'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Hank">
-                {{
-                    translateObject(
-                        'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.OPEN',
-                        0,
-                        2
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Connor">
-                {{
-                    translateObject(
-                        'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.OPEN'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Hank">
-                {{
-                    translateObject(
-                        'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.OPEN',
-                        2
-                    ) | async
-                }}
-            </app-dialogue-line>
-        </p>
+            <app-choice-group>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0602C.HANKHOUSE.SHOWERING.PC.LEAVE.TEASING')
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.TEASING'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0602C.HANKHOUSE.SHOWERING.PC.LEAVE.LEAVING')
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.LEAVING',
+                                    0,
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.LEAVING'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.LEAVING',
+                                    0,
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+            </app-choice-group>
+            <p>
+                <app-dialogue-line name="Hank">
+                    {{
+                        translateObject(
+                            'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.CLOTHES'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{ t('X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.CLOTHES') }}
+                    {{ t('X0602C.HANKHOUSE.DRESSING.FA.X06CCONNOR.OPEN.1') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0602C.HANKHOUSE.DRESSING.VO.X06CHANK.OPEN') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{ t('X0602C.HANKHOUSE.VOMIT.PC.X06CCONNOR.MOVIE.1') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Hank">
+                    {{
+                        translateObject(
+                            'X0602C.HANKHOUSE.VOMIT.PC.X06CHANK.MOVIE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Connor">
+                    {{ t('X0602C.HANKHOUSE.VOMIT.PC.X06CCONNOR.MOVIE.2') }}
+                </app-dialogue-line>
+            </p>
+        </section>
+    </section>
 
-        <div class="choices">
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0602C.HANKHOUSE.SHOWERING.PC.CHOICEGROUP01.RATIONAL')
-                "
-            >
-                <p>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.RATIONAL',
-                                0,
-                                2
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Hank">
-                        {{
-                            t('X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.RATIONAL')
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.RATIONAL',
-                                2
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                </p>
-            </app-choice-item>
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0602C.HANKHOUSE.SHOWERING.PC.CHOICEGROUP01.AGRESSIVE')
-                "
-            >
-                <p>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            t(
-                                'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.AGRESSIVE.1'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Hank">
-                        {{
-                            t(
-                                'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.AGRESSIVE'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.AGRESSIVE',
-                                1
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                </p>
-            </app-choice-item>
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0602C.HANKHOUSE.SHOWERING.PC.CHOICEGROUP01.SOLUTION')
-                "
-            >
+    <section>
+        <h1>Investigating Hank's house</h1>
+
+        <section>
+            <h2>
+                <app-unlock-condition [unlockType]="UnlockType.Tv">
+                    {{ t(CommonTranslationKey.WatchTv) }}
+                </app-unlock-condition>
+            </h2>
+            <p>
+                <app-dialogue-line name="Michael Brinkley - CTN TV">
+                    {{
+                        translateObject(
+                            'X0602C.TV.NEWS.PC.X06CBRINKLEY.RUSSIANCONFLICT'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </p>
+        </section>
+
+        <section>
+            <h2>Listening to the door of the bathroom</h2>
+            <p>
+                <app-dialogue-line name="Connor">
+                    {{ t('X0602C.HANKHOUSE.DOOR.PC.X06CCONNOR.AREYOUOK') }}
+                </app-dialogue-line>
+            </p>
+        </section>
+
+        <section>
+            <h2>Looking at the broken window</h2>
+            <p>
                 <app-dialogue-line name="Connor">
                     {{
                         translateObject(
-                            'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.SOLUTION'
+                            'X0602C.HANKHOUSE.WINDOW.PC.X06CCONNOR.BROKEN'
                         ) | async
                     }}
                 </app-dialogue-line>
-            </app-choice-item>
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0602C.HANKHOUSE.SHOWERING.PC.CHOICEGROUP01.PRAGMATIC')
-                "
-            >
-                <p>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            t(
-                                'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.PRAGMATIC.1'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Hank">
-                        {{
-                            t(
-                                'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.PRAGMATIC'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.PRAGMATIC',
-                                1
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                </p>
-            </app-choice-item>
-        </div>
+                <app-dialogue-line name="Hank">
+                    {{ t('X0602C.HANKHOUSE.WINDOW.VO.X06CHANK.BROKEN') }}
+                </app-dialogue-line>
+            </p>
+        </section>
 
-        <p>
-            <app-dialogue-line name="Hank">
-                {{ t('X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.END') }}
-            </app-dialogue-line>
-        </p>
+        <section>
+            <h2>Looking at the gun</h2>
+            <app-choice-group>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0602C.HANKHOUSE.GUN.PC.GUNCHOICE.QUESTION')
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X0602C.HANKHOUSE.GUN.PC.X06CCONNOR.QUESTION.1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.GUN.VO.X06CHANK.QUESTION'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0602C.HANKHOUSE.GUN.PC.X06CCONNOR.QUESTION',
+                                    1
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+            </app-choice-group>
+        </section>
 
-        <div class="choices">
-            <app-choice-item
-                [choiceLabel]="t('X0602C.HANKHOUSE.SHOWERING.PC.LEAVE.TEASING')"
-            >
-                <app-dialogue-line name="Connor">
+        <section>
+            <h2>Hank is ready</h2>
+            <p>
+                <app-dialogue-line name="Hank">
                     {{
                         translateObject(
-                            'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.TEASING'
+                            'X0602C.HANKHOUSE.OUTRO.PC.X06CHANK.DEFAULT'
                         ) | async
                     }}
                 </app-dialogue-line>
-            </app-choice-item>
-            <app-choice-item
-                [choiceLabel]="t('X0602C.HANKHOUSE.SHOWERING.PC.LEAVE.LEAVING')"
-            >
-                <p>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.LEAVING',
-                                0,
-                                2
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Hank">
-                        {{
-                            translateObject(
-                                'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.LEAVING'
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.LEAVING',
-                                0,
-                                2
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                </p>
-            </app-choice-item>
-        </div>
-
-        <p>
-            <app-dialogue-line name="Hank">
-                {{
-                    translateObject(
-                        'X0602C.HANKHOUSE.SHOWERING.PC.X06CHANK.CLOTHES'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Connor">
-                {{ t('X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.CLOTHES') }}
-                {{ t('X0602C.HANKHOUSE.DRESSING.FA.X06CCONNOR.OPEN.1') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Hank">
-                {{ t('X0602C.HANKHOUSE.DRESSING.VO.X06CHANK.OPEN') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Connor">
-                {{ t('X0602C.HANKHOUSE.VOMIT.PC.X06CCONNOR.MOVIE.1') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Hank">
-                {{
-                    translateObject('X0602C.HANKHOUSE.VOMIT.PC.X06CHANK.MOVIE')
-                        | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Connor">
-                {{ t('X0602C.HANKHOUSE.VOMIT.PC.X06CCONNOR.MOVIE.2') }}
-            </app-dialogue-line>
-        </p>
-
-        <h2>Investigating Hank's house</h2>
-
-        <p>
-            <strong
-                ><fa-icon icon="tv"></fa-icon> Listening to the
-                television</strong
-            >
-
-            <app-dialogue-line name="Michael Brinkley - CTN TV">
-                {{
-                    translateObject(
-                        'X0602C.TV.NEWS.PC.X06CBRINKLEY.RUSSIANCONFLICT'
-                    ) | async
-                }}
-            </app-dialogue-line>
-        </p>
-
-        <h2>Listening to the door of the bathroom</h2>
-        <p>
-            <app-dialogue-line name="Connor">
-                {{ t('X0602C.HANKHOUSE.DOOR.PC.X06CCONNOR.AREYOUOK') }}
-            </app-dialogue-line>
-        </p>
-
-        <h2>Looking at the broken window</h2>
-        <p>
-            <app-dialogue-line name="Connor">
-                {{
-                    translateObject(
-                        'X0602C.HANKHOUSE.WINDOW.PC.X06CCONNOR.BROKEN'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Hank">
-                {{ t('X0602C.HANKHOUSE.WINDOW.VO.X06CHANK.BROKEN') }}
-            </app-dialogue-line>
-        </p>
-
-        <h2>Looking at the gun</h2>
-        <app-choice-group>
-            <app-choice-item
-                [choiceLabel]="t('X0602C.HANKHOUSE.GUN.PC.GUNCHOICE.QUESTION')"
-            >
-                <p>
-                    <app-dialogue-line name="Connor">
-                        {{ t('X0602C.HANKHOUSE.GUN.PC.X06CCONNOR.QUESTION.1') }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Hank">
-                        {{
-                            translateObject(
-                                'X0602C.HANKHOUSE.GUN.VO.X06CHANK.QUESTION'
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0602C.HANKHOUSE.GUN.PC.X06CCONNOR.QUESTION',
-                                1
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                </p>
-            </app-choice-item>
-        </app-choice-group>
-
-        <h2>Hank is ready</h2>
-        <p>
-            <app-dialogue-line name="Hank">
-                {{
-                    translateObject(
-                        'X0602C.HANKHOUSE.OUTRO.PC.X06CHANK.DEFAULT'
-                    ) | async
-                }}
-            </app-dialogue-line>
-        </p>
+            </p>
+        </section>
     </section>
 </ng-container>

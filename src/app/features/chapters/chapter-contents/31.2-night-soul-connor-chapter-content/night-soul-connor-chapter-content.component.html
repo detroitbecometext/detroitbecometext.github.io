@@ -5,22 +5,29 @@
 </ng-template>
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
+        <h1>In the Zen Garden</h1>
+
         <p>
             {{ t('GUI.MENU.DATE.03A') }}
             <br />
             {{ t('GUI.MENU.TIME.03A') }}
         </p>
 
-        <h1>In the Zen Garden</h1>
-        [if Connor stayed a machine or died in
-        <a [routerLink]="['/chapters', 31]">Crossroads</a>]
+        <p>
+            <app-unlock-condition [unlockType]="UnlockType.Lock">
+                Connor stayed a machine or died in
+                <a [routerLink]="['/chapters', 31]">Crossroads</a>
+            </app-unlock-condition>
+        </p>
 
         <app-conditioned-content>
             <div class="condition">
-                <app-unlock-condition [unlockType]="UnlockType.Death">
-                    Connor died in
-                    <a [routerLink]="['/chapters', 31]">Crossroads</a>
-                </app-unlock-condition>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Death">
+                        Connor died in
+                        <a [routerLink]="['/chapters', 31]">Crossroads</a>
+                    </app-unlock-condition>
+                </p>
             </div>
             <div class="content">
                 <p>
@@ -50,23 +57,27 @@
         </app-conditioned-content>
         <app-conditioned-content>
             <div class="condition">
-                Connor stayed a machine and didn't die in
-                <a [routerLink]="['/chapters', 31]">Crossroads</a> (killed
-                Markus), North is leading a violent revolution
+                <p>
+                    Connor stayed a machine and didn't die in
+                    <a [routerLink]="['/chapters', 31]">Crossroads</a> (killed
+                    Markus), North is leading a violent revolution
+                </p>
             </div>
             <div class="content">
-                <app-dialogue-line name="Amanda">
-                    {{
-                        translateObject(
-                            'X1303C.ZENGARDEN.BRIDGE.PC.X13CAMANDA.REVOLUTION'
-                        ) | async
-                    }}
-                    {{
-                        translateObject(
-                            'X1303C.ZENGARDEN.BRIDGE.PC.X13CAMANDA.MISSION01'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Amanda">
+                        {{
+                            translateObject(
+                                'X1303C.ZENGARDEN.BRIDGE.PC.X13CAMANDA.REVOLUTION'
+                            ) | async
+                        }}
+                        {{
+                            translateObject(
+                                'X1303C.ZENGARDEN.BRIDGE.PC.X13CAMANDA.MISSION01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
     </section>
@@ -75,149 +86,175 @@
 
     <section>
         <h1>At Hank's house</h1>
-        [if Hank was hostile in
-        <a [routerLink]="['/chapters', 29]">Last Chance, Connor</a> and
-        resigned]
+        <app-unlock-condition [unlockType]="UnlockType.Lock">
+            Hank was hostile in
+            <a [routerLink]="['/chapters', 29]">Last Chance, Connor</a> and
+            resigned
+        </app-unlock-condition>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X1204C.HOUSE.HANK.PC.HELLOCHOICE.GOODBYE')"
             >
-                <app-dialogue-line name="Connor">
-                    {{ t('X1204C.HOUSE.HANK.PC.X12CCONNOR.GOODBYE') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X1204C.HOUSE.HANK.PC.X12CCONNOR.GOODBYE') }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1204C.HOUSE.HANK.PC.HELLOCHOICE.APOLOGIZE')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1204C.HOUSE.HANK.PC.X12CCONNOR.APOLOGIZE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1204C.HOUSE.HANK.PC.X12CCONNOR.APOLOGIZE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1204C.HOUSE.HANK.PC.HELLOCHOICE.WORRIEDHANK')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1204C.HOUSE.HANK.PC.X12CCONNOR.WORRIEDHANK'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1204C.HOUSE.HANK.PC.X12CCONNOR.WORRIEDHANK'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1204C.HOUSE.HANK.PC.HELLOCHOICE.RECONCILE')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1204C.HOUSE.HANK.PC.X12CCONNOR.RECONCILE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1204C.HOUSE.HANK.PC.X12CCONNOR.RECONCILE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X1204C.HOUSE.HANK.PC.SHOULDNOTCHOICE.PHOTO')"
                 [brackets]="true"
             >
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    unlocked by looking at Cole's photo in
-                    <a [routerLink]="['/chapters', 18]">Russian Roulette</a>
-                </app-unlock-condition>
-
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject('X1204C.HOUSE.HANK.PC.X12CCONNOR.PHOTO')
-                            | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Looked at Cole's photo in
+                        <a [routerLink]="['/chapters', 18]">Russian Roulette</a>
+                    </app-unlock-condition>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1204C.HOUSE.HANK.PC.X12CCONNOR.PHOTO'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1204C.HOUSE.HANK.PC.SHOULDNOTCHOICE.GUN')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject('X1204C.HOUSE.HANK.PC.X12CCONNOR.GUN')
-                            | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1204C.HOUSE.HANK.PC.X12CCONNOR.GUN'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1204C.HOUSE.HANK.PC.SHOULDNOTCHOICE.ALCOHOL')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1204C.HOUSE.HANK.PC.X12CCONNOR.ALCOHOL'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1204C.HOUSE.HANK.PC.X12CCONNOR.ALCOHOL'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
         <app-conditioned-content>
             <div class="condition">
-                choose [ PHOTO ] + Connor died multiple times
+                <p>Chose [ PHOTO ] + Connor died multiple times</p>
             </div>
             <div class="content">
-                <app-dialogue-line name="Hank">
-                    {{
-                        translateObject(
-                            'X1204C.HOUSE.HANK.PC.X12CHANK.SEVERALDEATHS'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X1204C.HOUSE.HANK.PC.X12CHANK.SEVERALDEATHS'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
         <app-conditioned-content>
             <div class="condition">
-                Connor didn't die before / don't choose [ PHOTO ]
+                <p>Connor didn't die before / don't choose [ PHOTO ]</p>
             </div>
             <div class="content">
-                <app-dialogue-line name="Hank">
-                    {{
-                        translateObject('X1204C.HOUSE.HANK.PC.X12CHANK.NOHOPE')
-                            | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X1204C.HOUSE.HANK.PC.X12CHANK.NOHOPE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
 
         <mat-divider></mat-divider>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X1204C.HOUSE.HANK.PC.EXPLAINCHOICE.CONVINCE')"
             >
-                <app-dialogue-line name="Connor">
-                    {{ t('X1204C.HOUSE.HANK.PC.X12CCONNOR.CONVINCE') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X1204C.HOUSE.HANK.PC.X12CCONNOR.CONVINCE') }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1204C.HOUSE.HANK.PC.EXPLAINCHOICE.DONTINSIST')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{ t('X1204C.HOUSE.HANK.PC.X12CCONNOR.DONTINSIST') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X1204C.HOUSE.HANK.PC.X12CCONNOR.DONTINSIST') }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <p>
             <app-dialogue-line name="Hank">
@@ -234,126 +271,138 @@
     <section>
         <h1>In the church : Jericho was attacked</h1>
 
-        [ Connor became a deviant and Markus is dead / rejected and did not
-        return ]
+        <p>
+            <app-unlock-condition [unlockType]="UnlockType.None">
+                Connor became a deviant and Markus is dead / rejected and did
+                not return
+            </app-unlock-condition>
+        </p>
 
-        <h2>Talking with Kara</h2>
-        <app-conditioned-content>
-            <div class="condition">
-                Connor went after Kara and Alice on the highway in
-                <a [routerLink]="['/chapters', 13]">On The Run</a>
-            </div>
-            <div class="content">
-                <p>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.SORRY'
-                            ) | async
-                        }}
-                        {{
-                            t(
-                                'X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.WHATNOW.1'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Kara">
-                        {{
-                            translateObject(
-                                'X0904M.CHURCH.KARALEAVING.PC.X09MKARA.BUSK',
-                                0,
-                                3
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.WHATNOW',
-                                1
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                </p>
-            </div>
-        </app-conditioned-content>
+        <section>
+            <h2>Talking with Kara</h2>
+            <app-conditioned-content>
+                <div class="condition">
+                    <p>
+                        Connor went after Kara and Alice on the highway in
+                        <a [routerLink]="['/chapters', 13]">On The Run</a>
+                    </p>
+                </div>
+                <div class="content">
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.SORRY'
+                                ) | async
+                            }}
+                            {{
+                                t(
+                                    'X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.WHATNOW.1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Kara">
+                            {{
+                                translateObject(
+                                    'X0904M.CHURCH.KARALEAVING.PC.X09MKARA.BUSK',
+                                    0,
+                                    3
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.WHATNOW',
+                                    1
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </div>
+            </app-conditioned-content>
+        </section>
 
-        <h2>Talking with North</h2>
-        <div class="choices">
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0904M.CHURCH.MARKUSDEAD.PC.CHOICETALK.MARKUS')
-                "
-            >
-                <app-unlock-condition [unlockType]="UnlockType.Death">
-                    Available if Markus is dead
-                </app-unlock-condition>
+        <section>
+            <h2>Talking with North</h2>
+            <app-choice-group>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0904M.CHURCH.MARKUSDEAD.PC.CHOICETALK.MARKUS')
+                    "
+                >
+                    <p>
+                        <app-unlock-condition [unlockType]="UnlockType.Death">
+                            Markus is dead
+                        </app-unlock-condition>
 
-                <p>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            translateObject(
-                                'X0904M.CHURCH.MARKUSDEAD.PC.X09MCONNOR.MARKUS',
-                                0,
-                                3
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="North">
-                        {{
-                            translateObject(
-                                'X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.MARKUSDEAD01'
-                            ) | async
-                        }}
-                    </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0904M.CHURCH.MARKUSDEAD.PC.X09MCONNOR.MARKUS',
+                                    0,
+                                    3
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                translateObject(
+                                    'X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.MARKUSDEAD01'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
 
-                    <!-- TODO: Check if X0904M.CHURCH.MARKUSDEAD.PC.X09MCONNOR.MARKUS.4 / .5 trigger
-						if Markus dies at the end of crossroads -->
-                    <!-- TODO: Check if X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.MARKUSDEAD02 triggers
-						if Markus died saving North-->
-                </p>
-            </app-choice-item>
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0904M.CHURCH.MARKUSDEAD.PC.CHOICETALK.SITUATION')
-                "
-            >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0904M.CHURCH.MARKUSDEAD.PC.X09MCONNOR.SITUATION'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-            </app-choice-item>
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0904M.CHURCH.MARKUSDEAD.PC.CHOICETALK.SURVIVORS')
-                "
-            >
-                <p>
-                    <app-dialogue-line name="Connor">
-                        {{
-                            t(
-                                'X0904M.CHURCH.MARKUSDEAD.PC.X09MCONNOR.SURVIVORS'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="North">
-                        {{
-                            translateObject(
-                                'X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBCONNOR'
-                            ) | async
-                        }}
-                    </app-dialogue-line>
+                        <!-- TODO (V2): Check if X0904M.CHURCH.MARKUSDEAD.PC.X09MCONNOR.MARKUS.4 / .5 trigger
+								if Markus dies at the end of crossroads -->
+                        <!-- TODO (V2): Check if X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.MARKUSDEAD02 triggers
+								if Markus died saving North-->
+                    </p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0904M.CHURCH.MARKUSDEAD.PC.CHOICETALK.SITUATION')
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                translateObject(
+                                    'X0904M.CHURCH.MARKUSDEAD.PC.X09MCONNOR.SITUATION'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0904M.CHURCH.MARKUSDEAD.PC.CHOICETALK.SURVIVORS')
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Connor">
+                            {{
+                                t(
+                                    'X0904M.CHURCH.MARKUSDEAD.PC.X09MCONNOR.SURVIVORS'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                translateObject(
+                                    'X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBCONNOR'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
 
-                    <!-- TODO: Check if X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBMARKUS triggers
-						if Markus dies after activating the bomb -->
-                    <!-- TODO: Check if X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.NOBOMB triggers
-						if Markus dies without activating the bomb -->
-                </p>
-            </app-choice-item>
-        </div>
+                        <!-- TODO (V2): Check if X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBMARKUS triggers
+								if Markus dies after activating the bomb -->
+                        <!-- TODO (V2): Check if X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.NOBOMB triggers
+								if Markus dies without activating the bomb -->
+                    </p>
+                </app-choice-item>
+            </app-choice-group>
+        </section>
 
         <p>
             <app-dialogue-line name="North">
@@ -395,37 +444,42 @@
                 }}
             </app-dialogue-line>
         </p>
-
-        <h2>North calls to arms</h2>
-
-        [ In the church or In Jericho ]
+    </section>
+    <section>
+        <h1>North calls to arms</h1>
 
         <app-conditioned-content>
             <div class="condition">
-                <app-unlock-condition [unlockType]="UnlockType.Death">
-                    Markus died
-                </app-unlock-condition>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Death">
+                        Markus died
+                    </app-unlock-condition>
+                </p>
             </div>
             <div class="content">
-                <app-dialogue-line name="North">
-                    {{
-                        translateObject(
-                            'X0904M.CHURCH.NORTHLEADER.PC.X09MMARLA.MARKUSDEAD'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="North">
+                        {{
+                            translateObject(
+                                'X0904M.CHURCH.NORTHLEADER.PC.X09MMARLA.MARKUSDEAD'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
         <app-conditioned-content>
-            <div class="condition">Markus was rejected by Jericho</div>
+            <div class="condition"><p>Markus was rejected by Jericho</p></div>
             <div class="content">
-                <app-dialogue-line name="North">
-                    {{
-                        translateObject(
-                            'X0904M.CHURCH.NORTHLEADER.PC.X09MMARLA.MARKUSFIRED'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="North">
+                        {{
+                            translateObject(
+                                'X0904M.CHURCH.NORTHLEADER.PC.X09MMARLA.MARKUSFIRED'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
 

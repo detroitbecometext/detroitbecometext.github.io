@@ -5,20 +5,20 @@
 </ng-template>
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
+        <h1>At Carl's house</h1>
+
         <p>
             {{ t('GUI.MENU.DATE.02M') }}
             <br />
             {{ t('GUI.MENU.TIME.02M') }}
         </p>
 
-        <h1>At Carl's house</h1>
         <p>
             <app-dialogue-line name="Alarm">
                 {{
                     t('X0201M.INTRO.ARRIVAL.VO.X02MHOUSEALARMVOICE.WELCOMEKCH')
                 }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{
                     translateObject('X0201M.INTRO.ARRIVAL.PC.X02MCARL.INTROM01')
@@ -29,11 +29,9 @@
                         | async
                 }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Markus">
                 {{ t('X0201M.INTRO.ARRIVAL.FA.X02MMARKUSINT.INTROM03') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{
                     translateObject('X0201M.INTRO.ARRIVAL.PC.X02MCARL.INTROM04')
@@ -45,16 +43,17 @@
 
         <app-conditioned-content>
             <div class="condition">
-                <span class="name">Go without Carl</span>
+                <p>Go without Carl</p>
             </div>
             <div class="content">
-                <app-dialogue-line name="Carl">
-                    {{ t('X0201M.INTRO.CALLBACK.PC.X02MCARL.CALL01') }}
-                </app-dialogue-line>
-
-                <app-dialogue-line name="Markus">
-                    {{ t('X0201M.INTRO.CALLBACK.FA.X02MMARKUSINT.CALL02') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Carl">
+                        {{ t('X0201M.INTRO.CALLBACK.PC.X02MCARL.CALL01') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Markus">
+                        {{ t('X0201M.INTRO.CALLBACK.FA.X02MMARKUSINT.CALL02') }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
 
@@ -62,32 +61,25 @@
             <app-dialogue-line name="Markus">
                 {{ t('X0201M.LIVING.DRINK.FA.X02MMARKUSINT.SCOTCH01') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{ t('X0201M.LIVING.DRINK.PC.X02MCARL.SCOTCH01') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Markus">
                 {{ t('X0201M.LIVING.DRINK.FA.X02MMARKUSINT.SCOTCH02') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{ t('X0201M.LIVING.DRINK.FA.X02MCARL.SCOTCH02') }}
                 {{ t('X0201M.LIVING.WORRY.PC.X02MCARL.WORKSHOP.1') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Markus">
                 {{ t('X0201M.LIVING.WORRY.PC.X02MMARKUSINT.WORKSHOP') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{ t('X0201M.LIVING.WORRY.PC.X02MCARL.WORKSHOP.2') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Police">
                 {{ t('X0201M.LIVING.POLICE.VO.X02MPOLICEW.CALLW.1') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Markus">
                 {{
                     translateObject(
@@ -95,11 +87,9 @@
                     ) | async
                 }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Police">
                 {{ t('X0201M.LIVING.POLICE.VO.X02MPOLICEW.CALLW.2') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{ t('X0201M.LIVING.POLICE.PC.X02MCARL.LETSGO') }}
             </app-dialogue-line>
@@ -107,47 +97,48 @@
 
         <app-conditioned-content>
             <div class="condition">
-                <span>Going without Carl</span>
+                <p>Going without Carl</p>
             </div>
             <div class="content">
-                <app-dialogue-line name="Carl">
-                    {{ t('X0201M.WORKSHOP.CALLBACK.PC.X02MCARL.CALL') }}
-                </app-dialogue-line>
-
-                <app-dialogue-line name="Markus">
-                    {{ t('X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.FINDLEO') }}
-                </app-dialogue-line>
-
-                <app-dialogue-line name="Leo">
-                    {{ t('X0201M.WORKSHOP.LEO.PC.X02MLEO.FINDLEO') }}
-                </app-dialogue-line>
-
-                <app-dialogue-line name="Carl">
-                    {{
-                        translateObject(
-                            'X0201M.WORKSHOP.LEO.PC.X02MCARL.FINDLEO'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Carl">
+                        {{ t('X0201M.WORKSHOP.CALLBACK.PC.X02MCARL.CALL') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Markus">
+                        {{ t('X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.FINDLEO') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Leo">
+                        {{ t('X0201M.WORKSHOP.LEO.PC.X02MLEO.FINDLEO') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Carl">
+                        {{
+                            translateObject(
+                                'X0201M.WORKSHOP.LEO.PC.X02MCARL.FINDLEO'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
 
         <app-conditioned-content>
             <div class="condition">
-                <span class="name">Going with Carl</span>
+                <p>Going with Carl</p>
             </div>
             <div class="content">
-                <app-dialogue-line name="Carl">
-                    {{
-                        translateObject(
-                            'X0201M.WORKSHOP.LEO.PC.X02MCARL.STOP',
-                            0,
-                            2
-                        ) | async
-                    }}
-                </app-dialogue-line>
-            </div></app-conditioned-content
-        >
+                <p>
+                    <app-dialogue-line name="Carl">
+                        {{
+                            translateObject(
+                                'X0201M.WORKSHOP.LEO.PC.X02MCARL.STOP',
+                                0,
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+            </div>
+        </app-conditioned-content>
 
         <p>
             <app-dialogue-line name="Leo">
@@ -156,26 +147,24 @@
                         | async
                 }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{ t('X0201M.WORKSHOP.LEO.PC.X02MCARL.STOP.3') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Leo">
                 {{
                     translateObject('X0201M.WORKSHOP.LEO.PC.X02MLEO.STOP', 2)
                         | async
                 }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{ t('X0201M.WORKSHOP.LEO.PC.X02MCARL.STOP.4') }}
             </app-dialogue-line>
         </p>
 
         <h2>
-            [ <fa-icon icon="hourglass-end"></fa-icon> ] Take too long to go up
-            to Leo
+            <app-unlock-condition [unlockType]="UnlockType.Time">
+                {{ t(CommonTranslationKey.TooMuchTime) }}
+            </app-unlock-condition>
         </h2>
         <p>
             <app-dialogue-line name="Carl">
@@ -189,38 +178,46 @@
             <app-choice-item
                 [choiceLabel]="t('X0201M.WORKSHOP.LEO.PC.CONVINCE.REASON')"
             >
-                <app-dialogue-line name="Markus">
-                    {{ t('X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.REASON') }}
-                </app-dialogue-line></app-choice-item
-            >
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{ t('X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.REASON') }}
+                    </app-dialogue-line>
+                </p>
+            </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X0201M.WORKSHOP.LEO.PC.CONVINCE.THREATEN')"
             >
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.THREATEN'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.THREATEN'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X0201M.WORKSHOP.LEO.PC.CONVINCE.ADVISE')"
             >
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.ADVISE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.ADVISE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X0201M.WORKSHOP.LEO.PC.CONVINCE.WARNING')"
             >
-                <app-dialogue-line name="Markus">
-                    {{ t('X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.WARNING') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{ t('X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.WARNING') }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
         </app-choice-group>
 
@@ -234,23 +231,18 @@
                     ) | async
                 }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{ t('X0201M.WORKSHOP.LEO.PC.X02MCARL.FIGHT01.1') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Leo">
                 {{ t('X0201M.WORKSHOP.LEO.PC.X02MLEO.FIGHT01.5') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{ t('X0201M.WORKSHOP.LEO.PC.X02MCARL.FIGHT01.2') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Leo">
                 {{ t('X0201M.WORKSHOP.LEO.PC.X02MLEO.FIGHT01.6') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{
                     translateObject(
@@ -259,7 +251,6 @@
                     ) | async
                 }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Leo">
                 {{
                     translateObject(
@@ -269,15 +260,12 @@
                     ) | async
                 }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{ t('X0201M.WORKSHOP.LEO.PC.X02MCARL.FIGHT02C.5') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Leo">
                 {{ t('X0201M.WORKSHOP.LEO.PC.X02MLEO.FIGHT02.3') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Carl">
                 {{
                     translateObject(
@@ -287,173 +275,192 @@
                     ) | async
                 }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Leo">
                 {{ t('X0201M.WORKSHOP.LEO.PC.X02MLEO.FIGHT02.4') }}
             </app-dialogue-line>
         </p>
 
-        <h2>Broke the program</h2>
-        <p>
-            <app-dialogue-line name="Leo">
-                {{ t('X0201M.WORKSHOP.LEO.PC.X02MLEO.FIGHT02.5') }}
-            </app-dialogue-line>
-
-            <app-dialogue-line name="Carl">
-                {{ t('X0201M.WORKSHOP.LEO.PC.X02MCARL.FIGHT02C.3') }}
-            </app-dialogue-line>
-
-            <app-dialogue-line name="Leo">
-                {{
-                    translateObject('X0201M.WORKSHOP.LEO.PC.X02MLEO.FIGHT02', 5)
-                        | async
-                }}
-            </app-dialogue-line>
-        </p>
-
-        <app-choice-group>
-            <app-choice-item [choiceLabel]="t('GUI.ACTION.02M.PUSHLEO')">
-                <p>
-                    <app-dialogue-line name="Carl">
-                        {{
-                            translateObject(
-                                'X0201M.END.LEODEAD.PC.X02MCARL.LEO'
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-
-                    <app-dialogue-line name="Markus">
-                        {{ t('X0201M.END.GO.PC.X02MMARKUSINT.GO01') }}
-                    </app-dialogue-line>
-
-                    <app-dialogue-line name="Carl">
-                        {{
-                            translateObject('X0201M.END.GO.PC.X02MCARL.GO02')
-                                | async
-                        }}
-                    </app-dialogue-line>
-                </p>
-                <app-choice-group>
-                    <app-choice-item
-                        [choiceLabel]="t('X0201M.END.GO.PC.JUSTIFY.EXPLAIN')"
-                    >
-                        <app-dialogue-line name="Markus">
-                            {{
-                                translateObject(
-                                    'X0201M.END.GO.PC.X02MMARKUSINT.EXPLAIN'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </app-choice-item>
-                    <app-choice-item
-                        [choiceLabel]="t('X0201M.END.GO.PC.JUSTIFY.BEG')"
-                    >
-                        <app-dialogue-line name="Markus">
-                            {{
-                                translateObject(
-                                    'X0201M.END.GO.PC.X02MMARKUSINT.BEG'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </app-choice-item>
-                    <app-choice-item
-                        [choiceLabel]="t('X0201M.END.GO.PC.JUSTIFY.CONJURE')"
-                    >
-                        <app-dialogue-line name="Markus">
-                            {{
-                                translateObject(
-                                    'X0201M.END.GO.PC.X02MMARKUSINT.CONJURE'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </app-choice-item>
-                    <app-choice-item
-                        [choiceLabel]="t('X0201M.END.GO.PC.JUSTIFY.LEAVE')"
-                    >
-                        <span>&oslash;</span>
-                    </app-choice-item>
-                </app-choice-group>
-
-                <p>
-                    <app-dialogue-line name="Carl">
-                        {{
-                            translateObject(
-                                'X0201M.END.GO.PC.X02MCARL.OUT',
-                                0,
-                                3
-                            ) | async
-                        }}
-                        {{ t('X0201M.END.GO.PC.X02MCARL.SHOT') }}
-                    </app-dialogue-line>
-
-                    <app-dialogue-line name="Police">
-                        {{ t('X0201M.WORKSHOP.LEO.FA.X02MPOLICEM01.DONTMOVE') }}
-                    </app-dialogue-line>
-                </p>
-            </app-choice-item>
-            <app-choice-item [choiceLabel]="t('GUI.ACTION.02M.OBEYCARL')">
-                <app-dialogue-line name="Markus">
-                    {{ t('X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.HEARTATTACK') }}
-                    {{
-                        translateObject(
-                            'X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.CARLDIE',
-                            0,
-                            3
-                        ) | async
-                    }}
+        <section>
+            <h2>Broke the program</h2>
+            <p>
+                <app-dialogue-line name="Leo">
+                    {{ t('X0201M.WORKSHOP.LEO.PC.X02MLEO.FIGHT02.5') }}
                 </app-dialogue-line>
-
                 <app-dialogue-line name="Carl">
-                    {{
-                        translateObject(
-                            'X0201M.WORKSHOP.LEO.PC.X02MCARL.CARLDIE',
-                            0,
-                            2
-                        ) | async
-                    }}
+                    {{ t('X0201M.WORKSHOP.LEO.PC.X02MCARL.FIGHT02C.3') }}
                 </app-dialogue-line>
-
-                <app-dialogue-line name="Markus">
-                    {{ t('X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.CARLDIE.4') }}
-                </app-dialogue-line>
-
-                <app-dialogue-line name="Carl">
-                    {{
-                        translateObject(
-                            'X0201M.WORKSHOP.LEO.PC.X02MCARL.CARLDIE',
-                            2
-                        ) | async
-                    }}
-                </app-dialogue-line>
-
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.CARLDIE',
-                            4
-                        ) | async
-                    }}
-                </app-dialogue-line>
-
                 <app-dialogue-line name="Leo">
                     {{
                         translateObject(
-                            'X0201M.WORKSHOP.LEO.PC.X02MLEO.CARLDIE'
+                            'X0201M.WORKSHOP.LEO.PC.X02MLEO.FIGHT02',
+                            5
                         ) | async
                     }}
                 </app-dialogue-line>
-
-                <app-dialogue-line name="Police">
-                    {{ t('X0201M.WORKSHOP.LEO.VO.X02MPOLICEM01.THISWAY') }}
-                </app-dialogue-line>
-
-                <app-dialogue-line name="Leo">
-                    {{
-                        translateObject('X0201M.WORKSHOP.LEO.PC.X02MLEO.SHOT')
-                            | async
-                    }}
-                </app-dialogue-line>
-            </app-choice-item>
-        </app-choice-group>
+            </p>
+            <app-choice-group>
+                <app-choice-item [choiceLabel]="t('GUI.ACTION.02M.PUSHLEO')">
+                    <p>
+                        <app-dialogue-line name="Carl">
+                            {{
+                                translateObject(
+                                    'X0201M.END.LEODEAD.PC.X02MCARL.LEO'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{ t('X0201M.END.GO.PC.X02MMARKUSINT.GO01') }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Carl">
+                            {{
+                                translateObject(
+                                    'X0201M.END.GO.PC.X02MCARL.GO02'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                    <app-choice-group>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t('X0201M.END.GO.PC.JUSTIFY.EXPLAIN')
+                            "
+                        >
+                            <p>
+                                <app-dialogue-line name="Markus">
+                                    {{
+                                        translateObject(
+                                            'X0201M.END.GO.PC.X02MMARKUSINT.EXPLAIN'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="t('X0201M.END.GO.PC.JUSTIFY.BEG')"
+                        >
+                            <p>
+                                <app-dialogue-line name="Markus">
+                                    {{
+                                        translateObject(
+                                            'X0201M.END.GO.PC.X02MMARKUSINT.BEG'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t('X0201M.END.GO.PC.JUSTIFY.CONJURE')
+                            "
+                        >
+                            <p>
+                                <app-dialogue-line name="Markus">
+                                    {{
+                                        translateObject(
+                                            'X0201M.END.GO.PC.X02MMARKUSINT.CONJURE'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="t('X0201M.END.GO.PC.JUSTIFY.LEAVE')"
+                        >
+                            <p>&oslash;</p>
+                        </app-choice-item>
+                    </app-choice-group>
+                    <p>
+                        <app-dialogue-line name="Carl">
+                            {{
+                                translateObject(
+                                    'X0201M.END.GO.PC.X02MCARL.OUT',
+                                    0,
+                                    3
+                                ) | async
+                            }}
+                            {{ t('X0201M.END.GO.PC.X02MCARL.SHOT') }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Police">
+                            {{
+                                t(
+                                    'X0201M.WORKSHOP.LEO.FA.X02MPOLICEM01.DONTMOVE'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item [choiceLabel]="t('GUI.ACTION.02M.OBEYCARL')">
+                    <p>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.HEARTATTACK'
+                                )
+                            }}
+                            {{
+                                translateObject(
+                                    'X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.CARLDIE',
+                                    0,
+                                    3
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Carl">
+                            {{
+                                translateObject(
+                                    'X0201M.WORKSHOP.LEO.PC.X02MCARL.CARLDIE',
+                                    0,
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.CARLDIE.4'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Carl">
+                            {{
+                                translateObject(
+                                    'X0201M.WORKSHOP.LEO.PC.X02MCARL.CARLDIE',
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                translateObject(
+                                    'X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.CARLDIE',
+                                    4
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Leo">
+                            {{
+                                translateObject(
+                                    'X0201M.WORKSHOP.LEO.PC.X02MLEO.CARLDIE'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Police">
+                            {{
+                                t(
+                                    'X0201M.WORKSHOP.LEO.VO.X02MPOLICEM01.THISWAY'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Leo">
+                            {{
+                                translateObject(
+                                    'X0201M.WORKSHOP.LEO.PC.X02MLEO.SHOT'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+            </app-choice-group>
+        </section>
     </section>
 </ng-container>

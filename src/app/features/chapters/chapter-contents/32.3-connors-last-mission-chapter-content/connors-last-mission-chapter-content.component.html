@@ -5,66 +5,74 @@
 </ng-template>
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
+        <h1>On the rooftop</h1>
+
         <p>
             {{ t('GUI.MENU.DATE.13C') }}
             <br />
-            {{ t('GUI.MENU.TIME.CB01') }}
+            {{ t('GUI.MENU.TIME.04A.CB01') }}
         </p>
 
-        <h1>On the rooftop</h1>
-
         <app-conditioned-content>
-            <div class="condition">Hank is on the roof</div>
+            <div class="condition"><p>Hank is on the roof</p></div>
             <div class="content">
-                [Hank wasn't hostile in
-                <a [routerLink]="['/chapters', 29]">Last Chance, Connor</a> and
-                didn't resign]
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.None">
+                        Hank wasn't hostile in
+                        <a [routerLink]="['/chapters', 29]"
+                            >Last Chance, Connor</a
+                        >
+                        and didn't resign
+                    </app-unlock-condition>
 
-                <app-dialogue-line name="Hank">
-                    {{ t('X1303C.FACETOFACE.HANK.PC.X13CHANK.DONTDOTHAT') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1303C.FACETOFACE.HANK.PC.X13CCONNOR.DISCORD',
-                            0,
-                            2
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Hank">
-                    {{ t('X1303C.FACETOFACE.HANK.PC.X13CHANK.DISCORD.1') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1303C.FACETOFACE.HANK.PC.X13CCONNOR.DISCORD',
-                            2
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Hank">
-                    {{
-                        translateObject(
-                            'X1303C.FACETOFACE.HANK.PC.X13CHANK.DISCORD',
-                            1
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X1303C.FACETOFACE.HANK.PC.X13CHANK.DONTDOTHAT') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1303C.FACETOFACE.HANK.PC.X13CCONNOR.DISCORD',
+                                0,
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{ t('X1303C.FACETOFACE.HANK.PC.X13CHANK.DISCORD.1') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1303C.FACETOFACE.HANK.PC.X13CCONNOR.DISCORD',
+                                2
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X1303C.FACETOFACE.HANK.PC.X13CHANK.DISCORD',
+                                1
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
 
-                <div class="choices">
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X1303C.FACETOFACE.HANK.PC.CHOICE01.FRIENDLY')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X1303C.FACETOFACE.HANK.PC.X13CCONNOR.FRIENDLY'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X1303C.FACETOFACE.HANK.PC.X13CCONNOR.FRIENDLY'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
@@ -137,9 +145,9 @@
                             t('X1303C.FACETOFACE.HANK.PC.CHOICE01.STAYQUIET')
                         "
                     >
-                        &oslash;
+                        <p>&oslash;</p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
 
                 <p>
                     <app-dialogue-line name="Hank">
@@ -149,7 +157,7 @@
                     </app-dialogue-line>
                 </p>
 
-                <div class="choices">
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X1303C.FACETOFACE.HANK.PC.CHOICE02.THREATEN')
@@ -246,9 +254,9 @@
                         "
                         [brackets]="true"
                     >
-                        [
-                        <i class="fas fa-lock-open fa-flip-horizontal"></i>
-                        unlocked by choosing HANK'S SON]
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            Chose HANK'S SON
+                        </app-unlock-condition>
 
                         <p>
                             <app-dialogue-line name="Connor">
@@ -269,41 +277,46 @@
 
                         <app-conditioned-content>
                             <div class="condition">
-                                Connor died several times before
+                                <p>Connor died several times before</p>
                             </div>
                             <div class="content">
-                                <app-dialogue-line name="Hank">
-                                    {{
-                                        translateObject(
-                                            'X1303C.FACETOFACE.HANK.PC.X13CHANK.HANKSSONINSISTCONT'
-                                        ) | async
-                                    }}
-                                </app-dialogue-line>
+                                <p>
+                                    <app-dialogue-line name="Hank">
+                                        {{
+                                            translateObject(
+                                                'X1303C.FACETOFACE.HANK.PC.X13CHANK.HANKSSONINSISTCONT'
+                                            ) | async
+                                        }}
+                                    </app-dialogue-line>
+                                </p>
                             </div>
                         </app-conditioned-content>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
 
                 <mat-divider></mat-divider>
 
-                <div class="choices">
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X1303C.FACETOFACE.HANK.PC.TOEND.ABANDON')
                         "
                         [brackets]="true"
                     >
-                        <app-unlock-condition [unlockType]="UnlockType.Lock">
-                            Unlocked by being friend with Hank
-                        </app-unlock-condition>
-
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X1303C.FACETOFACE.HANK.PC.X13CCONNOR.ABANDON'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-unlock-condition
+                                [unlockType]="UnlockType.Lock"
+                            >
+                                Be friend with Hank
+                            </app-unlock-condition>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X1303C.FACETOFACE.HANK.PC.X13CCONNOR.ABANDON'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
@@ -311,7 +324,7 @@
                         "
                     >
                         <app-conditioned-content>
-                            <div class="condition">Win the fight</div>
+                            <div class="condition"><p>Win the fight</p></div>
                             <div class="content">
                                 <p>
                                     <app-dialogue-line name="Hank">
@@ -322,7 +335,8 @@
                                         }}
                                     </app-dialogue-line>
                                 </p>
-                                <div class="choices">
+
+                                <app-choice-group>
                                     <app-choice-item
                                         [choiceLabel]="
                                             t(
@@ -330,36 +344,45 @@
                                             )
                                         "
                                     >
-                                        <app-dialogue-line name="Connor">
-                                            {{
-                                                translateObject(
-                                                    'X1303C.FIGHT.HANK.PC.X13CCONNOR.SAVEHANK'
-                                                ) | async
-                                            }}
-                                        </app-dialogue-line>
+                                        <p>
+                                            <app-dialogue-line name="Connor">
+                                                {{
+                                                    translateObject(
+                                                        'X1303C.FIGHT.HANK.PC.X13CCONNOR.SAVEHANK'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                        </p>
 
                                         <app-conditioned-content>
                                             <div class="condition">
-                                                Dodge Hank
+                                                <p>Dodge Hank</p>
                                             </div>
-                                            <div class="content">&oslash;</div>
+                                            <div class="content">
+                                                <p>&oslash;</p>
+                                            </div>
                                         </app-conditioned-content>
                                         <app-conditioned-content>
                                             <div class="condition">
-                                                Getting pushed from the edge
+                                                <p>
+                                                    Getting pushed from the edge
+                                                </p>
                                             </div>
                                             <div class="content">
-                                                <app-dialogue-line name="Hank">
-                                                    {{
-                                                        translateObject(
-                                                            'X1303C.FIGHT.HANK.PC.X13CHANK.AVOIDFAIL'
-                                                        ) | async
-                                                    }}
-                                                </app-dialogue-line>
+                                                <p>
+                                                    <app-dialogue-line
+                                                        name="Hank"
+                                                    >
+                                                        {{
+                                                            translateObject(
+                                                                'X1303C.FIGHT.HANK.PC.X13CHANK.AVOIDFAIL'
+                                                            ) | async
+                                                        }}
+                                                    </app-dialogue-line>
+                                                </p>
                                             </div>
                                         </app-conditioned-content>
                                     </app-choice-item>
-
                                     <app-choice-item
                                         [choiceLabel]="
                                             t(
@@ -367,13 +390,13 @@
                                             )
                                         "
                                     >
-                                        &oslash;</app-choice-item
-                                    >
-                                </div>
+                                        <p>&oslash;</p>
+                                    </app-choice-item>
+                                </app-choice-group>
                             </div>
                         </app-conditioned-content>
                         <app-conditioned-content>
-                            <div class="condition">Lose the fight</div>
+                            <div class="condition"><p>Lose the fight</p></div>
                             <div class="content">
                                 <p>
                                     <app-dialogue-line name="Connor">
@@ -394,31 +417,31 @@
                             </div>
                         </app-conditioned-content>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
             </div>
         </app-conditioned-content>
         <app-conditioned-content>
             <div class="condition">
-                {{ t('MENU.FLOWCHART.04A.CA.ALLENARRIVESSTOPCONNOR') }}
+                <p>{{ t('MENU.FLOWCHART.04A.CA.ALLENARRIVESSTOPCONNOR') }}</p>
             </div>
             <div class="content">
-                <app-unlock-condition [unlockType]="UnlockType.Death">
-                    {{ t('MENU.FLOWCHART.04A.CA.GC.HANKSUICIDE') }}
-                </app-unlock-condition>
-
                 <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Death">
+                        {{ t('MENU.FLOWCHART.04A.CA.GC.HANKSUICIDE') }}
+                    </app-unlock-condition>
+
                     <app-dialogue-line name="Allen">
                         {{ t('X1303C.FACETOFACE.ALLEN.PC.X13CALLEN.START') }}
                     </app-dialogue-line>
                 </p>
 
-                <div class="choices">
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X1303C.FACETOFACE.ALLEN.PC.CHOICE01.OBEY')
                         "
                     >
-                        &oslash;
+                        <p>&oslash;</p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
@@ -464,7 +487,7 @@
                             </app-dialogue-line>
                         </p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
 
                 <p>
                     <app-dialogue-line name="Allen">
@@ -478,41 +501,53 @@
 
                 <app-conditioned-content>
                     <div class="condition">
-                        Connor didn't die in
-                        <a [routerLink]="['/chapters', 1]">The Hostage</a>
+                        <p>
+                            Connor didn't die in
+                            <a [routerLink]="['/chapters', 1]">The Hostage</a>
+                        </p>
                     </div>
                     <div class="content">
-                        <app-dialogue-line name="Allen">
-                            {{
-                                t(
-                                    'X1303C.FACETOFACE.ALLEN.PC.X13CALLEN.MEETAGAIN'
-                                )
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Allen">
+                                {{
+                                    t(
+                                        'X1303C.FACETOFACE.ALLEN.PC.X13CALLEN.MEETAGAIN'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </div>
                 </app-conditioned-content>
                 <app-conditioned-content>
                     <div class="condition">
-                        <app-unlock-condition [unlockType]="UnlockType.Death">
-                            Connor died in
-                            <a [routerLink]="['/chapters', 1]">The Hostage</a>
-                        </app-unlock-condition>
+                        <p>
+                            <app-unlock-condition
+                                [unlockType]="UnlockType.Death"
+                            >
+                                Connor died in
+                                <a [routerLink]="['/chapters', 1]"
+                                    >The Hostage</a
+                                >
+                            </app-unlock-condition>
+                        </p>
                     </div>
                     <div class="content">
-                        <app-dialogue-line name="Allen">
-                            {{
-                                t(
-                                    'X1303C.FACETOFACE.ALLEN.PC.X13CALLEN.DESTROYED'
-                                )
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Connor">
-                            {{
-                                t(
-                                    'X1303C.FACETOFACE.ALLEN.PC.X13CCONNOR.DESTROYED'
-                                )
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Allen">
+                                {{
+                                    t(
+                                        'X1303C.FACETOFACE.ALLEN.PC.X13CALLEN.DESTROYED'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X1303C.FACETOFACE.ALLEN.PC.X13CCONNOR.DESTROYED'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </div>
                 </app-conditioned-content>
 
@@ -533,65 +568,69 @@
                     </app-dialogue-line>
                 </p>
 
-                <div class="choices">
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X1303C.FACETOFACE.ALLEN.PC.CHOICE02.FIGHT')
                         "
                     >
                         <app-conditioned-content>
-                            <div class="condition">Win the fight</div>
+                            <div class="condition"><p>Win the fight</p></div>
                             <div class="content">
-                                <app-dialogue-line name="Connor">
-                                    {{
-                                        t(
-                                            'X1303C.FACETOFACE.ALLEN.PC.X13CCONNOR.FIGHTSUCCESS'
-                                        )
-                                    }}
-                                </app-dialogue-line>
+                                <p>
+                                    <app-dialogue-line name="Connor">
+                                        {{
+                                            t(
+                                                'X1303C.FACETOFACE.ALLEN.PC.X13CCONNOR.FIGHTSUCCESS'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                </p>
                             </div>
                         </app-conditioned-content>
                         <app-conditioned-content>
-                            <div class="condition">Lose the fight</div>
+                            <div class="condition"><p>Lose the fight</p></div>
                             <div class="content">
-                                <app-dialogue-line name="Allen">
-                                    {{
-                                        t(
-                                            'X1303C.FACETOFACE.ALLEN.PC.X13CALLEN.FIGHTFAIL'
-                                        )
-                                    }}
-                                </app-dialogue-line>
+                                <p>
+                                    <app-dialogue-line name="Allen">
+                                        {{
+                                            t(
+                                                'X1303C.FACETOFACE.ALLEN.PC.X13CALLEN.FIGHTFAIL'
+                                            )
+                                        }}
+                                    </app-dialogue-line>
+                                </p>
                             </div>
                         </app-conditioned-content>
                     </app-choice-item>
-
                     <app-choice-item
                         [choiceLabel]="
                             t('X1303C.FACETOFACE.ALLEN.PC.CHOICE02.FLEE')
                         "
                     >
-                        <app-dialogue-line name="Allen">
-                            {{
-                                translateObject(
-                                    'X1303C.FACETOFACE.ALLEN.PC.X13CALLEN.02FLEE'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Allen">
+                                {{
+                                    translateObject(
+                                        'X1303C.FACETOFACE.ALLEN.PC.X13CALLEN.02FLEE'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
             </div>
         </app-conditioned-content>
     </section>
 
     <section>
         <h1>Going after the deviant leader</h1>
-        <!-- TODO: Add anchors -->
         <app-conditioned-content>
             <div class="condition">
-                In the crowd [Markus led a successful demonstration]
+                <p>In the crowd [Markus led a successful demonstration]</p>
             </div>
             <div class="content">
-                <div class="choices">
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t(
@@ -656,25 +695,29 @@
                             )
                         "
                     >
-                        &oslash;
+                        <p>&oslash;</p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
             </div>
         </app-conditioned-content>
         <app-conditioned-content>
-            <div class="condition">Connor finds Markus</div>
+            <div class="condition"><p>Connor finds Markus</p></div>
             <div class="content">
-                [Markus is leading a successful revolution] See
-                <a [routerLink]="['/chapters', 40]" fragment=""
-                    >Markus' Revolution</a
-                >.
+                <p>
+                    [Markus is leading a successful revolution] See
+                    <a [routerLink]="['/chapters', 40]" fragment=""
+                        >Markus' Revolution</a
+                    >.
+                </p>
             </div>
         </app-conditioned-content>
         <app-conditioned-content>
-            <div class="condition">Connor arrives in store</div>
+            <div class="condition"><p>Connor arrives in store</p></div>
             <div class="content">
-                [Markus led a revolution and had to fall back] See
-                <a [routerLink]="['/chapters', 40]">Markus' Revolution</a>.
+                <p>
+                    [Markus led a revolution and had to fall back] See
+                    <a [routerLink]="['/chapters', 40]">Markus' Revolution</a>.
+                </p>
             </div>
         </app-conditioned-content>
     </section>

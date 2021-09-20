@@ -5,26 +5,32 @@
 </ng-template>
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
+        <h1>Outside</h1>
+
         <p>
             {{ t('GUI.MENU.DATE.11C') }}
             <br />
             {{ t('GUI.MENU.TIME.11C') }}
         </p>
 
-        <h1>Outside</h1>
         <app-conditioned-content>
-            <div class="condition">Hank arrives alone</div>
+            <div class="condition"><p>Hank arrives alone</p></div>
             <div class="content">
-                <app-unlock-condition [unlockType]="UnlockType.Death">
-                    Connor died in
-                    <a [routerLink]="['/chapters', 24]">Public Enemy</a>
-                </app-unlock-condition>
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Death">
+                        Connor died in
+                        <a [routerLink]="['/chapters', 24]">Public Enemy</a>
+                    </app-unlock-condition>
+                    <app-relation
+                        [name]="RelationName.Hank"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                </p>
+
                 <app-conditioned-content>
-                    <div class="condition">Hank is hostile with Connor</div>
+                    <div class="condition">
+                        <p>Hank is hostile with Connor</p>
+                    </div>
                     <div class="content">
                         <p>
                             <app-dialogue-line name="Hank">
@@ -66,7 +72,9 @@
                     </div>
                 </app-conditioned-content>
                 <app-conditioned-content>
-                    <div class="condition">Hank is not hostile with Connor</div>
+                    <div class="condition">
+                        <p>Hank is not hostile with Connor</p>
+                    </div>
                     <div class="content">
                         <p>
                             <app-dialogue-line name="Hank">
@@ -101,18 +109,22 @@
                 </app-conditioned-content>
             </div>
         </app-conditioned-content>
-
         <app-conditioned-content>
-            <div class="condition">Hank and Connor arrive together</div>
+            <div class="condition"><p>Hank and Connor arrive together</p></div>
             <div class="content">
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Connor didn't die in
-                    <a [routerLink]="['/chapters', 24]">Public Enemy</a>
-                </app-unlock-condition>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Connor didn't die in
+                        <a [routerLink]="['/chapters', 24]">Public Enemy</a>
+                    </app-unlock-condition>
+                </p>
+
                 <app-conditioned-content>
                     <div class="condition">
-                        Chris died in
-                        <a href="chapter26.html">Capitol Park</a>
+                        <p>
+                            Chris died in
+                            <a href="chapter26.html">Capitol Park</a>
+                        </p>
                     </div>
                     <div class="content">
                         <p>
@@ -152,7 +164,7 @@
                     </div>
                 </app-conditioned-content>
                 <app-conditioned-content>
-                    <div class="condition">Chris was spared</div>
+                    <div class="condition"><p>Chris was spared</p></div>
                     <div class="content">
                         <p>
                             <app-dialogue-line name="Connor">
@@ -190,7 +202,7 @@
 
         <mat-divider></mat-divider>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X1102C.OUTSIDE.WALK.PC.WALKCHOICE.INSTINCT')"
             >
@@ -200,8 +212,9 @@
                             translateObject(
                                 'X1102C.OUTSIDE.WALK.FA.X11CCONNOR.INSTINCTC'
                             ) | async
-                        }} </app-dialogue-line
-                    ><app-dialogue-line name="Hank">
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
                         {{
                             translateObject(
                                 'X1102C.OUTSIDE.WALK.FA.X11CHANK.INSTINCTH'
@@ -215,10 +228,9 @@
             >
                 <p>
                     <app-dialogue-line name="Connor">
-                        {{
-                            t('X1102C.OUTSIDE.WALK.FA.X11CCONNOR.LEAD')
-                        }} </app-dialogue-line
-                    ><app-dialogue-line name="Hank">
+                        {{ t('X1102C.OUTSIDE.WALK.FA.X11CCONNOR.LEAD') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
                         {{
                             translateObject(
                                 'X1102C.OUTSIDE.WALK.FA.X11CHANK.LEAD'
@@ -236,8 +248,9 @@
                             translateObject(
                                 'X1102C.OUTSIDE.WALK.FA.X11CCONNOR.KAMSKIC'
                             ) | async
-                        }} </app-dialogue-line
-                    ><app-dialogue-line name="Hank">
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank">
                         {{
                             translateObject(
                                 'X1102C.OUTSIDE.WALK.FA.X11CHANK.KAMSKIH'
@@ -249,49 +262,60 @@
             <app-choice-item
                 [choiceLabel]="t('X1102C.OUTSIDE.WALK.PC.WALKCHOICE.HARVEY')"
             >
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Unlocked if Connor and Hank arrived separately
-                </app-unlock-condition>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Connor and Hank arrived separately
+                    </app-unlock-condition>
+                </p>
+
                 <app-conditioned-content>
-                    <div class="condition">Chris was spared</div>
+                    <div class="condition"><p>Chris was spared</p></div>
                     <div class="content">
-                        <app-dialogue-line name="Connor">
-                            {{ t('X1102C.OUTSIDE.WALK.FA.X11CCONNOR.SAVED') }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Hank">
-                            {{
-                                translateObject(
-                                    'X1102C.OUTSIDE.WALK.FA.X11CHANK.SAVED'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t('X1102C.OUTSIDE.WALK.FA.X11CCONNOR.SAVED')
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X1102C.OUTSIDE.WALK.FA.X11CHANK.SAVED'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </div>
                 </app-conditioned-content>
                 <app-conditioned-content>
-                    <div class="condition">Chris was killed</div>
+                    <div class="condition"><p>Chris was killed</p></div>
                     <div class="content">
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X1102C.OUTSIDE.WALK.FA.X11CCONNOR.HARVEY'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Hank">
-                            {{
-                                t('X1102C.OUTSIDE.INTRO.PC.X11CHANK.EXECUTED.3')
-                            }}
-                            {{
-                                translateObject(
-                                    'X1102C.OUTSIDE.WALK.FA.X11CHANK.EXECUTED',
-                                    1
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X1102C.OUTSIDE.WALK.FA.X11CCONNOR.HARVEY'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    t(
+                                        'X1102C.OUTSIDE.INTRO.PC.X11CHANK.EXECUTED.3'
+                                    )
+                                }}
+                                {{
+                                    translateObject(
+                                        'X1102C.OUTSIDE.WALK.FA.X11CHANK.EXECUTED',
+                                        1
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </div>
                 </app-conditioned-content>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
@@ -324,17 +348,20 @@
                 {{ t('X1102C.HALL.HANK.PC.X11CHANK.START') }}
             </app-dialogue-line>
         </p>
-        <div class="choices">
+
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X1102C.HALL.HANK.FA.CHOICE01.SINCERE')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1102C.HALL.HANK.FA.X11CCONNOR.SINCERE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1102C.HALL.HANK.FA.X11CCONNOR.SINCERE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1102C.HALL.HANK.FA.CHOICE01.ANALYTICAL')"
@@ -368,7 +395,7 @@
                     </app-dialogue-line>
                 </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <p>
             <app-dialogue-line name="Hank">
@@ -383,41 +410,47 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X1102C.HALL.HANK.FA.CHOICE02.IMPATIENT')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1102C.HALL.HANK.FA.X11CCONNOR.IMPATIENT'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1102C.HALL.HANK.FA.X11CCONNOR.IMPATIENT'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1102C.HALL.HANK.FA.CHOICE02.DISTANT')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1102C.HALL.HANK.FA.X11CCONNOR.DISTANT'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1102C.HALL.HANK.FA.X11CCONNOR.DISTANT'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1102C.HALL.HANK.FA.CHOICE02.INDIFFERENT')"
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1102C.HALL.HANK.FA.X11CCONNOR.INDIFFERENT02'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1102C.HALL.HANK.FA.X11CCONNOR.INDIFFERENT02'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <p>
             <app-dialogue-line name="Hank">
@@ -427,12 +460,14 @@
             </app-dialogue-line>
         </p>
 
-        <h2>Analysing photo of Amanda and Kamski</h2>
-        <p>
-            <app-dialogue-line name="Connor">
-                {{ t('X1102C.HALL.AMANDA.PC.X11CCONNOR.PHOTO') }}
-            </app-dialogue-line>
-        </p>
+        <section>
+            <h2>Analysing photo of Amanda and Kamski</h2>
+            <p>
+                <app-dialogue-line name="Connor">
+                    {{ t('X1102C.HALL.AMANDA.PC.X11CCONNOR.PHOTO') }}
+                </app-dialogue-line>
+            </p>
+        </section>
 
         <mat-divider></mat-divider>
 
@@ -443,7 +478,6 @@
             <app-dialogue-line name="Hank">
                 {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CHANK.KAMSKI') }}
             </app-dialogue-line>
-
             <app-dialogue-line name="Kamski">
                 {{ t('X1102C.SWIMMINGPOOL.KAMSKI.FA.X11CKAMSKI.MOMENT') }}
             </app-dialogue-line>
@@ -478,60 +512,68 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="
                     t('X1102C.SWIMMINGPOOL.KAMSKI.PC.HELPCHOICE.HELP')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.HELP'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.HELP'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1102C.SWIMMINGPOOL.KAMSKI.PC.HELPCHOICE.DEVIANTS')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DEVIANTS'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DEVIANTS'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1102C.SWIMMINGPOOL.KAMSKI.PC.HELPCHOICE.VIRUS')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.VIRUS'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.VIRUS'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1102C.SWIMMINGPOOL.KAMSKI.PC.HELPCHOICE.WAR')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.WAR'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.WAR'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <p>
             <app-dialogue-line name="Kamski">
@@ -557,48 +599,55 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="
                     t('X1102C.SWIMMINGPOOL.KAMSKI.PC.SIDECHOICE.NEUTRAL')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.NEUTRAL01'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.NEUTRAL01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1102C.SWIMMINGPOOL.KAMSKI.PC.SIDECHOICE.DEFENSIVE')
                 "
             >
-                <app-relation
-                    [name]="RelationName.SoftwareInstability"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DEFENSIVE01'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.SoftwareInstability"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DEFENSIVE01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1102C.SWIMMINGPOOL.KAMSKI.PC.SIDECHOICE.DIRECT')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DIRECT') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DIRECT')
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
@@ -612,64 +661,76 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="
                     t('X1102C.SWIMMINGPOOL.KAMSKI.PC.WANTCHOICE.AGRESSIVE')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.AGRESSIVE')
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.AGRESSIVE'
+                            )
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1102C.SWIMMINGPOOL.KAMSKI.PC.WANTCHOICE.DEFENSIVE')
                 "
             >
-                <app-relation
-                    [name]="RelationName.SoftwareInstability"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <app-dialogue-line name="Connor">
-                    {{
-                        t(
-                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DEFENSIVE02'
-                        )
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.SoftwareInstability"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.DEFENSIVE02'
+                            )
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1102C.SWIMMINGPOOL.KAMSKI.PC.WANTCHOICE.TROUBLED')
                 "
             >
-                <app-relation
-                    [name]="RelationName.SoftwareInstability"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <app-dialogue-line name="Connor">
-                    {{ t('X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.TROUBLED') }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.SoftwareInstability"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            t(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.TROUBLED'
+                            )
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1102C.SWIMMINGPOOL.KAMSKI.PC.WANTCHOICE.NEUTRAL')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.NEUTRAL02'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.NEUTRAL02'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
@@ -739,15 +800,15 @@
                     t('X1108M.BADCONNOR.TOUGHCHOICE.PC.CHOICEGROUP01.SHOOT')
                 "
             >
-                <app-relation
-                    [name]="RelationName.SoftwareInstability"
-                    [type]="RelationType.LargeDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.LargeDown"
-                ></app-relation>
                 <p>
+                    <app-relation
+                        [name]="RelationName.SoftwareInstability"
+                        [type]="RelationType.LargeDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Hank"
+                        [type]="RelationType.LargeDown"
+                    ></app-relation>
                     <app-dialogue-line name="Hank">
                         {{
                             t(
@@ -763,76 +824,81 @@
                         }}
                     </app-dialogue-line>
                 </p>
-                <app-choice-item
-                    [choiceLabel]="
-                        t('X1102C.SWIMMINGPOOL.KAMSKI.PC.QUESTIONCHOICE.RA9')
-                    "
-                >
-                    <p>
-                        <app-dialogue-line name="Connor">
-                            {{
-                                t(
-                                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.RA9'
-                                )
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Kamski">
-                            {{
-                                translateObject(
-                                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.RA9'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </p>
-                </app-choice-item>
-                <app-choice-item
-                    [choiceLabel]="
-                        t(
-                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.QUESTIONCHOICE.JERICHO'
-                        )
-                    "
-                >
-                    <p>
-                        <app-dialogue-line name="Connor">
-                            {{
-                                t(
-                                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.JERICHO'
-                                )
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Kamski">
-                            {{
-                                translateObject(
-                                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.JERICHO'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </p>
-                </app-choice-item>
-                <app-choice-item
-                    [choiceLabel]="
-                        t(
-                            'X1102C.SWIMMINGPOOL.KAMSKI.PC.QUESTIONCHOICE.VIRUSDEVIANTS'
-                        )
-                    "
-                >
-                    <p>
-                        <app-dialogue-line name="Connor">
-                            {{
-                                t(
-                                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.VIRUSDEVIANTS'
-                                )
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Kamski">
-                            {{
-                                translateObject(
-                                    'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.VIRUSDEVIANTS'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </p>
-                </app-choice-item>
+
+                <app-choice-group>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.QUESTIONCHOICE.RA9'
+                            )
+                        "
+                    >
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.RA9'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Kamski">
+                                {{
+                                    translateObject(
+                                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.RA9'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.QUESTIONCHOICE.JERICHO'
+                            )
+                        "
+                    >
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.JERICHO'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Kamski">
+                                {{
+                                    translateObject(
+                                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.JERICHO'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1102C.SWIMMINGPOOL.KAMSKI.PC.QUESTIONCHOICE.VIRUSDEVIANTS'
+                            )
+                        "
+                    >
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CCONNOR.VIRUSDEVIANTS'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Kamski">
+                                {{
+                                    translateObject(
+                                        'X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.VIRUSDEVIANTS'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
+                    </app-choice-item>
+                </app-choice-group>
 
                 <p>
                     <app-dialogue-line name="Kamski">
@@ -849,12 +915,12 @@
                     t('X1108M.BADCONNOR.TOUGHCHOICE.PC.CHOICEGROUP01.GIVEUP')
                 "
             >
-                <app-relation
-                    [name]="RelationName.SoftwareInstability"
-                    [type]="RelationType.LargeUp"
-                ></app-relation>
-
                 <p>
+                    <app-relation
+                        [name]="RelationName.SoftwareInstability"
+                        [type]="RelationType.LargeUp"
+                    ></app-relation>
+
                     <app-dialogue-line name="Kamski">
                         {{
                             translateObject(
@@ -909,7 +975,7 @@
     <section>
         <h1>Leaving Kamski's house</h1>
         <app-conditioned-content>
-            <div class="condition">Connor shot Chloe</div>
+            <div class="condition"><p>Connor shot Chloe</p></div>
             <div class="content">
                 <p>
                     <app-dialogue-line name="Hank">
@@ -953,13 +1019,13 @@
             </div>
         </app-conditioned-content>
         <app-conditioned-content>
-            <div class="condition">Connor didn't shoot Chloe</div>
+            <div class="condition"><p>Connor didn't shoot Chloe</p></div>
             <div class="content">
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.LargeUp"
-                ></app-relation>
                 <p>
+                    <app-relation
+                        [name]="RelationName.Hank"
+                        [type]="RelationType.LargeUp"
+                    ></app-relation>
                     <app-dialogue-line name="Hank">
                         {{ t('X1102C.OUTSIDE.OUTRO.PC.X11CHANK.NOSHOOT.1') }}
                     </app-dialogue-line>

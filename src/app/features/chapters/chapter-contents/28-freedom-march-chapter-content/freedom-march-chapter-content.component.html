@@ -5,41 +5,49 @@
 </ng-template>
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
+        <h1>On the roof</h1>
+
         <p>
             {{ t('GUI.MENU.DATE.10M') }}
             <br />
             {{ t('GUI.MENU.TIME.10M') }}
         </p>
 
-        <h1>On the roof</h1>
         <p>
             <app-dialogue-line name="North">
                 {{ t('X1001M.ROOF.NORTH.PC.X10MMARLA.WONDERING') }}
             </app-dialogue-line>
         </p>
-        <div class="choices">
+
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE01.THINK')"
             >
-                <app-dialogue-line name="Markus">
-                    {{ t('X1001M.ROOF.NORTH.PC.X10MMARKUS.01THINK') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{ t('X1001M.ROOF.NORTH.PC.X10MMARKUS.01THINK') }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE01.ALONE')"
             >
-                <app-dialogue-line name="Markus">
-                    {{ t('X1001M.ROOF.NORTH.PC.X10MMARKUS.01ALONE') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{ t('X1001M.ROOF.NORTH.PC.X10MMARKUS.01ALONE') }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE01.EXCUSE')"
             >
-                <app-dialogue-line name="Markus">
-                    {{ t('X1001M.ROOF.NORTH.PC.X10MMARKUS.01EXCUSE') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{ t('X1001M.ROOF.NORTH.PC.X10MMARKUS.01EXCUSE') }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <p>
             <app-dialogue-line name="North">
@@ -50,108 +58,119 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE02.TROUBLED')"
                 [brackets]="true"
             >
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Unlocked if sent a pacifist message in
-                    <a [routerLink]="['/chapters', 26]">Capitol Park</a>
-                </app-unlock-condition>
-
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.02TROUBLED'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Sent a pacifist message in
+                        <a [routerLink]="['/chapters', 26]">Capitol Park</a>
+                    </app-unlock-condition>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.02TROUBLED'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE02.CONFESSION')"
                 [brackets]="true"
             >
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Unlocked if sent an aggressive message in
-                    <a [routerLink]="['/chapters', 26]">Capitol Park</a>
-                </app-unlock-condition>
-
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.02CONFESSION'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Sent an aggressive message in
+                        <a [routerLink]="['/chapters', 26]">Capitol Park</a>
+                    </app-unlock-condition>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.02CONFESSION'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE02.REGRETPOLICE')"
                 [brackets]="true"
             >
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Unlocked if Markus killed Chris and his partner in
-                    <a [routerLink]="['/chapters', 26]">Capitol Park</a>
-                </app-unlock-condition>
-
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.02REGRETPOLICE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Markus killed Chris and his partner in
+                        <a [routerLink]="['/chapters', 26]">Capitol Park</a>
+                    </app-unlock-condition>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.02REGRETPOLICE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE02.FAILED')"
                 [brackets]="true"
             >
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Unlocked if failed to free the androids in
-                    <a [routerLink]="['/chapters', 26]">Capitol Park</a>
-                </app-unlock-condition>
-
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.02FAILED'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Failed to free the androids in
+                        <a [routerLink]="['/chapters', 26]">Capitol Park</a>
+                    </app-unlock-condition>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.02FAILED'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE02.NEXTSTEP')"
             >
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.02NEXTSTEP'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.02NEXTSTEP'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE02.LIE')"
             >
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject('X1001M.ROOF.NORTH.PC.X10MMARKUS.02LIE')
-                            | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.02LIE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE02.SINCERE')"
             >
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.02SINCERE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.02SINCERE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <p>
             <app-dialogue-line name="North">
@@ -162,52 +181,60 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE03.OPTIMISTIC')"
             >
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.03OPTIMISTIC'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.03OPTIMISTIC'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE03.PESSIMISTIC')"
             >
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.03PESSIMISTIC'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.03PESSIMISTIC'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE03.FATALISTIC')"
             >
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.03FATALISTIC'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.03FATALISTIC'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE03.DETERMINED')"
             >
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.03DETERMINED'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.03DETERMINED'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <p>
             <app-dialogue-line name="North">
@@ -218,98 +245,102 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE04.TRUTH')"
             >
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.04TRUTH'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.04TRUTH'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE04.SINCERE')"
             >
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.04SINCERE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.04SINCERE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE04.EVADE')"
             >
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.04EVADE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.04EVADE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE04.NOTIMPORTANT')"
             >
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X1001M.ROOF.NORTH.PC.X10MMARKUS.04NOTIMPORTANT'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.04NOTIMPORTANT'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE05.NORTHSPAST')"
             >
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
+                <p>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
 
-                <div class="choice">
-                    <p>
-                        <app-dialogue-line name="Markus">
-                            {{
-                                translateObject(
-                                    'X1001M.ROOF.NORTH.PC.X10MMARKUS.05NORTHPAST'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.ROOF.NORTH.PC.X10MMARKUS.05NORTHPAST'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
 
-                    <app-conditioned-content>
-                        <div class="condition">North is hostile</div>
-                        <div class="content">
+                <app-conditioned-content>
+                    <div class="condition"><p>North is hostile</p></div>
+                    <div class="content">
+                        <p>
                             <app-dialogue-line name="North">
                                 {{
                                     translateObject(
@@ -317,34 +348,36 @@
                                     ) | async
                                 }}
                             </app-dialogue-line>
-                        </div>
-                    </app-conditioned-content>
-                    <app-conditioned-content>
-                        <div class="condition">North is not hostile</div>
-                        <div class="content">
-                            <p>
-                                <app-dialogue-line name="North">
-                                    {{
-                                        t(
-                                            'X1001M.ROOF.NORTH.PC.X10MMARLA.05CONFIDENCE'
-                                        )
-                                    }}
-                                </app-dialogue-line>
-                            </p>
+                        </p>
+                    </div>
+                </app-conditioned-content>
+                <app-conditioned-content>
+                    <div class="condition"><p>North is not hostile</p></div>
+                    <div class="content">
+                        <p>
+                            <app-dialogue-line name="North">
+                                {{
+                                    t(
+                                        'X1001M.ROOF.NORTH.PC.X10MMARLA.05CONFIDENCE'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                        </p>
 
-                            <div class="choices">
-                                <app-choice-item
-                                    [choiceLabel]="
-                                        t(
-                                            'X1001M.ROOF.NORTH.PC.CHOICE06.PSYCHOLOGICAL'
-                                        )
-                                    "
-                                    [brackets]="true"
-                                >
+                        <app-choice-group>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1001M.ROOF.NORTH.PC.CHOICE06.PSYCHOLOGICAL'
+                                    )
+                                "
+                                [brackets]="true"
+                            >
+                                <p>
                                     <app-unlock-condition
                                         [unlockType]="UnlockType.Lock"
                                     >
-                                        Unlocked if looked at the other North in
+                                        Looked at the other North in
                                         <a [routerLink]="['/chapters', 26]"
                                             >Capitol Park</a
                                         >
@@ -353,7 +386,6 @@
                                         [name]="RelationName.North"
                                         [type]="RelationType.SmallUp"
                                     ></app-relation>
-
                                     <app-dialogue-line name="Markus">
                                         {{
                                             translateObject(
@@ -361,19 +393,18 @@
                                             ) | async
                                         }}
                                     </app-dialogue-line>
-                                </app-choice-item>
-                                <app-choice-item
-                                    [choiceLabel]="
-                                        t(
-                                            'X1001M.ROOF.NORTH.PC.CHOICE06.SINCERE'
-                                        )
-                                    "
-                                >
+                                </p>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t('X1001M.ROOF.NORTH.PC.CHOICE06.SINCERE')
+                                "
+                            >
+                                <p>
                                     <app-relation
                                         [name]="RelationName.North"
                                         [type]="RelationType.SmallUp"
                                     ></app-relation>
-
                                     <app-dialogue-line name="Markus">
                                         {{
                                             translateObject(
@@ -381,19 +412,20 @@
                                             ) | async
                                         }}
                                     </app-dialogue-line>
-                                </app-choice-item>
-                                <app-choice-item
-                                    [choiceLabel]="
-                                        t(
-                                            'X1001M.ROOF.NORTH.PC.CHOICE06.AGGRESSIVE'
-                                        )
-                                    "
-                                >
+                                </p>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1001M.ROOF.NORTH.PC.CHOICE06.AGGRESSIVE'
+                                    )
+                                "
+                            >
+                                <p>
                                     <app-relation
                                         [name]="RelationName.North"
                                         [type]="RelationType.SmallDown"
                                     ></app-relation>
-
                                     <app-dialogue-line name="Markus">
                                         {{
                                             translateObject(
@@ -408,19 +440,18 @@
                                             ) | async
                                         }}
                                     </app-dialogue-line>
-                                </app-choice-item>
-                                <app-choice-item
-                                    [choiceLabel]="
-                                        t(
-                                            'X1001M.ROOF.NORTH.PC.CHOICE06.CURIOUS'
-                                        )
-                                    "
-                                >
+                                </p>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t('X1001M.ROOF.NORTH.PC.CHOICE06.CURIOUS')
+                                "
+                            >
+                                <p>
                                     <app-relation
                                         [name]="RelationName.North"
                                         [type]="RelationType.SmallUp"
                                     ></app-relation>
-
                                     <app-dialogue-line name="Markus">
                                         {{
                                             translateObject(
@@ -435,19 +466,20 @@
                                             )
                                         }}
                                     </app-dialogue-line>
-                                </app-choice-item>
-                                <app-choice-item
-                                    [choiceLabel]="
-                                        t(
-                                            'X1001M.ROOF.NORTH.PC.CHOICE06.UNDERSTANDING'
-                                        )
-                                    "
-                                >
+                                </p>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1001M.ROOF.NORTH.PC.CHOICE06.UNDERSTANDING'
+                                    )
+                                "
+                            >
+                                <p>
                                     <app-relation
                                         [name]="RelationName.North"
                                         [type]="RelationType.SmallUp"
                                     ></app-relation>
-
                                     <app-dialogue-line name="Markus">
                                         {{
                                             translateObject(
@@ -455,20 +487,21 @@
                                             ) | async
                                         }}
                                     </app-dialogue-line>
-                                </app-choice-item>
-                                <app-choice-item
-                                    [choiceLabel]="
-                                        t(
-                                            'X0603C.CRIMESCENE.INTERROGATE.PC.CHOICEGROUP01.TIMEOUT'
-                                        )
-                                    "
-                                    [brackets]="true"
-                                >
+                                </p>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X0603C.CRIMESCENE.INTERROGATE.PC.CHOICEGROUP01.TIMEOUT'
+                                    )
+                                "
+                                [brackets]="true"
+                            >
+                                <p>
                                     <app-relation
                                         [name]="RelationName.North"
                                         [type]="RelationType.SmallDown"
                                     ></app-relation>
-
                                     <app-dialogue-line name="Markus">
                                         {{
                                             translateObject(
@@ -483,16 +516,18 @@
                                             ) | async
                                         }}
                                     </app-dialogue-line>
-                                </app-choice-item>
+                                </p>
+                            </app-choice-item>
+                        </app-choice-group>
+
+                        <mat-divider></mat-divider>
+
+                        <app-conditioned-content>
+                            <div class="condition">
+                                <p>North is friend or higher</p>
                             </div>
-
-                            <mat-divider></mat-divider>
-
-                            <app-conditioned-content>
-                                <div class="condition">
-                                    North is friend or higher
-                                </div>
-                                <div class="content">
+                            <div class="content">
+                                <p>
                                     <app-dialogue-line name="North">
                                         {{
                                             translateObject(
@@ -500,13 +535,14 @@
                                             ) | async
                                         }}
                                     </app-dialogue-line>
+                                </p>
 
-                                    <h2>Connect with North</h2>
+                                <h2>Connect with North</h2>
+                                <p>
                                     <app-relation
                                         [name]="RelationName.North"
                                         [type]="RelationType.LargeUp"
                                     ></app-relation>
-
                                     <app-dialogue-line name="North">
                                         {{
                                             translateObject(
@@ -521,29 +557,30 @@
                                             ) | async
                                         }}
                                     </app-dialogue-line>
-                                </div>
-                            </app-conditioned-content>
-                        </div>
-                    </app-conditioned-content>
-                </div>
+                                </p>
+                            </div>
+                        </app-conditioned-content>
+                    </div>
+                </app-conditioned-content>
             </app-choice-item>
 
             <app-choice-item
                 [choiceLabel]="t('X1001M.ROOF.NORTH.PC.CHOICE05.LEAVE')"
             >
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
-                <app-dialogue-line name="North">
-                    {{ t('X1001M.ROOF.NORTH.PC.X10MMARLA.05LEAVE') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Markus">
-                    {{ t('X1001M.ROOF.NORTH.PC.X10MMARKUS.05LEAVE') }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-dialogue-line name="North">
+                        {{ t('X1001M.ROOF.NORTH.PC.X10MMARLA.05LEAVE') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Markus">
+                        {{ t('X1001M.ROOF.NORTH.PC.X10MMARKUS.05LEAVE') }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
     </section>
 
     <section>
@@ -581,325 +618,554 @@
                         | async
                 }}
             </app-dialogue-line>
-            <app-dialogue-line name="Simon / Josh">
-                {{
-                    translateObject(
-                        'X1001M.MALL.ARRIVAL.FA.X10MSIMON.SIMONALIVE'
-                    ) | async
-                }}
-            </app-dialogue-line>
         </p>
 
-        <h2>Couple looking at bike ad</h2>
-        <p>
-            <app-dialogue-line name="Man">
-                {{ t('X1001M.PBY.LINES.FA.X10MSPORTGUY.IDLOVE') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Woman">
-                {{ t('X1001M.PBY.LINES.FA.X10MSPORTGIRL.GETIT') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man">
-                {{
-                    translateObject(
-                        'X1001M.PBY.LINES.FA.X10MSPORTGUY.EXPENSIVE'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Woman">
-                {{ t('X1001M.PBY.LINES.FA.X10MSPORTGIRL.MOTIVATE') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man">
-                {{
-                    translateObject('X1001M.PBY.LINES.FA.X10MSPORTGUY.COMEON')
-                        | async
-                }}
-            </app-dialogue-line>
-        </p>
+        <app-conditioned-content>
+            <div class="condition">
+                <p>Simon is alive</p>
+            </div>
+            <div class="content">
+                <p>
+                    <app-dialogue-line name="Simon">
+                        {{
+                            translateObject(
+                                'X1001M.MALL.ARRIVAL.FA.X10MSIMON.SIMONALIVE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+            </div>
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                <p>Simon is dead</p>
+            </div>
+            <div class="content">
+                <p>
+                    <app-dialogue-line name="Josh">
+                        {{
+                            translateObject(
+                                'X1001M.MALL.ARRIVAL.FA.X10MJOSH.SIMONDEAD'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+            </div>
+        </app-conditioned-content>
 
-        <h2>Couple talking</h2>
-        <p>
-            <app-dialogue-line name="Man">
-                {{ t('X1001M.PBY.LINES.FA.X10MCOUPLEMAN03.BABE01') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Woman">
-                {{ t('X1001M.PBY.LINES.FA.X10MCOUPLEWOM03.BABE02') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man">
-                {{
-                    translateObject('X1001M.PBY.LINES.FA.X10MCOUPLEMAN03', 1, 2)
-                        | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Woman">
-                {{ t('X1001M.PBY.LINES.FA.X10MCOUPLEWOM03.YOUPIG02') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man">
-                {{ t('X1001M.PBY.LINES.FA.X10MCOUPLEMAN03.YOUPIG03') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Woman">
-                {{ t('X1001M.PBY.LINES.FA.X10MCOUPLEWOM03.YOUPIG04') }}
-            </app-dialogue-line>
-        </p>
+        <section>
+            <h2>Couple looking at bike ad</h2>
+            <p>
+                <app-dialogue-line name="Man">
+                    {{ t('X1001M.PBY.LINES.FA.X10MSPORTGUY.IDLOVE') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Woman">
+                    {{ t('X1001M.PBY.LINES.FA.X10MSPORTGIRL.GETIT') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man">
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MSPORTGUY.EXPENSIVE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Woman">
+                    {{ t('X1001M.PBY.LINES.FA.X10MSPORTGIRL.MOTIVATE') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man">
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MSPORTGUY.COMEON'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </p>
+        </section>
 
-        <h2>Group talking</h2>
-        <p>
-            <app-dialogue-line name="Man 1">
-                {{ t('X1001M.PBY.LINES.FA.X10MMAN02.01CHITCHAT01') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man 2">
-                {{
-                    translateObject(
-                        'X1001M.PBY.LINES.FA.X10MMAN01.01CHITCHAT02'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man 3">
-                {{ t('X1001M.PBY.LINES.FA.X10MMAN03.02CHITCHAT01') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man 2">
-                {{ t('X1001M.PBY.LINES.FA.X10MMAN01.02CHITCHAT02') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man 3">
-                {{
-                    translateObject(
-                        'X1001M.PBY.LINES.FA.X10MMAN03.02CHITCHAT03'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man 1">
-                {{ t('X1001M.PBY.LINES.FA.X10MMAN02.02CHITCHAT04') }}
-                {{
-                    translateObject(
-                        'X1001M.PBY.LINES.FA.X10MMAN02.03CHITCHAT01'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man 2">
-                {{ t('X1001M.PBY.LINES.FA.X10MMAN01.03CHITCHAT02') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man 3">
-                {{ t('X1001M.PBY.LINES.FA.X10MMAN03.03CHITCHAT03') }}
-            </app-dialogue-line>
-        </p>
+        <section>
+            <h2>Couple talking</h2>
+            <p>
+                <app-dialogue-line name="Man">
+                    {{ t('X1001M.PBY.LINES.FA.X10MCOUPLEMAN03.BABE01') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Woman">
+                    {{ t('X1001M.PBY.LINES.FA.X10MCOUPLEWOM03.BABE02') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man">
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MCOUPLEMAN03',
+                            1,
+                            2
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Woman">
+                    {{ t('X1001M.PBY.LINES.FA.X10MCOUPLEWOM03.YOUPIG02') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man">
+                    {{ t('X1001M.PBY.LINES.FA.X10MCOUPLEMAN03.YOUPIG03') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Woman">
+                    {{ t('X1001M.PBY.LINES.FA.X10MCOUPLEWOM03.YOUPIG04') }}
+                </app-dialogue-line>
+            </p>
+        </section>
 
-        <h2>Woman on the phone</h2>
-        <p>
-            <app-dialogue-line name="Woman">
-                {{
-                    translateObject('X1001M.PBY.LINES.FA.X10MPHONEWOMAN.PARANO')
-                        | async
-                }}
-            </app-dialogue-line>
-        </p>
+        <section>
+            <h2>Group talking</h2>
+            <p>
+                <app-dialogue-line name="Man 1">
+                    {{ t('X1001M.PBY.LINES.FA.X10MMAN02.01CHITCHAT01') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man 2">
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MMAN01.01CHITCHAT02'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man 3">
+                    {{ t('X1001M.PBY.LINES.FA.X10MMAN03.02CHITCHAT01') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man 2">
+                    {{ t('X1001M.PBY.LINES.FA.X10MMAN01.02CHITCHAT02') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man 3">
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MMAN03.02CHITCHAT03'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man 1">
+                    {{ t('X1001M.PBY.LINES.FA.X10MMAN02.02CHITCHAT04') }}
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MMAN02.03CHITCHAT01'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man 2">
+                    {{ t('X1001M.PBY.LINES.FA.X10MMAN01.03CHITCHAT02') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man 3">
+                    {{ t('X1001M.PBY.LINES.FA.X10MMAN03.03CHITCHAT03') }}
+                </app-dialogue-line>
+            </p>
+        </section>
 
-        <h2>
-            Attempting to go out of the mall without converting any androids
-        </h2>
-        <p>
-            <!-- TODO: add condition simon / josh-->
-            <app-dialogue-line name="Simon">
-                {{
-                    translateObject('X1001M.MALL.CALLBACK.FA.X10MSIMON.UTURN01')
-                        | async
-                }}
-            </app-dialogue-line>
-        </p>
+        <section>
+            <h2>Woman on the phone</h2>
+            <p>
+                <app-dialogue-line name="Woman">
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MPHONEWOMAN.PARANO'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </p>
+        </section>
 
-        <h2>Convert android</h2>
-        <p>
-            <app-dialogue-line name="Markus">
-                {{ t('X1001M.CONVERSION.ANDROID.FA.X10MMARKUS.FREE01') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Markus">
-                {{ t('X1001M.CONVERSION.ANDROID.FA.X10MMARKUS.FREE05') }}
-            </app-dialogue-line>
-        </p>
+        <section>
+            <h2>
+                Attempting to go out of the mall without converting any androids
+            </h2>
+            <app-conditioned-content>
+                <div class="condition">Simon is alive</div>
+                <div class="content">
+                    <app-dialogue-line name="Simon">
+                        {{
+                            translateObject(
+                                'X1001M.MALL.CALLBACK.FA.X10MSIMON.UTURN01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </div>
+            </app-conditioned-content>
+            <app-conditioned-content>
+                <div class="condition">Simon is dead</div>
+                <div class="content">
+                    <app-dialogue-line name="Josh">
+                        {{
+                            translateObject(
+                                'X1001M.MALL.CALLBACK.FA.X10MJOSH.UTURN02'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </div>
+            </app-conditioned-content>
+        </section>
+
+        <section>
+            <h2>Convert android</h2>
+            <p>
+                <app-dialogue-line name="Markus">
+                    {{ t('X1001M.CONVERSION.ANDROID.FA.X10MMARKUS.FREE01') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Markus">
+                    {{ t('X1001M.CONVERSION.ANDROID.FA.X10MMARKUS.FREE05') }}
+                </app-dialogue-line>
+            </p>
+        </section>
     </section>
 
     <section>
         <h1>In the street</h1>
 
-        <h2>Man on the phone</h2>
-        <p>
-            <app-dialogue-line name="Man">
-                {{
-                    translateObject(
-                        'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN01'
-                    ) | async
-                }}
-                {{
-                    translateObject(
-                        'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN02'
-                    ) | async
-                }}
-                {{
-                    translateObject(
-                        'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN03'
-                    ) | async
-                }}
-                {{
-                    translateObject(
-                        'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN04'
-                    ) | async
-                }}
-                {{ t('X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN05') }}
-                {{
-                    translateObject(
-                        'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN06'
-                    ) | async
-                }}
-                {{
-                    translateObject(
-                        'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN07'
-                    ) | async
-                }}
-            </app-dialogue-line>
-        </p>
-
-        <h2>Convert androids</h2>
-        <p>
-            <app-dialogue-line name="Markus">
-                {{
-                    t('X0802M.CYBERSHOP.FREEANDROIDS.FA.X08MMARKUS.FREEME03.2')
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Markus">
-                {{
-                    t('X0802M.CYBERSHOP.FREEANDROIDS.FA.X08MMARKUS.FREEME03.1')
-                }}
-            </app-dialogue-line>
-        </p>
-
-        <p>
-            <app-dialogue-line name="Markus">
-                {{ t('X1001M.STAGE01.TRUCK.FA.X10MMARKUS.BLOCKM') }}
-            </app-dialogue-line>
-        </p>
-
-        <p>
-            <app-dialogue-line name="Markus">
-                {{ t('X0802M.ROADBLOCK.ROADMEN.FA.X08MMARKUS.FREE') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man">
-                {{
-                    translateObject(
-                        'X1001M.STAGE01.HUMAN.FA.X10MAGRESSIVMAN.FREE'
-                    ) | async
-                }}
-                {{ t('X1001M.STAGE01.HUMAN.FA.X10MAGRESSIVMAN.STAY01') }}
-                {{ t('X1001M.STAGE01.HUMAN.FA.X10MAGRESSIVMAN.STAY02') }}
-                {{ t('X1001M.STAGE01.HUMAN.FA.X10MAGRESSIVMAN.STAY03') }}
-            </app-dialogue-line>
-        </p>
-        <div class="choices">
-            <app-choice-item
-                [choiceLabel]="t('X1001M.STAGE01.HUMAN.PC.RETAINING.CONVINCE')"
-            >
-                <app-dialogue-line name="Markus">
-                    {{ t('X1001M.STAGE01.HUMAN.FA.X10MMARKUS.CONVINCE') }}
+        <section>
+            <h2>Man on the phone</h2>
+            <p>
+                <app-dialogue-line name="Man">
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN01'
+                        ) | async
+                    }}
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN02'
+                        ) | async
+                    }}
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN03'
+                        ) | async
+                    }}
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN04'
+                        ) | async
+                    }}
+                    {{ t('X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN05') }}
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN06'
+                        ) | async
+                    }}
+                    {{
+                        translateObject(
+                            'X1001M.PBY.LINES.FA.X10MPHONEGUY.COMPLAIN07'
+                        ) | async
+                    }}
                 </app-dialogue-line>
-            </app-choice-item>
-            <app-choice-item
-                [choiceLabel]="t('X1001M.STAGE01.HUMAN.PC.RETAINING.INTERVENE')"
-            >
-                &oslash;</app-choice-item
-            >
-        </div>
+            </p>
+        </section>
+
+        <section>
+            <h2>Convert androids</h2>
+            <p>
+                <app-dialogue-line name="Markus">
+                    {{
+                        t(
+                            'X0802M.CYBERSHOP.FREEANDROIDS.FA.X08MMARKUS.FREEME03.2'
+                        )
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Markus">
+                    {{
+                        t(
+                            'X0802M.CYBERSHOP.FREEANDROIDS.FA.X08MMARKUS.FREEME03.1'
+                        )
+                    }}
+                </app-dialogue-line>
+            </p>
+            <p>
+                <app-dialogue-line name="Markus">
+                    {{ t('X1001M.STAGE01.TRUCK.FA.X10MMARKUS.BLOCKM') }}
+                </app-dialogue-line>
+            </p>
+            <p>
+                <app-dialogue-line name="Markus">
+                    {{ t('X0802M.ROADBLOCK.ROADMEN.FA.X08MMARKUS.FREE') }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man">
+                    {{
+                        translateObject(
+                            'X1001M.STAGE01.HUMAN.FA.X10MAGRESSIVMAN.FREE'
+                        ) | async
+                    }}
+                    {{ t('X1001M.STAGE01.HUMAN.FA.X10MAGRESSIVMAN.STAY01') }}
+                    {{ t('X1001M.STAGE01.HUMAN.FA.X10MAGRESSIVMAN.STAY02') }}
+                    {{ t('X1001M.STAGE01.HUMAN.FA.X10MAGRESSIVMAN.STAY03') }}
+                </app-dialogue-line>
+            </p>
+
+            <app-choice-group>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X1001M.STAGE01.HUMAN.PC.RETAINING.CONVINCE')
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t('X1001M.STAGE01.HUMAN.FA.X10MMARKUS.CONVINCE')
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X1001M.STAGE01.HUMAN.PC.RETAINING.INTERVENE')
+                    "
+                >
+                    <p>&oslash;</p>
+                </app-choice-item>
+            </app-choice-group>
+        </section>
     </section>
 
     <section>
         <h1>Start the march</h1>
-        <h2>People reacting to the march</h2>
-        <p>
-            <app-dialogue-line name="Man">
-                {{
-                    translateObject(
-                        'X1001M.CONVERSION.REACT.FA.X10MMAN02.MAN02'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Woman">
-                {{
-                    translateObject(
-                        'X1001M.CONVERSION.REACT.FA.X10MWOM03.WOM03'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Woman">
-                {{
-                    translateObject(
-                        'X1001M.CONVERSION.REACT.FA.X10MWOM01.WOM01'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man">
-                {{ t('X1001M.STAGE02.REACTNEUTRAL.FA.X10MMAN03.MAN03') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man">
-                {{
-                    translateObject(
-                        'X1001M.CONVERSION.REACT.FA.X10MMAN03.MAN03'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Man">
-                {{
-                    translateObject(
-                        'X1001M.STAGE02.REACTNEUTRAL.FA.X10MMAN02.WOM02'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Woman">
-                {{ t('X1001M.STAGE02.REACTNEUTRAL.FA.X10MMAN01.MAN01B') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Woman">
-                {{ t('X1001M.STAGE02.REACTNEUTRAL.FA.X10MWOM03.MAN03V2') }}
-            </app-dialogue-line>
-            <span class="note"
-                >Reactions will change depending on if the cops were shot or not
-                during the Capitol Park chapter, regardless of the type of
-                protest done or the public opinion.
-            </span>
-        </p>
 
-        <app-conditioned-content>
-            <div class="condition">
-                Shot the cops in
-                <a [routerLink]="['/chapters', 26]">Capitol Park</a>
-            </div>
-            <div class="content">
-                <!-- TODO: Add all reactions -->
+        <section>
+            <h2>Convert androids</h2>
+            <p>
+                <app-dialogue-line name="Markus">
+                    {{ t('X1001M.CONVERSION.ANDROID.VO.X10MMARKUS.FREE02') }}
+                </app-dialogue-line>
                 <app-dialogue-line name="Man">
                     {{
-                        t('X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN10.MAN10')
-                    }} </app-dialogue-line
-                ><app-dialogue-line name="Man">
-                    You bunch of lazy bums! Get back to work! </app-dialogue-line
-                ><app-dialogue-line name="Man">
-                    Burn them! Destroy the bastards! </app-dialogue-line
-                ><app-dialogue-line name="Man">
-                    Oh, you want war?! You'll get a war!
-                </app-dialogue-line>
-            </div>
-        </app-conditioned-content>
-        <app-conditioned-content>
-            <div class="condition">
-                Didn't shoot the cops in
-                <a [routerLink]="['/chapters', 26]">Capitol Park</a>
-            </div>
-            <!-- TODO: Add all reactions -->
-            <div class="content">
-                <app-dialogue-line name="Man">
-                    We're on your side!
+                        translateObject(
+                            'X1001M.CONVERSION.REACT.FA.X10MMAN01.MAN01'
+                        ) | async
+                    }}
                 </app-dialogue-line>
                 <app-dialogue-line name="Man">
-                    Equal rights for androids!
+                    {{
+                        translateObject(
+                            'X1001M.CONVERSION.REACT.FA.X10MMAN02.MAN02'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Man">
+                    {{
+                        translateObject(
+                            'X1001M.CONVERSION.REACT.FA.X10MMAN03.MAN03'
+                        ) | async
+                    }}
                 </app-dialogue-line>
                 <app-dialogue-line name="Woman">
-                    We're with you all the way!
+                    {{
+                        translateObject(
+                            'X1001M.CONVERSION.REACT.FA.X10MWOM03.WOM03'
+                        ) | async
+                    }}
                 </app-dialogue-line>
-            </div>
-        </app-conditioned-content>
+                <app-dialogue-line name="Woman">
+                    {{
+                        translateObject(
+                            'X1001M.CONVERSION.REACT.FA.X10MWOM01.WOM01'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </p>
+        </section>
+
+        <section>
+            <h2>People reacting to the march</h2>
+            <ul>
+                <li>
+                    {{
+                        translateObject(
+                            'X1001M.STAGE02.REACTNEUTRAL.FA.X10MMAN01'
+                        ) | async
+                    }}
+                </li>
+                <li>
+                    {{ t('X1001M.STAGE02.REACTNEUTRAL.FA.X10MMAN02.MAN02') }}
+                </li>
+                <li>
+                    {{
+                        translateObject(
+                            'X1001M.STAGE02.REACTNEUTRAL.FA.X10MMAN02.WOM02'
+                        ) | async
+                    }}
+                </li>
+                <li>
+                    {{ t('X1001M.STAGE02.REACTNEUTRAL.FA.X10MMAN03.MAN03') }}
+                </li>
+                <li>
+                    {{ t('X1001M.STAGE02.REACTNEUTRAL.FA.X10MWOM01.MAN01V2') }}
+                </li>
+                <li>
+                    {{ t('X1001M.STAGE02.REACTNEUTRAL.FA.X10MWOM03.MAN03V2') }}
+                </li>
+            </ul>
+            <app-conditioned-content>
+                <div class="condition">
+                    <p>
+                        Shot the cops in
+                        <a [routerLink]="['/chapters', 26]">Capitol Park</a>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li>
+                            {{
+                                translateObject(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN04'
+                                ) | async
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN01.WOM01'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                translateObject(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN05'
+                                ) | async
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN09.MAN09'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                translateObject(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN02'
+                                ) | async
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                translateObject(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN03'
+                                ) | async
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN06.MAN06'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MWOM07.MAN07'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN08.MAN08'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN10.MAN10'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MWOM04.WOM04'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MWOM06.WOM06'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN07.WOM07'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MMAN11.MAN11'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MWOM08.MAN08V2'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTHOSTILE.FA.X10MWOM02.WOM02V2'
+                                )
+                            }}
+                        </li>
+                    </ul>
+                </div>
+            </app-conditioned-content>
+            <app-conditioned-content>
+                <div class="condition">
+                    <p>
+                        Didn't shoot the cops in
+                        <a [routerLink]="['/chapters', 26]">Capitol Park</a>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTFRIENDLY.FA.X10MMAN01.MAN01'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTFRIENDLY.FA.X10MMAN02.WOM02'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                translateObject(
+                                    'X1001M.STAGE02.REACTFRIENDLY.FA.X10MWOM02'
+                                ) | async
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTFRIENDLY.FA.X10MMAN03.MAN03'
+                                )
+                            }}
+                        </li>
+                        <li>
+                            {{
+                                t(
+                                    'X1001M.STAGE02.REACTFRIENDLY.FA.X10MWOM01.WOM01V2'
+                                )
+                            }}
+                        </li>
+                    </ul>
+                </div>
+            </app-conditioned-content>
+        </section>
 
         <p>
             <app-dialogue-line name="Policeman">
@@ -974,15 +1240,20 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="
                     t('X1001M.FINALSTAGE.SPEECH.PC.DECISIONCHOICE.ATTACK')
                 "
             >
-                <app-dialogue-line name="Josh">
-                    {{ t('X1001M.FINALSTAGE.SPEECH.PC.X10MJOSH.ASSAULT01') }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Josh">
+                        {{
+                            t('X1001M.FINALSTAGE.SPEECH.PC.X10MJOSH.ASSAULT01')
+                        }}
+                    </app-dialogue-line>
+                </p>
+
                 <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
@@ -1002,17 +1273,17 @@
                         </p>
 
                         <app-conditioned-content>
-                            <div class="condition">Win the fight</div>
+                            <div class="condition"><p>Win the fight</p></div>
                             <div class="content">
-                                <app-relation
-                                    [name]="RelationName.Jericho"
-                                    [type]="RelationType.LargeUp"
-                                ></app-relation>
-                                <app-relation
-                                    [name]="RelationName.PublicOpinion"
-                                    [type]="RelationType.LargeDown"
-                                ></app-relation>
                                 <p>
+                                    <app-relation
+                                        [name]="RelationName.Jericho"
+                                        [type]="RelationType.LargeUp"
+                                    ></app-relation>
+                                    <app-relation
+                                        [name]="RelationName.PublicOpinion"
+                                        [type]="RelationType.LargeDown"
+                                    ></app-relation>
                                     <app-dialogue-line name="Android">
                                         {{
                                             t(
@@ -1021,24 +1292,28 @@
                                         }}
                                     </app-dialogue-line>
                                 </p>
-                                <div class="choices">
+
+                                <app-choice-group>
                                     <app-choice-item
                                         [choiceLabel]="t('GUI.ACTION.REVENGE')"
                                     >
-                                        <div class="choice">&oslash;</div>
+                                        <p>&oslash;</p>
                                     </app-choice-item>
                                     <app-choice-item
                                         [choiceLabel]="t('GUI.ACTION.SPARE')"
                                     >
-                                        <app-dialogue-line name="North">
-                                            {{
-                                                translateObject(
-                                                    'X1001M.ATTACK.CHARGE.PC.X10MMARLA.MARKUSWINSMARLA01'
-                                                ) | async
-                                            }}
-                                        </app-dialogue-line>
+                                        <p>
+                                            <app-dialogue-line name="North">
+                                                {{
+                                                    translateObject(
+                                                        'X1001M.ATTACK.CHARGE.PC.X10MMARLA.MARKUSWINSMARLA01'
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                        </p>
                                     </app-choice-item>
-                                </div>
+                                </app-choice-group>
+
                                 <p>
                                     <app-dialogue-line name="Android">
                                         {{
@@ -1051,10 +1326,13 @@
                             </div>
                         </app-conditioned-content>
                         <app-conditioned-content>
-                            <div class="condition">Lose the fight</div>
+                            <div class="condition"><p>Lose the fight</p></div>
                             <div class="content">
-                                <span appRelation="large down">Jericho</span>
                                 <p>
+                                    <app-relation
+                                        [name]="RelationName.Jericho"
+                                        [type]="RelationType.LargeDown"
+                                    ></app-relation>
                                     <app-dialogue-line name="Markus">
                                         {{
                                             t(
@@ -1070,7 +1348,8 @@
                                         }}
                                     </app-dialogue-line>
                                 </p>
-                                <div class="choices">
+
+                                <app-choice-group>
                                     <app-choice-item
                                         [choiceLabel]="
                                             t(
@@ -1078,6 +1357,321 @@
                                             )
                                         "
                                     >
+                                        <p>
+                                            <app-dialogue-line name="North">
+                                                {{
+                                                    translateObject(
+                                                        'X1001M.ESCAPE.RUN.PC.X10MMARLA.SHOOT',
+                                                        0,
+                                                        2
+                                                    ) | async
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="Josh">
+                                                {{
+                                                    t(
+                                                        'X1001M.ESCAPE.RUN.PC.X10MJOSH.SHOOT'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                            <app-dialogue-line name="North">
+                                                {{
+                                                    t(
+                                                        'X1001M.ESCAPE.RUN.PC.X10MMARLA.SHOOT.3'
+                                                    )
+                                                }}
+                                            </app-dialogue-line>
+                                        </p>
+                                    </app-choice-item>
+                                    <app-choice-item
+                                        [choiceLabel]="
+                                            t(
+                                                'X1001M.ESCAPE.RUN.PC.SHOOTCHOICE.DONTSHOOT'
+                                            )
+                                        "
+                                    >
+                                        <p>
+                                            <span class="note"
+                                                >See SACRIFICE.</span
+                                            >
+                                        </p>
+                                    </app-choice-item>
+                                </app-choice-group>
+                            </div>
+                        </app-conditioned-content>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1001M.FINALSTAGE.SPEECH.PC.ASSAULTCHOICE.ABANDON'
+                            )
+                        "
+                    >
+                        <p>
+                            <app-relation
+                                [name]="RelationName.PublicOpinion"
+                                [type]="RelationType.SmallUp"
+                            ></app-relation>
+                        </p>
+
+                        <h2>Police fire unprovoked</h2>
+                        <p>
+                            <app-dialogue-line name="Policeman">
+                                {{
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.X10MRIOTPOLICECHIEF.SHOOTING02'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Josh">
+                                {{
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.X10MJOSH.SHOOTING01JOSH.2'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="North">
+                                {{
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.X10MMARLA.SHOOTING01'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                        </p>
+
+                        <app-choice-group>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.ATTACK'
+                                    )
+                                "
+                            >
+                                <p class="note">See ATTACK &gt; CHARGE.</p>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.STANDGROUND'
+                                    )
+                                "
+                            >
+                                <p class="note">
+                                    See STAND GROUND &gt; STAND GROUND.
+                                </p>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.DISPERSE'
+                                    )
+                                "
+                            >
+                                <p class="note">See DISPERSE.</p>
+                            </app-choice-item>
+                        </app-choice-group>
+                    </app-choice-item>
+                </app-choice-group>
+            </app-choice-item>
+            <app-choice-item
+                [choiceLabel]="
+                    t('X1001M.FINALSTAGE.SPEECH.PC.DECISIONCHOICE.STANDGROUND')
+                "
+            >
+                <p>
+                    <app-relation
+                        [name]="RelationName.Josh"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Simon"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.PublicOpinion"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.FINALSTAGE.SPEECH.PC.X10MMARKUS.REMAINMOTIONLESS01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+
+                <h2>Police fire unprovoked</h2>
+                <p>
+                    <app-dialogue-line name="Policeman">
+                        {{
+                            t(
+                                'X1001M.FINALSTAGE.SPEECH.PC.X10MRIOTPOLICECHIEF.SHOOTING02'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Josh">
+                        {{
+                            t(
+                                'X1001M.FINALSTAGE.SPEECH.PC.X10MJOSH.SHOOTING01JOSH.2'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="North">
+                        {{
+                            t(
+                                'X1001M.FINALSTAGE.SPEECH.PC.X10MMARLA.SHOOTING01'
+                            )
+                        }}
+                    </app-dialogue-line>
+                </p>
+
+                <app-choice-group>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.ATTACK'
+                            )
+                        "
+                    >
+                        <p class="note">See ATTACK.</p>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t(
+                                'X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.STANDGROUND'
+                            )
+                        "
+                    >
+                        <app-relation
+                            [name]="RelationName.PublicOpinion"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <p>
+                            <app-dialogue-line name="Markus">
+                                {{
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.X10MMARKUS.MOTIONLESS'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="North">
+                                {{
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.X10MMARLA.SIMONSHOTN'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                        </p>
+
+                        <app-choice-group>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.LASTCHOICE.CHARGE'
+                                    )
+                                "
+                            >
+                                <p class="note">See ATTACK &gt; CONFIRM.</p>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.LASTCHOICE.SACRIFICE'
+                                    )
+                                "
+                            >
+                                <p>
+                                    <app-relation
+                                        [name]="RelationName.PublicOpinion"
+                                        [type]="RelationType.LargeUp"
+                                    ></app-relation>
+                                    <app-relation
+                                        [name]="RelationName.Jericho"
+                                        [type]="RelationType.LargeUp"
+                                    ></app-relation>
+                                </p>
+
+                                <h2>Police keep firing</h2>
+                                <app-conditioned-content>
+                                    <div class="condition">
+                                        <p>
+                                            <app-unlock-condition
+                                                [unlockType]="UnlockType.Lock"
+                                            >
+                                                John joined in
+                                                <a
+                                                    [routerLink]="[
+                                                        '/chapters',
+                                                        19
+                                                    ]"
+                                                    >Spare Parts</a
+                                                >
+                                            </app-unlock-condition>
+                                        </p>
+                                    </div>
+                                    <div class="content">
+                                        <app-dialogue-line name="Markus">
+                                            {{
+                                                t(
+                                                    'X1001M.ESCAPE.RUN.PC.X10MMARKUS.DONTSHOOT01M'
+                                                )
+                                            }}
+                                        </app-dialogue-line>
+                                        <app-dialogue-line name="North">
+                                            {{
+                                                translateObject(
+                                                    'X1001M.ESCAPE.RUN.PC.X10MMARLA.DONTSHOOT01'
+                                                ) | async
+                                            }}
+                                        </app-dialogue-line>
+                                    </div>
+                                </app-conditioned-content>
+                                <app-conditioned-content>
+                                    <div class="condition">
+                                        <p>
+                                            <app-unlock-condition
+                                                [unlockType]="UnlockType.Lock"
+                                            >
+                                                Simon survived in
+                                                <a
+                                                    [routerLink]="[
+                                                        '/chapters',
+                                                        24
+                                                    ]"
+                                                    >Public Enemy</a
+                                                >
+                                                and has a good relationship with
+                                                Markus
+                                            </app-unlock-condition>
+                                        </p>
+                                    </div>
+                                    <div class="content">
+                                        <app-dialogue-line name="Markus">
+                                            {{
+                                                t(
+                                                    'X1001M.ESCAPE.RUN.PC.X10MMARKUS.DONTSHOOT02M'
+                                                )
+                                            }}
+                                        </app-dialogue-line>
+                                        <app-dialogue-line name="North">
+                                            {{
+                                                translateObject(
+                                                    'X1001M.ESCAPE.RUN.PC.X10MMARLA.DONTSHOOT01'
+                                                ) | async
+                                            }}
+                                        </app-dialogue-line>
+                                    </div>
+                                </app-conditioned-content>
+                                <app-conditioned-content>
+                                    <div class="condition">
+                                        <p>No one is there to save Markus</p>
+                                    </div>
+                                    <div class="content">
                                         <app-dialogue-line name="North">
                                             {{
                                                 translateObject(
@@ -1101,343 +1695,169 @@
                                                 )
                                             }}
                                         </app-dialogue-line>
-                                    </app-choice-item>
-                                    <app-choice-item
-                                        [choiceLabel]="
+                                    </div>
+                                </app-conditioned-content>
+                            </app-choice-item>
+                            <app-choice-item
+                                [choiceLabel]="
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.LASTCHOICE.RUN'
+                                    )
+                                "
+                            >
+                                <p>
+                                    <app-relation
+                                        [name]="RelationName.Jericho"
+                                        [type]="RelationType.LargeDown"
+                                    ></app-relation>
+                                    <app-relation
+                                        [name]="RelationName.North"
+                                        [type]="RelationType.LargeDown"
+                                    ></app-relation>
+                                    <app-relation
+                                        [name]="RelationName.Josh"
+                                        [type]="RelationType.SmallDown"
+                                    ></app-relation>
+                                    <app-relation
+                                        [name]="RelationName.Simon"
+                                        [type]="RelationType.SmallUp"
+                                    ></app-relation>
+
+                                    <app-dialogue-line name="Markus">
+                                        {{
                                             t(
-                                                'X1001M.ESCAPE.RUN.PC.SHOOTCHOICE.DONTSHOOT'
+                                                'X1001M.FINALSTAGE.SPEECH.PC.X10MMARKUS.RUN'
                                             )
-                                        "
-                                    >
-                                        <span class="note"
-                                            >Leads to the same result as chosing
-                                            SACRIFICE</span
-                                        >
-                                    </app-choice-item>
-                                </div>
-                            </div>
-                        </app-conditioned-content>
+                                        }}
+                                    </app-dialogue-line>
+                                    <app-dialogue-line name="North">
+                                        {{
+                                            translateObject(
+                                                'X1001M.ESCAPE.GOTTORUN.PC.X10MMARLA.GO'
+                                            ) | async
+                                        }}
+                                    </app-dialogue-line>
+                                </p>
+                            </app-choice-item>
+                        </app-choice-group>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t(
-                                'X1001M.FINALSTAGE.SPEECH.PC.ASSAULTCHOICE.ABANDON'
+                                'X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.DISPERSE'
                             )
                         "
                     >
-                        <app-relation
-                            [name]="RelationName.PublicOpinion"
-                            [type]="RelationType.SmallUp"
-                        ></app-relation>
-
-                        <div class="choice">
-                            <h2>Police fire unprovoked</h2>
-                            <p>
-                                <app-dialogue-line name="Policeman">
-                                    {{
-                                        t(
-                                            'X1001M.FINALSTAGE.SPEECH.PC.X10MRIOTPOLICECHIEF.SHOOTING02'
-                                        )
-                                    }}
-                                </app-dialogue-line>
-                                <app-dialogue-line name="Josh">
-                                    {{
-                                        t(
-                                            'X1001M.FINALSTAGE.SPEECH.PC.X10MJOSH.SHOOTING01JOSH.2'
-                                        )
-                                    }}
-                                </app-dialogue-line>
-                                <app-dialogue-line name="North">
-                                    {{
-                                        t(
-                                            'X1001M.FINALSTAGE.SPEECH.PC.X10MMARLA.SHOOTING01'
-                                        )
-                                    }}
-                                </app-dialogue-line>
-                            </p>
-
-                            <div class="choices">
-                                <app-choice-item
-                                    [choiceLabel]="
-                                        t(
-                                            'X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.ATTACK'
-                                        )
-                                    "
-                                >
-                                </app-choice-item>
-                                <app-choice-item
-                                    [choiceLabel]="
-                                        t(
-                                            'X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.STANDGROUND'
-                                        )
-                                    "
-                                >
-                                </app-choice-item>
-                                <app-choice-item
-                                    [choiceLabel]="
-                                        t(
-                                            'X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.DISPERSE'
-                                        )
-                                    "
-                                >
-                                </app-choice-item>
-                            </div>
-                        </div>
+                        <p>
+                            <app-dialogue-line name="Markus">
+                                {{
+                                    t(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.X10MMARKUS.DISPERSE01.2'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Policeman">
+                                {{
+                                    translateObject(
+                                        'X1001M.FINALSTAGE.SPEECH.PC.X10MRIOTPOLICECHIEF.DISPERSE02'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                 </app-choice-group>
-            </app-choice-item>
-            <app-choice-item
-                [choiceLabel]="
-                    t('X1001M.FINALSTAGE.SPEECH.PC.DECISIONCHOICE.STANDGROUND')
-                "
-            >
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Simon"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.PublicOpinion"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <div class="choice">
-                    <p>
-                        <app-dialogue-line name="Markus">
-                            {{
-                                translateObject(
-                                    'X1001M.FINALSTAGE.SPEECH.PC.X10MMARKUS.REMAINMOTIONLESS01'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </p>
-                    <h2>Police fire unprovoked</h2>
-                    <p>
-                        <app-dialogue-line name="Policeman">
-                            {{
-                                t(
-                                    'X1001M.FINALSTAGE.SPEECH.PC.X10MRIOTPOLICECHIEF.SHOOTING02'
-                                )
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Josh">
-                            {{
-                                t(
-                                    'X1001M.FINALSTAGE.SPEECH.PC.X10MJOSH.SHOOTING01JOSH.2'
-                                )
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="North">
-                            {{
-                                t(
-                                    'X1001M.FINALSTAGE.SPEECH.PC.X10MMARLA.SHOOTING01'
-                                )
-                            }}
-                        </app-dialogue-line>
-                    </p>
-                    <div class="choices">
-                        <em
-                            >t('X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.ATTACK')</em
-                        >
-                        <div class="choice">???</div>
-                        <em
-                            >t('X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.STANDGROUND')</em
-                        >
-                        [
-                        <span appRelation="small up">Public opinion</span>
-                        ]
-                        <div class="choice">
-                            <p>
-                                <app-dialogue-line name="Markus">
-                                    We're not moving. </app-dialogue-line
-                                ><app-dialogue-line name="North">
-                                    Markus! What are you doing? They're gonna
-                                    kill us all!
-                                </app-dialogue-line>
-                            </p>
-                            <div class="choices">
-                                <em>CHARGE</em>
-                                <div class="choice">???</div>
-                                <em>SACRIFICE SELF</em> [
-                                <span appRelation="large up"
-                                    >Public opinion</span
-                                >
-                                <span appRelation="large up">Jericho</span>
-                                ]
-                                <div class="choice">
-                                    <h2>Police keep firing</h2>
-                                    <div class="condition">
-                                        <span class="name"
-                                            ><i
-                                                class="
-                                                    fas
-                                                    fa-lock-open
-                                                    fa-flip-horizontal
-                                                "
-                                            ></i>
-                                            John joined in
-                                            <a [routerLink]="['/chapters', 19]"
-                                                >Spare Parts</a
-                                            ></span
-                                        >
-                                        <div class="condition-text">
-                                            <app-dialogue-line name="Markus">
-                                                John?.. </app-dialogue-line
-                                            ><app-dialogue-line name="North">
-                                                Quick! They're coming!
-                                            </app-dialogue-line>
-                                        </div>
-                                    </div>
-
-                                    <div class="condition">
-                                        <span class="name"
-                                            ><i
-                                                class="
-                                                    fas
-                                                    fa-lock-open
-                                                    fa-flip-horizontal
-                                                "
-                                            ></i>
-                                            Simon survived in
-                                            <a [routerLink]="['/chapters', 24]"
-                                                >Public Enemy</a
-                                            >
-                                            and has a good relationship with
-                                            Markus</span
-                                        >
-                                        <div class="condition-text">
-                                            <app-dialogue-line name="Markus">
-                                                Simon... </app-dialogue-line
-                                            ><app-dialogue-line name="North">
-                                                Quick! They're coming!
-                                            </app-dialogue-line>
-                                        </div>
-                                    </div>
-                                    <div class="condition">
-                                        <span class="name"
-                                            >No one is there to save
-                                            Markus</span
-                                        >
-                                        <div class="condition-text">
-                                            <app-dialogue-line name="North">
-                                                No! No!.. </app-dialogue-line
-                                            ><app-dialogue-line name="Josh">
-                                                We have to go, North... We have
-                                                to go! </app-dialogue-line
-                                            ><app-dialogue-line name="North">
-                                                No, no...
-                                            </app-dialogue-line>
-                                        </div>
-                                    </div>
-                                </div>
-                                <app-choice-item
-                                    [choiceLabel]="
-                                        t(
-                                            'X1001M.FINALSTAGE.SPEECH.PC.LASTCHOICE.RUN'
-                                        )
-                                    "
-                                >
-                                    [
-                                    <span appRelation="large down"
-                                        >Jericho</span
-                                    >
-                                    <span appRelation="large down">North</span>
-                                    <span appRelation="small down">Josh</span>
-                                    <span appRelation="small up">Simon</span>
-                                    ]
-
-                                    <app-dialogue-line name="Markus">
-                                        RUN! </app-dialogue-line
-                                    ><app-dialogue-line name="North">
-                                        Come on, Markus... We gotta go.
-                                    </app-dialogue-line>
-                                </app-choice-item>
-                            </div>
-                        </div>
-                        <app-choice-item
-                            [choiceLabel]="
-                                t(
-                                    'X1001M.FINALSTAGE.SPEECH.PC.SHOOTINGCHOICE.DISPERSE'
-                                )
-                            "
-                        >
-                            <p>
-                                <app-dialogue-line name="Markus">
-                                    Don't shoot! We're leaving... </app-dialogue-line
-                                ><app-dialogue-line name="Policeman">
-                                    Affirmative. ON MY ORDERS!
-                                </app-dialogue-line>
-                            </p>
-                        </app-choice-item>
-                    </div>
-                </div>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X1001M.FINALSTAGE.SPEECH.PC.DECISIONCHOICE.DISPERSE')
                 "
             >
-                <div class="choice">
-                    <p>
-                        <app-dialogue-line name="Markus">
-                            {{
-                                translateObject(
-                                    'X1001M.FINALSTAGE.SPEECH.PC.X10MMARKUS.DISPERSE01'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Policeman">
-                            {{
-                                translateObject(
-                                    'X1001M.FINALSTAGE.SPEECH.PC.X10MRIOTPOLICECHIEF.DISPERSE02'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </p>
-                    <app-choice-item
-                        [choiceLabel]="
-                            t(
-                                'X1001M.FINALSTAGE.SPEECH.PC.DISPERSECHOICE.CHARGE'
-                            )
-                        "
-                    >
-                        ???
-                    </app-choice-item>
-                    <app-choice-item
-                        [choiceLabel]="
-                            t('X1001M.FINALSTAGE.SPEECH.PC.DISPERSECHOICE.STAY')
-                        "
-                    >
-                        <span class="note"
-                            >No dialogue, gives three options (CHARGE, SACRIFICE
-                            and RUN AWAY)</span
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X1001M.FINALSTAGE.SPEECH.PC.X10MMARKUS.DISPERSE01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Policeman">
+                        {{
+                            translateObject(
+                                'X1001M.FINALSTAGE.SPEECH.PC.X10MRIOTPOLICECHIEF.DISPERSE02'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X1001M.FINALSTAGE.SPEECH.PC.DISPERSECHOICE.CHARGE')
+                    "
+                >
+                    <p class="note">See ATTACK &gt; CONFIRM.</p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X1001M.FINALSTAGE.SPEECH.PC.DISPERSECHOICE.STAY')
+                    "
+                >
+                    <app-choice-group>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t(
+                                    'X1001M.FINALSTAGE.SPEECH.PC.LASTCHOICE.CHARGE'
+                                )
+                            "
                         >
-                    </app-choice-item>
-                    <app-choice-item
-                        [choiceLabel]="
-                            t('X1001M.FINALSTAGE.SPEECH.PC.DISPERSECHOICE.RUN')
-                        "
-                    >
-                        [
-                        <span appRelation="large down">Jericho</span>
-                        <span appRelation="large down">North</span>
-                        <span appRelation="small down">Josh</span>
-                        <span appRelation="small up">Simon</span>
-                        ]
+                            <p class="note">See ATTACK &gt; CONFIRM.</p>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t(
+                                    'X1001M.FINALSTAGE.SPEECH.PC.LASTCHOICE.SACRIFICE'
+                                )
+                            "
+                        >
+                            <p class="note">See STAND GROUND &gt; SACRIFICE.</p>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t('X1001M.FINALSTAGE.SPEECH.PC.LASTCHOICE.RUN')
+                            "
+                        >
+                            <p class="note">See STAND GROUND &gt; RUN AWAY.</p>
+                        </app-choice-item>
+                    </app-choice-group>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X1001M.FINALSTAGE.SPEECH.PC.DISPERSECHOICE.RUN')
+                    "
+                >
+                    <p>
+                        <app-relation
+                            [name]="RelationName.Jericho"
+                            [type]="RelationType.LargeDown"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.North"
+                            [type]="RelationType.LargeDown"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Josh"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Simon"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
 
                         <span class="note"
-                            >Leads to the same result as RUN AWAY</span
+                            >See STAND GROUND &gt; RUN AWAY.</span
                         >
-                    </app-choice-item>
-                </div>
+                    </p>
+                </app-choice-item>
             </app-choice-item>
-        </div>
+        </app-choice-group>
     </section>
 </ng-container>

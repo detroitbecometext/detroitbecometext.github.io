@@ -5,13 +5,14 @@
 </ng-template>
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
+        <h1>At Ambassador Bridge</h1>
+
         <p>
             {{ t('GUI.MENU.DATE.08C') }}
             <br />
             {{ t('GUI.MENU.TIME.08C') }}
         </p>
 
-        <h1>At Ambassador Bridge</h1>
         <p>
             <app-dialogue-line name="Hank">
                 {{
@@ -21,7 +22,7 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X0801C.BENCH.TALK.PC.STARTCHOICE01.SUICIDE')"
             >
@@ -41,61 +42,70 @@
                         directly to the SUICIDE option.</span
                     >
                 </p>
-                <app-choice-item
-                    [choiceLabel]="t('X0801C.BENCH.TALK.PC.PHOTOCHOICE.PHOTO')"
-                >
-                    <app-unlock-condition [unlockType]="UnlockType.Lock">
-                        Unlocked by looking at Cole's photo in
-                        <a [routerLink]="['/chapters', 18]">Russian Roulette</a>
-                    </app-unlock-condition>
-                    <app-relation
-                        [name]="RelationName.Hank"
-                        [type]="RelationType.SmallDown"
-                    ></app-relation>
-                    <p>
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.PHOTO'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Hank">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CHANK.PHOTO'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </p>
-                </app-choice-item>
-                <app-choice-item
-                    [choiceLabel]="
-                        t('X0801C.BENCH.TALK.PC.PHOTOCHOICE.SUICIDE')
-                    "
-                >
-                    <p>
-                        <app-dialogue-line name="Connor">
-                            {{
-                                t(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.KILLYOURSELF00'
-                                )
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Hank">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CHANK.KILLYOURSELF01'
-                                ) | async
-                            }}
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CHANK.KILLYOURSELF02'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </p>
-                </app-choice-item>
+
+                <app-choice-group>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0801C.BENCH.TALK.PC.PHOTOCHOICE.PHOTO')
+                        "
+                    >
+                        <p>
+                            <app-unlock-condition
+                                [unlockType]="UnlockType.Lock"
+                            >
+                                Looked at Cole's photo in
+                                <a [routerLink]="['/chapters', 18]"
+                                    >Russian Roulette</a
+                                >
+                            </app-unlock-condition>
+                            <app-relation
+                                [name]="RelationName.Hank"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.PHOTO'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CHANK.PHOTO'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
+                    </app-choice-item>
+                    <app-choice-item
+                        [choiceLabel]="
+                            t('X0801C.BENCH.TALK.PC.PHOTOCHOICE.SUICIDE')
+                        "
+                    >
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.KILLYOURSELF00'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Hank">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CHANK.KILLYOURSELF01'
+                                    ) | async
+                                }}
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CHANK.KILLYOURSELF02'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
+                    </app-choice-item>
+                </app-choice-group>
             </app-choice-item>
 
             <app-choice-item
@@ -162,7 +172,7 @@
                     </app-dialogue-line>
                 </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <p>
             <app-dialogue-line name="Connor">
@@ -177,23 +187,24 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="
                     t('X0801C.BENCH.TALK.PC.INVESTIGATIONCHOICE02.RA9')
                 "
             >
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Unlocked by looking at rA9 clues in previous chapters
-                </app-unlock-condition>
                 <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Looked at rA9 clues in previous chapters
+                    </app-unlock-condition>
                     <app-dialogue-line name="Connor">
                         {{
                             translateObject(
                                 'X0801C.BENCH.TALK.PC.X08CCONNOR.RA9C'
                             ) | async
-                        }} </app-dialogue-line
-                    ><app-dialogue-line name="Hank"
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Hank"
                         >{{
                             translateObject(
                                 'X0801C.BENCH.TALK.PC.X08CHANK.RA9H'
@@ -202,7 +213,6 @@
                     </app-dialogue-line>
                 </p>
             </app-choice-item>
-
             <app-choice-item
                 [choiceLabel]="
                     t('X0801C.BENCH.TALK.PC.INVESTIGATIONCHOICE02.SHOCK')
@@ -265,7 +275,7 @@
                     </app-dialogue-line>
                 </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <p>
             <app-dialogue-line name="Connor">
@@ -278,8 +288,10 @@
 
         <app-conditioned-content>
             <div class="condition">
-                Found the Tracis in
-                <a [routerLink]="['/chapters', 20]">The Eden Club</a>
+                <p>
+                    Found the Tracis in
+                    <a [routerLink]="['/chapters', 20]">The Eden Club</a>
+                </p>
             </div>
             <div class="content">
                 <p>
@@ -291,135 +303,154 @@
                         }}
                     </app-dialogue-line>
                 </p>
-                <div class="choices">
+
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.RATIONAL')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.RATIONAL01'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.RATIONAL01'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.DEVIANTS')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.DEVIANTS'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.DEVIANTS'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.IRONIC')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.IRONIC'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.IRONIC'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.COLD')
                         "
                     >
-                        <app-relation
-                            [name]="RelationName.Hank"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-                        <app-relation
-                            [name]="RelationName.SoftwareInstability"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD01'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-relation
+                                [name]="RelationName.Hank"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-relation
+                                [name]="RelationName.SoftwareInstability"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD01'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
             </div>
         </app-conditioned-content>
-
         <app-conditioned-content>
             <div class="condition">
-                Took too much time looking for the Traci in
-                <a [routerLink]="['/chapters', 20]">The Eden Club</a>
+                <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Time">
+                        Took too much time looking for the Traci in
+                        <a [routerLink]="['/chapters', 20]">The Eden Club</a>
+                    </app-unlock-condition>
+                </p>
             </div>
             <div class="content">
-                <app-dialogue-line name="Hank">
-                    {{
-                        translateObject(
-                            'X0801C.BENCH.TALK.PC.X08CHANK.NOTFOUND'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <div class="choices">
+                <p>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CHANK.NOTFOUND'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.NOTFOUNDCHOICE04.COLD')
                         "
                     >
-                        <app-relation
-                            [name]="RelationName.SoftwareInstability"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-                        <app-relation
-                            [name]="RelationName.Hank"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD02'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-relation
+                                [name]="RelationName.SoftwareInstability"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-relation
+                                [name]="RelationName.Hank"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD02'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.NOTFOUNDCHOICE04.IRONIC')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.IRONIC'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.IRONIC'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.NOTFOUNDCHOICE04.RATIONAL')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.RATIONAL02'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.RATIONAL02'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
             </div>
         </app-conditioned-content>
 
@@ -434,138 +465,151 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X0801C.BENCH.TALK.PC.ABOUTYOUCHOICE05.COLD')"
             >
-                <app-relation
-                    [name]="RelationName.SoftwareInstability"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
-                <app-dialogue-line name="Connor">
-                    {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.COLD03') }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.SoftwareInstability"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Hank"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.COLD03') }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X0801C.BENCH.TALK.PC.ABOUTYOUCHOICE05.AGGRESSIVE')
                 "
             >
-                <app-relation
-                    [name]="RelationName.SoftwareInstability"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0801C.BENCH.TALK.PC.X08CCONNOR.AGGRESSIVE01'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.SoftwareInstability"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Hank"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.AGGRESSIVE01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X0801C.BENCH.TALK.PC.ABOUTYOUCHOICE05.DEFENSIVE')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE01'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="
                     t('X0801C.BENCH.TALK.PC.ABOUTYOUCHOICE05.NEUTRAL')
                 "
             >
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL01'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.Hank"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL01'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
-        <div class="condition">
-            <span class="name">Connor spared the Tracis</span>
-            <div class="condition-text">
-                <app-dialogue-line name="Hank">
-                    {{
-                        translateObject(
-                            'X0801C.BENCH.TALK.PC.X08CHANK.NOTSHOOT'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <div class="choices">
+        <app-conditioned-content>
+            <div class="condition">
+                <p>Connor spared the Tracis</p>
+            </div>
+            <div class="content">
+                <p>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CHANK.NOTSHOOT'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.NOTSHOOTCHOICE07.LIE')
                         "
                     >
-                        <app-relation
-                            [name]="RelationName.Hank"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.LIE'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-relation
+                                [name]="RelationName.Hank"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.LIE'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.NOTSHOOTCHOICE07.TRUTH')
                         "
                     >
-                        <app-relation
-                            [name]="RelationName.SoftwareInstability"
-                            [type]="RelationType.SmallUp"
-                        ></app-relation>
-                        <app-relation
-                            [name]="RelationName.Hank"
-                            [type]="RelationType.SmallUp"
-                        ></app-relation>
-
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.TRUTH'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-relation
+                                [name]="RelationName.SoftwareInstability"
+                                [type]="RelationType.SmallUp"
+                            ></app-relation>
+                            <app-relation
+                                [name]="RelationName.Hank"
+                                [type]="RelationType.SmallUp"
+                            ></app-relation>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.TRUTH'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
             </div>
-        </div>
-
-        <div class="condition">
-            <span class="name">Connor shot the Tracis in the back </span>
-            <div class="condition-text">
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                <p>Connor shot the Tracis in the back</p>
+            </div>
+            <div class="content">
                 <p>
                     <app-dialogue-line name="Hank">
                         {{
@@ -575,89 +619,96 @@
                         }}
                     </app-dialogue-line>
                 </p>
-                <div class="choices">
+
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.SHOOTCHOICE06.COLD')
                         "
                     >
-                        <app-relation
-                            [name]="RelationName.SoftwareInstability"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-                        <app-relation
-                            [name]="RelationName.Hank"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD04'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-relation
+                                [name]="RelationName.SoftwareInstability"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-relation
+                                [name]="RelationName.Hank"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD04'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.SHOOTCHOICE06.DEFENSIVE')
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE02'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE02'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.SHOOTCHOICE06.AGGRESSIVE')
                         "
                     >
-                        <app-relation
-                            [name]="RelationName.Hank"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.AGGRESSIVE02'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-relation
+                                [name]="RelationName.Hank"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.AGGRESSIVE02'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.SHOOTCHOICE06.NEUTRAL')
                         "
                     >
-                        <app-relation
-                            [name]="RelationName.SoftwareInstability"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-                        <app-relation
-                            [name]="RelationName.Hank"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL03'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-relation
+                                [name]="RelationName.SoftwareInstability"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-relation
+                                [name]="RelationName.Hank"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL03'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
             </div>
-        </div>
-
-        <div class="condition">
-            <span class="name">Connor shot one Traci</span>
-            <div class="condition-text">
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                <p>Connor shot one Traci</p>
+            </div>
+            <div class="content">
                 <p>
                     <app-dialogue-line name="Hank">
                         {{
@@ -667,54 +718,58 @@
                         }}
                     </app-dialogue-line>
                 </p>
-                <div class="choices">
+
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.SUICIDECHOICE11.DISTURBED')
                         "
                     >
-                        <app-relation
-                            [name]="RelationName.SoftwareInstability"
-                            [type]="RelationType.SmallUp"
-                        ></app-relation>
-
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD11'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-relation
+                                [name]="RelationName.SoftwareInstability"
+                                [type]="RelationType.SmallUp"
+                            ></app-relation>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD11'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
                             t('X0801C.BENCH.TALK.PC.SHOOTCHOICE06.COLD')
                         "
                     >
-                        <app-relation
-                            [name]="RelationName.SoftwareInstability"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-                        <app-relation
-                            [name]="RelationName.Hank"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.DISTURBED11'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-relation
+                                [name]="RelationName.SoftwareInstability"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-relation
+                                [name]="RelationName.Hank"
+                                [type]="RelationType.SmallDown"
+                            ></app-relation>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.DISTURBED11'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
             </div>
-        </div>
-
-        <div class="condition">
-            <span class="name">Connor didn't find the Tracis </span>
-            <div class="condition-text">
+        </app-conditioned-content>
+        <app-conditioned-content>
+            <div class="condition">
+                <p>Connor didn't find the Tracis</p>
+            </div>
+            <div class="content">
                 <p>
                     <app-dialogue-line name="Hank">
                         {{
@@ -724,7 +779,8 @@
                         }}
                     </app-dialogue-line>
                 </p>
-                <div class="choices">
+
+                <app-choice-group>
                     <app-choice-item
                         [choiceLabel]="
                             t(
@@ -732,13 +788,15 @@
                             )
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE04'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE04'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
@@ -747,9 +805,13 @@
                             )
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.CYNICAL') }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    t('X0801C.BENCH.TALK.PC.X08CCONNOR.CYNICAL')
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
@@ -758,13 +820,15 @@
                             )
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.UNDRESTANDING'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.UNDRESTANDING'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
                     <app-choice-item
                         [choiceLabel]="
@@ -773,36 +837,43 @@
                             )
                         "
                     >
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL02'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Connor">
+                                {{
+                                    translateObject(
+                                        'X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL02'
+                                    ) | async
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </app-choice-item>
-                </div>
+                </app-choice-group>
             </div>
-        </div>
+        </app-conditioned-content>
 
         <mat-divider></mat-divider>
 
         <app-conditioned-content>
             <div class="condition">
-                <app-unlock-condition
-                    [unlockType]="UnlockType.Death"
-                    [bracketsOnlyAroundIcon]="true"
-                >
-                    Connor died before
-                </app-unlock-condition>
+                <p>
+                    <app-unlock-condition
+                        [unlockType]="UnlockType.Death"
+                        [bracketsOnlyAroundIcon]="true"
+                    >
+                        Connor died before
+                    </app-unlock-condition>
+                </p>
             </div>
             <div class="content">
-                <app-dialogue-line name="Hank">
-                    {{
-                        translateObject('X0801C.BENCH.TALK.PC.X08CHANK.DEAD')
-                            | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Hank">
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CHANK.DEAD'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
 
@@ -812,79 +883,84 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="t('X0801C.BENCH.TALK.PC.FEARCHOICE09.YES')"
             >
-                <app-relation
-                    [name]="RelationName.SoftwareInstability"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject('X0801C.BENCH.TALK.PC.X08CCONNOR.YES')
-                            | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.SoftwareInstability"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.YES'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X0801C.BENCH.TALK.PC.FEARCHOICE09.NO')"
             >
-                <app-relation
-                    [name]="RelationName.SoftwareInstability"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
-                <app-dialogue-line name="Connor">
-                    {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.NO.1') }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.SoftwareInstability"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Hank"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-dialogue-line name="Connor">
+                        {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.NO.1') }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X0801C.BENCH.TALK.PC.FEARCHOICE09.NOTALIVE')"
             >
-                <app-relation
-                    [name]="RelationName.SoftwareInstability"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0801C.BENCH.TALK.PC.X08CCONNOR.NOTALIVE'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.SoftwareInstability"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Hank"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.NOTALIVE'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
             <app-choice-item
                 [choiceLabel]="t('X0801C.BENCH.TALK.PC.FEARCHOICE09.COLD')"
             >
-                <app-relation
-                    [name]="RelationName.SoftwareInstability"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD05'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-relation
+                        [name]="RelationName.SoftwareInstability"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Hank"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.COLD05'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <mat-divider></mat-divider>
 
@@ -897,18 +973,18 @@
             </app-dialogue-line>
         </p>
 
-        <div class="choices">
+        <app-choice-group>
             <app-choice-item
                 [choiceLabel]="
                     t('X0801C.BENCH.TALK.PC.PULLTRIGGERCHOICE10.DEFY')
                 "
             >
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
                 <p>
+                    <app-relation
+                        [name]="RelationName.Hank"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+
                     <app-dialogue-line name="Connor">
                         {{
                             translateObject(
@@ -991,23 +1067,25 @@
                     t('X0801C.BENCH.TALK.PC.PULLTRIGGERCHOICE10.NOTHING')
                 "
             >
-                <app-dialogue-line name="Connor">
-                    {{
-                        translateObject(
-                            'X0801C.BENCH.TALK.PC.X08CCONNOR.NOTHING'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Connor">
+                        {{
+                            translateObject(
+                                'X0801C.BENCH.TALK.PC.X08CCONNOR.NOTHING'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </app-choice-item>
-        </div>
+        </app-choice-group>
 
         <app-conditioned-content>
-            <div class="condition">Hank left Connor alone</div>
+            <div class="condition"><p>Hank left Connor alone</p></div>
             <div class="content">
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    If Hank isn't hostile
-                </app-unlock-condition>
                 <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Hank isn't hostile
+                    </app-unlock-condition>
                     <app-dialogue-line name="Connor">
                         {{ t('X0801C.BENCH.TALK.PC.X08CCONNOR.END') }}
                     </app-dialogue-line>

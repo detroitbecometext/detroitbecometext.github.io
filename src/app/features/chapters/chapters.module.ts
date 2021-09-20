@@ -58,6 +58,7 @@ import { ScreensComponent } from './chapter-contents/30-crossroads-intro/screens
 import { ChapterLinkComponent } from './shared/components/chapter-link/chapter-link.component';
 import { ObservationItemComponent } from './shared/components/observation-item/observation-item.component';
 import { EndingsComponent } from './chapter-contents/endings/endings.component';
+import { PressDirtyBombComponent } from './chapter-contents/battle-for-detroit/press-dirty-bomb/press-dirty-bomb.component';
 
 @NgModule({
     declarations: [
@@ -116,6 +117,7 @@ import { EndingsComponent } from './chapter-contents/endings/endings.component';
         ChapterLinkComponent,
         ObservationItemComponent,
         EndingsComponent,
+        PressDirtyBombComponent,
     ],
     imports: [SharedModule, ChaptersRoutingModule, TranslocoRootModule],
 })

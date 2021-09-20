@@ -5,13 +5,13 @@
 </ng-template>
 <ng-container *transloco="let t; loadingTpl: loading">
     <section>
+        <h1>At the CyberLife warehouses</h1>
+
         <p>
             {{ t('GUI.MENU.DATE.06M2') }}
             <br />
             {{ t('GUI.MENU.TIME.06M2') }}
         </p>
-
-        <h1>At the CyberLife warehouses</h1>
 
         <p>
             <app-dialogue-line name="Josh">
@@ -56,12 +56,12 @@
             </app-dialogue-line>
         </p>
 
+        <h2>
+            <app-unlock-condition [unlockType]="UnlockType.Time">
+                {{ t(CommonTranslationKey.TooMuchTime) }}
+            </app-unlock-condition>
+        </h2>
         <p>
-            <strong
-                ><i class="fas fa-hourglass-end"></i> Not following North
-                immediately</strong
-            >
-
             <app-dialogue-line name="North">
                 {{ t('X0602M.DOCKS.PROGRESSION.VO.X06MMARLA.WRONGWAY01') }}
             </app-dialogue-line>
@@ -109,86 +109,89 @@
             </app-dialogue-line>
         </p>
 
-        <h2>Attacking the drone</h2>
-        <app-conditioned-content>
-            <div class="condition">Fail Attacking Drone</div>
-            <div class="content">
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Simon"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <p>
-                    <app-dialogue-line name="Simon">
-                        {{
-                            translateObject(
-                                'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MSIMON.FAIL'
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Markus">
-                        {{
-                            t(
-                                'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARKUS.FAIL'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="North">
-                        {{
-                            t('X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARLA.FAIL')
-                        }}
-                    </app-dialogue-line>
-                </p>
-            </div>
-        </app-conditioned-content>
-
-        <app-conditioned-content>
-            <div class="condition">Succeed Attacking Drone</div>
-            <div class="content">
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Simon"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-                <p>
-                    <app-dialogue-line name="Simon">
-                        {{
-                            t(
-                                'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MSIMON.SUCCESS'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Markus">
-                        {{
-                            t(
-                                'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARKUS.SUCCESS'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="North">
-                        {{
-                            t(
-                                'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARLA.SUCCESS'
-                            )
-                        }}
-                    </app-dialogue-line>
-                </p>
-            </div>
-        </app-conditioned-content>
+        <section>
+            <h2>Attacking the drone</h2>
+            <app-conditioned-content>
+                <div class="condition"><p>Fail Attacking Drone</p></div>
+                <div class="content">
+                    <p>
+                        <app-relation
+                            [name]="RelationName.North"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Simon"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Josh"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-dialogue-line name="Simon">
+                            {{
+                                translateObject(
+                                    'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MSIMON.FAIL'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARKUS.FAIL'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARLA.FAIL'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </div>
+            </app-conditioned-content>
+            <app-conditioned-content>
+                <div class="condition"><p>Succeed Attacking Drone</p></div>
+                <div class="content">
+                    <p>
+                        <app-relation
+                            [name]="RelationName.North"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Simon"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Josh"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <app-dialogue-line name="Simon">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MSIMON.SUCCESS'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARKUS.SUCCESS'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.PRECONSTRUCT.PC.X06MMARLA.SUCCESS'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </div>
+            </app-conditioned-content>
+        </section>
 
         <p>
             <app-dialogue-line name="Simon">
@@ -196,176 +199,194 @@
             </app-dialogue-line>
         </p>
 
-        <h2>Guard arrives</h2>
-        <p>
-            <app-dialogue-line name="John">
-                {{
-                    translateObject(
-                        'X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.SURPRISE'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Guard">
-                {{
-                    translateObject(
-                        'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.SURPRISEGARD'
-                    ) | async
-                }}
-            </app-dialogue-line>
-        </p>
-
-        <div class="choices">
-            <app-choice-item [choiceLabel]="t('GUI.ACTION.KILLGUARD')">
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.LargeDown"
-                ></app-relation>
-
-                <app-dialogue-line name="Guard">
-                    {{
-                        translateObject(
-                            'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.NOCHOICEGUARD01'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-            </app-choice-item>
-
-            <app-choice-item [choiceLabel]="t('GUI.ACTION.RUNAWAY')">
-                <app-relation
-                    name="North (x2)"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Jericho"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Simon"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
-                <app-dialogue-line name="Markus">
-                    {{
-                        t('X0602M.WAREHOUSE.SURPRISE.FA.X06MMARKUS.FLEEMARKUS')
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Guard">
-                    {{
-                        t(
-                            'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.NOCHOICEGUARD02'
-                        )
-                    }}
-                </app-dialogue-line>
-            </app-choice-item>
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0602M.WAREHOUSE.SURPRISE.PC.CHOICEGROUP01.HIDDEN')
-                "
-            >
-                <app-dialogue-line name="Guard">
-                    {{
-                        translateObject(
-                            'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.HIDDENGARD',
-                            3
-                        ) | async
-                    }}
-                </app-dialogue-line>
+        <section>
+            <h2>Guard arrives</h2>
+            <p>
                 <app-dialogue-line name="John">
-                    {{ t('X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.HIDDEN') }}
+                    {{
+                        translateObject(
+                            'X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.SURPRISE'
+                        ) | async
+                    }}
                 </app-dialogue-line>
                 <app-dialogue-line name="Guard">
                     {{
-                        t(
-                            'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.NOCHOICEGUARD02'
-                        )
+                        translateObject(
+                            'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.SURPRISEGARD'
+                        ) | async
                     }}
                 </app-dialogue-line>
-            </app-choice-item>
-            <app-choice-item [choiceLabel]="t('GUI.ACTION.GRABANDHIDE')">
-                <p>
-                    <app-dialogue-line name="Guard">
-                        {{
-                            t(
-                                'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.HIDDENWITHANDROID01'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Markus">
-                        {{
-                            t(
-                                'X0602M.WAREHOUSE.SURPRISE.VO.X06MMARKUS.HIDDENANDM'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Guard">
-                        {{
-                            t(
-                                'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.HIDDENWITHANDROID02'
-                            )
-                        }}
-                    </app-dialogue-line>
-                </p>
+            </p>
 
-                <app-choice-group>
-                    <app-choice-item [choiceLabel]="t('GUI.ACTION.HOLD')">
-                        <app-dialogue-line name="Guard">
-                            {{
-                                translateObject(
-                                    'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.NOMOVE'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                    </app-choice-item>
-                    <app-choice-item [choiceLabel]="t('GUI.ACTION.RELEASE')">
-                        <p>
-                            <app-dialogue-line name="Guard">
-                                {{
-                                    t(
-                                        'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.RELEASE01'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="John">
-                                {{
-                                    translateObject(
-                                        'X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.RELEASEJOHN',
-                                        0,
-                                        2
-                                    ) | async
-                                }}
-                            </app-dialogue-line>
-
-                            <app-dialogue-line name="Guard">
-                                {{
-                                    translateObject(
-                                        'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.RELEAS0E2'
-                                    ) | async
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="John">
-                                {{
-                                    t(
-                                        'X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.RELEASEJOHN.3'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                        </p>
-                    </app-choice-item>
-                    <app-choice-item [choiceLabel]="t('GUI.ACTION.ATTACK')">
+            <app-choice-group>
+                <app-choice-item [choiceLabel]="t('GUI.ACTION.KILLGUARD')">
+                    <p>
                         <app-relation
                             [name]="RelationName.Josh"
                             [type]="RelationType.LargeDown"
                         ></app-relation>
-
-                        <span>&oslash;</span>
-                    </app-choice-item>
-                </app-choice-group>
-            </app-choice-item>
-        </div>
+                        <app-dialogue-line name="Guard">
+                            {{
+                                translateObject(
+                                    'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.NOCHOICEGUARD01'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item [choiceLabel]="t('GUI.ACTION.RUNAWAY')">
+                    <p>
+                        <app-relation
+                            [name]="RelationName.North"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.North"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Jericho"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Josh"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Simon"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.SURPRISE.FA.X06MMARKUS.FLEEMARKUS'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Guard">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.NOCHOICEGUARD02'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0602M.WAREHOUSE.SURPRISE.PC.CHOICEGROUP01.HIDDEN')
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Guard">
+                            {{
+                                translateObject(
+                                    'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.HIDDENGARD',
+                                    3
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="John">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.HIDDEN'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Guard">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.NOCHOICEGUARD02'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item [choiceLabel]="t('GUI.ACTION.GRABANDHIDE')">
+                    <p>
+                        <app-dialogue-line name="Guard">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.HIDDENWITHANDROID01'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.SURPRISE.VO.X06MMARKUS.HIDDENANDM'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Guard">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.HIDDENWITHANDROID02'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                    <app-choice-group>
+                        <app-choice-item [choiceLabel]="t('GUI.ACTION.HOLD')">
+                            <p>
+                                <app-dialogue-line name="Guard">
+                                    {{
+                                        translateObject(
+                                            'X0602M.WAREHOUSE.SURPRISE.PC.X06MWAREHOUSEGUARD.NOMOVE'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="t('GUI.ACTION.RELEASE')"
+                        >
+                            <p>
+                                <app-dialogue-line name="Guard">
+                                    {{
+                                        t(
+                                            'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.RELEASE01'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="John">
+                                    {{
+                                        translateObject(
+                                            'X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.RELEASEJOHN',
+                                            0,
+                                            2
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Guard">
+                                    {{
+                                        translateObject(
+                                            'X0602M.WAREHOUSE.SURPRISE.FA.X06MWAREHOUSEGUARD.RELEAS0E2'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="John">
+                                    {{
+                                        t(
+                                            'X0602M.WAREHOUSE.SURPRISE.PC.X06MJOHN.RELEASEJOHN.3'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </app-choice-item>
+                        <app-choice-item [choiceLabel]="t('GUI.ACTION.ATTACK')">
+                            <p>
+                                <app-relation
+                                    [name]="RelationName.Josh"
+                                    [type]="RelationType.LargeDown"
+                                ></app-relation>
+                                <span>&oslash;</span>
+                            </p>
+                        </app-choice-item>
+                    </app-choice-group>
+                </app-choice-item>
+            </app-choice-group>
+        </section>
 
         <p>
             <app-dialogue-line name="Simon">
@@ -374,46 +395,48 @@
             </app-dialogue-line>
         </p>
 
-        <h2>Checking the bigger crate</h2>
-        <p>
-            <app-dialogue-line name="Markus">
-                {{
-                    translateObject(
-                        'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.CRATEEXAMINE01'
-                    ) | async
-                }}
-            </app-dialogue-line>
-        </p>
-
-        <app-choice-group>
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP01.TOUCH')
-                "
-            >
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Simon"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <span>&oslash;</span>
-            </app-choice-item>
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP01.CLOSE')
-                "
-            >
-                <span>&oslash;</span>
-            </app-choice-item>
-        </app-choice-group>
+        <section>
+            <h2>Checking the bigger crate</h2>
+            <p>
+                <app-dialogue-line name="Markus">
+                    {{
+                        translateObject(
+                            'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.CRATEEXAMINE01'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </p>
+            <app-choice-group>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP01.TOUCH')
+                    "
+                >
+                    <p>
+                        <app-relation
+                            [name]="RelationName.North"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Simon"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Josh"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <span>&oslash;</span>
+                    </p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP01.CLOSE')
+                    "
+                >
+                    <p>&oslash;</p>
+                </app-choice-item>
+            </app-choice-group>
+        </section>
 
         <mat-divider></mat-divider>
 
@@ -433,25 +456,31 @@
         </p>
 
         <app-conditioned-content>
-            <div class="condition">Awoke androids</div>
+            <div class="condition"><p>Awoke androids</p></div>
             <div class="content">
-                <app-dialogue-line name="Simon">
-                    {{
-                        t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.JOHNQUARTET')
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Simon">
+                        {{
+                            t(
+                                'X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.JOHNQUARTET'
+                            )
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
         <app-conditioned-content>
-            <div class="condition">Didn't awake androids</div>
+            <div class="condition"><p>Didn't awake androids</p></div>
             <div class="content">
-                <app-dialogue-line name="Simon">
-                    {{
-                        translateObject(
-                            'X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.JOHNSOLO'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Simon">
+                        {{
+                            translateObject(
+                                'X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.JOHNSOLO'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
 
@@ -461,41 +490,47 @@
                     t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP02.TAKE')
                 "
             >
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Simon"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
+                <p>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Simon"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Josh"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                </p>
 
                 <app-conditioned-content>
-                    <div class="condition">Awoke androids</div>
+                    <div class="condition"><p>Awoke androids</p></div>
                     <div class="content">
-                        <app-dialogue-line name="Markus">
-                            {{
-                                t(
-                                    'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.TAKEQUARTET'
-                                )
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Markus">
+                                {{
+                                    t(
+                                        'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.TAKEQUARTET'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </div>
                 </app-conditioned-content>
                 <app-conditioned-content>
-                    <div class="condition">Didn't awake androids</div>
+                    <div class="condition"><p>Didn't awake androids</p></div>
                     <div class="content">
-                        <app-dialogue-line name="Markus">
-                            {{
-                                t(
-                                    'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.TAKESOLO'
-                                )
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Markus">
+                                {{
+                                    t(
+                                        'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.TAKESOLO'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </div>
                 </app-conditioned-content>
             </app-choice-item>
@@ -530,429 +565,481 @@
             </app-choice-item>
         </app-choice-group>
 
-        <h2>Let John join the group - Stealing the key</h2>
+        <section>
+            <h2>Let John join the group - Stealing the key</h2>
+            <p>
+                <app-dialogue-line name="John">
+                    {{
+                        t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.FINALCHOICE.1')
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Simon">
+                    {{
+                        t(
+                            'X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.FINALCHOICE.1'
+                        )
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="John">
+                    {{
+                        translateObject(
+                            'X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.FINALCHOICE',
+                            1,
+                            4
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Markus">
+                    {{
+                        t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.FINALCHOICE')
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="John">
+                    {{
+                        translateObject(
+                            'X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.FINALCHOICE',
+                            4
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Simon">
+                    {{
+                        t(
+                            'X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.FINALCHOICE.2'
+                        )
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="North">
+                    {{
+                        translateObject(
+                            'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARLA.FINALCHOICE'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+                <app-dialogue-line name="Josh">
+                    {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOSH.FINALCHOICE') }}
+                </app-dialogue-line>
+            </p>
+            <app-choice-group>
+                <app-choice-item
+                    [choiceLabel]="
+                        t(
+                            'X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP03.SEARCHKEY'
+                        )
+                    "
+                >
+                    <p>
+                        <app-relation
+                            [name]="RelationName.North"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Simon"
+                            [type]="RelationType.SmallUp"
+                        ></app-relation>
+                        <app-relation
+                            [name]="RelationName.Josh"
+                            [type]="RelationType.SmallDown"
+                        ></app-relation>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                translateObject(
+                                    'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.SEARCHKEY',
+                                    0,
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Josh">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOSH.SEARCHKEY'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="North">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARLA.SEARCHKEY'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                translateObject(
+                                    'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.SEARCHKEY',
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
 
-        <p>
-            <app-dialogue-line name="John">
-                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.FINALCHOICE.1') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Simon">
-                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.FINALCHOICE.1') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="John">
-                {{
-                    translateObject(
-                        'X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.FINALCHOICE',
-                        1,
-                        4
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Markus">
-                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.FINALCHOICE') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="John">
-                {{
-                    translateObject(
-                        'X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.FINALCHOICE',
-                        4
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Simon">
-                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MSIMON.FINALCHOICE.2') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="North">
-                {{
-                    translateObject(
-                        'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARLA.FINALCHOICE'
-                    ) | async
-                }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Josh">
-                {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOSH.FINALCHOICE') }}
-            </app-dialogue-line>
-        </p>
-
-        <app-choice-group>
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP03.SEARCHKEY')
-                "
-            >
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Simon"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
-                <p>
-                    <app-dialogue-line name="Markus">
-                        {{
-                            translateObject(
-                                'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.SEARCHKEY',
-                                0,
-                                2
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Josh">
-                        {{
-                            t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOSH.SEARCHKEY')
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="North">
-                        {{
-                            t(
-                                'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARLA.SEARCHKEY'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Markus">
-                        {{
-                            translateObject(
-                                'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.SEARCHKEY',
-                                2
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                </p>
-
-                <h2>In the control room</h2>
-                <p>
-                    <app-dialogue-line name="Guard 1">
-                        {{
-                            translateObject(
-                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01',
-                                0,
-                                2
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Guard 2">
-                        {{
-                            t(
-                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD02.CHITCHAT02.1'
-                            )
-                        }}
-                    </app-dialogue-line>
-
-                    <app-dialogue-line name="Guard 1">
-                        {{
-                            translateObject(
-                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01',
-                                2,
-                                4
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Guard 2">
-                        {{
-                            t(
-                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD02.CHITCHAT02.2'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Guard 1">
-                        {{
-                            t(
-                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01.5'
-                            )
-                        }} </app-dialogue-line
-                    ><app-dialogue-line name="Guard 2">
-                        {{
-                            t(
-                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01.6'
-                            )
-                        }}
-                    </app-dialogue-line>
-                    <app-dialogue-line name="Guard 1">
-                        {{
-                            t(
-                                'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD02.CHITCHAT02.3'
-                            )
-                        }}
-                    </app-dialogue-line>
-                </p>
-
-                <app-conditioned-content>
-                    <div class="condition">Create short-circuit</div>
-                    <div class="content">
-                        <p>
-                            <app-dialogue-line name="Guard 1">
-                                {{
-                                    t(
-                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01A.1'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Guard 2">
-                                {{
-                                    translateObject(
-                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02A',
-                                        0,
-                                        2
-                                    ) | async
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Guard 1">
-                                {{
-                                    translateObject(
-                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01A',
-                                        1
-                                    ) | async
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Guard 2">
-                                {{
-                                    t(
-                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02A.3'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Guard 1">
-                                {{
-                                    translateObject(
-                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01B'
-                                    ) | async
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Guard 2">
-                                {{
-                                    t(
-                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02A.4'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Guard 1">
-                                {{
-                                    translateObject(
-                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01C'
-                                    ) | async
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Guard 2">
-                                {{
-                                    t(
-                                        'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02C'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                        </p>
-                    </div>
-                </app-conditioned-content>
-
-                <app-conditioned-content>
-                    <div class="condition">
-                        Attract the guards by knocking a barrel
-                    </div>
-                    <div class="content">
+                    <h3>In the control room</h3>
+                    <p>
+                        <app-dialogue-line name="Guard 1">
+                            {{
+                                translateObject(
+                                    'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01',
+                                    0,
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Guard 2">
+                            {{
+                                t(
+                                    'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD02.CHITCHAT02.1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Guard 1">
+                            {{
+                                translateObject(
+                                    'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01',
+                                    2,
+                                    4
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Guard 2">
+                            {{
+                                t(
+                                    'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD02.CHITCHAT02.2'
+                                )
+                            }}
+                        </app-dialogue-line>
                         <app-dialogue-line name="Guard 1">
                             {{
                                 t(
-                                    'X0602M.DIVERSION.CANS1.FA.X06MDESKGUARD01.CANS1'
+                                    'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01.5'
                                 )
                             }}
                         </app-dialogue-line>
                         <app-dialogue-line name="Guard 2">
                             {{
                                 t(
-                                    'X0602M.DIVERSION.CANS1.FA.X06MDESKGUARD02.CANS2'
+                                    'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD01.CHITCHAT01.6'
                                 )
                             }}
                         </app-dialogue-line>
-                    </div>
-                </app-conditioned-content>
+                        <app-dialogue-line name="Guard 1">
+                            {{
+                                t(
+                                    'X0602M.CONTROLROOM.CHITCHAT.FA.X06MDESKGUARD02.CHITCHAT02.3'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </p>
 
-                <app-conditioned-content>
-                    <div class="condition">Threaten guards with the gun</div>
-                    <div class="content">
-                        <span>&oslash;</span>
-                    </div>
-                </app-conditioned-content>
+                    <app-conditioned-content>
+                        <div class="condition"><p>Create short-circuit</p></div>
+                        <div class="content">
+                            <p>
+                                <app-dialogue-line name="Guard 1">
+                                    {{
+                                        t(
+                                            'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01A.1'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Guard 2">
+                                    {{
+                                        translateObject(
+                                            'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02A',
+                                            0,
+                                            2
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Guard 1">
+                                    {{
+                                        translateObject(
+                                            'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01A',
+                                            1
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Guard 2">
+                                    {{
+                                        t(
+                                            'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02A.3'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Guard 1">
+                                    {{
+                                        translateObject(
+                                            'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01B'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Guard 2">
+                                    {{
+                                        t(
+                                            'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02A.4'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Guard 1">
+                                    {{
+                                        translateObject(
+                                            'X0602M.BLACKOUT.START.FA.X06MDESKGUARD01.SEARCH01C'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Guard 2">
+                                    {{
+                                        t(
+                                            'X0602M.BLACKOUT.START.FA.X06MDESKGUARD02.SEARCH02C'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </div>
+                    </app-conditioned-content>
+                    <app-conditioned-content>
+                        <div class="condition">
+                            <p>Attract the guards by knocking a barrel</p>
+                        </div>
+                        <div class="content">
+                            <p>
+                                <app-dialogue-line name="Guard 1">
+                                    {{
+                                        t(
+                                            'X0602M.DIVERSION.CANS1.FA.X06MDESKGUARD01.CANS1'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Guard 2">
+                                    {{
+                                        t(
+                                            'X0602M.DIVERSION.CANS1.FA.X06MDESKGUARD02.CANS2'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </div>
+                    </app-conditioned-content>
+                    <app-conditioned-content>
+                        <div class="condition">
+                            <p>Threaten guards with the gun</p>
+                        </div>
+                        <div class="content">
+                            <p>&oslash;</p>
+                        </div>
+                    </app-conditioned-content>
+                    <app-conditioned-content>
+                        <div class="condition">
+                            <p>Be seen by the guards</p>
+                        </div>
+                        <div class="content">
+                            <p>
+                                <app-relation
+                                    [name]="RelationName.North"
+                                    [type]="RelationType.SmallDown"
+                                ></app-relation>
+                                <app-relation
+                                    [name]="RelationName.North"
+                                    [type]="RelationType.SmallDown"
+                                ></app-relation>
+                                <app-relation
+                                    [name]="RelationName.Jericho"
+                                    [type]="RelationType.SmallDown"
+                                ></app-relation>
+                                <app-relation
+                                    [name]="RelationName.Jericho"
+                                    [type]="RelationType.SmallDown"
+                                ></app-relation>
+                                <app-relation
+                                    [name]="RelationName.Josh"
+                                    [type]="RelationType.SmallDown"
+                                ></app-relation>
+                                <app-relation
+                                    [name]="RelationName.Simon"
+                                    [type]="RelationType.SmallDown"
+                                ></app-relation>
+                                <app-dialogue-line name="Guard 1">
+                                    {{
+                                        t(
+                                            'X0602M.BLACKOUT.DISCOVERED.FA.X06MDESKGUARD02.FLEE02'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Guard 2">
+                                    {{
+                                        t(
+                                            'X0602M.BLACKOUT.DISCOVERED.FA.X06MDESKGUARD01.FLEE01B'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Markus">
+                                    {{
+                                        t(
+                                            'X0602M.EXITGOTKEYBUTALERT.HURRYESCAPE.PC.X06MMARKUS.FENCE'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="John">
+                                    {{
+                                        t(
+                                            'X0602M.EXITGOTKEYBUTALERT.HURRYESCAPE.PC.X06MJOHN.FENCE'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="North">
+                                    {{
+                                        t(
+                                            'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.X06MMARLA.MPARCLIMB'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </p>
 
-                <app-conditioned-content>
-                    <div class="condition">Be seen by the guards</div>
-                    <div class="content">
+                            <app-choice-group>
+                                <app-choice-item
+                                    [choiceLabel]="
+                                        t(
+                                            'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.CHOICEGROUP01.SAVE'
+                                        )
+                                    "
+                                >
+                                    <p>
+                                        <app-dialogue-line name="North">
+                                            {{
+                                                t(
+                                                    'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.X06MMARLA.SAVE'
+                                                )
+                                            }}
+                                        </app-dialogue-line>
+                                        <span class="note"
+                                            >Will lead to the
+                                            <span class="name"
+                                                >Markus failed to escape and had
+                                                to be rescued</span
+                                            >
+                                            outcome.</span
+                                        >
+                                    </p>
+                                </app-choice-item>
+                                <app-choice-item
+                                    [choiceLabel]="
+                                        t(
+                                            'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.CHOICEGROUP01.FORSAKE'
+                                        )
+                                    "
+                                >
+                                    <p>&oslash;</p>
+                                </app-choice-item>
+                            </app-choice-group>
+                        </div>
+                    </app-conditioned-content>
+
+                    <h3>Stole the key - go back to the truck</h3>
+                    <p>
+                        <app-dialogue-line name="North">
+                            {{
+                                translateObject(
+                                    'X0602M.EXITGOTKEYNOALERT.SOWHAT.PC.X06MMARLA.OPENTRUCK'
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP03.LEAVEKEY')
+                    "
+                >
+                    <p>
                         <app-relation
-                            name="North (x2)"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-                        <app-relation
-                            name="Jericho (x2)"
+                            [name]="RelationName.North"
                             [type]="RelationType.SmallDown"
                         ></app-relation>
                         <app-relation
                             [name]="RelationName.Josh"
-                            [type]="RelationType.SmallDown"
+                            [type]="RelationType.SmallUp"
                         ></app-relation>
-                        <app-relation
-                            [name]="RelationName.Simon"
-                            [type]="RelationType.SmallDown"
-                        ></app-relation>
-                        <p>
-                            <app-dialogue-line name="Guard 1">
-                                {{
-                                    t(
-                                        'X0602M.BLACKOUT.DISCOVERED.FA.X06MDESKGUARD02.FLEE02'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Guard 2">
-                                {{
-                                    t(
-                                        'X0602M.BLACKOUT.DISCOVERED.FA.X06MDESKGUARD01.FLEE01B'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="Markus">
-                                {{
-                                    t(
-                                        'X0602M.EXITGOTKEYBUTALERT.HURRYESCAPE.PC.X06MMARKUS.FENCE'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="John">
-                                {{
-                                    t(
-                                        'X0602M.EXITGOTKEYBUTALERT.HURRYESCAPE.PC.X06MJOHN.FENCE'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                            <app-dialogue-line name="North">
-                                {{
-                                    t(
-                                        'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.X06MMARLA.MPARCLIMB'
-                                    )
-                                }}
-                            </app-dialogue-line>
-                        </p>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.LEAVEKEY.1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="John">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.LEAVEKEY'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Markus">
+                            {{
+                                t(
+                                    'X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.LEAVEKEY.2'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+            </app-choice-group>
+        </section>
 
-                        <app-choice-group>
-                            <app-choice-item
-                                [choiceLabel]="
-                                    t(
-                                        'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.CHOICEGROUP01.SAVE'
-                                    )
-                                "
-                            >
-                                <app-dialogue-line name="North">
-                                    {{
-                                        t(
-                                            'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.X06MMARLA.SAVE'
-                                        )
-                                    }}
-                                </app-dialogue-line>
-                                <span class="note"
-                                    >Will lead to the
-                                    <span class="name"
-                                        >Markus failed to escape and had to be
-                                        rescued</span
-                                    >
-                                    outcome.</span
-                                >
-                            </app-choice-item>
-                            <app-choice-item
-                                [choiceLabel]="
-                                    t(
-                                        'X0602M.EXITGOTKEYBUTALERT.DOGSEATJOHN.FA.CHOICEGROUP01.FORSAKE'
-                                    )
-                                "
-                            >
-                                <span>&oslash;</span></app-choice-item
-                            >
-                        </app-choice-group>
-                    </div>
-                </app-conditioned-content>
-
-                <h2>Stole the key - go back to the truck</h2>
-                <p>
-                    <app-dialogue-line name="North">
-                        {{
-                            translateObject(
-                                'X0602M.EXITGOTKEYNOALERT.SOWHAT.PC.X06MMARLA.OPENTRUCK'
-                            ) | async
-                        }}
-                    </app-dialogue-line>
-                </p>
-            </app-choice-item>
-            <app-choice-item
-                [choiceLabel]="
-                    t('X0602M.WAREHOUSE.BIGCRATE.PC.CHOICEGROUP03.LEAVEKEY')
-                "
-            >
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <app-dialogue-line name="Markus">
-                    {{
-                        t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.LEAVEKEY.1')
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="John">
-                    {{ t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MJOHN.LEAVEKEY') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Markus">
-                    {{
-                        t('X0602M.WAREHOUSE.BIGCRATE.PC.X06MMARKUS.LEAVEKEY.2')
-                    }}
-                </app-dialogue-line></app-choice-item
-            >
-        </app-choice-group>
-
-        <h2>Was detected by the guards - Running away</h2>
-        <p>
-            <app-dialogue-line name="North">
-                {{ t('X0602M.EXITNOKEYBUTALERT.GOTTOGO.FA.X06MMARLA.FENCE') }}
-            </app-dialogue-line>
-            <app-dialogue-line name="Drone">
-                {{
-                    translateObject(
-                        'X0802M.TRUCK.GAMEOVER.VO.X08MDRONE.DRONE02'
-                    ) | async
-                }}
-            </app-dialogue-line>
-        </p>
-
-        <h2><i class="fas fa-hourglass-end"></i> Not moving</h2>
-        <p>
-            <app-dialogue-line name="North">
-                {{
-                    t('X0602M.EXITALERTREMINDER.CALLBACK.PC.X06MMARLA.REMINDER')
-                }}
-            </app-dialogue-line>
-        </p>
-
-        <app-conditioned-content>
-            <div class="condition">Fail to escape</div>
-            <div class="content">
+        <section>
+            <h2>Was detected by the guards - Running away</h2>
+            <p>
                 <app-dialogue-line name="North">
                     {{
-                        t('X0602M.EXITALERTREMINDER.GAMEOVER.PC.X06MMARLA.FAIL')
+                        t('X0602M.EXITNOKEYBUTALERT.GOTTOGO.FA.X06MMARLA.FENCE')
                     }}
                 </app-dialogue-line>
-                <span class="note">
-                    Will lead to the
-                    <span class="name"
-                        >Markus failed to escape and had to be rescued</span
-                    >
-                    outcome.
-                </span>
-            </div>
-        </app-conditioned-content>
+                <app-dialogue-line name="Drone">
+                    {{
+                        translateObject(
+                            'X0802M.TRUCK.GAMEOVER.VO.X08MDRONE.DRONE02'
+                        ) | async
+                    }}
+                </app-dialogue-line>
+            </p>
+
+            <h3>
+                <app-unlock-condition [unlockType]="UnlockType.Time">
+                    {{ t(CommonTranslationKey.TooMuchTime) }}
+                </app-unlock-condition>
+            </h3>
+            <p>
+                <app-dialogue-line name="North">
+                    {{
+                        t(
+                            'X0602M.EXITALERTREMINDER.CALLBACK.PC.X06MMARLA.REMINDER'
+                        )
+                    }}
+                </app-dialogue-line>
+            </p>
+
+            <app-conditioned-content>
+                <div class="condition"><p>Fail to escape</p></div>
+                <div class="content">
+                    <p>
+                        <app-dialogue-line name="North">
+                            {{
+                                t(
+                                    'X0602M.EXITALERTREMINDER.GAMEOVER.PC.X06MMARLA.FAIL'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <span class="note">
+                            Will lead to the
+                            <span class="name"
+                                >Markus failed to escape and had to be
+                                rescued</span
+                            >
+                            outcome.
+                        </span>
+                    </p>
+                </div>
+            </app-conditioned-content>
+        </section>
     </section>
 
     <section>
@@ -960,139 +1047,154 @@
 
         <app-conditioned-content>
             <div class="condition">
-                Successfully escaped, without stealing the truck
+                <p>Successfully escaped, without stealing the truck</p>
             </div>
             <div class="content">
-                <app-relation
-                    [name]="RelationName.Jericho"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Simon"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <app-dialogue-line name="Simon">
-                    {{
-                        translateObject(
-                            'X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.BAGSFULL'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Josh">
-                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.BAGSFULL') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="North">
-                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.BAGSFULL') }}
-                </app-dialogue-line>
-            </div>
-        </app-conditioned-content>
-
-        <app-conditioned-content>
-            <div class="condition">
-                Successfully escaped and stole the truck
-            </div>
-            <div class="content">
-                <app-relation
-                    [name]="RelationName.Jericho"
-                    [type]="RelationType.LargeUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Simon"
-                    [type]="RelationType.LargeUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.LargeUp"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallUp"
-                ></app-relation>
-
-                <app-dialogue-line name="Simon">
-                    {{
-                        translateObject(
-                            'X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.TRUCK'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Josh">
-                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.TRUCK') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="North">
-                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.TRUCK') }}
-                </app-dialogue-line>
-            </div>
-        </app-conditioned-content>
-
-        <app-conditioned-content>
-            <div class="condition">Ran away when the guard arrived</div>
-            <div class="content">
-                <app-relation
-                    [name]="RelationName.Jericho"
-                    [type]="RelationType.LargeDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Simon"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
-                <app-dialogue-line name="North">
-                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.BAGSEMPTY') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Simon">
-                    {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.BAGSEMPTY') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Josh">
-                    {{
-                        translateObject(
-                            'X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.BAGSEMPTY'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-            </div>
-        </app-conditioned-content>
-
-        <app-conditioned-content>
-            <div class="condition">
-                Markus failed to escape and had to be rescued
-            </div>
-            <div class="content">
-                <app-relation
-                    [name]="RelationName.Jericho"
-                    [type]="RelationType.LargeDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Simon"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.North"
-                    [type]="RelationType.LargeDown"
-                ></app-relation>
-                <app-relation
-                    [name]="RelationName.Josh"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-
                 <p>
+                    <app-relation
+                        [name]="RelationName.Jericho"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Simon"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Josh"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-dialogue-line name="Simon">
+                        {{
+                            translateObject(
+                                'X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.BAGSFULL'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Josh">
+                        {{
+                            t('X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.BAGSFULL')
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="North">
+                        {{
+                            t('X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.BAGSFULL')
+                        }}
+                    </app-dialogue-line>
+                </p>
+            </div>
+        </app-conditioned-content>
+
+        <app-conditioned-content>
+            <div class="condition">
+                <p>Successfully escaped and stole the truck</p>
+            </div>
+            <div class="content">
+                <p>
+                    <app-relation
+                        [name]="RelationName.Jericho"
+                        [type]="RelationType.LargeUp"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Simon"
+                        [type]="RelationType.LargeUp"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.LargeUp"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Josh"
+                        [type]="RelationType.SmallUp"
+                    ></app-relation>
+                    <app-dialogue-line name="Simon">
+                        {{
+                            translateObject(
+                                'X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.TRUCK'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Josh">
+                        {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.TRUCK') }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="North">
+                        {{ t('X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.TRUCK') }}
+                    </app-dialogue-line>
+                </p>
+            </div>
+        </app-conditioned-content>
+
+        <app-conditioned-content>
+            <div class="condition"><p>Ran away when the guard arrived</p></div>
+            <div class="content">
+                <p>
+                    <app-relation
+                        [name]="RelationName.Jericho"
+                        [type]="RelationType.LargeDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Simon"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Josh"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-dialogue-line name="North">
+                        {{
+                            t(
+                                'X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.BAGSEMPTY'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Simon">
+                        {{
+                            t(
+                                'X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.BAGSEMPTY'
+                            )
+                        }}
+                    </app-dialogue-line>
+                    <app-dialogue-line name="Josh">
+                        {{
+                            translateObject(
+                                'X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.BAGSEMPTY'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
+            </div>
+        </app-conditioned-content>
+
+        <app-conditioned-content>
+            <div class="condition">
+                <p>Markus failed to escape and had to be rescued</p>
+            </div>
+            <div class="content">
+                <p>
+                    <app-relation
+                        [name]="RelationName.Jericho"
+                        [type]="RelationType.LargeDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Simon"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.North"
+                        [type]="RelationType.LargeDown"
+                    ></app-relation>
+                    <app-relation
+                        [name]="RelationName.Josh"
+                        [type]="RelationType.SmallDown"
+                    ></app-relation>
+
                     <app-dialogue-line name="Josh">
                         {{
                             t('X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.WOUNDED.1')
@@ -1115,22 +1217,26 @@
                 </p>
 
                 <app-conditioned-content>
-                    <div class="condition">Markus went back to save John</div>
+                    <div class="condition">
+                        <p>Markus went back to save John</p>
+                    </div>
                     <div class="content">
-                        <app-dialogue-line name="Markus">
-                            {{
-                                t(
-                                    'X0603M.AFTERMATCH.JERICHO.PC.X06MMARKUS.WOUNDED.2'
-                                )
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Josh">
-                            {{
-                                t(
-                                    'X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.WOUNDED.2'
-                                )
-                            }}
-                        </app-dialogue-line>
+                        <p>
+                            <app-dialogue-line name="Markus">
+                                {{
+                                    t(
+                                        'X0603M.AFTERMATCH.JERICHO.PC.X06MMARKUS.WOUNDED.2'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                            <app-dialogue-line name="Josh">
+                                {{
+                                    t(
+                                        'X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.WOUNDED.2'
+                                    )
+                                }}
+                            </app-dialogue-line>
+                        </p>
                     </div>
                 </app-conditioned-content>
 
@@ -1155,29 +1261,33 @@
 
         <app-conditioned-content>
             <div class="condition">
-                Successfully escaped or Markus was rescued
+                <p>Successfully escaped or Markus was rescued</p>
             </div>
             <div class="content">
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X0601M.AFTERMATH.EPILOGUE.PC.X06MMARKUS.SPEECHM1'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X0601M.AFTERMATH.EPILOGUE.PC.X06MMARKUS.SPEECHM1'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
 
         <app-conditioned-content>
-            <div class="condition">Ran away when the guard arrived</div>
+            <div class="condition"><p>Ran away when the guard arrived</p></div>
             <div class="content">
-                <app-dialogue-line name="Markus">
-                    {{
-                        translateObject(
-                            'X0601M.AFTERMATH.EPILOGUE.PC.X06MMARKUS.SPEECHM2'
-                        ) | async
-                    }}
-                </app-dialogue-line>
+                <p>
+                    <app-dialogue-line name="Markus">
+                        {{
+                            translateObject(
+                                'X0601M.AFTERMATH.EPILOGUE.PC.X06MMARKUS.SPEECHM2'
+                            ) | async
+                        }}
+                    </app-dialogue-line>
+                </p>
             </div>
         </app-conditioned-content>
     </section>

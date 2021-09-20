@@ -3,6 +3,5 @@ export enum UnlockType {
     Death,
     Time,
     Tv,
-    Observation,
     None,
 }
