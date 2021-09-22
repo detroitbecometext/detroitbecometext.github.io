@@ -39,13 +39,18 @@ export abstract class BaseTranslationComponent {
                 this.translocoService
                     .selectTranslateObject(translationKey)
                     .pipe(
-                        map((value) =>
-                            typeof value === 'string'
-                                ? value
-                                : Object.values(value)
-                                      .slice(startIndex, endIndex)
-                                      .join(separator)
-                        )
+                        map((value) => {
+                            if (typeof value === 'string') {
+                                console.error(
+                                    `${translationKey} is not an object.`
+                                );
+                                return '';
+                            }
+
+                            return Object.values(value)
+                                .slice(startIndex, endIndex)
+                                .join(separator);
+                        })
                     )
             );
         }

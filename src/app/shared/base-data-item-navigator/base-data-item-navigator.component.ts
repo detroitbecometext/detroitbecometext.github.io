@@ -56,7 +56,11 @@ export abstract class BaseDataItemNavigatorComponent<T extends DataItem>
             newId = this.currentItem.value.id + 1;
         } else if (event.key == 'ArrowLeft') {
             newId = this.currentItem.value.id - 1;
+        } else {
+            return;
         }
+
+        event.stopImmediatePropagation();
 
         let itemExists = this.dataService.get(newId) !== undefined;
 
