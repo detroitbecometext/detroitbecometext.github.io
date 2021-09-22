@@ -3,100 +3,95 @@
         position: static !important;
         @apply mt-8 mb-4;
     }
+}
 
-    .chapter-content {
-        /* Elements */
-        pre {
-            font-family: 'Roboto Mono', monospace;
-            @apply my-8;
+.chapter-content {
+    /* Elements */
+    pre {
+        font-family: 'Roboto Mono', monospace;
+        @apply my-8;
+    }
+
+    fa-icon {
+        @apply important;
+    }
+
+    a {
+        @apply text-blue-500 hover:text-blue-300 transition-colors duration-500 underline;
+    }
+
+    .note {
+        @apply italic;
+    }
+
+    /* Layout */
+    mat-divider {
+        @apply my-4;
+    }
+
+    h1 {
+        @apply pt-4 uppercase;
+    }
+
+    h2 {
+        @apply mb-1 text-lg uppercase;
+    }
+
+    h3 {
+        @apply mb-0;
+    }
+
+    section {
+        @apply mb-6;
+    }
+
+    /* Block tags */
+    p,
+    ul {
+        @apply mb-0 text-justify;
+
+        &:not(:last-child) {
+            @apply mb-3;
+        }
+    }
+
+    app-conditioned-content {
+        @apply block;
+
+        .condition {
+            @apply text-gray-800 font-bold mb-0;
+        }
+    }
+
+    app-conditioned-content + *:not(app-conditioned-content):not(mat-divider) {
+        @apply inline-block mt-3 #{!important};
+    }
+
+    app-choice-group {
+        @apply block;
+
+        &:not(:last-child) {
+            @apply mb-3;
         }
 
-        fa-icon {
-            @apply important;
-        }
-
-        a {
-            @apply text-blue-500 hover:text-blue-300 transition-colors duration-500 underline;
-        }
-
-        .note {
-            @apply italic;
-        }
-
-        /* Layout */
-        mat-divider {
-            @apply my-4;
-        }
-
-        h1 {
-            @apply pt-4 uppercase;
-        }
-
-        h2 {
-            @apply mb-1 text-lg uppercase;
-        }
-
-        h3 {
-            @apply mb-0;
-        }
-
-        section {
-            @apply mb-6;
-        }
-
-        /* Block tags */
-        p,
-        ul {
-            @apply mb-0 text-justify;
-
-            &:not(:last-child) {
-                @apply mb-3;
-            }
-        }
-
-        app-conditioned-content {
+        app-choice-item {
             @apply block;
 
-            .condition {
-                @apply text-gray-800 font-bold mb-0;
+            &:not(:first-child) {
+                @apply mt-1;
             }
         }
+    }
 
-        app-conditioned-content
-            + *:not(app-conditioned-content):not(mat-divider) {
-            @apply inline-block mt-3 #{!important};
-        }
+    app-unused-content:not(:last-child) {
+        @apply block mb-3;
+    }
 
-        app-relation {
-            @apply block;
-        }
+    app-observation:not(:last-child) {
+        @apply block mb-3;
+    }
 
-        app-choice-group {
-            @apply block;
-
-            &:not(:last-child) {
-                @apply mb-3;
-            }
-
-            app-choice-item {
-                @apply block;
-
-                &:not(:first-child) {
-                    @apply mt-1;
-                }
-            }
-        }
-
-        app-unused-content:not(:last-child) {
-            @apply block mb-3;
-        }
-
-        app-observation:not(:last-child) {
-            @apply block mb-3;
-        }
-
-        app-observation-item:not(:last-child) {
-            @apply block mb-3;
-        }
+    app-observation-item:not(:last-child) {
+        @apply block mb-3;
     }
 }

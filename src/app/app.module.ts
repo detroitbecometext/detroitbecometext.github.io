@@ -11,8 +11,7 @@ import { AppComponent } from '@app/app.component';
 // Core and Shared
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { LayoutModule } from './features/layout/layout.module';
-import { TranslocoRootModule } from './transloco/transloco-root.module';
+import { LayoutModule } from './modules/layout/layout.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -24,7 +23,6 @@ import { TranslocoRootModule } from './transloco/transloco-root.module';
         CoreModule,
         SharedModule,
         LayoutModule,
-        TranslocoRootModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -1,5 +1,4 @@
-import { Type } from '@angular/core';
-import { IChapterContent } from '@app/features/chapters/shared/interfaces/chapter-component.interface';
+import { Component, Type } from '@angular/core';
 import { Character } from './character.enum';
 import { DataItem } from './data-item';
 
@@ -22,7 +21,7 @@ export class Chapter extends DataItem {
         public readonly character: Character,
         public readonly image: string,
         public readonly shortIdentifier: string,
-        public readonly component: Type<IChapterContent>
+        public readonly component: Type<any>
     ) {
         super(id);
 

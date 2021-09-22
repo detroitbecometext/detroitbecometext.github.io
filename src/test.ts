@@ -1,11 +1,11 @@
 // This file is required by karma.conf.js and loads recursively all the .spec and framework files
 
 import 'zone.js/testing';
-import { getTestBed } from '@app/features/home/components/home-old/node_modules/@app/features/chapters/chapter-contents/opening-chapter-content/node_modules/@app/features/chapters/chapter/node_modules/@angular/core/testing';
 import {
     BrowserDynamicTestingModule,
     platformBrowserDynamicTesting,
 } from '@angular/platform-browser-dynamic/testing';
+import { getTestBed } from '@angular/core/testing';
 
 declare const require: {
     context(

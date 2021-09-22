@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BaseLayoutComponent } from './features/layout/base-layout/base-layout.component';
+import { BaseLayoutComponent } from './modules/layout/base-layout/base-layout.component';
 
 const routes: Routes = [
     // Home
@@ -8,50 +8,56 @@ const routes: Routes = [
     {
         path: 'home',
         loadChildren: () =>
-            import('./features/home/home.module').then((m) => m.HomeModule),
+            import('./modules/home/home.module').then((m) => m.HomeModule),
     },
     // Other pages
     {
         path: 'contact',
         loadChildren: () =>
-            import('./features/contact/contact.module').then(
+            import('./modules/contact/contact.module').then(
                 (m) => m.ContactModule
             ),
     },
     {
         path: 'chapters',
         loadChildren: () =>
-            import('./features/chapters/chapters.module').then(
+            import('./modules/chapters/chapters.module').then(
                 (m) => m.ChaptersModule
             ),
     },
     {
         path: 'not-found',
         loadChildren: () =>
-            import('./features/not-found/not-found.module').then(
+            import('./modules/not-found/not-found.module').then(
                 (m) => m.NotFoundModule
             ),
     },
     {
         path: 'credits',
         loadChildren: () =>
-            import('./features/credits/credits.module').then(
+            import('./modules/credits/credits.module').then(
                 (m) => m.CreditsModule
             ),
     },
     {
         path: 'chloe',
         loadChildren: () =>
-            import('./features/chloe/chloe.module').then((m) => m.ChloeModule),
+            import('./modules/chloe/chloe.module').then((m) => m.ChloeModule),
     },
     {
         path: 'magazines',
         loadChildren: () =>
-            import('./features/magazines/magazines.module').then(
+            import('./modules/magazines/magazines.module').then(
                 (m) => m.MagazinesModule
             ),
     },
-    { path: 'gallery', loadChildren: () => import('./features/gallery/gallery.module').then(m => m.GalleryModule) },
+    {
+        path: 'gallery',
+        loadChildren: () =>
+            import('./modules/gallery/gallery.module').then(
+                (m) => m.GalleryModule
+            ),
+    },
 
     // Redirect to 404
     { path: '**', redirectTo: '/not-found' },
