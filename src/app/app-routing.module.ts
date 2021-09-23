@@ -58,6 +58,7 @@ const routes: Routes = [
                 (m) => m.GalleryModule
             ),
     },
+    { path: 'soundtrack', loadChildren: () => import('./modules/soundtrack/soundtrack.module').then(m => m.SoundtrackModule) },
 
     // Redirect to 404
     { path: '**', redirectTo: '/not-found' },

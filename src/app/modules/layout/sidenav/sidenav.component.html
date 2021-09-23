@@ -71,6 +71,26 @@
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
+                        <h1>{{ t('GUI.MENU.EXTRA.SOUNDTRACK.VALUE') }}</h1>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list dense>
+                    <a
+                        mat-list-item
+                        [routerLink]="['/soundtrack', link.id]"
+                        *ngFor="let link of soundtrackLinks"
+                        (click)="sidenav.close()"
+                    >
+                        {{ t(link.translationKey) }}
+                    </a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-divider></mat-divider>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
                         <h1>{{ t('GUI.MENU.EXTRA.VALUE') }}</h1>
                     </mat-panel-title>
                 </mat-expansion-panel-header>

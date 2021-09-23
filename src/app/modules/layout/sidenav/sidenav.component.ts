@@ -9,6 +9,7 @@ import { Link } from '@app/core/models/link';
 import { ChapterService } from '@app/core/services';
 import { GalleryService } from '@app/core/services/gallery.service';
 import { MagazineService } from '@app/core/services/magazine.service';
+import { SoundtrackService } from '@app/core/services/soundtrack.service';
 
 @Component({
     selector: 'app-sidenav',
@@ -21,11 +22,13 @@ export class SidenavComponent implements OnInit {
     public chapterLinks: Link[];
     public magazineLinks: Link[];
     public galleryLinks: Link[];
+    public soundtrackLinks: Link[];
 
     constructor(
         private chapterService: ChapterService,
         private magazineService: MagazineService,
-        private galleryService: GalleryService
+        private galleryService: GalleryService,
+        private soundtrackService: SoundtrackService
     ) {}
 
     ngOnInit(): void {
@@ -40,5 +43,9 @@ export class SidenavComponent implements OnInit {
         this.galleryLinks = this.galleryService
             .getAll()
             .map((m) => new Link(m.nameTranslationKey, m.id));
+
+        this.soundtrackLinks = this.soundtrackService
+            .getAll()
+            .map((m) => new Link(m.titleTranslationKey, m.id));
     }
 }
