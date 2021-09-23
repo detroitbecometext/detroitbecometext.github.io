@@ -50,7 +50,7 @@ export abstract class BaseDataItemNavigatorComponent<T extends DataItem>
     }
 
     @HostListener('window:keyup', ['$event'])
-    keyEvent(event: KeyboardEvent) {
+    itemNavigationEvent(event: KeyboardEvent) {
         let newId: number | null = null;
         if (event.key == 'ArrowRight') {
             newId = this.currentItem.value.id + 1;

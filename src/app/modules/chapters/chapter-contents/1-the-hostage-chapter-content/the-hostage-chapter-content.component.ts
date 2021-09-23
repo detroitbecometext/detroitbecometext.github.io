@@ -1,5 +1,4 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { RelationType } from '@app/core/models/relation-type.enum';
 import { BaseTranslationComponent } from '@app/shared/components/base-translation/base-translation.component';
 import { TranslocoService } from '@ngneat/transloco';
 

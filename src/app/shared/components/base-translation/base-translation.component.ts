@@ -59,7 +59,7 @@ export abstract class BaseTranslationComponent {
     }
 
     @HostListener('window:keyup', ['$event'])
-    keyEvent(event: KeyboardEvent) {
+    languageNavigationEvent(event: KeyboardEvent) {
         let increment = 0;
         if (event.key === 'l') {
             increment = 1;
