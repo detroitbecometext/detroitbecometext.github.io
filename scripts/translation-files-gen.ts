@@ -50,9 +50,6 @@ const format = (value: string): string[] => {
     } else {
         result = value.split(indexRegex);
         result.splice(0, 1);
-        if (result.length === 1) {
-            result = result.map((r) => (r === '' ? '...' : r)); // Fallback value for unavailable translation values
-        }
     }
 
     result = result.map((r) => r.replace(infoRegex, ''));

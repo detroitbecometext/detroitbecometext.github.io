@@ -2,6 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { Character } from '@app/core/models/character.enum';
 import { RelationName } from '@app/core/models/relation-name.enum';
 import { RelationType } from '@app/core/models/relation-type.enum';
+import { TupleMap } from '@app/core/models/tuple-map';
 import { UnlockType } from '@app/core/models/unlock-type.enum';
 import { CommonTranslationKey } from '@app/core/utils/common-translation-keys.enum';
 import { TranslocoService } from '@ngneat/transloco';
@@ -23,7 +24,11 @@ export abstract class BaseTranslationComponent {
     CommonTranslationKey = CommonTranslationKey;
     RelationName = RelationName;
 
-    private translatedObjects: Map<string, Observable<string>> = new Map();
+    // Map<translationKey, Map<[startIndex, endIndex], Observable>>
+    private translatedObjects: Map<
+        string,
+        TupleMap<[number, number], Observable<string>>
+    > = new Map();
 
     constructor(private readonly translocoService: TranslocoService) {}
 
@@ -33,29 +38,63 @@ export abstract class BaseTranslationComponent {
         endIndex: number | null = undefined,
         separator: string = ' '
     ): Observable<string> {
-        if (!this.translatedObjects.has(translationKey)) {
+        if (this.translatedObjects.has(translationKey)) {
+            let translationKeyValues =
+                this.translatedObjects.get(translationKey);
+
+            if (!translationKeyValues.has([startIndex, endIndex])) {
+                translationKeyValues.set(
+                    [startIndex, endIndex],
+                    this.GetTranslationObservable(
+                        translationKey,
+                        startIndex,
+                        endIndex,
+                        separator
+                    )
+                );
+            }
+
+            return translationKeyValues.get([startIndex, endIndex]);
+        } else {
             this.translatedObjects.set(
                 translationKey,
-                this.translocoService
-                    .selectTranslateObject(translationKey)
-                    .pipe(
-                        map((value) => {
-                            if (typeof value === 'string') {
-                                console.error(
-                                    `${translationKey} is not an object.`
-                                );
-                                return '';
-                            }
-
-                            return Object.values(value)
-                                .slice(startIndex, endIndex)
-                                .join(separator);
-                        })
-                    )
+                new TupleMap([
+                    [
+                        [startIndex, endIndex],
+                        this.GetTranslationObservable(
+                            translationKey,
+                            startIndex,
+                            endIndex,
+                            separator
+                        ),
+                    ],
+                ])
             );
-        }
 
-        return this.translatedObjects.get(translationKey);
+            return this.translatedObjects
+                .get(translationKey)
+                .get([startIndex, endIndex]);
+        }
+    }
+
+    private GetTranslationObservable(
+        translationKey: string,
+        startIndex: number | null = undefined,
+        endIndex: number | null = undefined,
+        separator: string = ' '
+    ): Observable<string> {
+        return this.translocoService.selectTranslateObject(translationKey).pipe(
+            map((value) => {
+                if (typeof value === 'string') {
+                    console.error(`${translationKey} is not an object.`);
+                    return '';
+                }
+
+                return Object.values(value)
+                    .slice(startIndex, endIndex)
+                    .join(separator);
+            })
+        );
     }
 
     @HostListener('window:keyup', ['$event'])
