@@ -174,7 +174,7 @@
                 </app-dialogue-line>
                 <span class="note"
                     >Kara and Alice will go stay in the abandoned car.</span
-                >
+                ><br />
                 <app-relation
                     [type]="RelationType.LargeDown"
                     [name]="RelationName.Alice"
@@ -309,15 +309,19 @@
                     </app-choice-group>
                 </div>
             </app-conditioned-content>
-
-            <mat-divider></mat-divider>
-
+        </section>
+        <section>
+            <h2>Try to steal money</h2>
             <app-conditioned-content>
                 <div class="condition">
                     <p>Threaten the clerk with the gun</p>
                 </div>
                 <div class="content">
                     <p>
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            Took the gun in
+                            <a [routerLink]="['/chapters', 7]">Stormy Night</a>
+                        </app-unlock-condition>
                         <app-dialogue-line name="Kara">
                             {{
                                 translateObject(
@@ -327,8 +331,8 @@
                                 ) | async
                             }}
                         </app-dialogue-line>
-                        <app-dialogue-line name="Alice"
-                            >{{
+                        <app-dialogue-line name="Alice">
+                            {{
                                 translateObject(
                                     'X0303K.STATION.ALICE.PC.X03KALICE.WAITOUTSIDE'
                                 ) | async
@@ -337,7 +341,8 @@
                         <app-dialogue-line name="Kara">
                             {{
                                 translateObject(
-                                    'X0303K.STATION.ALICE.PC.X03KKARA.WAITOUTSIDE'
+                                    'X0303K.STATION.ALICE.PC.X03KKARA.WAITOUTSIDE',
+                                    2
                                 ) | async
                             }}
                         </app-dialogue-line>
@@ -637,14 +642,14 @@
                             If Kara convinced the clerk to get the money, the
                             dialogue will go directly to the LIE option with an
                             increase in relationship level.</span
-                        >
+                        ><br />
                         <app-relation
                             [name]="RelationName.Alice"
                             [type]="RelationType.SmallUp"
                         ></app-relation>
                         <span class="note">
-                            Otherwise, there will be a decrease.
-                        </span>
+                            Otherwise, there will be a decrease. </span
+                        ><br />
                         <app-relation
                             [name]="RelationName.Alice"
                             [type]="RelationType.SmallDown"
@@ -777,148 +782,163 @@
                     </app-choice-group>
                 </div>
             </app-conditioned-content>
-        </section>
-
-        <mat-divider></mat-divider>
-
-        <section>
-            <h2>Use Alice as a diversion</h2>
-            <p>
-                <app-unlock-condition [unlockType]="UnlockType.Lock">
-                    Kara noticed the can stack
-                </app-unlock-condition>
-                <app-dialogue-line name="Kara">
-                    {{
-                        translateObject(
-                            'X0303K.STATION.ALICE.PC.X03KKARA.DIVERSION',
-                            0,
-                            3
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Alice">
-                    {{
-                        translateObject(
-                            'X0303K.STATION.ALICE.PC.X03KALICE.DIVERSION'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Kara">
-                    {{
-                        translateObject(
-                            'X0303K.STATION.ALICE.PC.X03KKARA.DIVERSION',
-                            3
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Clerk">
-                    {{
-                        translateObject(
-                            'X0303K.STATION.ALICE.PC.X03KSELLER.BROKENBOX'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-            </p>
-        </section>
-
-        <section>
-            <h2>Leaving after stealing the money from the register</h2>
-            <p>
-                <app-relation
-                    [name]="RelationName.Alice"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-dialogue-line name="Kara">
-                    {{ t('X0302K.LAVOMATIC.LEAVE.PC.X03KKARA.FAIL') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Clerk">
-                    {{ t('X0303K.STATION.CATCHED.PC.X03KSELLER.FRONTDOOR02') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Kara">
-                    {{ t('X0303K.STATION.LEAVING.PC.X03KKARA.USEDME') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Alice">
-                    {{ t('X0303K.STATION.LEAVING.PC.X03KALICE.USEDME') }}
-                </app-dialogue-line>
-            </p>
-            <app-choice-group>
-                <app-choice-item
-                    [choiceLabel]="
-                        t('X0303K.STATION.LEAVING.PC.CHOICEUSEDME.FACTUAL')
-                    "
-                >
+            <app-conditioned-content>
+                <div class="condition">
+                    <p>Use Alice as a diversion</p>
+                </div>
+                <div class="content">
                     <p>
+                        <app-unlock-condition [unlockType]="UnlockType.Lock">
+                            Kara noticed the can stack
+                        </app-unlock-condition>
                         <app-dialogue-line name="Kara">
                             {{
                                 translateObject(
-                                    'X0303K.STATION.LEAVING.PC.X03KKARA.FACTUAL'
+                                    'X0303K.STATION.ALICE.PC.X03KKARA.DIVERSION',
+                                    0,
+                                    3
                                 ) | async
                             }}
                         </app-dialogue-line>
                         <app-dialogue-line name="Alice">
                             {{
-                                t('X0303K.STATION.LEAVING.PC.X03KALICE.STANDUP')
+                                translateObject(
+                                    'X0303K.STATION.ALICE.PC.X03KALICE.DIVERSION'
+                                ) | async
                             }}
                         </app-dialogue-line>
-                    </p>
-                </app-choice-item>
-                <app-choice-item
-                    [choiceLabel]="
-                        t('X0303K.STATION.LEAVING.PC.CHOICEUSEDME.JUSTIFY')
-                    "
-                >
-                    <p>
                         <app-dialogue-line name="Kara">
                             {{
                                 translateObject(
-                                    'X0303K.STATION.LEAVING.PC.X03KKARA.JUSTIFY'
+                                    'X0303K.STATION.ALICE.PC.X03KKARA.DIVERSION',
+                                    3
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Clerk">
+                            {{
+                                translateObject(
+                                    'X0303K.STATION.ALICE.PC.X03KSELLER.BROKENBOX'
                                 ) | async
                             }}
                         </app-dialogue-line>
                     </p>
-                </app-choice-item>
-                <app-choice-item
-                    [choiceLabel]="
-                        t('X0303K.STATION.LEAVING.PC.CHOICEUSEDME.UNCERTAIN')
-                    "
-                >
-                    <p>
-                        <app-dialogue-line name="Kara">
-                            {{
-                                translateObject(
-                                    'X0303K.STATION.LEAVING.PC.X03KKARA.UNCERTAIN'
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Alice">
-                            {{
-                                t(
-                                    'X0303K.STATION.LEAVING.PC.X03KALICE.UNCERTAIN'
-                                )
-                            }}
-                        </app-dialogue-line>
-                    </p>
-                </app-choice-item>
-                <app-choice-item
-                    [choiceLabel]="
-                        t('X0303K.STATION.LEAVING.PC.CHOICEUSEDME.APOLOGIZE')
-                    "
-                >
+
+                    <h3>Leaving after stealing the money from the register</h3>
                     <p>
                         <app-relation
                             [name]="RelationName.Alice"
-                            [type]="RelationType.SmallUp"
+                            [type]="RelationType.SmallDown"
                         ></app-relation>
                         <app-dialogue-line name="Kara">
+                            {{ t('X0302K.LAVOMATIC.LEAVE.PC.X03KKARA.FAIL') }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Clerk">
                             {{
-                                translateObject(
-                                    'X0303K.STATION.LEAVING.PC.X03KKARA.APOLOGIZE'
-                                ) | async
+                                t(
+                                    'X0303K.STATION.CATCHED.PC.X03KSELLER.FRONTDOOR02'
+                                )
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Kara">
+                            {{ t('X0303K.STATION.LEAVING.PC.X03KKARA.USEDME') }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Alice">
+                            {{
+                                t('X0303K.STATION.LEAVING.PC.X03KALICE.USEDME')
                             }}
                         </app-dialogue-line>
                     </p>
-                </app-choice-item>
-            </app-choice-group>
+                    <app-choice-group>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t(
+                                    'X0303K.STATION.LEAVING.PC.CHOICEUSEDME.FACTUAL'
+                                )
+                            "
+                        >
+                            <p>
+                                <app-dialogue-line name="Kara">
+                                    {{
+                                        translateObject(
+                                            'X0303K.STATION.LEAVING.PC.X03KKARA.FACTUAL'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Alice">
+                                    {{
+                                        t(
+                                            'X0303K.STATION.LEAVING.PC.X03KALICE.STANDUP'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t(
+                                    'X0303K.STATION.LEAVING.PC.CHOICEUSEDME.JUSTIFY'
+                                )
+                            "
+                        >
+                            <p>
+                                <app-dialogue-line name="Kara">
+                                    {{
+                                        translateObject(
+                                            'X0303K.STATION.LEAVING.PC.X03KKARA.JUSTIFY'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t(
+                                    'X0303K.STATION.LEAVING.PC.CHOICEUSEDME.UNCERTAIN'
+                                )
+                            "
+                        >
+                            <p>
+                                <app-dialogue-line name="Kara">
+                                    {{
+                                        translateObject(
+                                            'X0303K.STATION.LEAVING.PC.X03KKARA.UNCERTAIN'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Alice">
+                                    {{
+                                        t(
+                                            'X0303K.STATION.LEAVING.PC.X03KALICE.UNCERTAIN'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </app-choice-item>
+                        <app-choice-item
+                            [choiceLabel]="
+                                t(
+                                    'X0303K.STATION.LEAVING.PC.CHOICEUSEDME.APOLOGIZE'
+                                )
+                            "
+                        >
+                            <p>
+                                <app-relation
+                                    [name]="RelationName.Alice"
+                                    [type]="RelationType.SmallUp"
+                                ></app-relation>
+                                <app-dialogue-line name="Kara">
+                                    {{
+                                        translateObject(
+                                            'X0303K.STATION.LEAVING.PC.X03KKARA.APOLOGIZE'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </app-choice-item>
+                    </app-choice-group>
+                </div>
+            </app-conditioned-content>
         </section>
 
         <section>
@@ -935,6 +955,10 @@
                 [brackets]="true"
             >
                 <p>
+                    <app-unlock-condition [unlockType]="UnlockType.Lock">
+                        Took the gun in
+                        <a [routerLink]="['/chapters', 7]">Stormy Night</a>
+                    </app-unlock-condition>
                     <app-relation
                         [name]="RelationName.Alice"
                         [type]="RelationType.SmallDown"
@@ -1916,17 +1940,25 @@
                     {{ t('X0305K.SQUAT.POORALICE.PC.X03KALICE.PROMISE03') }}
                 </app-dialogue-line>
             </p>
-            <app-choice-item
-                [choiceLabel]="t('X0305K.SQUAT.POORALICE.PC.FOREVER01.FOREVER')"
-            >
-                <p>
-                    <app-dialogue-line name="Kara">
-                        {{
-                            t('X0305K.SQUAT.POORALICE.PC.X03KKARA.FOREVER02.1')
-                        }}
-                    </app-dialogue-line>
-                </p>
-            </app-choice-item>
+
+            <app-choice-group>
+                <app-choice-item
+                    [choiceLabel]="
+                        t('X0305K.SQUAT.POORALICE.PC.FOREVER01.FOREVER')
+                    "
+                >
+                    <p>
+                        <app-dialogue-line name="Kara">
+                            {{
+                                t(
+                                    'X0305K.SQUAT.POORALICE.PC.X03KKARA.FOREVER02.1'
+                                )
+                            }}
+                        </app-dialogue-line>
+                    </p>
+                </app-choice-item>
+            </app-choice-group>
+
             <p>
                 <app-dialogue-line name="Kara">
                     {{ t('X0305K.SQUAT.POORALICE.PC.X03KKARA.FOREVER02.2') }}
@@ -2048,8 +2080,8 @@
                             "
                         >
                             <p>
-                                <app-dialogue-line name="Kara"
-                                    >{{
+                                <app-dialogue-line name="Kara">
+                                    {{
                                         t(
                                             'X0301K.CAR.POORALICE.PC.X03KKARA.FOREVER02'
                                         )

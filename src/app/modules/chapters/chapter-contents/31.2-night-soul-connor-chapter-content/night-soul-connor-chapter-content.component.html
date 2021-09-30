@@ -23,7 +23,10 @@
         <app-conditioned-content>
             <div class="condition">
                 <p>
-                    <app-unlock-condition [unlockType]="UnlockType.Death">
+                    <app-unlock-condition
+                        [unlockType]="UnlockType.Death"
+                        [bracketsOnlyAroundIcon]="true"
+                    >
                         Connor died in
                         <a [routerLink]="['/chapters', 31]">Crossroads</a>
                     </app-unlock-condition>
@@ -86,11 +89,13 @@
 
     <section>
         <h1>At Hank's house</h1>
-        <app-unlock-condition [unlockType]="UnlockType.Lock">
-            Hank was hostile in
-            <a [routerLink]="['/chapters', 29]">Last Chance, Connor</a> and
-            resigned
-        </app-unlock-condition>
+        <p>
+            <app-unlock-condition [unlockType]="UnlockType.Lock">
+                Hank was hostile in
+                <a [routerLink]="['/chapters', 29]">Last Chance, Connor</a> and
+                resigned
+            </app-unlock-condition>
+        </p>
 
         <app-choice-group>
             <app-choice-item

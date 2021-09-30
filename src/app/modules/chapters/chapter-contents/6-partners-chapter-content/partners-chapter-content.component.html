@@ -651,38 +651,128 @@
         </section>
 
         <section>
-            <h2>
-                <app-unlock-condition [unlockType]="UnlockType.Time">
-                    {{ t(CommonTranslationKey.TooMuchTime) }}
-                </app-unlock-condition>
-            </h2>
-
-            <p>
-                <app-dialogue-line name="Hank">
-                    {{
-                        translateObject(
-                            'X0201C.HANK.LEAVE.PC.X02CHANK.BYE01',
-                            0,
-                            2
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Connor">
-                    {{ t('X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.1') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Hank">
-                    {{ t('X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.3') }}
-                </app-dialogue-line>
-                <app-dialogue-line name="Connor">
-                    {{ t('X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.2') }}
-                </app-dialogue-line>
-            </p>
-
             <app-conditioned-content>
                 <div class="condition">
-                    <p>Chose to spill Hank's drink</p>
+                    <h2>
+                        <app-unlock-condition [unlockType]="UnlockType.Time">
+                            {{ t(CommonTranslationKey.TooMuchTime) }}
+                        </app-unlock-condition>
+                    </h2>
                 </div>
                 <div class="content">
+                    <p>
+                        <app-dialogue-line name="Hank">
+                            {{
+                                translateObject(
+                                    'X0201C.HANK.LEAVE.PC.X02CHANK.BYE01',
+                                    0,
+                                    2
+                                ) | async
+                            }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{ t('X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.1') }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Hank">
+                            {{ t('X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.3') }}
+                        </app-dialogue-line>
+                        <app-dialogue-line name="Connor">
+                            {{ t('X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.2') }}
+                        </app-dialogue-line>
+                    </p>
+
+                    <app-conditioned-content>
+                        <div class="condition">
+                            <p>Chose to spill Hank's drink</p>
+                        </div>
+                        <div class="content">
+                            <p>
+                                <app-relation
+                                    [name]="RelationName.Hank"
+                                    [type]="RelationType.SmallDown"
+                                ></app-relation>
+                                <app-dialogue-line name="Hank">
+                                    {{
+                                        translateObject(
+                                            'X0201C.HANK.LEAVE.PC.X02CHANK.BYE02'
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <span class="note">Ends the investigation</span>
+                            </p>
+                        </div>
+                    </app-conditioned-content>
+                    <app-conditioned-content>
+                        <div class="condition">
+                            <p>Chose to buy Hank a drink</p>
+                        </div>
+                        <div class="content">
+                            <p>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        translateObject(
+                                            'X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01',
+                                            2,
+                                            5
+                                        ) | async
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Hank">
+                                    {{
+                                        t(
+                                            'X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.4'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        t(
+                                            'X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.6'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Hank">
+                                    {{
+                                        t(
+                                            'X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.5'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </div>
+                    </app-conditioned-content>
+                    <app-conditioned-content>
+                        <div class="condition">
+                            <p>Chose to wait outside</p>
+                        </div>
+                        <div class="content">
+                            <p>
+                                <app-dialogue-line name="Hank">
+                                    {{
+                                        t(
+                                            'X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.4'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Connor">
+                                    {{
+                                        t(
+                                            'X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.6'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                                <app-dialogue-line name="Hank">
+                                    {{
+                                        t(
+                                            'X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.5'
+                                        )
+                                    }}
+                                </app-dialogue-line>
+                            </p>
+                        </div>
+                    </app-conditioned-content>
+
+                    <h3>Taking too much time again</h3>
                     <p>
                         <app-relation
                             [name]="RelationName.Hank"
@@ -691,7 +781,7 @@
                         <app-dialogue-line name="Hank">
                             {{
                                 translateObject(
-                                    'X0201C.HANK.LEAVE.PC.X02CHANK.BYE02'
+                                    'X0201C.HANK.ENDOFTIMER.PC.X02CHANK.ENDING'
                                 ) | async
                             }}
                         </app-dialogue-line>
@@ -699,68 +789,6 @@
                     </p>
                 </div>
             </app-conditioned-content>
-            <app-conditioned-content>
-                <div class="condition">
-                    <p>Chose to buy Hank a drink</p>
-                </div>
-                <div class="content">
-                    <p>
-                        <app-dialogue-line name="Connor">
-                            {{
-                                translateObject(
-                                    'X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01',
-                                    2,
-                                    5
-                                ) | async
-                            }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Hank">
-                            {{ t('X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.4') }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Connor">
-                            {{ t('X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.6') }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Hank">
-                            {{ t('X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.5') }}
-                        </app-dialogue-line>
-                    </p>
-                </div>
-            </app-conditioned-content>
-
-            <app-conditioned-content>
-                <div class="condition">
-                    <p>Chose to wait outside</p>
-                </div>
-                <div class="content">
-                    <p>
-                        <app-dialogue-line name="Hank">
-                            {{ t('X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.4') }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Connor">
-                            {{ t('X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.6') }}
-                        </app-dialogue-line>
-                        <app-dialogue-line name="Hank">
-                            {{ t('X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.5') }}
-                        </app-dialogue-line>
-                    </p>
-                </div>
-            </app-conditioned-content>
-
-            <h3>Taking too much time again</h3>
-            <p>
-                <app-relation
-                    [name]="RelationName.Hank"
-                    [type]="RelationType.SmallDown"
-                ></app-relation>
-                <app-dialogue-line name="Hank">
-                    {{
-                        translateObject(
-                            'X0201C.HANK.ENDOFTIMER.PC.X02CHANK.ENDING'
-                        ) | async
-                    }}
-                </app-dialogue-line>
-                <span class="note">Ends the investigation</span>
-            </p>
         </section>
 
         <section>
@@ -1092,7 +1120,7 @@
                 >
                     <p>
                         <app-dialogue-line name="Connor">
-                            {{ t('X0201C.RECON.MAIN.PC.X02CCONNOR.05BAT') }}
+                            {{ t('X0201C.RECON.MAIN.PC.X02CCONNOR.02BAT') }}
                         </app-dialogue-line>
                     </p>
                 </app-choice-item>

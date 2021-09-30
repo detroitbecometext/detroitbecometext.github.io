@@ -347,7 +347,7 @@
                     >
                         <p>
                             <app-relation
-                                name="Amanda"
+                                [name]="RelationName.Amanda"
                                 [type]="RelationType.SmallDown"
                             ></app-relation>
 
@@ -393,16 +393,15 @@
                 </app-choice-group>
             </div>
         </app-conditioned-content>
-
-        <app-unused-content>
-            <app-conditioned-content>
-                <div class="condition">
-                    <p>
-                        Connor failed to catch Rupert in
-                        <a [routerLink]="['/chapters', 15]">The Nest</a>
-                    </p>
-                </div>
-                <div class="content">
+        <app-conditioned-content>
+            <div class="condition">
+                <p>
+                    Connor failed to catch Rupert in
+                    <a [routerLink]="['/chapters', 15]">The Nest</a>
+                </p>
+            </div>
+            <div class="content">
+                <app-unused-content>
                     <p>
                         <app-dialogue-line name="Amanda">
                             {{
@@ -466,9 +465,9 @@
                             </p>
                         </app-choice-item>
                     </app-choice-group>
-                </div>
-            </app-conditioned-content>
-        </app-unused-content>
+                </app-unused-content>
+            </div>
+        </app-conditioned-content>
 
         <mat-divider></mat-divider>
 
@@ -1045,7 +1044,6 @@
                             {{
                                 translateObject(
                                     'X0602C.HANKHOUSE.SHOWERING.PC.X06CCONNOR.LEAVING',
-                                    0,
                                     2
                                 ) | async
                             }}
