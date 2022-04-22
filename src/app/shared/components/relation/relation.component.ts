@@ -10,7 +10,6 @@ import { RelationType } from '@app/core/models/relation-type.enum';
 @Component({
     selector: 'app-relation',
     templateUrl: './relation.component.html',
-    styleUrls: ['./relation.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RelationComponent implements OnInit {

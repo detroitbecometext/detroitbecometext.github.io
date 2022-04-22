@@ -3,12 +3,19 @@ body {
     min-height: 100vh;
     height: auto;
     margin: 0;
-}
 
-body {
-    background-image: url('../../assets/images/background.svg');
-    background-repeat: repeat;
-    background-size: 500px 500px;
+    &.light #body {
+        background-image: url('../../assets/images/light-bg.svg');
+        background-repeat: repeat;
+        background-size: 600px;
+    }
+
+    &.dark #body {
+        background-color: black;
+        background-image: url('../../assets/images/dark-bg.svg');
+        background-repeat: repeat;
+        background-size: 600px;
+    }
 }
 
 .snackbar-error {
@@ -44,7 +51,7 @@ a {
             }
 
             a {
-                @apply text-indigo-900 hover:text-indigo-500 transition-colors duration-700;
+                @apply text-indigo-900 hover:text-indigo-500 dark:text-indigo-300 dark:hover:text-indigo-200 transition-colors duration-700;
             }
         }
     }

@@ -94,11 +94,9 @@ import { PressDirtyBombComponent } from './chapter-contents/battle-for-detroit/p
         ConnorCyberlifeTowerChapterContentComponent,
         MarkusDemonstrationChapterContentComponent,
         MarkusRevolutionChapterContentComponent,
-
         ScreensComponent,
         BackgroundDialoguesComponent,
         ChapterLinkComponent,
-
         EndingsComponent,
         PressDirtyBombComponent,
     ],

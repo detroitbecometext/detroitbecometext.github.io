@@ -12,8 +12,8 @@ interface ILanguage {
     providedIn: 'root',
 })
 export class LanguagePickerService {
-    public activeFlag: BehaviorSubject<string> = new BehaviorSubject('en');
-    public showPicker: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    private activeFlag: BehaviorSubject<string> = new BehaviorSubject('en');
+    private showPicker: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
     public activeFlag$: Observable<string> = this.activeFlag.asObservable();
     public showPicker$: Observable<boolean> = this.showPicker.asObservable();

@@ -4,6 +4,7 @@ import { RelationName } from '@app/core/models/relation-name.enum';
 import { RelationType } from '@app/core/models/relation-type.enum';
 import { UnlockType } from '@app/core/models/unlock-type.enum';
 import { ChapterService } from '@app/core/services';
+import { ThemePickerService } from '@app/core/services/theme-picker.service';
 
 @Component({
     templateUrl: './info-dialog.component.html',
@@ -15,7 +16,10 @@ export class InfoDialogComponent implements OnInit {
 
     public chapters: Chapter[];
 
-    constructor(private chapterService: ChapterService) {}
+    constructor(
+        private chapterService: ChapterService,
+        public readonly themePickerService: ThemePickerService
+    ) {}
 
     ngOnInit(): void {
         this.chapters = this.chapterService.getAll();

@@ -18,6 +18,20 @@
         ></fa-icon>
 
         <span class="flex-auto"></span>
+        <fa-icon
+            *ngIf="(themePickerService.isDark$ | async) === false"
+            icon="sun"
+            (click)="themePickerService.switchTheme()"
+            matTooltip="Switch to dark mode"
+            class="mr-4"
+        ></fa-icon>
+        <fa-icon
+            *ngIf="(themePickerService.isDark$ | async) === true"
+            icon="moon"
+            (click)="themePickerService.switchTheme()"
+            matTooltip="Switch to light mode"
+            class="mr-4"
+        ></fa-icon>
         <app-lang-picker-toggle
             class="mr-4"
             [switchCaretColor]="true"
@@ -25,7 +39,7 @@
     </nav>
     <div class="flex flex-row justify-end">
         <app-lang-picker
-            *ngIf="languagePickerService.showPicker | async"
+            *ngIf="languagePickerService.showPicker$ | async"
             class="max-w-1/2"
         ></app-lang-picker>
     </div>
