@@ -19,8 +19,6 @@ export class MagazineComponent
     extends BaseDataItemNavigatorComponent<Magazine>
     implements OnInit
 {
-    public subHeadlines: Observable<string>;
-
     constructor(
         route: ActivatedRoute,
         magazineService: MagazineService,
