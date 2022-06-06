@@ -29,14 +29,6 @@ export class HomeComponent implements OnInit {
         this.chapters = this.chapterService.getAll();
         this.additionalLinks = [
             {
-                img: 'assets/images/cyberlife.webp',
-                alt: 'CyberLife logo',
-                title: 'CYBERLIFE',
-                subtitle: 'Discord server',
-                description: 'A discord server for Detroit: Become Human fans.',
-                link: 'https://discord.gg/8t3JcDf',
-            },
-            {
                 img: 'assets/images/wikiaLogo.jpg',
                 alt: 'Detroit: Become human wikia logo',
                 title: 'Detroit: Become Human Wiki',
