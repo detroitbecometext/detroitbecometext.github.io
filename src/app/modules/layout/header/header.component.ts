@@ -16,8 +16,7 @@ export class HeaderComponent {
 
     constructor(
         private dialog: MatDialog,
-        public readonly languagePickerService: LanguagePickerService,
-        public readonly themePickerService: ThemePickerService
+        public readonly languagePickerService: LanguagePickerService
     ) {}
 
     openDialog() {

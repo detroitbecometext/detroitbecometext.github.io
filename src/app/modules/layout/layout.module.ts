@@ -7,6 +7,7 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { LangPickerComponent } from './lang-picker/lang-picker.component';
 import { LangPickerToggleComponent } from './lang-picker-toggle/lang-picker-toggle.component';
+import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { LangPickerToggleComponent } from './lang-picker-toggle/lang-picker-togg
         SidenavComponent,
         LangPickerComponent,
         LangPickerToggleComponent,
+        ThemeToggleComponent,
     ],
     imports: [SharedModule],
     exports: [
@@ -24,6 +26,7 @@ import { LangPickerToggleComponent } from './lang-picker-toggle/lang-picker-togg
         BaseLayoutComponent,
         LangPickerComponent,
         LangPickerToggleComponent,
+        ThemeToggleComponent,
     ],
 })
 export class LayoutModule {}

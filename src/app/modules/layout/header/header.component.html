@@ -18,20 +18,10 @@
         ></fa-icon>
 
         <span class="flex-auto"></span>
-        <fa-icon
-            *ngIf="(themePickerService.isDark$ | async) === false"
-            icon="sun"
-            (click)="themePickerService.switchTheme()"
-            matTooltip="Switch to dark mode"
+        <app-theme-toggle
             class="mr-4"
-        ></fa-icon>
-        <fa-icon
-            *ngIf="(themePickerService.isDark$ | async) === true"
-            icon="moon"
-            (click)="themePickerService.switchTheme()"
-            matTooltip="Switch to light mode"
-            class="mr-4"
-        ></fa-icon>
+            [switchIconColor]="true"
+        ></app-theme-toggle>
         <app-lang-picker-toggle
             class="mr-4"
             [switchCaretColor]="true"

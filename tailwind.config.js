@@ -14,7 +14,7 @@ module.exports = {
                 'down-red-light': '#8f1600',
                 'down-red-dark': '#ff7d66',
                 'card-light': '#eeeeee',
-                'card-dark': '#424242',
+                'card-dark': '#25282A',
             },
         },
     },

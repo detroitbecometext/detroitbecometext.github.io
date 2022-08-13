@@ -1,6 +1,11 @@
 <main>
+    <app-theme-toggle
+        class="fixed top-9 right-28 mr-2 z-10"
+        [switchIconColor]="themePickerService.isDark$ | async"
+    ></app-theme-toggle>
     <app-lang-picker-toggle
-        class="fixed top-0 right-0 mt-8 mr-8 z-10"
+        class="fixed top-8 right-8 z-10"
+        [switchCaretColor]="themePickerService.isDark$ | async"
     ></app-lang-picker-toggle>
     <app-lang-picker
         *ngIf="languagePickerService.showPicker$ | async"
@@ -25,38 +30,16 @@
                     transform="rotate-135 grow-35 up-10"
                 ></fa-icon>
             </fa-layers>
-            <h1 class="inline text-center mat-display-3 m-0">
+            <h1 class="inline text-center mat-display-3 m-0 dark:text-gray-200">
                 Detroit: Become Human
             </h1>
         </div>
-        <h1 class="mat-display-2 mt-4 mb-8 text-center">Text transcription</h1>
-
-        <div class="flex-initial bg-blue-300 bg-opacity-50 rounded-xl p-8 mb-8">
-            <div class="mb-4 flex flex-row justify-start items-center">
-                <fa-icon icon="info-circle" size="lg"></fa-icon>
-                <h2 class="ml-2 text-xl mb-0">09/30/2021 - Update</h2>
-            </div>
-            <p>
-                This update adds magazines, gallery costumes descriptions,
-                soundtrack extras, some missing dialogues and multi-language
-                support. All dialogues and other contents are now available in
-                23 different languages.<br />
-                You can find the tool used to extract the game’s text contents
-                on
-                <a
-                    class="underline text-blue-500 cursor-pointer"
-                    href="https://github.com/detroitbecometext/dbh-file-parser"
-                    >GitHub</a
-                >.
-            </p>
-            <p>
-                You can now use keyboard shortcuts to navigate between pages and
-                languages. You’ll find them in the “About” dialog.
-            </p>
-        </div>
+        <h1 class="mat-display-2 mt-4 mb-8 text-center dark:text-gray-200">
+            Text transcription
+        </h1>
 
         <ng-container *transloco="let t">
-            <h2 class="mat-display-1 mb-0">
+            <h2 class="mat-display-1 mb-0 dark:text-gray-200">
                 {{ t('GUI.MENU.CHAPTERS.VALUE') }}
             </h2>
             <mat-divider class="self-stretch"></mat-divider>
@@ -80,7 +63,7 @@
             </app-card-container>
         </ng-container>
 
-        <h2 class="mat-display-1 mb-0 mt-14">Extras</h2>
+        <h2 class="mat-display-1 mb-0 mt-14 dark:text-gray-200">Extras</h2>
 
         <mat-divider class="self-stretch"></mat-divider>
 
@@ -122,18 +105,11 @@
             ></app-card>
         </app-card-container>
 
-        <h2 class="mat-display-1 mb-0 mt-14">Additional Links</h2>
+        <h2 class="mat-display-1 mb-0 mt-14 dark:text-gray-200">
+            Additional Links
+        </h2>
 
         <mat-divider class="self-stretch"></mat-divider>
-        <p>
-            Want a link to appear here ? Send a request through the
-            <a
-                [routerLink]="['/contact']"
-                class="transition-colors ease-in-out duration-500 text-blue-500 hover:text-blue-400"
-                >contact form</a
-            >
-            !
-        </p>
 
         <div
             class="grid sm:mx-8 flex-initial auto-rows-auto items-stretch justify-items-stretch grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
