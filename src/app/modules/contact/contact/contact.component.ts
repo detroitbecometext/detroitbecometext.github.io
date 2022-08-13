@@ -1,5 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import {
+    FormBuilder,
+    FormControl,
+    FormGroup,
+    Validators,
+} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, throwError } from 'rxjs';
 import { debounceTime, delay, finalize } from 'rxjs/operators';
@@ -46,14 +52,25 @@ export class ContactComponent implements OnInit {
         'zh-TW',
     ];
 
-    public contactForm: ContactForm;
+    public contactForm: FormGroup<ContactForm>;
     public sending$: BehaviorSubject<boolean>;
 
-    constructor(private snackbar: MatSnackBar, private http: HttpClient) {}
+    constructor(
+        private snackbar: MatSnackBar,
+        private http: HttpClient,
+        private readonly formBuilder: FormBuilder
+    ) {}
 
     ngOnInit(): void {
         this.sending$ = new BehaviorSubject(false);
-        this.contactForm = new ContactForm({
+
+        this.contactForm = this.formBuilder.nonNullable.group<ContactForm>({
+            name: new FormControl(''),
+            message: new FormControl('', Validators.required),
+            _replyto: new FormControl('', Validators.email),
+            _language: new FormControl('en', Validators.required),
+        });
+        this.contactForm.patchValue({
             _language: this.getLanguage(),
         });
     }

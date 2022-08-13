@@ -7,8 +7,7 @@ const routes: Routes = [
     {
         path: '',
         redirectTo: '1',
-        component: BaseLayoutComponent,
-        children: [{ path: '', component: SoundtrackComponent }],
+        pathMatch: 'full',
     },
     {
         path: ':id',
