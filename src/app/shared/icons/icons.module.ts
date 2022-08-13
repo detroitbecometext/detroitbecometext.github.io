@@ -30,6 +30,7 @@ import {
     faSun,
     faMoon,
 } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 @NgModule({
     declarations: [],
@@ -57,7 +58,7 @@ export class IconsModule {
             faAngleLeft,
             faPaperPlane,
             faExternalLinkAlt,
-            faGithub,
+            faGithub as IconDefinition,
             faCommentSlash,
             faEye,
             faAngleUp,

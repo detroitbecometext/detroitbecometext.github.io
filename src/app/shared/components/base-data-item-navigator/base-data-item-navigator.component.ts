@@ -35,7 +35,8 @@ export abstract class BaseDataItemNavigatorComponent<T extends DataItem>
     ngOnInit(): void {
         this.route.paramMap.subscribe((params: ParamMap) => {
             const itemId: number = +params.get('id');
-            let item = this.dataService.get(itemId);
+            let item =
+                itemId === NaN ? undefined : this.dataService.get(itemId);
 
             if (item === undefined) {
                 this.router.navigate(['not-found']);

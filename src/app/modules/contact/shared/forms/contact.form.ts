@@ -1,16 +1,8 @@
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
-export class ContactForm extends FormGroup {
-    constructor(data: { [key: string]: any | undefined } = undefined) {
-        super({
-            name: new FormControl(''),
-            _replyto: new FormControl('', Validators.email),
-            message: new FormControl('', Validators.required),
-            _language: new FormControl('en', Validators.required),
-        });
-
-        if (data) {
-            this.patchValue(data);
-        }
-    }
+export interface ContactForm {
+    name: FormControl<string>;
+    message: FormControl<string>;
+    _replyto: FormControl<string>;
+    _language: FormControl<string>;
 }

@@ -14,8 +14,7 @@ const routes: Routes = [
     {
         path: '',
         redirectTo: '1',
-        component: BaseLayoutComponent,
-        children: [{ path: '', component: ChapterComponent }],
+        pathMatch: 'full',
     },
     {
         path: ':id',
