@@ -1,12 +1,17 @@
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+    UntypedFormControl,
+    UntypedFormGroup,
+    Validators,
+} from '@angular/forms';
 
-export class ContactForm extends FormGroup {
+// TODO: type form
+export class ContactForm extends UntypedFormGroup {
     constructor(data: { [key: string]: any | undefined } = undefined) {
         super({
-            name: new FormControl(''),
-            _replyto: new FormControl('', Validators.email),
-            message: new FormControl('', Validators.required),
-            _language: new FormControl('en', Validators.required),
+            name: new UntypedFormControl(''),
+            _replyto: new UntypedFormControl('', Validators.email),
+            message: new UntypedFormControl('', Validators.required),
+            _language: new UntypedFormControl('en', Validators.required),
         });
 
         if (data) {
