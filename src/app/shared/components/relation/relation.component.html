@@ -1,5 +1,15 @@
-<div class="relation" *transloco="let t">
-    [ <span [class.up]="up" [class.down]="!up">{{ t(name) }}</span>
-    <img [src]="imageSource" [alt]="imageAlt" /> ]
+<div class="inline-flex items-center gap-1" *transloco="let t">
+    <span>[&nbsp;</span>
+    <span
+        [ngClass]="{
+            'text-up-blue-light': up,
+            'dark:text-up-blue-dark': up,
+            'text-down-red-light': !up,
+            'dark:text-down-red-dark': !up
+        }"
+        >{{ t(name) }}</span
+    >
+    <img [src]="imageSource" [alt]="imageAlt" />
+    <span>&nbsp;]</span>
 </div>
 <br />

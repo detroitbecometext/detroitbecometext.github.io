@@ -6,7 +6,7 @@ import { filter } from 'rxjs/operators';
     providedIn: 'root',
 })
 export class GoatCounterService {
-    private allowLocal = isDevMode();
+    private allowLocal: boolean = false;
 
     constructor(public router: Router) {
         // Wait for `window.goatcounter` to be available

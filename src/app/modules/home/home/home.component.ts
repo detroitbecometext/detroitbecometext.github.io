@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Chapter } from '@app/core/models/chapter';
 import { ChapterService } from '@app/core/services';
 import { LanguagePickerService } from '@app/core/services/language-picker.service';
+import { ThemePickerService } from '@app/core/services/theme-picker.service';
 
 class AdditionalLink {
     img: string;
@@ -22,7 +23,8 @@ export class HomeComponent implements OnInit {
 
     constructor(
         private chapterService: ChapterService,
-        public readonly languagePickerService: LanguagePickerService
+        public readonly languagePickerService: LanguagePickerService,
+        public readonly themePickerService: ThemePickerService
     ) {}
 
     ngOnInit(): void {

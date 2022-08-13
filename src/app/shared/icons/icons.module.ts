@@ -27,6 +27,8 @@ import {
     faEye,
     faAngleUp,
     faSearch,
+    faSun,
+    faMoon,
 } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
@@ -59,7 +61,9 @@ export class IconsModule {
             faCommentSlash,
             faEye,
             faAngleUp,
-            faSearch
+            faSearch,
+            faSun,
+            faMoon
         );
     }
 }

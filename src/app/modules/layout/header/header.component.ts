@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { LanguagePickerService } from '@app/core/services/language-picker.service';
+import { ThemePickerService } from '@app/core/services/theme-picker.service';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 
 @Component({
