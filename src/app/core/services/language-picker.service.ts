@@ -34,6 +34,8 @@ export class LanguagePickerService {
             ['pt-br', 'br'],
             ['es-mx', 'mx'],
             ['sv', 'se'],
+            ['zh-cn', 'cn'],
+            ['zh-tw', 'tw'],
         ]);
 
         this.translocoService.langChanges$.subscribe((lang) =>

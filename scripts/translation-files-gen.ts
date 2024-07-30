@@ -5,7 +5,7 @@ import path = require('path');
 const langMap: Map<string, string> = new Map([
     ['ara', 'ar'], // Arabic
     ['bra', 'pt-br'], // Portuguese (Brazil)
-    ['chi', 'zh'], // Chinese
+    ['chi', 'zh-tw'], // Traditional Chinese
     ['cro', 'hr'], // Croatian
     ['cze', 'cs'], // Czech
     ['dan', 'da'], // Danish
@@ -24,6 +24,7 @@ const langMap: Map<string, string> = new Map([
     ['pol', 'pl'], // Polish
     ['por', 'pt'], // Portuguese
     ['rus', 'ru'], // Russian
+    ['sch', 'zh-cn'], // Simplified Chinese
     ['spa', 'es'], // Spanish
     ['swe', 'sv'], // Swedish
     ['tur', 'tr'], // Turkish

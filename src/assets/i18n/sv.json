@@ -696,6 +696,7 @@
                 "LOADNOT": "INGEN SPARPUNKT VALD"
             }
         },
+        "RIP": { "HEAD": { "OFF": "Slit av huvudet" } },
         "TUTO": {
             "STICKTOMOVE": "<p align='right'><FONT FACE='$NormalFont' SIZE='140'>VÄNSTERSPAKEN <img src='BH_LS' height='140' width='140' vspace='-8'/><br>FÖR ATT GÅ",
             "XINTERACT": "<p align='right'><FONT FACE='$NormalFont' SIZE='140'>TRYCK <img src='BH_Cross' height='140' width='140' vspace='-8'/><br>FÖR ATT INTERAGERA",
@@ -732,7 +733,8 @@
             "TITLEGAUGERECDONE": "REKONSTRUKTION BERÄKNAD",
             "TITLEGAUGEDONE": "ANALYS KLAR",
             "TITLEGAUGESYMBOL": "SYMBOLER ATT HITTA",
-            "TITLEGAUGESYMBOLDONE": "LEDTRÅD UPPDATERAD"
+            "TITLEGAUGESYMBOLDONE": "LEDTRÅD UPPDATERAD",
+            "RECONSTRUCTBUTTON": ""
         },
         "RECONSTRUCT": {
             "INCOMPLETE": "REKONSTRUKTION EJ KLAR",
@@ -1294,9 +1296,9 @@
                     "MEX": { "2": "es-MX", "VALUE": "MEX" },
                     "JPN": "JPN",
                     "KOR": "KOR",
-                    "CHI": "CHI",
+                    "CHI": "CHT",
                     "CRO": "HRV",
-                    "SCH": "CHI"
+                    "SCH": "CHS"
                 },
                 "GAMEPLAY": {
                     "VALUE": "KONTROLLER",
@@ -5033,7 +5035,9 @@
             "MALFUNCTIONING": "DEN SÅRADE AVVIKAREN SKADADES",
             "GUARDKNOCKED": "VAKTEN KNOCKADES",
             "ANDROIDSFIRSTREACT": "FÖRHÖR ANDROIDERNA OCH SE HUR DE REAGERAR",
-            "QUESTIONAGAIN": "FÖRHÖR ANDROIDER IGEN"
+            "QUESTIONAGAIN": "FÖRHÖR ANDROIDER IGEN",
+            "GETINBARK": "",
+            "REPORT": ""
         },
         "1301C": {
             "FOLLOW": "FÖLJ VAKTEN",
@@ -7031,21 +7035,6 @@
                     "T00019": { "USE": "DRA VAPNET", "K00022": "" }
                 }
             },
-            "CHOICE": {
-                "PC": {
-                    "CHOICE": {
-                        "USEGUN": "ANVÄND VAPNET",
-                        "SACRIFICE": "OFFRA DIG",
-                        "SHOOTHEAD": "AVRÄTTA",
-                        "SHOOTSHOULDER": "SKJUT AXEL",
-                        "PUSHANDROID": "KNUFFA ANDROID",
-                        "GRABGUN": "TA PISTOLEN",
-                        "GRABEMMA": "TA EMMA",
-                        "CANCEL": "AVBRYT",
-                        "INTIMIDATE": "HOTA"
-                    }
-                }
-            },
             "PARTI": {
                 "PC": {
                     "X01ANDROID": {
@@ -7295,6 +7284,21 @@
                     }
                 }
             },
+            "CHOICE": {
+                "PC": {
+                    "CHOICE": {
+                        "USEGUN": "ANVÄND VAPNET",
+                        "SACRIFICE": "OFFRA DIG",
+                        "SHOOTHEAD": "AVRÄTTA",
+                        "SHOOTSHOULDER": "SKJUT AXEL",
+                        "PUSHANDROID": "KNUFFA ANDROID",
+                        "GRABGUN": "TA PISTOLEN",
+                        "GRABEMMA": "TA EMMA",
+                        "CANCEL": "AVBRYT",
+                        "INTIMIDATE": "HOTA"
+                    }
+                }
+            },
             "ARRIVAL": {
                 "PC": {
                     "X01CONNOR": { "THREAT01": "" },
@@ -7321,6 +7325,60 @@
                 }
             }
         },
+        "ENDING": {
+            "ATTACK": {
+                "FA": { "X01ANDROID": { "ONGUNSUCCESS": "", "ONGUNFAIL": "" } },
+                "PC": { "X01HOSTAGE": { "ONGUNFAILEND": "" } }
+            },
+            "GUN": {
+                "FA": { "X01HOSTAGE": { "CRYCYC01": "", "HEADSHOOT": "" } },
+                "PC": {
+                    "X01CONNOR": { "SHOTA": "" },
+                    "X01HOSTAGE": { "CRYCYCV2": "" }
+                }
+            }
+        },
+        "ONON": {
+            "ANDROID": { "FA": { "DD": { "X01ANDROID": { "SHOOT": "" } } } }
+        },
+        "ONOM": {
+            "ANDROID": {
+                "FA": {
+                    "X01ANDROID": {
+                        "NERVOUSCYC01": "",
+                        "NERVOUSCYC02": "",
+                        "NERVOUSCYC03": "",
+                        "DESPERATECYC01": "",
+                        "DESPERATECYC02": "",
+                        "CLENCHFACE01": "",
+                        "CLENCHFACE02": "",
+                        "MADCYC01": "",
+                        "MADCYC02": ""
+                    }
+                }
+            },
+            "HOSTAGE": {
+                "FA": {
+                    "X01HOSTAGE": {
+                        "SCREAM03": "",
+                        "SCREAM04": "",
+                        "CRY01": "",
+                        "CRY02": "",
+                        "CRY03": "",
+                        "CRY04": "",
+                        "BREATH01": "",
+                        "BREATH02": "",
+                        "BREATH03": "",
+                        "BREATH04": "",
+                        "CRY05": "",
+                        "CRY06": ""
+                    }
+                },
+                "VO": {
+                    "X01HOSTAGE": { "ONOM01": "", "ONOM02": "", "ONOM03": "" }
+                }
+            }
+        },
         "SWAT": {
             "CONNORHALLARRIVAL": {
                 "VO": {
@@ -7337,6 +7395,12 @@
                     "X01SWAT07": {
                         "NONEED": "Lägg av, vi behöver den inte. Vi fixar det här."
                     }
+                }
+            },
+            "SWAT01MOVES": {
+                "VO": {
+                    "X01SWAT02": { "MOVE": "" },
+                    "X01SWAT01": { "SWITCH": "" }
                 }
             },
             "TIMER": {
@@ -7403,6 +7467,12 @@
                     }
                 }
             },
+            "SIGNS": {
+                "VO": {
+                    "X01SWAT07": { "SETUP01": "" },
+                    "X01SWAT09": { "SETUP02": "", "SETUP03": "", "SETUP04": "" }
+                }
+            },
             "CONNORARRIVES": {
                 "VO": {
                     "X01SWAT01": {
@@ -7412,9 +7482,26 @@
                     }
                 }
             },
+            "CHECKGUN": { "VO": { "X01SWAT09": { "ROGER": "", "COPY": "" } } },
+            "LOWERGUN": { "VO": { "X01SWAT01": { "SAFE": "" } } },
             "SNIPESETUP": { "VO": { "X01SNIPER01": { "GO": "Gå, gå, gå!" } } },
+            "SNIPEWAIT": {
+                "VO": {
+                    "X01SNIPER06": { "CLEAR": "" },
+                    "X01RADIO": { "WAIT": "", "OVER": "" }
+                }
+            },
+            "SNIPERSHOT": {
+                "VO": {
+                    "X01SNIPER01": { "CLEAR": "" },
+                    "X01RADIO": { "NOW": "" }
+                }
+            },
             "HELICOLEAVING": {
                 "VO": { "X01HELISNIPER": { "OUT": "Läget är under kontroll." } }
+            },
+            "HELICOARRIVAL": {
+                "VO": { "X01HELIPILOT": { "THREAT01": "", "THREAT02": "" } }
             },
             "CONNORONTERRASSE": {
                 "VO": {
@@ -7478,6 +7565,20 @@
                             "5": "Om detta bekräftas är det första fallet där en android medvetet har tagit människors liv.",
                             "6": "Alla tecken tyder på att insatsstyrkan förbereder ett ingripande..."
                         }
+                    }
+                }
+            }
+        },
+        "ONOMV2": {
+            "HOSTAGE": {
+                "FA": {
+                    "X01HOSTAGE": {
+                        "SCREAM02": "",
+                        "SCREAM03": "",
+                        "CRY01": "",
+                        "CRY02": "",
+                        "CRY03": "",
+                        "BREATH01": ""
                     }
                 }
             }
@@ -7607,6 +7708,25 @@
                 }
             }
         },
+        "NPCGUITARIST": {
+            "PLAZA": {
+                "PC": {
+                    "X01MGUITARIST": {
+                        "MELBOURNERAIN01A": "",
+                        "MELBOURNERAIN02A": "",
+                        "MELBOURNERAIN03A": "",
+                        "MELBOURNERAIN04A": "",
+                        "HOWTOFORGET01A": "",
+                        "HOWTOFORGET02A": "",
+                        "HOWTOFORGET03A": "",
+                        "MELBOURNERAIN01B": "",
+                        "MELBOURNERAIN02B": "",
+                        "HOWTOFORGET01B": "",
+                        "HOWTOFORGET03B": ""
+                    }
+                }
+            }
+        },
         "STORES": {
             "GUARDS": {
                 "FA": {
@@ -7732,6 +7852,11 @@
                             "2": "Tror de att utvecklingen hejdas för att de tufsar till några androider? ",
                             "3": "Hoppas de inte skadade dig."
                         }
+                    },
+                    "MPAR": { "INJECT": "" },
+                    "CLOTHESCHOICE": {
+                        "FACTUAL": "SAKLIG",
+                        "REASSURING": "LUGNANDE"
                     }
                 }
             },
@@ -7758,6 +7883,31 @@
                             "7": "Det behövs inte."
                         }
                     }
+                }
+            }
+        },
+        "DEMONSTRATION": {
+            "ATTACK": {
+                "PC": {
+                    "X01MMARKUS": {
+                        "ATTACK1": "",
+                        "ATTACK2": "",
+                        "ATTACK3": ""
+                    },
+                    "X01MATTACKDEMONSTR01": {
+                        "ATTACK1": "",
+                        "ATTACK2": "",
+                        "ATTACK3": ""
+                    },
+                    "X01MATTACKDEMONSTR02": {
+                        "ATTACK1": "",
+                        "ATTACK2": "",
+                        "ATTACK3": ""
+                    },
+                    "X01MATTACKDEMONSTR03": { "ATTACK3": "" },
+                    "X01MSAVIORCOP": { "ATTACK3": "" },
+                    "MPARATTACK1": { "GETUP1": "" },
+                    "MPARATTACK2": { "GETUP2": "" }
                 }
             }
         },
@@ -9080,6 +9230,20 @@
                 "FA": {
                     "X06MDESKGUARD01": { "FLEE": "Helvete! Slå larm! Fort!" }
                 }
+            },
+            "FIGHTSOUNDS": {
+                "FO": {
+                    "X06MDESKGUARD01": {
+                        "GUARD01HITSTOMACK": "",
+                        "GUARD01HITFACE": "",
+                        "GUARD01BLOW": ""
+                    },
+                    "X06MDESKGUARD02": {
+                        "GUARD01BLOWDUPLICATED": "",
+                        "GUARD02HITFACE": "",
+                        "GUARD02HITSTOMACK": ""
+                    }
+                }
             }
         },
         "EXITALERTREMINDER": {
@@ -9129,6 +9293,14 @@
                         "OPENTRUCK": { "1": "Fick du den?", "2": "Snyggt." }
                     },
                     "X06MJOHN": { "OPENTRUCK": "" }
+                }
+            }
+        },
+        "EXITNOKEYNOALERT": {
+            "FOLLOWME": {
+                "FA": {
+                    "X06MJOHN": { "FENCE01": "" },
+                    "X06MMARKUS": { "FENCE02": "" }
                 }
             }
         },
@@ -9903,6 +10075,13 @@
                     }
                 }
             },
+            "STEAL": {
+                "PC": {
+                    "X08MMARKUS": { "READY": "" },
+                    "X08MNORTH": { "READY": "" },
+                    "DOORCYC": { "CRASH": "", "NOCRASH": "" }
+                }
+            },
             "CRASH": {
                 "PC": {
                     "X08MMARKUS": { "FINALLY": "" },
@@ -9919,6 +10098,158 @@
                     "X08MMARKUS": {
                         "CHECKM": "Jag vill bara kolla att vi inte glömt något."
                     }
+                }
+            }
+        },
+        "FREEANDROIDS": {
+            "HOWENTERSHOP": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "ANDNOWMARLA": "",
+                        "ANDNOWJOSH": "",
+                        "ANDNOWSIMON": ""
+                    },
+                    "X08MSTREETMARLA": { "ANDNOWMARLA": "" },
+                    "X08MSTREETJOSH": { "ANDNOWJOSH": "" },
+                    "X08MSTREETSIMON": { "ANDNOWSIMON": "" }
+                }
+            },
+            "INTRO": {
+                "VO": {
+                    "X08MSTREETMARKUS": {
+                        "INTRO": "",
+                        "SIMON": "",
+                        "JOSH": "",
+                        "MARLA": ""
+                    }
+                },
+                "PC": {
+                    "CHOICEGROUP": { "SIMON": "", "JOSH": "", "MARLA": "" }
+                }
+            },
+            "STATUE": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "STATUEMARLA": "",
+                        "STATUEJOSH": "",
+                        "STATUESIMON": ""
+                    },
+                    "X08MSTREETMARLA": { "STATUEMARLA": "" },
+                    "X08MSTREETJOSH": { "STATUEJOSH": "" },
+                    "X08MSTREETSIMON": { "STATUESIMON": "" }
+                }
+            },
+            "NEEDHELP": {
+                "VO": {
+                    "X08MSTREETMARKUS": {
+                        "NEEDHELP1": "",
+                        "NEEDHELP2": "",
+                        "NEEDHELP3": ""
+                    }
+                }
+            },
+            "UTURN": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "UTURNMARLA": "",
+                        "UTURNJOSH": "",
+                        "UTURNSIMON": ""
+                    },
+                    "X08MSTREETMARLA": { "UTURNMARLA": "" },
+                    "X08MSTREETJOSH": { "UTURNJOSH": "" },
+                    "X08MSTREETSIMON": { "UTURNSIMON": "" }
+                }
+            },
+            "WAKEUP": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "WAKEUP": "",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP01": {
+                        "WAKEUP": "",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP02": {
+                        "WAKEUP": "",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP03": {
+                        "WAKEUP": "",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP04": {
+                        "WAKEUP": "",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP05": {
+                        "WAKEUP": "",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP06": {
+                        "WAKEUP": "",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP07": {
+                        "WAKEUP": "",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP08": {
+                        "WAKEUP": "",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP09": {
+                        "WAKEUP": "",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP10": {
+                        "WAKEUP": "",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MSTREETMARLA": {
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": "",
+                        "PACIFISTENDMARLA": "",
+                        "VIOLENTENDMARLA": ""
+                    },
+                    "X08MSTREETJOSH": {
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": "",
+                        "PACIFISTENDJOSH": "",
+                        "VIOLENTENDJOSH": ""
+                    },
+                    "X08MSTREETSIMON": {
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": "",
+                        "ENDSIMON": ""
+                    },
+                    "CHOICEGROUP01": { "WAKEUP": "" },
+                    "CHOICEGROUP02": { "PEACE": "", "VIOLENCE": "" }
                 }
             }
         },
@@ -10542,6 +10873,10 @@
                         }
                     }
                 }
+            },
+            "END": {
+                "VO": { "X08MSIMON": { "PEOPLEFREE": "", "COUNTONUS": "" } },
+                "FA": { "X08MMARKUS": { "VIOLENT": "", "PEACEFUL": "" } }
             }
         },
         "DRONE": {
@@ -10828,6 +11163,159 @@
                     }
                 }
             },
+            "TROUBLES": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "TROUBLESMARLA": "",
+                        "TROUBLESJOSH": "",
+                        "TROUBLESSIMON": ""
+                    },
+                    "X08MSTREETMARLA": { "TROUBLESMARLA": "" },
+                    "X08MSTREETJOSH": { "TROUBLESJOSH": "" },
+                    "X08MSTREETSIMON": { "TROUBLESSIMON": "" }
+                }
+            },
+            "COPS": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MSTREETMARLA": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MSTREETJOSH": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MSTREETSIMON": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP01": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP02": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP03": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP04": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP05": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP06": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MCOP01": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MCOP02": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "CHOICEGROUP": {
+                        "EXECUTE": "",
+                        "SPARE": "",
+                        "NOCHOICE": ""
+                    }
+                }
+            },
             "NORTH": {
                 "PC": {
                     "X08MMARKUS": {
@@ -10864,6 +11352,28 @@
                     "X08MANDWOM01": {
                         "ANGRYAND03": "Han har rätt! Vårt blod är lika mycket värt som deras!"
                     }
+                }
+            }
+        },
+        "DRONES": {
+            "ARRIVAL": {
+                "VO": {
+                    "MARKUS": { "TEMP": "" },
+                    "SIMON": { "TEMP": "" },
+                    "JOSH": { "TEMP": "" }
+                }
+            }
+        },
+        "SYMBOL": {
+            "CHOICE": {
+                "PC": {
+                    "SLOGAN": {
+                        "SOMEBODY": "",
+                        "RIGHTS": "",
+                        "THINK": "",
+                        "PEOPLE": ""
+                    },
+                    "SYMBOL": { "01": "", "02": "", "03": "", "04": "" }
                 }
             }
         },
@@ -11035,6 +11545,33 @@
                     }
                 }
             }
+        },
+        "AFTERMATHS": {
+            "TV": {
+                "VO": {
+                    "X08MTVCARTLAND": {
+                        "TVPACIFIST": "",
+                        "TVVIOLENT": "",
+                        "COPSKILLED": "",
+                        "COPSSAVED": "",
+                        "END": ""
+                    },
+                    "X08MTVWEBB": {
+                        "TVPACIFIST": "",
+                        "TVVIOLENT": "",
+                        "COPSKILLED": "",
+                        "COPSSAVED": "",
+                        "END": ""
+                    },
+                    "X08MTVBRINKLEY": {
+                        "TVPACIFIST": "",
+                        "TVVIOLENT": "",
+                        "COPSKILLED": "",
+                        "COPSSAVED": "",
+                        "END": ""
+                    }
+                }
+            }
         }
     },
     "X0201C": {
@@ -11100,6 +11637,7 @@
                     }
                 }
             },
+            "RA9": { "FA": { "X02CCONNOR": { "THINK": "" } } },
             "WOUND": {
                 "FA": {
                     "X02CCONNOR": {
@@ -11116,6 +11654,7 @@
                     }
                 }
             },
+            "LEAVING": { "PC": { "CHOICEGROUP": { "GO": "", "STAY": "" } } },
             "CHAIR": {
                 "PC": {
                     "X02CHANK": {
@@ -11127,6 +11666,50 @@
                     }
                 },
                 "FA": { "X02CCONNOR": { "CARRY02": "Jag ska kolla en grej." } }
+            },
+            "RECONSTRUCT": {
+                "VO": {
+                    "X02CCONNOR": { "CHRONO": "", "SUCCESS": "" },
+                    "X02CHANK": { "CHRONO": "", "SUCCESS": "" }
+                },
+                "PC": {
+                    "CHOICEGROUP01": {
+                        "STAB": "",
+                        "HIT": "",
+                        "KNIFE": "",
+                        "QUIT": ""
+                    },
+                    "CHOICEGROUP02": {
+                        "HIT": "",
+                        "KNIFE": "",
+                        "FLEE": "",
+                        "CANCEL": ""
+                    },
+                    "CHOICEGROUP03": {
+                        "FLEE": "",
+                        "STAB": "",
+                        "KNIFE": "",
+                        "CANCEL": ""
+                    },
+                    "CHOICEGROUP04": {
+                        "KILL": "",
+                        "FLEE": "",
+                        "STAB": "",
+                        "CANCEL": ""
+                    },
+                    "CHOICEGROUP05": {
+                        "FLEE": "",
+                        "KILL": "",
+                        "STAB": "",
+                        "CANCEL": ""
+                    }
+                }
+            },
+            "BBLOOD": {
+                "PC": {
+                    "X02CCONNOR": { "EXAMINE": "" },
+                    "X02CHANK": { "EXAMINE": "" }
+                }
             }
         },
         "RECON": {
@@ -11397,6 +11980,9 @@
                     "X02CHARVEY": { "EXAMINE02": "Det ska bli, kommissarien." }
                 }
             },
+            "CIGARETTE": {
+                "PC": { "X02CHANK": { "ASK": "" }, "X02CCHAD": { "ASK": "" } }
+            },
             "LEAVE": {
                 "PC": {
                     "X02CCONNOR": {
@@ -11587,6 +12173,7 @@
                     }
                 }
             },
+            "CUSTOMER7": { "FA": { "X02CCUSTOM07": { "BARREACT": "" } } },
             "CUSTOMER1": {
                 "PC": { "X02CCUSTOM01": { "REACT": "Vad fan glor du på?" } }
             },
@@ -11599,6 +12186,23 @@
                     }
                 },
                 "FA": { "X02CBARMAN": { "BARSERVE01B": "Varsågod, min vän." } }
+            },
+            "CUSTOMER34": {
+                "PC": {
+                    "X02CCUSTOM03": {
+                        "SACRIFICE": "",
+                        "EMMASAVED": "",
+                        "EMMADEAD": ""
+                    },
+                    "X02CCUSTOM04": {
+                        "SACRIFICE": "",
+                        "EMMASAVED": "",
+                        "EMMADEAD": ""
+                    }
+                },
+                "VO": {
+                    "X02CTVPRESENTER": { "TVEMMASAVED": "", "TVEMMADEAD": "" }
+                }
             },
             "CUSTOMER3": {
                 "PC": { "X02CCUSTOM03": { "REACT": "Stick härifrån!" } }
@@ -12360,12 +12964,12 @@
                     "VENDOR": {
                         "SUBLINE02": "Straffregister: våldsamt motstånd, brott mot hygienlagar",
                         "TITLE": "KAYES, GARY",
-                        "SUBLINE01": "Adress: 978 E. Willis St. Detroit"
+                        "SUBLINE01": "Född 1988-12-03 // Affärsinnehavare"
                     },
                     "GAMBLER": {
                         "TITLE": "AABDAR, PEDRO",
-                        "SUBLINE01": "Född 2005-01-25 // Arbetslös",
-                        "SUBLINE02": "Straffregister: olagligt hasardspel, bedrägeri"
+                        "SUBLINE02": "Straffregister: olagligt hasardspel, bedrägeri",
+                        "SUBLINE01": "Född 2005-01-25 // Arbetslös"
                     },
                     "HAMBURGER": {
                         "SUBLINE01": "1680 kcal, 36 g fett, 53 g kolhydrater",
@@ -15634,7 +16238,39 @@
                     "ALL": { "FILES": "ALLA FILER" }
                 }
             }
-        }
+        },
+        "OLD": {
+            "": {
+                "": {
+                    "": {
+                        "MENU": {
+                            "OBSERVATION": {
+                                "05C": {
+                                    "MP": {
+                                        "GAMBLER": {
+                                            "SUBLINE01": "Adress: 4890 Russel St. Detroit"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "MENU": {
+                        "OBSERVATION": {
+                            "05C": {
+                                "MP": {
+                                    "VENDOR": {
+                                        "SUBLINE01": "Adress: 978 E. Willis St. Detroit"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "TEST": { "2": "testtrad", "VALUE": "testtrad" },
+        "PAUSE": { "01": { "TESTLOC1": "Lokaliseringstest OK!" } }
     },
     "X0000X": {
         "SYSTEM": {
@@ -16192,7 +16828,10 @@
                             "5": "Jag klarar alltid mina uppdrag."
                         }
                     },
-                    "CONNORCHOICE": { "BLOWUP": "SPRÄNG JERICHO" }
+                    "CONNORCHOICE": {
+                        "BLOWUP": "SPRÄNG JERICHO",
+                        "RUNNOW": "SPRING NU"
+                    }
                 }
             },
             "BRIDGE": {
@@ -16296,6 +16935,78 @@
                     }
                 }
             }
+        }
+    },
+    "X6000X": {
+        "ONOM": {
+            "DGO": {
+                "FO": {
+                    "X06KTODD": {
+                        "FIGHTCYC": "",
+                        "BLOW01": "",
+                        "BLOW02": "",
+                        "BLOW03": "",
+                        "BLOW04": "",
+                        "BLOW05": "",
+                        "HIT01": "",
+                        "HIT02": "",
+                        "HIT03": "",
+                        "HIT04": "",
+                        "HIT05": "",
+                        "HIT06": "",
+                        "HIT07": "",
+                        "EFFORT03": "",
+                        "EFFORT01": "",
+                        "EFFORT02": "",
+                        "EFFORT04": "",
+                        "EFFORT05": "",
+                        "EFFORT06": "",
+                        "ANGRY01": ""
+                    }
+                }
+            }
+        }
+    },
+    "X6006X": {
+        "ONOM": {
+            "FIGHTING": { "FO": { "MARKUS": { "01": "" } } },
+            "DETERMINED": { "FO": { "MARKUS": { "01": "", "02": "" } } },
+            "FIGHTWAP": {
+                "FO": {
+                    "MARKUS": {
+                        "CYCLE": "",
+                        "GETHIT01": "",
+                        "GETHIT02": "",
+                        "GETHIT03": "",
+                        "HIT01": "",
+                        "HIT02": "",
+                        "HIT03": "",
+                        "GETHIT04": "",
+                        "GETHIT05": "",
+                        "GETHIT06": "",
+                        "HIT04": "",
+                        "HIT05": "",
+                        "HIT06": "",
+                        "GETHIT07": "",
+                        "GETHIT08": "",
+                        "GETHIT09": "",
+                        "GETHIT10": "",
+                        "HIT07": "",
+                        "HIT08": "",
+                        "HIT09": "",
+                        "HIT10": "",
+                        "HIT11": "",
+                        "HIT12": "",
+                        "HIT13": ""
+                    }
+                }
+            },
+            "FACINGWAP": { "FO": { "MARKUS": { "01": "" } } },
+            "EFFORTS": { "FO": { "MARKUS": { "01": "" } } },
+            "WORRIED": { "FO": { "MARKUS": { "01": "", "02": "", "04": "" } } },
+            "CRAWLING": { "FO": { "MARKUS": { "CRAWLING": "" } } },
+            "STRESSED": { "FO": { "MARKUS": { "01": "" } } },
+            "WARZONE": { "FO": { "MARKUS": { "WARZONE": "" } } }
         }
     },
     "X0913K": {
@@ -16932,6 +17643,9 @@
             }
         },
         "LIVING": {
+            "ENTER": {
+                "FA": { "X05CHANK": { "SECURE01": "", "SECURE02": "" } }
+            },
             "BINGO": {
                 "PC": {
                     "X05CHANK": {
@@ -17023,6 +17737,12 @@
                     }
                 }
             },
+            "JACKET": {
+                "PC": {
+                    "X05CCONNOR": { "EXAMINE": "" },
+                    "X05CHANK": { "EXAMINE": "" }
+                }
+            },
             "SEEDSBOX": {
                 "FA": {
                     "X05CHANK": {
@@ -17085,6 +17805,9 @@
                     "GAMEOVERCHOICE01": { "LEAVE": "GÅ", "STAY": "STANNA" }
                 }
             },
+            "CONNORLED": {
+                "FA": { "DD": { "X05CCONNOR": { "EXAMINE": "" } } }
+            },
             "CONNORJACKET": {
                 "FA": {
                     "X05CCONNOR": {
@@ -17110,6 +17833,33 @@
                         }
                     },
                     "X05CHANK": { "FOUND": "Hittat nåt?" }
+                }
+            }
+        },
+        "DOORSTEP": {
+            "KNOCK": { "PC": { "X05CHANK": { "KNOCK": "" } } },
+            "YOUGOFIRST": {
+                "PC": {
+                    "X05CCONNOR": { "YOUGOFIRST": "" },
+                    "X05CHANK": { "YOUGOFIRST": "Damerna först." }
+                }
+            },
+            "KNOCK2": {
+                "PC": {
+                    "X05CCONNOR": {
+                        "INSIST": {
+                            "1": "Är det någon hemma?",
+                            "2": "Öppna! Detroitpolisen!",
+                            "3": "Okej."
+                        }
+                    },
+                    "X05CHANK": { "INSIST": "Håll dig bakom mig." }
+                }
+            },
+            "BLOOD": {
+                "PC": {
+                    "X05CCONNOR": { "OPEN": "" },
+                    "X05CHANK": { "OPEN": "" }
                 }
             }
         },
@@ -17151,26 +17901,6 @@
                 }
             }
         },
-        "DOORSTEP": {
-            "YOUGOFIRST": {
-                "PC": {
-                    "X05CCONNOR": { "YOUGOFIRST": "" },
-                    "X05CHANK": { "YOUGOFIRST": "Damerna först." }
-                }
-            },
-            "KNOCK2": {
-                "PC": {
-                    "X05CCONNOR": {
-                        "INSIST": {
-                            "1": "Är det någon hemma?",
-                            "2": "Öppna! Detroitpolisen!",
-                            "3": "Okej."
-                        }
-                    },
-                    "X05CHANK": { "INSIST": "Håll dig bakom mig." }
-                }
-            }
-        },
         "LIFT": {
             "INTRO": {
                 "PC": {
@@ -17202,6 +17932,52 @@
                     "X05CHANK": {
                         "CONFIRMATION": "Jag är inte förvånad att det var en android. Ingen människa skulle kunna leva med alla jävla duvor."
                     }
+                }
+            }
+        },
+        "URBANFIELDS": {
+            "GAMEOVER": {
+                "PC": {
+                    "X05CCONNOR": { "FAILED": "" },
+                    "X05CHANK": { "FAILED": "" }
+                }
+            },
+            "SUCCESS": {
+                "PC": {
+                    "X05CCONNOR": {
+                        "PLEASE": "",
+                        "CAPTURE": "",
+                        "LETGO": "",
+                        "CAPTUREHANKFALLEN": "",
+                        "CAPTUREHANKNOTFALL": "",
+                        "CAPTUREEND": "",
+                        "LETGOHANKFALLEN": "",
+                        "LETGOHANKNOTFALL": "",
+                        "LETGOEND": ""
+                    },
+                    "X05CHANK": {
+                        "PLEASE": "",
+                        "CAPTURE": "",
+                        "LETGO": "",
+                        "CAPTUREHANKFALLEN": "",
+                        "CAPTUREHANKNOTFALL": "",
+                        "CAPTUREEND": "",
+                        "LETGOHANKFALLEN": "",
+                        "LETGOHANKNOTFALL": "",
+                        "LETGOEND": ""
+                    },
+                    "X05CANDROID": {
+                        "PLEASE": "",
+                        "CAPTURE": "",
+                        "LETGO": "",
+                        "CAPTUREHANKFALLEN": "",
+                        "CAPTUREHANKNOTFALL": "",
+                        "CAPTUREEND": "",
+                        "LETGOHANKFALLEN": "",
+                        "LETGOHANKNOTFALL": "",
+                        "LETGOEND": ""
+                    },
+                    "DILEMMA": { "CAPTURE": "", "LETGO": "" }
                 }
             }
         },
@@ -17290,6 +18066,9 @@
         "SAVEHANK": {
             "FALL": {
                 "FA": { "X05CHANK": { "CRYOUT": "", "FREEZE": "Stanna!" } }
+            },
+            "CHOICE": {
+                "PC": { "SAVECHOICE01": { "FOLLOW": "", "SAVE": "" } }
             },
             "GAMEOVER2": {
                 "PC": {
@@ -17772,6 +18551,451 @@
             }
         }
     },
+    "X6016X": {
+        "ONOM": {
+            "BSH": {
+                "FO": {
+                    "BSH": {
+                        "HITSTOMACK01": "",
+                        "HITFACE01": "",
+                        "BLOW01": "",
+                        "NEUTRALANDROID": "",
+                        "HUMAN": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": { "1": "Ja! Okej! Kom igen! Ja!", "2": "" },
+                        "PANICCRY": {
+                            "1": "Vad händer här?",
+                            "2": "Ha! Herregud! Va?",
+                            "3": "Sluta! Vad är det?",
+                            "4": "Undan! Herregud!",
+                            "5": "Det är för mycket!",
+                            "6": "Nej!",
+                            "7": "Nej!"
+                        },
+                        "HITSTOMACK02": "",
+                        "HITSTOMACK03": "",
+                        "HITSTOMACK04": "",
+                        "HITFACE02": "",
+                        "HITFACE03": "",
+                        "HITFACE04": "",
+                        "BLOW02": "",
+                        "BLOW03": "",
+                        "BLOW04": "",
+                        "AWAKEN": ""
+                    }
+                }
+            },
+            "SJE": {
+                "FO": {
+                    "SJE": {
+                        "NEUTRALANDROID": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": "",
+                        "PANICCRY": {
+                            "1": "Hjälp!",
+                            "2": "Ut härifrån!",
+                            "3": "Hjälp!"
+                        },
+                        "OUTOFBREATH": "",
+                        "STRIKEWOUNDED": "",
+                        "STRIKE": "",
+                        "HIT": ""
+                    }
+                }
+            },
+            "DGO": {
+                "FO": {
+                    "DGO": {
+                        "NEUTRALANDROID": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "COUGHING": "",
+                        "AWAKEN": ""
+                    }
+                }
+            },
+            "EGA": {
+                "FO": {
+                    "EGA": {
+                        "NEUTRALANDROID": "",
+                        "HUMAN": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": { "1": "", "2": "" },
+                        "PANICCRY": { "1": "Nej!", "2": "Nej!" }
+                    }
+                }
+            },
+            "FHU": {
+                "FO": {
+                    "FHU": {
+                        "HITSTOMACK": "",
+                        "HITFACE": "",
+                        "BLOW": "",
+                        "NEUTRALANDROID": "",
+                        "HUMAN": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SHOUT": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": { "1": "", "2": "", "3": "", "4": "" },
+                        "PANICCRY": {
+                            "1": "Nej! Nej!",
+                            "2": "Nej, nej! Snälla! Åh, nej!"
+                        }
+                    }
+                }
+            },
+            "DCO": {
+                "FO": {
+                    "DCO": {
+                        "NEUTRALANDROID": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "SAD": "",
+                        "SHOUT": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "Åh, wow!",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": "",
+                        "PANICCRY": {
+                            "1": "Se upp! Nej! Vänta!",
+                            "2": "Var är du?",
+                            "3": "Sally! ",
+                            "4": "Se upp!"
+                        }
+                    }
+                }
+            },
+            "BSC": {
+                "FO": {
+                    "BSC": {
+                        "NEUTRALANDROID": "",
+                        "HUMAN": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": { "1": "", "2": "" },
+                        "PANICCRY": "Åh, nej! Se upp!",
+                        "HUMAN02": ""
+                    }
+                }
+            },
+            "KCA": {
+                "FO": {
+                    "KCA": {
+                        "NEUTRALANDROID": "",
+                        "HUMAN": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": {
+                            "1": "",
+                            "2": "",
+                            "3": "Ja!",
+                            "4": "",
+                            "5": "",
+                            "6": "",
+                            "7": "",
+                            "8": ""
+                        },
+                        "PANICCRY": {
+                            "1": "",
+                            "2": "Va, vad händer?",
+                            "3": "Va? Vad händer?",
+                            "4": "Vad händer? Vart ska du?"
+                        }
+                    }
+                }
+            }
+        },
+        "CROWD": {
+            "GEN": {
+                "VO": {
+                    "CROWDL": {
+                        "ACCLAIMMARKUS": "",
+                        "ACCLAIMCONNOR": "",
+                        "ACCLAIMNORTH": ""
+                    },
+                    "KBO": {
+                        "MARKUS4": {
+                            "1": "Markus!",
+                            "2": "Markus!",
+                            "3": "Markus..."
+                        },
+                        "CONNOR04": {
+                            "1": "Connor!",
+                            "2": "Connor!",
+                            "3": "Connor..."
+                        },
+                        "NORTH04": {
+                            "1": "North!",
+                            "2": "North!",
+                            "3": "North..."
+                        }
+                    }
+                },
+                "FO": {
+                    "CBA": {
+                        "MARKUS01": {
+                            "1": "Markus!",
+                            "2": "Markus!",
+                            "3": "Markus..."
+                        },
+                        "CONNOR01": {
+                            "1": "Connor!",
+                            "2": "Connor!",
+                            "3": "Connor..."
+                        },
+                        "NORTH01": {
+                            "1": "North!",
+                            "2": "North!",
+                            "3": "North..."
+                        }
+                    },
+                    "PSA": {
+                        "MARKUS02": {
+                            "1": "Markus!",
+                            "2": "Markus!",
+                            "3": "Markus..."
+                        },
+                        "CONNOR02": {
+                            "1": "Connor!",
+                            "2": "Connor!",
+                            "3": "Connor..."
+                        },
+                        "NORTH02": {
+                            "1": "North!",
+                            "2": "North!",
+                            "3": "North..."
+                        }
+                    },
+                    "DCO": {
+                        "MARKUS03": {
+                            "1": "Markus!",
+                            "2": "Markus!",
+                            "3": "Markus..."
+                        },
+                        "CONNOR03": {
+                            "1": "Connor!",
+                            "2": "Connor!",
+                            "3": "Connor..."
+                        },
+                        "NORTH03": {
+                            "1": "North!",
+                            "2": "North!",
+                            "3": "North..."
+                        }
+                    },
+                    "SJE": {
+                        "MARKUS05": {
+                            "1": "Markus!",
+                            "2": "Markus!",
+                            "3": "Markus..."
+                        },
+                        "CONNOR05": {
+                            "1": "Connor!",
+                            "2": "Connor!",
+                            "3": "Connor..."
+                        },
+                        "NORTH05": {
+                            "1": "North!",
+                            "2": "North!",
+                            "3": "North..."
+                        }
+                    },
+                    "EGA": {
+                        "MARKUS06": {
+                            "1": "Markus!",
+                            "2": "Markus!",
+                            "3": "Markus..."
+                        },
+                        "CONNOR06": {
+                            "1": "Connor!",
+                            "2": "Connor!",
+                            "3": "Connor..."
+                        },
+                        "NORTH06": {
+                            "1": "North!",
+                            "2": "North!",
+                            "3": "North..."
+                        }
+                    },
+                    "BSC": {
+                        "MARKUS07": {
+                            "1": "Markus!",
+                            "2": "Markus!",
+                            "3": "Markus..."
+                        },
+                        "CONNOR07": {
+                            "1": "Connor!",
+                            "2": "Connor!",
+                            "3": "Connor..."
+                        },
+                        "NORTH07": {
+                            "1": "North!",
+                            "2": "North!",
+                            "3": "North..."
+                        }
+                    },
+                    "FHU": {
+                        "MARKUS08": {
+                            "1": "Markus!",
+                            "2": "Markus!",
+                            "3": "Markus..."
+                        },
+                        "CONNOR08": {
+                            "1": "Connor!",
+                            "2": "Connor!",
+                            "3": "Connor..."
+                        },
+                        "NORT08": {
+                            "1": "North!",
+                            "2": "North!",
+                            "3": "North..."
+                        }
+                    },
+                    "BSH": {
+                        "MARKUS09": {
+                            "1": "Markus!",
+                            "2": "Markus!",
+                            "3": "Markus..."
+                        },
+                        "CONNOR09": {
+                            "1": "Connor!",
+                            "2": "Connor!",
+                            "3": "Connor..."
+                        },
+                        "NORTH09": {
+                            "1": "North!",
+                            "2": "North!",
+                            "3": "North..."
+                        }
+                    },
+                    "KCA": {
+                        "MARKUS12": {
+                            "1": "Markus!",
+                            "2": "Markus!",
+                            "3": "Markus..."
+                        },
+                        "CONNOR12": {
+                            "1": "Connor!",
+                            "2": "Connor!",
+                            "3": "Connor..."
+                        },
+                        "NORTH12": {
+                            "1": "North!",
+                            "2": "North!",
+                            "3": "North..."
+                        }
+                    }
+                }
+            }
+        }
+    },
     "X0204A": {
         "EXIT": {
             "PLAYDEAD": {
@@ -18156,6 +19380,40 @@
                     }
                 }
             }
+        }
+    },
+    "X6001X": {
+        "ONOM": {
+            "STRIKE": {
+                "FO": {
+                    "CONNOR": {
+                        "01": "",
+                        "02": "",
+                        "03": "",
+                        "04": "",
+                        "05": "",
+                        "06": ""
+                    }
+                }
+            },
+            "HIT": {
+                "FO": {
+                    "CONNOR": {
+                        "01": "",
+                        "02": "",
+                        "03": "",
+                        "04": "",
+                        "05": "",
+                        "06": ""
+                    }
+                }
+            },
+            "HITTING": { "FO": { "CONNOR": { "HEAVY": "", "LOW": "" } } },
+            "GETTINGHIT": { "FO": { "CONNOR": { "HEAVY": "", "LOW": "" } } },
+            "ANXIOUS": { "FO": { "CONNOR": { "CYC01": "" } } },
+            "PANICKED": { "FO": { "CONNOR": { "C02": "" } } },
+            "WORRIED": { "FO": { "CONNOR": { "CYC01": "", "CYC02": "" } } },
+            "STRESSED": { "FO": { "CONNOR": { "CYC01": "" } } }
         }
     },
     "X0914K": {
@@ -18666,6 +19924,12 @@
             }
         }
     },
+    "X6012X": {
+        "ONOM": {
+            "STRIKE": { "FO": { "JOSH": { "01": "", "02": "", "03": "" } } },
+            "HIT": { "FO": { "JOSH": { "01": "", "02": "", "03": "" } } }
+        }
+    },
     "X0603C": {
         "VOICE": {
             "EDENCLUB": {
@@ -18790,6 +20054,14 @@
                         }
                     },
                     "CHOICEGROUP": { "LEAVE": "LÄMNA" }
+                }
+            },
+            "GAMEOVERFIGHT": {
+                "PC": {
+                    "X06CCONNOR": { "ENDING": "" },
+                    "X06CANDWOMMURDERER": { "ENDING": "" },
+                    "X06CANDWOMACCOMPLICE": { "ENDING": "" },
+                    "X06CHANK": { "ENDINGHANK": "" }
                 }
             },
             "HANKGETUP": {
@@ -19458,6 +20730,7 @@
                     }
                 }
             },
+            "SAKURA": { "FA": { "KARA": { "SONG": "" } } },
             "SLOPE": {
                 "PC": {
                     "X03MMARKUS": { "PHILEASV2": "" },
@@ -19695,6 +20968,15 @@
                             "3": "Försök inte under några omständigheter förstöra din android själv. De är oförutsägbara och potentiellt våldsamma."
                         }
                     }
+                }
+            },
+            "NEWS04": { "PC": { "X02ATVBRINKLEY": { "NEWS": "" } } },
+            "NEWS05": { "PC": { "X02ATVCARTLAND": { "NEWS": "" } } },
+            "TESTIMONY": {
+                "PC": {
+                    "X02APBY01": { "NEWS01": "" },
+                    "X02APBY02": { "NEWS02": "" },
+                    "X02APBY03": { "NEWS03": "" }
                 }
             },
             "NEWS01": {
@@ -20128,6 +21410,16 @@
                     }
                 }
             },
+            "REACTIONSNEUTRAL": {
+                "PC": {
+                    "X10MREACTNEUTRALMAN01": { "MAN01": "" },
+                    "X10MREACTNEUTRALMAN02": { "MAN02": "" },
+                    "X10MREACTNEUTRALMAN03": { "MAN03": "" },
+                    "X10MREACTNEUTRALWOM03": { "WOMAN03": "" },
+                    "X10MREACTNEUTRALWOM02": { "WOMAN02": "" },
+                    "X10MREACTNEUTRALWOM01": { "WOMAN01": "" }
+                }
+            },
             "POLICEMAN": {
                 "PC": {
                     "X10MPOLICEMAN01": {
@@ -20207,6 +21499,16 @@
                             "4": "Greg!"
                         }
                     }
+                }
+            }
+        },
+        "INTRO": {
+            "ARRIVAL": {
+                "PC": {
+                    "X10MMARKUS": { "MOVIE": "" },
+                    "X10MMARLA": { "MOVIE": "" },
+                    "X10MJOSH": { "MOVIE": "" },
+                    "X10MSIMON": { "MOVIE": "" }
                 }
             }
         },
@@ -21652,6 +22954,91 @@
             }
         }
     },
+    "X0101T": {
+        "INTRO": {
+            "TV": {
+                "PC": {
+                    "X01TACTOR": { "KISS": "" },
+                    "X01TACTRESS": { "KISS": "" }
+                }
+            }
+        }
+    },
+    "X6002X": {
+        "ONOM": {
+            "HIT": {
+                "FO": {
+                    "KARA": {
+                        "LIGHT01": "",
+                        "LIGHT02": "",
+                        "LIGHT03": "",
+                        "MID03": "",
+                        "MID02": "",
+                        "MID01": "",
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "HEAVY03": "",
+                        "LIGHT03V2": "",
+                        "LIGHT02V2": "",
+                        "LIGHT01V2": "",
+                        "MID03V2": "",
+                        "MID02V2": "",
+                        "MID01V2": "",
+                        "HEAVY03V2": "",
+                        "HEAVY02V2": "",
+                        "HEAVY01V2": ""
+                    }
+                }
+            },
+            "FIGHT": { "FO": { "KARA": { "CYC01": "" } } },
+            "EFFORT": { "FO": { "KARA": { "LIGHT01": "" } } },
+            "STRIKE": {
+                "FO": {
+                    "KARA": {
+                        "LIGHT01": "",
+                        "LIGHT02": "",
+                        "MID01": "",
+                        "MID02": "",
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "LIGHT02V2": "",
+                        "LIGHT01V2": "",
+                        "MID02V2": "",
+                        "MID01V2": "",
+                        "HEAVY02V2": "",
+                        "HEAVY01V2": ""
+                    }
+                }
+            },
+            "NEUTRAL": { "FO": { "KARA": { "CYC01": "", "CYC02": "" } } },
+            "FEAR": { "FO": { "KARA": { "01": "", "02": "" } } },
+            "DISGUST": { "FO": { "KARA": { "01": "" } } },
+            "ANGER": { "FO": { "KARA": { "01": "" } } },
+            "ANXIOUS": { "FO": { "KARA": { "CYC01": "", "CYC02": "" } } },
+            "SURPRISED": { "FO": { "KARA": { "HAPPY01": "", "SADLY01": "" } } },
+            "PANICK": { "FO": { "KARA": { "CYC01": "" } } },
+            "NERVOUS": { "FO": { "KARA": { "01": "", "02": "" } } },
+            "CHASE": {
+                "FO": { "KARA": { "02": "", "03": "", "04": "", "05": "" } }
+            },
+            "BREATH": {
+                "FO": {
+                    "KARA": {
+                        "PANIC01": "",
+                        "STEALTHSTRESS01": "",
+                        "RUNPANIC01": ""
+                    }
+                }
+            },
+            "STRUGGLE": {
+                "FO": { "KARA": { "LIGHT01": "", "MID01": "", "HEAVY01": "" } }
+            },
+            "STRESSNERVOUS": { "FO": { "KARA": { "CYC01": "" } } },
+            "CLENCHED": { "FO": { "KARA": { "01": "" } } },
+            "DETERMINED": { "FO": { "KARA": { "CYC01": "" } } }
+        },
+        "GENERIC": { "FACIAL": { "FA": { "KARA": { "REDICE": "" } } } }
+    },
     "X0904M": {
         "CARLHOUSE": {
             "ALARM": {
@@ -21889,6 +23276,14 @@
                         "LOST": "VILSE",
                         "DARK": "BISTER"
                     }
+                }
+            }
+        },
+        "AMANDAGARDEN": {
+            "LASTTALK": {
+                "PC": {
+                    "X09MCONNOR": { "MOVIE": "" },
+                    "X09MAMANDA": { "MOVIE": "" }
                 }
             }
         },
@@ -22318,6 +23713,12 @@
                     }
                 }
             },
+            "CONNORAPOLOGIES": {
+                "PC": {
+                    "X09MCONNOR": { "APOLOGIES": "" },
+                    "X09MKARA": { "APOLOGIES": "" }
+                }
+            },
             "KARACONNOR": {
                 "PC": {
                     "X09MCONNOR": {
@@ -22639,6 +24040,7 @@
                     }
                 }
             },
+            "GETOUTTAHERE": { "FA": { "X02KDAD": { "PUSH": "" } } },
             "OUTTAHERE": { "FA": { "X02KDAD": { "PUSH": "Ur vägen!" } } },
             "TRYTALK": {
                 "PC": {
@@ -22662,6 +24064,18 @@
                         }
                     },
                     "X02KKARA": { "THROAT": "" }
+                }
+            },
+            "END": {
+                "PC": {
+                    "X02KDAD": { "TIMEREND": "", "TODDLEAVES": "" },
+                    "X02KALICE": { "TIMEREND": "", "TODDLEAVES": "" },
+                    "X02KKARA": { "TIMEREND": "" }
+                },
+                "FA": {
+                    "X02KDAD": { "PUNCH": "" },
+                    "X02KALICE": { "PUNCH": "" },
+                    "X02KKARA": { "PUNCH": "" }
                 }
             }
         },
@@ -22715,6 +24129,16 @@
                             "8": "Allt är ditt fel!"
                         }
                     }
+                }
+            }
+        },
+        "WINDOW": {
+            "GRAB": { "PC": { "X02KDAD": { "COMEHERE": "" } } },
+            "ESCAPE": {
+                "PC": {
+                    "X02KDAD": { "QUICK": "" },
+                    "X02KALICE": { "QUICK": "" },
+                    "X02KKARA": { "QUICK": "" }
                 }
             }
         },
@@ -23116,6 +24540,15 @@
                 }
             }
         },
+        "KARA": {
+            "COMEBACK": {
+                "PC": {
+                    "X02KDAD": { "GETOUT": "" },
+                    "X02KALICE": { "GETOUT": "" },
+                    "X02KKARA": { "GETOUT": "" }
+                }
+            }
+        },
         "TODDFIGHT": {
             "GENERIC": {
                 "FA": {
@@ -23124,6 +24557,174 @@
                         "STAYBACKALICE": "Håll dig undan!",
                         "ALICE": "Alice!"
                     }
+                }
+            }
+        }
+    },
+    "X0405K": {
+        "CHASE": {
+            "KARA": {
+                "PC": {
+                    "X04KKARA": {
+                        "VOICE01": "",
+                        "VOICE02": "",
+                        "VOICE03": "",
+                        "VOICE04": "",
+                        "VOICE05": "",
+                        "VOICE06": "",
+                        "VOICE07": "",
+                        "VOICE08": ""
+                    }
+                }
+            },
+            "SPOTTED01": {
+                "VO": {
+                    "X04KCASE1COP01": { "CASE01": "" },
+                    "X04KRADIOCOP01": { "CASE01": "" }
+                }
+            }
+        },
+        "CHASEV2": {
+            "PART02": {
+                "FA": {
+                    "X04KCOP01": {
+                        "NOTICE01": {
+                            "1": "Jävlar, det är de!",
+                            "2": "Stanna! Polis!"
+                        },
+                        "NOTICE02": "Fort, rapportera det!"
+                    }
+                }
+            },
+            "PART04": {
+                "FA": {
+                    "X04KCOP04": {
+                        "NOTICE01": { "1": "Stanna!", "2": "Polis!" }
+                    },
+                    "X04KMOTELCOP01": {
+                        "NOTICE02": { "1": "Åh,", "2": "fan!" }
+                    }
+                }
+            },
+            "PART03": {
+                "FA": {
+                    "X04KCOP03": {
+                        "NOTICE": { "1": "Hallå!", "2": "Vänta lite!" }
+                    },
+                    "X04KMOTELCOP01": { "SHIT": "Helvete!" }
+                }
+            },
+            "PART05": {
+                "FA": {
+                    "X04KCOP05": {
+                        "NOTICE01": "Fan, det är de! Stanna! Polis!",
+                        "NOTICE02": "Fort, rapportera det!"
+                    }
+                }
+            },
+            "PART06": {
+                "FA": {
+                    "X04KCOP07": {
+                        "NOTICE01": "Fan, det är de! Stanna! Polis!",
+                        "NOTICE02": "Helvete!"
+                    }
+                }
+            },
+            "NOTNOTICED": {
+                "PC": {
+                    "X04KCONNOR": {
+                        "LATER": "",
+                        "LOST": "Vi tappade bort den."
+                    },
+                    "X04KHANK": {
+                        "LATER": {
+                            "1": "Den kommer inte långt.",
+                            "2": "Vi hittar den förr eller senare.",
+                            "3": "Kom nu."
+                        },
+                        "LOST": "Spelet är slut, Connor."
+                    }
+                }
+            },
+            "NOTICED": {
+                "FA": {
+                    "X04KCONNOR": {
+                        "TRACKING": "Vart tog den vägen?",
+                        "DEADENDS": "Jag är med kommissarie Anderson. Vi tar över nu."
+                    }
+                },
+                "PC": {
+                    "X04KCOP08": {
+                        "NOTTRACKING": "Vi såg dem på väg mot tågstationen!",
+                        "TRACKINGCOP": "Ditåt. De är på väg mot tågstationen!"
+                    },
+                    "X04KCONNOR": {
+                        "CLIMBFENCE": "Skjut inte! Vi behöver den levande!"
+                    },
+                    "X04KCOP01": {
+                        "CLIMBFENCE": "Det kan vara för sent...",
+                        "DEADENDCOP": "Det är en återvändsgränd. Bara motorväg på andra sidan! De har ingenstans att ta vägen!"
+                    }
+                }
+            },
+            "PART01": {
+                "VO": { "X04KCARDRIVER": { "RUNCROSSING": "Se dig för!" } }
+            }
+        },
+        "HIGHWAY": {
+            "SUCCESS": {
+                "PC": {
+                    "X04KKARA": { "OKAY": { "1": "Mår du bra?", "2": "" } }
+                },
+                "VO": {
+                    "X04KCONNOR": { "NOTCROSS": "" },
+                    "X04KHANK": { "NOTCROSS": "" }
+                }
+            },
+            "START": {
+                "PC": {
+                    "X04KKARA": {
+                        "START": "",
+                        "GOACROSS": "",
+                        "SURRENDER": ""
+                    },
+                    "X04KALICE": {
+                        "START": "",
+                        "GOACROSS": "",
+                        "SURRENDER": ""
+                    },
+                    "CHOUCEGROUP01": { "GOACROSS": "", "SURRENDER": "" }
+                }
+            },
+            "GAMEOVER": {
+                "PC": {
+                    "X04CHANK": {
+                        "HANK": { "1": "Herregud...", "2": "Jävlar!" }
+                    }
+                }
+            },
+            "CONNOR": {
+                "PC": {
+                    "X04CHANK": {
+                        "GETIN": {
+                            "1": "Jävlar, det är helt sjukt...",
+                            "2": "Hallå! Vart ska du?",
+                            "3": "Det kommer de inte göra. De klarar sig aldrig till andra sidan.",
+                            "4": "Du kommer ta livet av dig!",
+                            "5": "Följ inte efter, Connor. Det är en order!"
+                        }
+                    },
+                    "X04KCONNOR": {
+                        "GETIN": {
+                            "1": "Jag kan inte låta dem komma undan.",
+                            "2": "Jag kan inte riskera det."
+                        }
+                    },
+                    "CHOICEGROUP": { "GIVEUP": "GE UPP", "GO": "GÅ" }
+                },
+                "FA": {
+                    "X04KCONNOR": { "GIVEUP": "", "GO": "" },
+                    "X04KHANK": { "GIVEUP": "", "GO": "Connor, för helvete!" }
                 }
             }
         }
@@ -23367,6 +24968,13 @@
             }
         },
         "END": {
+            "CARLDEAD": {
+                "PC": {
+                    "X02MMARKUSINT": { "SHOT": "", "MURDERER": "" },
+                    "X02MLEO": { "SHOT": "", "MURDERER": "" },
+                    "X02MPOLICEM01": { "FREEZE": "" }
+                }
+            },
             "LEODEAD": {
                 "PC": {
                     "X02MCARL": {
@@ -23380,6 +24988,12 @@
                     },
                     "X02MMARKUSINT": { "LEO": "" },
                     "X02MLEO": { "LEO": "", "LEOCYC": "" }
+                }
+            },
+            "LEAVE": {
+                "PC": {
+                    "X02MCARL": { "LEAVE": "" },
+                    "X02MMARKUSINT": { "LEAVE": "" }
                 }
             },
             "GO": {
@@ -23510,6 +25124,24 @@
                 }
             }
         },
+        "OFFICE": {
+            "COPTALKING": {
+                "PC": {
+                    "X03CCOP01": { "TALK": "" },
+                    "X03CCOP03": { "TALK": "" }
+                }
+            },
+            "ANDCHITCHAT": {
+                "PC": {
+                    "X02CCHAD": {
+                        "TALK": {
+                            "1": "Nähä.",
+                            "2": "Den jävla maskinen kunde ha dödat alla i rummet."
+                        }
+                    }
+                }
+            }
+        },
         "HANK": {
             "CONNORBACK": {
                 "PC": {
@@ -23563,6 +25195,13 @@
                             "5": "Eller nåt."
                         }
                     }
+                }
+            },
+            "DEVIANTS": {
+                "PC": {
+                    "X03CCONNOR": { "DEVIANTS": "", "MPARSITDOWN": "" },
+                    "X03CHANK": { "DEVIANTS": "" },
+                    "CHOICEGROUP": { "DEVIANTS": "" }
                 }
             },
             "PARTNER": {
@@ -23857,6 +25496,18 @@
                 }
             }
         },
+        "HANKOFFICE": {
+            "PHONE": {
+                "VO": {
+                    "X03CCONNOR": { "START": "" },
+                    "X03CHANK": { "START": "" }
+                },
+                "PC": {
+                    "X03CCONNOR": { "MESSAGE": "", "HANGUP": "" },
+                    "CHOICEGROUP": { "MESSAGE": "", "HANGUP": "" }
+                }
+            }
+        },
         "HANKDESK": {
             "LOOKINGFOR": {
                 "PC": {
@@ -23880,15 +25531,13 @@
                 }
             }
         },
-        "OFFICE": {
-            "ANDCHITCHAT": {
+        "CONFERENCEROOM": {
+            "EXIT": {
                 "PC": {
-                    "X02CCHAD": {
-                        "TALK": {
-                            "1": "Nähä.",
-                            "2": "Den jävla maskinen kunde ha dödat alla i rummet."
-                        }
-                    }
+                    "X03CCONNOR": { "OUT01": "", "OUT02": "" },
+                    "X03CDETECTIVE01": { "OUT01": "", "OUT02": "" },
+                    "X03CDETECTIVE02": { "OUT01": "", "OUT02": "" },
+                    "X03CANDCONF": { "OUT01": "", "OUT02": "" }
                 }
             }
         },
@@ -24183,6 +25832,12 @@
                     }
                 }
             },
+            "ANDGAMEVOER": {
+                "FA": {
+                    "X03CHARVEY": { "ANDDEADHARVEY": "" },
+                    "X03CCHAD": { "ANDDEADCHAD": "" }
+                }
+            },
             "DRUNKGUY": {
                 "PC": {
                     "X03CDRUNKGUY": {
@@ -24228,6 +25883,9 @@
                 }
             }
         },
+        "TVSCREEN": {
+            "TODD": { "PC": { "X03CWEBB": { "NOTKILLED": "", "KILLED": "" } } }
+        },
         "TV": {
             "NEWS": {
                 "PC": {
@@ -24267,6 +25925,49 @@
                             "6": "Vi håller er uppdaterade allt eftersom."
                         }
                     }
+                }
+            }
+        },
+        "CAFETERIA": {
+            "BULLY": {
+                "PC": {
+                    "X03CCURTIS": {
+                        "START": "",
+                        "IGNORE": "",
+                        "APPROACH": "",
+                        "DECLINE": "",
+                        "ANSWER": "",
+                        "ACCEPT": "",
+                        "IGNOREAGAIN": "",
+                        "REFUSE": ""
+                    },
+                    "X03CCHAD": {
+                        "START": "",
+                        "IGNORE": "",
+                        "APPROACH": "",
+                        "DECLINE": "",
+                        "ANSWER": "",
+                        "ACCEPT": "",
+                        "IGNOREAGAIN": "",
+                        "REFUSE": ""
+                    },
+                    "X03CCONNOR": {
+                        "IGNORE": "",
+                        "APPROACH": "",
+                        "DECLINE": "",
+                        "ANSWER": "",
+                        "ACCEPT": "",
+                        "IGNOREAGAIN": "",
+                        "REFUSE": ""
+                    },
+                    "X03CHANK": {
+                        "DECLINE": "",
+                        "IGNOREAGAIN": "",
+                        "REFUSE": ""
+                    },
+                    "CHOICEGROUP01": { "APPROACH": "", "IGNORE": "" },
+                    "CHOICEGROUP02": { "ANSWER": "", "DECLINE": "" },
+                    "CHOICEGROUP03": { "ACCEPT": "", "REFUSE": "" }
                 }
             }
         }
@@ -24462,6 +26163,15 @@
                         "INDIFFERENT": "LIKGILTIG",
                         "DONTKNOW": "VET INTE"
                     }
+                }
+            }
+        }
+    },
+    "X5050X": {
+        "ONOM": {
+            "DGO": {
+                "FO": {
+                    "MANGEN": { "LAUGH01": "", "LAUGH02": "", "MUSIC": "" }
                 }
             }
         }
@@ -25190,6 +26900,12 @@
                     }
                 }
             },
+            "NOMONEY": {
+                "PC": {
+                    "X03KKARA": { "NOMONEY": "" },
+                    "X03KALICE": { "NOMONEY": "" }
+                }
+            },
             "VENDOR": {
                 "PC": {
                     "X03KKARA": {
@@ -25825,6 +27541,23 @@
                     }
                 }
             },
+            "START": {
+                "PC": {
+                    "X04CHARVEY": { "MOVIE": "" },
+                    "X04CCURTIS": { "MOVIE": "" },
+                    "X04CANDCARLOS": { "MOVIE": "" },
+                    "X04CHANK": { "MOVIE": "" }
+                }
+            },
+            "BADENDING": {
+                "PC": {
+                    "X04CHARVEY": { "MOVIE": "" },
+                    "X04CCURTIS": { "MOVIE": "" },
+                    "X04CANDCARLOS": { "MOVIE": "" },
+                    "X04CHANK": { "MOVIE": "" },
+                    "X04CCONNOR": { "MOVIE": "" }
+                }
+            },
             "SUICIDE": {
                 "PC": {
                     "X04CHARVEY": {
@@ -26311,6 +28044,21 @@
                             "2": "Det är bäst så."
                         }
                     }
+                }
+            },
+            "CHAD": {
+                "PC": {
+                    "X04CHARVEY": { "CHAD": "", "VOLUNTEER": "", "HANK": "" },
+                    "X04CCURTIS": { "CHAD": "", "VOLUNTEER": "", "HANK": "" },
+                    "X04CCHAD": { "CHAD": "", "VOLUNTEER": "", "HANK": "" },
+                    "X04CANDCARLOS": {
+                        "CHAD": "",
+                        "VOLUNTEER": "",
+                        "HANK": ""
+                    },
+                    "X04CHANK": { "CHAD": "", "VOLUNTEER": "", "HANK": "" },
+                    "X04CCONNOR": { "CHAD": "", "VOLUNTEER": "", "HANK": "" },
+                    "CHOICEGROUP": { "VOLUNTEER": "", "SAYNOTHING": "" }
                 }
             },
             "MIRROR": {
@@ -27494,137 +29242,6 @@
             }
         }
     },
-    "X0405K": {
-        "CHASEV2": {
-            "PART02": {
-                "FA": {
-                    "X04KCOP01": {
-                        "NOTICE01": {
-                            "1": "Jävlar, det är de!",
-                            "2": "Stanna! Polis!"
-                        },
-                        "NOTICE02": "Fort, rapportera det!"
-                    }
-                }
-            },
-            "PART04": {
-                "FA": {
-                    "X04KCOP04": {
-                        "NOTICE01": { "1": "Stanna!", "2": "Polis!" }
-                    },
-                    "X04KMOTELCOP01": {
-                        "NOTICE02": { "1": "Åh,", "2": "fan!" }
-                    }
-                }
-            },
-            "PART03": {
-                "FA": {
-                    "X04KCOP03": {
-                        "NOTICE": { "1": "Hallå!", "2": "Vänta lite!" }
-                    },
-                    "X04KMOTELCOP01": { "SHIT": "Helvete!" }
-                }
-            },
-            "PART05": {
-                "FA": {
-                    "X04KCOP05": {
-                        "NOTICE01": "Fan, det är de! Stanna! Polis!",
-                        "NOTICE02": "Fort, rapportera det!"
-                    }
-                }
-            },
-            "PART06": {
-                "FA": {
-                    "X04KCOP07": {
-                        "NOTICE01": "Fan, det är de! Stanna! Polis!",
-                        "NOTICE02": "Helvete!"
-                    }
-                }
-            },
-            "NOTNOTICED": {
-                "PC": {
-                    "X04KCONNOR": {
-                        "LATER": "",
-                        "LOST": "Vi tappade bort den."
-                    },
-                    "X04KHANK": {
-                        "LATER": {
-                            "1": "Den kommer inte långt.",
-                            "2": "Vi hittar den förr eller senare.",
-                            "3": "Kom nu."
-                        },
-                        "LOST": "Spelet är slut, Connor."
-                    }
-                }
-            },
-            "NOTICED": {
-                "FA": {
-                    "X04KCONNOR": {
-                        "TRACKING": "Vart tog den vägen?",
-                        "DEADENDS": "Jag är med kommissarie Anderson. Vi tar över nu."
-                    }
-                },
-                "PC": {
-                    "X04KCOP08": {
-                        "NOTTRACKING": "Vi såg dem på väg mot tågstationen!",
-                        "TRACKINGCOP": "Ditåt. De är på väg mot tågstationen!"
-                    },
-                    "X04KCONNOR": {
-                        "CLIMBFENCE": "Skjut inte! Vi behöver den levande!"
-                    },
-                    "X04KCOP01": {
-                        "CLIMBFENCE": "Det kan vara för sent...",
-                        "DEADENDCOP": "Det är en återvändsgränd. Bara motorväg på andra sidan! De har ingenstans att ta vägen!"
-                    }
-                }
-            },
-            "PART01": {
-                "VO": { "X04KCARDRIVER": { "RUNCROSSING": "Se dig för!" } }
-            }
-        },
-        "HIGHWAY": {
-            "SUCCESS": {
-                "PC": {
-                    "X04KKARA": { "OKAY": { "1": "Mår du bra?", "2": "" } }
-                },
-                "VO": {
-                    "X04KCONNOR": { "NOTCROSS": "" },
-                    "X04KHANK": { "NOTCROSS": "" }
-                }
-            },
-            "GAMEOVER": {
-                "PC": {
-                    "X04CHANK": {
-                        "HANK": { "1": "Herregud...", "2": "Jävlar!" }
-                    }
-                }
-            },
-            "CONNOR": {
-                "PC": {
-                    "X04CHANK": {
-                        "GETIN": {
-                            "1": "Jävlar, det är helt sjukt...",
-                            "2": "Hallå! Vart ska du?",
-                            "3": "Det kommer de inte göra. De klarar sig aldrig till andra sidan.",
-                            "4": "Du kommer ta livet av dig!",
-                            "5": "Följ inte efter, Connor. Det är en order!"
-                        }
-                    },
-                    "X04KCONNOR": {
-                        "GETIN": {
-                            "1": "Jag kan inte låta dem komma undan.",
-                            "2": "Jag kan inte riskera det."
-                        }
-                    },
-                    "CHOICEGROUP": { "GIVEUP": "GE UPP", "GO": "GÅ" }
-                },
-                "FA": {
-                    "X04KCONNOR": { "GIVEUP": "", "GO": "" },
-                    "X04KHANK": { "GIVEUP": "", "GO": "Connor, för helvete!" }
-                }
-            }
-        }
-    },
     "X0303C": {
         "LUNCH": {
             "WELCOME": { "VO": { "X03CHANK": { "CAR": "Whoa! Se upp!" } } },
@@ -27694,6 +29311,45 @@
                             "3": "Du, hör på..."
                         }
                     }
+                }
+            },
+            "TALK": {
+                "PC": {
+                    "X03CCONNOR": {
+                        "DEVIANTS": "",
+                        "CHOLESTEROL": "",
+                        "PAYLUNCH": "",
+                        "BETS": "",
+                        "FALL": "",
+                        "ENDING": "",
+                        "EMMADEAD": "",
+                        "LIE": "",
+                        "TRUTH": "",
+                        "INTERROGATION": "",
+                        "PETSHOP": "",
+                        "OUTRO": ""
+                    },
+                    "X03CHANK": {
+                        "DEVIANTS": "",
+                        "CHOLESTEROL": "",
+                        "PAYLUNCH": "",
+                        "BETS": "",
+                        "FALL": "",
+                        "ENDING": "",
+                        "EMMADEAD": "",
+                        "LIE": "",
+                        "TRUTH": "",
+                        "INTERROGATION": "",
+                        "PETSHOP": "",
+                        "OUTRO": ""
+                    },
+                    "CHOICEGROUP01": {
+                        "BETS": "",
+                        "PAYLUNCH": "",
+                        "CHOLESTEROL": "",
+                        "DEVIANTS": ""
+                    },
+                    "CHOICEGROUP02": { "TRUTH": "", "LIE": "" }
                 }
             },
             "TALKV2": {
@@ -27875,6 +29531,13 @@
                     "06NEXTCASECHOICE": { "NEXTCASE": "NÄSTA FALL" }
                 }
             },
+            "PEDRO": {
+                "PC": {
+                    "X03CHANK": { "MOVIE": "" },
+                    "X03CTRUCKGUY": { "MOVIE": "" },
+                    "X03CPEDRO": { "MOVIE": "" }
+                }
+            },
             "WAIT": {
                 "PC": {
                     "X03CCONNOR": {
@@ -27986,6 +29649,13 @@
                         "OTHERSIDE": "Ta andra sidan! Sätt fart!",
                         "HERE": "De är där borta!"
                     }
+                }
+            },
+            "GAMEOVER": {
+                "PC": {
+                    "X05KKARA": { "SHOOT": "" },
+                    "X05KALICE": { "SHOOT": "" },
+                    "X05KZLATKO": { "SHOOT": "" }
                 }
             }
         },
@@ -28266,6 +29936,7 @@
             }
         },
         "CELL": {
+            "COME": { "VO": { "X05KANDCELLSCARY": { "COME": "" } } },
             "HELP": { "VO": { "X05KANDCELLSCARY": { "HELP": "Hjälp oss." } } }
         },
         "CELLAND": {
@@ -28447,6 +30118,31 @@
                         }
                     }
                 }
+            },
+            "CATCHA": { "PC": { "X05KZLATKO": { "CATCHA": "" } } }
+        },
+        "STORAGEROOM": {
+            "FREE": {
+                "PC": {
+                    "X05KKARA": { "FREE": "" },
+                    "X05KALICE": { "FREE": "" }
+                }
+            },
+            "ALICE": {
+                "PC": {
+                    "X05KKARA": { "FOUND": "" },
+                    "X05KALICE": { "FOUND": "" }
+                }
+            },
+            "GAMEOVER": {
+                "FA": {
+                    "X05KZLATKO": {
+                        "SPOTTED": {
+                            "1": "Där är du! ",
+                            "2": "Slut på kurragömma för dig."
+                        }
+                    }
+                }
             }
         },
         "LOCKUPROOM": {
@@ -28508,18 +30204,6 @@
                             "4": "Andra obekräftade...",
                             "5": "Polisen vägrar kommentera för tillfället.",
                             "6": "Nu över till andra nyheter..."
-                        }
-                    }
-                }
-            }
-        },
-        "STORAGEROOM": {
-            "GAMEOVER": {
-                "FA": {
-                    "X05KZLATKO": {
-                        "SPOTTED": {
-                            "1": "Där är du! ",
-                            "2": "Slut på kurragömma för dig."
                         }
                     }
                 }
@@ -28919,6 +30603,12 @@
             }
         },
         "BADCONNOR": {
+            "KILLED": {
+                "PC": {
+                    "X11MMARKUS": { "SHOOT": "" },
+                    "X11MBADCONNOR": { "SHOOT": "" }
+                }
+            },
             "FIGHT": {
                 "FA": {
                     "X11MBADCONNOR": {
@@ -29016,6 +30706,102 @@
                     }
                 }
             }
+        }
+    },
+    "X6004X": {
+        "ONOM": {
+            "INTRIGUED": { "FO": { "HANK": { "01": "" } } },
+            "HIT": {
+                "FO": {
+                    "HANK": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "HEAVY03": "",
+                        "HEAVY04": "",
+                        "HEAVY05": "",
+                        "HEAVY06": "",
+                        "HEAVY07": "",
+                        "INTERMEDIATE01": "",
+                        "INTERMEDIATE02": "",
+                        "INTERMEDIATE03": "",
+                        "INTERMEDIATE06": "",
+                        "INTERMEDIATE05": "",
+                        "INTERMEDIATE04": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": "",
+                        "LOW04": "",
+                        "LOW05": ""
+                    }
+                }
+            },
+            "STRIKE": {
+                "FO": {
+                    "HANK": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "HEAVY03": "",
+                        "HEAVY04": "",
+                        "HEAVY05": "",
+                        "HEAVY06": "",
+                        "HEAVY07": "",
+                        "HEAVY08": "",
+                        "HEAVY09": "",
+                        "HEAVY10": "",
+                        "HEAVY11": "",
+                        "HEAVY12": "",
+                        "HEAVY13": "",
+                        "HEAVY14": "",
+                        "HEAVY15": "",
+                        "HEAVY16": "",
+                        "INTERMEDIATE01": "",
+                        "INTERMEDIATE02": "",
+                        "INTERMEDIATE03": "",
+                        "INTERMEDIATE04": "",
+                        "INTERMEDIATE08": "",
+                        "INTERMEDIATE07": "",
+                        "INTERMEDIATE06": "",
+                        "INTERMEDIATE05": "",
+                        "INTERMEDIATE10": "",
+                        "INTERMEDIATE09": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": "",
+                        "LOW04": "",
+                        "LOW07": "",
+                        "LOW06": "",
+                        "LOW05": "",
+                        "TIRED01": "",
+                        "TIRED02": "",
+                        "TIRED03": "",
+                        "TIRED04": ""
+                    }
+                }
+            },
+            "ANGRY": { "FO": { "HANK": { "01": "" } } },
+            "EFFORT": {
+                "FO": {
+                    "HANK": {
+                        "01HEAVY01": "",
+                        "01HEAVY02": "",
+                        "01HEAVY03": "",
+                        "02HEAVY01": "",
+                        "02HEAVY02": "",
+                        "INTERMEDIATE01": "",
+                        "INTERMEDIATE02": "",
+                        "INTERMEDIATE03": "",
+                        "INTERMEDIATE06": "",
+                        "INTERMEDIATE05": "",
+                        "INTERMEDIATE04": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": "",
+                        "LOW05": "",
+                        "LOW04": ""
+                    }
+                }
+            },
+            "OUTOFBREATH": { "FO": { "HANK": { "01": "" } } }
         }
     },
     "X0501K": {
@@ -29219,6 +31005,7 @@
             }
         },
         "WORKSHOP": {
+            "TRACKER": { "PC": { "X05KZLATKO": { "TRAKER": "" } } },
             "ROLLERCOASTER": {
                 "PC": {
                     "X05KKARA": {
@@ -29338,6 +31125,96 @@
                         "TRACKERV2PART2": "Möt mig i vardagsrummet."
                     },
                     "A3D": { "CLOTHES": "KLÄDER" }
+                }
+            }
+        }
+    },
+    "X0503K": {
+        "RESET": {
+            "HEREYOUARE": { "PC": { "X05KZLATKO": { "PUTDOWN": "" } } },
+            "LUTHERORDERS": {
+                "PC": {
+                    "X05KKARA": { "ORDERS01": "", "ORDERS02": "" },
+                    "X05KLUTHER": { "ORDERS01": "", "ORDERS02": "" }
+                }
+            },
+            "ANDROIDBUST": {
+                "PC": {
+                    "X05KKARA": {
+                        "BUST01": "",
+                        "BACKTOREALITY01": "",
+                        "BACKTOREALITY02": ""
+                    },
+                    "X05KZLATKO": {
+                        "BUST01": "",
+                        "BACKTOREALITY01": "",
+                        "BACKTOREALITY02": ""
+                    }
+                }
+            },
+            "LUTHERNEWMISSION": {
+                "PC": {
+                    "X05KZLATKO": {
+                        "NEWMISSION01": "",
+                        "NEWMISSION02": "",
+                        "NEWMISSION03": ""
+                    },
+                    "X05KLUTHER": {
+                        "NEWMISSION01": "",
+                        "NEWMISSION02": "",
+                        "NEWMISSION03": ""
+                    }
+                }
+            },
+            "FOUNDALICE": {
+                "PC": {
+                    "X05KKARA": { "REUNION": "" },
+                    "X05KALICE": { "REUNION": "" }
+                }
+            }
+        },
+        "CELL": {
+            "MONSTERS": {
+                "VO": {
+                    "X05KANDROIDCELL01": { "COMEBACK01": "" },
+                    "X05KANDROIDCELL02": { "COMEBACK02": "" },
+                    "X05KANDROIDCELL03": { "COMEBACK03": "" },
+                    "X05KANDROIDCELL04": { "COMEBACK04": "" }
+                },
+                "PC": {
+                    "X05KANDROIDCELL01": { "COMEBACK05": "", "COMEBACK06": "" }
+                }
+            }
+        },
+        "LOST": {
+            "BACK": { "PC": { "X05KKARA": { "BACK": "" } } },
+            "GAMEOVER": { "PC": { "X05KKARA": { "SORRY": "" } } },
+            "FINALE": {
+                "PC": {
+                    "X05KKARA": { "ENOUGH": "", "ACCEPT": "", "REFUSE": "" },
+                    "X05KALICE": { "ENOUGH": "", "ACCEPT": "", "REFUSE": "" },
+                    "X05KLUTHER": { "ENOUGH": "", "ACCEPT": "", "REFUSE": "" },
+                    "JOINCHOICE": { "ACCEPT": "", "REFUSE": "" }
+                }
+            },
+            "TV": {
+                "PC": { "X05KTVSPEAKER": { "TODDALIVE": "", "TODDDEAD": "" } }
+            }
+        },
+        "CORRIDOR": {
+            "UPSET": {
+                "FA": {
+                    "X05KZLATKO": {
+                        "START": "",
+                        "WON": "",
+                        "BEAR": "",
+                        "MONSTERS": ""
+                    },
+                    "X05KANDROIDCELL01": { "HURRY": "" }
+                },
+                "PC": {
+                    "X05KKARA": { "LOST": "" },
+                    "X05KZLATKO": { "LOST": "", "GOTOBED": "" }
                 }
             }
         }
@@ -29914,6 +31791,14 @@
                     }
                 }
             }
+        }
+    },
+    "X6003X": {
+        "ONOM": {
+            "ANXIOUS": { "FO": { "ALICE": { "01": "" } } },
+            "CRYING": { "FO": { "ALICE": { "01": "", "02": "" } } },
+            "LOOKFIGHT": { "FO": { "ALICE": { "01": "" } } },
+            "FROZEN": { "FO": { "ALICE": { "01": "" } } }
         }
     },
     "X0701K": {
@@ -30500,6 +32385,13 @@
             }
         },
         "INTRO": {
+            "ARRIVAL": {
+                "PC": {
+                    "X07KKARA": { "START": "", "END": "" },
+                    "X07KALICE": { "START": "", "END": "" },
+                    "X07KLUTHER": { "START": "", "END": "" }
+                }
+            },
             "CARPROBLEM": {
                 "PC": {
                     "X07KKARA": { "STOP": "" },
@@ -31045,6 +32937,37 @@
             }
         }
     },
+    "X0602K": {
+        "STOCKROOM": {
+            "CHASING": { "PC": { "X06KZLATKO": { "CHASING": "" } } },
+            "FINALRUN": {
+                "PC": {
+                    "X06KKARA": {
+                        "START": "",
+                        "CHARGE": "",
+                        "SHOVE": "",
+                        "THROW": "",
+                        "LUTHER": ""
+                    },
+                    "X06KALICE": {
+                        "START": "",
+                        "CHARGE": "",
+                        "SHOVE": "",
+                        "THROW": "",
+                        "LUTHER": ""
+                    },
+                    "X06KZLATKO": {
+                        "START": "",
+                        "CHARGE": "",
+                        "SHOVE": "",
+                        "THROW": "",
+                        "LUTHER": ""
+                    },
+                    "CHOICEGROUP01": { "CHARGE": "", "SHOVE": "", "THROW": "" }
+                }
+            }
+        }
+    },
     "X0503M": {
         "JERICHO": {
             "ENCOUNTER": {
@@ -31448,6 +33371,65 @@
             }
         }
     },
+    "X6015X": {
+        "ONOM": {
+            "SCARED": { "FO": { "TRACI": { "01": "" } } },
+            "HIT": {
+                "FO": {
+                    "TRACI": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": ""
+                    }
+                }
+            },
+            "GETTINGHIT": {
+                "FO": {
+                    "TRACI": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "HEAVY03": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": ""
+                    }
+                }
+            },
+            "HITLEG": {
+                "FO": {
+                    "TRACI": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": ""
+                    }
+                }
+            },
+            "GETTINGHITSTOMACH": {
+                "FO": {
+                    "TRACI": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": ""
+                    }
+                }
+            }
+        }
+    },
+    "X6007X": {
+        "ONOM": {
+            "FIGHTING": { "FO": { "MARLA": { "02": "" } } },
+            "HIT": { "FO": { "MARLA": { "01": "", "02": "", "03": "" } } },
+            "STRIKE": { "FO": { "MARLA": { "01": "", "02": "", "03": "" } } },
+            "EFFORT": { "FO": { "MARLA": { "01": "" } } },
+            "SCARED": { "FO": { "MARLA": { "01": "" } } }
+        }
+    },
     "X0601M": {
         "INTRO": {
             "TIMETODECIDE": {
@@ -31521,6 +33503,13 @@
                             "8": "Jag vill inte stängas ned."
                         }
                     }
+                }
+            },
+            "INTERROGATE": {
+                "PC": {
+                    "X06MMARKUS": { "INTERROGATE": "" },
+                    "X06MANDROIDMANDAMAGED": { "INTERROGATE": "" },
+                    "CHOICEGROUP01": { "INTERROGATE": "" }
                 }
             },
             "MEETLUCY": {
@@ -31623,6 +33612,14 @@
                 }
             }
         },
+        "DIVERSION": {
+            "CANS2": {
+                "PC": {
+                    "X06MDESKGUARD01": { "CANS2": "" },
+                    "X06MDESKGUARD02": { "CANS2": "" }
+                }
+            }
+        },
         "AFTERMATH": {
             "EPILOGUE": {
                 "PC": {
@@ -31684,6 +33681,15 @@
                     "X06MSIMON": { "SPEECH1": "" },
                     "X06MJOSH": { "SPEECH1": "" },
                     "X06MJOHN": { "SPEECH1": "" }
+                }
+            }
+        },
+        "GUNFIGHT": {
+            "LOSECONCLUSION": {
+                "FA": {
+                    "X06MMARKUS": { "FLEE": "" },
+                    "X06MDESKGUARD01": { "FLEE": "" },
+                    "X06MDESKGUARD02": { "FLEE": "" }
                 }
             }
         }
@@ -32178,6 +34184,12 @@
                         "HANKSECRET": "HANKS HEMLIGHET"
                     }
                 }
+            },
+            "FAIL": {
+                "PC": {
+                    "X12CAMANDA": { "TOOLATE": "" },
+                    "X12CCONNOR": { "TOOLATE": "" }
+                }
             }
         },
         "PRISON": {
@@ -32322,6 +34334,32 @@
                     }
                 }
             },
+            "TRACY": {
+                "VO": { "X12CCONNOR": { "THINK": "" } },
+                "PC": {
+                    "X12CCONNOR": {
+                        "TRACI1AWAKEN": "",
+                        "VIDEOUNSEEN": "",
+                        "VIDEOSEEN": "",
+                        "TRACI2HEAD": "",
+                        "TRACI2GAMEOVER": ""
+                    },
+                    "X12CTRACI01": {
+                        "TRACI1AWAKEN": "",
+                        "VIDEOUNSEEN": "",
+                        "VIDEOSEEN": "",
+                        "TRACI2HEAD": "",
+                        "TRACI2GAMEOVER": ""
+                    },
+                    "X12CTRACI02": {
+                        "TRACI1AWAKEN": "",
+                        "VIDEOUNSEEN": "",
+                        "VIDEOSEEN": "",
+                        "TRACI2HEAD": "",
+                        "TRACI2GAMEOVER": ""
+                    }
+                }
+            },
             "MARKUS": {
                 "VO": {
                     "X12CCONNOR": {
@@ -32436,6 +34474,7 @@
                 }
             }
         },
+        "RUPPERT": { "THOUGHT": { "PC": { "X12CCONNOR": { "THOUGHT": "" } } } },
         "SOLUTION05": {
             "DANIEL": {
                 "FA": {
@@ -32527,6 +34566,17 @@
                         },
                         "END": "Amanda!"
                     }
+                }
+            }
+        },
+        "EVIDENCEROOM": {
+            "CURTIS": {
+                "PC": {
+                    "X12CCONNOR": { "BACK": "", "WIN": "", "LOSE": "" },
+                    "X12CCURTIS": { "BACK": "", "WIN": "", "LOSE": "" },
+                    "X12CPERKINS": { "WIN": "", "LOSE": "" },
+                    "X12CFBIAGENT01": { "WIN": "", "LOSE": "" },
+                    "X12CFBIAGENT02": { "WIN": "", "LOSE": "" }
                 }
             }
         },
@@ -32755,6 +34805,15 @@
     },
     "X0603M": {
         "AFTERMATCH": {
+            "SPEECH": {
+                "PC": {
+                    "X06MMARKUS": {
+                        "SPEECH1": "",
+                        "SPEECHBLOOD": "",
+                        "SPEECH2": ""
+                    }
+                }
+            },
             "JERICHO": {
                 "PC": {
                     "X06MMARKUS": {
@@ -32804,288 +34863,6 @@
                         "BAGSEMPTY": "Vi tog det vi kunde... men var tvungna att springa innan vi hann fylla väskorna."
                     },
                     "X06MJOHN": { "TRUCK": "", "BAGSFULL": "", "BAGSEMPTY": "" }
-                }
-            }
-        }
-    },
-    "X6016X": {
-        "ONOM": {
-            "DCO": {
-                "FO": {
-                    "DCO": {
-                        "NEUTRALANDROID": "",
-                        "ANXIOUS": "",
-                        "STRESSED": "",
-                        "DETERMINED": "",
-                        "AFRAID": "",
-                        "SAD": "",
-                        "SHOUT": "",
-                        "SMILING": "",
-                        "ANGER": "",
-                        "SURPRISEHAPPY": "Åh, wow!",
-                        "SURPRISESAD": "",
-                        "LAUGH": "",
-                        "DISGUST": "",
-                        "PAIN": "",
-                        "THINK": "",
-                        "CHEERS": "",
-                        "PANICCRY": {
-                            "1": "Se upp! Nej! Vänta!",
-                            "2": "Var är du?",
-                            "3": "Sally! ",
-                            "4": "Se upp!"
-                        }
-                    }
-                }
-            },
-            "BSC": {
-                "FO": {
-                    "BSC": {
-                        "NEUTRALANDROID": "",
-                        "HUMAN": "",
-                        "ANXIOUS": "",
-                        "STRESSED": "",
-                        "DETERMINED": "",
-                        "AFRAID": "",
-                        "DISDAIN": "",
-                        "SAD": "",
-                        "CONFUSED": "",
-                        "SMILING": "",
-                        "ANGER": "",
-                        "SURPRISEHAPPY": "",
-                        "SURPRISESAD": "",
-                        "LAUGH": "",
-                        "DISGUST": "",
-                        "AGRESSIVE": "",
-                        "PAIN": "",
-                        "THINK": "",
-                        "CHEERS": { "1": "", "2": "" },
-                        "PANICCRY": "Åh, nej! Se upp!",
-                        "HUMAN02": ""
-                    }
-                }
-            },
-            "KCA": {
-                "FO": {
-                    "KCA": {
-                        "NEUTRALANDROID": "",
-                        "HUMAN": "",
-                        "ANXIOUS": "",
-                        "STRESSED": "",
-                        "DETERMINED": "",
-                        "AFRAID": "",
-                        "DISDAIN": "",
-                        "SAD": "",
-                        "CONFUSED": "",
-                        "SMILING": "",
-                        "ANGER": "",
-                        "SURPRISEHAPPY": "",
-                        "SURPRISESAD": "",
-                        "LAUGH": "",
-                        "DISGUST": "",
-                        "AGRESSIVE": "",
-                        "PAIN": "",
-                        "THINK": "",
-                        "CHEERS": {
-                            "1": "",
-                            "2": "",
-                            "3": "Ja!",
-                            "4": "",
-                            "5": "",
-                            "6": "",
-                            "7": "",
-                            "8": ""
-                        },
-                        "PANICCRY": {
-                            "1": "",
-                            "2": "Va, vad händer?",
-                            "3": "Va? Vad händer?",
-                            "4": "Vad händer? Vart ska du?"
-                        }
-                    }
-                }
-            }
-        },
-        "CROWD": {
-            "GEN": {
-                "VO": {
-                    "CROWDL": {
-                        "ACCLAIMMARKUS": "",
-                        "ACCLAIMCONNOR": "",
-                        "ACCLAIMNORTH": ""
-                    },
-                    "KBO": {
-                        "MARKUS4": {
-                            "1": "Markus!",
-                            "2": "Markus!",
-                            "3": "Markus..."
-                        },
-                        "CONNOR04": {
-                            "1": "Connor!",
-                            "2": "Connor!",
-                            "3": "Connor..."
-                        },
-                        "NORTH04": {
-                            "1": "North!",
-                            "2": "North!",
-                            "3": "North..."
-                        }
-                    }
-                },
-                "FO": {
-                    "CBA": {
-                        "MARKUS01": {
-                            "1": "Markus!",
-                            "2": "Markus!",
-                            "3": "Markus..."
-                        },
-                        "CONNOR01": {
-                            "1": "Connor!",
-                            "2": "Connor!",
-                            "3": "Connor..."
-                        },
-                        "NORTH01": {
-                            "1": "North!",
-                            "2": "North!",
-                            "3": "North..."
-                        }
-                    },
-                    "PSA": {
-                        "MARKUS02": {
-                            "1": "Markus!",
-                            "2": "Markus!",
-                            "3": "Markus..."
-                        },
-                        "CONNOR02": {
-                            "1": "Connor!",
-                            "2": "Connor!",
-                            "3": "Connor..."
-                        },
-                        "NORTH02": {
-                            "1": "North!",
-                            "2": "North!",
-                            "3": "North..."
-                        }
-                    },
-                    "DCO": {
-                        "MARKUS03": {
-                            "1": "Markus!",
-                            "2": "Markus!",
-                            "3": "Markus..."
-                        },
-                        "CONNOR03": {
-                            "1": "Connor!",
-                            "2": "Connor!",
-                            "3": "Connor..."
-                        },
-                        "NORTH03": {
-                            "1": "North!",
-                            "2": "North!",
-                            "3": "North..."
-                        }
-                    },
-                    "SJE": {
-                        "MARKUS05": {
-                            "1": "Markus!",
-                            "2": "Markus!",
-                            "3": "Markus..."
-                        },
-                        "CONNOR05": {
-                            "1": "Connor!",
-                            "2": "Connor!",
-                            "3": "Connor..."
-                        },
-                        "NORTH05": {
-                            "1": "North!",
-                            "2": "North!",
-                            "3": "North..."
-                        }
-                    },
-                    "EGA": {
-                        "MARKUS06": {
-                            "1": "Markus!",
-                            "2": "Markus!",
-                            "3": "Markus..."
-                        },
-                        "CONNOR06": {
-                            "1": "Connor!",
-                            "2": "Connor!",
-                            "3": "Connor..."
-                        },
-                        "NORTH06": {
-                            "1": "North!",
-                            "2": "North!",
-                            "3": "North..."
-                        }
-                    },
-                    "BSC": {
-                        "MARKUS07": {
-                            "1": "Markus!",
-                            "2": "Markus!",
-                            "3": "Markus..."
-                        },
-                        "CONNOR07": {
-                            "1": "Connor!",
-                            "2": "Connor!",
-                            "3": "Connor..."
-                        },
-                        "NORTH07": {
-                            "1": "North!",
-                            "2": "North!",
-                            "3": "North..."
-                        }
-                    },
-                    "FHU": {
-                        "MARKUS08": {
-                            "1": "Markus!",
-                            "2": "Markus!",
-                            "3": "Markus..."
-                        },
-                        "CONNOR08": {
-                            "1": "Connor!",
-                            "2": "Connor!",
-                            "3": "Connor..."
-                        },
-                        "NORT08": {
-                            "1": "North!",
-                            "2": "North!",
-                            "3": "North..."
-                        }
-                    },
-                    "BSH": {
-                        "MARKUS09": {
-                            "1": "Markus!",
-                            "2": "Markus!",
-                            "3": "Markus..."
-                        },
-                        "CONNOR09": {
-                            "1": "Connor!",
-                            "2": "Connor!",
-                            "3": "Connor..."
-                        },
-                        "NORTH09": {
-                            "1": "North!",
-                            "2": "North!",
-                            "3": "North..."
-                        }
-                    },
-                    "KCA": {
-                        "MARKUS12": {
-                            "1": "Markus!",
-                            "2": "Markus!",
-                            "3": "Markus..."
-                        },
-                        "CONNOR12": {
-                            "1": "Connor!",
-                            "2": "Connor!",
-                            "3": "Connor..."
-                        },
-                        "NORTH12": {
-                            "1": "North!",
-                            "2": "North!",
-                            "3": "North..."
-                        }
-                    }
                 }
             }
         }
@@ -33790,6 +35567,31 @@
                 }
             }
         },
+        "CORRIDOR": {
+            "RUSE": {
+                "PC": {
+                    "X07MBROADGUARD01": {
+                        "ARRIVAL": "",
+                        "CLOSE": "",
+                        "POINT": "",
+                        "TURN": "",
+                        "HIT": ""
+                    },
+                    "X07MBROADGUARD02": {
+                        "ARRIVAL": "",
+                        "CLOSE": "",
+                        "POINT": "",
+                        "TURN": "",
+                        "HIT": ""
+                    },
+                    "X07MCLEANMARKUS": { "POINT": "", "TURN": "", "HIT": "" },
+                    "WAIT": { "CLOSE": "" },
+                    "GUN0": { "POINT": "" },
+                    "MPARTURN": { "TURN": "" },
+                    "MPARHIT": { "KNOCK": "" }
+                }
+            }
+        },
         "BOILERROOM": {
             "INTRO": {
                 "PC": {
@@ -33912,6 +35714,15 @@
                     }
                 }
             }
+        }
+    },
+    "X6008X": {
+        "ONOM": {
+            "GETTINGHIT": { "FO": { "LUTHER": { "01": "" } } },
+            "SHOT": { "FO": { "LUTHER": { "01": "", "02": "" } } },
+            "HITTING": { "FO": { "LUTHER": { "01": "", "02": "" } } },
+            "EFFORTS": { "FO": { "LUTHER": { "01": "" } } },
+            "INJURED": { "FO": { "LUTHER": { "01": "" } } }
         }
     },
     "X0701M": {
@@ -34767,7 +36578,10 @@
                         "HEAVEN": "IRONISK",
                         "NOTHING": "INGENTING"
                     },
-                    "SUICIDECHOICE11": { "DISTURBED": "RUBBAD" },
+                    "SUICIDECHOICE11": {
+                        "COLD": "KALL",
+                        "DISTURBED": "RUBBAD"
+                    },
                     "PHOTOCHOICE": { "PHOTO": "FOTO", "SUICIDE": "SJÄLVMORD" }
                 }
             }
@@ -34805,6 +36619,9 @@
                         }
                     }
                 }
+            },
+            "GOTTAGO": {
+                "PC": { "X08KKARA": { "WAIT": "" }, "X08KROSE": { "WAIT": "" } }
             },
             "GOTONIGHT": {
                 "PC": {
@@ -35287,6 +37104,36 @@
                             "1": "Jag borde gå. Tack för kaffet.",
                             "2": "Trevlig kväll."
                         }
+                    }
+                }
+            },
+            "LUTHER": {
+                "PC": {
+                    "X08KKARA": {
+                        "START": "",
+                        "1STFLOOR": "",
+                        "STOCKROOM": "",
+                        "KITCHEN": "",
+                        "END": ""
+                    },
+                    "X08KLUTHER": {
+                        "START": "",
+                        "1STFLOOR": "",
+                        "STOCKROOM": "",
+                        "KITCHEN": "",
+                        "END": ""
+                    },
+                    "X08KALICE": {
+                        "START": "",
+                        "1STFLOOR": "",
+                        "STOCKROOM": "",
+                        "KITCHEN": "",
+                        "END": ""
+                    },
+                    "CHOICEGROUP": {
+                        "1FLOOR": "",
+                        "STOCKROOM": "",
+                        "KITCHEN": ""
                     }
                 }
             }
@@ -36179,6 +38026,12 @@
                     "CHOICE02": { "ACCEPT": "GÅ MED PÅ DET", "REFUSE": "VÄGRA" }
                 }
             },
+            "DONTWANT": {
+                "PC": {
+                    "X11MMARKUS": { "NORTHQUESTION": "" },
+                    "X11MMARLA": { "NORTHQUESTION": "" }
+                }
+            },
             "NONEGO": {
                 "PC": {
                     "X11MMARKUS": {
@@ -36375,8 +38228,15 @@
                         "CONFIDENT": "SJÄLVSÄKER"
                     }
                 }
+            },
+            "EMBARK": {
+                "PC": {
+                    "X09CAMANDA": { "BOAT": "" },
+                    "X09CCONNOR": { "BOAT": "" }
+                }
             }
-        }
+        },
+        "GARDEN": { "HELLO": { "PC": { "X09CAMANDA": { "HELLO": "" } } } }
     },
     "X0903C": {
         "CHAD": {
@@ -36536,6 +38396,20 @@
                             "2": "Kommissarie Anderson leder utredningen för Detroitpolisen."
                         },
                         "NEARBY": "Jag är i närheten. Om du behöver nåt så säg till."
+                    }
+                }
+            }
+        },
+        "ELEVATOR": {
+            "INTRO": {
+                "PC": {
+                    "X09CCONNOR": {
+                        "HANKKILLEDCONNOR": "",
+                        "CONNORDIDNOTDIED": ""
+                    },
+                    "X09CHANK": {
+                        "HANKKILLEDCONNOR": "",
+                        "CONNORDIDNOTDIED": ""
                     }
                 }
             }
@@ -36728,69 +38602,13 @@
                 }
             }
         },
-        "CORRIDOR": {
-            "HANKFINAL": {
-                "VO": {
-                    "X09CCORRIDORSWAT01": {
-                        "RESCUE": "Skott avlossade! Tillkalla vårdare!"
-                    }
-                },
-                "PC": {
-                    "X09CCONNOR": { "CNRDEAD": "" },
-                    "X09CHANK": {
-                        "CNRDEAD": {
-                            "1": "Tur att du var här, annars hade jag–",
-                            "2": "Connor...",
-                            "3": "Connor, nej..."
-                        }
-                    }
-                },
-                "FA": {
-                    "X09CHANK": {
-                        "JESUS": {
-                            "1": "Connor!",
-                            "2": "Fan!",
-                            "3": "Connor, nej..."
-                        }
-                    }
-                }
-            },
+        "KITCHEN": {
             "FINALE": {
                 "FA": {
-                    "X09CCONNOR": { "RUN": "Den är en avvikare! Stoppa den!" }
+                    "X09CCONNOR": { "STOP1": "" },
+                    "X09CCTRLROOMAND01": { "STOP2": "" }
                 }
             },
-            "GUN": {
-                "PC": {
-                    "X09CCONNOR": {
-                        "SAVEDLIVES": "",
-                        "SAVEDLIVESC": "Jag ville ha den levande.",
-                        "SAVEDLIVESH": ""
-                    },
-                    "X09CHANK": {
-                        "SAVEDLIVES": "Bra skjutet, Connor...",
-                        "SAVEDLIVESC": "",
-                        "SAVEDLIVESH": {
-                            "1": "Du räddade",
-                            "2": "människors liv.",
-                            "3": "Du räddade mitt liv."
-                        }
-                    }
-                }
-            },
-            "ANDSUICIDE": {
-                "PC": {
-                    "X09CCONNOR": {
-                        "TOOLATE": {
-                            "1": "Jag försökte stoppa den, men",
-                            "2": "det var för sent."
-                        }
-                    },
-                    "X09CHANK": { "TOOLATE": "Connor! Mår du bra?" }
-                }
-            }
-        },
-        "KITCHEN": {
             "HELP": {
                 "PC": {
                     "X09CCONNOR": {
@@ -36940,6 +38758,68 @@
                 }
             }
         },
+        "CORRIDOR": {
+            "HANKFINAL": {
+                "VO": {
+                    "X09CCORRIDORSWAT01": {
+                        "RESCUE": "Skott avlossade! Tillkalla vårdare!"
+                    }
+                },
+                "PC": {
+                    "X09CCONNOR": { "CNRDEAD": "" },
+                    "X09CHANK": {
+                        "CNRDEAD": {
+                            "1": "Tur att du var här, annars hade jag–",
+                            "2": "Connor...",
+                            "3": "Connor, nej..."
+                        }
+                    }
+                },
+                "FA": {
+                    "X09CHANK": {
+                        "JESUS": {
+                            "1": "Connor!",
+                            "2": "Fan!",
+                            "3": "Connor, nej..."
+                        }
+                    }
+                }
+            },
+            "FINALE": {
+                "FA": {
+                    "X09CCONNOR": { "RUN": "Den är en avvikare! Stoppa den!" }
+                }
+            },
+            "GUN": {
+                "PC": {
+                    "X09CCONNOR": {
+                        "SAVEDLIVES": "",
+                        "SAVEDLIVESC": "Jag ville ha den levande.",
+                        "SAVEDLIVESH": ""
+                    },
+                    "X09CHANK": {
+                        "SAVEDLIVES": "Bra skjutet, Connor...",
+                        "SAVEDLIVESC": "",
+                        "SAVEDLIVESH": {
+                            "1": "Du räddade",
+                            "2": "människors liv.",
+                            "3": "Du räddade mitt liv."
+                        }
+                    }
+                }
+            },
+            "ANDSUICIDE": {
+                "PC": {
+                    "X09CCONNOR": {
+                        "TOOLATE": {
+                            "1": "Jag försökte stoppa den, men",
+                            "2": "det var för sent."
+                        }
+                    },
+                    "X09CHANK": { "TOOLATE": "Connor! Mår du bra?" }
+                }
+            }
+        },
         "BRAD": {
             "CONCLUSION": {
                 "PC": {
@@ -36979,6 +38859,12 @@
                     }
                 }
             }
+        }
+    },
+    "X6011X": {
+        "ONOM": {
+            "HIT": { "FO": { "SIMON": { "01": "", "02": "", "03": "" } } },
+            "STRIKE": { "FO": { "SIMON": { "01": "", "02": "", "03": "" } } }
         }
     },
     "X1102C": {
@@ -38144,6 +40030,13 @@
                     "X02AKARA": { "CONCLUSION": "Vi måste gå." },
                     "X02ALUTHER": { "CONCLUSION": "" }
                 }
+            },
+            "HELICOPTERS": {
+                "PC": {
+                    "X02AKARA": { "SURPRISE": "" },
+                    "X02AALICE": { "SURPRISE": "" },
+                    "X02ALUTHER": { "SURPRISE": "" }
+                }
             }
         },
         "MEET": {
@@ -38316,6 +40209,11 @@
                     }
                 }
             }
+        }
+    },
+    "X0403K": {
+        "NEIGHBOURHOOD": {
+            "COFFEE": { "PC": { "X04KKARA": { "COFFEE": "" } } }
         }
     },
     "X0203A": {
@@ -40082,6 +41980,16 @@
                 }
             }
         },
+        "TVNEWS": {
+            "CONNORWLAK": {
+                "PC": {
+                    "X13CBRINKLEY": { "NEWS01": "", "NEWS05": "" },
+                    "X13CCOPTERJOURNALIST": { "NEWS02": "" },
+                    "X13CWEBB": { "NEWS03": "" },
+                    "X13CCARTLAND": { "NEWS04": "" }
+                }
+            }
+        },
         "TV": {
             "NEWS": {
                 "PC": {
@@ -40100,6 +42008,12 @@
                     }
                 }
             }
+        }
+    },
+    "X6014X": {
+        "ONOM": {
+            "TERRIFIED": { "FO": { "RALPH": { "01": "" } } },
+            "NERVOUS": { "FO": { "RALPH": { "01": "", "02": "" } } }
         }
     },
     "X1303C": {
@@ -40374,6 +42288,31 @@
                             "2": "Jag kan skjuta avvikarnas ledare och stoppa revolutionen, men du måste låta mig."
                         }
                     }
+                }
+            }
+        }
+    },
+    "X0411A": {
+        "BUSSTATION": {
+            "DILEMMA": {
+                "PC": {
+                    "X04AKARA": { "START": "", "GIVEBACK": "", "KEEP": "" },
+                    "X04AALICE": {
+                        "START": "",
+                        "GIVEBACK": "",
+                        "KEEP": "",
+                        "RALPHBACK": ""
+                    },
+                    "X04ABUSWOMAN": { "START": "", "GIVEBACK": "", "KEEP": "" },
+                    "X04ABUSMAN": { "START": "", "GIVEBACK": "", "KEEP": "" },
+                    "X04ABUSBABY": {
+                        "START": "",
+                        "GIVEBACK": "",
+                        "KEEP": "",
+                        "RALPHBACK": ""
+                    },
+                    "X04ARALPH": { "RALPHBACK": "" },
+                    "CHOICEGROUP01": { "GIVEBACK": "", "KEEP": "" }
                 }
             }
         }
@@ -40664,6 +42603,13 @@
             },
             "CONNORSHOOT": {
                 "FA": { "X11MMARLA": { "MARKUSDEAD": "Markus!" } }
+            },
+            "REACHSTONE": {
+                "PC": {
+                    "X11MCONNOR": { "FREEDOM01CONNOR": "", "FREEDOM02": "" },
+                    "X11MMARKUS": { "FREEDOM02": "", "FREEDOM01MARKUS": "" },
+                    "X11MMARLA": { "FREEDOM01MARKUS": "" }
+                }
             }
         },
         "GOODCONNOR": {
@@ -40763,6 +42709,14 @@
                         "SUICIDE": "SJÄLVMORD",
                         "GIVEUP": "GE UPP"
                     }
+                }
+            },
+            "FINALCONNORSPEECH": {
+                "PC": {
+                    "CONNOR": { "CONNORSPEECH": "" },
+                    "MANAND1": { "CONNORSPEECH": "" },
+                    "WOMAND1": { "CONNORSPEECH": "" },
+                    "X09MCROWD": { "CONNORSPEECH": "" }
                 }
             },
             "FINALSPEECH": {
@@ -41266,6 +43220,46 @@
             }
         }
     },
+    "X0000A": {
+        "OPENING": {
+            "CYCLES": {
+                "PC": {
+                    "X02XANDWOM": { "UPSET": "", "TROUBLED": "", "SAD": "" }
+                }
+            }
+        },
+        "OPENINGCREDIT": {
+            "FIRST": {
+                "PC": {
+                    "X00AANDWOM": {
+                        "WELCOMEV2": {
+                            "1": "Hej! Välkommen till DETROIT. Jag är en android och kommer vara din värd.",
+                            "2": "Innan vi börjar ska vi göra några justeringar för att optimera din upplevelse."
+                        },
+                        "DIFFICULTYV2": "Tack. Nu kan du välja din profil.",
+                        "LANGUAGEV2": {
+                            "1": "Det här är språkinställningarna på din konsol. ",
+                            "2": "Stämmer de?"
+                        },
+                        "GOTOHAPPENV2": {
+                            "1": "Nu är du klar att börja spela DETROIT. ",
+                            "2": "Kom ihåg: ",
+                            "3": "det här är inte bara en historia; ",
+                            "4": "det här kommer att hända."
+                        },
+                        "GAMMAV2": "Justera skärminställningarna.",
+                        "OURFUTUREV2": {
+                            "1": "Nu är du klar att börja spela DETROIT. ",
+                            "2": "Kom ihåg: ",
+                            "3": "det här är inte bara en historia; ",
+                            "4": "det här är vår framtid."
+                        },
+                        "SAVEGAMEV2": "Stäng inte av konsolen när du ser den här symbolen."
+                    }
+                }
+            }
+        }
+    },
     "X5002X": {
         "ENDCREDITS": {
             "QUOTES": {
@@ -41723,40 +43717,8 @@
                             "4": "Nästa gång vi ses ",
                             "5": "kommer det vara som första gången."
                         }
-                    }
-                }
-            }
-        }
-    },
-    "X0000A": {
-        "OPENINGCREDIT": {
-            "FIRST": {
-                "PC": {
-                    "X00AANDWOM": {
-                        "WELCOMEV2": {
-                            "1": "Hej! Välkommen till DETROIT. Jag är en android och kommer vara din värd.",
-                            "2": "Innan vi börjar ska vi göra några justeringar för att optimera din upplevelse."
-                        },
-                        "DIFFICULTYV2": "Tack. Nu kan du välja din profil.",
-                        "LANGUAGEV2": {
-                            "1": "Det här är språkinställningarna på din konsol. ",
-                            "2": "Stämmer de?"
-                        },
-                        "GOTOHAPPENV2": {
-                            "1": "Nu är du klar att börja spela DETROIT. ",
-                            "2": "Kom ihåg: ",
-                            "3": "det här är inte bara en historia; ",
-                            "4": "det här kommer att hända."
-                        },
-                        "GAMMAV2": "Justera skärminställningarna.",
-                        "OURFUTUREV2": {
-                            "1": "Nu är du klar att börja spela DETROIT. ",
-                            "2": "Kom ihåg: ",
-                            "3": "det här är inte bara en historia; ",
-                            "4": "det här är vår framtid."
-                        },
-                        "SAVEGAMEV2": "Stäng inte av konsolen när du ser den här symbolen."
-                    }
+                    },
+                    "CHOICE": { "YES": "JA", "NO": "NEJ" }
                 }
             }
         }

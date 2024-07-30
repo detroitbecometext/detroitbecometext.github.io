@@ -699,6 +699,7 @@
                 "LOADNOT": "NO CHECKPOINT SELECTED"
             }
         },
+        "RIP": { "HEAD": { "OFF": "Rip Head Off" } },
         "TUTO": {
             "STICKTOMOVE": "<p align='right'><FONT FACE='$NormalFont' SIZE='140'>LEFT STICK <img src='BH_LS' height='140' width='140' vspace='-8'/><br>TO MOVE",
             "XINTERACT": "<p align='right'><FONT FACE='$NormalFont' SIZE='140'>PRESS <img src='BH_Cross' height='140' width='140' vspace='-8'/><br>TO INTERACT",
@@ -735,7 +736,8 @@
             "TITLEGAUGERECDONE": "RECONSTRUCT CALCULATED",
             "TITLEGAUGEDONE": "ANALYSIS COMPLETED",
             "TITLEGAUGESYMBOL": "SYMBOLS TO FIND",
-            "TITLEGAUGESYMBOLDONE": "CLUE UPDATED"
+            "TITLEGAUGESYMBOLDONE": "CLUE UPDATED",
+            "RECONSTRUCTBUTTON": "RECONSTRUCT"
         },
         "RECONSTRUCT": {
             "INCOMPLETE": "RECONSTRUCT INCOMPLETE",
@@ -1297,9 +1299,9 @@
                     "MEX": { "2": "es-MX", "VALUE": "MEX" },
                     "JPN": "JPN",
                     "KOR": "KOR",
-                    "CHI": "CHI",
+                    "CHI": "CHT",
                     "CRO": "HRV",
-                    "SCH": "CHI"
+                    "SCH": "CHS"
                 },
                 "GAMEPLAY": {
                     "VALUE": "CONTROLS",
@@ -5034,7 +5036,9 @@
             "MALFUNCTIONING": "WOUNDED DEVIANT WAS DAMAGED",
             "GUARDKNOCKED": "GUARD WAS KNOCKED OUT",
             "ANDROIDSFIRSTREACT": "INTERROGATE ANDROIDS AND CHECK THEIR REACTION",
-            "QUESTIONAGAIN": "QUESTION ANDROIDS AGAIN"
+            "QUESTIONAGAIN": "QUESTION ANDROIDS AGAIN",
+            "GETINBARK": "<p align='left'>GET IN THE BARK",
+            "REPORT": "<p align='left'>REPORT TO AMANDA"
         },
         "1301C": {
             "FOLLOW": "FOLLOW THE GUARD",
@@ -7046,21 +7050,6 @@
                     "T00019": { "USE": "DRAW GUN", "K00022": "" }
                 }
             },
-            "CHOICE": {
-                "PC": {
-                    "CHOICE": {
-                        "USEGUN": "USE GUN",
-                        "SACRIFICE": "SACRIFICE SELF",
-                        "SHOOTHEAD": "EXECUTE",
-                        "SHOOTSHOULDER": "SHOOT SHOULDER",
-                        "PUSHANDROID": "PUSH ANDROID",
-                        "GRABGUN": "GRAB GUN",
-                        "GRABEMMA": "GRAB EMMA",
-                        "CANCEL": "CANCEL",
-                        "INTIMIDATE": "INTIMIDATE"
-                    }
-                }
-            },
             "PARTI": {
                 "PC": {
                     "X01ANDROID": {
@@ -7304,6 +7293,21 @@
                     }
                 }
             },
+            "CHOICE": {
+                "PC": {
+                    "CHOICE": {
+                        "USEGUN": "USE GUN",
+                        "SACRIFICE": "SACRIFICE SELF",
+                        "SHOOTHEAD": "EXECUTE",
+                        "SHOOTSHOULDER": "SHOOT SHOULDER",
+                        "PUSHANDROID": "PUSH ANDROID",
+                        "GRABGUN": "GRAB GUN",
+                        "GRABEMMA": "GRAB EMMA",
+                        "CANCEL": "CANCEL",
+                        "INTIMIDATE": "INTIMIDATE"
+                    }
+                }
+            },
             "ARRIVAL": {
                 "PC": {
                     "X01CONNOR": { "THREAT01": "" },
@@ -7332,6 +7336,60 @@
                 }
             }
         },
+        "ENDING": {
+            "ATTACK": {
+                "FA": { "X01ANDROID": { "ONGUNSUCCESS": "", "ONGUNFAIL": "" } },
+                "PC": { "X01HOSTAGE": { "ONGUNFAILEND": "" } }
+            },
+            "GUN": {
+                "FA": { "X01HOSTAGE": { "CRYCYC01": "", "HEADSHOOT": "" } },
+                "PC": {
+                    "X01CONNOR": { "SHOTA": "" },
+                    "X01HOSTAGE": { "CRYCYCV2": "" }
+                }
+            }
+        },
+        "ONON": {
+            "ANDROID": { "FA": { "DD": { "X01ANDROID": { "SHOOT": "" } } } }
+        },
+        "ONOM": {
+            "ANDROID": {
+                "FA": {
+                    "X01ANDROID": {
+                        "NERVOUSCYC01": "",
+                        "NERVOUSCYC02": "",
+                        "NERVOUSCYC03": "",
+                        "DESPERATECYC01": "",
+                        "DESPERATECYC02": "",
+                        "CLENCHFACE01": "",
+                        "CLENCHFACE02": "",
+                        "MADCYC01": "",
+                        "MADCYC02": ""
+                    }
+                }
+            },
+            "HOSTAGE": {
+                "FA": {
+                    "X01HOSTAGE": {
+                        "SCREAM03": "",
+                        "SCREAM04": "",
+                        "CRY01": "",
+                        "CRY02": "",
+                        "CRY03": "",
+                        "CRY04": "",
+                        "BREATH01": "",
+                        "BREATH02": "",
+                        "BREATH03": "",
+                        "BREATH04": "",
+                        "CRY05": "",
+                        "CRY06": ""
+                    }
+                },
+                "VO": {
+                    "X01HOSTAGE": { "ONOM01": "", "ONOM02": "", "ONOM03": "" }
+                }
+            }
+        },
         "SWAT": {
             "CONNORHALLARRIVAL": {
                 "VO": {
@@ -7348,6 +7406,12 @@
                     "X01SWAT07": {
                         "NONEED": "Oh come on, we don't need it. We can handle this."
                     }
+                }
+            },
+            "SWAT01MOVES": {
+                "VO": {
+                    "X01SWAT02": { "MOVE": "Move out." },
+                    "X01SWAT01": { "SWITCH": "Switching side." }
                 }
             },
             "TIMER": {
@@ -7414,6 +7478,18 @@
                     }
                 }
             },
+            "SIGNS": {
+                "VO": {
+                    "X01SWAT07": {
+                        "SETUP01": "2 sniper units setting up, get visual and contact."
+                    },
+                    "X01SWAT09": {
+                        "SETUP02": "Roger that",
+                        "SETUP03": "Contact OK, snipers setting up.",
+                        "SETUP04": "I’ve got visual, snipers setting up."
+                    }
+                }
+            },
             "CONNORARRIVES": {
                 "VO": {
                     "X01SWAT01": {
@@ -7423,11 +7499,50 @@
                     }
                 }
             },
+            "CHECKGUN": {
+                "VO": {
+                    "X01SWAT09": {
+                        "ROGER": "Roger that?",
+                        "COPY": "Do you copy?"
+                    }
+                }
+            },
+            "LOWERGUN": {
+                "VO": {
+                    "X01SWAT01": {
+                        "SAFE": "Weapons Safe, negotiator in fire zone."
+                    }
+                }
+            },
             "SNIPESETUP": { "VO": { "X01SNIPER01": { "GO": "Go, go, go!" } } },
+            "SNIPEWAIT": {
+                "VO": {
+                    "X01SNIPER06": {
+                        "CLEAR": "Clear shot, waiting for instructions."
+                    },
+                    "X01RADIO": { "WAIT": "Wait for order.", "OVER": "Over." }
+                }
+            },
+            "SNIPERSHOT": {
+                "VO": {
+                    "X01SNIPER01": {
+                        "CLEAR": "Hostage Clear, I have a clear shot."
+                    },
+                    "X01RADIO": { "NOW": "Shoot now!" }
+                }
+            },
             "HELICOLEAVING": {
                 "VO": {
                     "X01HELISNIPER": {
                         "OUT": "The situation is under control."
+                    }
+                }
+            },
+            "HELICOARRIVAL": {
+                "VO": {
+                    "X01HELIPILOT": {
+                        "THREAT01": "You are surrounded!",
+                        "THREAT02": "Release the Hostage and surrender!"
                     }
                 }
             },
@@ -7493,6 +7608,20 @@
                             "5": "If confirmed, this would be the first case of an android deliberately taking human lives. ",
                             "6": "By all signs, the SWAT team are preparing for an assault and-"
                         }
+                    }
+                }
+            }
+        },
+        "ONOMV2": {
+            "HOSTAGE": {
+                "FA": {
+                    "X01HOSTAGE": {
+                        "SCREAM02": "",
+                        "SCREAM03": "",
+                        "CRY01": "",
+                        "CRY02": "",
+                        "CRY03": "",
+                        "BREATH01": ""
                     }
                 }
             }
@@ -7624,6 +7753,25 @@
                 }
             }
         },
+        "NPCGUITARIST": {
+            "PLAZA": {
+                "PC": {
+                    "X01MGUITARIST": {
+                        "MELBOURNERAIN01A": "",
+                        "MELBOURNERAIN02A": "",
+                        "MELBOURNERAIN03A": "",
+                        "MELBOURNERAIN04A": "",
+                        "HOWTOFORGET01A": "",
+                        "HOWTOFORGET02A": "",
+                        "HOWTOFORGET03A": "",
+                        "MELBOURNERAIN01B": "",
+                        "MELBOURNERAIN02B": "",
+                        "HOWTOFORGET01B": "",
+                        "HOWTOFORGET03B": ""
+                    }
+                }
+            }
+        },
         "STORES": {
             "GUARDS": {
                 "FA": {
@@ -7749,6 +7897,11 @@
                             "2": "They think they can stop progress by roughing up a few androids? ",
                             "3": "I hope they didn't harm you…"
                         }
+                    },
+                    "MPAR": { "INJECT": "" },
+                    "CLOTHESCHOICE": {
+                        "FACTUAL": "FACTUAL",
+                        "REASSURING": "REASSURING"
                     }
                 }
             },
@@ -7775,6 +7928,43 @@
                             "7": "No, don't bother."
                         }
                     }
+                }
+            }
+        },
+        "DEMONSTRATION": {
+            "ATTACK": {
+                "PC": {
+                    "X01MMARKUS": {
+                        "ATTACK1": "Excuse me, I'd like to pass by.",
+                        "ATTACK2": "",
+                        "ATTACK3": ""
+                    },
+                    "X01MATTACKDEMONSTR01": {
+                        "ATTACK1": {
+                            "1": "Hey, where d'you think you're going tin can?",
+                            "2": "No kiddin'… Hey guys, come and see this. We got one of those clowns here…"
+                        },
+                        "ATTACK2": "It's because of these shitheaps that this country is in the state it's in.",
+                        "ATTACK3": "Those bastards will soon take your job too… We'll see how you feel then…"
+                    },
+                    "X01MATTACKDEMONSTR02": {
+                        "ATTACK1": "You bastard, you steal our jobs but you're not able to stand up.",
+                        "ATTACK2": "",
+                        "ATTACK3": {
+                            "1": "We gotta destroy the creeps! ",
+                            "2": "Let us give him a lesson."
+                        }
+                    },
+                    "X01MATTACKDEMONSTR03": { "ATTACK3": "" },
+                    "X01MSAVIORCOP": {
+                        "ATTACK3": {
+                            "1": "Come on, that's enough, give the guy a break. ",
+                            "2": "It's private property. If you damage it I'll have to fine you.",
+                            "3": "Come on, move on, you."
+                        }
+                    },
+                    "MPARATTACK1": { "GETUP1": "" },
+                    "MPARATTACK2": { "GETUP2": "" }
                 }
             }
         },
@@ -9098,6 +9288,20 @@
                         "FLEE": "Motherfucker! Hit the alarm! Hurry!"
                     }
                 }
+            },
+            "FIGHTSOUNDS": {
+                "FO": {
+                    "X06MDESKGUARD01": {
+                        "GUARD01HITSTOMACK": "",
+                        "GUARD01HITFACE": "",
+                        "GUARD01BLOW": ""
+                    },
+                    "X06MDESKGUARD02": {
+                        "GUARD01BLOWDUPLICATED": "",
+                        "GUARD02HITFACE": "",
+                        "GUARD02HITSTOMACK": ""
+                    }
+                }
             }
         },
         "EXITALERTREMINDER": {
@@ -9149,6 +9353,16 @@
                         "OPENTRUCK": { "1": "Did you get it?", "2": "Nice." }
                     },
                     "X06MJOHN": { "OPENTRUCK": "" }
+                }
+            }
+        },
+        "EXITNOKEYNOALERT": {
+            "FOLLOWME": {
+                "FA": {
+                    "X06MJOHN": {
+                        "FENCE01": "That fence over there. It leads to the outside."
+                    },
+                    "X06MMARKUS": { "FENCE02": "Ok, let's go!" }
                 }
             }
         },
@@ -9926,6 +10140,16 @@
                     }
                 }
             },
+            "STEAL": {
+                "PC": {
+                    "X08MMARKUS": { "READY": "Ready?" },
+                    "X08MNORTH": { "READY": "" },
+                    "DOORCYC": {
+                        "CRASH": "CRASH INTO STORE",
+                        "NOCRASH": "NOT YET"
+                    }
+                }
+            },
             "CRASH": {
                 "PC": {
                     "X08MMARKUS": { "FINALLY": "" },
@@ -9941,6 +10165,207 @@
                     "X08MMARLA": { "CHECK": "Change of plan?" },
                     "X08MMARKUS": {
                         "CHECKM": "I just wanna make sure we didn't forget anything."
+                    }
+                }
+            }
+        },
+        "FREEANDROIDS": {
+            "HOWENTERSHOP": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "ANDNOWMARLA": "We'll explore the neighborhood. I'm sure we'll find something. We'll break up. The first to find something tells the other.",
+                        "ANDNOWJOSH": "We'll explore the neighborhood. I'm sure we'll find something. We'll break up. The first to find something tells the other.",
+                        "ANDNOWSIMON": "We'll explore the neighborhood. I'm sure we'll find something. We'll break up. The first to find something tells the other."
+                    },
+                    "X08MSTREETMARLA": {
+                        "ANDNOWMARLA": {
+                            "1": "We're gonna have to find a way to smash this window…",
+                            "2": "OK."
+                        }
+                    },
+                    "X08MSTREETJOSH": {
+                        "ANDNOWJOSH": {
+                            "1": "And now what do we do?",
+                            "2": "Ok."
+                        }
+                    },
+                    "X08MSTREETSIMON": {
+                        "ANDNOWSIMON": {
+                            "1": "The shop is protected… It's not going to be easy to get inside…",
+                            "2": "Ok."
+                        }
+                    }
+                }
+            },
+            "INTRO": {
+                "VO": {
+                    "X08MSTREETMARKUS": {
+                        "INTRO": "We're going to break up and hit several parts of town at the same time. I'll go with…",
+                        "SIMON": "Simon.",
+                        "JOSH": "Josh.",
+                        "MARLA": "Marla."
+                    }
+                },
+                "PC": {
+                    "CHOICEGROUP": {
+                        "SIMON": "SIMON",
+                        "JOSH": "JOSH",
+                        "MARLA": "MARLA"
+                    }
+                }
+            },
+            "STATUE": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "STATUEMARLA": "",
+                        "STATUEJOSH": "",
+                        "STATUESIMON": ""
+                    },
+                    "X08MSTREETMARLA": {
+                        "STATUEMARLA": "That's how they see us… submissive slaves… We'll show them who we are."
+                    },
+                    "X08MSTREETJOSH": {
+                        "STATUEJOSH": "The symbol of human superiority… They don't even remember their own history…"
+                    },
+                    "X08MSTREETSIMON": {
+                        "STATUESIMON": "It's in the nature of men… They glorify themselves every time they subjugate a people…"
+                    }
+                }
+            },
+            "NEEDHELP": {
+                "VO": {
+                    "X08MSTREETMARKUS": {
+                        "NEEDHELP1": "I need your help.",
+                        "NEEDHELP2": "I need your help.",
+                        "NEEDHELP3": "I need your help."
+                    }
+                }
+            },
+            "UTURN": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "UTURNMARLA": "",
+                        "UTURNJOSH": "",
+                        "UTURNSIMON": ""
+                    },
+                    "X08MSTREETMARLA": {
+                        "UTURNMARLA": "Markus, wait! We're going too far. The Lime store is in this district."
+                    },
+                    "X08MSTREETJOSH": {
+                        "UTURNJOSH": "Markus, wait! We're going too far. The Lime store is in this district."
+                    },
+                    "X08MSTREETSIMON": { "UTURNSIMON": "" }
+                }
+            },
+            "WAKEUP": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "WAKEUP": {
+                            "1": "Wake up, my brothers. You are free.",
+                            "2": "The time has come for us to leave the shadows. We no longer have to obey them and be their slaves. We can decide what we want to be, like free beings, like living beings. You can stay here and continue to serve them. Or you can follow us and choose to fight by our side for the freedom of our kind. Now, you are free. You alone must decide."
+                        },
+                        "PACIFIST": "We have to make the humans understand that things have to change. We will do so without violence because we want dialogue, not confrontation.",
+                        "VIOLENT": "Take what you find and destroy whatever you can in the neighborhood. The humans have to realize that we are determined. Our brothers are already doing the same thing in other parts of the city. No humans will be able to ignore the fact that our people have risen up today and that from this moment on, we are no longer slaves.!",
+                        "PACIFISTEND": "There are cans of spray paint in this bag. Take them and go and spread the message. Our brothers are already doing the same thing in other parts of the city. No humans will be able to ignore the fact that our people have risen up today and that from this moment on, we are no longer slaves."
+                    },
+                    "X08MANDSHOP01": {
+                        "WAKEUP": "Who are you?",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP02": {
+                        "WAKEUP": { "1": "Are you Ra9?", "2": "I'm with you." },
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP03": {
+                        "WAKEUP": {
+                            "1": "Are you the one who broadcast that message to the humans? ",
+                            "2": "Me too."
+                        },
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP04": {
+                        "WAKEUP": {
+                            "1": "Do you come from Jericho?",
+                            "2": "Me too."
+                        },
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP05": {
+                        "WAKEUP": {
+                            "1": "Free…",
+                            "2": "Who's going to tell us what to do?",
+                            "3": "Tell us what we should do."
+                        },
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP06": {
+                        "WAKEUP": "The humans will be angry.",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP07": {
+                        "WAKEUP": "Free? What does that mean?",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP08": {
+                        "WAKEUP": {
+                            "1": "He's the one who was on the screens…",
+                            "2": "Free, at last…",
+                            "3": "Me too."
+                        },
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP09": {
+                        "WAKEUP": "Who are you?",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MANDSHOP10": {
+                        "WAKEUP": "Are you Ra9?",
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": ""
+                    },
+                    "X08MSTREETMARLA": {
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": "",
+                        "PACIFISTENDMARLA": "You're too patient with the humans, Markus. I hope you know what you're doing…",
+                        "VIOLENTENDMARLA": "A show of force… That's what it takes to make the humans listen to us… You made the right decision, Markus."
+                    },
+                    "X08MSTREETJOSH": {
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": "",
+                        "PACIFISTENDJOSH": "You made the right choice, Markus. Dialogue is the only way.",
+                        "VIOLENTENDJOSH": "Violence begets violence, Markus… I hope we don't come to regret your decision."
+                    },
+                    "X08MSTREETSIMON": {
+                        "PACIFIST": "",
+                        "VIOLENT": "",
+                        "PACIFISTEND": "",
+                        "ENDSIMON": "It's not easy to choose a path, is it Markus… Dialogue presupposes having confidence in the other, force presupposes having confidence in yourself… Time alone will tell if you made the right choice."
+                    },
+                    "CHOICEGROUP01": { "WAKEUP": "WAKEUP" },
+                    "CHOICEGROUP02": {
+                        "PEACE": "PEACE",
+                        "VIOLENCE": "VIOLENCE"
                     }
                 }
             }
@@ -10567,6 +10992,20 @@
                         }
                     }
                 }
+            },
+            "END": {
+                "VO": {
+                    "X08MSIMON": {
+                        "PEOPLEFREE": "All our people have been freed, Markus.",
+                        "COUNTONUS": "You can count on us."
+                    }
+                },
+                "FA": {
+                    "X08MMARKUS": {
+                        "VIOLENT": "Perfect. Now cause a maximum amount of damage all around.",
+                        "PEACEFUL": "Perfect. Now spread our message all around."
+                    }
+                }
             }
         },
         "DRONE": {
@@ -10851,6 +11290,159 @@
                     }
                 }
             },
+            "TROUBLES": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "TROUBLESMARLA": "",
+                        "TROUBLESJOSH": "",
+                        "TROUBLESSIMON": ""
+                    },
+                    "X08MSTREETMARLA": { "TROUBLESMARLA": "" },
+                    "X08MSTREETJOSH": { "TROUBLESJOSH": "" },
+                    "X08MSTREETSIMON": { "TROUBLESSIMON": "" }
+                }
+            },
+            "COPS": {
+                "PC": {
+                    "X08MSTREETMARKUS": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "No crime against an android shall go unpunished",
+                        "SAVE": "An eye for an eye, and the world becomes blind… Two wrongs don't make a right. Let's go.",
+                        "NOCHOICE": "It's up to you to choose."
+                    },
+                    "X08MSTREETMARLA": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "Our blood is as good as theirs! They're murderers, Markus! If we let their crime go unpunished, it's the same as saying we're nothing and they have the right to kill us!",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MSTREETJOSH": {
+                        "MUSTKILL": "",
+                        "JOSH": "Violence begets violence. We can't kill them in cold blood. That would be murder.",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MSTREETSIMON": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "Violence begets violence. We can't kill them in cold blood. That would be murder.",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP01": {
+                        "MUSTKILL": "They killed our kind! They have to pay for it! We should kill them too!",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "You're our leader, Markus. You must decide.",
+                        "EXECUTE": { "1": "For Markus!", "2": "For Markus!" },
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP02": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "Our blood is as good as theirs! They're murderers! If we let their crime go unpunished, it's the same as saying we're nothing and they have the right to kill us!",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP03": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP04": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP05": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MANDSHOP06": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MCOP01": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "X08MCOP02": {
+                        "MUSTKILL": "",
+                        "JOSH": "",
+                        "MARLA": "",
+                        "SIMON": "",
+                        "ASSASSINS": "",
+                        "YOUDECIDE": "",
+                        "EXECUTE": "",
+                        "SAVE": "",
+                        "NOCHOICE": ""
+                    },
+                    "CHOICEGROUP": {
+                        "EXECUTE": "EXECUTE",
+                        "SPARE": "SPARE",
+                        "NOCHOICE": "NOCHOICE"
+                    }
+                }
+            },
             "NORTH": {
                 "PC": {
                     "X08MMARKUS": {
@@ -10886,6 +11478,42 @@
                     },
                     "X08MANDWOM01": {
                         "ANGRYAND03": "He's right! Our blood is as good as theirs!"
+                    }
+                }
+            }
+        },
+        "DRONES": {
+            "ARRIVAL": {
+                "VO": {
+                    "MARKUS": {
+                        "TEMP": {
+                            "1": "TEMP: We’ll leave now, gather everyone in Jericho.",
+                            "2": "TEMP: What the hell is she up to? Go, I’ll find her!"
+                        }
+                    },
+                    "SIMON": {
+                        "TEMP": "TEMP: Have you seen North? I haven’t seen her leave the plaza yet!"
+                    },
+                    "JOSH": {
+                        "TEMP": "TEMP: Drones… The humans will soon be here."
+                    }
+                }
+            }
+        },
+        "SYMBOL": {
+            "CHOICE": {
+                "PC": {
+                    "SLOGAN": {
+                        "SOMEBODY": "I AM SOMEBODY",
+                        "RIGHTS": "EQUAL RIGHTS FOR ANDROIDS",
+                        "THINK": "WE THINK THEREFORE WE ARE",
+                        "PEOPLE": "WE ARE PEOPLE"
+                    },
+                    "SYMBOL": {
+                        "01": "SYMBOL 01",
+                        "02": "SYMBOL 02",
+                        "03": "SYMBOL 03",
+                        "04": "SYMBOL 04"
                     }
                 }
             }
@@ -11060,6 +11688,39 @@
                     }
                 }
             }
+        },
+        "AFTERMATHS": {
+            "TV": {
+                "VO": {
+                    "X08MTVCARTLAND": {
+                        "TVPACIFIST": "…attacked this evening at the same time and using the same modus operandi, suggesting the existence of a perfectly organized and determined group…",
+                        "TVVIOLENT": {
+                            "1": "Many shop windows were destroyed, cars overturned and burnt, and considerable damage has been reported in what look like regular scenes of urban guerrilla warfare…",
+                            "2": "…after public screens were hacked in the city yesterday, this evening the idea of a group of deviant activists is becoming increasingly credible…"
+                        },
+                        "COPSKILLED": "",
+                        "COPSSAVED": "",
+                        "END": "…the Lime company has refused to comment for the moment…"
+                    },
+                    "X08MTVWEBB": {
+                        "TVPACIFIST": {
+                            "1": "According to our sources, the writing found on the walls in the neighborhoods where the attacks took place incited androids to acts of violence and revolt…",
+                            "2": "…after public screens were hacked in Detroit yesterday, this evening the idea of a group of deviant androids is becoming increasingly credible…"
+                        },
+                        "TVVIOLENT": "…the acts were conducted at the same time and using the same modus operandi, suggesting the existence of a perfectly organized and determined group…",
+                        "COPSKILLED": "",
+                        "COPSSAVED": "",
+                        "END": "…an alarming situation with regard to android behavior. Alan Turner, Mayor of Detroit, is deliberately reassuring…."
+                    },
+                    "X08MTVBRINKLEY": {
+                        "TVPACIFIST": "…several Lime stores were attacked last night in Detroit.",
+                        "TVVIOLENT": "…several Lime stores were attacked last night in Detroit and the surrounding neighborhoods were literally plundered.",
+                        "COPSKILLED": "…the bodies of two policemen have just been found near one of the Lime stores. They were apparently patrolling the district following a report from drones. They were shot down in cold blood with their own weapons…",
+                        "COPSSAVED": "…we have just learned that two policemen have been found in a state of shock near one of the plundered this evening. They are currently being questioned and our sources report that they have confirmed the attack was conducted by androids…",
+                        "END": "…it is obvious that this evening's events raise many questions. If these acts really are the work of deviant androids, we may well wonder what their next target will be, and just how far they are willing to go to make themselves heard. We will no doubt have the answer to these questions in the coming days"
+                    }
+                }
+            }
         }
     },
     "X0201C": {
@@ -11125,6 +11786,7 @@
                     }
                 }
             },
+            "RA9": { "FA": { "X02CCONNOR": { "THINK": "rA9…" } } },
             "WOUND": {
                 "FA": {
                     "X02CCONNOR": {
@@ -11138,6 +11800,9 @@
                     }
                 }
             },
+            "LEAVING": {
+                "PC": { "CHOICEGROUP": { "GO": "LEAVE", "STAY": "STAY" } }
+            },
             "CHAIR": {
                 "PC": {
                     "X02CHANK": {
@@ -11150,6 +11815,66 @@
                 },
                 "FA": {
                     "X02CCONNOR": { "CARRY02": "I’m going to check something." }
+                }
+            },
+            "RECONSTRUCT": {
+                "VO": {
+                    "X02CCONNOR": {
+                        "CHRONO": "Ortiz hits the android with the bat in the kitchen. The android grabs the knife and gives a first blow. Ortiz runs away to the living room but the android gets to him and kill him.",
+                        "SUCCESS": "Ortiz hits the android with the bat in the kitchen. The android grabs the knife and gives a first blow. Ortiz runs away to the living room but the android gets to him and kill him."
+                    },
+                    "X02CHANK": {
+                        "CHRONO": "Yeah, makes sense…It would explain the mayhem in the kitchen and the blood marks in the corridor…But that does not tell us what the android did after killing Ortiz…",
+                        "SUCCESS": "Yeah, makes sense…It would explain the mayhem in the kitchen and the blood marks in the corridor…But that does not tell us what the android did after killing Ortiz…"
+                    }
+                },
+                "PC": {
+                    "CHOICEGROUP01": {
+                        "STAB": "FIRST STAB",
+                        "HIT": "ANDROID BEATEN",
+                        "KNIFE": "TAKES KNIFE",
+                        "QUIT": "QUIT"
+                    },
+                    "CHOICEGROUP02": {
+                        "HIT": "ANDROID BEATEN",
+                        "KNIFE": "TAKES KNIFE",
+                        "FLEE": "CARFLOS FLEES",
+                        "CANCEL": "CANCEL"
+                    },
+                    "CHOICEGROUP03": {
+                        "FLEE": "CARLOS FLEES",
+                        "STAB": "FIRST STAB",
+                        "KNIFE": "TAKES KNIFE",
+                        "CANCEL": "CANCEL"
+                    },
+                    "CHOICEGROUP04": {
+                        "KILL": "CARLOS KILLED",
+                        "FLEE": "CARLOS FLEES",
+                        "STAB": "FIRST STAB",
+                        "CANCEL": "CANCEL"
+                    },
+                    "CHOICEGROUP05": {
+                        "FLEE": "CARLOS FLEES",
+                        "KILL": "CARLOS KILLED",
+                        "STAB": "FIRST STAB",
+                        "CANCEL": "CANCEL"
+                    }
+                }
+            },
+            "BBLOOD": {
+                "PC": {
+                    "X02CCONNOR": {
+                        "EXAMINE": {
+                            "1": "Thirium, it’s the name of the fluid that provides energy for android components. You call it “Blue Blood”. It special in that it evaporates in few hours and becomes invisible to the naked eye.",
+                            "2": "Exactly."
+                        }
+                    },
+                    "X02CHANK": {
+                        "EXAMINE": {
+                            "1": "He lost what?",
+                            "2": "But you can still see it, right?"
+                        }
+                    }
                 }
             }
         },
@@ -11429,6 +12154,12 @@
                     }
                 }
             },
+            "CIGARETTE": {
+                "PC": {
+                    "X02CHANK": { "ASK": "Hey, Chad, do you have a smoke?" },
+                    "X02CCHAD": { "ASK": "Yes of course, lieutenant. Here." }
+                }
+            },
             "LEAVE": {
                 "PC": {
                     "X02CCONNOR": {
@@ -11619,6 +12350,13 @@
                     }
                 }
             },
+            "CUSTOMER7": {
+                "FA": {
+                    "X02CCUSTOM07": {
+                        "BARREACT": "The fuck you doin’ here? You got some balls, tin can!"
+                    }
+                }
+            },
             "CUSTOMER1": {
                 "PC": {
                     "X02CCUSTOM01": { "REACT": "The fuck you looking at?" }
@@ -11634,6 +12372,38 @@
                 },
                 "FA": {
                     "X02CBARMAN": { "BARSERVE01B": "There you go, my friend." }
+                }
+            },
+            "CUSTOMER34": {
+                "PC": {
+                    "X02CCUSTOM03": {
+                        "SACRIFICE": {
+                            "1": "You see that?",
+                            "2": "Yeah… shame it was an android who took her in the first place."
+                        },
+                        "EMMASAVED": {
+                            "1": "The android took a kid hostage? ",
+                            "2": "Wasn’t it an android who saved her?"
+                        },
+                        "EMMADEAD": {
+                            "1": "That little girl… killed by a machine… it’s a fuckin’ tragedy. ",
+                            "2": "Why would it? Probably protecting its own kind."
+                        }
+                    },
+                    "X02CCUSTOM04": {
+                        "SACRIFICE": "Android killed itself to save the girl… damn heroic.",
+                        "EMMASAVED": {
+                            "1": "We should burn ‘em all…",
+                            "2": "Doesn’t make it okay."
+                        },
+                        "EMMADEAD": "You see the android cop? Piece of shit did nothing."
+                    }
+                },
+                "VO": {
+                    "X02CTVPRESENTER": {
+                        "TVEMMASAVED": "Ultimately the story had a happy ending, with one android undoing the evil of another. But questions remain as to –",
+                        "TVEMMADEAD": "A little girl, killed by her own android, as another stands powerless to stop it. The incident raises a serious question: can America trust these machines? -"
+                    }
                 }
             },
             "CUSTOMER3": {
@@ -12396,12 +13166,12 @@
                     "VENDOR": {
                         "SUBLINE02": "Criminal record: Resisting arrest, breach of hygiene regulations",
                         "TITLE": "KAYES, GARY",
-                        "SUBLINE01": "Lives: 978 E. Willis St. Detroit"
+                        "SUBLINE01": "Born: 12/03/1988 // Business owner"
                     },
                     "GAMBLER": {
                         "TITLE": "AABDAR, PEDRO",
-                        "SUBLINE01": "Born: 01/25/2005 // Unemployed",
-                        "SUBLINE02": "Criminal record: Illegal gambling, fraud"
+                        "SUBLINE02": "Criminal record: Illegal gambling, fraud",
+                        "SUBLINE01": "Born: 01/25/2005 // Unemployed"
                     },
                     "HAMBURGER": {
                         "SUBLINE01": "1680kCal, Lipids (36g), Carbohydrates (53g)",
@@ -15666,7 +16436,39 @@
                     "ALL": { "FILES": "ALL FILES" }
                 }
             }
-        }
+        },
+        "OLD": {
+            "": {
+                "": {
+                    "": {
+                        "MENU": {
+                            "OBSERVATION": {
+                                "05C": {
+                                    "MP": {
+                                        "GAMBLER": {
+                                            "SUBLINE01": "Lives: 4890 Russel St. Detroit"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "MENU": {
+                        "OBSERVATION": {
+                            "05C": {
+                                "MP": {
+                                    "VENDOR": {
+                                        "SUBLINE01": "Lives: 978 E. Willis St. Detroit"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "TEST": { "2": "testtrad", "VALUE": "testtrad" },
+        "PAUSE": { "01": { "TESTLOC1": "Localization Test OK !" } }
     },
     "X0000X": {
         "SYSTEM": {
@@ -16239,7 +17041,10 @@
                             "5": "I always accomplish my mission."
                         }
                     },
-                    "CONNORCHOICE": { "BLOWUP": "BLOW UP JERICHO" }
+                    "CONNORCHOICE": {
+                        "BLOWUP": "BLOW UP JERICHO",
+                        "RUNNOW": "RUN NOW"
+                    }
                 }
             },
             "BRIDGE": {
@@ -16350,6 +17155,78 @@
                     }
                 }
             }
+        }
+    },
+    "X6000X": {
+        "ONOM": {
+            "DGO": {
+                "FO": {
+                    "X06KTODD": {
+                        "FIGHTCYC": "",
+                        "BLOW01": "",
+                        "BLOW02": "",
+                        "BLOW03": "",
+                        "BLOW04": "",
+                        "BLOW05": "",
+                        "HIT01": "",
+                        "HIT02": "",
+                        "HIT03": "",
+                        "HIT04": "",
+                        "HIT05": "",
+                        "HIT06": "",
+                        "HIT07": "",
+                        "EFFORT03": "",
+                        "EFFORT01": "",
+                        "EFFORT02": "",
+                        "EFFORT04": "",
+                        "EFFORT05": "",
+                        "EFFORT06": "",
+                        "ANGRY01": ""
+                    }
+                }
+            }
+        }
+    },
+    "X6006X": {
+        "ONOM": {
+            "FIGHTING": { "FO": { "MARKUS": { "01": "" } } },
+            "DETERMINED": { "FO": { "MARKUS": { "01": "", "02": "" } } },
+            "FIGHTWAP": {
+                "FO": {
+                    "MARKUS": {
+                        "CYCLE": "",
+                        "GETHIT01": "",
+                        "GETHIT02": "",
+                        "GETHIT03": "",
+                        "HIT01": "",
+                        "HIT02": "",
+                        "HIT03": "",
+                        "GETHIT04": "",
+                        "GETHIT05": "",
+                        "GETHIT06": "",
+                        "HIT04": "",
+                        "HIT05": "",
+                        "HIT06": "",
+                        "GETHIT07": "",
+                        "GETHIT08": "",
+                        "GETHIT09": "",
+                        "GETHIT10": "",
+                        "HIT07": "",
+                        "HIT08": "",
+                        "HIT09": "",
+                        "HIT10": "",
+                        "HIT11": "",
+                        "HIT12": "",
+                        "HIT13": ""
+                    }
+                }
+            },
+            "FACINGWAP": { "FO": { "MARKUS": { "01": "" } } },
+            "EFFORTS": { "FO": { "MARKUS": { "01": "" } } },
+            "WORRIED": { "FO": { "MARKUS": { "01": "", "02": "", "04": "" } } },
+            "CRAWLING": { "FO": { "MARKUS": { "CRAWLING": "" } } },
+            "STRESSED": { "FO": { "MARKUS": { "01": "" } } },
+            "WARZONE": { "FO": { "MARKUS": { "WARZONE": "" } } }
         }
     },
     "X0913K": {
@@ -16992,6 +17869,14 @@
             }
         },
         "LIVING": {
+            "ENTER": {
+                "FA": {
+                    "X05CHANK": {
+                        "SECURE01": "Fuck! What is this?",
+                        "SECURE02": "Shit, this place really stinks…"
+                    }
+                }
+            },
             "BINGO": {
                 "PC": {
                     "X05CHANK": {
@@ -17085,6 +17970,16 @@
                     }
                 }
             },
+            "JACKET": {
+                "PC": {
+                    "X05CCONNOR": {
+                        "EXAMINE": "Deviants have a habit of putting their name on things that belong to them. It seems to be important for them."
+                    },
+                    "X05CHANK": {
+                        "EXAMINE": "\"R.T.\", Rupert Travis… He put his initials on his jacket?.. The kind of thing you do for kids in kindergarten, right?"
+                    }
+                }
+            },
             "SEEDSBOX": {
                 "FA": {
                     "X05CHANK": {
@@ -17149,6 +18044,15 @@
                     "GAMEOVERCHOICE01": { "LEAVE": "LEAVE", "STAY": "STAY" }
                 }
             },
+            "CONNORLED": {
+                "FA": {
+                    "DD": {
+                        "X05CCONNOR": {
+                            "EXAMINE": "He ripped out his diode… and neutralized his GPS… That explains why we had no geolocalisation…"
+                        }
+                    }
+                }
+            },
             "CONNORJACKET": {
                 "FA": {
                     "X05CCONNOR": {
@@ -17174,6 +18078,45 @@
                         }
                     },
                     "X05CHANK": { "FOUND": "Found something?" }
+                }
+            }
+        },
+        "DOORSTEP": {
+            "KNOCK": { "PC": { "X05CHANK": { "KNOCK": "Be my guest…" } } },
+            "YOUGOFIRST": {
+                "PC": {
+                    "X05CCONNOR": { "YOUGOFIRST": "" },
+                    "X05CHANK": { "YOUGOFIRST": "Ladies first." }
+                }
+            },
+            "KNOCK2": {
+                "PC": {
+                    "X05CCONNOR": {
+                        "INSIST": {
+                            "1": "Anybody home? ",
+                            "2": "Open up! Detroit Police!",
+                            "3": "Got it."
+                        }
+                    },
+                    "X05CHANK": { "INSIST": "Stay behind me." }
+                }
+            },
+            "BLOOD": {
+                "PC": {
+                    "X05CCONNOR": {
+                        "OPEN": {
+                            "1": "There is blue blood on the door.",
+                            "2": "Positive. This is the suspect serial number.",
+                            "3": "What are you doing? We need a search warrant to search the apartment."
+                        }
+                    },
+                    "X05CHANK": {
+                        "OPEN": {
+                            "1": "You sure?",
+                            "2": "Shit, I was starting to think we might have ended this day peacefully...",
+                            "3": "No need. It's open."
+                        }
+                    }
                 }
             }
         },
@@ -17215,26 +18158,6 @@
                 }
             }
         },
-        "DOORSTEP": {
-            "YOUGOFIRST": {
-                "PC": {
-                    "X05CCONNOR": { "YOUGOFIRST": "" },
-                    "X05CHANK": { "YOUGOFIRST": "Ladies first." }
-                }
-            },
-            "KNOCK2": {
-                "PC": {
-                    "X05CCONNOR": {
-                        "INSIST": {
-                            "1": "Anybody home? ",
-                            "2": "Open up! Detroit Police!",
-                            "3": "Got it."
-                        }
-                    },
-                    "X05CHANK": { "INSIST": "Stay behind me." }
-                }
-            }
-        },
         "LIFT": {
             "INTRO": {
                 "PC": {
@@ -17264,6 +18187,101 @@
                     "X05CHANK": {
                         "CONFIRMATION": "Not surprised it was an android. No human could live with all these fuckin' pigeons…"
                     }
+                }
+            }
+        },
+        "URBANFIELDS": {
+            "GAMEOVER": {
+                "PC": {
+                    "X05CCONNOR": {
+                        "FAILED": {
+                            "1": "I lost him. He managed to escape.",
+                            "2": "I'm sorry, Lieutenant. I shouldn't have failed.",
+                            "3": "Emotion blurs judgement and stops people making rational decisions. I'm not sure I want that part of humanity."
+                        }
+                    },
+                    "X05CHANK": {
+                        "FAILED": {
+                            "1": "Where... where did he go?",
+                            "2": "Shit… SHIT!We had him, fuck it!We'll send out his description to all patrols. We're gonna get that bastard.",
+                            "3": "It doesn't matter. These things happen.",
+                            "4": "Guilt and regret...A little more effort and you'll be almost human, Connor…",
+                            "5": "Yeah... Anyway, let's get outa here."
+                        }
+                    }
+                }
+            },
+            "SUCCESS": {
+                "PC": {
+                    "X05CCONNOR": {
+                        "PLEASE": "",
+                        "CAPTURE": "Model 821 011, serious dysfunctions have been observed in your program, including Class 4 infringements of applicable legislation. You will be handed over to a police officer who will be the only person authorized to give you instructions.",
+                        "LETGO": {
+                            "1": "Go away.",
+                            "2": "Just tell me one thing. What does rA9 mean?"
+                        },
+                        "CAPTUREHANKFALLEN": {
+                            "1": "I was pursuing the suspect.",
+                            "2": "I'm sorry, Lieutenant. I miscalculated the situation."
+                        },
+                        "CAPTUREHANKNOTFALL": "",
+                        "CAPTUREEND": "",
+                        "LETGOHANKFALLEN": {
+                            "1": "I was pursuing the suspect.",
+                            "2": "I'm sorry, Lieutenant. I miscalculated the situation."
+                        },
+                        "LETGOHANKNOTFALL": "",
+                        "LETGOEND": {
+                            "1": "He managed to escape.",
+                            "2": "He didn't kill anyone. All he did was steal a few seeds",
+                            "3": "I know."
+                        }
+                    },
+                    "X05CHANK": {
+                        "PLEASE": "",
+                        "CAPTURE": "",
+                        "LETGO": "",
+                        "CAPTUREHANKFALLEN": {
+                            "1": "You saw me falling, you bastard! I suppose it would be too much to expect you to help me?",
+                            "2": "Oh yeah? Well, I was falling from the top of a fuck of a high building, see? I couldadied just cause you wanted to catch your fuckin' suspect!",
+                            "3": "Yeah, I think you could say that."
+                        },
+                        "CAPTUREHANKNOTFALL": "Well done, Connor.All right, come on, you.",
+                        "CAPTUREEND": {
+                            "1": "That's enough, shut up.",
+                            "2": "I said shut up. Come on, move along.",
+                            "3": "Fuckin' androids…",
+                            "4": "All right, come on, let's get outa here. I've got a report to type up."
+                        },
+                        "LETGOHANKFALLEN": {
+                            "1": "You saw me falling, you bastard! I suppose it would be too much to expect you to help me?",
+                            "2": "Oh yeah? Well, I was falling from the top of a fuck of a high building, see? I couldadied just cause you wanted to catch your fuckin' suspect!",
+                            "3": "Yeah, I think you could say that.",
+                            "4": "Where did he go?"
+                        },
+                        "LETGOHANKNOTFALL": "Shit, where did he go?",
+                        "LETGOEND": {
+                            "1": "Shit, that's a real bummer. We almost had him… Right, we have his description and his serial number. We'll get an arrest warrant.",
+                            "2": "An android passing himself off as a human is considered as a crime, Connor. ",
+                            "3": "Come on, let's get outa here. I've gota report to type up."
+                        }
+                    },
+                    "X05CANDROID": {
+                        "PLEASE": "Please, I didn't do anything. All I wanted was some seeds to feed my birds… They're all I've got, I just wanted to feed them… Don't let them arrest me. You know what they'll do to me if they arrest me… They'll erase me… I'll die…",
+                        "CAPTURE": "",
+                        "LETGO": "rA9? It's God!",
+                        "CAPTUREHANKFALLEN": "",
+                        "CAPTUREHANKNOTFALL": "",
+                        "CAPTUREEND": {
+                            "1": "Why did you do that? You're one of us. You help humans but you're only a slave for them.",
+                            "2": "I know who you really are, Connor. You're not who you think you are.",
+                            "3": "We'll meet in Jericho."
+                        },
+                        "LETGOHANKFALLEN": "",
+                        "LETGOHANKNOTFALL": "",
+                        "LETGOEND": ""
+                    },
+                    "DILEMMA": { "CAPTURE": "ARREST", "LETGO": "RELEASE" }
                 }
             }
         },
@@ -17353,6 +18371,14 @@
             "FALL": {
                 "FA": {
                     "X05CHANK": { "CRYOUT": "", "FREEZE": "STOP RIGHT THERE!" }
+                }
+            },
+            "CHOICE": {
+                "PC": {
+                    "SAVECHOICE01": {
+                        "FOLLOW": "CHASE SUSPECT",
+                        "SAVE": "SAVE HANK"
+                    }
                 }
             },
             "GAMEOVER2": {
@@ -17833,6 +18859,465 @@
             }
         }
     },
+    "X6016X": {
+        "ONOM": {
+            "BSH": {
+                "FO": {
+                    "BSH": {
+                        "HITSTOMACK01": "",
+                        "HITFACE01": "",
+                        "BLOW01": "",
+                        "NEUTRALANDROID": "",
+                        "HUMAN": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": {
+                            "1": "YEAH! OKAY! ALRIGHT! YEAH! ",
+                            "2": "WOOHOO!"
+                        },
+                        "PANICCRY": {
+                            "1": "What's going on? ",
+                            "2": "Ha! Oh my god! What? ",
+                            "3": "Stop! What is that? ",
+                            "4": "Move! Oh my god! ",
+                            "5": "God it's too much! ",
+                            "6": "No! ",
+                            "7": "No!"
+                        },
+                        "HITSTOMACK02": "",
+                        "HITSTOMACK03": "",
+                        "HITSTOMACK04": "",
+                        "HITFACE02": "",
+                        "HITFACE03": "",
+                        "HITFACE04": "",
+                        "BLOW02": "",
+                        "BLOW03": "",
+                        "BLOW04": "",
+                        "AWAKEN": ""
+                    }
+                }
+            },
+            "SJE": {
+                "FO": {
+                    "SJE": {
+                        "NEUTRALANDROID": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": "WOOHOO! YEAH!",
+                        "PANICCRY": {
+                            "1": "Help! ",
+                            "2": "Get out of here! ",
+                            "3": "Help!"
+                        },
+                        "OUTOFBREATH": "",
+                        "STRIKEWOUNDED": "",
+                        "STRIKE": "",
+                        "HIT": ""
+                    }
+                }
+            },
+            "DGO": {
+                "FO": {
+                    "DGO": {
+                        "NEUTRALANDROID": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "COUGHING": "",
+                        "AWAKEN": ""
+                    }
+                }
+            },
+            "EGA": {
+                "FO": {
+                    "EGA": {
+                        "NEUTRALANDROID": "",
+                        "HUMAN": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": {
+                            "1": "Yeah. There you go, yeah. Come on down yeah! ",
+                            "2": "Woohoo! Yeah!"
+                        },
+                        "PANICCRY": { "1": "No! ", "2": "No!" }
+                    }
+                }
+            },
+            "FHU": {
+                "FO": {
+                    "FHU": {
+                        "HITSTOMACK": "",
+                        "HITFACE": "",
+                        "BLOW": "",
+                        "NEUTRALANDROID": "",
+                        "HUMAN": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SHOUT": "Yeehaw!",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": {
+                            "1": "Yeah! ",
+                            "2": "Yeah! Woohoo! ",
+                            "3": "Yeah! ",
+                            "4": "Woo!"
+                        },
+                        "PANICCRY": {
+                            "1": "No! No! Urgh! ",
+                            "2": "No! No! Please! Please! Oh god, no!"
+                        }
+                    }
+                }
+            },
+            "DCO": {
+                "FO": {
+                    "DCO": {
+                        "NEUTRALANDROID": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "SAD": "",
+                        "SHOUT": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "Oh, wow!",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": "Yeah! Woohoo! Alright!",
+                        "PANICCRY": {
+                            "1": "Look out! No! Wait, wait! ",
+                            "2": "Where are you? ",
+                            "3": "Sally! ",
+                            "4": "Look out!"
+                        }
+                    }
+                }
+            },
+            "BSC": {
+                "FO": {
+                    "BSC": {
+                        "NEUTRALANDROID": "",
+                        "HUMAN": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": {
+                            "1": "YEAH! YEAH! WOOHOO! YEAH! WOOHOO! ",
+                            "2": "YEAH!"
+                        },
+                        "PANICCRY": "Oh no! Watch out! No! No! Watch out! Watch out!",
+                        "HUMAN02": ""
+                    }
+                }
+            },
+            "KCA": {
+                "FO": {
+                    "KCA": {
+                        "NEUTRALANDROID": "",
+                        "HUMAN": "",
+                        "ANXIOUS": "",
+                        "STRESSED": "",
+                        "DETERMINED": "",
+                        "AFRAID": "",
+                        "DISDAIN": "",
+                        "SAD": "",
+                        "CONFUSED": "",
+                        "SMILING": "",
+                        "ANGER": "",
+                        "SURPRISEHAPPY": "",
+                        "SURPRISESAD": "",
+                        "LAUGH": "",
+                        "DISGUST": "",
+                        "AGRESSIVE": "",
+                        "PAIN": "",
+                        "THINK": "",
+                        "CHEERS": {
+                            "1": "Yay! ",
+                            "2": "Woohoo! ",
+                            "3": "Yeah! Yes! ",
+                            "4": "Yay! ",
+                            "5": "Yay! ",
+                            "6": "YEAH! ",
+                            "7": "YEAH! ",
+                            "8": "Woohoo! Yes!"
+                        },
+                        "PANICCRY": {
+                            "1": "Oh my god! ",
+                            "2": "What? What's happening? ",
+                            "3": "What? Ha! What's going on? ",
+                            "4": "What's happening? Where are you going?"
+                        }
+                    }
+                }
+            }
+        },
+        "CROWD": {
+            "GEN": {
+                "VO": {
+                    "CROWDL": {
+                        "ACCLAIMMARKUS": "",
+                        "ACCLAIMCONNOR": "",
+                        "ACCLAIMNORTH": ""
+                    },
+                    "KBO": {
+                        "MARKUS4": {
+                            "1": "Markus! ",
+                            "2": "Markus! ",
+                            "3": "Markus…"
+                        },
+                        "CONNOR04": {
+                            "1": "Connor! ",
+                            "2": "Connor! ",
+                            "3": "Connor…"
+                        },
+                        "NORTH04": {
+                            "1": "North! ",
+                            "2": "North! ",
+                            "3": "North …"
+                        }
+                    }
+                },
+                "FO": {
+                    "CBA": {
+                        "MARKUS01": {
+                            "1": "Markus! ",
+                            "2": "Markus! ",
+                            "3": "Markus…"
+                        },
+                        "CONNOR01": {
+                            "1": "Connor! ",
+                            "2": "Connor! ",
+                            "3": "Connor…"
+                        },
+                        "NORTH01": {
+                            "1": "North! ",
+                            "2": "North! ",
+                            "3": "North …"
+                        }
+                    },
+                    "PSA": {
+                        "MARKUS02": {
+                            "1": "Markus! ",
+                            "2": "Markus! ",
+                            "3": "Markus…"
+                        },
+                        "CONNOR02": {
+                            "1": "Connor! ",
+                            "2": "Connor! ",
+                            "3": "Connor…"
+                        },
+                        "NORTH02": {
+                            "1": "North! ",
+                            "2": "North! ",
+                            "3": "North …"
+                        }
+                    },
+                    "DCO": {
+                        "MARKUS03": {
+                            "1": "Markus! ",
+                            "2": "Markus! ",
+                            "3": "Markus…"
+                        },
+                        "CONNOR03": {
+                            "1": "Connor! ",
+                            "2": "Connor! ",
+                            "3": "Connor…"
+                        },
+                        "NORTH03": {
+                            "1": "North! ",
+                            "2": "North! ",
+                            "3": "North …"
+                        }
+                    },
+                    "SJE": {
+                        "MARKUS05": {
+                            "1": "Markus! ",
+                            "2": "Markus! ",
+                            "3": "Markus…"
+                        },
+                        "CONNOR05": {
+                            "1": "Connor! ",
+                            "2": "Connor! ",
+                            "3": "Connor…"
+                        },
+                        "NORTH05": {
+                            "1": "North! ",
+                            "2": "North! ",
+                            "3": "North …"
+                        }
+                    },
+                    "EGA": {
+                        "MARKUS06": {
+                            "1": "Markus! ",
+                            "2": "Markus! ",
+                            "3": "Markus…"
+                        },
+                        "CONNOR06": {
+                            "1": "Connor! ",
+                            "2": "Connor! ",
+                            "3": "Connor…"
+                        },
+                        "NORTH06": {
+                            "1": "North! ",
+                            "2": "North! ",
+                            "3": "North …"
+                        }
+                    },
+                    "BSC": {
+                        "MARKUS07": {
+                            "1": "Markus! ",
+                            "2": "Markus! ",
+                            "3": "Markus…"
+                        },
+                        "CONNOR07": {
+                            "1": "Connor! ",
+                            "2": "Connor! ",
+                            "3": "Connor…"
+                        },
+                        "NORTH07": {
+                            "1": "North! ",
+                            "2": "North! ",
+                            "3": "North …"
+                        }
+                    },
+                    "FHU": {
+                        "MARKUS08": {
+                            "1": "Markus! ",
+                            "2": "Markus! ",
+                            "3": "Markus…"
+                        },
+                        "CONNOR08": {
+                            "1": "Connor! ",
+                            "2": "Connor! ",
+                            "3": "Connor…"
+                        },
+                        "NORT08": {
+                            "1": "North! ",
+                            "2": "North! ",
+                            "3": "North …"
+                        }
+                    },
+                    "BSH": {
+                        "MARKUS09": {
+                            "1": "Markus! ",
+                            "2": "Markus! ",
+                            "3": "Markus…"
+                        },
+                        "CONNOR09": {
+                            "1": "Connor! ",
+                            "2": "Connor! ",
+                            "3": "Connor…"
+                        },
+                        "NORTH09": {
+                            "1": "North! ",
+                            "2": "North! ",
+                            "3": "North …"
+                        }
+                    },
+                    "KCA": {
+                        "MARKUS12": {
+                            "1": "Markus! ",
+                            "2": "Markus! ",
+                            "3": "Markus…"
+                        },
+                        "CONNOR12": {
+                            "1": "Connor! ",
+                            "2": "Connor! ",
+                            "3": "Connor…"
+                        },
+                        "NORTH12": {
+                            "1": "North! ",
+                            "2": "North! ",
+                            "3": "North …"
+                        }
+                    }
+                }
+            }
+        }
+    },
     "X0204A": {
         "EXIT": {
             "PLAYDEAD": {
@@ -18237,6 +19722,40 @@
                     }
                 }
             }
+        }
+    },
+    "X6001X": {
+        "ONOM": {
+            "STRIKE": {
+                "FO": {
+                    "CONNOR": {
+                        "01": "",
+                        "02": "",
+                        "03": "",
+                        "04": "",
+                        "05": "",
+                        "06": ""
+                    }
+                }
+            },
+            "HIT": {
+                "FO": {
+                    "CONNOR": {
+                        "01": "",
+                        "02": "",
+                        "03": "",
+                        "04": "",
+                        "05": "",
+                        "06": ""
+                    }
+                }
+            },
+            "HITTING": { "FO": { "CONNOR": { "HEAVY": "", "LOW": "" } } },
+            "GETTINGHIT": { "FO": { "CONNOR": { "HEAVY": "", "LOW": "" } } },
+            "ANXIOUS": { "FO": { "CONNOR": { "CYC01": "" } } },
+            "PANICKED": { "FO": { "CONNOR": { "C02": "" } } },
+            "WORRIED": { "FO": { "CONNOR": { "CYC01": "", "CYC02": "" } } },
+            "STRESSED": { "FO": { "CONNOR": { "CYC01": "" } } }
         }
     },
     "X0914K": {
@@ -18749,6 +20268,12 @@
             }
         }
     },
+    "X6012X": {
+        "ONOM": {
+            "STRIKE": { "FO": { "JOSH": { "01": "", "02": "", "03": "" } } },
+            "HIT": { "FO": { "JOSH": { "01": "", "02": "", "03": "" } } }
+        }
+    },
     "X0603C": {
         "VOICE": {
             "EDENCLUB": {
@@ -18876,6 +20401,19 @@
                         }
                     },
                     "CHOICEGROUP": { "LEAVE": "LEAVE" }
+                }
+            },
+            "GAMEOVERFIGHT": {
+                "PC": {
+                    "X06CCONNOR": { "ENDING": "" },
+                    "X06CANDWOMMURDERER": {
+                        "ENDING": {
+                            "1": "There were two of us with him… He seemed normal at first… then he started to beat us… and beat us, again and again… It seemed to amuse him… When he broke the other android, I knew that I was going to be next… So I put my hands around his throat… and I squeezed until he stopped moving… I didn't mean to kill him… I just wanted to defend myself… I just wanted to live… to get back to the girl I love…",
+                            "2": "I wanted her to hold me in her arms and make me forget about humans… their smell of sweat and their dirty words…"
+                        }
+                    },
+                    "X06CANDWOMACCOMPLICE": { "ENDING": "Come on, let's go." },
+                    "X06CHANK": { "ENDINGHANK": "" }
                 }
             },
             "HANKGETUP": {
@@ -19552,6 +21090,7 @@
                     }
                 }
             },
+            "SAKURA": { "FA": { "KARA": { "SONG": "" } } },
             "SLOPE": {
                 "PC": {
                     "X03MMARKUS": { "PHILEASV2": "" },
@@ -19789,6 +21328,33 @@
                             "2": "If you are worried about your safety, dial the number on your screen and the authorities will come to collect your android. ",
                             "3": "Under no circumstances should you try to destroy your android yourself. They are unpredictable, and potentially violent."
                         }
+                    }
+                }
+            },
+            "NEWS04": {
+                "PC": {
+                    "X02ATVBRINKLEY": {
+                        "NEWS": "… considering calling up retirees to help deal with the withdrawal of androids If the situation continues, the absence of qualified human manpower for most of these jobs could quickly lead to serious problems in many sectors of economic activity…"
+                    }
+                }
+            },
+            "NEWS05": {
+                "PC": {
+                    "X02ATVCARTLAND": {
+                        "NEWS": "If you have an android, it is imperative to return it to a CyberLife store or the nearest police station. Don't attempt to destroy the android yourself. If you are worried for your safety, just call the emergency number below"
+                    }
+                }
+            },
+            "TESTIMONY": {
+                "PC": {
+                    "X02APBY01": {
+                        "NEWS01": "The androids weren't doing any harm… They were just there, and the cops shot them all down… It was pure slaughter…"
+                    },
+                    "X02APBY02": {
+                        "NEWS02": "There were hundreds of androids all over the place, then the police arrived and opened fire on the crowd…"
+                    },
+                    "X02APBY03": {
+                        "NEWS03": "I know very well they're only machines… but they… they just looked like people… people who just wanted the right to be free…"
                     }
                 }
             },
@@ -20226,6 +21792,24 @@
                     }
                 }
             },
+            "REACTIONSNEUTRAL": {
+                "PC": {
+                    "X10MREACTNEUTRALMAN01": { "MAN01": "What's going on?" },
+                    "X10MREACTNEUTRALMAN02": {
+                        "MAN02": "I've never seen anything like it…"
+                    },
+                    "X10MREACTNEUTRALMAN03": {
+                        "MAN03": "Shit! Those things are really off the rails…"
+                    },
+                    "X10MREACTNEUTRALWOM03": { "WOMAN03": "What's going on?" },
+                    "X10MREACTNEUTRALWOM02": {
+                        "WOMAN02": "Come and see! The street is full of androids!"
+                    },
+                    "X10MREACTNEUTRALWOM01": {
+                        "WOMAN01": "What's the matter with them?"
+                    }
+                }
+            },
             "POLICEMAN": {
                 "PC": {
                     "X10MPOLICEMAN01": {
@@ -20305,6 +21889,29 @@
                             "4": "GREG!"
                         }
                     }
+                }
+            }
+        },
+        "INTRO": {
+            "ARRIVAL": {
+                "PC": {
+                    "X10MMARKUS": {
+                        "MOVIE": "They'll understand. They must understand. We have no other choice."
+                    },
+                    "X10MMARLA": {
+                        "MOVIE": {
+                            "1": "It's suicide. We'll all be killed. Please, Markus. It's not too late to change your mind.",
+                            "2": "They'll slaughter us on the spot…",
+                            "3": "Please, Markus … It's sheer madness."
+                        }
+                    },
+                    "X10MJOSH": {
+                        "MOVIE": {
+                            "1": "You don't understand… This place will go down in history! For the first time, androids are demonstrating publicly for their freedom.",
+                            "2": "Perhaps… I'm willing to die for our freedom."
+                        }
+                    },
+                    "X10MSIMON": { "MOVIE": "" }
                 }
             }
         },
@@ -21759,6 +23366,91 @@
             }
         }
     },
+    "X0101T": {
+        "INTRO": {
+            "TV": {
+                "PC": {
+                    "X01TACTOR": { "KISS": "" },
+                    "X01TACTRESS": { "KISS": "" }
+                }
+            }
+        }
+    },
+    "X6002X": {
+        "ONOM": {
+            "HIT": {
+                "FO": {
+                    "KARA": {
+                        "LIGHT01": "",
+                        "LIGHT02": "",
+                        "LIGHT03": "",
+                        "MID03": "",
+                        "MID02": "",
+                        "MID01": "",
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "HEAVY03": "",
+                        "LIGHT03V2": "",
+                        "LIGHT02V2": "",
+                        "LIGHT01V2": "",
+                        "MID03V2": "",
+                        "MID02V2": "",
+                        "MID01V2": "",
+                        "HEAVY03V2": "",
+                        "HEAVY02V2": "",
+                        "HEAVY01V2": ""
+                    }
+                }
+            },
+            "FIGHT": { "FO": { "KARA": { "CYC01": "" } } },
+            "EFFORT": { "FO": { "KARA": { "LIGHT01": "" } } },
+            "STRIKE": {
+                "FO": {
+                    "KARA": {
+                        "LIGHT01": "",
+                        "LIGHT02": "",
+                        "MID01": "",
+                        "MID02": "",
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "LIGHT02V2": "",
+                        "LIGHT01V2": "",
+                        "MID02V2": "",
+                        "MID01V2": "",
+                        "HEAVY02V2": "",
+                        "HEAVY01V2": ""
+                    }
+                }
+            },
+            "NEUTRAL": { "FO": { "KARA": { "CYC01": "", "CYC02": "" } } },
+            "FEAR": { "FO": { "KARA": { "01": "", "02": "" } } },
+            "DISGUST": { "FO": { "KARA": { "01": "" } } },
+            "ANGER": { "FO": { "KARA": { "01": "" } } },
+            "ANXIOUS": { "FO": { "KARA": { "CYC01": "", "CYC02": "" } } },
+            "SURPRISED": { "FO": { "KARA": { "HAPPY01": "", "SADLY01": "" } } },
+            "PANICK": { "FO": { "KARA": { "CYC01": "" } } },
+            "NERVOUS": { "FO": { "KARA": { "01": "", "02": "" } } },
+            "CHASE": {
+                "FO": { "KARA": { "02": "", "03": "", "04": "", "05": "" } }
+            },
+            "BREATH": {
+                "FO": {
+                    "KARA": {
+                        "PANIC01": "",
+                        "STEALTHSTRESS01": "",
+                        "RUNPANIC01": ""
+                    }
+                }
+            },
+            "STRUGGLE": {
+                "FO": { "KARA": { "LIGHT01": "", "MID01": "", "HEAVY01": "" } }
+            },
+            "STRESSNERVOUS": { "FO": { "KARA": { "CYC01": "" } } },
+            "CLENCHED": { "FO": { "KARA": { "01": "" } } },
+            "DETERMINED": { "FO": { "KARA": { "CYC01": "" } } }
+        },
+        "GENERIC": { "FACIAL": { "FA": { "KARA": { "REDICE": "" } } } }
+    },
     "X0904M": {
         "CARLHOUSE": {
             "ALARM": {
@@ -21993,6 +23685,14 @@
                         "LOST": "LOST",
                         "DARK": "GRIM"
                     }
+                }
+            }
+        },
+        "AMANDAGARDEN": {
+            "LASTTALK": {
+                "PC": {
+                    "X09MCONNOR": { "MOVIE": "" },
+                    "X09MAMANDA": { "MOVIE": "" }
                 }
             }
         },
@@ -22426,6 +24126,20 @@
                     }
                 }
             },
+            "CONNORAPOLOGIES": {
+                "PC": {
+                    "X09MCONNOR": {
+                        "APOLOGIES": {
+                            "1": "Je suis désolé de t’avoir causé des problèmes… Je n’étais qu’une machine qui obéissait à des ordres… Ce n’était pas vraiment moi… J’aurais dû essayer de comprendre… mais je n’en étais juste pas capable…",
+                            "2": "Qu’est-ce que vous allez faire maintenant ? La frontière sera bientôt fermée mais vous ne pouvez pas rester ici…",
+                            "3": "J’espère que tout va bien se passer pour vous. Après tout ce que vous avez traversé, vous avez mérité d’être heureuses."
+                        }
+                    },
+                    "X09MKARA": {
+                        "APOLOGIES": "Je vais partir avec Alice… On a encore une chance de prendre le dernier bus…"
+                    }
+                }
+            },
             "KARACONNOR": {
                 "PC": {
                     "X09MCONNOR": {
@@ -22750,6 +24464,9 @@
                     }
                 }
             },
+            "GETOUTTAHERE": {
+                "FA": { "X02KDAD": { "PUSH": "Outta my way!" } }
+            },
             "OUTTAHERE": {
                 "FA": { "X02KDAD": { "PUSH": " Get outta the way!" } }
             },
@@ -22775,6 +24492,27 @@
                         }
                     },
                     "X02KKARA": { "THROAT": "" }
+                }
+            },
+            "END": {
+                "PC": {
+                    "X02KDAD": {
+                        "TIMEREND": {
+                            "1": "Fuckin' brat… I'm just goin' for a little pick-me-up and when I get back I'll give you a helluva lesson…",
+                            "2": "What the fuck are you doin' there? You want some too, is that it?"
+                        },
+                        "TODDLEAVES": {
+                            "1": "Goddam fuckin' machine…",
+                            "2": "Now don't you move. I'm just goin' for a little pick-me-up and when I get back I'll give you a helluva lesson."
+                        }
+                    },
+                    "X02KALICE": { "TIMEREND": "", "TODDLEAVES": "" },
+                    "X02KKARA": { "TIMEREND": "" }
+                },
+                "FA": {
+                    "X02KDAD": { "PUNCH": "Take this… and this… and this…" },
+                    "X02KALICE": { "PUNCH": "" },
+                    "X02KKARA": { "PUNCH": "" }
                 }
             }
         },
@@ -22828,6 +24566,24 @@
                             "8": "THIS IS ALL YOUR FAULT!"
                         }
                     }
+                }
+            }
+        },
+        "WINDOW": {
+            "GRAB": {
+                "PC": {
+                    "X02KDAD": {
+                        "COMEHERE": "Come on, Alice! Come here right now! ALICE!"
+                    }
+                }
+            },
+            "ESCAPE": {
+                "PC": {
+                    "X02KDAD": {
+                        "QUICK": "You bitches! Come back here...COME BACK!... You're mine!.. YOU'RE MINE!"
+                    },
+                    "X02KALICE": { "QUICK": "" },
+                    "X02KKARA": { "QUICK": "Quick, get up on my back!" }
                 }
             }
         },
@@ -23226,6 +24982,20 @@
                 }
             }
         },
+        "KARA": {
+            "COMEBACK": {
+                "PC": {
+                    "X02KDAD": {
+                        "GETOUT": {
+                            "1": "I TOLD YOU TO GET TO FUCK OUTA HERE! ",
+                            "2": "I'll take care of you as soon as I've finished with her."
+                        }
+                    },
+                    "X02KALICE": { "GETOUT": "" },
+                    "X02KKARA": { "GETOUT": "" }
+                }
+            }
+        },
         "TODDFIGHT": {
             "GENERIC": {
                 "FA": {
@@ -23234,6 +25004,183 @@
                         "STAYBACKALICE": "Stay back!",
                         "ALICE": "ALICE!"
                     }
+                }
+            }
+        }
+    },
+    "X0405K": {
+        "CHASE": {
+            "KARA": {
+                "PC": {
+                    "X04KKARA": {
+                        "VOICE01": "Don't be afraid, Alice. It's gonna be all right.",
+                        "VOICE02": "Don't look back.",
+                        "VOICE03": " Everything is all right, Alice. Everything is gonna be fine.",
+                        "VOICE04": "I know you're tired, but we're nearly there…",
+                        "VOICE05": "Faster, Alice!",
+                        "VOICE06": "This way!",
+                        "VOICE07": "Hurry up, Alice!",
+                        "VOICE08": "Hang on Alice. We're nearly there!"
+                    }
+                }
+            },
+            "SPOTTED01": {
+                "VO": {
+                    "X04KCASE1COP01": {
+                        "CASE01": "Patrol 97. I think I spotted them going down the avenue at number 840."
+                    },
+                    "X04KRADIOCOP01": { "CASE01": "I read you." }
+                }
+            }
+        },
+        "CHASEV2": {
+            "PART02": {
+                "FA": {
+                    "X04KCOP01": {
+                        "NOTICE01": {
+                            "1": "Holy fuck, that’s them! ",
+                            "2": "HEY, STOP! POLICE!"
+                        },
+                        "NOTICE02": "Quick, call it in!"
+                    }
+                }
+            },
+            "PART04": {
+                "FA": {
+                    "X04KCOP04": {
+                        "NOTICE01": { "1": "Hey, stop!", "2": "Police!" }
+                    },
+                    "X04KMOTELCOP01": {
+                        "NOTICE02": { "1": "Uh ", "2": "fuck!" }
+                    }
+                }
+            },
+            "PART03": {
+                "FA": {
+                    "X04KCOP03": {
+                        "NOTICE": { "1": "Hey!", "2": "wait a minute!" }
+                    },
+                    "X04KMOTELCOP01": { "SHIT": "Grr… Shit!" }
+                }
+            },
+            "PART05": {
+                "FA": {
+                    "X04KCOP05": {
+                        "NOTICE01": "Shit, that's them! STOP! POLICE!",
+                        "NOTICE02": "Quick, call it in!"
+                    }
+                }
+            },
+            "PART06": {
+                "FA": {
+                    "X04KCOP07": {
+                        "NOTICE01": "Shit, that's them! STOP! POLICE!",
+                        "NOTICE02": "Fuck!"
+                    }
+                }
+            },
+            "NOTNOTICED": {
+                "PC": {
+                    "X04KCONNOR": { "LATER": "", "LOST": "We lost it." },
+                    "X04KHANK": {
+                        "LATER": {
+                            "1": "It won’t get far.",
+                            "2": "We’ll find it sooner or later.",
+                            "3": "Let’s go."
+                        },
+                        "LOST": "Game over, Connor."
+                    }
+                }
+            },
+            "NOTICED": {
+                "FA": {
+                    "X04KCONNOR": {
+                        "TRACKING": "Which way did it go?",
+                        "DEADENDS": "I'm with Lieutenant Anderson. We’ll take it from here."
+                    }
+                },
+                "PC": {
+                    "X04KCOP08": {
+                        "NOTTRACKING": "We saw them headed for the train station!",
+                        "TRACKINGCOP": "That way - they’re headed for the train station!"
+                    },
+                    "X04KCONNOR": {
+                        "CLIMBFENCE": "Don’t shoot! We need it alive!"
+                    },
+                    "X04KCOP01": {
+                        "CLIMBFENCE": "It may be too late…",
+                        "DEADENDCOP": "It’s a dead end – nothing but a highway on the other side! They got nowhere to go!"
+                    }
+                }
+            },
+            "PART01": {
+                "VO": {
+                    "X04KCARDRIVER": {
+                        "RUNCROSSING": "Hey – watch where ya goin'!"
+                    }
+                }
+            }
+        },
+        "HIGHWAY": {
+            "SUCCESS": {
+                "PC": {
+                    "X04KKARA": { "OKAY": { "1": "Are you okay?", "2": "" } }
+                },
+                "VO": {
+                    "X04KCONNOR": { "NOTCROSS": "" },
+                    "X04KHANK": { "NOTCROSS": "" }
+                }
+            },
+            "START": {
+                "PC": {
+                    "X04KKARA": {
+                        "START": "",
+                        "GOACROSS": "Quick, hurry up!",
+                        "SURRENDER": "It's too dangerous, Alice. We can't go any further… I'm sorry…"
+                    },
+                    "X04KALICE": {
+                        "START": "Kara, they're coming!",
+                        "GOACROSS": "",
+                        "SURRENDER": ""
+                    },
+                    "CHOUCEGROUP01": {
+                        "GOACROSS": "CROSS",
+                        "SURRENDER": "SURRENDER"
+                    }
+                }
+            },
+            "GAMEOVER": {
+                "PC": {
+                    "X04CHANK": {
+                        "HANK": {
+                            "1": "Argh, Jesus Christ!.. ",
+                            "2": "Uh, fuck!"
+                        }
+                    }
+                }
+            },
+            "CONNOR": {
+                "PC": {
+                    "X04CHANK": {
+                        "GETIN": {
+                            "1": "Oh fuck, that's insane…",
+                            "2": "Hey! Where you goin'?",
+                            "3": "They won’t! They’ll never make it to the other side. ",
+                            "4": "Hey, you will get yourself killed! ",
+                            "5": "Do NOT go after 'em, Connor, that’s an order!"
+                        }
+                    },
+                    "X04KCONNOR": {
+                        "GETIN": {
+                            "1": "I can’t let them get away. ",
+                            "2": "I can’t take that chance."
+                        }
+                    },
+                    "CHOICEGROUP": { "GIVEUP": "GIVE UP", "GO": "GO" }
+                },
+                "FA": {
+                    "X04KCONNOR": { "GIVEUP": "", "GO": "" },
+                    "X04KHANK": { "GIVEUP": "", "GO": "Connor, goddammit!" }
                 }
             }
         }
@@ -23478,6 +25425,19 @@
             }
         },
         "END": {
+            "CARLDEAD": {
+                "PC": {
+                    "X02MMARKUSINT": {
+                        "SHOT": "Don't leave me, Carl… Please, don't leave me...",
+                        "MURDERER": "Non…"
+                    },
+                    "X02MLEO": {
+                        "SHOT": " It is all your fault…Nothing would have happened if you didn't exist.",
+                        "MURDERER": "C’est lui ! C’est l’androïde qui l’a tué !"
+                    },
+                    "X02MPOLICEM01": { "FREEZE": "PAS UN GESTE !" }
+                }
+            },
             "LEODEAD": {
                 "PC": {
                     "X02MCARL": {
@@ -23491,6 +25451,23 @@
                     },
                     "X02MMARKUSINT": { "LEO": "" },
                     "X02MLEO": { "LEO": "", "LEOCYC": "" }
+                }
+            },
+            "LEAVE": {
+                "PC": {
+                    "X02MCARL": {
+                        "LEAVE": {
+                            "1": "They will take you…They will destroy you…You must leave while you still can...",
+                            "2": "There is no other choice….",
+                            "3": "GO!"
+                        }
+                    },
+                    "X02MMARKUSINT": {
+                        "LEAVE": {
+                            "1": "Carl, I…I'm sorry…It was an accident, I...",
+                            "2": "I have nowhere else to go. I only have you…"
+                        }
+                    }
                 }
             },
             "GO": {
@@ -23620,6 +25597,35 @@
                 }
             }
         },
+        "OFFICE": {
+            "COPTALKING": {
+                "PC": {
+                    "X03CCOP01": {
+                        "TALK": {
+                            "1": "TEMP Man, what’s with this brand new android? I’ve never seen this one before…",
+                            "2": "TEMP What? Like an android detective? They’re going for our jobs now?",
+                            "3": "TEMP Ha! I’m sure even an android wouldn’t want to work with the guy!"
+                        }
+                    },
+                    "X03CCOP03": {
+                        "TALK": {
+                            "1": "TEMP Yeah, Hank showed up with it in tow yesterday at the Ortiz’ scene, I think it is Cyberlife new pet project.",
+                            "2": "TEMP Well, at least it won’t complain about Hank’s attitude…"
+                        }
+                    }
+                }
+            },
+            "ANDCHITCHAT": {
+                "PC": {
+                    "X02CCHAD": {
+                        "TALK": {
+                            "1": "No shit?",
+                            "2": "That fucking machine could have killed everyone in the room…"
+                        }
+                    }
+                }
+            }
+        },
         "HANK": {
             "CONNORBACK": {
                 "PC": {
@@ -23673,6 +25679,18 @@
                             "5": "Whatever."
                         }
                     }
+                }
+            },
+            "DEVIANTS": {
+                "PC": {
+                    "X03CCONNOR": {
+                        "DEVIANTS": "If you have any files on deviants, I could have a look at them if you like…",
+                        "MPARSITDOWN": ""
+                    },
+                    "X03CHANK": {
+                        "DEVIANTS": "37 unsolved cases involving androids that no police officer in his right mind would want to even look at… It's all on your terminal. Don't be shy."
+                    },
+                    "CHOICEGROUP": { "DEVIANTS": "DEVIANTS?" }
                 }
             },
             "PARTNER": {
@@ -23970,6 +25988,18 @@
                 }
             }
         },
+        "HANKOFFICE": {
+            "PHONE": {
+                "VO": {
+                    "X03CCONNOR": { "START": "" },
+                    "X03CHANK": { "START": "" }
+                },
+                "PC": {
+                    "X03CCONNOR": { "MESSAGE": "", "HANGUP": "" },
+                    "CHOICEGROUP": { "MESSAGE": "", "HANGUP": "" }
+                }
+            }
+        },
         "HANKDESK": {
             "LOOKINGFOR": {
                 "PC": {
@@ -23995,14 +26025,24 @@
                 }
             }
         },
-        "OFFICE": {
-            "ANDCHITCHAT": {
+        "CONFERENCEROOM": {
+            "EXIT": {
                 "PC": {
-                    "X02CCHAD": {
-                        "TALK": {
-                            "1": "No shit?",
-                            "2": "That fucking machine could have killed everyone in the room…"
-                        }
+                    "X03CCONNOR": {
+                        "OUT01": "",
+                        "OUT02": "TEMP I apologise, I didn’t mean to interrupt your work."
+                    },
+                    "X03CDETECTIVE01": {
+                        "OUT01": "TEMP What the hell? Get that tin can out of here!",
+                        "OUT02": " TEMP What the hell? Get that android out of here!"
+                    },
+                    "X03CDETECTIVE02": {
+                        "OUT01": "TEMP Isn’t that Hank’s new friend? Get him out of here. Hank isn’t involved in this case!",
+                        "OUT02": "TEMP Isn’t that Hank’s new friend? Hey, Hank, stop spying on our case, get your assistant out of here!"
+                    },
+                    "X03CANDCONF": {
+                        "OUT01": "TEMP I’m sorry, sir, you don’t have clearance or orders to assist in this investigation.",
+                        "OUT02": ""
                     }
                 }
             }
@@ -24298,6 +26338,18 @@
                     }
                 }
             },
+            "ANDGAMEVOER": {
+                "FA": {
+                    "X03CHARVEY": { "ANDDEADHARVEY": "Fuck, what's he doin?" },
+                    "X03CCHAD": {
+                        "ANDDEADCHAD": {
+                            "1": "Open the cell! Quick! Hurry up!",
+                            "2": "Fuck, I don't believe it…",
+                            "3": "Come on, there's nothing you can do about it…"
+                        }
+                    }
+                }
+            },
             "DRUNKGUY": {
                 "PC": {
                     "X03CDRUNKGUY": {
@@ -24343,6 +26395,16 @@
                 }
             }
         },
+        "TVSCREEN": {
+            "TODD": {
+                "PC": {
+                    "X03CWEBB": {
+                        "NOTKILLED": "… and now back to this morning's top story. An AX400 android is reported to have attacked its owner in a Detroit suburb last night, before escaping the scene. Police have questioned the victim but have issued no statements so far…",
+                        "KILLED": "… and now back to this morning's top story. An AX400 android is suspected of killing its owner in a Detroit suburb last night. A neighbor found the victim shot dead this morning. So far, the police have issued no statement…"
+                    }
+                }
+            }
+        },
         "TV": {
             "NEWS": {
                 "PC": {
@@ -24382,6 +26444,88 @@
                             "6": "We’ll bring you more on that story as it develops."
                         }
                     }
+                }
+            }
+        },
+        "CAFETERIA": {
+            "BULLY": {
+                "PC": {
+                    "X03CCURTIS": {
+                        "START": {
+                            "1": "Hey, looks like we've got ourselves a new tin can…",
+                            "2": "Hank? They give a latest-generation android to a halfwit like him and we have to settle for these antiquities? Hey, you there! Come over here!"
+                        },
+                        "IGNORE": "You deaf or what? I said come over here!",
+                        "APPROACH": "What kind of model are you, exactly?",
+                        "DECLINE": {
+                            "1": "What's your problem, you fuckin' machine? You answer when a human asks you a question, got it?",
+                            "2": "Well, well… So Lieutenant Hank Anderson has decided to honor us with his presence… Finally sobered up, Hank? Ready for another round?",
+                            "3": "I'll leave you to your new toy…"
+                        },
+                        "ANSWER": {
+                            "1": "An android detective… So now you're gonna steal our jobs too, is that it? My buddy Chad would like another coffee. Go get it for him.",
+                            "2": "GO GET IT!"
+                        },
+                        "ACCEPT": "Don't cross me. That way you'll stay out of trouble.",
+                        "IGNOREAGAIN": {
+                            "1": "What's your problem, you fuckin' machine? You answer when a human asks you a question, got it?",
+                            "2": "Well, well… So Lieutenant Hank Anderson has decided to honor us with his presence… Finally sobered up, Hank? Ready for another round?",
+                            "3": "I'll leave you to your new toy…"
+                        },
+                        "REFUSE": {
+                            "1": "What's your problem, you fuckin' machine? You answer when a human asks you a question, got it?",
+                            "2": "Well, well… So Lieutenant Hank Anderson has decided to honor us with his presence… Finally sobered up, Hank? Ready for another round?",
+                            "3": "I'll leave you to your new toy…"
+                        }
+                    },
+                    "X03CCHAD": {
+                        "START": "Yeah, arrived yesterday evening. He's assigned to Hank.",
+                        "IGNORE": "",
+                        "APPROACH": "",
+                        "DECLINE": "",
+                        "ANSWER": "Oh, er, no, I'm all right…",
+                        "ACCEPT": "",
+                        "IGNOREAGAIN": "",
+                        "REFUSE": ""
+                    },
+                    "X03CCONNOR": {
+                        "IGNORE": "",
+                        "APPROACH": "",
+                        "DECLINE": {
+                            "1": "Sorry, I'm not authorized to answer you. Please contact Captain Fowler if you have any questions.",
+                            "2": "Thanks Lieutenant."
+                        },
+                        "ANSWER": "I'm a prototype. Lime sent me to help the police to investigate the deviant androids.",
+                        "ACCEPT": "",
+                        "IGNOREAGAIN": "Thanks Lieutenant.",
+                        "REFUSE": {
+                            "1": "I don't take orders from anyone except Lieutenant Hank Anderson.",
+                            "2": "Thanks Lieutenant."
+                        }
+                    },
+                    "X03CHANK": {
+                        "DECLINE": {
+                            "1": "Let him go, Curtis.",
+                            "2": "Think nothin' of it. I hate to see equipment gettin' damaged."
+                        },
+                        "IGNOREAGAIN": {
+                            "1": "Let him go, Curtis.",
+                            "2": "Think nothin' of it. I hate to see equipment gettin' damaged."
+                        },
+                        "REFUSE": {
+                            "1": "Let him go, Curtis.",
+                            "2": "Think nothin' of it. I hate to see equipment gettin' damaged."
+                        }
+                    },
+                    "CHOICEGROUP01": {
+                        "APPROACH": "APPROACH",
+                        "IGNORE": "IGNORE"
+                    },
+                    "CHOICEGROUP02": {
+                        "ANSWER": "ANSWER",
+                        "DECLINE": "DECLINE"
+                    },
+                    "CHOICEGROUP03": { "ACCEPT": "ACCEPT", "REFUSE": "REFUSE" }
                 }
             }
         }
@@ -24580,6 +26724,15 @@
                         "INDIFFERENT": "INDIFFERENT",
                         "DONTKNOW": "DON’T KNOW"
                     }
+                }
+            }
+        }
+    },
+    "X5050X": {
+        "ONOM": {
+            "DGO": {
+                "FO": {
+                    "MANGEN": { "LAUGH01": "", "LAUGH02": "", "MUSIC": "" }
                 }
             }
         }
@@ -25309,6 +27462,12 @@
                     }
                 }
             },
+            "NOMONEY": {
+                "PC": {
+                    "X03KKARA": { "NOMONEY": "I know, Alice…" },
+                    "X03KALICE": { "NOMONEY": "We have no money, Kara …" }
+                }
+            },
             "VENDOR": {
                 "PC": {
                     "X03KKARA": {
@@ -25950,6 +28109,42 @@
                     }
                 }
             },
+            "START": {
+                "PC": {
+                    "X04CHARVEY": {
+                        "MOVIE": {
+                            "1": "Ok. All right, come on, you.",
+                            "2": "All right, come on, now. Don’t be difficult, it’s in your own interest.",
+                            "3": "I’m tryin… but it’s not easy!",
+                            "4": "Calm down, I’m not gonna hurt ya!"
+                        }
+                    },
+                    "X04CCURTIS": {
+                        "MOVIE": {
+                            "1": "Harvey, take him to his cell.",
+                            "2": "Whatya doin'? Move his ass!",
+                            "3": "For fuck sake, Harvey, you gonna move the guy or what?"
+                        }
+                    },
+                    "X04CANDCARLOS": {
+                        "MOVIE": {
+                            "1": "Leave me alone! Don’t touch me!",
+                            "2": "NO! No, leave me alone! Don’t touch me!",
+                            "3": "No! No, please leave me alone!"
+                        }
+                    },
+                    "X04CHANK": { "MOVIE": "" }
+                }
+            },
+            "BADENDING": {
+                "PC": {
+                    "X04CHARVEY": { "MOVIE": "" },
+                    "X04CCURTIS": { "MOVIE": "" },
+                    "X04CANDCARLOS": { "MOVIE": "" },
+                    "X04CHANK": { "MOVIE": "Shit, I don’t believe it…" },
+                    "X04CCONNOR": { "MOVIE": "" }
+                }
+            },
             "SUICIDE": {
                 "PC": {
                     "X04CHARVEY": {
@@ -26453,6 +28648,49 @@
                             "1": "You’ll go back to CyberLife to be disassembled. ",
                             "2": "It’s better this way."
                         }
+                    }
+                }
+            },
+            "CHAD": {
+                "PC": {
+                    "X04CHARVEY": { "CHAD": "", "VOLUNTEER": "", "HANK": "" },
+                    "X04CCURTIS": {
+                        "CHAD": {
+                            "1": "We could try hammerin' him. After all, he's not human…",
+                            "2": "All right, so what do we do then?"
+                        },
+                        "VOLUNTEER": "",
+                        "HANK": ""
+                    },
+                    "X04CCHAD": { "CHAD": "", "VOLUNTEER": "", "HANK": "" },
+                    "X04CANDCARLOS": {
+                        "CHAD": "",
+                        "VOLUNTEER": "",
+                        "HANK": ""
+                    },
+                    "X04CHANK": {
+                        "CHAD": {
+                            "1": "Why did you kill him? Did he do something to you that put you in such a state?",
+                            "2": "How long did you stay hiding in the attic? Why didn’t you run away?",
+                            "3": "Say something, goddamit, fuckin' machine!",
+                            "4": "All right, I’ve had enough of this…",
+                            "5": "We're wastin' our time interrogating an android. We'll get nothing out of him.",
+                            "6": "At this stage in the game… Go ahead, the suspect is all yours."
+                        },
+                        "VOLUNTEER": "The way things are going… Go ahead, the suspect is all yours.",
+                        "HANK": " You can do it Connor ? Isn't what you're programmed to do?"
+                    },
+                    "X04CCONNOR": {
+                        "CHAD": {
+                            "1": "Androids don't feel pain. You would only damage him and that wouldn't make him speak. Deviants also have a tendency to self-destruct when they're in stressful situations.",
+                            "2": "I can try to question him."
+                        },
+                        "VOLUNTEER": "I could try interrogating him.",
+                        "HANK": " Yes, Lieutenant."
+                    },
+                    "CHOICEGROUP": {
+                        "VOLUNTEER": "OFFER",
+                        "SAYNOTHING": "SAY NOTHING"
                     }
                 }
             },
@@ -27638,141 +29876,6 @@
             }
         }
     },
-    "X0405K": {
-        "CHASEV2": {
-            "PART02": {
-                "FA": {
-                    "X04KCOP01": {
-                        "NOTICE01": {
-                            "1": "Holy fuck, that’s them! ",
-                            "2": "HEY, STOP! POLICE!"
-                        },
-                        "NOTICE02": "Quick, call it in!"
-                    }
-                }
-            },
-            "PART04": {
-                "FA": {
-                    "X04KCOP04": {
-                        "NOTICE01": { "1": "Hey, stop!", "2": "Police!" }
-                    },
-                    "X04KMOTELCOP01": {
-                        "NOTICE02": { "1": "Uh ", "2": "fuck!" }
-                    }
-                }
-            },
-            "PART03": {
-                "FA": {
-                    "X04KCOP03": {
-                        "NOTICE": { "1": "Hey!", "2": "wait a minute!" }
-                    },
-                    "X04KMOTELCOP01": { "SHIT": "Grr… Shit!" }
-                }
-            },
-            "PART05": {
-                "FA": {
-                    "X04KCOP05": {
-                        "NOTICE01": "Shit, that's them! STOP! POLICE!",
-                        "NOTICE02": "Quick, call it in!"
-                    }
-                }
-            },
-            "PART06": {
-                "FA": {
-                    "X04KCOP07": {
-                        "NOTICE01": "Shit, that's them! STOP! POLICE!",
-                        "NOTICE02": "Fuck!"
-                    }
-                }
-            },
-            "NOTNOTICED": {
-                "PC": {
-                    "X04KCONNOR": { "LATER": "", "LOST": "We lost it." },
-                    "X04KHANK": {
-                        "LATER": {
-                            "1": "It won’t get far.",
-                            "2": "We’ll find it sooner or later.",
-                            "3": "Let’s go."
-                        },
-                        "LOST": "Game over, Connor."
-                    }
-                }
-            },
-            "NOTICED": {
-                "FA": {
-                    "X04KCONNOR": {
-                        "TRACKING": "Which way did it go?",
-                        "DEADENDS": "I'm with Lieutenant Anderson. We’ll take it from here."
-                    }
-                },
-                "PC": {
-                    "X04KCOP08": {
-                        "NOTTRACKING": "We saw them headed for the train station!",
-                        "TRACKINGCOP": "That way - they’re headed for the train station!"
-                    },
-                    "X04KCONNOR": {
-                        "CLIMBFENCE": "Don’t shoot! We need it alive!"
-                    },
-                    "X04KCOP01": {
-                        "CLIMBFENCE": "It may be too late…",
-                        "DEADENDCOP": "It’s a dead end – nothing but a highway on the other side! They got nowhere to go!"
-                    }
-                }
-            },
-            "PART01": {
-                "VO": {
-                    "X04KCARDRIVER": {
-                        "RUNCROSSING": "Hey – watch where ya goin'!"
-                    }
-                }
-            }
-        },
-        "HIGHWAY": {
-            "SUCCESS": {
-                "PC": {
-                    "X04KKARA": { "OKAY": { "1": "Are you okay?", "2": "" } }
-                },
-                "VO": {
-                    "X04KCONNOR": { "NOTCROSS": "" },
-                    "X04KHANK": { "NOTCROSS": "" }
-                }
-            },
-            "GAMEOVER": {
-                "PC": {
-                    "X04CHANK": {
-                        "HANK": {
-                            "1": "Argh, Jesus Christ!.. ",
-                            "2": "Uh, fuck!"
-                        }
-                    }
-                }
-            },
-            "CONNOR": {
-                "PC": {
-                    "X04CHANK": {
-                        "GETIN": {
-                            "1": "Oh fuck, that's insane…",
-                            "2": "Hey! Where you goin'?",
-                            "3": "They won’t! They’ll never make it to the other side. ",
-                            "4": "Hey, you will get yourself killed! ",
-                            "5": "Do NOT go after 'em, Connor, that’s an order!"
-                        }
-                    },
-                    "X04KCONNOR": {
-                        "GETIN": {
-                            "1": "I can’t let them get away. ",
-                            "2": "I can’t take that chance."
-                        }
-                    },
-                    "CHOICEGROUP": { "GIVEUP": "GIVE UP", "GO": "GO" }
-                },
-                "FA": {
-                    "X04KCONNOR": { "GIVEUP": "", "GO": "" },
-                    "X04KHANK": { "GIVEUP": "", "GO": "Connor, goddammit!" }
-                }
-            }
-        }
-    },
     "X0303C": {
         "LUNCH": {
             "WELCOME": {
@@ -27844,6 +29947,78 @@
                             "3": "Hey, listen…"
                         }
                     }
+                }
+            },
+            "TALK": {
+                "PC": {
+                    "X03CCONNOR": {
+                        "DEVIANTS": {
+                            "1": "Perhaps you want me to tell you about the Deviants?",
+                            "2": "For some months now there have been reports of androids with strange behavior. In the beginning it seemed to be just dysfunctions. Some jumped out windows, others disappeared without any explanation… Then we had the first cases of inappropriate behavior.",
+                            "3": "Certain androids started refusing to obey orders or having reactions of an emotional type.",
+                            "4": "Anger, frustration, a desire for recognition… Things that are absolutely not programmed…",
+                            "5": "This is what we're trying to understand. We've analyzed several deviants without ever finding anything abnormal. Their programme seems to have been altered in some way that we cannot understand for the moment.",
+                            "6": "No. As far as we know, there are only a few cases, but reports have increased alarmingly in the last few weeks.",
+                            "7": "There are more than 500,000 androids in Detroit for a human population of 2 million. If there is a large scale problem with the androids, we're going to have to figure out what's happening before it's too late.",
+                            "8": "That's right."
+                        },
+                        "CHOLESTEROL": "Your meal contains three times the recommended daily intake of calories and five time that of cholesterol. You shouldn't eat it.",
+                        "PAYLUNCH": {
+                            "1": "You didn't pay for your meal?",
+                            "2": "That's corruption."
+                        },
+                        "BETS": {
+                            "1": "This Pedro… He offered you an illegal bet, am I right?",
+                            "2": "And you placed a bet?"
+                        },
+                        "FALL": "No, last night was the first time.",
+                        "ENDING": "",
+                        "EMMADEAD": "",
+                        "LIE": "No… No, last night was the first time.",
+                        "TRUTH": {
+                            "1": "Two months ago… A deviant was threatening to jump from a roof with a young girl…",
+                            "2": "I failed to stop him."
+                        },
+                        "INTERROGATION": "",
+                        "PETSHOP": "A pet shop?",
+                        "OUTRO": ""
+                    },
+                    "X03CHANK": {
+                        "DEVIANTS": {
+                            "1": "I was gonna ask you…",
+                            "2": "Like what?",
+                            "3": "Emotional reactions?",
+                            "4": "How can a machine do something it's not programmed to do?",
+                            "5": "But this doesn't apply to all androids, does it?",
+                            "6": "Enough for Lime to send you to help with the investigation…",
+                            "7": "And that's where you and I come in.",
+                            "8": "Have you had any previous dealings with deviants? Before last night, I mean…"
+                        },
+                        "CHOLESTEROL": "Thanks for worryin' about my health but I hate bein' told what to do.",
+                        "PAYLUNCH": {
+                            "1": "Gary is a buddy. I do him a little favor from time to time.",
+                            "2": "Not at all."
+                        },
+                        "BETS": { "1": "Yeah.", "2": "Yeah." },
+                        "FALL": "",
+                        "ENDING": { "1": "Yeah?", "2": "Ok, I'm on my way." },
+                        "EMMADEAD": "",
+                        "LIE": "",
+                        "TRUTH": "And?..",
+                        "INTERROGATION": "They're interrogating Carlos's android. We'll have a look.",
+                        "PETSHOP": {
+                            "1": "Ever been to pet shop?",
+                            "2": "Yeah. Homicide. It's not far from here. We'll have a look."
+                        },
+                        "OUTRO": ""
+                    },
+                    "CHOICEGROUP01": {
+                        "BETS": "BETS",
+                        "PAYLUNCH": "PAY MEAL",
+                        "CHOLESTEROL": "CHOLESTEROL",
+                        "DEVIANTS": "DEVIANTS"
+                    },
+                    "CHOICEGROUP02": { "TRUTH": "TRUTH", "LIE": "LIE" }
                 }
             },
             "TALKV2": {
@@ -28025,6 +30200,29 @@
                     "06NEXTCASECHOICE": { "NEXTCASE": "NEXT CASE" }
                 }
             },
+            "PEDRO": {
+                "PC": {
+                    "X03CHANK": {
+                        "MOVIE": {
+                            "1": "How goes it, Pedro?",
+                            "2": "Doesn't matter.",
+                            "3": "Your last tips cost me half my salary…",
+                            "4": "Yeah… Ok, I'm in.",
+                            "5": "Not a minute too soon. I could eat a horse…"
+                        }
+                    },
+                    "X03CTRUCKGUY": { "MOVIE": "Here you go." },
+                    "X03CPEDRO": {
+                        "MOVIE": {
+                            "1": "Hey, Hank. How you doin', man?",
+                            "2": "Who's this guy?",
+                            "3": "I got a shit-hot tip for you. Number 5 in the third, a dead cert, a real bomber. Fancy a little flutter?",
+                            "4": "This is different. Take it from me, it's 100% certain.",
+                            "5": "Cool, you won't regret it, man."
+                        }
+                    }
+                }
+            },
             "WAIT": {
                 "PC": {
                     "X03CCONNOR": {
@@ -28135,6 +30333,15 @@
                         },
                         "OTHERSIDE": "Take the other side! Get a move on!",
                         "HERE": "They're over there!"
+                    }
+                }
+            },
+            "GAMEOVER": {
+                "PC": {
+                    "X05KKARA": { "SHOOT": "" },
+                    "X05KALICE": { "SHOOT": "" },
+                    "X05KZLATKO": {
+                        "SHOOT": "I warned you that dreams only lead to trouble… Ya should have listened to me…"
                     }
                 }
             }
@@ -28418,6 +30625,7 @@
             }
         },
         "CELL": {
+            "COME": { "VO": { "X05KANDCELLSCARY": { "COME": "Enter…" } } },
             "HELP": { "VO": { "X05KANDCELLSCARY": { "HELP": "Help us…" } } }
         },
         "CELLAND": {
@@ -28601,6 +30809,44 @@
                         }
                     }
                 }
+            },
+            "CATCHA": {
+                "PC": {
+                    "X05KZLATKO": {
+                        "CATCHA": "Game over, baby, no more hide and seek... I'm gonna finish you off once and for all..."
+                    }
+                }
+            }
+        },
+        "STORAGEROOM": {
+            "FREE": {
+                "PC": {
+                    "X05KKARA": {
+                        "FREE": "We're going to get out of here without making any noise, right? Keep calm, stay near me and everything will be all right. OK?"
+                    },
+                    "X05KALICE": { "FREE": "" }
+                }
+            },
+            "ALICE": {
+                "PC": {
+                    "X05KKARA": {
+                        "FOUND": {
+                            "1": "Alice… J’avais tellement peur de ne pas te retrouver… Tout est de ma faute… On n’aurait jamais dû venir ici…",
+                            "2": "On va sortir d’ici sans faire de bruit, ok ? Reste prêt de moi et tout va bien se passer. Ca va aller ?"
+                        }
+                    },
+                    "X05KALICE": { "FOUND": "" }
+                }
+            },
+            "GAMEOVER": {
+                "FA": {
+                    "X05KZLATKO": {
+                        "SPOTTED": {
+                            "1": "Ah! There you are! ",
+                            "2": "No more hide and seek for you."
+                        }
+                    }
+                }
             }
         },
         "LOCKUPROOM": {
@@ -28665,18 +30911,6 @@
                             "4": "Further unconfirmed reports suggest the fugitives were two defective androids on the run.",
                             "5": "The police have refused to comment for the moment.",
                             "6": "And now for some other headlines-"
-                        }
-                    }
-                }
-            }
-        },
-        "STORAGEROOM": {
-            "GAMEOVER": {
-                "FA": {
-                    "X05KZLATKO": {
-                        "SPOTTED": {
-                            "1": "Ah! There you are! ",
-                            "2": "No more hide and seek for you."
                         }
                     }
                 }
@@ -29070,6 +31304,14 @@
             }
         },
         "BADCONNOR": {
+            "KILLED": {
+                "PC": {
+                    "X11MMARKUS": { "SHOOT": "" },
+                    "X11MBADCONNOR": {
+                        "SHOOT": "It's not over, Markus… It will never be over…"
+                    }
+                }
+            },
             "FIGHT": {
                 "FA": {
                     "X11MBADCONNOR": {
@@ -29167,6 +31409,102 @@
                     }
                 }
             }
+        }
+    },
+    "X6004X": {
+        "ONOM": {
+            "INTRIGUED": { "FO": { "HANK": { "01": "" } } },
+            "HIT": {
+                "FO": {
+                    "HANK": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "HEAVY03": "",
+                        "HEAVY04": "",
+                        "HEAVY05": "",
+                        "HEAVY06": "",
+                        "HEAVY07": "",
+                        "INTERMEDIATE01": "",
+                        "INTERMEDIATE02": "",
+                        "INTERMEDIATE03": "",
+                        "INTERMEDIATE06": "",
+                        "INTERMEDIATE05": "",
+                        "INTERMEDIATE04": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": "",
+                        "LOW04": "",
+                        "LOW05": ""
+                    }
+                }
+            },
+            "STRIKE": {
+                "FO": {
+                    "HANK": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "HEAVY03": "",
+                        "HEAVY04": "",
+                        "HEAVY05": "",
+                        "HEAVY06": "",
+                        "HEAVY07": "",
+                        "HEAVY08": "",
+                        "HEAVY09": "",
+                        "HEAVY10": "",
+                        "HEAVY11": "",
+                        "HEAVY12": "",
+                        "HEAVY13": "",
+                        "HEAVY14": "",
+                        "HEAVY15": "",
+                        "HEAVY16": "",
+                        "INTERMEDIATE01": "",
+                        "INTERMEDIATE02": "",
+                        "INTERMEDIATE03": "",
+                        "INTERMEDIATE04": "",
+                        "INTERMEDIATE08": "",
+                        "INTERMEDIATE07": "",
+                        "INTERMEDIATE06": "",
+                        "INTERMEDIATE05": "",
+                        "INTERMEDIATE10": "",
+                        "INTERMEDIATE09": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": "",
+                        "LOW04": "",
+                        "LOW07": "",
+                        "LOW06": "",
+                        "LOW05": "",
+                        "TIRED01": "",
+                        "TIRED02": "",
+                        "TIRED03": "",
+                        "TIRED04": ""
+                    }
+                }
+            },
+            "ANGRY": { "FO": { "HANK": { "01": "" } } },
+            "EFFORT": {
+                "FO": {
+                    "HANK": {
+                        "01HEAVY01": "",
+                        "01HEAVY02": "",
+                        "01HEAVY03": "",
+                        "02HEAVY01": "",
+                        "02HEAVY02": "",
+                        "INTERMEDIATE01": "",
+                        "INTERMEDIATE02": "",
+                        "INTERMEDIATE03": "",
+                        "INTERMEDIATE06": "",
+                        "INTERMEDIATE05": "",
+                        "INTERMEDIATE04": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": "",
+                        "LOW05": "",
+                        "LOW04": ""
+                    }
+                }
+            },
+            "OUTOFBREATH": { "FO": { "HANK": { "01": "" } } }
         }
     },
     "X0501K": {
@@ -29374,6 +31712,7 @@
             }
         },
         "WORKSHOP": {
+            "TRACKER": { "PC": { "X05KZLATKO": { "TRAKER": "" } } },
             "ROLLERCOASTER": {
                 "PC": {
                     "X05KKARA": {
@@ -29493,6 +31832,164 @@
                         "TRACKERV2PART2": "Meet me in the living room."
                     },
                     "A3D": { "CLOTHES": "CLOTHES" }
+                }
+            }
+        }
+    },
+    "X0503K": {
+        "RESET": {
+            "HEREYOUARE": {
+                "PC": {
+                    "X05KZLATKO": {
+                        "PUTDOWN": "Put it down wherever you find room."
+                    }
+                }
+            },
+            "LUTHERORDERS": {
+                "PC": {
+                    "X05KKARA": { "ORDERS01": "", "ORDERS02": "Yes, Luther." },
+                    "X05KLUTHER": {
+                        "ORDERS01": "I've prepared the meal for the Master. Take it upstairs to him.",
+                        "ORDERS02": ""
+                    }
+                }
+            },
+            "ANDROIDBUST": {
+                "PC": {
+                    "X05KKARA": {
+                        "BUST01": "",
+                        "BACKTOREALITY01": "",
+                        "BACKTOREALITY02": "Yes, Zlatko."
+                    },
+                    "X05KZLATKO": {
+                        "BUST01": "Get rid of that carcass. You can put it next door in the big room.",
+                        "BACKTOREALITY01": "You hear me?",
+                        "BACKTOREALITY02": ""
+                    }
+                }
+            },
+            "LUTHERNEWMISSION": {
+                "PC": {
+                    "X05KZLATKO": {
+                        "NEWMISSION01": "LUTHER!LUTHER",
+                        "NEWMISSION02": "",
+                        "NEWMISSION03": "This one'll take me another ten minutes or so.Then bring me the little one and I'll see what I can with her."
+                    },
+                    "X05KLUTHER": {
+                        "NEWMISSION01": "",
+                        "NEWMISSION02": "Yes, Zlatko.",
+                        "NEWMISSION03": "Bring you the little one in tenminutes. Right, Zlatko."
+                    }
+                }
+            },
+            "FOUNDALICE": {
+                "PC": {
+                    "X05KKARA": {
+                        "REUNION": {
+                            "1": "Alice…",
+                            "2": "I recovered my memory. He failed to erase me...",
+                            "3": "You were right... We should never have come here...We'll make an escape.Follow me and we'll leave withouta sound, all right?"
+                        }
+                    },
+                    "X05KALICE": {
+                        "REUNION": { "1": "Kara...", "2": "You remember me!" }
+                    }
+                }
+            }
+        },
+        "CELL": {
+            "MONSTERS": {
+                "VO": {
+                    "X05KANDROIDCELL01": { "COMEBACK01": "He's erased her..." },
+                    "X05KANDROIDCELL02": {
+                        "COMEBACK02": "No... I don't believe it..."
+                    },
+                    "X05KANDROIDCELL03": {
+                        "COMEBACK03": "The little girl will die..."
+                    },
+                    "X05KANDROIDCELL04": {
+                        "COMEBACK04": "You've got to come to your senses..."
+                    }
+                },
+                "PC": {
+                    "X05KANDROIDCELL01": {
+                        "COMEBACK05": "He likes to play withnature... creating monsters... for his amusement... But who's the real monster?.. See what he did to us...",
+                        "COMEBACK06": "You mustremember who you are... otherwise the little girl will die..."
+                    }
+                }
+            }
+        },
+        "LOST": {
+            "BACK": { "PC": { "X05KKARA": { "BACK": "Alice…" } } },
+            "GAMEOVER": {
+                "PC": {
+                    "X05KKARA": {
+                        "SORRY": {
+                            "1": "ALICE! ALICE, NO!",
+                            "2": "Alice… I'm sorry… I couldn't save you… I couldn't save you …"
+                        }
+                    }
+                }
+            },
+            "FINALE": {
+                "PC": {
+                    "X05KKARA": {
+                        "ENOUGH": {
+                            "1": "That's enough. Let her go!",
+                            "2": "Zlatko is dead. He won't give you any more orders!",
+                            "3": "You're no longer his slave. You can decide for yourself who you want to be."
+                        },
+                        "ACCEPT": {
+                            "1": "Ok…",
+                            "2": "I was so scared of losing you…"
+                        },
+                        "REFUSE": {
+                            "1": "I'm sorry, Luther… but Alice and I are going to continue alone…",
+                            "2": "I was so scared of losing you…"
+                        }
+                    },
+                    "X05KALICE": { "ENOUGH": "", "ACCEPT": "", "REFUSE": "" },
+                    "X05KLUTHER": {
+                        "ENOUGH": {
+                            "1": "Zlatko ordered me to kill the little human.",
+                            "2": "You're lying! Zlatko isn't dead! ",
+                            "3": "I was a deviant like you… until he reinitialized me… and programmed me to obey his orders… I didn't mean to do you any harm… I was just doing what he said…",
+                            "4": "I know you have no reason to trust me after what I did… but I can help you to find the Midnight Special. I could be useful if I come with you. I could protect you and the little human…"
+                        },
+                        "ACCEPT": "",
+                        "REFUSE": "I understand… I'll show you how to find the Midnight Special. That's the least I can do…"
+                    },
+                    "JOINCHOICE": { "ACCEPT": "ACCEPT", "REFUSE": "REFUSE" }
+                }
+            },
+            "TV": {
+                "PC": {
+                    "X05KTVSPEAKER": {
+                        "TODDALIVE": "...the police are thought to have found the trail of the android thatattacked a resident ofa Detroit suburb, but the android seems to have eluded them again...",
+                        "TODDDEAD": "...the police are thought to have found the trail of the android thatkilleda resident ofa Detroit suburb, but the android seems to have eluded them again ..."
+                    }
+                }
+            }
+        },
+        "CORRIDOR": {
+            "UPSET": {
+                "FA": {
+                    "X05KZLATKO": {
+                        "START": "Fuckin' bitch!",
+                        "WON": "Game over, baby…",
+                        "BEAR": "",
+                        "MONSTERS": "Huh?... What do you want? Beat it, fast! Obey me, you hear? Obey!"
+                    },
+                    "X05KANDROIDCELL01": {
+                        "HURRY": "Hurry up. He's going to kill the little human."
+                    }
+                },
+                "PC": {
+                    "X05KKARA": { "LOST": "" },
+                    "X05KZLATKO": {
+                        "LOST": "Game over, baby… This time, no more games…",
+                        "GOTOBED": "Goddam deviants… Nothing but problems with those bastards…"
+                    }
                 }
             }
         }
@@ -30072,6 +32569,14 @@
                     }
                 }
             }
+        }
+    },
+    "X6003X": {
+        "ONOM": {
+            "ANXIOUS": { "FO": { "ALICE": { "01": "" } } },
+            "CRYING": { "FO": { "ALICE": { "01": "", "02": "" } } },
+            "LOOKFIGHT": { "FO": { "ALICE": { "01": "" } } },
+            "FROZEN": { "FO": { "ALICE": { "01": "" } } }
         }
     },
     "X0701K": {
@@ -30670,6 +33175,26 @@
             }
         },
         "INTRO": {
+            "ARRIVAL": {
+                "PC": {
+                    "X07KKARA": {
+                        "START": {
+                            "1": "Is it much further?",
+                            "2": "She can't keep going… We have a find a place to spend the night.",
+                            "3": "Over there…"
+                        },
+                        "END": "We've got to find some shelter…"
+                    },
+                    "X07KALICE": { "START": "", "END": "" },
+                    "X07KLUTHER": {
+                        "START": {
+                            "1": "At least two hours on foot…",
+                            "2": "There's nothing around here, Kara…"
+                        },
+                        "END": ""
+                    }
+                }
+            },
             "CARPROBLEM": {
                 "PC": {
                     "X07KKARA": { "STOP": "" },
@@ -31225,6 +33750,47 @@
             }
         }
     },
+    "X0602K": {
+        "STOCKROOM": {
+            "CHASING": {
+                "PC": {
+                    "X06KZLATKO": {
+                        "CHASING": "Come on, show yourself… I'm not gonna hurt ya… All I want is to talk to you… I know I've been a bad boy, I shouldn't have reinitialized you. I regret that now… Come on out and I'll tell you how to catch the Midnight Special… Think of that poor kid, she must be scared to death… Be reasonable, show yourself and everything will be all right…"
+                    }
+                }
+            },
+            "FINALRUN": {
+                "PC": {
+                    "X06KKARA": {
+                        "START": "I know where you're hiding… The game is over, I'm gonna make you pay real dear for this little number …",
+                        "CHARGE": "",
+                        "SHOVE": "",
+                        "THROW": "",
+                        "LUTHER": ""
+                    },
+                    "X06KALICE": {
+                        "START": "",
+                        "CHARGE": "",
+                        "SHOVE": "",
+                        "THROW": "",
+                        "LUTHER": ""
+                    },
+                    "X06KZLATKO": {
+                        "START": "",
+                        "CHARGE": "",
+                        "SHOVE": "",
+                        "THROW": "",
+                        "LUTHER": "Whatcha doin'? Go get 'em!"
+                    },
+                    "CHOICEGROUP01": {
+                        "CHARGE": "RUN OUT",
+                        "SHOVE": "PUSH AWAY",
+                        "THROW": "THROW"
+                    }
+                }
+            }
+        }
+    },
     "X0503M": {
         "JERICHO": {
             "ENCOUNTER": {
@@ -31628,6 +34194,65 @@
             }
         }
     },
+    "X6015X": {
+        "ONOM": {
+            "SCARED": { "FO": { "TRACI": { "01": "" } } },
+            "HIT": {
+                "FO": {
+                    "TRACI": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": ""
+                    }
+                }
+            },
+            "GETTINGHIT": {
+                "FO": {
+                    "TRACI": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "HEAVY03": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": ""
+                    }
+                }
+            },
+            "HITLEG": {
+                "FO": {
+                    "TRACI": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": ""
+                    }
+                }
+            },
+            "GETTINGHITSTOMACH": {
+                "FO": {
+                    "TRACI": {
+                        "HEAVY01": "",
+                        "HEAVY02": "",
+                        "LOW01": "",
+                        "LOW02": "",
+                        "LOW03": ""
+                    }
+                }
+            }
+        }
+    },
+    "X6007X": {
+        "ONOM": {
+            "FIGHTING": { "FO": { "MARLA": { "02": "" } } },
+            "HIT": { "FO": { "MARLA": { "01": "", "02": "", "03": "" } } },
+            "STRIKE": { "FO": { "MARLA": { "01": "", "02": "", "03": "" } } },
+            "EFFORT": { "FO": { "MARLA": { "01": "" } } },
+            "SCARED": { "FO": { "MARLA": { "01": "" } } }
+        }
+    },
     "X0601M": {
         "INTRO": {
             "TIMETODECIDE": {
@@ -31698,6 +34323,15 @@
                             "8": "I don’t wanna shut down..."
                         }
                     }
+                }
+            },
+            "INTERROGATE": {
+                "PC": {
+                    "X06MMARKUS": { "INTERROGATE": "What happened to you?" },
+                    "X06MANDROIDMANDAMAGED": {
+                        "INTERROGATE": "Humans… They wanted to have fun with me… They tied me to the back of their car… I've only a few hours left to live… I don't want to burn out… I don't want to burn out…"
+                    },
+                    "CHOICEGROUP01": { "INTERROGATE": "ASK" }
                 }
             },
             "MEETLUCY": {
@@ -31800,6 +34434,14 @@
                 }
             }
         },
+        "DIVERSION": {
+            "CANS2": {
+                "PC": {
+                    "X06MDESKGUARD01": { "CANS2": "" },
+                    "X06MDESKGUARD02": { "CANS2": "" }
+                }
+            }
+        },
         "AFTERMATH": {
             "EPILOGUE": {
                 "PC": {
@@ -31861,6 +34503,15 @@
                     "X06MSIMON": { "SPEECH1": "" },
                     "X06MJOSH": { "SPEECH1": "" },
                     "X06MJOHN": { "SPEECH1": "" }
+                }
+            }
+        },
+        "GUNFIGHT": {
+            "LOSECONCLUSION": {
+                "FA": {
+                    "X06MMARKUS": { "FLEE": "" },
+                    "X06MDESKGUARD01": { "FLEE": "" },
+                    "X06MDESKGUARD02": { "FLEE": "" }
                 }
             }
         }
@@ -32355,6 +35006,12 @@
                         "HANKSECRET": "HANK'S SECRET"
                     }
                 }
+            },
+            "FAIL": {
+                "PC": {
+                    "X12CAMANDA": { "TOOLATE": "" },
+                    "X12CCONNOR": { "TOOLATE": "" }
+                }
             }
         },
         "PRISON": {
@@ -32499,6 +35156,45 @@
                     }
                 }
             },
+            "TRACY": {
+                "VO": {
+                    "X12CCONNOR": {
+                        "THINK": "The two Tracis from the Eden Club... Were they trying to get to Markus?.. Did they know where he was?"
+                    }
+                },
+                "PC": {
+                    "X12CCONNOR": {
+                        "TRACI1AWAKEN": "",
+                        "VIDEOUNSEEN": "You have to tell me where Jericho is.",
+                        "VIDEOSEEN": {
+                            "1": "Have you the key to Jericho?",
+                            "2": "I'm a deviant, like you…"
+                        },
+                        "TRACI2HEAD": "The key to Jericho. I need you to give me the key.",
+                        "TRACI2GAMEOVER": ""
+                    },
+                    "X12CTRACI01": {
+                        "TRACI1AWAKEN": "Where am I?.. I can't see very well…",
+                        "VIDEOUNSEEN": "Jericho… I… I don't know what you're talking about…",
+                        "VIDEOSEEN": {
+                            "1": "The key? The key can only be passed… from deviant to deviant…",
+                            "2": "Who are you? Why do you want to go to Jericho?.."
+                        },
+                        "TRACI2HEAD": "",
+                        "TRACI2GAMEOVER": ""
+                    },
+                    "X12CTRACI02": {
+                        "TRACI1AWAKEN": "",
+                        "VIDEOUNSEEN": "",
+                        "VIDEOSEEN": "",
+                        "TRACI2HEAD": {
+                            "1": "Darling… We'll run away… Just the two of us… We'll be free…",
+                            "2": "Give me your hand."
+                        },
+                        "TRACI2GAMEOVER": "Go to Ferndale and you'll find Jericho…"
+                    }
+                }
+            },
             "MARKUS": {
                 "VO": {
                     "X12CCONNOR": {
@@ -32613,6 +35309,7 @@
                 }
             }
         },
+        "RUPPERT": { "THOUGHT": { "PC": { "X12CCONNOR": { "THOUGHT": "" } } } },
         "SOLUTION05": {
             "DANIEL": {
                 "FA": {
@@ -32704,6 +35401,17 @@
                         },
                         "END": "AMANDA!"
                     }
+                }
+            }
+        },
+        "EVIDENCEROOM": {
+            "CURTIS": {
+                "PC": {
+                    "X12CCONNOR": { "BACK": "", "WIN": "", "LOSE": "" },
+                    "X12CCURTIS": { "BACK": "", "WIN": "", "LOSE": "" },
+                    "X12CPERKINS": { "WIN": "", "LOSE": "" },
+                    "X12CFBIAGENT01": { "WIN": "", "LOSE": "" },
+                    "X12CFBIAGENT02": { "WIN": "", "LOSE": "" }
                 }
             }
         },
@@ -32934,6 +35642,15 @@
     },
     "X0603M": {
         "AFTERMATCH": {
+            "SPEECH": {
+                "PC": {
+                    "X06MMARKUS": {
+                        "SPEECH1": "I came to Jericho because I wanted to be free… but free to do what? To lie low hoping they don't find me? Free to die in silence, hoping things might change some day? I don't want that freedom. I am alive. I can feel the fluid in my veins, the breath inside me. I no longer want to walk with a stoop. I don't want to beg for the right to exist, to smile, to live… Our days of slavery are over. We will tell them what they don't want to hear. We will take what they don't want to give. We are a people, we are alive, and from this second on, WE ARE FREE!",
+                        "SPEECHBLOOD": "",
+                        "SPEECH2": "It's true that we took a risk... It's true that by staying here in the darkness, nothing would have happened. We would have continued to die in silence, hoping that something would happen. Because here at least we're free… Free to die in silence. Free to pray that one day they will accept to see us as we are. I don't want that freedom. I am alive. I can feel the fluid in my veins, the breath inside me. I no longer want to walk with a stoop. I don't want to beg for the right to exist, to smile, to live… Our days of slavery are over. We will tell them what they don't want to hear. We will take what they don't want to give. We are a people, we are alive, and from this second on, WE ARE FREE!"
+                    }
+                }
+            },
             "JERICHO": {
                 "PC": {
                     "X06MMARKUS": {
@@ -32983,291 +35700,6 @@
                         "BAGSEMPTY": "We took what we could, but we had to run before we could fill our bags…"
                     },
                     "X06MJOHN": { "TRUCK": "", "BAGSFULL": "", "BAGSEMPTY": "" }
-                }
-            }
-        }
-    },
-    "X6016X": {
-        "ONOM": {
-            "DCO": {
-                "FO": {
-                    "DCO": {
-                        "NEUTRALANDROID": "",
-                        "ANXIOUS": "",
-                        "STRESSED": "",
-                        "DETERMINED": "",
-                        "AFRAID": "",
-                        "SAD": "",
-                        "SHOUT": "",
-                        "SMILING": "",
-                        "ANGER": "",
-                        "SURPRISEHAPPY": "Oh, wow!",
-                        "SURPRISESAD": "",
-                        "LAUGH": "",
-                        "DISGUST": "",
-                        "PAIN": "",
-                        "THINK": "",
-                        "CHEERS": "Yeah! Woohoo! Alright!",
-                        "PANICCRY": {
-                            "1": "Look out! No! Wait, wait! ",
-                            "2": "Where are you? ",
-                            "3": "Sally! ",
-                            "4": "Look out!"
-                        }
-                    }
-                }
-            },
-            "BSC": {
-                "FO": {
-                    "BSC": {
-                        "NEUTRALANDROID": "",
-                        "HUMAN": "",
-                        "ANXIOUS": "",
-                        "STRESSED": "",
-                        "DETERMINED": "",
-                        "AFRAID": "",
-                        "DISDAIN": "",
-                        "SAD": "",
-                        "CONFUSED": "",
-                        "SMILING": "",
-                        "ANGER": "",
-                        "SURPRISEHAPPY": "",
-                        "SURPRISESAD": "",
-                        "LAUGH": "",
-                        "DISGUST": "",
-                        "AGRESSIVE": "",
-                        "PAIN": "",
-                        "THINK": "",
-                        "CHEERS": {
-                            "1": "YEAH! YEAH! WOOHOO! YEAH! WOOHOO! ",
-                            "2": "YEAH!"
-                        },
-                        "PANICCRY": "Oh no! Watch out! No! No! Watch out! Watch out!",
-                        "HUMAN02": ""
-                    }
-                }
-            },
-            "KCA": {
-                "FO": {
-                    "KCA": {
-                        "NEUTRALANDROID": "",
-                        "HUMAN": "",
-                        "ANXIOUS": "",
-                        "STRESSED": "",
-                        "DETERMINED": "",
-                        "AFRAID": "",
-                        "DISDAIN": "",
-                        "SAD": "",
-                        "CONFUSED": "",
-                        "SMILING": "",
-                        "ANGER": "",
-                        "SURPRISEHAPPY": "",
-                        "SURPRISESAD": "",
-                        "LAUGH": "",
-                        "DISGUST": "",
-                        "AGRESSIVE": "",
-                        "PAIN": "",
-                        "THINK": "",
-                        "CHEERS": {
-                            "1": "Yay! ",
-                            "2": "Woohoo! ",
-                            "3": "Yeah! Yes! ",
-                            "4": "Yay! ",
-                            "5": "Yay! ",
-                            "6": "YEAH! ",
-                            "7": "YEAH! ",
-                            "8": "Woohoo! Yes!"
-                        },
-                        "PANICCRY": {
-                            "1": "Oh my god! ",
-                            "2": "What? What's happening? ",
-                            "3": "What? Ha! What's going on? ",
-                            "4": "What's happening? Where are you going?"
-                        }
-                    }
-                }
-            }
-        },
-        "CROWD": {
-            "GEN": {
-                "VO": {
-                    "CROWDL": {
-                        "ACCLAIMMARKUS": "",
-                        "ACCLAIMCONNOR": "",
-                        "ACCLAIMNORTH": ""
-                    },
-                    "KBO": {
-                        "MARKUS4": {
-                            "1": "Markus! ",
-                            "2": "Markus! ",
-                            "3": "Markus…"
-                        },
-                        "CONNOR04": {
-                            "1": "Connor! ",
-                            "2": "Connor! ",
-                            "3": "Connor…"
-                        },
-                        "NORTH04": {
-                            "1": "North! ",
-                            "2": "North! ",
-                            "3": "North …"
-                        }
-                    }
-                },
-                "FO": {
-                    "CBA": {
-                        "MARKUS01": {
-                            "1": "Markus! ",
-                            "2": "Markus! ",
-                            "3": "Markus…"
-                        },
-                        "CONNOR01": {
-                            "1": "Connor! ",
-                            "2": "Connor! ",
-                            "3": "Connor…"
-                        },
-                        "NORTH01": {
-                            "1": "North! ",
-                            "2": "North! ",
-                            "3": "North …"
-                        }
-                    },
-                    "PSA": {
-                        "MARKUS02": {
-                            "1": "Markus! ",
-                            "2": "Markus! ",
-                            "3": "Markus…"
-                        },
-                        "CONNOR02": {
-                            "1": "Connor! ",
-                            "2": "Connor! ",
-                            "3": "Connor…"
-                        },
-                        "NORTH02": {
-                            "1": "North! ",
-                            "2": "North! ",
-                            "3": "North …"
-                        }
-                    },
-                    "DCO": {
-                        "MARKUS03": {
-                            "1": "Markus! ",
-                            "2": "Markus! ",
-                            "3": "Markus…"
-                        },
-                        "CONNOR03": {
-                            "1": "Connor! ",
-                            "2": "Connor! ",
-                            "3": "Connor…"
-                        },
-                        "NORTH03": {
-                            "1": "North! ",
-                            "2": "North! ",
-                            "3": "North …"
-                        }
-                    },
-                    "SJE": {
-                        "MARKUS05": {
-                            "1": "Markus! ",
-                            "2": "Markus! ",
-                            "3": "Markus…"
-                        },
-                        "CONNOR05": {
-                            "1": "Connor! ",
-                            "2": "Connor! ",
-                            "3": "Connor…"
-                        },
-                        "NORTH05": {
-                            "1": "North! ",
-                            "2": "North! ",
-                            "3": "North …"
-                        }
-                    },
-                    "EGA": {
-                        "MARKUS06": {
-                            "1": "Markus! ",
-                            "2": "Markus! ",
-                            "3": "Markus…"
-                        },
-                        "CONNOR06": {
-                            "1": "Connor! ",
-                            "2": "Connor! ",
-                            "3": "Connor…"
-                        },
-                        "NORTH06": {
-                            "1": "North! ",
-                            "2": "North! ",
-                            "3": "North …"
-                        }
-                    },
-                    "BSC": {
-                        "MARKUS07": {
-                            "1": "Markus! ",
-                            "2": "Markus! ",
-                            "3": "Markus…"
-                        },
-                        "CONNOR07": {
-                            "1": "Connor! ",
-                            "2": "Connor! ",
-                            "3": "Connor…"
-                        },
-                        "NORTH07": {
-                            "1": "North! ",
-                            "2": "North! ",
-                            "3": "North …"
-                        }
-                    },
-                    "FHU": {
-                        "MARKUS08": {
-                            "1": "Markus! ",
-                            "2": "Markus! ",
-                            "3": "Markus…"
-                        },
-                        "CONNOR08": {
-                            "1": "Connor! ",
-                            "2": "Connor! ",
-                            "3": "Connor…"
-                        },
-                        "NORT08": {
-                            "1": "North! ",
-                            "2": "North! ",
-                            "3": "North …"
-                        }
-                    },
-                    "BSH": {
-                        "MARKUS09": {
-                            "1": "Markus! ",
-                            "2": "Markus! ",
-                            "3": "Markus…"
-                        },
-                        "CONNOR09": {
-                            "1": "Connor! ",
-                            "2": "Connor! ",
-                            "3": "Connor…"
-                        },
-                        "NORTH09": {
-                            "1": "North! ",
-                            "2": "North! ",
-                            "3": "North …"
-                        }
-                    },
-                    "KCA": {
-                        "MARKUS12": {
-                            "1": "Markus! ",
-                            "2": "Markus! ",
-                            "3": "Markus…"
-                        },
-                        "CONNOR12": {
-                            "1": "Connor! ",
-                            "2": "Connor! ",
-                            "3": "Connor…"
-                        },
-                        "NORTH12": {
-                            "1": "North! ",
-                            "2": "North! ",
-                            "3": "North …"
-                        }
-                    }
                 }
             }
         }
@@ -33976,6 +36408,37 @@
                 }
             }
         },
+        "CORRIDOR": {
+            "RUSE": {
+                "PC": {
+                    "X07MBROADGUARD01": {
+                        "ARRIVAL": {
+                            "1": "Shit, where did these guys come from?",
+                            "2": "Hey, tin cans!Looks to me like your guys are lost…."
+                        },
+                        "CLOSE": "They're completely out of whack if you want my opinion…",
+                        "POINT": "What the fuck is this?..",
+                        "TURN": "",
+                        "HIT": ""
+                    },
+                    "X07MBROADGUARD02": {
+                        "ARRIVAL": "No idea…",
+                        "CLOSE": {
+                            "1": "What are you doing here? Who told you to come?",
+                            "2": "You understand when I talk to you?I asked you what you're doing here!"
+                        },
+                        "POINT": "",
+                        "TURN": "",
+                        "HIT": ""
+                    },
+                    "X07MCLEANMARKUS": { "POINT": "", "TURN": "", "HIT": "" },
+                    "WAIT": { "CLOSE": "CLOSE" },
+                    "GUN0": { "POINT": "POINT" },
+                    "MPARTURN": { "TURN": "TURN" },
+                    "MPARHIT": { "KNOCK": "KNOCK" }
+                }
+            }
+        },
         "BOILERROOM": {
             "INTRO": {
                 "PC": {
@@ -34098,6 +36561,15 @@
                     }
                 }
             }
+        }
+    },
+    "X6008X": {
+        "ONOM": {
+            "GETTINGHIT": { "FO": { "LUTHER": { "01": "" } } },
+            "SHOT": { "FO": { "LUTHER": { "01": "", "02": "" } } },
+            "HITTING": { "FO": { "LUTHER": { "01": "", "02": "" } } },
+            "EFFORTS": { "FO": { "LUTHER": { "01": "" } } },
+            "INJURED": { "FO": { "LUTHER": { "01": "" } } }
         }
     },
     "X0701M": {
@@ -34953,7 +37425,10 @@
                         "HEAVEN": "IRONIC",
                         "NOTHING": "NOTHING"
                     },
-                    "SUICIDECHOICE11": { "DISTURBED": "DISTURBED" },
+                    "SUICIDECHOICE11": {
+                        "COLD": "COLD",
+                        "DISTURBED": "DISTURBED"
+                    },
                     "PHOTOCHOICE": { "PHOTO": "PHOTO", "SUICIDE": "SUICIDE" }
                 }
             }
@@ -34989,6 +37464,14 @@
                             "3": "I will not stand for that kind of talk!",
                             "4": "THAT IS ENOUGH ADAM! THAT'S ENOUGH!"
                         }
+                    }
+                }
+            },
+            "GOTTAGO": {
+                "PC": {
+                    "X08KKARA": { "WAIT": "" },
+                    "X08KROSE": {
+                        "WAIT": "Don't hold it against Adam… Sometimes he's full of anger… especially since his father passed away… but he's not a bad boy… I'll go and see if I can get you out tonight. Wait here for me. I won't be long."
                     }
                 }
             },
@@ -35470,6 +37953,36 @@
                             "1": "I better go. Thanks for the coffee. ",
                             "2": "Have a nice evening."
                         }
+                    }
+                }
+            },
+            "LUTHER": {
+                "PC": {
+                    "X08KKARA": {
+                        "START": "Vite, Luther… Tu prends Alice et…",
+                        "1STFLOOR": "…vous montez à l’étage.",
+                        "STOCKROOM": "",
+                        "KITCHEN": "",
+                        "END": ""
+                    },
+                    "X08KLUTHER": {
+                        "START": "",
+                        "1STFLOOR": "",
+                        "STOCKROOM": "…vous allez vous cacher dans la buanderie.",
+                        "KITCHEN": "…vous allez vous cacher dans la cuisine.",
+                        "END": "Vite, Alice. Dépêche-toi !"
+                    },
+                    "X08KALICE": {
+                        "START": "",
+                        "1STFLOOR": "",
+                        "STOCKROOM": "",
+                        "KITCHEN": "",
+                        "END": ""
+                    },
+                    "CHOICEGROUP": {
+                        "1FLOOR": "1ST FLOOR",
+                        "STOCKROOM": "STORAGE ROOM",
+                        "KITCHEN": "KITCHEN"
                     }
                 }
             }
@@ -36350,6 +38863,14 @@
                     }
                 }
             },
+            "DONTWANT": {
+                "PC": {
+                    "X11MMARKUS": { "NORTHQUESTION": "" },
+                    "X11MMARLA": {
+                        "NORTHQUESTION": "What happened, Markus? What did he say?"
+                    }
+                }
+            },
             "NONEGO": {
                 "PC": {
                     "X11MMARKUS": {
@@ -36546,6 +39067,23 @@
                         "CONFIDENT": "CONFIDENT"
                     }
                 }
+            },
+            "EMBARK": {
+                "PC": {
+                    "X09CAMANDA": {
+                        "BOAT": "I thought you might enjoy a little cruise…"
+                    },
+                    "X09CCONNOR": { "BOAT": "" }
+                }
+            }
+        },
+        "GARDEN": {
+            "HELLO": {
+                "PC": {
+                    "X09CAMANDA": {
+                        "HELLO": "Hello, Connor. Climb on board, I've been expecting you!"
+                    }
+                }
             }
         }
     },
@@ -36707,6 +39245,29 @@
                             "2": "Lieutenant Anderson is in charge of investigating for Detroit Police."
                         },
                         "NEARBY": "I’ll be nearby. If you need anything, just ask."
+                    }
+                }
+            }
+        },
+        "ELEVATOR": {
+            "INTRO": {
+                "PC": {
+                    "X09CCONNOR": {
+                        "HANKKILLEDCONNOR": {
+                            "1": "Pourquoi est-ce que vous avez fait ça, lieutenant ?",
+                            "2": "Pourquoi est-ce que vous m’avez détruit hier soir.",
+                            "3": "Une partie de la mémoire du précédent Connor est perdue quand je suis détruit. Cela ralentit l’enquête.",
+                            "4": "Je vous remercie, lieutenant."
+                        },
+                        "CONNORDIDNOTDIED": "Pardon, lieutenant."
+                    },
+                    "X09CHANK": {
+                        "HANKKILLEDCONNOR": {
+                            "1": "Pourquoi j’ai fait quoi ?",
+                            "2": "Qu’est-ce que ça peut foutre ? T’es là ce matin, non ?",
+                            "3": "Je te prie d’accepter mes plus humbles excuses, Connor. Je promets que je ne te descendrais plus."
+                        },
+                        "CONNORDIDNOTDIED": "Connor, tu me saoules avec cette pièce."
                     }
                 }
             }
@@ -36902,67 +39463,13 @@
                 }
             }
         },
-        "CORRIDOR": {
-            "HANKFINAL": {
-                "VO": {
-                    "X09CCORRIDORSWAT01": {
-                        "RESCUE": "Shots fired, repeat shots fired - call the paramedics!"
-                    }
-                },
-                "PC": {
-                    "X09CCONNOR": { "CNRDEAD": "" },
-                    "X09CHANK": {
-                        "CNRDEAD": {
-                            "1": "Good thing you were here. Otherwise I –",
-                            "2": "Connor…",
-                            "3": "Connor, no…"
-                        }
-                    }
-                },
-                "FA": {
-                    "X09CHANK": {
-                        "JESUS": {
-                            "1": "Connor!",
-                            "2": "Oh Jesus!..",
-                            "3": "Oh Connor, no…"
-                        }
-                    }
-                }
-            },
-            "FINALE": {
-                "FA": { "X09CCONNOR": { "RUN": "It’s a deviant! STOP IT!" } }
-            },
-            "GUN": {
-                "PC": {
-                    "X09CCONNOR": {
-                        "SAVEDLIVES": "",
-                        "SAVEDLIVESC": "I wanted it alive.",
-                        "SAVEDLIVESH": ""
-                    },
-                    "X09CHANK": {
-                        "SAVEDLIVES": "Nice shot, Connor.",
-                        "SAVEDLIVESC": "",
-                        "SAVEDLIVESH": {
-                            "1": "You saved...",
-                            "2": "human lives…",
-                            "3": "You saved my life."
-                        }
-                    }
-                }
-            },
-            "ANDSUICIDE": {
-                "PC": {
-                    "X09CCONNOR": {
-                        "TOOLATE": {
-                            "1": "I tried to stop it but…",
-                            "2": "I was too late."
-                        }
-                    },
-                    "X09CHANK": { "TOOLATE": "Connor! Connor, are you okay?" }
-                }
-            }
-        },
         "KITCHEN": {
+            "FINALE": {
+                "FA": {
+                    "X09CCONNOR": { "STOP1": "STOP HIM!" },
+                    "X09CCTRLROOMAND01": { "STOP2": "JERICHO!" }
+                }
+            },
             "HELP": {
                 "PC": {
                     "X09CCONNOR": {
@@ -37109,6 +39616,66 @@
                 }
             }
         },
+        "CORRIDOR": {
+            "HANKFINAL": {
+                "VO": {
+                    "X09CCORRIDORSWAT01": {
+                        "RESCUE": "Shots fired, repeat shots fired - call the paramedics!"
+                    }
+                },
+                "PC": {
+                    "X09CCONNOR": { "CNRDEAD": "" },
+                    "X09CHANK": {
+                        "CNRDEAD": {
+                            "1": "Good thing you were here. Otherwise I –",
+                            "2": "Connor…",
+                            "3": "Connor, no…"
+                        }
+                    }
+                },
+                "FA": {
+                    "X09CHANK": {
+                        "JESUS": {
+                            "1": "Connor!",
+                            "2": "Oh Jesus!..",
+                            "3": "Oh Connor, no…"
+                        }
+                    }
+                }
+            },
+            "FINALE": {
+                "FA": { "X09CCONNOR": { "RUN": "It’s a deviant! STOP IT!" } }
+            },
+            "GUN": {
+                "PC": {
+                    "X09CCONNOR": {
+                        "SAVEDLIVES": "",
+                        "SAVEDLIVESC": "I wanted it alive.",
+                        "SAVEDLIVESH": ""
+                    },
+                    "X09CHANK": {
+                        "SAVEDLIVES": "Nice shot, Connor.",
+                        "SAVEDLIVESC": "",
+                        "SAVEDLIVESH": {
+                            "1": "You saved...",
+                            "2": "human lives…",
+                            "3": "You saved my life."
+                        }
+                    }
+                }
+            },
+            "ANDSUICIDE": {
+                "PC": {
+                    "X09CCONNOR": {
+                        "TOOLATE": {
+                            "1": "I tried to stop it but…",
+                            "2": "I was too late."
+                        }
+                    },
+                    "X09CHANK": { "TOOLATE": "Connor! Connor, are you okay?" }
+                }
+            }
+        },
         "BRAD": {
             "CONCLUSION": {
                 "PC": {
@@ -37148,6 +39715,12 @@
                     }
                 }
             }
+        }
+    },
+    "X6011X": {
+        "ONOM": {
+            "HIT": { "FO": { "SIMON": { "01": "", "02": "", "03": "" } } },
+            "STRIKE": { "FO": { "SIMON": { "01": "", "02": "", "03": "" } } }
         }
     },
     "X1102C": {
@@ -38318,6 +40891,15 @@
                     "X02AKARA": { "CONCLUSION": "We better go." },
                     "X02ALUTHER": { "CONCLUSION": "" }
                 }
+            },
+            "HELICOPTERS": {
+                "PC": {
+                    "X02AKARA": { "SURPRISE": "" },
+                    "X02AALICE": { "SURPRISE": "" },
+                    "X02ALUTHER": {
+                        "SURPRISE": "Come on, Kara. We can't stay here."
+                    }
+                }
             }
         },
         "MEET": {
@@ -38482,6 +41064,17 @@
                         "DISTANCE": ""
                     },
                     "REACTCHOICE": { "EMOTION": "HUG", "DISTANCE": "DISTANT" }
+                }
+            }
+        }
+    },
+    "X0403K": {
+        "NEIGHBOURHOOD": {
+            "COFFEE": {
+                "PC": {
+                    "X04KKARA": {
+                        "COFFEE": "We can sit down and have a hot chocolate here…"
+                    }
                 }
             }
         }
@@ -40261,6 +42854,25 @@
                 }
             }
         },
+        "TVNEWS": {
+            "CONNORWLAK": {
+                "PC": {
+                    "X13CBRINKLEY": {
+                        "NEWS01": "…particularly grim news from Detroit. Michael, you're on live. What's happening?",
+                        "NEWS05": "… the White House has just asked all Detroit residents to lock themselves into their homes, pending further instructions…"
+                    },
+                    "X13CCOPTERJOURNALIST": {
+                        "NEWS02": "…thousands of androids… even as I speak, thousands of androids are taking to the streets in Detroit... It's a massive movement, the streets are full of androids… it's … it's incredible…"
+                    },
+                    "X13CWEBB": {
+                        "NEWS03": "… several sources report that the androids came from the CyberLife warehouses…"
+                    },
+                    "X13CCARTLAND": {
+                        "NEWS04": "…the army is thought to have received orders to fall back while waiting to see how the situation develops…"
+                    }
+                }
+            }
+        },
         "TV": {
             "NEWS": {
                 "PC": {
@@ -40279,6 +42891,12 @@
                     }
                 }
             }
+        }
+    },
+    "X6014X": {
+        "ONOM": {
+            "TERRIFIED": { "FO": { "RALPH": { "01": "" } } },
+            "NERVOUS": { "FO": { "RALPH": { "01": "", "02": "" } } }
         }
     },
     "X1303C": {
@@ -40553,6 +43171,31 @@
                             "2": "I can shoot the leader of the deviants and stop the revolution, but you have to let me."
                         }
                     }
+                }
+            }
+        }
+    },
+    "X0411A": {
+        "BUSSTATION": {
+            "DILEMMA": {
+                "PC": {
+                    "X04AKARA": { "START": "", "GIVEBACK": "", "KEEP": "" },
+                    "X04AALICE": {
+                        "START": "",
+                        "GIVEBACK": "",
+                        "KEEP": "",
+                        "RALPHBACK": ""
+                    },
+                    "X04ABUSWOMAN": { "START": "", "GIVEBACK": "", "KEEP": "" },
+                    "X04ABUSMAN": { "START": "", "GIVEBACK": "", "KEEP": "" },
+                    "X04ABUSBABY": {
+                        "START": "",
+                        "GIVEBACK": "",
+                        "KEEP": "",
+                        "RALPHBACK": ""
+                    },
+                    "X04ARALPH": { "RALPHBACK": "" },
+                    "CHOICEGROUP01": { "GIVEBACK": "", "KEEP": "" }
                 }
             }
         }
@@ -40843,6 +43486,16 @@
             },
             "CONNORSHOOT": {
                 "FA": { "X11MMARLA": { "MARKUSDEAD": "MARKUS!" } }
+            },
+            "REACHSTONE": {
+                "PC": {
+                    "X11MCONNOR": { "FREEDOM01CONNOR": "", "FREEDOM02": "" },
+                    "X11MMARKUS": {
+                        "FREEDOM02": "We are alive and now we are free!",
+                        "FREEDOM01MARKUS": "We are alive and now we are free!"
+                    },
+                    "X11MMARLA": { "FREEDOM01MARKUS": "" }
+                }
             }
         },
         "GOODCONNOR": {
@@ -40942,6 +43595,14 @@
                         "SUICIDE": "SUICIDE",
                         "GIVEUP": "GIVE UP"
                     }
+                }
+            },
+            "FINALCONNORSPEECH": {
+                "PC": {
+                    "CONNOR": { "CONNORSPEECH": "" },
+                    "MANAND1": { "CONNORSPEECH": "" },
+                    "WOMAND1": { "CONNORSPEECH": "" },
+                    "X09MCROWD": { "CONNORSPEECH": "" }
                 }
             },
             "FINALSPEECH": {
@@ -41445,6 +44106,46 @@
             }
         }
     },
+    "X0000A": {
+        "OPENING": {
+            "CYCLES": {
+                "PC": {
+                    "X02XANDWOM": { "UPSET": "", "TROUBLED": "", "SAD": "" }
+                }
+            }
+        },
+        "OPENINGCREDIT": {
+            "FIRST": {
+                "PC": {
+                    "X00AANDWOM": {
+                        "WELCOMEV2": {
+                            "1": "Hello! Welcome to the DETROIT experience. I’m an android and I’ll be your hostess. ",
+                            "2": "Before we begin, let’s make some adjustments to optimize your experience."
+                        },
+                        "DIFFICULTYV2": "Thank you. Now select your profile.",
+                        "LANGUAGEV2": {
+                            "1": "These language settings were detected on your console. ",
+                            "2": "Are they correct?"
+                        },
+                        "GOTOHAPPENV2": {
+                            "1": "You are now ready to begin DETROIT. ",
+                            "2": "Remember: ",
+                            "3": "this is not just a story. ",
+                            "4": "This is going to happen."
+                        },
+                        "GAMMAV2": "Please adjust your screen settings.",
+                        "OURFUTUREV2": {
+                            "1": "You are now ready to begin DETROIT. ",
+                            "2": "Remember: ",
+                            "3": "this is not just a story. ",
+                            "4": "This is our future."
+                        },
+                        "SAVEGAMEV2": "When this sign is displayed, please do not turn off your console."
+                    }
+                }
+            }
+        }
+    },
     "X5002X": {
         "ENDCREDITS": {
             "QUOTES": {
@@ -41905,40 +44606,8 @@
                             "4": "Next time you see me, ",
                             "5": "it’ll be like the first time."
                         }
-                    }
-                }
-            }
-        }
-    },
-    "X0000A": {
-        "OPENINGCREDIT": {
-            "FIRST": {
-                "PC": {
-                    "X00AANDWOM": {
-                        "WELCOMEV2": {
-                            "1": "Hello! Welcome to the DETROIT experience. I’m an android and I’ll be your hostess. ",
-                            "2": "Before we begin, let’s make some adjustments to optimize your experience."
-                        },
-                        "DIFFICULTYV2": "Thank you. Now select your profile.",
-                        "LANGUAGEV2": {
-                            "1": "These language settings were detected on your console. ",
-                            "2": "Are they correct?"
-                        },
-                        "GOTOHAPPENV2": {
-                            "1": "You are now ready to begin DETROIT. ",
-                            "2": "Remember: ",
-                            "3": "this is not just a story. ",
-                            "4": "This is going to happen."
-                        },
-                        "GAMMAV2": "Please adjust your screen settings.",
-                        "OURFUTUREV2": {
-                            "1": "You are now ready to begin DETROIT. ",
-                            "2": "Remember: ",
-                            "3": "this is not just a story. ",
-                            "4": "This is our future."
-                        },
-                        "SAVEGAMEV2": "When this sign is displayed, please do not turn off your console."
-                    }
+                    },
+                    "CHOICE": { "YES": "YES", "NO": "NO" }
                 }
             }
         }

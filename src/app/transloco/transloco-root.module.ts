@@ -38,7 +38,8 @@ export class CustomHandler implements TranslocoMissingHandler {
                     // TODO: Add arabic when right to left dir is supported
                     //{ id: 'ar', label: 'Arabic' },
                     { id: 'pt-br', label: 'Portuguese (Brazil)' },
-                    { id: 'zh', label: 'Chinese' },
+                    { id: 'zh-tw', label: 'Chinese (Traditional)' },
+                    { id: 'zh-cn', label: 'Chinese (Simplified)' },
                     { id: 'hr', label: 'Croatian' },
                     { id: 'cs', label: 'Czech' },
                     { id: 'da', label: 'Danish' },
