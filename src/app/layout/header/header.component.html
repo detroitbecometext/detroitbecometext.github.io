@@ -1,0 +1,35 @@
+<header class="bg-black">
+	<nav class="flex flex-row justify-start items-center">
+		<fa-icon [icon]="faBars" (click)="sidenav?.toggle()"></fa-icon>
+		<fa-icon
+			[icon]="faHome"
+			[routerLink]="['/home']"
+			matTooltip="Home"
+		></fa-icon>
+		<fa-icon
+			[icon]="faQuestion"
+			(click)="openDialog()"
+			matTooltip="Info"
+		></fa-icon>
+		<fa-icon
+			[icon]="faEnvelope"
+			[routerLink]="['/contact']"
+			matTooltip="Contact"
+		></fa-icon>
+
+		<span class="flex-auto"></span>
+		<app-theme-toggle
+			class="mr-4"
+			[switchIconColor]="true"
+		></app-theme-toggle>
+		<app-lang-picker-toggle
+			class="mr-4"
+			[switchCaretColor]="true"
+		></app-lang-picker-toggle>
+	</nav>
+	<div class="flex flex-row justify-end">
+		@if (languagePickerService.showPicker$ | async) {
+			<app-lang-picker class="max-w-1/2"></app-lang-picker>
+		}
+	</div>
+</header>

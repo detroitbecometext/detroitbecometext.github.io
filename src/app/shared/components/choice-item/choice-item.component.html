@@ -1,19 +1,21 @@
 <div class="inline-block text-white p-2 bg-black bg-opacity-75">
-    <span *ngIf="brackets">[ </span>
-    <span *ngIf="timeOutOption">
-        <fa-icon icon="hourglass-end" class="mr-1 text-white"></fa-icon>
-    </span>
-    <span>{{ choiceLabel | uppercase }}</span>
-    <span *ngIf="brackets"> ]</span>
+	@if (brackets) {
+		<span>[ </span>
+	}
+	@if (timeOutOption) {
+		<span>
+			<fa-icon [icon]="faHourglassEnd" class="mr-1 text-white"></fa-icon>
+		</span>
+	}
+
+	<span>{{ choiceLabel | uppercase }}</span>
+
+	@if (brackets) {
+		<span> ]</span>
+	}
 </div>
 <div
-    class="
-        mt-1
-        border-l-2 border-solid border-gray-500
-        dark:border-gray-300
-        py-4
-        pl-8
-    "
+	class="mt-1 border-l-2 border-solid border-gray-500 dark:border-gray-300 py-4 pl-8"
 >
-    <ng-content></ng-content>
+	<ng-content></ng-content>
 </div>

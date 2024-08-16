@@ -1,12 +1,12 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-dialogue-line',
-    templateUrl: './dialogue-line.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+	selector: 'app-dialogue-line',
+	standalone: true,
+	templateUrl: './dialogue-line.component.html',
+	styleUrl: './dialogue-line.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogueLineComponent {
-    @Input() name: string;
-
-    constructor() {}
+	@Input({ required: true }) name: string = ''; // TODO: string union
 }

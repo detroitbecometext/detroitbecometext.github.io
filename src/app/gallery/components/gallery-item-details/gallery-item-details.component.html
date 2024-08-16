@@ -1,0 +1,40 @@
+<ng-container *transloco="let t">
+	@if (item !== null) {
+		<div>
+			<h1 class="text-center text-2xl mb-4">
+				{{ t(item.nameTranslationKey) }}
+			</h1>
+
+			@if (item.unused) {
+				<p class="text-center -mt-4 mb-4 text-gray-500">
+					(Not available in game)
+				</p>
+			}
+
+			<mat-divider></mat-divider>
+
+			<div class="pt-6 flex flex-row justify-around opacity-70 mb-4">
+				<div>
+					<h2 class="mb-0 text-sm">
+						{{ t(item.text1LabelTranslationKey) }}
+					</h2>
+					<p class="text-lg">
+						{{ t(item.text1TranslationKey) }}
+					</p>
+				</div>
+				<div>
+					<h2 class="mb-0 text-sm">
+						{{ t(item.text2LabelTranslationKey) }}
+					</h2>
+					<p class="text-lg">
+						{{ t(item.text2TranslationKey) }}
+					</p>
+				</div>
+			</div>
+
+			<p class="text-justify pb-4">
+				{{ t(item.resumeTranslationKey) }}
+			</p>
+		</div>
+	}
+</ng-container>

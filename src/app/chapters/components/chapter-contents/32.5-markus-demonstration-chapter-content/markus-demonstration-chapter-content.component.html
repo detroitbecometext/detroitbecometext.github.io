@@ -1,0 +1,2078 @@
+<ng-container *transloco="let t">
+	<section>
+		<h1>President Warren talks to journalists</h1>
+
+		<p>
+			{{ t("GUI.MENU.DATE.04A.INTRO") }}
+			<br />
+			{{ t("GUI.MENU.TIME.04A.INTRO") }}
+		</p>
+
+		<p>
+			<app-dialogue-line name="President Warren">
+				{{
+					translationService.translateObject(
+						"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.SPEECH",
+						0,
+						6
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<app-unused-content>
+			<p>
+				<app-dialogue-line name="Warren">
+					{{
+						translationService.translateObject(
+							"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.SPEECH",
+							6,
+							9
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</app-unused-content>
+
+		<p>
+			<app-dialogue-line name="President Warren">
+				{{
+					translationService.translateObject(
+						"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.SPEECH",
+						9
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Journalists">
+				{{ t("X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST01.TRYING70") }}
+				{{ t("X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST01.TRYING68") }}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0401A.PRESS.CONFERENCE.PC.QUESTIONS.HACKING')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Journalist">
+						{{
+							t(
+								"X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST08.HACKING"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="President Warren">
+						{{
+							translationService.translateObject(
+								"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.HACKING"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0401A.PRESS.CONFERENCE.PC.QUESTIONS.MARKUS')"
+			>
+				<p>
+					<app-dialogue-line name="Journalist">
+						{{
+							t(
+								"X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST03.MARKUS"
+							)
+						}}
+					</app-dialogue-line>
+				</p>
+
+				<app-conditioned-content>
+					<div class="condition"><p>Markus is alive</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="President Warren">
+								{{
+									t(
+										"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.MARKUSFREE"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Markus is dead and North is leading the revolution
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="President Warren">
+								{{
+									t(
+										"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.MARKUSWEAREPEOPLE"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0401A.PRESS.CONFERENCE.PC.QUESTIONS.THEFT')"
+			>
+				<p>
+					<app-dialogue-line name="Journalist">
+						{{
+							t(
+								"X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST09.THEFT"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="President Warren">
+						{{ t("X0401A.PRESS.CONFERENCE.PC.X04AWARREN.THEFT") }}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0401A.PRESS.CONFERENCE.PC.QUESTIONS.CYBERLIFE')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Journalist">
+						{{
+							t(
+								"X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST07.CYBERLIFE"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="President Warren">
+						{{
+							t("X0401A.PRESS.CONFERENCE.PC.X04AWARREN.CYBERLIFE")
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0401A.PRESS.CONFERENCE.PC.QUESTIONS.LIFE')"
+			>
+				<p>
+					<app-dialogue-line name="Journalist">
+						{{
+							t(
+								"X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST05.LIFE"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="President Warren">
+						{{
+							translationService.translateObject(
+								"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.LIFE"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0401A.PRESS.CONFERENCE.PC.QUESTIONS.DEVIANTS')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Journalist">
+						{{
+							t(
+								"X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST01.DEVIANTS"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="President Warren">
+						{{
+							t("X0401A.PRESS.CONFERENCE.PC.X04AWARREN.DEVIANTS")
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0401A.PRESS.CONFERENCE.PC.QUESTIONS.CAMPS')"
+			>
+				<p>
+					<app-dialogue-line name="Journalist">
+						{{
+							t(
+								"X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST04.CAMPS"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="President Warren">
+						{{
+							translationService.translateObject(
+								"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.CAMPS"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0401A.PRESS.CONFERENCE.PC.QUESTIONS.JERICHO')
+				"
+			>
+				<p>
+					<app-unlock-condition [unlockType]="UnlockType.None">
+						Jericho was attacked
+					</app-unlock-condition>
+
+					<app-dialogue-line name="Journalist">
+						{{
+							t(
+								"X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST02.JERICHO"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="President Warren">
+						{{
+							translationService.translateObject(
+								"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.JERICHO"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0401A.PRESS.CONFERENCE.PC.QUESTIONS.ARMY')"
+			>
+				<p>
+					<app-dialogue-line name="Journalist">
+						{{
+							translationService.translateObject(
+								"X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST06.ARMY"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="President Warren">
+						{{
+							translationService.translateObject(
+								"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.ARMY"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0401A.PRESS.CONFERENCE.PC.QUESTIONS.OPINION')
+				"
+			>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Public opinion is positive</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Journalist">
+								{{
+									translationService.translateObject(
+										"X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST10.OPINIONGOOD"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="President Warren">
+								{{
+									translationService.translateObject(
+										"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.OPINIONGOOD"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Public opinion is negative</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Journalist">
+								{{
+									translationService.translateObject(
+										"X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST10.OPINIONBAD"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="President Warren">
+								{{
+									translationService.translateObject(
+										"X0401A.PRESS.CONFERENCE.PC.X04AWARREN.OPINIONBAD"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-choice-item>
+		</app-choice-group>
+
+		<p>
+			<app-dialogue-line name="President Warren">
+				{{ t("X0401A.PRESS.CONFERENCE.PC.X04AWARREN.THANKYOU") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Journalists">
+				{{ t("X0401A.PRESS.CONFERENCE.VO.X04AJOURNALIST01.TRYING64") }}
+			</app-dialogue-line>
+		</p>
+	</section>
+
+	<section>
+		<h1>Hart Plaza freedom march</h1>
+
+		<p>
+			<app-dialogue-line name="Channel 16 - Joss Douglas">
+				{{
+					translationService.translateObject(
+						"X1104M.INTRO.TVNEWS.PC.X11MJOSS.COPTERREPORTER",
+						0,
+						2
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<app-unused-content>
+			<p>
+				<app-dialogue-line name="Channel 16 - Joss Douglas">
+					{{
+						translationService.translateObject(
+							"X1104M.INTRO.TVNEWS.PC.X11MJOSS.COPTERREPORTER",
+							2
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</app-unused-content>
+
+		<p>
+			<app-dialogue-line name="Soldier">
+				{{ t("X1104M.INTRO.TVNEWS.PC.X11MOFFICER.WARNINGPRESIDENT") }}
+			</app-dialogue-line>
+		</p>
+
+		<p>{{ t("GUI.MENU.TIME.04A.MP01") }}</p>
+
+		<p>
+			<app-dialogue-line name="Markus">
+				{{
+					translationService.translateObject(
+						"X1104M.INTRO.CAMP.FA.X11MMARKUS.HEREWEARE"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Soldier">
+				{{
+					translationService.translateObject(
+						"X1104M.INTRO.WARNING01.PC.X11MSWATOFFICER"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="
+					t('X1104M.CAMP.MARCHSTOPPED.PC.CHOICE01.PEACEFUL')
+				"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.PublicOpinion"
+						[type]="RelationType.SmallUp"
+					></app-relation>
+					<app-dialogue-line name="Markus">
+						{{
+							translationService.translateObject(
+								"X1104M.CAMP.MARCHSTOPPED.PC.X11MMARKUS.01PEACEFUL"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X1104M.CAMP.MARCHSTOPPED.PC.CHOICE01.PROVOKE')
+				"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.PublicOpinion"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-dialogue-line name="Markus">
+						{{
+							translationService.translateObject(
+								"X1104M.CAMP.MARCHSTOPPED.PC.X11MMARKUS.01PROVOKE"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X1104M.CAMP.MARCHSTOPPED.PC.CHOICE01.DETERMINED')
+				"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.PublicOpinion"
+						[type]="RelationType.SmallUp"
+					></app-relation>
+					<app-dialogue-line name="Markus">
+						{{
+							translationService.translateObject(
+								"X1104M.CAMP.MARCHSTOPPED.PC.X11MMARKUS.01DETERMINED"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+		</app-choice-group>
+
+		<p>
+			<app-dialogue-line name="Soldier">
+				{{ t("X1104M.CAMP.MARCHSTOPPED.PC.X11MSWATOFFICER.OBEY") }}
+			</app-dialogue-line>
+		</p>
+
+		<app-unused-content>
+			<app-conditioned-content>
+				<div class="condition"><p>North is alive</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="North">
+							{{ t("X1104M.INTRO.CAMP.FA.X11MMARLA.CAMPNORTH") }}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>North is dead and Simon is alive</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Simon">
+							{{
+								translationService.translateObject(
+									"X1104M.INTRO.CAMP.FA.X11MSIMON.CAMPSIMON"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition"><p>Simon is dead</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Josh">
+							{{
+								translationService.translateObject(
+									"X1104M.INTRO.CAMP.FA.X11MJOSH.CAMPJOSH"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-unused-content>
+
+		<p>
+			<app-dialogue-line name="Markus">
+				{{ t("X1104M.INTRO.CAMP.FA.X11MMARKUS.CONT") }}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="
+					t('X1104M.CAMP.MARCHSTOPPED.PC.CHOICE02.DETERMINED')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Markus">
+						{{
+							translationService.translateObject(
+								"X1104M.CAMP.MARCHSTOPPED.PC.X11MMARKUS.DETERMINED"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X1104M.CAMP.MARCHSTOPPED.PC.CHOICE02.CALM')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.PublicOpinion"
+						[type]="RelationType.SmallUp"
+					></app-relation>
+					<app-dialogue-line name="Markus">
+						{{
+							translationService.translateObject(
+								"X1104M.CAMP.MARCHSTOPPED.PC.X11MMARKUS.CALM"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X1104M.CAMP.MARCHSTOPPED.PC.CHOICE02.ACCUSE')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.PublicOpinion"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-dialogue-line name="Markus">
+						{{
+							translationService.translateObject(
+								"X1104M.CAMP.MARCHSTOPPED.PC.X11MMARKUS.ACCUSE"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+		</app-choice-group>
+
+		<p>
+			<app-dialogue-line name="Soldier">
+				{{ t("X1104M.CAMP.WARNING02.PC.X11MSWATOFFICER.OPENFIRE01") }}
+				{{ t("X1104M.CAMP.WARNING02.PC.X11MSWATOFFICER.OPENFIRE01") }}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Markus">
+				{{ t("X1104M.CAMP.PACIFIC.PC.X11MMARKUS.NODEFENSE") }}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Soldier">
+				{{ t("X5072X.MILITARY.FIGHT.VO.MANORA.ORDERHOLD01V2") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Channel 16 - Joss Douglas">
+				{{
+					translationService.translateObject(
+						"X1104M.CAMP.PACIFIC.PC.X11MJOSS.COPTERREPORTER"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<app-conditioned-content>
+			<div class="condition"><p>North is alive</p></div>
+			<div class="content">
+				<p>
+					<app-dialogue-line name="North">
+						{{ t("X1104M.CAMP.PACIFIC.PC.X11MMARLA.WHATNORTH") }}
+					</app-dialogue-line>
+				</p>
+			</div>
+		</app-conditioned-content>
+		<app-conditioned-content>
+			<div class="condition"><p>North is dead and Simon is alive</p></div>
+			<div class="content">
+				<p>
+					<app-dialogue-line name="Simon">
+						{{ t("X1104M.CAMP.PACIFIC.PC.X11MSIMON.WHATSIMON") }}
+					</app-dialogue-line>
+				</p>
+			</div>
+		</app-conditioned-content>
+		<app-conditioned-content>
+			<div class="condition"><p>Simon is dead</p></div>
+			<div class="content">
+				<p>
+					<app-dialogue-line name="Josh">
+						{{ t("X1104M.CAMP.PACIFIC.PC.X11MJOSH.WHATJOSH") }}
+					</app-dialogue-line>
+				</p>
+			</div>
+		</app-conditioned-content>
+
+		<p>
+			<app-dialogue-line name="Markus">
+				{{
+					translationService.translateObject(
+						"X1104M.CAMP.PACIFIC.PC.X11MMARKUS.HOLDOUT01"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+	</section>
+
+	<section>
+		<h1>At the barricade</h1>
+
+		<p>{{ t("GUI.MENU.TIME.04A.MP02") }}</p>
+
+		<p>
+			<app-dialogue-line name="Markus">
+				{{ t("X1105M.BARRICADE.INTRO.FA.X11MMARKUS.COMEON") }}
+			</app-dialogue-line>
+		</p>
+
+		<app-conditioned-content>
+			<div class="condition"><p>Push the car</p></div>
+			<div class="content">
+				<p>
+					<app-dialogue-line name="Markus">
+						{{
+							t("X1105M.BARRICADE.BUILDING.PC.X11MMARKUS.HELPS.1")
+						}}
+					</app-dialogue-line>
+				</p>
+			</div>
+		</app-conditioned-content>
+
+		<p>
+			<app-dialogue-line name="Markus">
+				{{ t("X1105M.BARRICADE.INTRO.FA.X11MMARKUS.DONE") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Simon">
+				{{
+					translationService.translateObject(
+						"X1105M.BARRICADE.BUILDING.PC.X11MSIMON.TALKSIMON"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Josh">
+				{{
+					translationService.translateObject(
+						"X1105M.BARRICADE.BUILDING.PC.X11MJOSH.TALKJOSH"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Android">
+				{{
+					translationService.translateObject(
+						"X1105M.BARRICADE.BODIES.FA.X11MANDROID01.FALLEN"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<section>
+			<h2>Observe soldiers</h2>
+			<app-conditioned-content>
+				<div class="condition"><p>With Josh</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Josh">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.LOOK.PC.X11MJOSH.WORRYJ"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.LOOK.PC.X11MMARKUS.RESIST"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>Connor at the CyberLife tower</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Josh">
+									{{
+										t(
+											"X1105M.BARRICADE.LOOK.PC.X11MJOSH.CONNORJ"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Markus">
+									{{
+										t(
+											"X1105M.BARRICADE.LOOK.PC.X11MMARKUS.CONNORCONT"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition"><p>With Simon</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Simon">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.LOOK.PC.X11MSIMON.WORRY"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.LOOK.PC.X11MMARKUS.RESIST"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>Connor at the CyberLife tower</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Simon">
+									{{
+										t(
+											"X1105M.BARRICADE.LOOK.PC.X11MSIMON.CONNORS"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Markus">
+									{{
+										t(
+											"X1105M.BARRICADE.LOOK.PC.X11MMARKUS.CONNORCONT"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+				</div>
+			</app-conditioned-content>
+		</section>
+
+		<section>
+			<h2>Talk with North</h2>
+			<p>
+				<app-dialogue-line name="North">
+					{{
+						translationService.translateObject(
+							"X1105M.BARRICADE.NORTH.PC.X11MMARLA.BARRICADE"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.BARRICADE.NORTH.PC.CHOICE01.HUMANS')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.NORTH.PC.X11MMARKUS.01HUMANS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.BARRICADE.NORTH.PC.CHOICE01.OTHERGROUPS')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.NORTH.PC.X11MMARKUS.01OTHERGROUPS01"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="North">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.NORTH.PC.X11MMARLA.01OTHERGROUPS02"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-unused-content>
+						<p>
+							<app-dialogue-line name="Markus">
+								{{
+									t(
+										"X1105M.BARRICADE.NORTH.PC.X11MMARKUS.01OTHERGROUPS03"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-unused-content>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X1105M.BARRICADE.NORTH.PC.CHOICE01.CAMP')"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.NORTH.PC.X11MMARKUS.01CAMP"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<mat-divider></mat-divider>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="t('X1105M.BARRICADE.NORTH.PC.CHOICE02.GRIM')"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.NORTH.PC.X11MMARKUS.02GRIM"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.BARRICADE.NORTH.PC.CHOICE02.REGRETS')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.NORTH.PC.X11MMARKUS.02REGRETS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.BARRICADE.NORTH.PC.CHOICE02.DESPERATE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.NORTH.PC.X11MMARKUS.02DESPERATE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.BARRICADE.NORTH.PC.CHOICE02.DOUBTS')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.NORTH.PC.X11MMARKUS.02DOUBTS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="North">
+					{{
+						translationService.translateObject(
+							"X1105M.BARRICADE.NORTH.PC.X11MMARLA.02CONT"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<section>
+			<h2>Send a message to journalists</h2>
+			<p>
+				<app-relation
+					[name]="RelationName.PublicOpinion"
+					[type]="RelationType.SmallUp"
+				></app-relation>
+				<app-relation
+					[name]="RelationName.Jericho"
+					[type]="RelationType.SmallUp"
+				></app-relation>
+				<app-dialogue-line name="Android">
+					{{ t("X1105M.BARRICADE.SIGNS.PC.X11MSIGNANDROID.FOUND") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Markus">
+					{{
+						translationService.translateObject(
+							"X1105M.BARRICADE.SIGNS.PC.X11MMARKUS.WRITE"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<section>
+			<h2>Talk to scared android</h2>
+			<p>
+				<app-dialogue-line name="Markus">
+					{{ t("X1105M.BARRICADE.SCARED.PC.X11MMARKUS.ALRIGHT") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Android">
+					{{
+						translationService.translateObject(
+							"X1105M.BARRICADE.SCARED.FA.X11MSCAREDAND02.ALRIGHTAND"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.BARRICADE.SCARED.PC.CHOICE01.REASSURE01')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.SCARED.PC.X11MMARKUS.01REASSURE"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Android">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.SCARED.FA.X11MSCAREDAND02.SAYNOTHINGAND"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.BARRICADE.SCARED.PC.CHOICE01.REASSURE02')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.SCARED.PC.X11MMARKUS.01INSPIRE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.BARRICADE.SCARED.PC.CHOICE01.JUSTIFY')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.SCARED.PC.X11MMARKUS.01JUSTIFY"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Android">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.SCARED.FA.X11MSCAREDAND02.SAYNOTHINGAND"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+		</section>
+
+		<section>
+			<h2>Perkins arrives</h2>
+			<app-conditioned-content>
+				<div class="condition"><p>North is alive</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="North">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.PERKINS.PC.X11MMARLA.LOOK01"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>North is dead, Simon is alive</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Simon">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.PERKINS.PC.X11MSIMON.LOOK03"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition"><p>North is dead, Simon is dead</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Josh">
+							{{
+								t("X1105M.BARRICADE.PERKINS.PC.X11MJOSH.LOOK02")
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>North is dead, Simon is dead, Josh is dead</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Android">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.PERKINS.FA.X11MANDROIDM02.LOOK04"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<p>
+				<app-dialogue-line name="Perkins">
+					{{
+						translationService.translateObject(
+							"X1105M.BARRICADE.PERKINS.PC.X11MPERKINS.TALKWITHYOUPERK"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+			<app-conditioned-content>
+				<div class="condition"><p>North is alive</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="North">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.PERKINS.PC.X11MMARLA.DONTGO01"
+								) | async
+							}}
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.PERKINS.PC.X11MMARLA.DONTGO01B"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>North is dead, Simon is alive</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Simon">
+							{{
+								t(
+									"X1105M.BARRICADE.PERKINS.PC.X11MSIMON.DONTGO03"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition"><p>North is dead, Simon is dead</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Josh">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.PERKINS.PC.X11MJOSH.DONTGO02"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>North is dead, Simon is dead, Josh is dead</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Android">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.PERKINS.FA.X11MANDROIDM02.DONTGO04"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<p>
+				<app-dialogue-line name="Perkins">
+					{{
+						translationService.translateObject(
+							"X1105M.BARRICADE.PERKINS.PC.X11MPERKINS.UNARMED"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.BARRICADE.PERKINS.PC.CHOICE01.ACCEPT')
+					"
+				>
+					<ng-container
+						*ngTemplateOutlet="perkinsTalkAccept"
+					></ng-container>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.BARRICADE.PERKINS.PC.CHOICE01.REFUSE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.PERKINS.PC.X11MMARKUS.01REFUSE"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Perkins">
+							{{
+								t(
+									"X1105M.BARRICADE.PERKINS.PC.X11MPERKINS.01REFUSEPERK"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t('X1105M.BARRICADE.PERKINS.PC.CHOICE02.ACCEPT')
+							"
+						>
+							<ng-container
+								*ngTemplateOutlet="perkinsTalkAccept"
+							></ng-container>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X1105M.BARRICADE.PERKINS.PC.CHOICE02.REFUSE')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Markus">
+									{{
+										t(
+											"X1105M.BARRICADE.PERKINS.PC.X11MMARKUS.02REFUSE"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Perkins">
+									{{
+										translationService.translateObject(
+											"X1105M.BARRICADE.PERKINS.PC.X11MPERKINS.02REFUSEPERK"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</app-choice-item>
+			</app-choice-group>
+			<ng-template #perkinsTalkAccept>
+				<p>
+					<app-dialogue-line name="Markus">
+						{{
+							t(
+								"X1105M.BARRICADE.PERKINS.PC.X11MMARKUS.01ACCEPTMARKUS"
+							)
+						}}
+					</app-dialogue-line>
+				</p>
+				<app-conditioned-content>
+					<div class="condition"><p>North is alive</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="North">
+								{{
+									t(
+										"X1105M.BARRICADE.PERKINS.PC.X11MMARLA.01ACCEPTNORTH"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>North is dead, Simon is alive</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Simon">
+								{{
+									t(
+										"X1105M.BARRICADE.PERKINS.PC.X11MSIMON.01ACCEPTSIMON"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>North is dead, Simon is dead</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Josh">
+								{{
+									t(
+										"X1105M.BARRICADE.PERKINS.PC.X11MJOSH.01ACCEPTJOSH"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>North is dead, Simon is dead, Josh is dead</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Android">
+								{{
+									t(
+										"X1105M.BARRICADE.PERKINS.FA.X11MANDROIDM02.01ACCEPTAND"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<p>
+					<app-dialogue-line name="Markus">
+						{{
+							t("X1105M.BARRICADE.PERKINS.PC.X11MMARKUS.01RISK.1")
+						}}
+					</app-dialogue-line>
+				</p>
+			</ng-template>
+		</section>
+
+		<section>
+			<h2>Talking to Perkins</h2>
+			<p>
+				<app-dialogue-line name="Perkins">
+					{{
+						translationService.translateObject(
+							"X1105M.NEGOCIATIONS.PERKINS.PC.X11MPERKINS.SURRENDERP01"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Markus">
+					{{
+						t(
+							"X1105M.NEGOCIATIONS.PERKINS.PC.X11MMARKUS.SURRENDERM"
+						)
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Perkins">
+					{{
+						translationService.translateObject(
+							"X1105M.NEGOCIATIONS.PERKINS.PC.X11MPERKINS.SURRENDERP02"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X1105M.NEGOCIATIONS.PERKINS.PC.CHOICE01.DEMONSTRATIONS'
+						)
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								t(
+									"X1105M.NEGOCIATIONS.PERKINS.PC.X11MMARKUS.01DEMONSTRATIONSM"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Perkins">
+							{{
+								translationService.translateObject(
+									"X1105M.NEGOCIATIONS.PERKINS.PC.X11MPERKINS.01DEMONSTRATIONSP"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.NEGOCIATIONS.PERKINS.PC.CHOICE01.WORD')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								t(
+									"X1105M.NEGOCIATIONS.PERKINS.PC.X11MMARKUS.01WORDM"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Perkins">
+							{{
+								translationService.translateObject(
+									"X1105M.NEGOCIATIONS.PERKINS.PC.X11MPERKINS.01WORDP"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.NEGOCIATIONS.PERKINS.PC.CHOICE01.COMBAT')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.NEGOCIATIONS.PERKINS.PC.X11MMARKUS.01COMBAT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-conditioned-content>
+						<div class="condition">
+							<p>North has lover relationship status</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Perkins">
+									{{
+										translationService.translateObject(
+											"X1105M.NEGOCIATIONS.PERKINS.PC.X11MPERKINS.01COMBATALIVE"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>North doesn't have lover status</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Perkins">
+									{{
+										translationService.translateObject(
+											"X1105M.NEGOCIATIONS.PERKINS.PC.X11MPERKINS.01COMBATDEAD"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.NEGOCIATIONS.PERKINS.PC.CHOICE01.BETRAY')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								t(
+									"X1105M.NEGOCIATIONS.PERKINS.PC.X11MMARKUS.01BETRAYM"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Perkins">
+							{{
+								translationService.translateObject(
+									"X1105M.NEGOCIATIONS.PERKINS.PC.X11MPERKINS.01BETRAYP"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.NEGOCIATIONS.PERKINS.PC.CHOICE01.ACCEPT')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.NEGOCIATIONS.PERKINS.PC.X11MMARKUS.02ACCEPTM"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Perkins">
+							{{
+								t(
+									"X1105M.NEGOCIATIONS.PERKINS.PC.X11MPERKINS.02ACCEPTP"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X1105M.NEGOCIATIONS.PERKINS.PC.CHOICE01.REFUSE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X1105M.NEGOCIATIONS.PERKINS.PC.X11MMARKUS.02REFUSEM"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Perkins">
+							{{
+								translationService.translateObject(
+									"X1105M.NEGOCIATIONS.PERKINS.PC.X11MPERKINS.02REFUSEP"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+		</section>
+
+		<section>
+			<h2>Return after talking with Perkins and refusing the deal</h2>
+			<app-conditioned-content>
+				<div class="condition"><p>North is alive</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="North">
+							{{
+								t(
+									"X1105M.BARRICADE.PERKINS.PC.X11MMARLA.WHATHAPPENED01"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>North is dead, Simon is alive</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Simon">
+							{{
+								t(
+									"X1105M.BARRICADE.PERKINS.PC.X11MSIMON.WHATHAPPENED03"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition"><p>North is dead, Simon is dead</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Josh">
+							{{
+								translationService.translateObject(
+									"X1105M.BARRICADE.PERKINS.PC.X11MJOSH.WHATHAPPENED02"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>North is dead, Simon is dead, Josh is dead</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Android">
+							{{
+								t(
+									"X1105M.BARRICADE.PERKINS.FA.X11MANDROIDM02.WHATHAPPENED04"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<p>
+				<app-dialogue-line name="Markus">
+					{{
+						translationService.translateObject(
+							"X1105M.NEGOCIATIONS.NONEGO.PC.X11MMARKUS.SPEAK"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
+	</section>
+
+	<section>
+		<h1>Barricade is attacked</h1>
+
+		<p>{{ t("GUI.MENU.TIME.04A.MP03") }}</p>
+
+		<p>
+			<app-dialogue-line name="Channel 16 - Michael Webb">
+				{{
+					translationService.translateObject(
+						"X1106M.PACIFIST.INTRO.PC.X11MWEBB.CHANNEL23W"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Channel 16 - Joss Douglas">
+				{{ t("X1106M.PACIFIST.INTRO.PC.X11MJOSS.CHANNEL23J") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="KNC - Rosanna Cartland">
+				{{ t("X1106M.PACIFIST.INTRO.PC.X11MCARTLAND.KNCNEWS") }}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Markus">
+				{{
+					t(
+						"X1103M.LOSTBATTLE.SIDEKICKSWARNING.FA.X11MMARKUS.NORTHSHOT"
+					)
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<section>
+			<h2>
+				Fail the QTE and have lover status with North - North saves
+				Markus
+			</h2>
+			<p>
+				<app-dialogue-line name="North">
+					{{ t("X1106M.ATTACK.FAIL.FA.X11MMARLA.NORTHALIVESECU.1") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Markus">
+					{{
+						translationService.translateObject(
+							"X1106M.ATTACK.FAIL.FA.X11MMARKUS.NORTHALIVESECU"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="North">
+					{{ t("X1106M.ATTACK.FAIL.FA.X11MMARLA.NORTHALIVESECU.2") }}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<mat-divider></mat-divider>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="
+					t('X1106M.ATTACK.SUCCESS.PC.ENDCHOICECYC.DIRTYBOMB')
+				"
+				[brackets]="true"
+			>
+				<p>
+					<app-unlock-condition [unlockType]="UnlockType.Lock">
+						Took the bomb in
+						<a [routerLink]="['/chapters', 32]">Crossroads</a>
+					</app-unlock-condition>
+					<span>&oslash;</span>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X1106M.ATTACK.SUCCESS.PC.ENDCHOICECYC.KISSNORTH')
+				"
+				[brackets]="true"
+			>
+				<p>
+					<app-unlock-condition [unlockType]="UnlockType.Lock">
+						North has lover status
+					</app-unlock-condition>
+				</p>
+
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Public opinion is positive</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Warren">
+								{{
+									t(
+										"X1106M.ANTHEM.POSITIVEOPINION.PC.X11MWARREN.PRESIDENT"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X1106M.ATTACK.SUCCESS.PC.ENDCHOICECYC.SING')"
+			>
+				<p>
+					<app-dialogue-line name="Channel 16 - Joss Douglas ">
+						{{
+							translationService.translateObject(
+								"X1106M.ANTHEM.INTRO.PC.X11MJOSS.JOSSJOURNALIST",
+								0,
+								3
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+				<p>
+					<app-dialogue-line name="Channel 16 - Joss Douglas ">
+						{{
+							translationService.translateObject(
+								"X1106M.ANTHEM.INTRO.PC.X11MJOSS.JOSSJOURNALIST",
+								3,
+								6
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Public opinion is positive</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="President Warren">
+								{{
+									t(
+										"X1106M.ANTHEM.POSITIVEOPINION.PC.X11MWARREN.PRESIDENT"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line
+								name="Channel 16 - Joss Douglas "
+							>
+								{{
+									translationService.translateObject(
+										"X1106M.ANTHEM.POSITIVEOPINION.PC.X11MJOSS.COPTER",
+										1
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Public opinion is negative</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Soldier">
+								{{ t("X1106M.FINAL.KISS.VO.X11MOFFICER.FIRE") }}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X1106M.ATTACK.SUCCESS.PC.ENDCHOICECYC.SACRIFICE')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Markus">
+						{{
+							translationService.translateObject(
+								"X1106M.FINAL.SACRIFICE.FA.X11MMARKUS.ALIVE"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+		</app-choice-group>
+	</section>
+
+	<section>
+		<h1>Demonstration succeeded</h1>
+
+		<app-dialogue-line name="Markus">
+			{{
+				translationService.translateObject(
+					"X1108M.AFTERMATHS.FREEDOMSPEECH.PC.X11MMARKUS.SPEAK"
+				) | async
+			}}
+			{{
+				translationService.translateObject(
+					"X1108M.AFTERMATHS.FREEDOMSPEECH.PC.X11MMARKUS.PACIFIST"
+				) | async
+			}}
+			{{
+				translationService.translateObject(
+					"X1108M.AFTERMATHS.FREEDOMSPEECH.PC.X11MMARKUS.FREE"
+				) | async
+			}}
+		</app-dialogue-line>
+	</section>
+
+	<section>
+		<h1>Accepted Perkin's deal</h1>
+		<p>
+			<app-relation
+				[name]="RelationName.Josh"
+				[type]="RelationType.SmallDown"
+			></app-relation>
+			<app-relation
+				[name]="RelationName.Simon"
+				[type]="RelationType.SmallDown"
+			></app-relation>
+		</p>
+
+		<p>{{ t("GUI.MENU.TIME.04A.MP03B") }}</p>
+
+		<p>
+			<app-dialogue-line name="Channel 16 - Joss Douglas">
+				{{
+					translationService.translateObject(
+						"X1107M.NEGOCIATION.INTRO.PC.X11MJOSS.SURRENDERED"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Markus">
+				{{ t("X1107M.NEGOCIATION.NORTH.PC.X11MMARKUS.SPEAKNORTH.1") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="North">
+				{{ t("X1107M.NEGOCIATION.NORTH.PC.X11MMARLA.SPEAKNORTH.1") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Markus">
+				{{
+					translationService.translateObject(
+						"X1107M.NEGOCIATION.NORTH.PC.X11MMARKUS.SPEAKNORTH",
+						1
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="North">
+				{{
+					translationService.translateObject(
+						"X1107M.NEGOCIATION.NORTH.PC.X11MMARLA.SPEAKNORTH",
+						1
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+		<p>
+			<app-dialogue-line name="Markus">
+				{{
+					t("X1107M.NEGOCIATION.PERKINS.PC.X11MMARKUS.SPEAKPERKINSM")
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Perkins">
+				{{
+					translationService.translateObject(
+						"X1107M.NEGOCIATION.PERKINS.PC.X11MPERKINS.SPEAKPERKINSP"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Markus">
+				{{ t("X1107M.NEGOCIATION.PERKINS.PC.X11MMARKUS.SHOOTNORTHM") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Perkins">
+				{{
+					translationService.translateObject(
+						"X1107M.NEGOCIATION.PERKINS.PC.X11MPERKINS.SHOOTNORTHP"
+					) | async
+				}}
+				{{
+					t(
+						"X1107M.NEGOCIATION.PERKINS.PC.X11MPERKINS.CLEANMESSNORTH"
+					)
+				}}
+			</app-dialogue-line>
+		</p>
+	</section>
+
+	<section>
+		<h1>Media reacts to the outcome of the demonstration</h1>
+		<app-conditioned-content>
+			<div class="condition"><p>The demonstration succeeded</p></div>
+			<div class="content">
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Connor freed the CyberLife androids</p>
+					</div>
+					<div class="content">
+						<p>
+							<!-- TODO (V2): Check X1107M.PACIFIST.CONNORFAIL.PC.X11MWARREN.OPINIONNEGATIVE01 -->
+							<app-dialogue-line name="President Warren">
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.CONNORFAIL.PC.X11MWARREN.PRESIDENT"
+									) | async
+								}}
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.CONNORFAIL.PC.X11MWARREN.OPINIONPOSITIVE"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</div>
+		</app-conditioned-content>
+
+		<!-- TODO (V2): Check news -->
+		<app-conditioned-content>
+			<div class="condition">
+				<p>The demonstration failed - Markus and the androids died</p>
+			</div>
+			<div class="content">
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Markus sacrificed himself</p>
+					</div>
+					<div class="content">
+						<!-- TODO (V2): Check X1107M.PACIFIST.FINALSACRIFICE.PC.X11MWEBB.OPINIONPOSITIVE.2 -->
+						<p>
+							<app-dialogue-line name="Channel 16 - Michael Webb">
+								{{
+									t(
+										"X1107M.PACIFIST.FINALSACRIFICE.PC.X11MWEBB.TVNEWS01"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="KNC - Rosanna Cartland">
+								{{
+									t(
+										"X1107M.PACIFIST.FINALSACRIFICE.PC.X11MCARTLAND.TVNEWS02"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="CTN TV - Michael Brinkley">
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.FINALSACRIFICE.PC.X11MBRINKLEY.TVNEWS03"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="KNC - Rosanna Cartland">
+								{{
+									t(
+										"X1107M.PACIFIST.FINALSACRIFICE.PC.X11MWEBB.OPINIONPOSITIVE.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="President Warren">
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.CONNORSUCCESS.PC.X11MWARREN.WHITEHOUSE",
+										5,
+										8
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition"><p>Markus kissed North</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="CTN TV - Michael Brinkley">
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.FINALKISS.PC.X11MBRINKLEY.TVNEWS01"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Channel 16 - Michael Webb">
+								{{
+									t(
+										"X1107M.PACIFIST.FINALKISS.PC.X11MWEBB.TVNEWS03.2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="KNC - Rosanna Cartland">
+								{{
+									t(
+										"X1107M.PACIFIST.FINALKISS.PC.X11MCARTLAND.TVNEWS02.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="CTN TV - Michael Brinkley">
+								{{
+									t(
+										"X1107M.PACIFIST.FINALKISS.PC.X11MBRINKLEY.TVNEWS04.2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="President Warren">
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.CONNORSUCCESS.PC.X11MWARREN.WHITEHOUSE",
+										5,
+										8
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition"><p>Androids sang</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="CTN TV - Michael Brinkley">
+								{{
+									t(
+										"X1107M.PACIFIST.CONNORSUCCESS.PC.X11MBRINKLEY.ANDSINGING01"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Channel 16 - Michael Webb">
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.CONNORSUCCESS.PC.X11MWEBB.ANDSINGING02",
+										0,
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="KNC - Rosanna Cartland">
+								{{
+									t(
+										"X1107M.PACIFIST.CONNORSUCCESS.PC.X11MCARTLAND.ANDSINGING03"
+									)
+								}}
+							</app-dialogue-line>
+							<!-- TODO (V2): Check X1107M.PACIFIST.CONNORSUCCESS.PC.X11MCARTLAND.OPINIONPOSITIVE02 -->
+							<app-dialogue-line name="Channel 16 - Michael Webb">
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.CONNORSUCCESS.PC.X11MWEBB.OPINIONNEGATIVE01"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="CTN TV - Michael Brinkley">
+								{{
+									t(
+										"X1107M.PACIFIST.CONNORSUCCESS.PC.X11MBRINKLEY.OPINIONNEGATIVE02.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="President Warren">
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.CONNORSUCCESS.PC.X11MWARREN.WHITEHOUSE",
+										5,
+										8
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Markus died any other way</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="President Warren">
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.NOCHOICE.PC.X11MWARREN.WHITEHOUSE",
+										7,
+										9
+									) | async
+								}}
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.NOCHOICE.PC.X11MWARREN.WHITEHOUSE",
+										2,
+										5
+									) | async
+								}}
+								{{
+									translationService.translateObject(
+										"X1107M.PACIFIST.NOCHOICE.PC.X11MWARREN.WHITEHOUSE",
+										13
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</div>
+		</app-conditioned-content>
+		<app-conditioned-content>
+			<div class="condition"><p>Markus used the dirty bomb</p></div>
+			<div class="content">
+				<app-press-dirty-bomb></app-press-dirty-bomb>
+			</div>
+		</app-conditioned-content>
+	</section>
+</ng-container>

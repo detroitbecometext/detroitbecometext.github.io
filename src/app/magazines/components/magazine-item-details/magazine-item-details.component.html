@@ -1,0 +1,38 @@
+<ng-container *transloco="let t">
+	@if (item !== null) {
+		<div>
+			<div
+				class="flex flex-col items-center mb-2 sm:float-right sm:mb-0 sm:ml-2 ml-0"
+			>
+				<mat-chip>{{ item.type }}</mat-chip>
+			</div>
+
+			<h1 class="text-center sm:text-left text-2xl mb-4">
+				{{ t(item.titleTranslationKey) }}
+			</h1>
+
+			<mat-divider></mat-divider>
+
+			<h2 class="text-center pt-4 text-xl mb-2">
+				{{ t(item.subtitleTranslationKey) }}
+			</h2>
+
+			<div class="text-center opacity-55 mb-4 text-sm">
+				{{
+					translationService.translateObject(
+						this.item.subheadlineTranslationKey,
+						undefined,
+						undefined,
+						" ● "
+					) | async
+				}}
+			</div>
+			<p class="text-justify pb-4">
+				{{ t(item.article1TranslationKey) }}
+			</p>
+			<p class="text-justify pb-4">
+				{{ t(item.article2TranslationKey) }}
+			</p>
+		</div>
+	}
+</ng-container>

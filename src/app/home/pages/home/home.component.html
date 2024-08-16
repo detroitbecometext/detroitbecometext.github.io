@@ -1,0 +1,151 @@
+<main>
+	<app-theme-toggle
+		class="fixed top-9 right-28 mr-2 z-10"
+		[switchIconColor]="(themePickerService.isDark$ | async) ?? false"
+	></app-theme-toggle>
+
+	<app-lang-picker-toggle
+		class="fixed top-8 right-8 z-10"
+		[switchCaretColor]="(themePickerService.isDark$ | async) ?? false"
+	></app-lang-picker-toggle>
+	@if (languagePickerService.showPicker$ | async) {
+		<app-lang-picker
+			class="fixed right-0 top-20 mr-6 z-10 max-w-1/2"
+		></app-lang-picker>
+	}
+
+	<div class="px-8 sm:px-32 flex flex-col justify-start items-center">
+		<div class="flex flex-row justify-center items-center mt-12">
+			<fa-layers class="led hidden sm:inline-block">
+				<fa-icon
+					[icon]="faCircleNotch"
+					class="led-1"
+					transform="rotate-45 grow-35 up-10"
+				></fa-icon>
+				<fa-icon
+					[icon]="faCircleNotch"
+					class="led-2"
+					transform="rotate-240 grow-35 up-10"
+				></fa-icon>
+				<fa-icon
+					[icon]="faCircleNotch"
+					class="led-3"
+					transform="rotate-135 grow-35 up-10"
+				></fa-icon>
+			</fa-layers>
+			<h1 class="inline text-center m-0 dark:text-gray-200 text-6xl">
+				Detroit: Become Human
+			</h1>
+		</div>
+		<h1 class="mt-4 mb-8 text-center dark:text-gray-200 text-4xl">
+			Text transcription
+		</h1>
+
+		<ng-container *transloco="let t">
+			<h2 class="mb-0 dark:text-gray-200 text-3xl">
+				{{ t("GUI.MENU.CHAPTERS.VALUE") }}
+			</h2>
+			<mat-divider class="self-stretch"></mat-divider>
+
+			<app-card-container>
+				@for (chapter of chapters; track chapter.id) {
+					<app-card
+						[routerLink]="['/chapters', chapter.id.toString()]"
+						[imageSource]="chapter.image"
+						[altText]="t(chapter.titleTranslationKey)"
+						[title]="'Chapter ' + chapter.number"
+						[text]="t(chapter.titleTranslationKey)"
+					></app-card>
+				}
+			</app-card-container>
+		</ng-container>
+
+		<h2 class="mb-0 mt-14 dark:text-gray-200 text-3xl">Extras</h2>
+
+		<mat-divider class="self-stretch"></mat-divider>
+
+		<app-card-container>
+			<app-card
+				[routerLink]="['/chapters/endings']"
+				imageSource="images/endings.jpg"
+				altText="Kamski"
+				title="Secret endings"
+				text="Post credits scenes"
+			></app-card>
+			<app-card
+				[routerLink]="['/chloe']"
+				imageSource="images/chloe.jpg"
+				altText="Chloe in the main menu"
+				title="Chloe"
+				text="Main menu interactions"
+			></app-card>
+			<app-card
+				[routerLink]="['/magazines']"
+				imageSource="images/magazine.png"
+				altText="Magazine"
+				title="Magazines"
+				text="The complete list"
+			></app-card>
+			<app-card
+				[routerLink]="['/gallery']"
+				imageSource="images/gallery.jpg"
+				altText="Gallery"
+				title="Gallery"
+				text="All characters"
+			></app-card>
+			<app-card
+				[routerLink]="['/soundtrack']"
+				imageSource="images/soundtrack.jpg"
+				altText="Vinyl"
+				title="Soundtrack"
+				text="Tracks from the extras menu"
+			></app-card>
+		</app-card-container>
+
+		<h2 class="mb-0 mt-14 dark:text-gray-200 text-3xl">Additional Links</h2>
+
+		<mat-divider class="self-stretch"></mat-divider>
+
+		<div
+			class="grid sm:mx-8 flex-initial auto-rows-auto items-stretch justify-items-stretch grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+		>
+			@for (link of additionalLinks; track link.link) {
+				<mat-card class="w-full m-0">
+					<mat-card-header>
+						<img
+							mat-card-avatar
+							src="{{ link.img }}"
+							alt="{{ link.alt }}"
+						/>
+						<mat-card-title class="text-lg">{{
+							link.title
+						}}</mat-card-title>
+						<mat-card-subtitle class="opacity-50 text-sm">{{
+							link.subtitle
+						}}</mat-card-subtitle>
+					</mat-card-header>
+					<mat-card-content>
+						<div
+							class="flex flex-row items-center justify-between mt-4"
+						>
+							<p class="text-base m-0">{{ link.description }}</p>
+							<a
+								mat-icon-button
+								aria-label="Icon button with an arrow icon"
+								href="{{ link.link }}"
+								target="_blank"
+							>
+								<fa-icon
+									[icon]="faExternalLinkAlt"
+									size="lg"
+								></fa-icon>
+							</a>
+						</div>
+					</mat-card-content>
+				</mat-card>
+			}
+		</div>
+	</div>
+</main>
+
+<app-footer></app-footer>

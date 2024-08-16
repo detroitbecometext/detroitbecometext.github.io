@@ -1,16 +1,30 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { UnlockType } from '@app/core/models/unlock-type.enum';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { UnlockType } from '../../enums/unlock-type.enum';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+	faLockOpen,
+	faSkull,
+	faHourglassEnd,
+	faTv,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-    selector: 'app-unlock-condition',
-    templateUrl: './unlock-condition.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+	selector: 'app-unlock-condition',
+	standalone: true,
+	imports: [CommonModule, FontAwesomeModule],
+	templateUrl: './unlock-condition.component.html',
+	styleUrl: './unlock-condition.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UnlockConditionComponent {
-    UnlockType = UnlockType;
+	@Input({ required: true }) unlockType: UnlockType | null = null;
+	@Input() bracketsOnlyAroundIcon: boolean = false;
 
-    @Input() unlockType: UnlockType;
-    @Input() bracketsOnlyAroundIcon: boolean;
+	UnlockType = UnlockType;
 
-    constructor() {}
+	faLockOpen = faLockOpen;
+	faSkull = faSkull;
+	faHourglassEnd = faHourglassEnd;
+	faTv = faTv;
 }

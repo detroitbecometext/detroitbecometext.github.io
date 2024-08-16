@@ -1,0 +1,50 @@
+<main class="main-with-centered-card">
+	<mat-card>
+		@if (itemNavigationService.currentItem() !== null) {
+			<ng-container *transloco="let t">
+				<mat-card-content>
+					<ng-container
+						[ngTemplateOutlet]="itemTemplate"
+						[ngTemplateOutletContext]="{
+							$implicit: itemNavigationService.currentItem(),
+						}"
+					></ng-container>
+				</mat-card-content>
+
+				<mat-divider></mat-divider>
+
+				<mat-card-footer class="pt-4">
+					<nav>
+						<div class="text-sm">
+							@if (
+								itemNavigationService.previousItemId() !== null
+							) {
+								<a
+									[routerLink]="[
+										itemUrl,
+										itemNavigationService.previousItemId(),
+									]"
+								>
+									<fa-icon [icon]="faAngleLeft"></fa-icon>
+									{{ previousLabel }}
+								</a>
+							}
+						</div>
+						<div class="text-sm next">
+							@if (itemNavigationService.nextItemId() !== null) {
+								<a
+									[routerLink]="[
+										itemUrl,
+										itemNavigationService.nextItemId(),
+									]"
+									>{{ nextLabel }}
+									<fa-icon [icon]="faAngleRight"></fa-icon
+								></a>
+							}
+						</div>
+					</nav>
+				</mat-card-footer>
+			</ng-container>
+		}
+	</mat-card>
+</main>

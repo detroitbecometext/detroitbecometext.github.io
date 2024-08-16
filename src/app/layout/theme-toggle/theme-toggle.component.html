@@ -1,0 +1,15 @@
+@if (themePickerService.isDark$ | async) {
+	<fa-icon
+		[icon]="faMoon"
+		(click)="themePickerService.switchTheme()"
+		matTooltip="Switch to light mode"
+		[ngClass]="{ 'stroke-current text-white': switchIconColor }"
+	></fa-icon>
+} @else {
+	<fa-icon
+		[icon]="faSun"
+		(click)="themePickerService.switchTheme()"
+		matTooltip="Switch to dark mode"
+		[ngClass]="{ 'stroke-current text-white': switchIconColor }"
+	></fa-icon>
+}

@@ -1,0 +1,1456 @@
+<ng-container *transloco="let t">
+	<section>
+		<h1>In the observation room</h1>
+
+		<p>
+			{{ t("GUI.MENU.DATE.04C") }}
+			<br />
+			{{ t("GUI.MENU.TIME.04C") }}
+		</p>
+
+		<p>
+			<app-dialogue-line name="Hank">
+				{{
+					translationService.translateObject(
+						"X0401C.INTRO.HANK.PC.X04CHANK.QUESTIONS"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<section>
+			<h2>Hank enters the observation room</h2>
+			<p>
+				<app-dialogue-line name="Hank">
+					{{ t("X0401C.INTRO.HANK.FA.X04CHANK.TRYCONNORH01") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Gavin">
+					{{
+						translationService.translateObject(
+							"X0401C.INTRO.HANK.PC.X04CCURTIS.TRYCONNOR",
+							0,
+							3
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Connor">
+					{{
+						translationService.translateObject(
+							"X0401C.INTRO.HANK.PC.X04CCONNOR.TRYCONNOR",
+							0,
+							4
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Gavin">
+					{{
+						translationService.translateObject(
+							"X0401C.INTRO.HANK.PC.X04CCURTIS.TRYCONNOR",
+							3
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Connor">
+					{{ t("X0401C.INTRO.HANK.PC.X04CCONNOR.TRYCONNOR.5") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Hank">
+					{{
+						translationService.translateObject(
+							"X0401C.INTRO.HANK.FA.X04CHANK.TRYCONNORH02"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
+	</section>
+
+	<section>
+		<h1>Inside the interrogation room</h1>
+
+		<section>
+			<h2>Looking at the reflection</h2>
+			<p>
+				<app-dialogue-line name="Hank">
+					{{ t("X0401C.INTERROGATION.MIRROR.FA.X04CHANK.WTF") }}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<section>
+			<h2>Interrogate the deviant</h2>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.FIRSTCHOICE.FEAR')
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Analyzed the deviant
+						</app-unlock-condition>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.FEAR"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.FIRSTCHOICE.PHOTOS')
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Looked at the files
+						</app-unlock-condition>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.SHOWPHOTO",
+									0,
+									2
+								) | async
+							}}
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.SHOWPHOTO",
+									3
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.FIRSTCHOICE.WOUNDS')
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Analyzed the deviant
+						</app-unlock-condition>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.WOUNDS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.FIRSTCHOICE.NAME')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.NAME"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+
+			<mat-divider></mat-divider>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP01.COMFORT'
+						)
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.01COMFORT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP01.REASSURE'
+						)
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.01REASSURE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP01.THREATEN'
+						)
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.01THREATEN"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP01.BLAME')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.01BLAME"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+
+			<mat-divider></mat-divider>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP02.SYMPATHIZE'
+						)
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.02SYMPATHIZE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP02.THREATEN'
+						)
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.02THREATEN"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP02.MEMORY')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.02MEMORY"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Deviant">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.02MEMORY"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP02.CONFIDENCE'
+						)
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.02TRUST"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+
+			<mat-divider></mat-divider>
+
+			<p>
+				<app-dialogue-line name="Deviant">
+					{{
+						translationService.translateObject(
+							"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.02ANDROIDWORRY"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP03.LIE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.03LIE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP03.TRUTH')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.03TRUTH"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+
+			<mat-divider></mat-divider>
+
+			<p>
+				<app-dialogue-line name="Deviant">
+					{{
+						translationService.translateObject(
+							"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.03ANDROIDBLAME"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP04.LIE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.04LIE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.CHOICEGROUP04.TRUTH')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.04TRUTH"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+
+			<mat-divider></mat-divider>
+
+			<p>
+				<app-dialogue-line name="Deviant">
+					{{
+						t(
+							"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.04ANDROIDFEAR.1"
+						)
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Connor">
+					{{
+						t(
+							"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.04ANDROIDFEAR"
+						)
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Deviant">
+					{{
+						translationService.translateObject(
+							"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.04ANDROIDFEAR",
+							1
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<h3>Choose approach</h3>
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.STRESSCHOICE.PUSH')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.PUSH00"
+								) | async
+							}}
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.PUSH01"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Deviant">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.PUSH01"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.PUSH02"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Deviant">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.PUSH02"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.PUSH03"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Deviant">
+							{{
+								t(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.PUSH03"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.PUSH04"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-choice-item
+						[choiceLabel]="
+							t(
+								'X0401C.INTERROGATION.CONNOR.PC.STRESSCHOICE.RENOUNCE'
+							)
+						"
+					>
+						<p>
+							<span class="note"
+								>This dialogue will also trigger if "Pressure
+								it" fails</span
+							><br />
+							<app-dialogue-line name="Deviant">
+								{{
+									translationService.translateObject(
+										"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.PUSH01"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.RENOUNCERIGHT"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.STRESSCHOICE.PROBE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.PROBE"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Deviant">
+							{{
+								t(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.FOREARM.1"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>Probe succeeded</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-relation
+									[name]="RelationName.SoftwareInstability"
+									[type]="RelationType.SmallUp"
+								></app-relation>
+								<app-dialogue-line name="Deviant">
+									{{
+										t(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.FOREARM.3"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line
+									name="Carlos Ortiz (in the recording)"
+								>
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.FLASHBACK.PC.X04CCARLOS.KITCHEN"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Deviant">
+									{{
+										t(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.FOREARM.2"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.CONNECTEND"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Talking to deviant after probing</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-choice-group>
+											<app-choice-item
+												[choiceLabel]="
+													t(
+														'X0401C.INTERROGATION.END.PC.CHOICEGROUP.SORRY'
+													)
+												"
+											>
+												<p>
+													<app-dialogue-line
+														name="Connor"
+													>
+														{{
+															translationService.translateObject(
+																"X0401C.INTERROGATION.END.FA.X04CCONNOR.SORRYSECCONNOR"
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
+											</app-choice-item>
+											<app-choice-item
+												[choiceLabel]="
+													t(
+														'X0401C.INTERROGATION.END.PC.CHOICEGROUP.NOREGRET'
+													)
+												"
+											>
+												<p>
+													<app-dialogue-line
+														name="Connor"
+													>
+														{{
+															translationService.translateObject(
+																"X0401C.INTERROGATION.END.PC.X04CCONNOR.NOREGRET"
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
+											</app-choice-item>
+										</app-choice-group>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<p>
+								<span class="note"
+									>Goes to 'Deviant self-destructs'
+									ending</span
+								>
+							</p>
+						</div>
+					</app-conditioned-content>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>Probe failed</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Deviant">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.PROBEFAIL"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.PROBEFAIL"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.STRESSCHOICE.CONVINCE'
+						)
+					"
+				>
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE05.UNDERSTANDING'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.05UNDERSTANDING"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE05.THREATEN'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.05THREATEN"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE05.ORDER'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.05ORDER"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+
+					<mat-divider></mat-divider>
+
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE06.SYMPATHIZE'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.06SYMPATHIZE"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE06.INSENSITIVE'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.06INDIFFERENT"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE06.COMFORT'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.06COMFORT"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+
+					<mat-divider></mat-divider>
+
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE07.PROTECT'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.07PROTECT"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE07.SCARE'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.07TERRIFY"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE07.WARN'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.07WARN"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.STRESSCHOICE.RENOUNCE'
+						)
+					"
+				>
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.None">
+							Will also automatically happen if the chosen
+							approach failed twice
+						</app-unlock-condition>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.GIVEUP"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+		</section>
+
+		<section>
+			<h2>Deviant confesses</h2>
+			<p>
+				<app-relation
+					[name]="RelationName.Hank"
+					[type]="RelationType.SmallUp"
+				></app-relation>
+				<app-dialogue-line name="Deviant">
+					{{
+						translationService.translateObject(
+							"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.07CONVINCESUCCESS"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE08.WRITING'
+						)
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Looked at the writing on the wall in
+							<a [routerLink]="['/chapters', 6]">Partners</a>
+						</app-unlock-condition>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.08WRITING"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Deviant">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.08WRITINGCAND"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE08.STATUETTE'
+						)
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Looked at the statuette in
+							<a [routerLink]="['/chapters', 6]">Partners</a>
+						</app-unlock-condition>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.08STATUETTE"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Deviant">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.08STATUETTECAND"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE08.OFFERING'
+						)
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Asked about the statuette
+						</app-unlock-condition>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.08OFFERING"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Deviant">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.08OFFERING"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE08.RA9')
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Looked at the rA9 writings in
+							<a [routerLink]="['/chapters', 6]">Partners</a>
+						</app-unlock-condition>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.08RA9"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Deviant">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.08RA9"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE08.INSISTRA9'
+						)
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Asked about rA9
+						</app-unlock-condition>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.08INSISTRA9"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE08.ATTIC'
+						)
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.08ATTIC"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Deviant">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.08ATTIC"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0401C.INTERROGATION.CONNOR.PC.CHOICECONVINCE08.TRIGGER'
+						)
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.08TRIGGER"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Deviant">
+							{{
+								translationService.translateObject(
+									"X0401C.INTERROGATION.CONNOR.PC.X04CANDCARLOS.08TRIGGER"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+
+			<p>
+				<app-dialogue-line name="Connor">
+					{{
+						t(
+							"X0401C.INTERROGATION.CONNOR.PC.X04CCONNOR.08CONVINCEEND"
+						)
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-conditioned-content>
+				<div class="condition"><p>Deviant self-destructs</p></div>
+				<div class="content">
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Stress level at 100%
+						</app-unlock-condition>
+						<app-dialogue-line name="Gavin">
+							{{
+								t(
+									"X0401C.CONCLUSION1.HEADOFF.PC.X04CCURTIS.MONITORING"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{
+								t(
+									"X0401C.CONCLUSION1.HEADOFF.FA.X04CHANK.MONITORINGHANK"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Gavin">
+							{{
+								t(
+									"X0401C.CONCLUSION1.HEADOFF.PC.X04CCURTIS.BEAT01"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Chris">
+							{{
+								t(
+									"X0401C.CONCLUSION1.HEADOFF.PC.X04CHARVEY.BEAT01"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.CONCLUSION2.INTERVENE.PC.INSISTCHOICE.RESIST'
+								)
+							"
+						>
+							<p>
+								<app-relation
+									[type]="RelationType.SmallDown"
+									[name]="RelationName.SoftwareInstability"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										t(
+											"X0401C.CONCLUSION1.HEADOFF.PC.X04CCONNOR.TOBADIDEA"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Hank">
+									{{
+										t(
+											"X0401C.CONCLUSION1.BADIDEA.FA.X04CHANK.BADIDEAHANK.1"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+
+							<h3>Deviant shoots Connor and itself</h3>
+							<p>
+								<app-dialogue-line name="Hank">
+									{{
+										t(
+											"X0401C.CONCLUSION1.BADIDEA.FA.X04CHANK.BADIDEAHANK.2"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.CONCLUSION2.INTERVENE.PC.INSISTCHOICE.CEDE'
+								)
+							"
+						>
+							<h3>Deviant destroys itself</h3>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0401C.CONCLUSION1.BADIDEA.FA.X04CHANK.WATCHOUT"
+									)
+								}}
+							</app-dialogue-line>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Deviant is taken back to its cell</p>
+				</div>
+				<div class="content">
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.CONCLUSION2.INTERVENE.PC.INSISTCHOICE.CEDE'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Gavin">
+									{{
+										t(
+											"X0401C.CONCLUSION2.SUICIDE.PC.X04CCURTIS.MOVE.1"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Chris">
+									{{
+										t(
+											"X0401C.CONCLUSION2.SUICIDE.PC.X04CHARVEY.MOVE.1"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Deviant">
+									{{
+										translationService.translateObject(
+											"X0401C.CONCLUSION2.SUICIDE.PC.X04CANDCARLOS.MOVE",
+											0,
+											2
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Gavin">
+									{{
+										translationService.translateObject(
+											"X0401C.CONCLUSION2.SUICIDE.PC.X04CCURTIS.MOVE",
+											1,
+											3
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Chris">
+									{{
+										translationService.translateObject(
+											"X0401C.CONCLUSION2.SUICIDE.PC.X04CHARVEY.MOVE",
+											1,
+											3
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Deviant">
+									{{
+										translationService.translateObject(
+											"X0401C.CONCLUSION2.SUICIDE.PC.X04CANDCARLOS.MOVE",
+											2,
+											4
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Gavin">
+									{{
+										t(
+											"X0401C.CONCLUSION2.SUICIDE.PC.X04CCURTIS.MOVE.4"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Chris">
+									{{
+										t(
+											"X0401C.CONCLUSION2.SUICIDE.PC.X04CHARVEY.MOVE.4"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Deviant">
+									{{
+										translationService.translateObject(
+											"X0401C.CONCLUSION2.SUICIDE.PC.X04CANDCARLOS.MOVE",
+											4
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Chris">
+									{{
+										translationService.translateObject(
+											"X0401C.CONCLUSION2.SUICIDE.PC.X04CHARVEY.MOVE",
+											4
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Deviant shoots itself</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X0401C.CONCLUSION1.BADIDEA.FA.X04CHANK.BADIDEAHANK.2"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Deviant shoots Connor and itself</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-unlock-condition
+											[unlockType]="UnlockType.Lock"
+										>
+											Put deviant under stress and failed
+											to get a confession
+										</app-unlock-condition>
+										<app-relation
+											[type]="RelationType.SmallDown"
+											[name]="
+												RelationName.SoftwareInstability
+											"
+										></app-relation>
+										<app-relation
+											[type]="RelationType.SmallDown"
+											[name]="RelationName.Hank"
+										></app-relation>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X0401C.CONCLUSION1.BADIDEA.FA.X04CHANK.BADIDEAHANK.2"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0401C.CONCLUSION2.INTERVENE.PC.INSISTCHOICE.RESIST'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.CONCLUSION2.INTERVENE.PC.X04CCONNOR.INTERVENE01"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Gavin">
+									{{
+										t(
+											"X0401C.CONCLUSION2.INTERVENE.PC.X04CCURTIS.INTERVENE01"
+										)
+									}}
+								</app-dialogue-line>
+								<span class="note">Intervene again</span><br />
+								<app-dialogue-line name="Connor">
+									{{
+										t(
+											"X0401C.CONCLUSION2.INTERVENE.PC.X04CCONNOR.INTERVENE02"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Gavin">
+									{{
+										translationService.translateObject(
+											"X0401C.CONCLUSION2.INTERVENE.PC.X04CCURTIS.INTERVENE02"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Chris">
+									{{
+										t(
+											"X0401C.CONCLUSION2.INTERVENE.PC.X04CHARVEY.INTERVENE02"
+										)
+									}}
+								</app-dialogue-line>
+
+								<span class="note">Intervene again</span><br />
+								<app-relation
+									[type]="RelationType.SmallUp"
+									[name]="RelationName.Hank"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										t(
+											"X0401C.CONCLUSION2.INTERVENE.PC.X04CCONNOR.INSIST.1"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Gavin">
+									{{
+										t(
+											"X0401C.CONCLUSION2.INTERVENE.PC.X04CCURTIS.INSIST.1"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Hank">
+									{{
+										t(
+											"X0401C.CONCLUSION2.INTERVENE.FA.X04CHANK.INSISTHANK.1"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Gavin">
+									{{
+										t(
+											"X0401C.CONCLUSION2.INTERVENE.PC.X04CCURTIS.INSIST.2"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Hank">
+									{{
+										t(
+											"X0401C.CONCLUSION2.INTERVENE.FA.X04CHANK.INSISTHANK.2"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Gavin">
+									{{
+										translationService.translateObject(
+											"X0401C.CONCLUSION2.INTERVENE.PC.X04CCURTIS.INSIST",
+											2
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0401C.CONCLUSION2.INTERVENE.PC.X04CCONNOR.INSIST",
+											1
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										<app-unlock-condition
+											[unlockType]="UnlockType.Lock"
+										>
+											Used the CONVINCE approach to get a
+											confession
+										</app-unlock-condition>
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Deviant">
+											{{
+												t(
+													"X0401C.CONCLUSION2.INTERVENE.PC.X04CANDCARLOS.INSIST"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<p>
+								<app-relation
+									[type]="RelationType.SmallUp"
+									[name]="RelationName.SoftwareInstability"
+								></app-relation>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+		</section>
+	</section>
+</ng-container>

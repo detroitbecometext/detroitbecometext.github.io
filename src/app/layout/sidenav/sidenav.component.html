@@ -1,0 +1,124 @@
+<ng-container *transloco="let t">
+	<nav>
+		<mat-accordion>
+			<mat-expansion-panel>
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						<h1>
+							{{ t("GUI.MENU.CHAPTERS.VALUE") }}
+						</h1>
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+				<mat-nav-list>
+					@for (link of chapterLinks; track link.id) {
+						<a
+							mat-list-item
+							[routerLink]="['/chapters', link.id]"
+							(click)="sidenav?.close()"
+						>
+							{{ t(link.translationKey) }}
+						</a>
+					}
+
+					<a
+						mat-list-item
+						[routerLink]="['/chapters', 'endings']"
+						(click)="sidenav?.close()"
+					>
+						SECRET ENDINGS
+					</a>
+				</mat-nav-list>
+			</mat-expansion-panel>
+
+			<mat-divider></mat-divider>
+
+			<mat-expansion-panel>
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						<h1>
+							{{ t("GUI.MENU.EXTRA.MEDIA") }}
+						</h1>
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+				<mat-nav-list>
+					@for (link of magazineLinks; track link.id) {
+						<a
+							mat-list-item
+							[routerLink]="['/magazines', link.id]"
+							(click)="sidenav?.close()"
+						>
+							{{ t(link.translationKey) }}
+						</a>
+					}
+				</mat-nav-list>
+			</mat-expansion-panel>
+
+			<mat-divider></mat-divider>
+
+			<mat-expansion-panel>
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						<h1>
+							{{ t("GUI.MENU.EXTRA.GALLERY.VALUE") }}
+						</h1>
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+				<mat-nav-list>
+					@for (link of galleryLinks; track link.id) {
+						<a
+							mat-list-item
+							[routerLink]="['/gallery', link.id]"
+							(click)="sidenav?.close()"
+						>
+							{{ t(link.translationKey) }}
+						</a>
+					}
+				</mat-nav-list>
+			</mat-expansion-panel>
+
+			<mat-divider></mat-divider>
+
+			<mat-expansion-panel>
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						<h1>
+							{{ t("GUI.MENU.EXTRA.SOUNDTRACK.VALUE") }}
+						</h1>
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+				<mat-nav-list>
+					@for (link of soundtrackLinks; track link.id) {
+						<a
+							mat-list-item
+							[routerLink]="['/soundtrack', link.id]"
+							(click)="sidenav?.close()"
+						>
+							{{ t(link.translationKey) }}
+						</a>
+					}
+				</mat-nav-list>
+			</mat-expansion-panel>
+
+			<mat-divider></mat-divider>
+
+			<mat-expansion-panel>
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						<h1>
+							{{ t("GUI.MENU.EXTRA.VALUE") }}
+						</h1>
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+				<mat-nav-list>
+					<a
+						mat-list-item
+						[routerLink]="['/chloe']"
+						(click)="sidenav?.close()"
+					>
+						CHLOE
+					</a>
+				</mat-nav-list>
+			</mat-expansion-panel>
+		</mat-accordion>
+	</nav>
+</ng-container>

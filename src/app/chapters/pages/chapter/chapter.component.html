@@ -1,0 +1,37 @@
+<article class="main-with-centered-card">
+	@if (navigationService.currentItem() !== null) {
+		<ng-container *transloco="let t">
+			<header
+				class="self-stretch text-center bg-card-light dark:bg-card-dark bg-opacity-80 dark:bg-opacity-80"
+			>
+				<h1 class="mt-8 mb-4 text-6xl">
+					{{ navigationService.currentItem()!.number }} -
+					{{
+						t(
+							"GUI.MENU.CHAPTERS." +
+								navigationService.currentItem()!.shortIdentifier
+						)
+					}}
+				</h1>
+			</header>
+		</ng-container>
+
+		<mat-card class="chapter-card">
+			<mat-card-content>
+				<!-- Top nav -->
+				<app-chapter-nav></app-chapter-nav>
+
+				<mat-divider></mat-divider>
+
+				<!-- Chapter content -->
+				<div class="chapter-content">
+					<ng-template [cdkPortalOutlet]="portal()"></ng-template>
+				</div>
+
+				<!-- Bottom nav -->
+				<mat-divider></mat-divider>
+				<app-chapter-nav></app-chapter-nav>
+			</mat-card-content>
+		</mat-card>
+	}
+</article>

@@ -1,10 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-    selector: 'app-choice-group',
-    templateUrl: './choice-group.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+	selector: 'app-choice-group',
+	standalone: true,
+	templateUrl: './choice-group.component.html',
+	styleUrl: './choice-group.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ChoiceGroupComponent {
-    constructor() {}
-}
+export class ChoiceGroupComponent {}

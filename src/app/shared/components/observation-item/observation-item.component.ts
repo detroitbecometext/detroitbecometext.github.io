@@ -1,19 +1,16 @@
-import {
-    Component,
-    OnInit,
-    ChangeDetectionStrategy,
-    Input,
-} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-observation-item',
-    templateUrl: './observation-item.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+	selector: 'app-observation-item',
+	standalone: true,
+	imports: [CommonModule],
+	templateUrl: './observation-item.component.html',
+	styleUrl: './observation-item.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ObservationItemComponent {
-    @Input() title: string;
-    @Input() subline1: string;
-    @Input() subline2: string;
-
-    constructor() {}
+	@Input({ required: true }) title: string = '';
+	@Input({ required: true }) subline1: string = '';
+	@Input({ required: true }) subline2: string = '';
 }

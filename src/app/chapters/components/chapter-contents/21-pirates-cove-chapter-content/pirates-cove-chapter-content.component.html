@@ -1,0 +1,1272 @@
+<ng-container *transloco="let t">
+	<section>
+		<h1>In the car</h1>
+
+		<p>
+			{{ t("GUI.MENU.DATE.07K") }}
+			<br />
+			{{ t("GUI.MENU.TIME.07K") }}
+		</p>
+
+		<section>
+			<h2>Talking with Luther</h2>
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.INTRO.TALKANDDRIVE.PC.TALKCHOICE.CAR')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.INTRO.TALKANDDRIVE.PC.X07KKARA.CAR"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								translationService.translateObject(
+									"X0701K.INTRO.TALKANDDRIVE.PC.X07KLUTHER.CAR"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.INTRO.TALKANDDRIVE.PC.TALKCHOICE.DESTINATION')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.INTRO.TALKANDDRIVE.PC.X07KKARA.DESTINATION",
+									0,
+									2
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								translationService.translateObject(
+									"X0701K.INTRO.TALKANDDRIVE.PC.X07KLUTHER.DESTINATION",
+									0,
+									2
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.INTRO.TALKANDDRIVE.PC.X07KKARA.DESTINATION",
+									2
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								translationService.translateObject(
+									"X0701K.INTRO.TALKANDDRIVE.PC.X07KLUTHER.DESTINATION",
+									2
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.INTRO.TALKANDDRIVE.PC.TALKCHOICE.DISTANCE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0701K.INTRO.TALKANDDRIVE.PC.X07KKARA.DISTANCE"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								t(
+									"X0701K.INTRO.TALKANDDRIVE.PC.X07KLUTHER.DISTANCE"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.INTRO.TALKANDDRIVE.PC.TALKCHOICE.WEATHER')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.INTRO.TALKANDDRIVE.PC.X07KKARA.WEATHER"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								translationService.translateObject(
+									"X0701K.INTRO.TALKANDDRIVE.PC.X07KLUTHER.WEATHER"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+		</section>
+
+		<section>
+			<h2>
+				<app-unlock-condition [unlockType]="UnlockType.Tv">
+					Watch the news
+				</app-unlock-condition>
+			</h2>
+			<p>
+				<app-dialogue-line name="Channel 16 - Michael Webb">
+					{{
+						translationService.translateObject(
+							"X0701K.INTRO.RADIOGAGA.PC.X07KWEBB.STATION03"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="CTN TV - Michael Brinkley">
+					{{
+						translationService.translateObject(
+							"X0703K.TV.NEWS.PC.X07KBRINKLEY.INTERNATIONAL"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="KNC - Rosanna Cartland">
+					{{
+						translationService.translateObject(
+							"X0701K.INTRO.RADIOGAGA.PC.X07KCARTLAND.STATION01"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Kara set the house on fire in
+						<a [routerLink]="['/chapters', 17]">Zlatko</a>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-relation
+							[name]="RelationName.PublicOpinion"
+							[type]="RelationType.SmallDown"
+						></app-relation>
+						<app-dialogue-line name="Channel 16 - Michael Webb">
+							{{
+								translationService.translateObject(
+									"X0703K.TV.NEWS.PC.X07KWEBB.HOUSEFIRE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</section>
+
+		<section>
+			<h2>Car breaks down</h2>
+			<p>
+				<app-dialogue-line name="Car">
+					{{ t("X0701K.INTRO.CARPROBLEM.VO.MANLCL.CARWARNING") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Luther">
+					{{ t("X0701K.INTRO.CARPROBLEM.PC.X07KLUTHER.STOP") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{ t("X0701K.INTRO.DONTMOVE.PC.X07KKARA.STAY") }}
+				</app-dialogue-line>
+			</p>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{ t("X0701K.INTRO.FINDSOMEHTING.PC.X07KKARA.SHELTER.1") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Luther">
+					{{
+						translationService.translateObject(
+							"X0701K.INTRO.FINDSOMEHTING.PC.X07KLUTHER.SHELTER",
+							0,
+							2
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0701K.INTRO.FINDSOMEHTING.PC.X07KKARA.SHELTER",
+							1
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Luther">
+					{{
+						t("X0701K.INTRO.FINDSOMEHTING.PC.X07KLUTHER.SHELTER.3")
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{ t("X0701K.INTRO.FOUND.PC.X07KKARA.THERE") }}
+				</app-dialogue-line>
+			</p>
+		</section>
+	</section>
+
+	<section>
+		<h1>Inside Pirate's Cove</h1>
+		<p>
+			<app-dialogue-line name="Kara">
+				{{
+					translationService.translateObject(
+						"X0701K.PARK.PLACE.FA.X07KKARA.FINDSHELTER"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Luther">
+				{{ t("X0701K.PARK.REMINDER.FA.X07KLUTHER.ABANDONNED") }}
+			</app-dialogue-line>
+		</p>
+
+		<section>
+			<h2>Check buildings</h2>
+			<p>
+				<app-dialogue-line name="Luther">
+					{{ t("X0701K.PARK.REMINDER.FA.X07KLUTHER.FIND") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0701K.PARK.REMINDER.FA.X07KKARA.FINDK"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<section>
+			<h2>Switch on Ivan</h2>
+			<p>
+				<app-dialogue-line name="Ivan">
+					{{ t("X0701K.PARK.IVAN.PC.X07KIVAN.BEWARE") }}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<section>
+			<h2>Looking at frozen Jerry</h2>
+			<p>
+				<app-dialogue-line name="Jerry">
+					{{ t("X0701K.PARK.JERRY.PC.X07KJERRY.AUTOMATE.1") }}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<mat-divider></mat-divider>
+
+		<p>
+			<app-dialogue-line name="Luther">
+				{{
+					translationService.translateObject(
+						"X0701K.PARK.REMINDER.FA.X07KLUTHER.WRECKED"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<section>
+			<h2>Find the tavern</h2>
+			<p>
+				<app-dialogue-line name="Luther">
+					{{
+						translationService.translateObject(
+							"X0701K.PARK.PLANKS.PC.X07KLUTHER.RIPOFF"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<section>
+			<h2>
+				<app-unlock-condition [unlockType]="UnlockType.Time">
+					{{ t(CommonTranslationKey.TooMuchTime) }}
+				</app-unlock-condition>
+			</h2>
+			<p>
+				<app-dialogue-line name="Luther">
+					{{
+						translationService.translateObject(
+							"X0701K.PARK.FOUNDIT.FA.X07KLUTHER.COME"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
+	</section>
+	<section>
+		<h1>In the tavern</h1>
+		<p>
+			<app-dialogue-line name="Kara">
+				{{
+					translationService.translateObject(
+						"X0701K.SHOP.STAY.PC.X07KKARA.ENTER"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Luther">
+				{{ t("X0701K.SHOP.STAY.PC.X07KLUTHER.ENTER") }}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Luther">
+				{{
+					translationService.translateObject(
+						"X0701K.SHOP.FIRE.FA.X07KLUTHER.DEADWOOD"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<section>
+			<h2>Check bag</h2>
+			<app-choice-group>
+				<app-choice-item [choiceLabel]="t('MENU.FLOWCHART.07K.BAR')">
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Checked the bag before telling Alice a story
+						</app-unlock-condition>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.COOKIES.PC.X07KKARA.LIKESOME"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Alice">
+							{{ t("X0701K.SHOP.COOKIES.PC.X07KALICE.LIKESOME") }}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+		</section>
+
+		<section>
+			<h2>Made bed for Alice</h2>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{ t("X0701K.SHOP.BEDDONE.PC.X07KKARA.LOSTHER") }}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<section>
+			<h2>Talking to Alice</h2>
+			<p>
+				<app-relation
+					[name]="RelationName.Alice"
+					[type]="RelationType.SmallUp"
+				></app-relation>
+				<app-dialogue-line name="Alice">
+					{{ t("X0701K.SHOP.OLDPOSTER.PC.X07KALICE.LIKETHEM") }}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.OLDPOSTER.PC.HAPPY.OPTIMISTIC')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.OLDPOSTER.PC.X07KKARA.OPTIMISTIC",
+									0,
+									5
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-unused-content>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0701K.SHOP.OLDPOSTER.PC.X07KKARA.OPTIMISTIC.6"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-unused-content>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.OLDPOSTER.PC.HAPPY.REALISTIC')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.OLDPOSTER.PC.X07KKARA.REALISTIC"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.OLDPOSTER.PC.HAPPY.SINCERE')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.OLDPOSTER.PC.X07KKARA.SINCERE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="Alice">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.OLDPOSTER.PC.X07KALICE.TOGETHER"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.OLDPOSTER.PC.X07KKARA.TOGETHER"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-relation
+					[name]="RelationName.Alice"
+					[type]="RelationType.SmallUp"
+				></app-relation>
+			</p>
+		</section>
+
+		<section>
+			<h2>Going to see Alice</h2>
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.WORRIED.REASSURE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.REASSURE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.WORRIED.CONSOLE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.CONSOLE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.WORRIED.KISS')"
+				>
+					<p>
+						<app-relation
+							[name]="RelationName.Alice"
+							[type]="RelationType.SmallUp"
+						></app-relation>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.KISS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.WORRIED.TOMORROW')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.TOMORROW"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="Alice">
+					{{ t("X0701K.SHOP.STOYTELLER.PC.X07KALICE.STORY") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.STOYTELLER.PC.X07KKARA.STORY"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.FINDONE.PRINCESS')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t("X0701K.SHOP.STOYTELLER.PC.X07KKARA.PRINCESS")
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.FINDONE.UNICORN')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t("X0701K.SHOP.STOYTELLER.PC.X07KKARA.UNICORN")
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.FINDONE.KNIGHT')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0701K.SHOP.STOYTELLER.PC.X07KKARA.KNIGHT") }}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="Alice">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.STOYTELLER.PC.X07KALICE.TRUESTORY01"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.STOYTELLER.PC.X07KKARA.TRUESTORY02"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.LIFESTORY.UNHAPPY')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.UNHAPPY01"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.LIFESTORY.FEAR')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0701K.SHOP.STOYTELLER.PC.X07KKARA.FEAR") }}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.LIFESTORY.ALONE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0701K.SHOP.STOYTELLER.PC.X07KKARA.ALONE") }}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{ t("X0701K.SHOP.STOYTELLER.PC.X07KKARA.DREAM") }}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.BUT.IMPOSSIBLE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.IMPOSSIBLE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.BUT.SHADOW')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t("X0701K.SHOP.STOYTELLER.PC.X07KKARA.SHADOW01")
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.BUT.DIFFERENT')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.DIFFERENT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.STOYTELLER.PC.X07KKARA.ROBOT"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.FEELING.UNHAPPY')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.UNHAPPY02"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.FEELING.OBEDIENT')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.OBEDIENT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.FEELING.LOST')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0701K.SHOP.STOYTELLER.PC.X07KKARA.LOST") }}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{ t("X0701K.SHOP.STOYTELLER.PC.X07KKARA.DECISION") }}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.RUNAWAY.BETTERLIFE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.BETTERLIFE"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.RUNAWAY.SHADOW')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t("X0701K.SHOP.STOYTELLER.PC.X07KKARA.SHADOW02")
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.RUNAWAY.PEACE')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.LIVEINPEACE"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{ t("X0701K.SHOP.STOYTELLER.PC.X07KKARA.DANGERS") }}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.OVERCOME.BRAVE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.BRAVE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.OVERCOME.TOGETHER')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.TOGETHER"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.STOYTELLER.PC.OVERCOME.FREE')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.FREE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.STOYTELLER.PC.X07KKARA.ENCOUNTER"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.PROTECTOR.GIANT')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.GIANT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.PROTECTOR.GUARDIAN')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.GUARDIAN"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.PROTECTOR.ROBOT')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.ANOTHERROBOT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="Alice">
+					{{ t("X0701K.SHOP.STOYTELLER.PC.X07KALICE.END") }}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.ENDCHOICE.REALISTIC')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.REALISTIC"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.ENDCHOICE.MORAL')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.MORAL"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.STOYTELLER.PC.ENDCHOICE.HAPPYEND')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.STOYTELLER.PC.X07KKARA.HAPPYEND"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="Alice">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.STOYTELLER.PC.X07KALICE.HAPPYEND"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.STOYTELLER.PC.X07KKARA.GOODNIGHT"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Alice">
+					{{
+						t("X0701K.SHOP.STOYTELLER.PC.X07KALICE.GOODNIGHTALICE")
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Luther">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.STOYTELLER.PC.X07KLUTHER.GOODNIGHTEND"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<section>
+			<h2>Talking to Luther</h2>
+			<p>
+				<app-dialogue-line name="Luther">
+					{{ t("X0701K.SHOP.LUTHER.PC.X07KLUTHER.SWEET") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.LUTHER.PC.X07KKARA.SWEET"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.LUTHER.PC.TALKCHOICE.RA9')"
+					[brackets]="true"
+				>
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Looked at rA9 writing on the wall
+						</app-unlock-condition>
+						<app-dialogue-line name="Kara">
+							{{ t("X0701K.SHOP.LUTHER.PC.X07KKARA.RA9") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.LUTHER.PC.X07KLUTHER.RA9"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.SHOP.LUTHER.PC.TALKCHOICE.RA9DOUBTS')
+					"
+					[brackets]="true"
+				>
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Asked about [ rA9 ]
+						</app-unlock-condition>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.LUTHER.PC.X07KKARA.DOUBT"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.LUTHER.PC.X07KLUTHER.DOUBT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.LUTHER.PC.TALKCHOICE.SNOW')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0701K.SHOP.LUTHER.PC.X07KKARA.SNOW") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.LUTHER.PC.X07KLUTHER.SNOW"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.LUTHER.PC.TALKCHOICE.PLANS')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0701K.SHOP.LUTHER.PC.X07KKARA.PLANS") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.LUTHER.PC.X07KLUTHER.PLANS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.LUTHER.PC.TALKCHOICE.PAST')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.LUTHER.PC.X07KKARA.LUTHERSPAST"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.LUTHER.PC.X07KLUTHER.LUTHERSPAST"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<p>
+				<app-dialogue-line name="Luther">
+					{{
+						translationService.translateObject(
+							"X0701K.SHOP.LUTHER.PC.X07KLUTHER.ALICEDIFFERENT"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.LUTHER.PC.NOTICECHOICE.YES')"
+				>
+					<p>
+						<app-relation
+							[name]="RelationName.Luther"
+							[type]="RelationType.SmallUp"
+						></app-relation>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.LUTHER.PC.X07KKARA.YES"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.LUTHER.PC.NOTICECHOICE.WHAT')"
+				>
+					<p>
+						<app-relation
+							[name]="RelationName.Luther"
+							[type]="RelationType.SmallUp"
+						></app-relation>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.SHOP.LUTHER.PC.X07KKARA.WHAT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0701K.SHOP.LUTHER.PC.NOTICECHOICE.NO')"
+				>
+					<p>
+						<app-relation
+							[name]="RelationName.Luther"
+							[type]="RelationType.SmallUp"
+						></app-relation>
+						<app-dialogue-line name="Kara">
+							{{ t("X0701K.SHOP.LUTHER.PC.X07KKARA.NO.2") }}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+		</section>
+
+		<mat-divider></mat-divider>
+
+		<p>
+			<app-dialogue-line name="Alice">
+				{{ t("X0701K.SHOP.MIDNIGHTSCREAM.FA.X07KALICE.SCREAM") }}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="t('X0701K.SHOP.DISCOVERY.PC.UNFRIENDLY.SHOOT')"
+				[brackets]="true"
+			>
+				<p>
+					<app-unlock-condition [unlockType]="UnlockType.Lock">
+						Kara saw the gun in the bag and grabbed it
+					</app-unlock-condition>
+					<app-dialogue-line name="Kara">
+						{{
+							t(
+								"X0701K.SHOP.DISCOVERY.FA.X07KKARA.SHOOTINTHEAIRB"
+							)
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0701K.SHOP.DISCOVERY.PC.UNFRIENDLY.QUESTION')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Kara">
+						{{
+							translationService.translateObject(
+								"X0701K.SHOP.DISCOVERY.FA.X07KKARA.QUESTIONB"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0701K.SHOP.DISCOVERY.PC.UNFRIENDLY.PUSHBACK')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Kara">
+						{{ t("X0701K.SHOP.DISCOVERY.FA.X07KKARA.PUSHBACKB") }}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+		</app-choice-group>
+
+		<p>
+			<app-dialogue-line name="Jerry">
+				{{
+					translationService.translateObject(
+						"X0701K.SHOP.DISCOVERY.PC.X07KJERRY.NOFEAR"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Kara">
+				{{
+					translationService.translateObject(
+						"X0701K.SHOP.DISCOVERY.PC.X07KKARA.FOLLOWUS",
+						0,
+						2
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Jerry">
+				{{
+					translationService.translateObject(
+						"X0701K.SHOP.DISCOVERY.PC.X07KJERRY.FOLLOWUS",
+						0,
+						4
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Kara">
+				{{ t("X0701K.SHOP.DISCOVERY.PC.X07KKARA.FOLLOWUS.4") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Jerry">
+				{{ t("X0701K.SHOP.DISCOVERY.PC.X07KJERRY.FOLLOWUS.5") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Kara">
+				{{ t("X0701K.SHOP.DISCOVERY.PC.X07KKARA.FOLLOWUS.5") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Jerry">
+				{{ t("X0701K.SHOP.DISCOVERY.PC.X07KJERRY.FOLLOWUS.6") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Kara">
+				{{ t("X0701K.SHOP.DISCOVERY.PC.X07KKARA.FOLLOWUS.6") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Luther">
+				{{ t("X0701K.SHOP.DISCOVERY.PC.X07KLUTHER.FOLLOWUS") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Alice">
+				{{ t("X0701K.SHOP.DISCOVERY.FA.X07KALICE.FOLLOWUSALICE") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Jerry">
+				{{ t("X0701K.MERRYGOROUND.WELCOME.PC.X07KJERRY.WELCOME") }}
+				{{
+					translationService.translateObject(
+						"X0701K.MERRYGOROUND.SWITCHON.PC.X07KJERRY.CLIMB"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Kara">
+				{{ t("X0701K.MERRYGOROUND.INCOMING.PC.X07KKARA.RIDE") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Luther">
+				{{ t("X0701K.MERRYGOROUND.INCOMING.PC.X07KLUTHER.RIDE") }}
+			</app-dialogue-line>
+		</p>
+
+		<!-- TODO (V2): Add unused "RIDECOMING" + "CHASE" section -->
+	</section>
+</ng-container>

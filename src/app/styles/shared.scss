@@ -1,74 +1,130 @@
 html,
 body {
-    min-height: 100vh;
-    height: auto;
-    margin: 0;
+	min-height: 100vh;
+	height: auto;
+	margin: 0;
 
-    &.light #body {
-        background-image: url('../../assets/images/light-bg.svg');
-        background-repeat: repeat;
-        background-size: 600px;
-    }
+	#body.light {
+		background-image: url("/images/light-bg.svg");
+		background-repeat: repeat;
+		background-size: 600px;
+	}
 
-    &.dark #body {
-        background-color: black;
-        background-image: url('../../assets/images/dark-bg.svg');
-        background-repeat: repeat;
-        background-size: 600px;
-    }
+	#body.dark {
+		background-color: black;
+		background-image: url("/images/dark-bg.svg");
+		background-repeat: repeat;
+		background-size: 600px;
+	}
 }
 
-.snackbar-error {
-    background-color: darkred !important;
-    color: white;
+// Use Noto Sans as the default font
+// Switch to variations for specific languages
+* {
+	font-family: "Noto Sans", system-ui;
+	font-optical-sizing: auto;
+	font-weight: normal;
+	font-style: normal;
+	font-variation-settings: "wdth" 100;
 }
 
+#body:lang("ja") {
+	* {
+		font-family: "Noto Sans JP", system-ui;
+		font-optical-sizing: auto;
+		font-weight: normal;
+		font-style: normal;
+	}
+}
+
+#body:lang("zh-tw") {
+	* {
+		font-family: "Noto Sans TC", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: normal;
+		font-style: normal;
+	}
+}
+
+#body:lang("zh-cn") {
+	* {
+		font-family: "Noto Sans SC", system-ui;
+		font-optical-sizing: auto;
+		font-weight: normal;
+		font-style: normal;
+	}
+}
+
+#body:lang("ko") {
+	* {
+		font-family: "Noto Sans KR", system-ui;
+		font-optical-sizing: auto;
+		font-weight: normal;
+		font-style: normal;
+	}
+}
+
+#body:lang("ar") {
+	* {
+		font-family: "Noto Sans Arabic", system-ui;
+		font-optical-sizing: auto;
+		font-weight: normal;
+		font-style: normal;
+		font-variation-settings: "wdth" 100;
+	}
+}
+
+// Elements
 strong {
-    @apply font-bold;
-}
-
-.important {
-    @apply font-bold text-yellow-500;
+	@apply font-bold;
 }
 
 a {
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.main-with-centered-card {
-    @apply flex flex-col justify-start;
-
-    mat-card {
-        @apply self-center mx-0 p-12 w-11/12 sm:w-3/5;
-
-        nav {
-            @apply grid grid-cols-2 auto-rows-auto justify-between gap-4;
-
-            div.next {
-                // TODO: rtl -> text-end ?
-                @apply text-right;
-            }
-
-            a {
-                @apply text-indigo-900 hover:text-indigo-500 dark:text-indigo-300 dark:hover:text-indigo-200 transition-colors duration-700;
-            }
-        }
-    }
+	text-decoration: none;
+	cursor: pointer;
 }
 
 ul {
-    @apply list-disc pl-3;
+	@apply list-disc pl-3;
 }
 
 ol {
-    @apply list-decimal pl-3;
+	@apply list-decimal pl-3;
 }
 
-.flag-icon-background {
-    height: 37.5px;
-    width: 50px;
-    cursor: pointer;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-        0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+// Classes
+@layer components {
+	.snackbar-error {
+		background-color: darkred !important;
+		color: white;
+	}
+
+	.important {
+		@apply font-bold text-yellow-500;
+	}
+
+	.condition p {
+		@apply text-gray-800 dark:text-gray-200 font-bold mb-0;
+	}
+
+	.main-with-centered-card {
+		@apply flex flex-col justify-start;
+
+		mat-card {
+			@apply self-center mx-0 p-12 w-11/12 sm:w-3/5;
+
+			nav {
+				@apply grid grid-cols-2 auto-rows-auto justify-between gap-4;
+
+				div.next {
+					// TODO: rtl -> text-end ?
+					@apply text-right;
+				}
+
+				a {
+					@apply text-indigo-900 hover:text-indigo-500 dark:text-indigo-300 dark:hover:text-indigo-200 transition-colors duration-700;
+				}
+			}
+		}
+	}
 }
