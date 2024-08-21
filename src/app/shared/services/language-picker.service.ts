@@ -74,6 +74,7 @@ export class LanguagePickerService {
 
 	public changeLanguage(lang: string): void {
 		this.translocoService.setActiveLang(lang);
+		this.showPicker.next(false);
 	}
 
 	public togglePicker() {
