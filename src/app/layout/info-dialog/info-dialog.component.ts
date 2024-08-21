@@ -16,6 +16,7 @@ import { UnlockConditionComponent } from '../../shared/components/unlock-conditi
 import { UnusedContentComponent } from '../../shared/components/unused-content/unused-content.component';
 import { TextDirectionService } from '../../shared/services/text-direction.service';
 import { TranslocoService } from '@jsverse/transloco';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
 	selector: 'app-info-dialog',
@@ -24,6 +25,7 @@ import { TranslocoService } from '@jsverse/transloco';
 		CommonModule,
 		MatDialogModule,
 		MatDividerModule,
+		MatButtonModule,
 		ConditionedContentComponent,
 		ChoiceGroupComponent,
 		ChoiceItemComponent,
