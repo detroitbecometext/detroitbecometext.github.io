@@ -1,16 +1,24 @@
 <main>
-	<app-theme-toggle
-		class="fixed top-9 right-28 mr-2 z-10"
-		[switchIconColor]="(themePickerService.isDark$ | async) ?? false"
-	></app-theme-toggle>
+	<div class="fixed top-8 end-8 z-10">
+		<div class="flex flex-row gap-2">
+			<app-theme-toggle
+				class="mt-1"
+				[switchIconColor]="
+					(themePickerService.isDark$ | async) ?? false
+				"
+			></app-theme-toggle>
 
-	<app-lang-picker-toggle
-		class="fixed top-8 right-8 z-10"
-		[switchCaretColor]="(themePickerService.isDark$ | async) ?? false"
-	></app-lang-picker-toggle>
+			<app-lang-picker-toggle
+				[switchCaretColor]="
+					(themePickerService.isDark$ | async) ?? false
+				"
+			></app-lang-picker-toggle>
+		</div>
+	</div>
+
 	@if (languagePickerService.showPicker$ | async) {
 		<app-lang-picker
-			class="fixed right-0 top-20 mr-6 z-10 max-w-1/2"
+			class="fixed end-0 top-20 me-6 z-10 max-w-1/2"
 		></app-lang-picker>
 	}
 

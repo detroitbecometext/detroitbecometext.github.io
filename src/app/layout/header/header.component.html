@@ -1,16 +1,25 @@
 <header class="bg-black">
 	<nav class="flex flex-row justify-start items-center">
-		<fa-icon [icon]="faBars" (click)="sidenav?.toggle()"></fa-icon>
+		<button (click)="sidenav?.toggle()">
+			<fa-icon [icon]="faBars"></fa-icon>
+		</button>
 		<fa-icon
 			[icon]="faHome"
 			[routerLink]="['/home']"
 			matTooltip="Home"
 		></fa-icon>
-		<fa-icon
-			[icon]="faQuestion"
-			(click)="openDialog()"
-			matTooltip="Info"
-		></fa-icon>
+		<button (click)="openDialog()">
+			<fa-icon
+				[icon]="faQuestion"
+				[flip]="
+					(textDirectionService.isRtl$ | async)
+						? 'horizontal'
+						: undefined
+				"
+				matTooltip="Info"
+			></fa-icon>
+		</button>
+
 		<fa-icon
 			[icon]="faEnvelope"
 			[routerLink]="['/contact']"
@@ -19,11 +28,11 @@
 
 		<span class="flex-auto"></span>
 		<app-theme-toggle
-			class="mr-4"
+			class="me-4"
 			[switchIconColor]="true"
 		></app-theme-toggle>
 		<app-lang-picker-toggle
-			class="mr-4"
+			class="me-4"
 			[switchCaretColor]="true"
 		></app-lang-picker-toggle>
 	</nav>

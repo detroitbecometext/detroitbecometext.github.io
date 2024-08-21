@@ -23,8 +23,7 @@ export const appConfig: ApplicationConfig = {
 		provideTransloco({
 			config: {
 				availableLangs: [
-					// TODO: Add arabic when right to left dir is supported
-					//{ id: 'ar', label: 'Arabic' },
+					{ id: 'ar', label: 'Arabic' },
 					{ id: 'pt-br', label: 'Portuguese (Brazil)' },
 					{ id: 'zh-tw', label: 'Chinese (Traditional)' },
 					{ id: 'zh-cn', label: 'Chinese (Simplified)' },

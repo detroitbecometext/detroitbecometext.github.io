@@ -3,6 +3,7 @@ import { TranslocoGlobalConfig } from '@jsverse/transloco-utils';
 const config: TranslocoGlobalConfig = {
 	rootTranslationsPath: 'i18n/',
 	langs: [
+		'ar',
 		'pt-br',
 		'zh-tw',
 		'zh-cn',

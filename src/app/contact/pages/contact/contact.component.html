@@ -1,4 +1,4 @@
-<main class="flex flex-col justify-start items-center">
+<main class="flex flex-col justify-start items-center" dir="ltr">
 	<mat-card class="text-center w-5/6 sm:w-4/6">
 		<mat-card-title>
 			<h1 class="mb-6 text-4xl">Contact</h1>
@@ -7,7 +7,14 @@
 			<form [formGroup]="contactForm" (ngSubmit)="sendMessage()">
 				<div class="flex flex-col gap-6 md:gap-8">
 					<div class="flex flex-col md:flex-row gap-5">
-						<mat-form-field appearance="outline" class="flex-1">
+						<mat-form-field
+							[appearance]="
+								(textDirectionService.isRtl$ | async)
+									? 'fill'
+									: 'outline'
+							"
+							class="flex-1"
+						>
 							<mat-label>Name</mat-label>
 							<input
 								matInput
@@ -20,7 +27,14 @@
 							>
 						</mat-form-field>
 
-						<mat-form-field appearance="outline" class="flex-1">
+						<mat-form-field
+							[appearance]="
+								(textDirectionService.isRtl$ | async)
+									? 'fill'
+									: 'outline'
+							"
+							class="flex-1"
+						>
 							<mat-label>Email</mat-label>
 							<input
 								matInput
@@ -41,7 +55,13 @@
 						</mat-form-field>
 					</div>
 
-					<mat-form-field appearance="outline">
+					<mat-form-field
+						[appearance]="
+							(textDirectionService.isRtl$ | async)
+								? 'fill'
+								: 'outline'
+						"
+					>
 						<mat-label>Your message</mat-label>
 						<textarea
 							matInput

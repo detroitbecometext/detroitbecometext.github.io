@@ -14,6 +14,8 @@ import { ChoiceItemComponent } from '../../shared/components/choice-item/choice-
 import { RelationComponent } from '../../shared/components/relation/relation.component';
 import { UnlockConditionComponent } from '../../shared/components/unlock-condition/unlock-condition.component';
 import { UnusedContentComponent } from '../../shared/components/unused-content/unused-content.component';
+import { TextDirectionService } from '../../shared/services/text-direction.service';
+import { TranslocoService } from '@jsverse/transloco';
 
 @Component({
 	selector: 'app-info-dialog',
@@ -43,6 +45,8 @@ export class InfoDialogComponent {
 	constructor(
 		private readonly chapterService: ChapterService,
 		public readonly themePickerService: ThemePickerService,
+		public readonly textDirectionService: TextDirectionService,
+		public readonly translocoService: TranslocoService,
 	) {
 		this.chapters = this.chapterService.getAll();
 	}

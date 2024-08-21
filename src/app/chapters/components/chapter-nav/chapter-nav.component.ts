@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChapterNavigationService } from '../../../shared/services/chapter-navigation.service';
+import { NavigationLinkComponent } from '../../../shared/components/navigation-link/navigation-link.component';
 
 @Component({
 	selector: 'app-chapter-nav',
 	standalone: true,
-	imports: [CommonModule, RouterLink, FontAwesomeModule],
+	imports: [CommonModule, NavigationLinkComponent],
 	templateUrl: './chapter-nav.component.html',
 	styleUrl: './chapter-nav.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,6 +1,13 @@
-<ng-container>
-	<span class="text-gray-800 font-bold dark:text-gray-200">{{ name }}</span>
-	<span>:</span>
-	<ng-content></ng-content>
+<span class="text-gray-800 font-bold dark:text-gray-200">{{ name }}</span>
+<!-- Mixing arabic and latin text on the same line is troublesome, so for arabic the name is displayed above the text -->
+@if ((translocoService.langChanges$ | async) === "ar") {
 	<br />
-</ng-container>
+} @else {
+	<span>:</span>
+}
+<ng-container *ngTemplateOutlet="content" />
+<br />
+
+<ng-template #content>
+	<ng-content />
+</ng-template>

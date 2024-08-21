@@ -1,42 +1,53 @@
-<nav>
-	<div>
-		@if (navigationService.previousItemId() !== null) {
-			<a [routerLink]="['/chapters', navigationService.previousItemId()]">
-				<fa-icon [icon]="faAngleLeft"></fa-icon> Previous chapter</a
-			>
-		}
-	</div>
-	<div class="next">
-		@if (navigationService.nextItemId() !== null) {
-			<a [routerLink]="['/chapters', navigationService.nextItemId()]"
-				>Next chapter <fa-icon [icon]="faAngleRight"></fa-icon
-			></a>
-		}
+<nav class="text-sm">
+	<div class="flex flex-row justify-between">
+		<div>
+			@if (navigationService.previousItemId() !== null) {
+				<app-navigation-link
+					[link]="['/chapters', navigationService.previousItemId()]"
+					position="start"
+					label="Previous chapter"
+				/>
+			}
+		</div>
+		<div>
+			@if (navigationService.nextItemId() !== null) {
+				<app-navigation-link
+					[link]="['/chapters', navigationService.nextItemId()]"
+					position="end"
+					label="Next chapter"
+				/>
+			}
+		</div>
 	</div>
 
-	<div>
-		@if (navigationService.previousCharacterChapterId() !== null) {
-			<a
-				[routerLink]="[
-					'/chapters',
-					navigationService.previousCharacterChapterId(),
-				]"
-			>
-				<fa-icon [icon]="faAngleLeft"></fa-icon> Previous
-				{{ navigationService.currentItem()?.character }} chapter</a
-			>
-		}
-	</div>
-	<div class="next">
-		@if (navigationService.nextCharacterChapterId() !== null) {
-			<a
-				[routerLink]="[
-					'/chapters',
-					navigationService.nextCharacterChapterId(),
-				]"
-				>Next {{ navigationService.currentItem()?.character }} chapter
-				<fa-icon [icon]="faAngleRight"></fa-icon
-			></a>
-		}
+	<div class="flex flex-row justify-between">
+		<div>
+			@if (navigationService.previousCharacterChapterId() !== null) {
+				<app-navigation-link
+					[link]="[
+						'/chapters',
+						navigationService.previousCharacterChapterId(),
+					]"
+					position="start"
+					label="Previous {{
+						navigationService.currentItem()?.character
+					}} chapter"
+				/>
+			}
+		</div>
+		<div>
+			@if (navigationService.nextCharacterChapterId() !== null) {
+				<app-navigation-link
+					[link]="[
+						'/chapters',
+						navigationService.nextCharacterChapterId(),
+					]"
+					position="end"
+					label="Next {{
+						navigationService.currentItem()?.character
+					}} chapter"
+				/>
+			}
+		</div>
 	</div>
 </nav>

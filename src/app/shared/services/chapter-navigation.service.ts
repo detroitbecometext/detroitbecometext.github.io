@@ -3,6 +3,7 @@ import { ItemNavigationService } from './item-navigation.service';
 import { Chapter } from '../models/chapter';
 import { ChapterService } from './chapter.service';
 import { Router } from '@angular/router';
+import { TextDirectionService } from './text-direction.service';
 
 @Injectable()
 export class ChapterNavigationService extends ItemNavigationService<Chapter> {
@@ -38,7 +39,8 @@ export class ChapterNavigationService extends ItemNavigationService<Chapter> {
 	constructor(
 		private readonly chapterService: ChapterService,
 		router: Router,
+		textDirectionService: TextDirectionService,
 	) {
-		super(chapterService, '/chapters', router);
+		super(chapterService, '/chapters', router, textDirectionService);
 	}
 }

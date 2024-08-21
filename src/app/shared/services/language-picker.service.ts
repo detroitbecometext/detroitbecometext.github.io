@@ -27,7 +27,7 @@ export class LanguagePickerService {
 
 	constructor(private translocoService: TranslocoService) {
 		this.langToFlagMapping = new Map([
-			['ar', 'sa'],
+			['ar', 'arab'],
 			['en', 'us'],
 			['da', 'dk'],
 			['ja', 'jp'],

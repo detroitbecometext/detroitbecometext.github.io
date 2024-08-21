@@ -7,11 +7,9 @@ import {
 	Input,
 	TemplateRef,
 } from '@angular/core';
-import { ActivatedRoute, ParamMap, RouterLink } from '@angular/router';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslocoModule } from '@jsverse/transloco';
 import {
 	ITEM_URL_TOKEN,
@@ -19,6 +17,7 @@ import {
 } from '../../services/item-navigation.service';
 import { DataItem } from '../../models/data-item';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NavigationLinkComponent } from '../navigation-link/navigation-link.component';
 
 @Component({
 	selector: 'app-item-navigation-card',
@@ -27,9 +26,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 		CommonModule,
 		MatCardModule,
 		MatDividerModule,
-		RouterLink,
-		FontAwesomeModule,
 		TranslocoModule,
+		NavigationLinkComponent,
 	],
 	templateUrl: './item-navigation-card.component.html',
 	styleUrl: './item-navigation-card.component.scss',
@@ -41,9 +39,6 @@ export class ItemNavigationCardComponent<T extends DataItem> {
 
 	@Input({ required: true }) public previousLabel: string = '';
 	@Input({ required: true }) public nextLabel: string = '';
-
-	faAngleLeft = faAngleLeft;
-	faAngleRight = faAngleRight;
 
 	constructor(
 		private readonly route: ActivatedRoute,

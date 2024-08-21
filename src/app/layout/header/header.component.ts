@@ -15,6 +15,7 @@ import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
 import { LangPickerComponent } from '../lang-picker/lang-picker.component';
 import { LangPickerToggleComponent } from '../lang-picker-toggle/lang-picker-toggle.component';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
+import { TextDirectionService } from '../../shared/services/text-direction.service';
 
 @Component({
 	selector: 'app-header',
@@ -42,6 +43,7 @@ export class HeaderComponent {
 	constructor(
 		private readonly dialog: MatDialog,
 		public readonly languagePickerService: LanguagePickerService,
+		public readonly textDirectionService: TextDirectionService,
 	) {}
 
 	openDialog() {

@@ -14,32 +14,31 @@
 				<mat-divider></mat-divider>
 
 				<mat-card-footer class="pt-4">
-					<nav>
-						<div class="text-sm">
+					<nav class="flex flex-row justify-between text-sm">
+						<div>
 							@if (
 								itemNavigationService.previousItemId() !== null
 							) {
-								<a
-									[routerLink]="[
+								<app-navigation-link
+									[link]="[
 										itemUrl,
 										itemNavigationService.previousItemId(),
 									]"
-								>
-									<fa-icon [icon]="faAngleLeft"></fa-icon>
-									{{ previousLabel }}
-								</a>
+									position="start"
+									label="{{ previousLabel }}"
+								/>
 							}
 						</div>
-						<div class="text-sm next">
+						<div>
 							@if (itemNavigationService.nextItemId() !== null) {
-								<a
-									[routerLink]="[
+								<app-navigation-link
+									[link]="[
 										itemUrl,
 										itemNavigationService.nextItemId(),
 									]"
-									>{{ nextLabel }}
-									<fa-icon [icon]="faAngleRight"></fa-icon
-								></a>
+									position="end"
+									label="{{ nextLabel }}"
+								/>
 							}
 						</div>
 					</nav>

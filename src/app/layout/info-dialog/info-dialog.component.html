@@ -2,6 +2,8 @@
 	class="flex flex-col items-stretch"
 	[class.dark]="(themePickerService.isDark$ | async) === true"
 	[class.light]="(themePickerService.isDark$ | async) === false"
+	[lang]="this.translocoService.langChanges$ | async"
+	dir="ltr"
 >
 	<mat-dialog-content class="chapter-content">
 		<section>
@@ -31,14 +33,22 @@
 				Relation changes are indicated with the same color code as in
 				game.
 				<br />
-				<app-relation
-					[name]="RelationName.Hank"
-					[type]="RelationType.LargeUp"
-				></app-relation>
-				<app-relation
-					[name]="RelationName.SoftwareInstability"
-					[type]="RelationType.SmallDown"
-				></app-relation>
+				<span
+					[dir]="
+						(this.textDirectionService.isRtl$ | async)
+							? 'rtl'
+							: 'ltr'
+					"
+				>
+					<app-relation
+						[name]="RelationName.Hank"
+						[type]="RelationType.LargeUp"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+				</span>
 			</p>
 
 			<p>

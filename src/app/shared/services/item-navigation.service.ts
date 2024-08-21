@@ -10,6 +10,7 @@ import {
 import { DataItem } from '../models/data-item';
 import { Router } from '@angular/router';
 import { BaseDataService } from './base-data-service';
+import { TextDirectionService } from './text-direction.service';
 
 export const DATA_SERVICE_TOKEN = new InjectionToken<BaseDataService<never>>(
 	'DataService',
@@ -53,6 +54,7 @@ export class ItemNavigationService<T extends DataItem> {
 		@Inject(ITEM_URL_TOKEN)
 		private readonly itemUrl: string,
 		private readonly router: Router,
+		private readonly textDirectionService: TextDirectionService,
 	) {}
 
 	public onPathIdChanged(idParam: string | null): void {
@@ -81,9 +83,9 @@ export class ItemNavigationService<T extends DataItem> {
 
 		let newId: number | null = null;
 		if (event.key == 'ArrowRight') {
-			newId = item.id + 1;
+			newId = item.id + (this.textDirectionService.isRtl() ? -1 : 1);
 		} else if (event.key == 'ArrowLeft') {
-			newId = item.id - 1;
+			newId = item.id + (this.textDirectionService.isRtl() ? 1 : -1);
 		} else {
 			return;
 		}

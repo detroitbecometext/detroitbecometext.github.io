@@ -1,6 +1,6 @@
 <div
 	id="body"
-	dir="ltr"
+	[dir]="(this.textDirectionService.isRtl$ | async) ? 'rtl' : 'ltr'"
 	[lang]="this.translocoService.langChanges$ | async"
 	[class]="(this.themePickerService.isDark$ | async) ? 'dark' : 'light'"
 >

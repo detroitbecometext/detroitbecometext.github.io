@@ -1,0 +1,19 @@
+<a [routerLink]="link" class="flex items-center gap-1">
+	@if (position === "start") {
+		@if ((this.translocoService.langChanges$ | async) === "ar") {
+			<fa-icon [icon]="faAngleRight"></fa-icon>
+		} @else {
+			<fa-icon [icon]="faAngleLeft"></fa-icon>
+		}
+	}
+
+	<span>{{ label }}</span>
+
+	@if (position === "end") {
+		@if ((this.translocoService.langChanges$ | async) === "ar") {
+			<fa-icon [icon]="faAngleLeft"></fa-icon>
+		} @else {
+			<fa-icon [icon]="faAngleRight"></fa-icon>
+		}
+	}
+</a>
