@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
 	faCircleNotch,
 	faExternalLinkAlt,
+	faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { LanguagePickerService } from '../../../shared/services/language-picker.service';
 import { ThemePickerService } from '../../../shared/services/theme-picker.service';
@@ -53,6 +54,7 @@ export class HomeComponent {
 
 	faCircleNotch = faCircleNotch;
 	faExternalLinkAlt = faExternalLinkAlt;
+	faInfoCircle = faInfoCircle;
 
 	constructor(
 		private readonly chapterService: ChapterService,

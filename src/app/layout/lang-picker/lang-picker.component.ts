@@ -25,6 +25,7 @@ export class LangPickerComponent {
 	@HostListener('document:click', ['$event'])
 	onDocumentClicked(event: Event) {
 		if (!this.element.nativeElement.contains(event.target)) {
+			// FIXME: clicking outside on the toggle keeps the menu open
 			this.languagePickerService.togglePicker();
 		}
 	}
