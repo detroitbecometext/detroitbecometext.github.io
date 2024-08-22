@@ -13,6 +13,8 @@ import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { CommonTranslationKey } from '../../../../shared/utils/common-translation-keys.enum';
 import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../../shared/enums/relation-type.enum';
+import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
+import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 
 @Component({
 	standalone: true,
@@ -27,6 +29,8 @@ import { RelationType } from '../../../../shared/enums/relation-type.enum';
 		ConditionedContentComponent,
 		RelationComponent,
 		TranslocoModule,
+		ObservationComponent,
+		ObservationItemComponent,
 	],
 	templateUrl: './the-hostage-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

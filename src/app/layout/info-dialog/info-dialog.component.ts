@@ -17,6 +17,8 @@ import { UnusedContentComponent } from '../../shared/components/unused-content/u
 import { TextDirectionService } from '../../shared/services/text-direction.service';
 import { TranslocoService } from '@jsverse/transloco';
 import { MatButtonModule } from '@angular/material/button';
+import { ObservationComponent } from '../../shared/components/observation/observation.component';
+import { ObservationItemComponent } from '../../shared/components/observation-item/observation-item.component';
 
 @Component({
 	selector: 'app-info-dialog',
@@ -32,6 +34,8 @@ import { MatButtonModule } from '@angular/material/button';
 		RelationComponent,
 		UnlockConditionComponent,
 		UnusedContentComponent,
+		ObservationComponent,
+		ObservationItemComponent,
 	],
 	templateUrl: './info-dialog.component.html',
 	styleUrl: './info-dialog.component.scss',
