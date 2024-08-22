@@ -32,13 +32,17 @@
 			[switchIconColor]="true"
 		></app-theme-toggle>
 		<app-lang-picker-toggle
+			#langToggle
 			class="me-4"
 			[switchCaretColor]="true"
 		></app-lang-picker-toggle>
 	</nav>
 	<div class="flex flex-row justify-end">
 		@if (languagePickerService.showPicker$ | async) {
-			<app-lang-picker class="max-w-1/2"></app-lang-picker>
+			<app-lang-picker
+				class="max-w-1/2"
+				[langPickerToggleElement]="langToggleElement"
+			></app-lang-picker>
 		}
 	</div>
 </header>

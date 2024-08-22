@@ -4,6 +4,7 @@ import {
 	Component,
 	ElementRef,
 	HostListener,
+	Input,
 } from '@angular/core';
 import { LanguagePickerService } from '../../shared/services/language-picker.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -17,6 +18,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LangPickerComponent {
+	@Input({ required: true })
+	public langPickerToggleElement: ElementRef<HTMLElement> | null = null;
+
 	constructor(
 		public readonly languagePickerService: LanguagePickerService,
 		private readonly element: ElementRef,
@@ -24,8 +28,12 @@ export class LangPickerComponent {
 
 	@HostListener('document:click', ['$event'])
 	onDocumentClicked(event: Event) {
-		if (!this.element.nativeElement.contains(event.target)) {
-			// FIXME: clicking outside on the toggle keeps the menu open
+		if (
+			!this.element.nativeElement.contains(event.target as Node) &&
+			!this.langPickerToggleElement?.nativeElement.contains(
+				event.target as Node,
+			)
+		) {
 			this.languagePickerService.togglePicker();
 		}
 	}

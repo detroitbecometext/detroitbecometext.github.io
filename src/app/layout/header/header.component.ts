@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	ElementRef,
+	Input,
+	ViewChild,
+} from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatDialog } from '@angular/material/dialog';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -33,6 +39,9 @@ import { TextDirectionService } from '../../shared/services/text-direction.servi
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
+	@ViewChild('langToggle', { read: ElementRef })
+	langToggleElement: ElementRef<HTMLElement> | null = null;
+
 	@Input({ required: true }) sidenav: MatSidenav | null = null;
 
 	faBars = faBars;

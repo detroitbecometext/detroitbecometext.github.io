@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	ElementRef,
+	ViewChild,
+} from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { CardContainerComponent } from '../../components/card-container/card-container.component';
 import { CardComponent } from '../../components/card/card.component';
@@ -49,6 +54,9 @@ type AdditionalLink = {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
+	@ViewChild('langToggle', { read: ElementRef })
+	langToggleElement: ElementRef<HTMLElement> | null = null;
+
 	public readonly chapters: Chapter[];
 	public readonly additionalLinks: AdditionalLink[];
 

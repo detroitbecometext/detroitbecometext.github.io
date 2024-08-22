@@ -9,6 +9,7 @@
 			></app-theme-toggle>
 
 			<app-lang-picker-toggle
+				#langToggle
 				[switchCaretColor]="
 					(themePickerService.isDark$ | async) ?? false
 				"
@@ -18,6 +19,7 @@
 
 	@if (languagePickerService.showPicker$ | async) {
 		<app-lang-picker
+			[langPickerToggleElement]="langToggleElement"
 			class="fixed end-0 top-20 me-6 z-10 max-w-1/2"
 		></app-lang-picker>
 	}
