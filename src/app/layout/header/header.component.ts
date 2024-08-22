@@ -22,6 +22,7 @@ import { LangPickerComponent } from '../lang-picker/lang-picker.component';
 import { LangPickerToggleComponent } from '../lang-picker-toggle/lang-picker-toggle.component';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 import { TextDirectionService } from '../../shared/services/text-direction.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
 	selector: 'app-header',
@@ -33,6 +34,7 @@ import { TextDirectionService } from '../../shared/services/text-direction.servi
 		ThemeToggleComponent,
 		LangPickerComponent,
 		LangPickerToggleComponent,
+		MatTooltipModule,
 	],
 	templateUrl: './header.component.html',
 	styleUrl: './header.component.scss',
