@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import fs from 'fs';
 import path from 'path';
+import { standardizeFile } from './utils';
+
+type IJsonObject = { [key: string]: string | IJsonObject };
 
 // Game files -> ISO Language Codes
 const langMap: Map<string, string> = new Map<string, string>([
@@ -57,15 +61,16 @@ const format = (value: string): string[] => {
 	return result;
 };
 
-type IJsonObject = { [key: string]: string | IJsonObject };
-
 // Adapted from https://stackoverflow.com/questions/45709346/comparing-the-keys-of-two-javascript-objects
 /**
  * Prints the difference betweens the keys of two objects.
  * @param object1 The first object
  * @param object2 The second object
  */
-const compareObjects = (object1: IJsonObject, object2: IJsonObject): void => {
+const compareObjects = (
+	object1: IJsonObject,
+	object2: IJsonObject,
+): string | null => {
 	function getAllKeyNames(
 		object: IJsonObject,
 		keys: Set<string>,
@@ -84,22 +89,26 @@ const compareObjects = (object1: IJsonObject, object2: IJsonObject): void => {
 		}
 	}
 
-	function showDiff(set1: Set<string>, set2: Set<string>): void {
+	function getDiff(set1: Set<string>, set2: Set<string>): string | null {
 		const diff1 = new Set([...set1].filter((x) => !set2.has(x)));
 		const diff2 = new Set([...set2].filter((x) => !set1.has(x)));
 
 		if (diff1.size === 0 && diff2.size === 0) {
-			console.log('No difference.');
-			return;
+			return null;
 		}
 
-		console.log(
-			'Keys not in target: ',
-			[...diff1].map((x) => x.replaceAll('.', '_')),
-		);
-		console.log(
-			'Keys not in reference: ',
-			[...diff2].map((x) => x.replaceAll('.', '_')),
+		const toString = (set: Set<string>): string => {
+			return [...set]
+				.map((x) => x.replaceAll('.', '_').replace('BASE_', ''))
+				.join('\n\t');
+		};
+
+		return (
+			'Keys not in target: \n\t' +
+			toString(diff1) +
+			'\n' +
+			'Keys not in reference: \n\t' +
+			toString(diff2)
 		);
 	}
 
@@ -108,310 +117,7 @@ const compareObjects = (object1: IJsonObject, object2: IJsonObject): void => {
 	getAllKeyNames(object1, o1Keys, 'BASE');
 	getAllKeyNames(object2, o2Keys, 'BASE');
 
-	showDiff(o1Keys, o2Keys);
-};
-
-/**
- * Fix some translation files formatting issues.
- * @param lang The language of the file
- * @param result The translation file object
- */
-const standardizeFile = (lang: string, result: IJsonObject): void => {
-	if (
-		[
-			'ar',
-			'zh',
-			'cs',
-			'da',
-			'nl',
-			'fi',
-			'fr',
-			'de',
-			'el',
-			'hu',
-			'it',
-			'es-mx',
-			'no',
-			'pl',
-			'pt',
-			'ru',
-			'es',
-			'sv',
-			'tr',
-		].includes(lang)
-	) {
-		// Missing a {B} delimiter
-		const value = (result as any)['X0101X']['TERRACE']['PARTI']['PC'][
-			'X01HOSTAGE'
-		]['HOSTAGEV2'];
-		(result as any)['X0101X']['TERRACE']['PARTI']['PC']['X01HOSTAGE'][
-			'HOSTAGEV2'
-		] = {
-			'1': value,
-			'2': '',
-		};
-	}
-
-	if (lang === 'ja') {
-		// Has an additional {B} delimiter so merge the two together
-		const value =
-			(result as any)['X0703M']['TV']['REACTIONS']['PC']['X07MBRINKLEY'][
-				'PEACEFUL'
-			]['1'] +
-			(result as any)['X0703M']['TV']['REACTIONS']['PC']['X07MBRINKLEY'][
-				'PEACEFUL'
-			]['2'];
-		(result as any)['X0703M']['TV']['REACTIONS']['PC']['X07MBRINKLEY'][
-			'PEACEFUL'
-		] = value;
-
-		// Missing a {B} delimiter, so add additional object property
-		(result as any)['X0502K']['BATHROOM']['BORING']['FA'][
-			'X05KANDROIDBATH'
-		]['END']['5'] = '';
-	}
-
-	if (['ar', 'el', 'es-mx', 'ru', 'es'].includes(lang)) {
-		(result as any)['X1202C']['OFFICE']['JERICHOINFO']['PC']['X12CCONNOR'][
-			'EMPATHY'
-		]['3'] = '';
-		(result as any)['X1202C']['OFFICE']['JERICHOINFO']['PC']['X12CCONNOR'][
-			'EMPATHY'
-		]['4'] = '';
-	}
-
-	if (['ar', 'zh', 'tr'].includes(lang)) {
-		(result as any)['X0602C']['TV']['NEWS']['PC']['X06CBRINKLEY'][
-			'RUSSIANCONFLICT'
-		]['4'] = '';
-	}
-
-	if (['de', 'cs'].includes(lang)) {
-		const currentValue = (result as any)['X0302C']['FOWLER']['MEET']['PC'][
-			'X03CFOWLER'
-		]['JOB02'];
-		const nextValue = {
-			'1': currentValue['1'] + currentValue['2'],
-			'2': currentValue['3'],
-			'3': currentValue['4'],
-			'4': currentValue['5'],
-			'5': currentValue['6'],
-		};
-		(result as any)['X0302C']['FOWLER']['MEET']['PC']['X03CFOWLER'][
-			'JOB02'
-		] = nextValue;
-	}
-
-	if (lang === 'pl') {
-		const currentValue = (result as any)['X0911K']['CAMP']['INTRO']['PC'][
-			'X09KKARA'
-		]['SINCERE'];
-		(result as any)['X0911K']['CAMP']['INTRO']['PC']['X09KKARA'][
-			'SINCERE'
-		] = {
-			'1': '',
-			'2': currentValue,
-		};
-	}
-
-	if (lang === 'nl') {
-		const currentValue = (result as any)['X0101X']['ALLEN']['TOPO']['PC'][
-			'X01SWATCAPTAIN'
-		]['NEGOCIATORV2'];
-		(result as any)['X0101X']['ALLEN']['TOPO']['PC']['X01SWATCAPTAIN'][
-			'NEGOCIATORV2'
-		] = {
-			'1': currentValue['1'],
-			'2': currentValue['2'],
-			'3': currentValue['3'],
-			'4': '',
-			'5': currentValue['4'],
-		};
-	}
-
-	if (lang === 'el') {
-		const currentValue = (result as any)['X0703M']['TV']['NEWS']['PC'][
-			'X07MWEBB'
-		]['CYBERLIFE'];
-		(result as any)['X0703M']['TV']['NEWS']['PC']['X07MWEBB']['CYBERLIFE'] =
-			{
-				'1': currentValue['1'] + currentValue['2'],
-				'2': currentValue['3'],
-				'3': '',
-				'4': currentValue['6'],
-				'5': currentValue['7'],
-			};
-	}
-
-	if (lang === 'ru') {
-		let currentValue = (result as any)['X0101K']['INTRO']['LIME']['PC'][
-			'X01KSELLER01'
-		]['MODELS01'];
-		(result as any)['X0101K']['INTRO']['LIME']['PC']['X01KSELLER01'][
-			'MODELS01'
-		] = {
-			'1': currentValue['1'],
-			'2': currentValue['2'],
-			'3': currentValue['3'],
-			'4': currentValue['4'],
-			'5': currentValue['5'] + currentValue['6'],
-			'6': currentValue['7'],
-			'7': currentValue['8'],
-			'8': currentValue['9'],
-		};
-
-		currentValue = (result as any)['X0916K']['QUEUE']['LUTHERSACRIFICE'][
-			'PC'
-		]['X09KCUSTOMSOFFICER']['LUTHERDEADSOLDIER'];
-		(result as any)['X0916K']['QUEUE']['LUTHERSACRIFICE']['PC'][
-			'X09KCUSTOMSOFFICER'
-		]['LUTHERDEADSOLDIER'] = {
-			'1': '',
-			'2': currentValue['1'],
-			'3': currentValue['2'],
-			'4': currentValue['3'],
-			'5': currentValue['4'],
-			'6': currentValue['5'],
-		};
-
-		currentValue = (result as any)['X0202A']['TV']['NEWS02']['PC'][
-			'X02ATVCARTLAND'
-		]['ALARMING'];
-		(result as any)['X0202A']['TV']['NEWS02']['PC']['X02ATVCARTLAND'][
-			'ALARMING'
-		] = {
-			'1': currentValue['1'],
-			'2': currentValue['2'],
-			'3': currentValue['3'],
-			'4': '',
-		};
-	}
-
-	if (['ru', 'es'].includes(lang)) {
-		(result as any)['X0916K']['QUEUE']['KARASACRIFICE']['VO'][
-			'X09KSOLDIERBORDER06'
-		]['KARADEADLUTSOLD'] = {
-			'1': '',
-			'2': '',
-		};
-	}
-
-	if (lang === 'es') {
-		let currentValue = (result as any)['X0904M']['CARLHOUSE']['LEO']['PC'][
-			'X09MLEO'
-		]['VIDEO'];
-		(result as any)['X0904M']['CARLHOUSE']['LEO']['PC']['X09MLEO'][
-			'VIDEO'
-		] = {
-			'1': currentValue['1'],
-			'2': currentValue['2'],
-			'3': currentValue['3'],
-			'4': currentValue['4'],
-			'5': currentValue['5'],
-			'6': currentValue['6'],
-			'7': currentValue['7'],
-			'8': currentValue['8'],
-			'9': currentValue['9'],
-			'10': '',
-			'11': currentValue['10'],
-			'12': currentValue['11'],
-		};
-
-		currentValue = (result as any)['X0802M']['TRUCK']['GAMEOVER']['PC'][
-			'X08MMARLA'
-		]['DEADENDV2'];
-		(result as any)['X0802M']['TRUCK']['GAMEOVER']['PC']['X08MMARLA'][
-			'DEADENDV2'
-		] = {
-			'1': currentValue['1'],
-			'2': currentValue['2'],
-			'3': currentValue['3'],
-			'4': currentValue['4'],
-			'5': currentValue['5'],
-			'6': currentValue['6'],
-			'7': currentValue['7'],
-			'8': currentValue['8'],
-			'9': currentValue['9'],
-			'10': '',
-		};
-
-		currentValue = (result as any)['X0302C']['HARVEY']['TALK']['PC'][
-			'X03CCONNOR'
-		]['CONNORDEAD'];
-		(result as any)['X0302C']['HARVEY']['TALK']['PC']['X03CCONNOR'][
-			'CONNORDEAD'
-		] = {
-			'1': currentValue,
-			'2': '',
-		};
-
-		currentValue = (result as any)['X0304K']['MOTEL']['WELCOME']['PC'][
-			'X03KKARA'
-		]['CAR'];
-		(result as any)['X0304K']['MOTEL']['WELCOME']['PC']['X03KKARA']['CAR'] =
-			{
-				'1': '',
-				'2': currentValue,
-			};
-
-		currentValue = (result as any)['X0405K']['CHASEV2']['PART02']['FA'][
-			'X04KCOP01'
-		]['NOTICE01'];
-		(result as any)['X0405K']['CHASEV2']['PART02']['FA']['X04KCOP01'][
-			'NOTICE01'
-		] = {
-			'1': currentValue,
-			'2': '',
-		};
-
-		currentValue = (result as any)['X0703M']['TV']['NEWS']['PC'][
-			'X07MBRINKLEY'
-		]['INTERNATIONAL'];
-		(result as any)['X0703M']['TV']['NEWS']['PC']['X07MBRINKLEY'][
-			'INTERNATIONAL'
-		] = {
-			'1': currentValue['1'],
-			'2': currentValue['2'],
-			'3': '',
-			'4': currentValue['3'],
-			'5': currentValue['4'],
-			'6': currentValue['5'],
-		};
-
-		currentValue = (result as any)['X0703M']['BROADCAST']['MESSAGE']['PC'][
-			'X07MMARLA'
-		]['RECORDSTART'];
-		(result as any)['X0703M']['BROADCAST']['MESSAGE']['PC']['X07MMARLA'][
-			'RECORDSTART'
-		] = {
-			'1': currentValue,
-			'2': '',
-		};
-
-		currentValue = (result as any)['X0703M']['BROADCAST']['ALERT']['PC'][
-			'X07MMARLA'
-		]['SIMONKILLED01'];
-		(result as any)['X0703M']['BROADCAST']['ALERT']['PC']['X07MMARLA'][
-			'SIMONKILLED01'
-		] = {
-			'1': currentValue,
-			'2': '',
-		};
-
-		currentValue = (result as any)['X1102C']['OUTSIDE']['OUTRO']['PC'][
-			'X11CCONNOR'
-		]['NOSHOOT'];
-		(result as any)['X1102C']['OUTSIDE']['OUTRO']['PC']['X11CCONNOR'][
-			'NOSHOOT'
-		] = {
-			'1': currentValue['1'],
-			'2': currentValue['2'],
-			'3': '',
-			'4': currentValue['3'],
-			'5': currentValue['4'],
-			'6': currentValue['5'],
-		};
-	}
+	return getDiff(o1Keys, o2Keys);
 };
 
 /**
@@ -471,7 +177,7 @@ const writeFiles = () => {
 			}
 		}
 
-		standardizeFile(pair[1], result);
+		standardizeFile(result);
 
 		fs.writeFileSync(
 			path.resolve(__dirname, `../public/i18n/${outputFile}`),
@@ -484,11 +190,17 @@ const writeFiles = () => {
  * Check the translation files.
  */
 const checkFiles = () => {
+	// Clear output folder
+	fs.readdirSync(path.resolve(__dirname, './output')).forEach((file) => {
+		fs.unlinkSync(path.resolve(__dirname, `./output/${file}`));
+	});
+
 	const refFile = JSON.parse(
 		fs.readFileSync(path.resolve(__dirname, `../public/i18n/en.json`), {
 			encoding: 'utf-8',
 		}),
 	);
+
 	for (const lang of langMap.values()) {
 		const comparedFile = JSON.parse(
 			fs.readFileSync(
@@ -496,10 +208,15 @@ const checkFiles = () => {
 				{ encoding: 'utf-8' },
 			),
 		);
-		console.log(lang, ': ');
-		console.log('---');
-		compareObjects(refFile, comparedFile);
-		console.log('');
+
+		const result = compareObjects(refFile, comparedFile);
+
+		if (result != null) {
+			fs.writeFileSync(
+				path.resolve(__dirname, `./output/${lang}.txt`),
+				result,
+			);
+		}
 	}
 };
 
