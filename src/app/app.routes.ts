@@ -51,6 +51,13 @@ export const routes: Routes = [
 		loadChildren: () =>
 			import('./soundtrack/soundtrack.routes').then((m) => m.routes),
 	},
+	{
+		path: 'warming',
+		loadChildren: () =>
+			import('./warming-screen/warming-screen.routes').then(
+				(m) => m.routes,
+			),
+	},
 
 	// Redirect to 404
 	{ path: '**', redirectTo: '/not-found' },
