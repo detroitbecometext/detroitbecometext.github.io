@@ -10,7 +10,7 @@
 
 		<p>
 			<app-dialogue-line name="Connor">
-				{{ t("X0601C.AMANDA.INTRO.PC.X06CCONNOR.START") }}
+				{{ t("X0301C.AMANDA.INTRO.PC.X03CCONNOR.INTRO") }}
 			</app-dialogue-line>
 			<app-dialogue-line name="Amanda">
 				{{
@@ -105,6 +105,16 @@
 								}}
 							</app-dialogue-line>
 						</p>
+
+						<app-unused-content>
+							<app-dialogue-line name="Amanda">
+								{{
+									t(
+										"X0301C.AMANDA.INTRO.PC.X03CAMANDA.ANDSAVED.7"
+									)
+								}}
+							</app-dialogue-line>
+						</app-unused-content>
 					</div>
 				</app-conditioned-content>
 				<app-conditioned-content>
@@ -114,9 +124,11 @@
 								[unlockType]="UnlockType.Death"
 								[bracketsOnlyAroundIcon]="true"
 							>
-								Connor died during
-								<a [routerLink]="['/chapters', 9]"
-									>The Interrogation</a
+								<span class="font-bold">
+									Connor died during
+									<a [routerLink]="['/chapters', 9]"
+										>The Interrogation</a
+									></span
 								>
 							</app-unlock-condition>
 						</p>
@@ -331,6 +343,16 @@
 								}}
 							</app-dialogue-line>
 						</p>
+
+						<app-unused-content>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0301C.AMANDA.INTRO.PC.X03CCONNOR.01SIMULATION.4"
+									)
+								}}
+							</app-dialogue-line>
+						</app-unused-content>
 					</app-choice-item>
 				</app-choice-group>
 			</div>
@@ -404,6 +426,8 @@
 				</p>
 			</app-choice-item>
 		</app-choice-group>
+
+		<mat-divider></mat-divider>
 
 		<p>
 			<app-dialogue-line name="Amanda">
@@ -504,8 +528,12 @@
 			<div class="condition">
 				<p>
 					<app-unlock-condition [unlockType]="UnlockType.Death">
-						Connor died in
-						<a [routerLink]="['/chapters', 9]">The Interrogation</a>
+						<span class="font-bold"
+							>Connor died in
+							<a [routerLink]="['/chapters', 9]"
+								>The Interrogation</a
+							></span
+						>
 					</app-unlock-condition>
 				</p>
 			</div>
@@ -624,6 +652,13 @@
 		</section>
 
 		<section>
+			<h2>Try to enter without authorization</h2>
+			<app-dialogue-line name="Android">
+				{{ t("X0302C.ARRIVAL.ENTRANCE.FA.X03CANDCOPMAN01.NOGOV2") }}
+			</app-dialogue-line>
+		</section>
+
+		<section>
 			<h2>Talking to the android at the reception</h2>
 			<p>
 				<app-dialogue-line name="Android">
@@ -673,9 +708,11 @@
 							[unlockType]="UnlockType.Death"
 							[bracketsOnlyAroundIcon]="true"
 						>
-							Deviant shot Connor during
-							<a [routerLink]="['/chapters', 9]"
-								>The Interrogation</a
+							<span class="font-bold">
+								Deviant shot Connor during
+								<a [routerLink]="['/chapters', 9]"
+									>The Interrogation</a
+								></span
 							>
 						</app-unlock-condition>
 					</p>
@@ -914,9 +951,11 @@
 									[unlockType]="UnlockType.Death"
 									[bracketsOnlyAroundIcon]="true"
 								>
-									Connor died in
-									<a [routerLink]="['/chapters', 9]"
-										>The Interrogation</a
+									<span class="font-bold">
+										Connor died in
+										<a [routerLink]="['/chapters', 9]"
+											>The Interrogation</a
+										></span
 									>
 								</app-unlock-condition>
 							</p>
@@ -1332,28 +1371,107 @@
 					}}
 				</app-dialogue-line>
 			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="t('X0302C.HANK.PHONE.PC.CALLCHOICE.MESSAGE')"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0302C.HANK.PHONE.PC.X03CCONNOR.MESSAGE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0302C.HANK.PHONE.PC.CALLCHOICE.HANGUP')"
+				>
+					<p>&oslash;</p>
+				</app-choice-item>
+			</app-choice-group>
 		</section>
 
-		<app-choice-group>
-			<app-choice-item
-				[choiceLabel]="t('X0302C.HANK.PHONE.PC.CALLCHOICE.MESSAGE')"
-			>
-				<p>
-					<app-dialogue-line name="Connor">
-						{{
-							translationService.translateObject(
-								"X0302C.HANK.PHONE.PC.X03CCONNOR.MESSAGE"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</app-choice-item>
-			<app-choice-item
-				[choiceLabel]="t('X0302C.HANK.PHONE.PC.CALLCHOICE.HANGUP')"
-			>
-				<p>&oslash;</p>
-			</app-choice-item>
-		</app-choice-group>
+		<section>
+			<h2>Analyze Hank's desk</h2>
+
+			<app-observation label="Listen to music">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.03C.MP.WALKMAN.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.03C.MP.WALKMAN.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.03C.MP.WALKMAN.SUBLINE02')"
+				/>
+			</app-observation>
+
+			<app-observation label="Look at the desk">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.03C.MP.CUP.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.03C.MP.CUP.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.03C.MP.CUP.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.03C.MP.MAPLE.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.03C.MP.MAPLE.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.03C.MP.MAPLE.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.03C.MP.DONUTS.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.03C.MP.DONUTS.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.03C.MP.DONUTS.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.03C.MP.CAP.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.03C.MP.CAP.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.03C.MP.CAP.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.03C.MP.STICKERS.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.03C.MP.STICKERS.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.03C.MP.STICKERS.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.03C.MP.MATCHES.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.03C.MP.MATCHES.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.03C.MP.MATCHES.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.03C.MP.HAIRS.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.03C.MP.HAIRS.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.03C.MP.HAIRS.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.03C.MP.GRADUATION.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.03C.MP.GRADUATION.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.03C.MP.GRADUATION.SUBLINE02')
+					"
+				/>
+			</app-observation>
+
+			<app-observation [label]="t('GUI.ACTION.03C.RESEARCH.LT.ANDERSON')">
+				<app-observation-item
+					[title]="t('MENU.SPECIFIC.03C.NEWS.FILE.01.TITLE')"
+					[subline1]="t('MENU.SPECIFIC.03C.NEWS.FILE.01.DATE')"
+					[subline2]="t('MENU.SPECIFIC.03C.NEWS.FILE.01.TEXT')"
+				/>
+
+				<app-observation-item
+					[title]="t('MENU.SPECIFIC.03C.NEWS.FILE.02.TITLE')"
+					[subline1]="t('MENU.SPECIFIC.03C.NEWS.FILE.02.DATE')"
+					[subline2]="t('MENU.SPECIFIC.03C.NEWS.FILE.02.TEXT')"
+				/>
+
+				<app-observation-item
+					[title]="t('MENU.SPECIFIC.03C.NEWS.FILE.03.TITLE')"
+					[subline1]="t('MENU.SPECIFIC.03C.NEWS.FILE.03.DATE')"
+					[subline2]="t('MENU.SPECIFIC.03C.NEWS.FILE.03.TEXT')"
+				/>
+			</app-observation>
+		</section>
 
 		<section>
 			<h2>Talking to Chris Miller</h2>
@@ -1364,10 +1482,12 @@
 							[unlockType]="UnlockType.Death"
 							[bracketsOnlyAroundIcon]="true"
 						>
-							Connor died in
-							<a [routerLink]="['/chapters', 9]"
-								>The Interrogation</a
-							>
+							<span class="font-bold">
+								Connor died in
+								<a [routerLink]="['/chapters', 9]"
+									>The Interrogation</a
+								>
+							</span>
 						</app-unlock-condition>
 					</p>
 				</div>
@@ -1498,9 +1618,11 @@
 							[unlockType]="UnlockType.Death"
 							[bracketsOnlyAroundIcon]="true"
 						>
-							Connor died in
-							<a [routerLink]="['/chapters', 9]"
-								>The Interrogation</a
+							<span class="font-bold">
+								Connor died in
+								<a [routerLink]="['/chapters', 9]"
+									>The Interrogation</a
+								></span
 							>
 						</app-unlock-condition>
 					</p>
@@ -1575,6 +1697,12 @@
 					) | async
 				}}
 			</app-dialogue-line>
+
+			<app-unused-content>
+				<app-dialogue-line name="Fowler">
+					{{ t("X0302C.HANK.CONNORBACK.PC.X03CFOWLER.INMYOFFICE.3") }}
+				</app-dialogue-line>
+			</app-unused-content>
 		</p>
 
 		<section>
@@ -1703,19 +1831,15 @@
 				<app-choice-item
 					[choiceLabel]="t('X0302C.FOWLER.ALONE.PC.CHOICE01.LEAVE')"
 				>
-					<p>&oslash;</p>
-
-					<app-unused-content>
-						<p>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X0302C.FOWLER.ALONE.PC.X03CCONNOR.LEAVE"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-unused-content>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0302C.FOWLER.ALONE.PC.X03CCONNOR.LEAVE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
 				</app-choice-item>
 			</app-choice-group>
 
@@ -2056,6 +2180,127 @@
 					<app-dialogue-line name="Hank">
 						{{ t("X0302C.HANK.PARTNER2.PC.X03CHANK.FILE") }}
 					</app-dialogue-line>
+				</p>
+
+				<app-observation label="Case 1">
+					<app-case-file caseNumber="01">
+						<p>
+							{{ t("MENU.SPECIFIC.03C.FILES.FILE.01.DETAILS") }}
+						</p>
+					</app-case-file>
+				</app-observation>
+
+				<app-observation label="Case 2">
+					<app-case-file caseNumber="02">
+						<p>
+							{{ t("MENU.SPECIFIC.03C.FILES.FILE.02.DETAILS") }}
+						</p>
+					</app-case-file>
+				</app-observation>
+
+				<app-observation label="Case 3">
+					<app-case-file caseNumber="03">
+						<p>
+							{{ t("MENU.SPECIFIC.03C.FILES.FILE.03.DETAILS") }}
+						</p>
+					</app-case-file>
+				</app-observation>
+
+				<app-observation label="Case 4">
+					<app-case-file caseNumber="04">
+						<p>
+							{{ t("MENU.SPECIFIC.03C.FILES.FILE.04.DETAILS") }}
+						</p></app-case-file
+					>
+				</app-observation>
+
+				<app-observation label="Case 5">
+					<app-case-file caseNumber="05">
+						<app-conditioned-content>
+							<div class="condition">
+								<p>
+									Carl didn't die in
+									<a [routerLink]="['/chapters', 8]"
+										>Broken</a
+									>
+								</p>
+							</div>
+							<div class="content">
+								<p>
+									{{
+										t(
+											"MENU.SPECIFIC.03C.FILES.FILE.0501.DETAILS"
+										)
+									}}
+								</p>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>
+									Carl died in
+									<a [routerLink]="['/chapters', 8]"
+										>Broken</a
+									>
+								</p>
+							</div>
+							<div class="content">
+								<p>
+									{{
+										t(
+											"MENU.SPECIFIC.03C.FILES.FILE.0502.DETAILS"
+										)
+									}}
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-case-file>
+				</app-observation>
+
+				<app-observation label="Case 6">
+					<app-case-file caseNumber="06">
+						<app-conditioned-content>
+							<div class="condition">
+								<p>
+									Kara didn't kill Todd in
+									<a [routerLink]="['/chapters', 7]"
+										>Stormy Night</a
+									>
+								</p>
+							</div>
+							<div class="content">
+								<p>
+									{{
+										t(
+											"MENU.SPECIFIC.03C.FILES.FILE.0601.DETAILS"
+										)
+									}}
+								</p>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>
+									Kara killed Todd in
+									<a [routerLink]="['/chapters', 7]"
+										>Stormy Night</a
+									>
+								</p>
+							</div>
+							<div class="content">
+								<p>
+									{{
+										t(
+											"MENU.SPECIFIC.03C.FILES.FILE.0602.DETAILS"
+										)
+									}}
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-case-file>
+				</app-observation>
+
+				<p>
 					<app-dialogue-line name="Connor">
 						{{
 							translationService.translateObject(
@@ -2110,9 +2355,11 @@
 								[unlockType]="UnlockType.Death"
 								[bracketsOnlyAroundIcon]="true"
 							>
-								Kara died in
-								<a [routerLink]="['/chapters', 7]"
-									>Stormy Night</a
+								<span class="font-bold">
+									Kara died in
+									<a [routerLink]="['/chapters', 7]"
+										>Stormy Night</a
+									></span
 								>
 							</app-unlock-condition>
 						</p>
@@ -2329,8 +2576,12 @@
 						[unlockType]="UnlockType.Death"
 						[bracketsOnlyAroundIcon]="true"
 					>
-						Kara died in
-						<a [routerLink]="['/chapters', 7]">Stormy Night</a>
+						<span class="font-bold">
+							Kara died in
+							<a [routerLink]="['/chapters', 7]"
+								>Stormy Night</a
+							></span
+						>
 					</app-unlock-condition>
 				</p>
 			</div>
