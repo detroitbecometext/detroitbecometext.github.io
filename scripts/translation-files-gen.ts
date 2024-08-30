@@ -148,16 +148,27 @@ const writeFiles = () => {
 					const values: string[] = format(input[translationKey]);
 					const currentKey = path[i];
 
-					if (values.length === 1) {
-						ref[currentKey] = values[0];
+					if (ref[currentKey] !== undefined && values.length === 1) {
+						// We want to set a VALUE string to a path where there is already an object
+						ref[currentKey] = {
+							VALUE: values[0],
+							...ref[currentKey],
+						};
 					} else {
-						ref[currentKey] = {};
-						for (let j = 0; j < values.length; j++) {
-							ref[currentKey][j + 1] = values[j];
+						// Nothing set yet for currentKey
+						if (values.length === 1) {
+							ref[currentKey] = values[0];
+						} else {
+							ref[currentKey] = {};
+							for (let j = 0; j < values.length; j++) {
+								ref[currentKey][j + 1] = values[j];
+							}
 						}
 					}
 				} else {
 					const currentKey = path[i];
+
+					// Create sub-objects as we go
 					if (ref[currentKey] === undefined) {
 						ref[currentKey] = {};
 					} else if (
