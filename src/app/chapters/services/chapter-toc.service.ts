@@ -63,6 +63,13 @@ export class ChapterTocService {
 			console.warn(`No id for item: ${item.name}`);
 		}
 
+		if (new Set(items.map((i) => i.id)).size !== items.length) {
+			console.warn(
+				'Duplicate ids in ToC: ',
+				items.map((i) => i.id).sort(),
+			);
+		}
+
 		return items;
 	}
 
