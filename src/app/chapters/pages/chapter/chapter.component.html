@@ -1,10 +1,10 @@
-<article class="main-with-centered-card">
+<article class="main">
 	@if (navigationService.currentItem() !== null) {
-		<ng-container *transloco="let t">
-			<header
-				class="self-stretch text-center bg-card-light dark:bg-card-dark bg-opacity-80 dark:bg-opacity-80"
-			>
-				<h1 class="mt-8 mb-4 text-6xl">
+		<header
+			class="self-stretch text-center bg-card-light dark:bg-card-dark bg-opacity-80 dark:bg-opacity-80"
+		>
+			<h1 id="chapter-title" class="mt-8 mb-4 text-6xl">
+				<ng-container *transloco="let t">
 					{{ navigationService.currentItem()!.number }} -
 					{{
 						t(
@@ -12,26 +12,63 @@
 								navigationService.currentItem()!.shortIdentifier
 						)
 					}}
-				</h1>
-			</header>
-		</ng-container>
+				</ng-container>
+			</h1>
+		</header>
 
-		<mat-card class="chapter-card">
-			<mat-card-content>
-				<!-- Top nav -->
-				<app-chapter-nav></app-chapter-nav>
+		<div class="grid">
+			<div
+				id="toc-container"
+				class="flex flex-col m-8 me-1 invisible lg:visible"
+			>
+				<app-chapter-toc class="flex-1 min-h-0" />
+			</div>
 
-				<mat-divider></mat-divider>
+			<mat-card class="chapter-card">
+				<mat-card-content>
+					<!-- Top nav -->
+					<app-chapter-nav></app-chapter-nav>
 
-				<!-- Chapter content -->
-				<div class="chapter-content">
-					<ng-template [cdkPortalOutlet]="portal()"></ng-template>
-				</div>
+					<mat-divider></mat-divider>
 
-				<!-- Bottom nav -->
-				<mat-divider></mat-divider>
-				<app-chapter-nav></app-chapter-nav>
-			</mat-card-content>
-		</mat-card>
+					<!-- Chapter content -->
+					<div class="chapter-content">
+						<ng-template [cdkPortalOutlet]="portal()"></ng-template>
+					</div>
+
+					<!-- Bottom nav -->
+					<mat-divider></mat-divider>
+					<app-chapter-nav></app-chapter-nav>
+				</mat-card-content>
+			</mat-card>
+
+			<div></div>
+		</div>
+
+		<button
+			#tocButton
+			id="toc-button"
+			matTooltip="Open table of content"
+			class="fixed bottom-2 start-2 bg-black text-white p-2 rounded-lg visible lg:invisible"
+			(click)="toggleToc()"
+		>
+			<fa-icon
+				[icon]="
+					(textDirectionService.isRtl$ | async)
+						? faAlignRight
+						: faAlignLeft
+				"
+			></fa-icon>
+		</button>
+
+		<div
+			#tocBottomSheet
+			id="toc-bottom-sheet"
+			class="fixed bottom-0 start-16 end-16 p-2 rounded-t-lg"
+			[class.open]="tocBottomSheetOpened()"
+			[class.closed]="!tocBottomSheetOpened()"
+		>
+			<app-chapter-toc class="h-full opaque-card" />
+		</div>
 	}
 </article>

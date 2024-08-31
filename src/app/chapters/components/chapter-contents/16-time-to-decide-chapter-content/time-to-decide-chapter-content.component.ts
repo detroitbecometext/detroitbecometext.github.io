@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {
+	Component,
+	ChangeDetectionStrategy,
+	AfterViewInit,
+} from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { DialogueLineComponent } from '../../../../shared/components/dialogue-line/dialogue-line.component';
 import { ChoiceGroupComponent } from '../../../../shared/components/choice-group/choice-group.component';
@@ -9,6 +13,7 @@ import { UnusedContentComponent } from '../../../../shared/components/unused-con
 import { TranslationService } from '../../../../shared/services/translation.service';
 import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../../shared/enums/relation-type.enum';
+import { ChapterTocService } from '../../../services/chapter-toc.service';
 
 @Component({
 	standalone: true,
@@ -25,9 +30,16 @@ import { RelationType } from '../../../../shared/enums/relation-type.enum';
 	templateUrl: './time-to-decide-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TimeToDecideChapterContentComponent {
+export class TimeToDecideChapterContentComponent implements AfterViewInit {
 	RelationName = RelationName;
 	RelationType = RelationType;
 
-	constructor(protected readonly translationService: TranslationService) {}
+	constructor(
+		protected readonly translationService: TranslationService,
+		protected readonly chapterTocService: ChapterTocService,
+	) {}
+
+	ngAfterViewInit(): void {
+		this.chapterTocService.onChapterContentInit();
+	}
 }

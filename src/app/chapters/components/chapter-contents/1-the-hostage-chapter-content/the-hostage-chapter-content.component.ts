@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {
+	Component,
+	ChangeDetectionStrategy,
+	AfterViewInit,
+} from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { DialogueLineComponent } from '../../../../shared/components/dialogue-line/dialogue-line.component';
 import { MatDividerModule } from '@angular/material/divider';
@@ -15,6 +19,7 @@ import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
+import { ChapterTocService } from '../../../services/chapter-toc.service';
 
 @Component({
 	standalone: true,
@@ -35,11 +40,18 @@ import { ObservationItemComponent } from '../../../../shared/components/observat
 	templateUrl: './the-hostage-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TheHostageChapterContentComponent {
+export class TheHostageChapterContentComponent implements AfterViewInit {
 	UnlockType = UnlockType;
 	CommonTranslationKey = CommonTranslationKey;
 	RelationName = RelationName;
 	RelationType = RelationType;
 
-	constructor(protected readonly translationService: TranslationService) {}
+	constructor(
+		protected readonly translationService: TranslationService,
+		protected readonly chapterTocService: ChapterTocService,
+	) {}
+
+	ngAfterViewInit(): void {
+		this.chapterTocService.onChapterContentInit();
+	}
 }

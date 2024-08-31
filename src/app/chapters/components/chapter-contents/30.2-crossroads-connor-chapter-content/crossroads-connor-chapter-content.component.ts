@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {
+	Component,
+	ChangeDetectionStrategy,
+	AfterViewInit,
+} from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { ScreensComponent } from '../30-crossroads-intro/screens/screens.component';
 import { BackgroundDialoguesComponent } from '../30-crossroads-intro/background-dialogues/background-dialogues.component';
@@ -16,6 +20,7 @@ import { TranslationService } from '../../../../shared/services/translation.serv
 import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
+import { ChapterTocService } from '../../../services/chapter-toc.service';
 
 @Component({
 	standalone: true,
@@ -38,10 +43,17 @@ import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 	templateUrl: './crossroads-connor-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CrossroadsConnorChapterContentComponent {
+export class CrossroadsConnorChapterContentComponent implements AfterViewInit {
 	UnlockType = UnlockType;
 	RelationName = RelationName;
 	RelationType = RelationType;
 
-	constructor(protected readonly translationService: TranslationService) {}
+	constructor(
+		protected readonly translationService: TranslationService,
+		protected readonly chapterTocService: ChapterTocService,
+	) {}
+
+	ngAfterViewInit(): void {
+		this.chapterTocService.onChapterContentInit();
+	}
 }

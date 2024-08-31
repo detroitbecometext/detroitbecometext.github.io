@@ -1,4 +1,8 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {
+	Component,
+	ChangeDetectionStrategy,
+	AfterViewInit,
+} from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { CommonModule } from '@angular/common';
 import { DialogueLineComponent } from '../../../../shared/components/dialogue-line/dialogue-line.component';
@@ -15,6 +19,7 @@ import { TranslationService } from '../../../../shared/services/translation.serv
 import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
+import { ChapterTocService } from '../../../services/chapter-toc.service';
 
 @Component({
 	standalone: true,
@@ -36,10 +41,19 @@ import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 	templateUrl: './markus-demonstration-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MarkusDemonstrationChapterContentComponent {
+export class MarkusDemonstrationChapterContentComponent
+	implements AfterViewInit
+{
 	UnlockType = UnlockType;
 	RelationName = RelationName;
 	RelationType = RelationType;
 
-	constructor(protected readonly translationService: TranslationService) {}
+	constructor(
+		protected readonly translationService: TranslationService,
+		protected readonly chapterTocService: ChapterTocService,
+	) {}
+
+	ngAfterViewInit(): void {
+		this.chapterTocService.onChapterContentInit();
+	}
 }

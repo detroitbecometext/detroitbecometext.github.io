@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {
+	Component,
+	ChangeDetectionStrategy,
+	AfterViewInit,
+} from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { DialogueLineComponent } from '../../../../shared/components/dialogue-line/dialogue-line.component';
 import { ChoiceItemComponent } from '../../../../shared/components/choice-item/choice-item.component';
@@ -14,6 +18,7 @@ import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { CommonTranslationKey } from '../../../../shared/utils/common-translation-keys.enum';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
+import { ChapterTocService } from '../../../services/chapter-toc.service';
 
 @Component({
 	standalone: true,
@@ -33,11 +38,18 @@ import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 	templateUrl: './midnight-train-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MidnightTrainChapterContentComponent {
+export class MidnightTrainChapterContentComponent implements AfterViewInit {
 	UnlockType = UnlockType;
 	CommonTranslationKey = CommonTranslationKey;
 	RelationName = RelationName;
 	RelationType = RelationType;
 
-	constructor(protected readonly translationService: TranslationService) {}
+	constructor(
+		protected readonly translationService: TranslationService,
+		protected readonly chapterTocService: ChapterTocService,
+	) {}
+
+	ngAfterViewInit(): void {
+		this.chapterTocService.onChapterContentInit();
+	}
 }

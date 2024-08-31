@@ -3,8 +3,12 @@ import {
 	ChangeDetectionStrategy,
 	Component,
 	computed,
+	ElementRef,
 	HostListener,
+	signal,
 	Signal,
+	ViewChild,
+	WritableSignal,
 } from '@angular/core';
 import { ComponentPortal, PortalModule } from '@angular/cdk/portal';
 import { TranslocoModule } from '@jsverse/transloco';
@@ -14,6 +18,11 @@ import { ChapterNavComponent } from '../../components/chapter-nav/chapter-nav.co
 import { ChapterNavigationService } from '../../../shared/services/chapter-navigation.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
+import { ChapterTocComponent } from '../../components/chapter-toc/chapter-toc.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faAlignLeft, faAlignRight } from '@fortawesome/free-solid-svg-icons';
+import { TextDirectionService } from '../../../shared/services/text-direction.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
 	standalone: true,
@@ -25,12 +34,21 @@ import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 		ChapterNavComponent,
 		TranslocoModule,
 		PortalModule,
+		ChapterTocComponent,
+		FontAwesomeModule,
+		MatTooltipModule,
 	],
 	templateUrl: './chapter.component.html',
 	styleUrl: './chapter.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChapterComponent {
+	@ViewChild('tocButton', { read: ElementRef })
+	tocButtonElement: ElementRef<HTMLElement> | null = null;
+
+	@ViewChild('tocBottomSheet', { read: ElementRef })
+	tocBottomSheet: ElementRef<HTMLElement> | null = null;
+
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	public readonly portal: Signal<ComponentPortal<any> | null> = computed(
 		() => {
@@ -44,8 +62,15 @@ export class ChapterComponent {
 		},
 	);
 
+	public readonly tocBottomSheetOpened: WritableSignal<boolean> =
+		signal(false);
+
+	readonly faAlignLeft = faAlignLeft;
+	readonly faAlignRight = faAlignRight;
+
 	constructor(
 		protected readonly navigationService: ChapterNavigationService,
+		protected readonly textDirectionService: TextDirectionService,
 		private readonly route: ActivatedRoute,
 		private readonly viewPortScroller: ViewportScroller,
 	) {
@@ -64,8 +89,33 @@ export class ChapterComponent {
 			});
 	}
 
+	public toggleToc(): void {
+		this.tocBottomSheetOpened.update((opened) => !opened);
+	}
+
 	@HostListener('window:keyup', ['$event'])
 	itemNavigationEvent(event: KeyboardEvent) {
 		this.navigationService.onNavigationEvent(event);
+	}
+
+	@HostListener('document:click', ['$event'])
+	onDocumentClicked(event: Event) {
+		if (!this.tocBottomSheetOpened()) {
+			return;
+		}
+
+		const target = event.target as Node;
+
+		// If we click on a link or outside the ToC, close it
+		const clickedOutside =
+			!this.tocBottomSheet?.nativeElement.contains(target) &&
+			!this.tocButtonElement?.nativeElement.contains(target);
+		const clickedInside =
+			this.tocBottomSheet?.nativeElement.contains(target) &&
+			target.nodeName === 'A';
+
+		if (clickedOutside || clickedInside) {
+			this.tocBottomSheetOpened.set(false);
+		}
 	}
 }

@@ -1,4 +1,8 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {
+	Component,
+	ChangeDetectionStrategy,
+	AfterViewInit,
+} from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { CommonModule } from '@angular/common';
 import { DialogueLineComponent } from '../../../../shared/components/dialogue-line/dialogue-line.component';
@@ -12,6 +16,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { TranslationService } from '../../../../shared/services/translation.service';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { CommonTranslationKey } from '../../../../shared/utils/common-translation-keys.enum';
+import { ChapterTocService } from '../../../services/chapter-toc.service';
 
 @Component({
 	standalone: true,
@@ -31,9 +36,16 @@ import { CommonTranslationKey } from '../../../../shared/utils/common-translatio
 	templateUrl: './kara-captured-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KaraCapturedChapterContentComponent {
+export class KaraCapturedChapterContentComponent implements AfterViewInit {
 	UnlockType = UnlockType;
 	CommonTranslationKey = CommonTranslationKey;
 
-	constructor(protected readonly translationService: TranslationService) {}
+	constructor(
+		protected readonly translationService: TranslationService,
+		protected readonly chapterTocService: ChapterTocService,
+	) {}
+
+	ngAfterViewInit(): void {
+		this.chapterTocService.onChapterContentInit();
+	}
 }

@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {
+	Component,
+	ChangeDetectionStrategy,
+	AfterViewInit,
+} from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { DialogueLineComponent } from '../../../../shared/components/dialogue-line/dialogue-line.component';
 import { ConditionedContentComponent } from '../../../../shared/components/conditioned-content/conditioned-content.component';
@@ -16,6 +20,7 @@ import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { CommonTranslationKey } from '../../../../shared/utils/common-translation-keys.enum';
 import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
+import { ChapterTocService } from '../../../services/chapter-toc.service';
 
 @Component({
 	standalone: true,
@@ -37,11 +42,18 @@ import { ObservationItemComponent } from '../../../../shared/components/observat
 	templateUrl: './capitol-park-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CapitolParkChapterContentComponent {
+export class CapitolParkChapterContentComponent implements AfterViewInit {
 	UnlockType = UnlockType;
 	CommonTranslationKey = CommonTranslationKey;
 	RelationType = RelationType;
 	RelationName = RelationName;
 
-	constructor(protected readonly translationService: TranslationService) {}
+	constructor(
+		protected readonly translationService: TranslationService,
+		protected readonly chapterTocService: ChapterTocService,
+	) {}
+
+	ngAfterViewInit(): void {
+		this.chapterTocService.onChapterContentInit();
+	}
 }

@@ -5,6 +5,7 @@ import { GoatCounterService } from './shared/services/goat-counter.service';
 import { TranslocoService } from '@jsverse/transloco';
 import { CommonModule } from '@angular/common';
 import { TextDirectionService } from './shared/services/text-direction.service';
+import { ChapterTocService } from './chapters/services/chapter-toc.service';
 
 type Language = {
 	id: string;
@@ -25,7 +26,9 @@ export class AppComponent {
 		public readonly themePickerService: ThemePickerService,
 		public readonly translocoService: TranslocoService,
 		public readonly textDirectionService: TextDirectionService,
+		// Unused services that just need to be created
 		private readonly goatCounterService: GoatCounterService,
+		private readonly chapterTocService: ChapterTocService,
 	) {}
 
 	@HostListener('window:keyup', ['$event'])

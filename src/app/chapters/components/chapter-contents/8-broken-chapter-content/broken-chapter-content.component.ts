@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {
+	Component,
+	ChangeDetectionStrategy,
+	AfterViewInit,
+} from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { DialogueLineComponent } from '../../../../shared/components/dialogue-line/dialogue-line.component';
 import { ConditionedContentComponent } from '../../../../shared/components/conditioned-content/conditioned-content.component';
@@ -10,6 +14,7 @@ import { UnlockConditionComponent } from '../../../../shared/components/unlock-c
 import { TranslationService } from '../../../../shared/services/translation.service';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { CommonTranslationKey } from '../../../../shared/utils/common-translation-keys.enum';
+import { ChapterTocService } from '../../../services/chapter-toc.service';
 
 @Component({
 	standalone: true,
@@ -27,9 +32,16 @@ import { CommonTranslationKey } from '../../../../shared/utils/common-translatio
 	templateUrl: './broken-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BrokenChapterContentComponent {
+export class BrokenChapterContentComponent implements AfterViewInit {
 	UnlockType = UnlockType;
 	CommonTranslationKey = CommonTranslationKey;
 
-	constructor(protected readonly translationService: TranslationService) {}
+	constructor(
+		protected readonly translationService: TranslationService,
+		protected readonly chapterTocService: ChapterTocService,
+	) {}
+
+	ngAfterViewInit(): void {
+		this.chapterTocService.onChapterContentInit();
+	}
 }
