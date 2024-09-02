@@ -9,6 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { DialogueLineComponent } from '../../../../shared/components/dialogue-line/dialogue-line.component';
 import { TranslationService } from '../../../../shared/services/translation.service';
 import { ChapterTocService } from '../../../services/chapter-toc.service';
+import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';
 
 @Component({
 	standalone: true,
@@ -18,6 +19,7 @@ import { ChapterTocService } from '../../../services/chapter-toc.service';
 		MatDividerModule,
 		DialogueLineComponent,
 		TranslocoModule,
+		UnusedContentComponent,
 	],
 	templateUrl: './opening-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

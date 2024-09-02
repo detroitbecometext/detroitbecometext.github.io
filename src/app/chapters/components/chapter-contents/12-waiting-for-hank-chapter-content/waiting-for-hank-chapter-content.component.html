@@ -1247,11 +1247,11 @@
 		<!-- TODO (V2): Check for the COFFEECYC dialogue -->
 
 		<section>
-			<h2 id="break-room-tv">
+			<h3 id="break-room-tv">
 				<app-unlock-condition [unlockType]="UnlockType.Tv">
 					{{ t(CommonTranslationKey.WatchTv) }}
 				</app-unlock-condition>
-			</h2>
+			</h3>
 			<app-conditioned-content>
 				<div class="condition">
 					<p>
@@ -1261,6 +1261,10 @@
 				</div>
 				<div class="content">
 					<p>
+						<app-relation
+							[name]="RelationName.PublicOpinion"
+							[type]="RelationType.SmallDown"
+						></app-relation>
 						<app-dialogue-line name="Michael Brinkley - CTN TV">
 							{{
 								translationService.translateObject(
@@ -2010,9 +2014,21 @@
 			</app-choice-item>
 			<app-choice-item
 				[choiceLabel]="t('X0302C.HANK.PARTNER.PC.CHOICE02.THANKS')"
+				[brackets]="true"
 			>
 				<app-unused-content>
 					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							<span>
+								Hank intervened during
+								<a [routerLink]="['/chapters', 9]"
+									>The Interrogation</a
+								></span
+							>
+						</app-unlock-condition>
+						<span class="italic"
+							>(This option seems to always be locked.)</span
+						>
 						<app-dialogue-line name="Connor">
 							{{
 								translationService.translateObject(

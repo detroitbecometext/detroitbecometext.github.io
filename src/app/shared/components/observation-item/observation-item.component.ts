@@ -13,4 +13,5 @@ export class ObservationItemComponent {
 	@Input({ required: true }) title: string = '';
 	@Input({ required: true }) subline1: string = '';
 	@Input({ required: true }) subline2: string = '';
+	@Input() subline3: string | null = null;
 }

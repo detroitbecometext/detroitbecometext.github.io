@@ -24,7 +24,7 @@
 
 				<app-conditioned-content>
 					<div class="condition">
-						<p>Hank is hostile with Connor</p>
+						<p>Connor died multiple times</p>
 					</div>
 					<div class="content">
 						<p>
@@ -49,6 +49,21 @@
 									)
 								}}
 							</app-dialogue-line>
+
+							<app-unused-content class="mt-3">
+								<span class="italic"
+									>(Would have played instead of the above if
+									Hank is not hostile with Connor)</span
+								>
+								<app-dialogue-line name="Hank">
+									{{
+										translationService.translateObject(
+											"X1102C.OUTSIDE.INTRO.PC.X11CHANK.WANTYOUBACK"
+										) | async
+									}}
+								</app-dialogue-line>
+							</app-unused-content>
+
 							<app-dialogue-line name="Connor">
 								{{
 									translationService.translateObject(
@@ -68,7 +83,10 @@
 				</app-conditioned-content>
 				<app-conditioned-content>
 					<div class="condition">
-						<p>Hank is not hostile with Connor</p>
+						<p>
+							Connor died for the first time in
+							<a [routerLink]="['/chapters', 24]">Public Enemy</a>
+						</p>
 					</div>
 					<div class="content">
 						<p>
@@ -155,6 +173,22 @@
 									) | async
 								}}
 							</app-dialogue-line>
+						</p>
+
+						<p>
+							<app-unused-content>
+								<span class="italic"
+									>(Alternative version for Chris's
+									death)</span
+								>
+								<app-dialogue-line name="Hank">
+									{{
+										translationService.translateObject(
+											"X1102C.OUTSIDE.INTRO.PC.X11CHANK.BEATENDEATH"
+										) | async
+									}}
+								</app-dialogue-line>
+							</app-unused-content>
 						</p>
 					</div>
 				</app-conditioned-content>
@@ -306,6 +340,27 @@
 									) | async
 								}}
 							</app-dialogue-line>
+
+							<app-unused-content class="mt-3">
+								<span class="italic"
+									>(Alternative versions for Chris's
+									death)</span
+								>
+								<app-dialogue-line name="Hank">
+									{{
+										translationService.translateObject(
+											"X1102C.OUTSIDE.WALK.FA.X11CHANK.EXECUTED"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Hank">
+									{{
+										translationService.translateObject(
+											"X1102C.OUTSIDE.WALK.FA.X11CHANK.BEATENDEATH"
+										) | async
+									}}
+								</app-dialogue-line>
+							</app-unused-content>
 						</p>
 					</div>
 				</app-conditioned-content>
@@ -462,8 +517,42 @@
 			</app-dialogue-line>
 		</p>
 
+		<p>
+			<app-observation label="Portrait">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.11C.MP.PORTRAIT01.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.11C.MP.PORTRAIT01.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.11C.MP.PORTRAIT01.SUBLINE02')
+					"
+				/>
+			</app-observation>
+		</p>
+
 		<section>
 			<h2 id="photo">Analysing photo of Amanda and Kamski</h2>
+			<app-observation label="Photo">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.11C.MP.PORTRAIT02.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.11C.MP.PORTRAIT02.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.11C.MP.PORTRAIT02.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.11C.MP.PORTRAIT03.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.11C.MP.PORTRAIT03.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.11C.MP.PORTRAIT03.SUBLINE02')
+					"
+				/>
+			</app-observation>
 			<p>
 				<app-dialogue-line name="Connor">
 					{{ t("X1102C.HALL.AMANDA.PC.X11CCONNOR.PHOTO") }}
@@ -744,6 +833,7 @@
 						"X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.KAMSKITEST02"
 					) | async
 				}}
+				<br />
 				{{
 					translationService.translateObject(
 						"X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.KAMSKITEST03",
@@ -946,10 +1036,9 @@
 							) | async
 						}}
 						{{
-							translationService.translateObject(
-								"X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.DONTSHOOT02",
-								7
-							) | async
+							t(
+								"X1102C.SWIMMINGPOOL.KAMSKI.PC.X11CKAMSKI.DONTSHOOT02.8"
+							)
 						}}
 					</app-dialogue-line>
 					<app-dialogue-line name="Hank">

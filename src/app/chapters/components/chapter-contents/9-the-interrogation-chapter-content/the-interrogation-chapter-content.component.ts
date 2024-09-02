@@ -18,6 +18,8 @@ import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { ChapterTocService } from '../../../services/chapter-toc.service';
+import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
+import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 
 @Component({
 	standalone: true,
@@ -33,6 +35,8 @@ import { ChapterTocService } from '../../../services/chapter-toc.service';
 		ConditionedContentComponent,
 		RouterLink,
 		TranslocoModule,
+		ObservationComponent,
+		ObservationItemComponent,
 	],
 	templateUrl: './the-interrogation-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
