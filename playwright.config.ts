@@ -33,6 +33,7 @@ export default defineConfig({
 
 	/* Configure projects for major browsers */
 	projects: [
+		// HTML structure or configuration checks that don't need to be run on every browser.
 		{
 			name: 'global',
 			testDir: './e2e/global',
