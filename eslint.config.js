@@ -2,9 +2,11 @@
 const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
 const angular = require("angular-eslint");
+const playwright = require("eslint-plugin-playwright");
 
 module.exports = tseslint.config(
 	{
+		...playwright.default.configs["flat/recommended"],
 		files: ["**/*.ts"],
 		extends: [
 			eslint.configs.recommended,
