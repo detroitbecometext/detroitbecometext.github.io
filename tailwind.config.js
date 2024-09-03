@@ -16,6 +16,9 @@ module.exports = {
 				"card-light": "#eeeeee",
 				"card-dark": "#25282A",
 			},
+			transitionProperty: {
+				spacing: "margin, padding",
+			},
 		},
 	},
 	plugins: [],

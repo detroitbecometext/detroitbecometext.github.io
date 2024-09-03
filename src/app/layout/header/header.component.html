@@ -1,14 +1,16 @@
 <header class="bg-black">
 	<nav class="flex flex-row justify-start items-center">
-		<button (click)="sidenav?.toggle()">
+		<button
+			(click)="sidenav?.toggle()"
+			matTooltip="Open sidenav"
+			aria-label="Open sidenav"
+		>
 			<fa-icon [icon]="faBars"></fa-icon>
 		</button>
-		<fa-icon
-			[icon]="faHome"
-			[routerLink]="['/home']"
-			matTooltip="Home"
-		></fa-icon>
-		<button (click)="openDialog()">
+		<a [routerLink]="['/home']" matTooltip="Home" aria-label="Home">
+			<fa-icon [icon]="faHome"></fa-icon>
+		</a>
+		<button (click)="openDialog()" matTooltip="Info" aria-label="Info">
 			<fa-icon
 				[icon]="faQuestion"
 				[flip]="
@@ -16,15 +18,15 @@
 						? 'horizontal'
 						: undefined
 				"
-				matTooltip="Info"
 			></fa-icon>
 		</button>
-
-		<fa-icon
-			[icon]="faEnvelope"
+		<a
 			[routerLink]="['/contact']"
 			matTooltip="Contact"
-		></fa-icon>
+			aria-label="Contact"
+		>
+			<fa-icon [icon]="faEnvelope"></fa-icon>
+		</a>
 
 		<span class="flex-auto"></span>
 		<app-theme-toggle

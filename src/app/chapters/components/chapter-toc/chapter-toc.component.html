@@ -1,9 +1,9 @@
-<mat-card class="p-2 m-0 h-full" dir="ltr">
+<mat-card [tabIndex]="-1" [class]="'m-0 h-full ' + cardClasses" dir="ltr">
 	<h1>Contents</h1>
 
 	<mat-divider></mat-divider>
 
-	<nav class="mt-2">
+	<nav class="mt-2" [tabIndex]="-1">
 		<ol>
 			@for (item of chapterTocService.items$(); track item.id) {
 				<li>
@@ -14,6 +14,7 @@
 						routerLink="./"
 						[fragment]="item.id"
 						title="{{ item.name }}"
+						[tabIndex]="focusable ? null : -1"
 					>
 						{{ item.name }}
 					</a>

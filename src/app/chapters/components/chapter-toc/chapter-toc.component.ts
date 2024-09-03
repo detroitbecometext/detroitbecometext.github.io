@@ -1,5 +1,5 @@
 import { CommonModule, ViewportScroller } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { Router, RouterLink } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
@@ -14,6 +14,9 @@ import { ChapterTocService } from '../../services/chapter-toc.service';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChapterTocComponent {
+	@Input({ required: true }) cardClasses: string = '';
+	@Input() focusable: boolean = true;
+
 	constructor(
 		private readonly viewPortScroller: ViewportScroller,
 		public readonly chapterTocService: ChapterTocService,

@@ -3,11 +3,12 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { LanguagePickerService } from '../../shared/services/language-picker.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
 	selector: 'app-lang-picker-toggle',
 	standalone: true,
-	imports: [CommonModule, FontAwesomeModule],
+	imports: [CommonModule, FontAwesomeModule, MatTooltipModule],
 	templateUrl: './lang-picker-toggle.component.html',
 	styleUrl: './lang-picker-toggle.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
