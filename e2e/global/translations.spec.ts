@@ -1,11 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-// Don't test every language because it's too slow
-// Usually we just want to test for translations that are only in english
-const langs = [
-	{ id: 'en', label: 'English' },
-	{ id: 'ar', label: 'Arabic' },
-];
+// Test one language to check there are no translations that are only in english
+const langs = [{ id: 'ar', label: 'Arabic' }];
 
 for (const language of langs) {
 	for (let chapterId = 1; chapterId <= 40; chapterId++) {

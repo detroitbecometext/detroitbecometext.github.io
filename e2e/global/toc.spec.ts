@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { fail } from 'assert';
 
 for (let chapterId = 1; chapterId <= 40; chapterId++) {

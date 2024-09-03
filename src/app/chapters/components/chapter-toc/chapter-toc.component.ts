@@ -18,11 +18,7 @@ export class ChapterTocComponent {
 	@Input() focusable: boolean = true;
 
 	constructor(
-		private readonly viewPortScroller: ViewportScroller,
 		public readonly chapterTocService: ChapterTocService,
 		public readonly router: Router,
-	) {
-		// Offset for fixed header so that the anchor is not hidden behind it
-		this.viewPortScroller.setOffset([0, 64]);
-	}
+	) {}
 }
