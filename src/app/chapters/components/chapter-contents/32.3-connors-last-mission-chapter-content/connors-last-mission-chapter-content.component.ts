@@ -14,7 +14,7 @@ import { ChoiceItemComponent } from '../../../../shared/components/choice-item/c
 import { MatDividerModule } from '@angular/material/divider';
 import { TranslationService } from '../../../../shared/services/translation.service';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
-import { ChapterTocService } from '../../../services/chapter-toc.service';
+import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 
 @Component({
 	standalone: true,

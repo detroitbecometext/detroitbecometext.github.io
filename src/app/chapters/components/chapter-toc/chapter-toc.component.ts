@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { Router, RouterLink } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
-import { ChapterTocService } from '../../services/chapter-toc.service';
+import { ChapterTocService } from '../../../shared/services/chapter-toc.service';
 
 @Component({
 	selector: 'app-chapter-toc',

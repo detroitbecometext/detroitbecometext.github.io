@@ -5,7 +5,7 @@ import { GoatCounterService } from './shared/services/goat-counter.service';
 import { TranslocoService } from '@jsverse/transloco';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { TextDirectionService } from './shared/services/text-direction.service';
-import { ChapterTocService } from './chapters/services/chapter-toc.service';
+import { ChapterTocService } from './shared/services/chapter-toc.service';
 
 type Language = {
 	id: string;

@@ -9,7 +9,7 @@ import { DialogueLineComponent } from '../../../../shared/components/dialogue-li
 import { ConditionedContentComponent } from '../../../../shared/components/conditioned-content/conditioned-content.component';
 import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../../../shared/services/translation.service';
-import { ChapterTocService } from '../../../services/chapter-toc.service';
+import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 
 @Component({
 	standalone: true,

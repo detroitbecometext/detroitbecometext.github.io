@@ -1,5 +1,5 @@
 <ng-container *transloco="let t">
-	<section>
+	<section aria-labelledby="jimmy-bar">
 		<h1 id="jimmy-bar">At Jimmy's Bar</h1>
 
 		<p>
@@ -8,10 +8,9 @@
 			{{ t("GUI.MENU.TIME.02C") }}
 		</p>
 
-		<section>
+		<section aria-labelledby="guests">
 			<h2 id="guests">Passing the guests</h2>
 			<p>
-				<!-- TODO (V2): Check other customers' reactions -->
 				<app-dialogue-line name="Derek Myers">
 					{{ t("X0201C.BAR.CUSTOMER5.PC.X02CCUSTOM05.REACTBAR") }}
 				</app-dialogue-line>
@@ -29,9 +28,94 @@
 					{{ t("X0201C.BAR.CUSTOMER3.PC.X02CCUSTOM03.REACT") }}
 				</app-dialogue-line>
 			</p>
+
+			<app-observation label="Guests" class="mt-3">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.BARMAN.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.02C.MP.BARMAN.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.02C.MP.BARMAN.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.CUSTOMER01.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER01.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER01.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.CUSTOMER02.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER02.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER02.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.CUSTOMER03.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER03.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER03.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.CUSTOMER04.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER04.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER04.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.CUSTOMER05.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER05.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER05.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.CUSTOMER06.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER06.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER06.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.CUSTOMER07.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER07.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER07.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.CUSTOMER08.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER08.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.CUSTOMER08.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.HANK.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.02C.MP.HANK.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.02C.MP.HANK.SUBLINE02')"
+				/>
+			</app-observation>
 		</section>
 
-		<section>
+		<section aria-labelledby="money">
 			<h2 id="money">Bartender exchanges money</h2>
 			<p>
 				<app-dialogue-line name="Jimmy Peterson">
@@ -40,7 +124,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="refill">
 			<h2 id="refill">Bartender refills drink</h2>
 			<p>
 				<app-dialogue-line name="Jimmy Peterson">
@@ -49,7 +133,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="bar-hank">
 			<h2 id="bar-hank">Talking to Hank</h2>
 			<p>
 				<app-dialogue-line name="Connor">
@@ -254,7 +338,7 @@
 		</section>
 	</section>
 
-	<section>
+	<section aria-labelledby="crime-scene">
 		<h1 id="crime-scene">At the crime scene</h1>
 
 		<p>
@@ -345,10 +429,27 @@
 			</app-dialogue-line>
 		</p>
 
-		<section>
+		<p>
+			<app-unused-content>
+				<app-dialogue-line name="Journalist">
+					{{
+						t("X0201C.CRIMESCENE.TV.FA.X02CJOURNALIST.QUESTIONSJ02")
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Hank">
+					{{ t("X0201C.CRIMESCENE.TV.FA.X02CHANK.QUESTIONS.2") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Journalist">
+					{{
+						t("X0201C.CRIMESCENE.TV.FA.X02CJOURNALIST.QUESTIONSJ03")
+					}}
+				</app-dialogue-line>
+			</app-unused-content>
+		</p>
+
+		<section aria-labelledby="bystander-dialogues">
 			<h2 id="bystander-dialogues">Bystander dialogues</h2>
 			<ul>
-				<!-- TODO (V2): Check other lines -->
 				<li>{{ t("X0201C.PBY.LINES.FA.X02CCROWDW.CROWDW01") }}</li>
 				<li>{{ t("X0201C.PBY.LINES.FA.X02CCROWDW.CROWDW03") }}</li>
 				<li>{{ t("X0201C.PBY.LINES.FA.X02CCROWDM02.02CROWDM02") }}</li>
@@ -358,7 +459,7 @@
 			</ul>
 		</section>
 
-		<section>
+		<section aria-labelledby="follow-hank">
 			<h2 id="follow-hank">Following Hank</h2>
 			<p>
 				<app-dialogue-line name="Police android">
@@ -393,6 +494,16 @@
 								)
 							}}
 						</app-dialogue-line>
+
+						<app-unused-content class="mt-3">
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0201C.CRIMESCENE.GUARD.FA.X02CCONNOR.CPATIENTORDIPLOMAT.2"
+									)
+								}}
+							</app-dialogue-line>
+						</app-unused-content>
 					</p>
 				</div>
 			</app-conditioned-content>
@@ -404,6 +515,14 @@
 				<app-dialogue-line name="Connor">
 					{{ t("X0201C.CRIMESCENE.GUARD.FA.X02CCONNOR.CALWAYS.1") }}
 				</app-dialogue-line>
+
+				<app-unused-content class="mt-3">
+					<app-dialogue-line name="Connor">
+						{{
+							t("X0201C.CRIMESCENE.GUARD.FA.X02CCONNOR.CALWAYS.2")
+						}}
+					</app-dialogue-line>
+				</app-unused-content>
 			</p>
 			<p>
 				<app-dialogue-line name="Ben">
@@ -418,6 +537,13 @@
 				<app-dialogue-line name="Hank">
 					{{ t("X0201C.CRIMESCENE.CHAD.FA.X02CHANK.INTROHANK.1") }}
 				</app-dialogue-line>
+				<app-unused-content class="mt-3">
+					<app-dialogue-line name="Ben">
+						{{
+							t("X0201C.CRIMESCENE.CHAD.FA.X02CCHAD.INTROCHAD.3")
+						}}
+					</app-dialogue-line>
+				</app-unused-content>
 				<app-dialogue-line name="Ben">
 					{{
 						translationService.translateObject(
@@ -437,6 +563,7 @@
 							5
 						) | async
 					}}
+					<br />
 					{{
 						translationService.translateObject(
 							"X0201C.INSIDE.BODY.FA.X02CCHAD.CARLOSCHAD01",
@@ -485,6 +612,13 @@
 							2
 						) | async
 					}}
+				</app-dialogue-line>
+				<app-unused-content class="mt-3">
+					<app-dialogue-line name="Ben">
+						{{ t("X0201C.INSIDE.BODY.FA.X02CCHAD.CARLOSCHAD02.3") }}
+					</app-dialogue-line>
+				</app-unused-content>
+				<app-dialogue-line name="Ben">
 					{{
 						translationService.translateObject(
 							"X0201C.INSIDE.BODY.FA.X02CCHAD.CARLOSCHAD03"
@@ -494,7 +628,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="wall-write">
 			<h2 id="wall-write">Hank looking at writing on wall</h2>
 			<p>
 				<app-dialogue-line name="Hank">
@@ -511,7 +645,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="blood-sample">
 			<h2 id="blood-sample">Taking blood sample</h2>
 			<p>
 				<app-dialogue-line name="Hank">
@@ -542,10 +676,63 @@
 					{{ t("X0201C.CONNOR.BLOOD.PC.X02CHANK.ANALYSE.4") }}
 				</app-dialogue-line>
 			</p>
+
+			<app-observation label="Blood">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.CARLOSBLOOD.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.CARLOSBLOOD.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.CARLOSBLOOD.SUBLINE02')
+					"
+				/>
+			</app-observation>
 		</section>
 
-		<section>
+		<section aria-labelledby="victim">
 			<h2 id="victim">Analysing victim</h2>
+			<app-observation label="Body">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.CARLOSCLUE01.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.CARLOSCLUE01.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.CARLOSCLUE01.SUBLINE02')
+					"
+					[subline3]="t('GUI.OBSERVATION.GEN.DECEASED')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.REDICE.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.02C.MP.REDICE.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.02C.MP.REDICE.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.CARLOSCLUE03.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.CARLOSCLUE03.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.CARLOSCLUE03.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="
+						t('MENU.OBSERVATION.02C.MP.CARLOSFINGERPRINTS.TITLE')
+					"
+					[subline1]="
+						t(
+							'MENU.OBSERVATION.02C.MP.CARLOSFINGERPRINTS.SUBLINE01'
+						)
+					"
+					[subline2]="
+						t(
+							'MENU.OBSERVATION.02C.MP.CARLOSFINGERPRINTS.SUBLINE02'
+						)
+					"
+				/>
+			</app-observation>
 			<p>
 				<app-dialogue-line name="Connor">
 					{{
@@ -564,7 +751,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="red-ice">
 			<h2 id="red-ice">Hank looking at Red Ice</h2>
 			<p>
 				<app-dialogue-line name="Hank">
@@ -580,7 +767,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="background-dialogues">
 			<h2 id="background-dialogues">Background dialogues</h2>
 			<p>
 				<app-dialogue-line name="Chris">
@@ -628,8 +815,21 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="garden">
 			<h2 id="garden">Looking at the garden</h2>
+
+			<app-observation label="Prints">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.FOOTPRINT.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.FOOTPRINT.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.FOOTPRINT.SUBLINE02')
+					"
+				/>
+			</app-observation>
+
 			<p>
 				<app-dialogue-line name="Hank">
 					{{
@@ -662,7 +862,22 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="kitchen">
+			<h2 id="kitchen">In the kitchen</h2>
+			<app-observation label="Bat">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.02C.MP.BATIMPACT.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.02C.MP.BATIMPACT.SUBTITLE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.02C.MP.BATIMPACT.SUBTITLE02')
+					"
+				/>
+			</app-observation>
+		</section>
+
+		<section aria-labelledby="timeout">
 			<app-conditioned-content>
 				<div class="condition">
 					<h2 id="timeout">
@@ -803,7 +1018,7 @@
 			</app-conditioned-content>
 		</section>
 
-		<section>
+		<section aria-labelledby="investigation-hank">
 			<h2 id="investigation-hank">Talking to Hank</h2>
 
 			<p>
@@ -1186,7 +1401,7 @@
 
 		<mat-divider></mat-divider>
 
-		<section>
+		<section aria-labelledby="chair">
 			<h2 id="chair">Taking a chair</h2>
 			<p>
 				<app-dialogue-line name="Hank">
@@ -1206,7 +1421,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="attic">
 			<h2 id="attic">Searching the attic</h2>
 			<p>
 				<app-dialogue-line name="Deviant">

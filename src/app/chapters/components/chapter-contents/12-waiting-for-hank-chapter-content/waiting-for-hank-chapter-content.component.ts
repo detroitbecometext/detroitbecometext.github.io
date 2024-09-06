@@ -22,7 +22,7 @@ import { CommonTranslationKey } from '../../../../shared/utils/common-translatio
 import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 import { CaseFileComponent } from '../../case-file/case-file.component';
-import { ChapterTocService } from '../../../services/chapter-toc.service';
+import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 
 @Component({
 	standalone: true,

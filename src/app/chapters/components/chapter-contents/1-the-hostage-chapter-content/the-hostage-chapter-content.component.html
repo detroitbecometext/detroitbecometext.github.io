@@ -1,5 +1,5 @@
 <ng-container *transloco="let t">
-	<section>
+	<section aria-labelledby="out-elevator">
 		<h1 id="out-elevator">Out of the elevator</h1>
 
 		<p>
@@ -29,7 +29,7 @@
 				<app-choice-item
 					[choiceLabel]="t('MENU.FLOWCHART.01C.FISHLEAVE')"
 				>
-					&oslash;
+					<p>&oslash;</p>
 				</app-choice-item>
 			</app-choice-group>
 		</app-observation>
@@ -86,6 +86,7 @@
 				}}
 			</app-dialogue-line>
 		</p>
+
 		<p>
 			<app-dialogue-line name="Allen">
 				{{
@@ -96,7 +97,7 @@
 			</app-dialogue-line>
 		</p>
 
-		<section>
+		<section aria-labelledby="background-dialogues-living-room">
 			<h2 id="background-dialogues-living-room">Background dialogues</h2>
 			<p>
 				<app-dialogue-line name="SWAT 1">
@@ -115,8 +116,9 @@
 
 	<mat-divider></mat-divider>
 
-	<section>
+	<section aria-labelledby="talk-to-allen">
 		<h1 id="talk-to-allen">Talking to Allen</h1>
+
 		<p>
 			<app-dialogue-line name="Connor">
 				{{
@@ -243,33 +245,32 @@
 
 	<mat-divider></mat-divider>
 
-	<section>
+	<section aria-labelledby="investigating">
 		<h1 id="investigating">Investigating</h1>
 
-		<p>
-			<app-observation label="Gun case">
-				<app-observation-item
-					[title]="t('MENU.OBSERVATION.01C.MP.GUNCASECLUE01.TITLE')"
-					[subline1]="
-						t('MENU.OBSERVATION.01C.MP.GUNCASECLUE01.SUBLINE01')
-					"
-					[subline2]="
-						t('MENU.OBSERVATION.01C.MP.GUNCASECLUE01.SUBLINE02')
-					"
-				/>
+		<app-observation label="Gun case">
+			<app-observation-item
+				[title]="t('MENU.OBSERVATION.01C.MP.GUNCASECLUE01.TITLE')"
+				[subline1]="
+					t('MENU.OBSERVATION.01C.MP.GUNCASECLUE01.SUBLINE01')
+				"
+				[subline2]="
+					t('MENU.OBSERVATION.01C.MP.GUNCASECLUE01.SUBLINE02')
+				"
+			/>
 
-				<app-observation-item
-					[title]="t('MENU.OBSERVATION.01C.MP.GUNCASECLUE02.TITLE')"
-					[subline1]="
-						t('MENU.OBSERVATION.01C.MP.GUNCASECLUE02.SUBLINE01')
-					"
-					[subline2]="
-						t('MENU.OBSERVATION.01C.MP.GUNCASECLUE02.SUBLINE02')
-					"
-				/>
-			</app-observation>
-		</p>
-		<section>
+			<app-observation-item
+				[title]="t('MENU.OBSERVATION.01C.MP.GUNCASECLUE02.TITLE')"
+				[subline1]="
+					t('MENU.OBSERVATION.01C.MP.GUNCASECLUE02.SUBLINE01')
+				"
+				[subline2]="
+					t('MENU.OBSERVATION.01C.MP.GUNCASECLUE02.SUBLINE02')
+				"
+			/>
+		</app-observation>
+
+		<section aria-labelledby="looking-emma-tablet">
 			<h2 id="looking-emma-tablet">Looking at Emma's tablet</h2>
 			<p>
 				<app-dialogue-line name="Emma">
@@ -288,7 +289,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="living-room">
 			<h2 id="living-room">Coming into the living room</h2>
 			<p>
 				<app-dialogue-line name="Allen">
@@ -303,129 +304,103 @@
 				</app-dialogue-line>
 			</p>
 
-			<p>
-				<app-observation label="Body">
-					<app-observation-item
-						[title]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE01.TITLE')
-						"
-						[subline1]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE01.SUBLINE01')
-						"
-						[subline2]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE01.SUBLINE02')
-						"
-						[subline3]="t('MENU.OBSERVATION.01C.MP.DECEASED')"
-					/>
-					<app-observation-item
-						[title]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE02.TITLE')
-						"
-						[subline1]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE02.SUBLINE01')
-						"
-						[subline2]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE02.SUBLINE02')
-						"
-					/>
-					<app-observation-item
-						[title]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE02.TITLE')
-						"
-						[subline1]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE03.SUBLINE01')
-						"
-						[subline2]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE03.SUBLINE02')
-						"
-					/>
-					<app-observation-item
-						[title]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE02.TITLE')
-						"
-						[subline1]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE04.SUBLINE01')
-						"
-						[subline2]="
-							t('MENU.OBSERVATION.01C.MP.FATHERCLUE04.SUBLINE02')
-						"
-					/>
-				</app-observation>
-			</p>
+			<app-observation label="Body">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.01C.MP.FATHERCLUE01.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.01C.MP.FATHERCLUE01.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.01C.MP.FATHERCLUE01.SUBLINE02')
+					"
+					[subline3]="t('MENU.OBSERVATION.01C.MP.DECEASED')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.01C.MP.FATHERCLUE02.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.01C.MP.FATHERCLUE02.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.01C.MP.FATHERCLUE02.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.01C.MP.FATHERCLUE02.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.01C.MP.FATHERCLUE03.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.01C.MP.FATHERCLUE03.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.01C.MP.FATHERCLUE02.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.01C.MP.FATHERCLUE04.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.01C.MP.FATHERCLUE04.SUBLINE02')
+					"
+				/>
+			</app-observation>
 
-			<p>
-				<app-observation label="Shoe">
-					<app-observation-item
-						[title]="t('MENU.OBSERVATION.01C.MP.SHOE.TITLE')"
-						[subline1]="t('MENU.OBSERVATION.01C.MP.SHOE.SUBLINE01')"
-						[subline2]="t('MENU.OBSERVATION.01C.MP.SHOE.SUBLINE02')"
-					/>
-				</app-observation>
-			</p>
+			<app-observation label="Shoe">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.01C.MP.SHOE.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.01C.MP.SHOE.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.01C.MP.SHOE.SUBLINE02')"
+				/>
+			</app-observation>
 
-			<p>
-				<app-observation label="Blue blood">
-					<app-observation-item
-						[title]="t('MENU.OBSERVATION.01C.MP.BBLOOD.TITLE')"
-						[subline1]="
-							t('MENU.OBSERVATION.01C.MP.BBLOOD.SUBLINE01')
-						"
-						[subline2]="
-							t('MENU.OBSERVATION.01C.MP.BBLOOD.SUBLINE02')
-						"
-					/>
-				</app-observation>
-			</p>
+			<app-observation label="Blue blood">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.01C.MP.BBLOOD.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.01C.MP.BBLOOD.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.01C.MP.BBLOOD.SUBLINE02')"
+				/>
+			</app-observation>
 
-			<p>
-				<app-observation label="Cop">
-					<app-observation-item
-						[title]="t('MENU.OBSERVATION.01C.MP.COPCLUE01.TITLE')"
-						[subline1]="
-							t('MENU.OBSERVATION.01C.MP.COPCLUE01.SUBLINE01')
-						"
-						[subline2]="
-							t('MENU.OBSERVATION.01C.MP.COPCLUE01.SUBLINE02')
-						"
-						[subline3]="t('MENU.OBSERVATION.01C.MP.DECEASED')"
-					/>
-					<app-observation-item
-						[title]="t('MENU.OBSERVATION.01C.MP.COPCLUE02.TITLE')"
-						[subline1]="
-							t('MENU.OBSERVATION.01C.MP.COPCLUE02.SUBLINE01')
-						"
-						[subline2]="
-							t('MENU.OBSERVATION.01C.MP.COPCLUE02.SUBLINE02')
-						"
-					/>
-					<app-observation-item
-						[title]="t('MENU.OBSERVATION.01C.MP.COPCLUE03.TITLE')"
-						[subline1]="
-							t('MENU.OBSERVATION.01C.MP.COPCLUE03.SUBLINE01')
-						"
-						[subline2]="
-							t('MENU.OBSERVATION.01C.MP.COPCLUE03.SUBLINE02')
-						"
-					/>
-				</app-observation>
-			</p>
+			<app-observation label="Cop">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.01C.MP.COPCLUE01.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.01C.MP.COPCLUE01.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.01C.MP.COPCLUE01.SUBLINE02')
+					"
+					[subline3]="t('MENU.OBSERVATION.01C.MP.DECEASED')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.01C.MP.COPCLUE02.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.01C.MP.COPCLUE02.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.01C.MP.COPCLUE02.SUBLINE02')
+					"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.01C.MP.COPCLUE03.TITLE')"
+					[subline1]="
+						t('MENU.OBSERVATION.01C.MP.COPCLUE03.SUBLINE01')
+					"
+					[subline2]="
+						t('MENU.OBSERVATION.01C.MP.COPCLUE03.SUBLINE02')
+					"
+				/>
+			</app-observation>
 
-			<p>
-				<app-observation label="Cop's gun">
-					<app-observation-item
-						[title]="t('MENU.OBSERVATION.01C.MP.GUNLAW.TITLE')"
-						[subline1]="
-							t('MENU.OBSERVATION.01C.MP.GUNLAW.SUBLINE01')
-						"
-						[subline2]="
-							t('MENU.OBSERVATION.01C.MP.GUNLAW.SUBLINE02')
-						"
-					/>
-				</app-observation>
-			</p>
+			<app-observation label="Cop's gun">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.01C.MP.GUNLAW.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.01C.MP.GUNLAW.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.01C.MP.GUNLAW.SUBLINE02')"
+				/>
+			</app-observation>
 		</section>
 
-		<section>
+		<section aria-labelledby="father-tablet">
 			<h2 id="father-tablet">Looking at the father's tablet</h2>
 			<p>
 				<app-dialogue-line name="Tablet">
@@ -438,7 +413,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="background-dialogues-investigation">
 			<h2 id="background-dialogues-investigation">
 				Background dialogues
 			</h2>
@@ -510,7 +485,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="swat-shot">
 			<h2 id="swat-shot">SWAT gets shot</h2>
 			<p>
 				<app-dialogue-line name="SWAT 1">
@@ -536,7 +511,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="swat-moved">
 			<h2 id="swat-moved">Dialogues after SWAT changed positions</h2>
 			<p>
 				<app-dialogue-line name="SWAT 1">
@@ -547,7 +522,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="kitchen">
 			<h2 id="kitchen">In the kitchen</h2>
 			<p>
 				<app-dialogue-line name="SWAT">
@@ -565,7 +540,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="window">
 			<h2 id="window">At the window</h2>
 			<p>
 				<app-dialogue-line name="SWAT 1">
@@ -577,7 +552,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="in-the-way">
 			<h2 id="in-the-way">Be in the way</h2>
 			<p>
 				<app-dialogue-line name="SWAT">
@@ -588,7 +563,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="kitchen-idle">
 			<h2 id="kitchen-idle">Standing idle in the kitchen</h2>
 			<p>
 				<app-dialogue-line name="SWAT">
@@ -601,7 +576,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="idle">
 			<h2 id="idle">Standing idle elsewhere</h2>
 			<p>
 				<app-dialogue-line name="Daniel">
@@ -641,7 +616,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="watch-tv">
 			<h2 id="watch-tv">
 				<app-unlock-condition [unlockType]="UnlockType.Tv">
 					{{ t(CommonTranslationKey.WatchTv) }}
@@ -658,7 +633,7 @@
 			</p>
 		</section>
 
-		<section>
+		<section aria-labelledby="time">
 			<h2 id="time">
 				<app-unlock-condition [unlockType]="UnlockType.Time">
 					{{ t(CommonTranslationKey.TooMuchTime) }}
@@ -678,7 +653,7 @@
 
 	<mat-divider></mat-divider>
 
-	<section>
+	<section aria-labelledby="going-outside">
 		<h1 id="going-outside">Going outside</h1>
 		<p>
 			<app-dialogue-line name="Daniel">
@@ -851,7 +826,7 @@
 
 		<mat-divider></mat-divider>
 
-		<section>
+		<section aria-labelledby="look-wounded-cop">
 			<h2 id="look-wounded-cop">Looking at the wounded cop</h2>
 			<p>
 				<app-dialogue-line name="Cop">
@@ -1293,32 +1268,37 @@
 						}}
 					</app-dialogue-line>
 				</p>
-				<app-choice-item
-					[choiceLabel]="
-						t(
-							'X0101X.TERRACE.PARTII.FA.CHOICEGROUPBLUFF.MOVECLOSER'
-						)
-					"
-				>
-					<p class="note">
-						Leads to 'probability of success too low' ending
-					</p>
-				</app-choice-item>
-				<app-choice-item
-					[choiceLabel]="
-						t('X0101X.TERRACE.PARTII.FA.CHOICEGROUPBLUFF.GIVEUP')
-					"
-				>
-					<p>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0101X.TERRACE.PARTII.PC.X01CONNOR.GIVEUPV2"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</app-choice-item>
+
+				<app-choice-group>
+					<app-choice-item
+						[choiceLabel]="
+							t(
+								'X0101X.TERRACE.PARTII.FA.CHOICEGROUPBLUFF.MOVECLOSER'
+							)
+						"
+					>
+						<p class="note">
+							Leads to 'probability of success too low' ending
+						</p>
+					</app-choice-item>
+					<app-choice-item
+						[choiceLabel]="
+							t(
+								'X0101X.TERRACE.PARTII.FA.CHOICEGROUPBLUFF.GIVEUP'
+							)
+						"
+					>
+						<p>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0101X.TERRACE.PARTII.PC.X01CONNOR.GIVEUPV2"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+				</app-choice-group>
 			</app-choice-item>
 			<app-choice-item
 				[choiceLabel]="
@@ -1359,51 +1339,77 @@
 					</app-unlock-condition>
 				</p>
 
-				<app-choice-item
-					[choiceLabel]="
-						t('X0101X.TERRACE.CHOICE.PC.CHOICE.INTIMIDATE')
-					"
-				>
-					<p>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0101X.TERRACE.GUN.PC.X01CONNOR.GUN01V2"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Daniel">
-							{{ t("X0101X.TERRACE.GUN.PC.X01ANDROID.GUNV2") }}
-						</app-dialogue-line>
-					</p>
+				<app-choice-group>
 					<app-choice-item
 						[choiceLabel]="
-							t('X0101X.TERRACE.GUN.PC.SHOT01.CONVINCE')
+							t('X0101X.TERRACE.CHOICE.PC.CHOICE.INTIMIDATE')
 						"
 					>
 						<p>
-							<app-relation
-								[name]="RelationName.SoftwareInstability"
-								[type]="RelationType.SmallUp"
-							></app-relation>
 							<app-dialogue-line name="Connor">
 								{{
 									translationService.translateObject(
-										"X0101X.TERRACE.GUN.PC.X01CONNOR.CONVINCE01V2"
+										"X0101X.TERRACE.GUN.PC.X01CONNOR.GUN01V2"
 									) | async
 								}}
 							</app-dialogue-line>
 							<app-dialogue-line name="Daniel">
 								{{
-									translationService.translateObject(
-										"X0101X.TERRACE.WARNING3.PC.X01ANDROID.WARNING3V2"
-									) | async
+									t("X0101X.TERRACE.GUN.PC.X01ANDROID.GUNV2")
 								}}
 							</app-dialogue-line>
 						</p>
+
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t('X0101X.TERRACE.GUN.PC.SHOT01.CONVINCE')
+								"
+							>
+								<p>
+									<app-relation
+										[name]="
+											RelationName.SoftwareInstability
+										"
+										[type]="RelationType.SmallUp"
+									></app-relation>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0101X.TERRACE.GUN.PC.X01CONNOR.CONVINCE01V2"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Daniel">
+										{{
+											translationService.translateObject(
+												"X0101X.TERRACE.WARNING3.PC.X01ANDROID.WARNING3V2"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t('X0101X.TERRACE.GUN.PC.SHOT01.SHOT')
+								"
+							>
+								<p>
+									<app-relation
+										[name]="
+											RelationName.SoftwareInstability
+										"
+										[type]="RelationType.SmallUp"
+									></app-relation>
+									<span>&oslash;</span>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
 					</app-choice-item>
 					<app-choice-item
-						[choiceLabel]="t('X0101X.TERRACE.GUN.PC.SHOT01.SHOT')"
+						[choiceLabel]="
+							t('X0101X.TERRACE.CHOICE.PC.CHOICE.SHOOTHEAD')
+						"
 					>
 						<p>
 							<app-relation
@@ -1413,20 +1419,7 @@
 							<span>&oslash;</span>
 						</p>
 					</app-choice-item>
-				</app-choice-item>
-				<app-choice-item
-					[choiceLabel]="
-						t('X0101X.TERRACE.CHOICE.PC.CHOICE.SHOOTHEAD')
-					"
-				>
-					<p>
-						<app-relation
-							[name]="RelationName.SoftwareInstability"
-							[type]="RelationType.SmallUp"
-						></app-relation>
-						<span>&oslash;</span>
-					</p>
-				</app-choice-item>
+				</app-choice-group>
 			</app-choice-item>
 			<app-choice-item
 				[choiceLabel]="

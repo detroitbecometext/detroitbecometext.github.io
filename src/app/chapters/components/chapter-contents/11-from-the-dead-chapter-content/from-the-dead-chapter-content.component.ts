@@ -9,7 +9,7 @@ import { DialogueLineComponent } from '../../../../shared/components/dialogue-li
 import { ChoiceGroupComponent } from '../../../../shared/components/choice-group/choice-group.component';
 import { ChoiceItemComponent } from '../../../../shared/components/choice-item/choice-item.component';
 import { TranslationService } from '../../../../shared/services/translation.service';
-import { ChapterTocService } from '../../../services/chapter-toc.service';
+import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';

@@ -23,6 +23,14 @@ export class ChapterTocService {
 				this.translationReady = true;
 				this.loadItems();
 			});
+
+		this.translocoService.langChanges$
+			.pipe(takeUntilDestroyed())
+			.subscribe(() => {
+				if (this.translationReady) {
+					this.loadItems();
+				}
+			});
 	}
 
 	public onChapterContentInit(): void {

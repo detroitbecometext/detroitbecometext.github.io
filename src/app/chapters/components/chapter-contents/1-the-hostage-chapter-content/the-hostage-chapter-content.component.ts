@@ -19,7 +19,7 @@ import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
-import { ChapterTocService } from '../../../services/chapter-toc.service';
+import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';
 
 @Component({

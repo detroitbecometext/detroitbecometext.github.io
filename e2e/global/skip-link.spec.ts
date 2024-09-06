@@ -1,7 +1,10 @@
 import { expect, test } from '@playwright/test';
+import { NavigableItemPage } from '../pages/NavigableItemPage';
+import { BasePage } from '../pages/BasePage';
 
 test('Skip link should be hidden by default', async ({ page }) => {
-	await page.goto('/chapters/1');
+	const currentPage = new NavigableItemPage('chapters', page);
+	await currentPage.goToId(1);
 
 	const skipLink = page.getByRole('link', { name: 'Skip to main content' });
 
@@ -56,7 +59,9 @@ pages.forEach(({ url, label }) => {
 	test(`${label} page should have a functional skip link`, async ({
 		page,
 	}) => {
-		await page.goto(url);
+		const currentPage = new BasePage(page);
+		await currentPage.goTo(url);
+
 		await page.keyboard.press('Tab');
 
 		await expect(
