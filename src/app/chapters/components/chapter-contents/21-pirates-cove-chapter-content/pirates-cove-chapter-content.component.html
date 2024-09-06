@@ -1266,7 +1266,354 @@
 				{{ t("X0701K.MERRYGOROUND.INCOMING.PC.X07KLUTHER.RIDE") }}
 			</app-dialogue-line>
 		</p>
+	</section>
+	<section aria-labelledby="hunters-arrive">
+		<h1 id="hunters-arrive">Hunters arrive</h1>
 
-		<!-- TODO (V2): Add unused "RIDECOMING" + "CHASE" section -->
+		<app-unused-content>
+			<p>
+				<span class="italic"
+					>See
+					<a href="https://www.youtube.com/watch?v=XHYbJddsbSY"
+						>this video</a
+					>
+					for the restored sequence.</span
+				>
+			</p>
+
+			<p>
+				<app-dialogue-line name="Jerry">
+					{{
+						t(
+							"X0701K.MERRYGOROUND.INCOMING.PC.X07KJERRY.RIDECOMING.1"
+						)
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0701K.MERRYGOROUND.INCOMING.PC.X07KKARA.RIDECOMING"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Jerry">
+					{{
+						translationService.translateObject(
+							"X0701K.MERRYGOROUND.INCOMING.PC.X07KJERRY.RIDECOMING",
+							0,
+							4
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Luther">
+					{{
+						translationService.translateObject(
+							"X0701K.MERRYGOROUND.INCOMING.PC.X07KLUTHER.RIDECOMING"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<p>
+				<app-dialogue-line name="Hunter 1">
+					{{
+						translationService.translateObject(
+							"X0701K.CHASE.HUNTING.FA.X07KBADBOY01"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Hunter 2">
+					{{
+						translationService.translateObject(
+							"X0701K.CHASE.HUNTING.FA.X07KBADBOY02"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Luther">
+					{{
+						translationService.translateObject(
+							"X0701K.CHASE.RUN.FA.X07KLUTHER"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Fail to escape</p>
+				</div>
+				<div class="content">
+					<app-dialogue-line name="Hunter">
+						{{
+							t("X0701K.CHASE.GAMEOVER.FA.X07KBADBOY01.DEADBAD02")
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Kara">
+						{{ t("X0701K.CHASE.GAMEOVER.FA.X07KKARA.DEADSEC") }}
+					</app-dialogue-line>
+				</div>
+			</app-conditioned-content>
+
+			<p>
+				<app-dialogue-line name="Alice">
+					{{
+						translationService.translateObject(
+							"X0701K.CHASE.WAKEUP.PC.X07KALICE.PLEASE"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+			<p>
+				<app-dialogue-line name="Hunter">
+					{{ t("X0701K.CHASE.RABBITS.FA.X07KBADBOY01.BANG") }}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.CHASE.FINALCHOICE.PC.DECISION.USEGUNKARA')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KKARA.FREEZE01.1"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hunter">
+							{{
+								translationService.translateObject(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KBADBOY01.FREEZE01BADBOY",
+									0,
+									2
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KKARA.FREEZE01.2"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hunter">
+							{{
+								t(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KBADBOY01.FREEZE01BADBOY.3"
+								)
+							}}
+							<br />
+							{{
+								translationService.translateObject(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KBADBOY01.FREEZE01BADBOY",
+									3,
+									10
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KKARA.FREEZE01",
+									2,
+									4
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hunter">
+							{{
+								translationService.translateObject(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KBADBOY01.FREEZE01BADBOY",
+									10
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Alice">
+							{{
+								t(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KALICE.FREEZE01"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Alice">
+							{{
+								t(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KALICE.FREEZE02"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								t(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KLUTHER.FREEZE02"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KKARA.FREEZE02"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.CHASE.FINALCHOICE.PC.DECISION.PROTECTLUTHER')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KKARA.PROTECT.1"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hunter">
+							{{
+								translationService.translateObject(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KBADBOY01.PROTECTBADBOY",
+									0,
+									2
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-choice-group>
+						<app-choice-item [choiceLabel]="t('GUI.ACTION.HUMAN')">
+							<p>
+								<app-dialogue-line name="Kara">
+									{{
+										translationService.translateObject(
+											"X0701K.CHASE.FINALCHOICE.PC.X07KKARA.PROTECT",
+											1,
+											4
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Hunter">
+									{{
+										translationService.translateObject(
+											"X0701K.CHASE.FINALCHOICE.PC.X07KBADBOY01.PROTECTBADBOY",
+											2,
+											6
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Kara">
+									{{
+										t(
+											"X0701K.CHASE.FINALCHOICE.PC.X07KKARA.PROTECT.5"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Hunter">
+									{{
+										translationService.translateObject(
+											"X0701K.CHASE.FINALCHOICE.PC.X07KBADBOY01.PROTECTBADBOY",
+											6,
+											10
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Kara">
+									{{
+										t(
+											"X0701K.CHASE.FINALCHOICE.PC.X07KKARA.PROTECT.6"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Hunter">
+									{{
+										translationService.translateObject(
+											"X0701K.CHASE.FINALCHOICE.PC.X07KBADBOY01.PROTECTBADBOY",
+											10,
+											12
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Kara">
+									{{
+										t(
+											"X0701K.CHASE.FINALCHOICE.PC.X07KKARA.PROTECT.7"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Luther">
+									{{
+										translationService.translateObject(
+											"X0701K.CHASE.FINALCHOICE.PC.X07KLUTHER.PROTECT"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="t(CommonTranslationKey.TooMuchTime)"
+							[brackets]="true"
+							[timeOutOption]="true"
+						>
+							<p>
+								<app-dialogue-line name="Alice">
+									{{
+										t(
+											"X0701K.CHASE.FINALCHOICE.PC.X07KALICE.CONFRONT"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0701K.CHASE.FINALCHOICE.PC.DECISION.HIDE')
+					"
+				>
+					<app-dialogue-line name="Hunter">
+						{{ t("X0701K.CHASE.RABBITS.FA.X07KBADBOY01.BASTARD") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hunter">
+						{{
+							t("X0701K.CHASE.RABBITS.FA.X07KBADBOY01.BLASTED01")
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hunter">
+						{{ t("X0701K.CHASE.RABBITS.FA.X07KBADBOY02.LETSGO01") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Alice">
+						{{
+							translationService.translateObject(
+								"X0701K.CHASE.FINALCHOICE.PC.X07KALICE.EMERGE"
+							) | async
+						}}
+					</app-dialogue-line>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t(CommonTranslationKey.TooMuchTime)"
+					[brackets]="true"
+					[timeOutOption]="true"
+				>
+					<p>
+						<app-dialogue-line name="Alice">
+							{{
+								t(
+									"X0701K.CHASE.FINALCHOICE.PC.X07KALICE.CONFRONT"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{ t("X0701K.CHASE.GAMEOVER.PC.X07KKARA.DEAD") }}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+		</app-unused-content>
 	</section>
 </ng-container>
