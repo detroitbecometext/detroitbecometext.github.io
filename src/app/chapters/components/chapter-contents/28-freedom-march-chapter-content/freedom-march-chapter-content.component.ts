@@ -18,6 +18,7 @@ import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -33,6 +34,7 @@ import { ChapterTocService } from '../../../../shared/services/chapter-toc.servi
 		ConditionedContentComponent,
 		RelationComponent,
 		TranslocoModule,
+		ConditionGroupComponent,
 	],
 	templateUrl: './freedom-march-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

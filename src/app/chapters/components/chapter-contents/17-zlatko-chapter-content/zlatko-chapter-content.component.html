@@ -350,121 +350,246 @@
 
 		<section aria-labelledby="open-cells">
 			<h2 id="open-cells">Opening the cells</h2>
-			<app-conditioned-content>
-				<div class="condition"><p>Kara was reset</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Android 2">
-							{{
-								t(
-									"X0502K.CELLAND.DARKV2.VO.X05KANDROIDCELL01.WHISPER01"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Android 1">
-							{{
-								translationService.translateObject(
-									"X0502K.CELLAND.DARKV2.VO.X05KANDROIDCELL02.WHISPER02"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Android 2">
-							{{
-								translationService.translateObject(
-									"X0502K.CELLAND.DARKV2.VO.X05KANDROIDCELL04.WHISPER04"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Android 3">
-							{{
-								translationService.translateObject(
-									"X0502K.CELLAND.DARKV2.PC.X05KANDCELLSCARY.MONSTER",
-									0,
-									5
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Android 3">
-							{{
-								translationService.translateObject(
-									"X0502K.CELLAND.DARKV2.PC.X05KANDCELLSCARY.MONSTER",
-									5
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition"><p>Kara wasn't reset</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Android 1">
-							{{
-								translationService.translateObject(
-									"X0502K.CELLAND.DARKV2.VO.X05KANDROIDCELL04.WHISPER04"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Android 3">
-							{{
-								translationService.translateObject(
-									"X0502K.CELLAND.DARKV2.PC.X05KANDCELLSCARY.MONSTER",
-									0,
-									5
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Kara was reset</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Android 2">
+								{{
+									t(
+										"X0502K.CELLAND.DARKV2.VO.X05KANDROIDCELL01.WHISPER01"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Android 1">
+								{{
+									translationService.translateObject(
+										"X0502K.CELLAND.DARKV2.VO.X05KANDROIDCELL02.WHISPER02"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Android 2">
+								{{
+									translationService.translateObject(
+										"X0502K.CELLAND.DARKV2.VO.X05KANDROIDCELL04.WHISPER04"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Android 3">
+								{{
+									translationService.translateObject(
+										"X0502K.CELLAND.DARKV2.PC.X05KANDCELLSCARY.MONSTER",
+										0,
+										5
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Android 3">
+								{{
+									translationService.translateObject(
+										"X0502K.CELLAND.DARKV2.PC.X05KANDCELLSCARY.MONSTER",
+										5
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition"><p>Kara wasn't reset</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Android 1">
+								{{
+									translationService.translateObject(
+										"X0502K.CELLAND.DARKV2.VO.X05KANDROIDCELL04.WHISPER04"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Android 3">
+								{{
+									translationService.translateObject(
+										"X0502K.CELLAND.DARKV2.PC.X05KANDCELLSCARY.MONSTER",
+										0,
+										5
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<mat-divider></mat-divider>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Kara was reset</p>
-			</div>
-			<div class="content">
-				<section aria-labelledby="reset-luther">
-					<h2 id="reset-luther">Go see Luther</h2>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Kara was reset</p>
+				</div>
+				<div class="content">
+					<section aria-labelledby="reset-luther">
+						<h2 id="reset-luther">Go see Luther</h2>
+						<p>
+							<app-dialogue-line name="Luther">
+								{{
+									translationService.translateObject(
+										"X0502K.GROUNDFLOOR.MEAL.PC.X05KLUTHER.TAKEITUPSTAIRS"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0502K.GROUNDFLOOR.MEAL.PC.X05KKARA.TAKEITUPSTAIRS"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</section>
+					<section aria-labelledby="tray">
+						<h2 id="tray">Bring the tray to Zlatko</h2>
+						<p>
+							<app-dialogue-line name="Zlatko">
+								{{
+									t(
+										"X0502K.WORKSHOP.MEAL.PC.X05KZLATKO.PUTDOWN"
+									)
+								}}
+								{{
+									translationService.translateObject(
+										"X0502K.WORKSHOP.MEAL.PC.X05KZLATKO.CARCASS"
+									) | async
+								}}
+								{{
+									t(
+										"X0502K.WORKSHOP.MEAL.PC.X05KZLATKO.HEARME"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0502K.WORKSHOP.MEAL.FA.X05KKARA.HEARMEKARA"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.WORKSHOP.LUTHER.PC.X05KZLATKO.CALL"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Luther">
+								{{
+									t(
+										"X0502K.WORKSHOP.LUTHER.PC.X05KLUTHER.BRINGTORSO.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									t(
+										"X0502K.WORKSHOP.LUTHER.PC.X05KZLATKO.BRINGTORSO"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Luther">
+								{{
+									translationService.translateObject(
+										"X0502K.WORKSHOP.LUTHER.PC.X05KLUTHER.BRINGTORSO",
+										1
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</section>
+					<section aria-labelledby="recollect">
+						<h2 id="recollect">Recollect enough memories</h2>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0502K.REMEMBER.ALICE.PC.X05KKARA.MEMORY"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</section>
+					<section aria-labelledby="reset-timeout">
+						<h2 id="reset-timeout">
+							<app-unlock-condition
+								[unlockType]="UnlockType.Time"
+							>
+								{{ t(CommonTranslationKey.TooMuchTime) }}
+							</app-unlock-condition>
+						</h2>
+						<p>
+							<app-dialogue-line name="Luther">
+								{{
+									t(
+										"X0502K.RESET.GAMEOVER.PC.X05KLUTHER.NOMEMORY"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.RESET.GAMEOVER.PC.X05KZLATKO.NOMEMORY",
+										0,
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Alice">
+								{{
+									t(
+										"X0502K.RESET.GAMEOVER.PC.X05KALICE.NOMEMORY.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									t(
+										"X0502K.RESET.GAMEOVER.PC.X05KZLATKO.NOMEMORY.3"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Alice">
+								{{
+									t(
+										"X0502K.RESET.GAMEOVER.PC.X05KALICE.NOMEMORY.2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									t(
+										"X0502K.RESET.GAMEOVER.PC.X05KZLATKO.NOMEMORY.4"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Alice">
+								{{
+									t(
+										"X0502K.RESET.GAMEOVER.VO.X05KALICE.NOMEMORY01"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</section>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Kara wasn't reset - Search house for Alice</p>
+				</div>
+				<div class="content">
 					<p>
-						<app-dialogue-line name="Luther">
-							{{
-								translationService.translateObject(
-									"X0502K.GROUNDFLOOR.MEAL.PC.X05KLUTHER.TAKEITUPSTAIRS"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Kara">
-							{{
-								t(
-									"X0502K.GROUNDFLOOR.MEAL.PC.X05KKARA.TAKEITUPSTAIRS"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-				</section>
-				<section aria-labelledby="tray">
-					<h2 id="tray">Bring the tray to Zlatko</h2>
-					<p>
-						<app-dialogue-line name="Zlatko">
-							{{
-								t("X0502K.WORKSHOP.MEAL.PC.X05KZLATKO.PUTDOWN")
-							}}
-							{{
-								translationService.translateObject(
-									"X0502K.WORKSHOP.MEAL.PC.X05KZLATKO.CARCASS"
-								) | async
-							}}
-							{{ t("X0502K.WORKSHOP.MEAL.PC.X05KZLATKO.HEARME") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Kara">
-							{{
-								t("X0502K.WORKSHOP.MEAL.FA.X05KKARA.HEARMEKARA")
-							}}
-						</app-dialogue-line>
 						<app-dialogue-line name="Zlatko">
 							{{
 								translationService.translateObject(
@@ -495,374 +620,278 @@
 							}}
 						</app-dialogue-line>
 					</p>
-				</section>
-				<section aria-labelledby="recollect">
-					<h2 id="recollect">Recollect enough memories</h2>
-					<p>
-						<app-dialogue-line name="Kara">
-							{{ t("X0502K.REMEMBER.ALICE.PC.X05KKARA.MEMORY") }}
-						</app-dialogue-line>
-					</p>
-				</section>
-				<section aria-labelledby="reset-timeout">
-					<h2 id="reset-timeout">
-						<app-unlock-condition [unlockType]="UnlockType.Time">
-							{{ t(CommonTranslationKey.TooMuchTime) }}
-						</app-unlock-condition>
-					</h2>
-					<p>
-						<app-dialogue-line name="Luther">
-							{{
-								t(
-									"X0502K.RESET.GAMEOVER.PC.X05KLUTHER.NOMEMORY"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.RESET.GAMEOVER.PC.X05KZLATKO.NOMEMORY",
-									0,
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Alice">
-							{{
-								t(
-									"X0502K.RESET.GAMEOVER.PC.X05KALICE.NOMEMORY.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Zlatko">
-							{{
-								t(
-									"X0502K.RESET.GAMEOVER.PC.X05KZLATKO.NOMEMORY.3"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Alice">
-							{{
-								t(
-									"X0502K.RESET.GAMEOVER.PC.X05KALICE.NOMEMORY.2"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Zlatko">
-							{{
-								t(
-									"X0502K.RESET.GAMEOVER.PC.X05KZLATKO.NOMEMORY.4"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Alice">
-							{{
-								t(
-									"X0502K.RESET.GAMEOVER.VO.X05KALICE.NOMEMORY01"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-				</section>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Kara wasn't reset - Search house for Alice</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Zlatko">
-						{{
-							translationService.translateObject(
-								"X0502K.WORKSHOP.LUTHER.PC.X05KZLATKO.CALL"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Luther">
-						{{
-							t(
-								"X0502K.WORKSHOP.LUTHER.PC.X05KLUTHER.BRINGTORSO.1"
-							)
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Zlatko">
-						{{
-							t("X0502K.WORKSHOP.LUTHER.PC.X05KZLATKO.BRINGTORSO")
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Luther">
-						{{
-							translationService.translateObject(
-								"X0502K.WORKSHOP.LUTHER.PC.X05KLUTHER.BRINGTORSO",
-								1
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
 
-				<section aria-labelledby="luther-hallway">
-					<h2 id="luther-hallway">
-						Looking at Luther in the hallway
-					</h2>
-					<p>
-						<app-dialogue-line name="Luther">
-							{{
-								translationService.translateObject(
-									"X0502K.CORRIDOR.LUTHERSTANDBY.PC.X05KLUTHER.SORRY"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</section>
-				<section aria-labelledby="bathtub">
-					<h2 id="bathtub">See android in bathtub</h2>
-					<p>
-						<app-dialogue-line name="Android">
-							{{
-								translationService.translateObject(
-									"X0502K.BATHROOM.BORING.FA.X05KANDROIDBATH.START"
-								) | async
-							}}
-							{{
-								translationService.translateObject(
-									"X0502K.BATHROOM.BORING.FA.X05KANDROIDBATH.END"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</section>
+					<section aria-labelledby="luther-hallway">
+						<h2 id="luther-hallway">
+							Looking at Luther in the hallway
+						</h2>
+						<p>
+							<app-dialogue-line name="Luther">
+								{{
+									translationService.translateObject(
+										"X0502K.CORRIDOR.LUTHERSTANDBY.PC.X05KLUTHER.SORRY"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</section>
+					<section aria-labelledby="bathtub">
+						<h2 id="bathtub">See android in bathtub</h2>
+						<p>
+							<app-dialogue-line name="Android">
+								{{
+									translationService.translateObject(
+										"X0502K.BATHROOM.BORING.FA.X05KANDROIDBATH.START"
+									) | async
+								}}
+								{{
+									translationService.translateObject(
+										"X0502K.BATHROOM.BORING.FA.X05KANDROIDBATH.END"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</section>
 
-				<section aria-labelledby="bathtub-talk">
-					<h2 id="bathtub-talk">
-						Talk to the android in the bathtub
-					</h2>
-					<p>
-						<app-dialogue-line name="Android">
-							{{
-								translationService.translateObject(
-									"X0502K.BATHROOM.THREAT.FA.X05KANDROIDBATH.WHAT"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
+					<section aria-labelledby="bathtub-talk">
+						<h2 id="bathtub-talk">
+							Talk to the android in the bathtub
+						</h2>
+						<p>
+							<app-dialogue-line name="Android">
+								{{
+									translationService.translateObject(
+										"X0502K.BATHROOM.THREAT.FA.X05KANDROIDBATH.WHAT"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
 
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0502K.BATHROOM.THREAT.PC.CHOICEGROUP01.SHUTDOWN'
-								)
-							"
-						>
-							<p>&oslash;</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0502K.BATHROOM.THREAT.PC.CHOICEGROUP01.ALICE'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Kara">
-									{{
-										translationService.translateObject(
-											"X0502K.BATHROOM.THREAT.PC.X05KKARA.ALICE"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Android">
-									{{
-										t(
-											"X0502K.BATHROOM.THREAT.FA.X05KANDROIDBATH.ALICEAND"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0502K.BATHROOM.THREAT.PC.CHOICEGROUP01.DEAL'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Kara">
-									{{
-										t(
-											"X0502K.BATHROOM.THREAT.PC.X05KKARA.DEAL"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Android">
-									{{
-										translationService.translateObject(
-											"X0502K.BATHROOM.THREAT.FA.X05KANDROIDBATH.DEALAND"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0502K.BATHROOM.THREAT.PC.CHOICEGROUP01.SPARE'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Kara">
-									{{
-										translationService.translateObject(
-											"X0502K.BATHROOM.THREAT.PC.X05KKARA.SPARE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-				</section>
-				<section aria-labelledby="tv">
-					<h2 id="tv">
-						<app-unlock-condition [unlockType]="UnlockType.Tv">
-							{{ t(CommonTranslationKey.WatchTv) }}
-						</app-unlock-condition>
-					</h2>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>
-								Connor ran after Kara in
-								<a [routerLink]="['/chapters', 13]"
-									>On The Run</a
-								>
-							</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-relation
-									[name]="RelationName.PublicOpinion"
-									[type]="RelationType.SmallDown"
-								></app-relation>
-								<app-dialogue-line
-									name="Channel 16 - Michael Webb"
-								>
-									{{
-										translationService.translateObject(
-											"X0502K.TV.NEWS.PC.X05KWEBB.HIGHWAYNEWS"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>
-								Kara robbed the supermarket in
-								<a [routerLink]="['/chapters', 13]"
-									>On The Run</a
-								>, in her android uniform
-							</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-relation
-									[name]="RelationName.PublicOpinion"
-									[type]="RelationType.SmallDown"
-								></app-relation>
-								<app-dialogue-line
-									name="Channel 16 - Michael Webb"
-								>
-									{{
-										translationService.translateObject(
-											"X0502K.TV.NEWS.PC.X05KWEBB.SUPERMARKETROBBER01"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>
-								Kara robbed the supermarket in
-								<a [routerLink]="['/chapters', 13]"
-									>On The Run</a
-								>, in stolen clothes
-							</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line
-									name="Channel 16 - Michael Webb"
-								>
-									{{
-										translationService.translateObject(
-											"X0502K.TV.NEWS.PC.X05KWEBB.SUPERMARKETROBBER02"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-				</section>
-				<section aria-labelledby="alice-timeout">
-					<h2 id="alice-timeout">
-						<app-unlock-condition [unlockType]="UnlockType.Time">
-							Don't find Alice in time
-						</app-unlock-condition>
-					</h2>
-					<p>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.BIGROOM.GAMEOVER.PC.X05KZLATKO.DISMANTLED"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Luther">
-							{{
-								t(
-									"X0502K.RESET.GAMEOVER.PC.X05KLUTHER.NOMEMORY"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.RESET.GAMEOVER.PC.X05KZLATKO.NOMEMORY",
-									0,
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Alice">
-							{{
-								t(
-									"X0502K.RESET.GAMEOVER.PC.X05KALICE.NOMEMORY.2"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Zlatko">
-							{{
-								t(
-									"X0502K.RESET.GAMEOVER.PC.X05KZLATKO.NOMEMORY.4"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Alice">
-							{{
-								t(
-									"X0502K.RESET.GAMEOVER.PC.X05KALICE.NOMEMORY.2"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-				</section>
-			</div>
-		</app-conditioned-content>
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0502K.BATHROOM.THREAT.PC.CHOICEGROUP01.SHUTDOWN'
+									)
+								"
+							>
+								<p>&oslash;</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0502K.BATHROOM.THREAT.PC.CHOICEGROUP01.ALICE'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Kara">
+										{{
+											translationService.translateObject(
+												"X0502K.BATHROOM.THREAT.PC.X05KKARA.ALICE"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Android">
+										{{
+											t(
+												"X0502K.BATHROOM.THREAT.FA.X05KANDROIDBATH.ALICEAND"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0502K.BATHROOM.THREAT.PC.CHOICEGROUP01.DEAL'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Kara">
+										{{
+											t(
+												"X0502K.BATHROOM.THREAT.PC.X05KKARA.DEAL"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Android">
+										{{
+											translationService.translateObject(
+												"X0502K.BATHROOM.THREAT.FA.X05KANDROIDBATH.DEALAND"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0502K.BATHROOM.THREAT.PC.CHOICEGROUP01.SPARE'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Kara">
+										{{
+											translationService.translateObject(
+												"X0502K.BATHROOM.THREAT.PC.X05KKARA.SPARE"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+					</section>
+					<section aria-labelledby="tv">
+						<h2 id="tv">
+							<app-unlock-condition [unlockType]="UnlockType.Tv">
+								{{ t(CommonTranslationKey.WatchTv) }}
+							</app-unlock-condition>
+						</h2>
+
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										Connor ran after Kara in
+										<a [routerLink]="['/chapters', 13]"
+											>On The Run</a
+										>
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-relation
+											[name]="RelationName.PublicOpinion"
+											[type]="RelationType.SmallDown"
+										></app-relation>
+										<app-dialogue-line
+											name="Channel 16 - Michael Webb"
+										>
+											{{
+												translationService.translateObject(
+													"X0502K.TV.NEWS.PC.X05KWEBB.HIGHWAYNEWS"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										Kara robbed the supermarket in
+										<a [routerLink]="['/chapters', 13]"
+											>On The Run</a
+										>, in her android uniform
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-relation
+											[name]="RelationName.PublicOpinion"
+											[type]="RelationType.SmallDown"
+										></app-relation>
+										<app-dialogue-line
+											name="Channel 16 - Michael Webb"
+										>
+											{{
+												translationService.translateObject(
+													"X0502K.TV.NEWS.PC.X05KWEBB.SUPERMARKETROBBER01"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										Kara robbed the supermarket in
+										<a [routerLink]="['/chapters', 13]"
+											>On The Run</a
+										>, in stolen clothes
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line
+											name="Channel 16 - Michael Webb"
+										>
+											{{
+												translationService.translateObject(
+													"X0502K.TV.NEWS.PC.X05KWEBB.SUPERMARKETROBBER02"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</section>
+					<section aria-labelledby="alice-timeout">
+						<h2 id="alice-timeout">
+							<app-unlock-condition
+								[unlockType]="UnlockType.Time"
+							>
+								Don't find Alice in time
+							</app-unlock-condition>
+						</h2>
+						<p>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.BIGROOM.GAMEOVER.PC.X05KZLATKO.DISMANTLED"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Luther">
+								{{
+									t(
+										"X0502K.RESET.GAMEOVER.PC.X05KLUTHER.NOMEMORY"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.RESET.GAMEOVER.PC.X05KZLATKO.NOMEMORY",
+										0,
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Alice">
+								{{
+									t(
+										"X0502K.RESET.GAMEOVER.PC.X05KALICE.NOMEMORY.2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									t(
+										"X0502K.RESET.GAMEOVER.PC.X05KZLATKO.NOMEMORY.4"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Alice">
+								{{
+									t(
+										"X0502K.RESET.GAMEOVER.PC.X05KALICE.NOMEMORY.2"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</section>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<section aria-labelledby="alice-found">
 			<h2 id="alice-found">Find Alice</h2>
@@ -920,171 +949,189 @@
 					}}
 				</app-dialogue-line>
 			</p>
-			<app-conditioned-content>
-				<div class="condition"><p>Set fire to the house</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Kara">
-							{{
-								t("X0502K.BIGROOM.PUTFIRE.FA.X05KKARA.PUTFIRE")
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.BIGROOM.FIRE.PC.X05KZLATKO.FIRE"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition"><p>Hide</p></div>
-				<div class="content">
-					<h3 id="hide-main-room">Hide in the main room</h3>
-					<p>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.BIGROOM.LUTHER.VO.X05KZLATKO.LOOK"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Luther">
-							{{ t("X0502K.BIGROOM.LUTHER.FA.X05KLUTHER.LOOK") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Kara">
-							{{
-								t(
-									"X0502K.BIGROOM.HURRY.FA.X05KKARA.BIGROOMAFTERHIDE"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
 
-					<h3 id="hide-bedroom">Hide in the bedroom</h3>
-					<p>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.BEDROOM.ZLATKOGETSNEARER.VO.X05KZLATKO.APPROACH"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.BEDROOM.UPSET.PC.X05KZLATKO.UPSET"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Set fire to the house</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0502K.BIGROOM.PUTFIRE.FA.X05KKARA.PUTFIRE"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.BIGROOM.FIRE.PC.X05KZLATKO.FIRE"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition"><p>Hide</p></div>
+					<div class="content">
+						<h3 id="hide-main-room">Hide in the main room</h3>
+						<p>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.BIGROOM.LUTHER.VO.X05KZLATKO.LOOK"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Luther">
+								{{
+									t(
+										"X0502K.BIGROOM.LUTHER.FA.X05KLUTHER.LOOK"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0502K.BIGROOM.HURRY.FA.X05KKARA.BIGROOMAFTERHIDE"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
 
-					<h3 id="hide-bathroom">Go in the bathroom</h3>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Saw the android while searching for Alice</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Android">
-									{{
-										translationService.translateObject(
-											"X0502K.BATHROOM.SNEAK.FA.X05KANDROIDBATH.SNEAK"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Didn't see the android</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Android">
-									{{
-										translationService.translateObject(
-											"X0502K.BATHROOM.SNEAK.FA.X05KANDROIDBATH.ANDROIDNOTSEEN"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-					<p>
-						<app-dialogue-line name="Android">
-							{{
-								translationService.translateObject(
-									"X0502K.BATHROOM.SNEAK.FA.X05KANDROIDBATH.LOOP"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
+						<h3 id="hide-bedroom">Hide in the bedroom</h3>
+						<p>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.BEDROOM.ZLATKOGETSNEARER.VO.X05KZLATKO.APPROACH"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.BEDROOM.UPSET.PC.X05KZLATKO.UPSET"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
 
-					<h3 id="hide-storage-room">
-						Sneak through the storage room
-					</h3>
-					<p>
-						<app-dialogue-line name="Kara">
-							{{
-								translationService.translateObject(
-									"X0502K.STOCKROOM.AFRAID.PC.X05KKARA.AFRAID"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.STOCKROOM.CAT.FA.X05KZLATKO.CAT"
-								) | async
-							}}
-							{{
-								translationService.translateObject(
-									"X0502K.STOCKROOM.CAT.FA.X05KZLATKO.LAMP"
-								) | async
-							}}
-							{{
-								translationService.translateObject(
-									"X0502K.STOCKROOM.CHASING.FA.X05KZLATKO.CHASING"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
+						<h3 id="hide-bathroom">Go in the bathroom</h3>
 
-					<h3 id="spotted">Get spotted</h3>
-					<p>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.CHASE.SPARELINES.FA.X05KZLATKO.DONTRUN"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Zlatko">
-							{{
-								t(
-									"X0502K.CHASE.SPARELINES.FA.X05KZLATKO.OTHERSIDE"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Zlatko">
-							{{
-								t("X0502K.CHASE.SPARELINES.FA.X05KZLATKO.HERE")
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.CHASE.SPARELINES.FA.X05KZLATKO.CATCHEM"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										Saw the android while searching for
+										Alice
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Android">
+											{{
+												translationService.translateObject(
+													"X0502K.BATHROOM.SNEAK.FA.X05KANDROIDBATH.SNEAK"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Didn't see the android</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Android">
+											{{
+												translationService.translateObject(
+													"X0502K.BATHROOM.SNEAK.FA.X05KANDROIDBATH.ANDROIDNOTSEEN"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+
+						<p>
+							<app-dialogue-line name="Android">
+								{{
+									translationService.translateObject(
+										"X0502K.BATHROOM.SNEAK.FA.X05KANDROIDBATH.LOOP"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<h3 id="hide-storage-room">
+							Sneak through the storage room
+						</h3>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									translationService.translateObject(
+										"X0502K.STOCKROOM.AFRAID.PC.X05KKARA.AFRAID"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.STOCKROOM.CAT.FA.X05KZLATKO.CAT"
+									) | async
+								}}
+								{{
+									translationService.translateObject(
+										"X0502K.STOCKROOM.CAT.FA.X05KZLATKO.LAMP"
+									) | async
+								}}
+								{{
+									translationService.translateObject(
+										"X0502K.STOCKROOM.CHASING.FA.X05KZLATKO.CHASING"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<h3 id="spotted">Get spotted</h3>
+						<p>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.CHASE.SPARELINES.FA.X05KZLATKO.DONTRUN"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									t(
+										"X0502K.CHASE.SPARELINES.FA.X05KZLATKO.OTHERSIDE"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									t(
+										"X0502K.CHASE.SPARELINES.FA.X05KZLATKO.HERE"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.CHASE.SPARELINES.FA.X05KZLATKO.CATCHEM"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="house-outside">
@@ -1130,36 +1177,40 @@
 					}}
 				</app-dialogue-line>
 			</p>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Freed the androids in the basement</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.BACKYARD.ENDING.PC.X05KZLATKO.MOSNTERS"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition"><p>Didn't free the androids</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Zlatko">
-							{{
-								translationService.translateObject(
-									"X0502K.BACKYARD.ENDING.PC.X05KZLATKO.LUTHERHELPS"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Freed the androids in the basement</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.BACKYARD.ENDING.PC.X05KZLATKO.MOSNTERS"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition"><p>Didn't free the androids</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Zlatko">
+								{{
+									translationService.translateObject(
+										"X0502K.BACKYARD.ENDING.PC.X05KZLATKO.LUTHERHELPS"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
 			<p>
 				<app-dialogue-line name="Luther">
 					{{

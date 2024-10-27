@@ -21,6 +21,7 @@ import { CommonTranslationKey } from '../../../../shared/utils/common-translatio
 import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -38,6 +39,7 @@ import { ChapterTocService } from '../../../../shared/services/chapter-toc.servi
 		TranslocoModule,
 		ObservationComponent,
 		ObservationItemComponent,
+		ConditionGroupComponent,
 	],
 	templateUrl: './capitol-park-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

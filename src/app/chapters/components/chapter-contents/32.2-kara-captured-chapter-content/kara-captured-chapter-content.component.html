@@ -89,28 +89,30 @@
 			</app-dialogue-line>
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>
-					Not putting hands on Kara's head fast enough: Kara gets hit
-					by the soldier
-				</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Alice">
-						{{
-							translationService.translateObject(
-								"X0911K.CAMP.HURRY.FA.X09KALICE.KARA"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Soldier">
-						{{ t("X0911K.CAMP.HURRY.VO.X09KSWATM01.OBEY") }}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Not putting hands on Kara's head fast enough: Kara gets
+						hit by the soldier
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Alice">
+							{{
+								translationService.translateObject(
+									"X0911K.CAMP.HURRY.FA.X09KALICE.KARA"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Soldier">
+							{{ t("X0911K.CAMP.HURRY.VO.X09KSWATM01.OBEY") }}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<p>
 			<app-dialogue-line name="Soldier">
@@ -118,18 +120,22 @@
 			</app-dialogue-line>
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Not lining up</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Soldier">
-						{{ t("X0911K.CAMP.ORDER.VO.X09KSWATM02.WARNING02") }}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Not lining up</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Soldier">
+							{{
+								t("X0911K.CAMP.ORDER.VO.X09KSWATM02.WARNING02")
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<p>
 			<app-dialogue-line name="Soldier">
@@ -269,20 +275,24 @@
 			</app-dialogue-line>
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Taking too long going in the gate</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Soldier">
-						{{
-							t("X0914K.STEALTH.ESCORTEDAND.VO.X09KSWATM14.GETON")
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Taking too long going in the gate</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Soldier">
+							{{
+								t(
+									"X0914K.STEALTH.ESCORTEDAND.VO.X09KSWATM14.GETON"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<p>
 			<app-dialogue-line name="Soldier">
@@ -335,20 +345,24 @@
 			</app-dialogue-line>
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Taking too long going out of the gate</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Soldier">
-						{{
-							t("X0914K.STEALTH.ESCORTEDAND.VO.X09KSWATM13.QUICK")
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Taking too long going out of the gate</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Soldier">
+							{{
+								t(
+									"X0914K.STEALTH.ESCORTEDAND.VO.X09KSWATM13.QUICK"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<p>
 			<app-dialogue-line name="Soldier">
@@ -871,106 +885,116 @@
 			</p>
 		</section>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>
-					Talked to the two Jerry (and saw Alice) - Kara goes with
-					Luther
-				</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Soldier">
-						{{
-							translationService.translateObject(
-								"X0912K.CORRAL.LUTHER.VO.X09KSWATM05.YOUTOOSOLDIER"
-							) | async
-						}}
-						{{
-							t(
-								"X0912K.CORRAL.LUTHER.VO.X09KSWATM05.THROUGHGATESOLDIER"
-							)
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Kara">
-						{{ t("X0912K.CORRAL.LUTHER.PC.X09KKARA.THROUGHGATE") }}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition"><p>Didn't see Alice</p></div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Kara">
-						{{ t("X0912K.CORRAL.LUTHER.PC.X09KKARA.SEPARATED") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Luther">
-						{{
-							translationService.translateObject(
-								"X0912K.CORRAL.LUTHER.PC.X09KLUTHER.SEPARATED"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Soldier">
-						{{
-							translationService.translateObject(
-								"X0912K.CORRAL.LUTHER.VO.X09KSWATM05.YOUTOOSOLDIER"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Kara">
-						{{ t("X0912K.CORRAL.LUTHER.PC.X09KKARA.YOUTOO") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Luther">
-						{{ t("X0912K.CORRAL.LUTHER.PC.X09KLUTHER.YOUTOO") }}
-					</app-dialogue-line>
-				</p>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Talked to the two Jerry (and saw Alice) - Kara goes with
+						Luther
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Soldier">
+							{{
+								translationService.translateObject(
+									"X0912K.CORRAL.LUTHER.VO.X09KSWATM05.YOUTOOSOLDIER"
+								) | async
+							}}
+							{{
+								t(
+									"X0912K.CORRAL.LUTHER.VO.X09KSWATM05.THROUGHGATESOLDIER"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0912K.CORRAL.LUTHER.PC.X09KKARA.THROUGHGATE"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition"><p>Didn't see Alice</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t("X0912K.CORRAL.LUTHER.PC.X09KKARA.SEPARATED")
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								translationService.translateObject(
+									"X0912K.CORRAL.LUTHER.PC.X09KLUTHER.SEPARATED"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Soldier">
+							{{
+								translationService.translateObject(
+									"X0912K.CORRAL.LUTHER.VO.X09KSWATM05.YOUTOOSOLDIER"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{ t("X0912K.CORRAL.LUTHER.PC.X09KKARA.YOUTOO") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{ t("X0912K.CORRAL.LUTHER.PC.X09KLUTHER.YOUTOO") }}
+						</app-dialogue-line>
+					</p>
 
-				<app-choice-group>
-					<app-choice-item
-						[choiceLabel]="
-							t('X0912K.CORRAL.LUTHER.PC.ACTCHOICE.INTERVENE')
-						"
-					>
-						<p>
-							<app-dialogue-line name="Kara">
-								{{
-									t(
-										"X0912K.CORRAL.LUTHER.FA.X09KKARA.INTERVENE"
-									)
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Soldier">
-								{{
-									translationService.translateObject(
-										"X0912K.CORRAL.LUTHER.VO.X09KSWATM05.INTERVENESOLDIER"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-					<app-choice-item
-						[choiceLabel]="
-							t('X0912K.CORRAL.LUTHER.PC.ACTCHOICE.INTERVENENOT')
-						"
-					>
-						<p>&oslash;</p>
-					</app-choice-item>
-				</app-choice-group>
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0912K.CORRAL.LUTHER.PC.ACTCHOICE.INTERVENE')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Kara">
+									{{
+										t(
+											"X0912K.CORRAL.LUTHER.FA.X09KKARA.INTERVENE"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Soldier">
+									{{
+										translationService.translateObject(
+											"X0912K.CORRAL.LUTHER.VO.X09KSWATM05.INTERVENESOLDIER"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0912K.CORRAL.LUTHER.PC.ACTCHOICE.INTERVENENOT'
+								)
+							"
+						>
+							<p>&oslash;</p>
+						</app-choice-item>
+					</app-choice-group>
 
-				<h2 id="join-alice">Join Alice</h2>
-				<p>
-					<app-dialogue-line name="Soldier">
-						{{
-							translationService.translateObject(
-								"X0912K.CORRAL.GATE.VO.X09KSWATM05.OPENSOLDIER"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+					<h2 id="join-alice">Join Alice</h2>
+					<p>
+						<app-dialogue-line name="Soldier">
+							{{
+								translationService.translateObject(
+									"X0912K.CORRAL.GATE.VO.X09KSWATM05.OPENSOLDIER"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 	</section>
 
 	<section aria-labelledby="join-line">
@@ -978,34 +1002,38 @@
 		<!-- TODO: Add sections -->
 		<p>{{ t("GUI.MENU.TIME.04A.KC03") }}</p>
 
-		<app-conditioned-content>
-			<div class="condition"><p>Markus is leading a revolution</p></div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Android">
-						{{
-							translationService.translateObject(
-								"X0913K.LINE.INTRO.PC.X09KANDMLINE01.MARKUS"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Markus is leading a revolution</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Android">
+							{{
+								translationService.translateObject(
+									"X0913K.LINE.INTRO.PC.X09KANDMLINE01.MARKUS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
 
-				<h2 id="talk-behind">Talk to android behind Kara</h2>
-				<p>
-					<app-dialogue-line name="Kara">
-						{{ t("X0913K.LINE.ANDROID.PC.X09KKARA.MARKUS") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Android">
-						{{
-							translationService.translateObject(
-								"X0913K.LINE.ANDROID.PC.X09KANDMLINE01.MARKUSAND"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+					<h2 id="talk-behind">Talk to android behind Kara</h2>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0913K.LINE.ANDROID.PC.X09KKARA.MARKUS") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Android">
+							{{
+								translationService.translateObject(
+									"X0913K.LINE.ANDROID.PC.X09KANDMLINE01.MARKUSAND"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<p>
 			<app-dialogue-line name="Soldier">
@@ -1479,7 +1507,6 @@
 			</app-choice-item>
 		</app-choice-group>
 
-		<!-- TODO: Put section -->
 		<h2 id="join-alice-success">Join Alice</h2>
 		<p>
 			<app-dialogue-line name="Alice">
@@ -1539,96 +1566,104 @@
 			</app-dialogue-line>
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition"><p>Escape through the fence</p></div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Soldier">
-						{{ t("X0913K.ESCAPE.BARBEDWIRE.VO.X09KSWATM09.STOP") }}
-					</app-dialogue-line>
-				</p>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition"><p>Escape through the fence</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Soldier">
+							{{
+								t(
+									"X0913K.ESCAPE.BARBEDWIRE.VO.X09KSWATM09.STOP"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
 
-				<app-choice-group>
-					<app-choice-item
-						[choiceLabel]="
-							t('X0913K.ESCAPE.BARBEDWIRE.PC.CATCHED.FLEE')
-						"
-					>
-						<p>
-							<app-dialogue-line name="Alice">
-								{{
-									t(
-										"X0913K.ESCAPE.BARBEDWIRE.FA.X09KLUTHER.FIGHT"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-					<app-choice-item
-						[choiceLabel]="
-							t('X0913K.ESCAPE.BARBEDWIRE.PC.CATCHED.ATTACK')
-						"
-					>
-						<p>
-							<app-dialogue-line name="Kara">
-								{{
-									t(
-										"X0913K.ESCAPE.BARBEDWIRE.FA.X09KKARA.ATTACK"
-									)
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Alice">
-								{{
-									t(
-										"X0913K.ESCAPE.BARBEDWIRE.FA.X09KALICE.ATTACKALICE"
-									)
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Luther">
-								{{
-									t(
-										"X0913K.ESCAPE.BARBEDWIRE.FA.X09KLUTHER.FIGHT"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0913K.ESCAPE.BARBEDWIRE.PC.CATCHED.FLEE')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Alice">
+									{{
+										t(
+											"X0913K.ESCAPE.BARBEDWIRE.FA.X09KLUTHER.FIGHT"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0913K.ESCAPE.BARBEDWIRE.PC.CATCHED.ATTACK')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Kara">
+									{{
+										t(
+											"X0913K.ESCAPE.BARBEDWIRE.FA.X09KKARA.ATTACK"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Alice">
+									{{
+										t(
+											"X0913K.ESCAPE.BARBEDWIRE.FA.X09KALICE.ATTACKALICE"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Luther">
+									{{
+										t(
+											"X0913K.ESCAPE.BARBEDWIRE.FA.X09KLUTHER.FIGHT"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
 
-						<app-conditioned-content>
-							<div class="condition">
-								<p>
-									Fail the fight and Ralph is still alive :
-									Ralph saves Kara
-								</p>
-							</div>
-							<div class="content">
-								<p>
-									<app-dialogue-line name="Ralph">
-										{{
-											t(
-												"X0913K.ESCAPE.LASTCHANCE.PC.X09KRALPH.RUNRALPH"
-											)
-										}}
-									</app-dialogue-line>
-								</p>
-							</div>
-						</app-conditioned-content>
-					</app-choice-item>
-					<app-choice-item
-						[choiceLabel]="t(CommonTranslationKey.TooMuchTime)"
-					>
-						<p>
-							<app-dialogue-line name="Alice">
-								{{
-									translationService.translateObject(
-										"X0913K.ESCAPE.BARBEDWIRE.FA.X09KALICE.MUM"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-				</app-choice-group>
-			</div>
-		</app-conditioned-content>
+							<app-condition-group>
+								<app-conditioned-content>
+									<div class="condition">
+										<p>
+											Fail the fight and Ralph is still
+											alive : Ralph saves Kara
+										</p>
+									</div>
+									<div class="content">
+										<p>
+											<app-dialogue-line name="Ralph">
+												{{
+													t(
+														"X0913K.ESCAPE.LASTCHANCE.PC.X09KRALPH.RUNRALPH"
+													)
+												}}
+											</app-dialogue-line>
+										</p>
+									</div>
+								</app-conditioned-content>
+							</app-condition-group>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="t(CommonTranslationKey.TooMuchTime)"
+						>
+							<p>
+								<app-dialogue-line name="Alice">
+									{{
+										translationService.translateObject(
+											"X0913K.ESCAPE.BARBEDWIRE.FA.X09KALICE.MUM"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 	</section>
 
 	<section aria-labelledby="escape-fail">
@@ -1636,186 +1671,194 @@
 
 		<p>{{ t("GUI.MENU.TIME.04A.KC04") }}</p>
 
-		<app-conditioned-content>
-			<div class="condition"><p>Kara and Alice are together</p></div>
-			<div class="content">
-				<app-choice-group>
-					<app-choice-item
-						[choiceLabel]="
-							t('X0913K.ENDLINE.NOWAYOUT.PC.CHOICE01.BRAVE')
-						"
-					>
-						<p>
-							<app-dialogue-line name="Kara">
-								{{
-									translationService.translateObject(
-										"X0913K.ENDLINE.NOWAYOUT.PC.X09KKARA.BRAVE"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-					<app-choice-item
-						[choiceLabel]="
-							t('X0913K.ENDLINE.NOWAYOUT.PC.CHOICE01.PRIDE')
-						"
-					>
-						<p>
-							<app-dialogue-line name="Kara">
-								{{
-									translationService.translateObject(
-										"X0913K.ENDLINE.NOWAYOUT.PC.X09KKARA.PRIDE"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-					<app-choice-item
-						[choiceLabel]="
-							t('X0913K.ENDLINE.NOWAYOUT.PC.CHOICE01.TOGETHER')
-						"
-					>
-						<p>
-							<app-dialogue-line name="Kara">
-								{{
-									translationService.translateObject(
-										"X0913K.ENDLINE.NOWAYOUT.PC.X09KKARA.TOGETHER"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-					<app-choice-item
-						[choiceLabel]="
-							t('X0913K.ENDLINE.NOWAYOUT.PC.CHOICE01.EMOTION')
-						"
-					>
-						<p>
-							<app-dialogue-line name="Kara">
-								{{
-									translationService.translateObject(
-										"X0913K.ENDLINE.NOWAYOUT.PC.X09KKARA.EMOTION"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-				</app-choice-group>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition"><p>Kara and Alice are together</p></div>
+				<div class="content">
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0913K.ENDLINE.NOWAYOUT.PC.CHOICE01.BRAVE')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Kara">
+									{{
+										translationService.translateObject(
+											"X0913K.ENDLINE.NOWAYOUT.PC.X09KKARA.BRAVE"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0913K.ENDLINE.NOWAYOUT.PC.CHOICE01.PRIDE')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Kara">
+									{{
+										translationService.translateObject(
+											"X0913K.ENDLINE.NOWAYOUT.PC.X09KKARA.PRIDE"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0913K.ENDLINE.NOWAYOUT.PC.CHOICE01.TOGETHER'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Kara">
+									{{
+										translationService.translateObject(
+											"X0913K.ENDLINE.NOWAYOUT.PC.X09KKARA.TOGETHER"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0913K.ENDLINE.NOWAYOUT.PC.CHOICE01.EMOTION')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Kara">
+									{{
+										translationService.translateObject(
+											"X0913K.ENDLINE.NOWAYOUT.PC.X09KKARA.EMOTION"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
 
-				<p>
-					<app-dialogue-line name="Soldier">
-						{{
-							t(
-								"X0913K.ENDLINE.NOWAYOUT.VO.X09KSWATM01.LASTHUGSOLDIER"
-							)
-						}}
-					</app-dialogue-line>
-				</p>
+					<p>
+						<app-dialogue-line name="Soldier">
+							{{
+								t(
+									"X0913K.ENDLINE.NOWAYOUT.VO.X09KSWATM01.LASTHUGSOLDIER"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
 
-				<app-conditioned-content>
-					<div class="condition">
-						<p>
-							Markus' revolution succeeded : Kara and Alice are
-							saved
-						</p>
-					</div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Soldier">
-								{{
-									t(
-										"X0913K.ENDLINE.NOWAYOUT.VO.X09KSWATM04.REVOLUTION"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-				<app-conditioned-content>
-					<div class="condition">
-						<p>Kara and Alice are not saved</p>
-					</div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Alice">
-								{{
-									t(
-										"X0913K.ENDLINE.NOWAYOUT.FA.X09KALICE.LASTHUGALICE"
-									)
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Kara">
-								{{
-									t(
-										"X0913K.ENDLINE.NOWAYOUT.PC.X09KKARA.LASTHUG"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition"><p>Kara and Alice are separated</p></div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Soldier">
-						{{
-							t(
-								"X0913K.DEATHCONTAINER.END.VO.X09KSWATM03.ALICEDEATH"
-							)
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Alice">
-						{{
-							translationService.translateObject(
-								"X0913K.DEATHCONTAINER.END.FA.X09KALICE.ALICEDEATH"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>
+									Markus' revolution succeeded : Kara and
+									Alice are saved
+								</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Soldier">
+										{{
+											t(
+												"X0913K.ENDLINE.NOWAYOUT.VO.X09KSWATM04.REVOLUTION"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Kara and Alice are not saved</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Alice">
+										{{
+											t(
+												"X0913K.ENDLINE.NOWAYOUT.FA.X09KALICE.LASTHUGALICE"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Kara">
+										{{
+											t(
+												"X0913K.ENDLINE.NOWAYOUT.PC.X09KKARA.LASTHUG"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition"><p>Kara and Alice are separated</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Soldier">
+							{{
+								t(
+									"X0913K.DEATHCONTAINER.END.VO.X09KSWATM03.ALICEDEATH"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Alice">
+							{{
+								translationService.translateObject(
+									"X0913K.DEATHCONTAINER.END.FA.X09KALICE.ALICEDEATH"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
 
-				<p>
-					<app-dialogue-line name="Soldier">
-						{{
-							t(
-								"X0913K.DEATHCONTAINER.END.VO.X09KSWATM03.ALICEDEATH"
-							)
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Kara">
-						{{
-							t(
-								"X0913K.DEATHCONTAINER.END.PC.X09KKARA.KARADEATHK"
-							)
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+					<p>
+						<app-dialogue-line name="Soldier">
+							{{
+								t(
+									"X0913K.DEATHCONTAINER.END.VO.X09KSWATM03.ALICEDEATH"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0913K.DEATHCONTAINER.END.PC.X09KKARA.KARADEATHK"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 	</section>
 
 	<section aria-labelledby="landfill">
 		<h1 id="landfill">Solid Waste Landfill</h1>
 		<p>{{ t("GUI.MENU.TIME.04A.KEP02") }}</p>
 
-		<app-conditioned-content>
-			<div class="condition"><p>Alice and Kara are alive</p></div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Kara">
-						{{ t("X2001A.JUNKYARD.END.PC.X20AKARA.LOVEYOU.1") }}
-						{{ t("X0913K.ESCAPE.ALICE.FA.X09KKARA.CALLING03") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Alice">
-						{{ t("X2001A.JUNKYARD.END.PC.X20AALICE.LOVEYOU") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Kara">
-						{{ t("X2001A.JUNKYARD.END.PC.X20AKARA.LOVEYOU.2") }}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition"><p>Alice and Kara are alive</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X2001A.JUNKYARD.END.PC.X20AKARA.LOVEYOU.1") }}
+							{{ t("X0913K.ESCAPE.ALICE.FA.X09KKARA.CALLING03") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Alice">
+							{{ t("X2001A.JUNKYARD.END.PC.X20AALICE.LOVEYOU") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{ t("X2001A.JUNKYARD.END.PC.X20AKARA.LOVEYOU.2") }}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 	</section>
 </ng-container>

@@ -15,6 +15,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { TranslationService } from '../../../../shared/services/translation.service';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -29,6 +30,7 @@ import { ChapterTocService } from '../../../../shared/services/chapter-toc.servi
 		ChoiceItemComponent,
 		MatDividerModule,
 		TranslocoModule,
+		ConditionGroupComponent,
 	],
 	templateUrl: './night-soul-connor-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

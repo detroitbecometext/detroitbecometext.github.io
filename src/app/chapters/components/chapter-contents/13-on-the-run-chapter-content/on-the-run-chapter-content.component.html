@@ -124,22 +124,25 @@
 					{{ t("X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.3") }}
 				</app-dialogue-line>
 			</p>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Kara and Alice reach the train station unnoticed</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0405K.CHASEV2.NOTNOTICED.PC.X04KHANK.LATER"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Kara and Alice reach the train station unnoticed</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0405K.CHASEV2.NOTNOTICED.PC.X04KHANK.LATER"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 	</section>
 
@@ -171,126 +174,131 @@
 					{{ t("X0402K.SQUAT.CONNOR.PC.X04KHANK.ROUND.2") }}
 				</app-dialogue-line>
 			</p>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						Kara stole wire cutters from the supermarket in
-						<a [routerLink]="['/chapters', 10]">Fugitives</a>
-					</p>
-				</div>
-				<div class="content">
-					<!-- TODO (V2): Check difference STEAL vs NOSTEAL clothes -->
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0402K.SQUAT.CONNOR.PC.X04KHANK.STEAL",
-									0,
-									2
-								) | async
-							}}
-							{{ t("X0402K.SQUAT.CONNOR.PC.X04KHANK.STEAL.4") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0402K.SQUAT.CONNOR.PC.X04KCONNOR.DIALCONNOR",
-									0,
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0402K.SQUAT.CONNOR.PC.X04KHANK.DIALCONNOR",
-									0,
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0402K.SQUAT.CONNOR.PC.X04KCONNOR.DIALCONNOR",
-									2,
-									6
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X0402K.SQUAT.CONNOR.PC.X04KHANK.DIALCONNOR.3"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								t(
-									"X0402K.SQUAT.CONNOR.PC.X04KCONNOR.DIALCONNOR.7"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Kara didn't steal the wire cutters</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY",
-									0,
-									3
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY",
-									3,
-									5
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.2"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY",
-									5
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.3"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Kara stole wire cutters from the supermarket in
+							<a [routerLink]="['/chapters', 10]">Fugitives</a>
+						</p>
+					</div>
+					<div class="content">
+						<!-- TODO (V2): Check difference STEAL vs NOSTEAL clothes -->
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0402K.SQUAT.CONNOR.PC.X04KHANK.STEAL",
+										0,
+										2
+									) | async
+								}}
+								{{
+									t("X0402K.SQUAT.CONNOR.PC.X04KHANK.STEAL.4")
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0402K.SQUAT.CONNOR.PC.X04KCONNOR.DIALCONNOR",
+										0,
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0402K.SQUAT.CONNOR.PC.X04KHANK.DIALCONNOR",
+										0,
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0402K.SQUAT.CONNOR.PC.X04KCONNOR.DIALCONNOR",
+										2,
+										6
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0402K.SQUAT.CONNOR.PC.X04KHANK.DIALCONNOR.3"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0402K.SQUAT.CONNOR.PC.X04KCONNOR.DIALCONNOR.7"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Kara didn't steal the wire cutters</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY",
+										0,
+										3
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY",
+										3,
+										5
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0404K.PARKING.CONNOR.PC.X04KCONNOR.NOTFARAWAY",
+										5
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0404K.PARKING.CONNOR.PC.X04KHANK.NOTFARAWAY.3"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="squat-ralph">
@@ -584,38 +592,41 @@
 						t('X0402K.SQUAT.COYPU.PC.CHOICEGROUP06.THREATEN')
 					"
 				>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>No gun : Kara takes a knife</p>
-						</div>
-						<div class="content">
-							<p>
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>No gun : Kara takes a knife</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Kara">
+										{{
+											t(
+												"X0402K.SQUAT.COYPU.PC.X04KKARA.THREATEN"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>
+									Kara has a gun : Kara threatens Ralph with
+									the gun
+								</p>
+							</div>
+							<div class="content">
 								<app-dialogue-line name="Kara">
 									{{
 										t(
-											"X0402K.SQUAT.COYPU.PC.X04KKARA.THREATEN"
+											"X0402K.SQUAT.COYPU.PC.X04KKARA.DRAWGUN"
 										)
 									}}
 								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-
-					<app-conditioned-content>
-						<div class="condition">
-							<p>
-								Kara has a gun : Kara threatens Ralph with the
-								gun
-							</p>
-						</div>
-						<div class="content">
-							<app-dialogue-line name="Kara">
-								{{
-									t("X0402K.SQUAT.COYPU.PC.X04KKARA.DRAWGUN")
-								}}
-							</app-dialogue-line>
-						</div>
-					</app-conditioned-content>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
 				</app-choice-item>
 				<app-choice-item
 					[choiceLabel]="
@@ -686,279 +697,307 @@
 				</app-dialogue-line>
 			</p>
 
-			<app-conditioned-content>
-				<div class="condition"><p>Kara was nice with Ralph</p></div>
-				<div class="content">
-					<app-observation label="Scan Ralph">
-						<app-observation-item
-							[title]="t('MENU.OBSERVATION.04K.MP.LED.TITLE')"
-							[subline1]="
-								t('MENU.OBSERVATION.04K.MP.LED.SUBLINE01')
-							"
-							[subline2]="
-								t('MENU.OBSERVATION.04K.MP.LED.SUBLINE02')
-							"
-						/>
-						<app-observation-item
-							[title]="t('MENU.OBSERVATION.04K.MP.RALPH.TITLE')"
-							[subline1]="
-								t('MENU.OBSERVATION.04K.MP.RALPH.SUBLINE01')
-							"
-							[subline2]="
-								t('MENU.OBSERVATION.04K.MP.RALPH.SUBLINE02')
-							"
-						/>
-						<app-observation-item
-							[title]="t('MENU.OBSERVATION.04K.MP.INJURY.TITLE')"
-							[subline1]="
-								t('MENU.OBSERVATION.04K.MP.INJURY.SUBLINE01')
-							"
-							[subline2]="
-								t('MENU.OBSERVATION.04K.MP.INJURY.SUBLINE02')
-							"
-						/>
-					</app-observation>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Kara was nice with Ralph</p></div>
+					<div class="content">
+						<app-observation label="Scan Ralph">
+							<app-observation-item
+								[title]="t('MENU.OBSERVATION.04K.MP.LED.TITLE')"
+								[subline1]="
+									t('MENU.OBSERVATION.04K.MP.LED.SUBLINE01')
+								"
+								[subline2]="
+									t('MENU.OBSERVATION.04K.MP.LED.SUBLINE02')
+								"
+							/>
+							<app-observation-item
+								[title]="
+									t('MENU.OBSERVATION.04K.MP.RALPH.TITLE')
+								"
+								[subline1]="
+									t('MENU.OBSERVATION.04K.MP.RALPH.SUBLINE01')
+								"
+								[subline2]="
+									t('MENU.OBSERVATION.04K.MP.RALPH.SUBLINE02')
+								"
+							/>
+							<app-observation-item
+								[title]="
+									t('MENU.OBSERVATION.04K.MP.INJURY.TITLE')
+								"
+								[subline1]="
+									t(
+										'MENU.OBSERVATION.04K.MP.INJURY.SUBLINE01'
+									)
+								"
+								[subline2]="
+									t(
+										'MENU.OBSERVATION.04K.MP.INJURY.SUBLINE02'
+									)
+								"
+							/>
+						</app-observation>
 
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.AX400'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.AX400"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Ralph">
-									{{
-										t(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.AX400R"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.DEVIANTS'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.DEVIANTS"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Ralph">
-									{{
-										translationService.translateObject(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.DEVIANTSR"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.REASSURE'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.REASSURE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.BLUEBLOOD'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.BLUEBLOOD"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Ralph">
-									{{
-										translationService.translateObject(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.BLUEBLOOD"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.AX400'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.AX400"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Ralph">
+										{{
+											t(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.AX400R"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.DEVIANTS'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.DEVIANTS"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Ralph">
+										{{
+											translationService.translateObject(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.DEVIANTSR"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.REASSURE'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.REASSURE"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.BLUEBLOOD'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.BLUEBLOOD"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Ralph">
+										{{
+											translationService.translateObject(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.BLUEBLOOD"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
 
-					<h3 id="squat-kara-found">Connor finds Kara</h3>
-					<p>
-						<app-dialogue-line name="Ralph">
-							{{ t("X0402K.SQUAT.KARAFOUND.PC.X04KRALPH.RUN") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{ t("X0402K.SQUAT.KARAFOUND.PC.X04CHANK.HANK") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								t("X0402K.SQUAT.KARAFOUND.PC.X04CCONNOR.CONNOR")
-							}}
-						</app-dialogue-line>
-						<span class="note">Leads to Connor pursues Kara.</span>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition"><p>Kara threatened Ralph</p></div>
-				<div class="content">
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.AX400'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.AX400"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.DEVIANTS'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.DEVIANTS"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.REASSURE'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.REASSURE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.BLUEBLOOD'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.BLUEBLOOD"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.PRESSURIZE'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.PRESSURIZE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
+						<h3 id="squat-kara-found">Connor finds Kara</h3>
+						<p>
+							<app-dialogue-line name="Ralph">
+								{{
+									t("X0402K.SQUAT.KARAFOUND.PC.X04KRALPH.RUN")
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t("X0402K.SQUAT.KARAFOUND.PC.X04CHANK.HANK")
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0402K.SQUAT.KARAFOUND.PC.X04CCONNOR.CONNOR"
+									)
+								}}
+							</app-dialogue-line>
+							<span class="note"
+								>Leads to
+								<a routerLink="./" fragment="pursuit"
+									>Connor pursues Kara</a
+								>.</span
+							>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition"><p>Kara threatened Ralph</p></div>
+					<div class="content">
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.AX400'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.AX400"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.DEVIANTS'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.DEVIANTS"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.REASSURE'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.REASSURE"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.BLUEBLOOD'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.BLUEBLOOD"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0402K.SQUAT.SPEAKRALPH.PC.CHOICEGROUP01.PRESSURIZE'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.PRESSURIZE"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
 
-					<p>
-						<app-dialogue-line name="Ralph">
-							{{
-								translationService.translateObject(
-									"X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.REPORTR",
-									0,
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								t(
-									"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.REPORTR"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Ralph">
-							{{
-								t(
-									"X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.REPORTR.3"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								t("X0402K.SQUAT.SPEAKRALPH.PC.X04KHANK.REPORT")
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								t(
-									"X0402K.SQUAT.SPEAKRALPH.PC.X04CCONNOR.REPORT"
-								)
-							}}
-						</app-dialogue-line>
-						<span class="note">Leads to Connor pursues Kara.</span>
-					</p>
-				</div>
-			</app-conditioned-content>
+						<p>
+							<app-dialogue-line name="Ralph">
+								{{
+									translationService.translateObject(
+										"X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.REPORTR",
+										0,
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0402K.SQUAT.SPEAKRALPH.PC.X04KCONNOR.REPORTR"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Ralph">
+								{{
+									t(
+										"X0402K.SQUAT.SPEAKRALPH.PC.X04KRALPH.REPORTR.3"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0402K.SQUAT.SPEAKRALPH.PC.X04KHANK.REPORT"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0402K.SQUAT.SPEAKRALPH.PC.X04CCONNOR.REPORT"
+									)
+								}}
+							</app-dialogue-line>
+							<span class="note"
+								>Leads to
+								<a routerLink="./" fragment="pursuit"
+									>Connor pursues Kara</a
+								>.</span
+							>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 
 			<h3 id="squat-upstairs">Going upstairs</h3>
 			<p>
@@ -975,7 +1014,6 @@
 			</p>
 
 			<app-unused-content>
-				<h3 id="squat-door">Going to the door (?)</h3>
 				<app-dialogue-line name="Connor">
 					{{ t("X0402K.SQUAT.EXPLORE.PC.X04KCONNOR.MAINDOOR") }}
 				</app-dialogue-line>
@@ -988,65 +1026,77 @@
 				</app-dialogue-line>
 			</app-unused-content>
 
-			<app-conditioned-content>
-				<div class="condition">
-					<h3 id="squat-timeout">
-						<app-unlock-condition [unlockType]="UnlockType.Time">
-							{{ t(CommonTranslationKey.TooMuchTime) }}
-						</app-unlock-condition>
-					</h3>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Hank">
-							{{ t("X0402K.SQUAT.EXPLORE.VO.X04KHANK.HANK") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{ t("X0402K.SQUAT.EXPLORE.FA.X04CCONNOR.COMING") }}
-						</app-dialogue-line>
-					</p>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<h3 id="squat-timeout">
+							<app-unlock-condition
+								[unlockType]="UnlockType.Time"
+							>
+								{{ t(CommonTranslationKey.TooMuchTime) }}
+							</app-unlock-condition>
+						</h3>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Hank">
+								{{ t("X0402K.SQUAT.EXPLORE.VO.X04KHANK.HANK") }}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0402K.SQUAT.EXPLORE.FA.X04CCONNOR.COMING"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
 
-					<h3 id="squat-timeout-again">Taking too much time again</h3>
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0402K.SQUAT.NOKARA.PC.X04KHANK.LEAVE",
-									0,
-									3
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0402K.SQUAT.NOKARA.PC.X04KCONNOR.LEAVE"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0402K.SQUAT.NOKARA.PC.X04KHANK.LEAVE",
-									3
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-					<p>
-						<app-dialogue-line name="Kara">
-							{{ t("X0402K.SQUAT.NOKARA.PC.X04KKARA.THANKS") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Ralph">
-							{{
-								translationService.translateObject(
-									"X0402K.SQUAT.NOKARA.PC.X04KRALPH.THANKS"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+						<h3 id="squat-timeout-again">
+							Taking too much time again
+						</h3>
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0402K.SQUAT.NOKARA.PC.X04KHANK.LEAVE",
+										0,
+										3
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0402K.SQUAT.NOKARA.PC.X04KCONNOR.LEAVE"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0402K.SQUAT.NOKARA.PC.X04KHANK.LEAVE",
+										3
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									t("X0402K.SQUAT.NOKARA.PC.X04KKARA.THANKS")
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Ralph">
+								{{
+									translationService.translateObject(
+										"X0402K.SQUAT.NOKARA.PC.X04KRALPH.THANKS"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 	</section>
 
@@ -1156,97 +1206,102 @@
 				{{ t(CommonTranslationKey.WatchTv) }}
 			</app-unlock-condition>
 		</h2>
-		<app-conditioned-content>
-			<div class="condition">
-				<p>
-					Todd was killed in
-					<a [routerLink]="['/chapters', 7]">Stormy Night</a>
-				</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-relation
-						[name]="RelationName.PublicOpinion"
-						[type]="RelationType.SmallDown"
-					></app-relation>
-					<app-dialogue-line name="Channel 16 - Joss Douglas">
-						{{
-							translationService.translateObject(
-								"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDDEAD01"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
 
-				<app-conditioned-content>
-					<div class="condition"><p>Kara shot Todd</p></div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Alice">
-								{{
-									translationService.translateObject(
-										"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.KARAKILLEDTODD"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-				<app-conditioned-content>
-					<div class="condition"><p>Alice shot Todd</p></div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Alice">
-								{{
-									translationService.translateObject(
-										"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.ALICEKILLEDTODD"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition"><p>Todd is alive</p></div>
-			<div class="content">
-				<p>
-					<app-relation
-						[name]="RelationName.PublicOpinion"
-						[type]="RelationType.SmallDown"
-					></app-relation>
-					<app-dialogue-line name="Channel 16 - Joss Douglas">
-						{{
-							translationService.translateObject(
-								"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDALIVE01A"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Todd">
-						{{
-							translationService.translateObject(
-								"X0401K.TV.TODDONTV.PC.X04KDAD.TODDALIVE01T"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Channel 16 - Joss Douglas">
-						{{
-							translationService.translateObject(
-								"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDALIVE01B"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Alice">
-						{{
-							translationService.translateObject(
-								"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.TODDNOTKILLED"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Todd was killed in
+						<a [routerLink]="['/chapters', 7]">Stormy Night</a>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-relation
+							[name]="RelationName.PublicOpinion"
+							[type]="RelationType.SmallDown"
+						></app-relation>
+						<app-dialogue-line name="Channel 16 - Joss Douglas">
+							{{
+								translationService.translateObject(
+									"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDDEAD01"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition"><p>Kara shot Todd</p></div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Alice">
+										{{
+											translationService.translateObject(
+												"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.KARAKILLEDTODD"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition"><p>Alice shot Todd</p></div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Alice">
+										{{
+											translationService.translateObject(
+												"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.ALICEKILLEDTODD"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition"><p>Todd is alive</p></div>
+				<div class="content">
+					<p>
+						<app-relation
+							[name]="RelationName.PublicOpinion"
+							[type]="RelationType.SmallDown"
+						></app-relation>
+						<app-dialogue-line name="Channel 16 - Joss Douglas">
+							{{
+								translationService.translateObject(
+									"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDALIVE01A"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Todd">
+							{{
+								translationService.translateObject(
+									"X0401K.TV.TODDONTV.PC.X04KDAD.TODDALIVE01T"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Channel 16 - Joss Douglas">
+							{{
+								translationService.translateObject(
+									"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDALIVE01B"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Alice">
+							{{
+								translationService.translateObject(
+									"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.TODDNOTKILLED"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<mat-divider></mat-divider>
 

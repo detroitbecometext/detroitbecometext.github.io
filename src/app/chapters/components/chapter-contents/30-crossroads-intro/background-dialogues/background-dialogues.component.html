@@ -67,93 +67,100 @@
 		</li>
 	</ul>
 
-	<app-conditioned-content>
-		<div class="condition"><p>Markus is alive</p></div>
-		<div class="content">
-			<ul>
-				<li>
-					{{ t("X0202A.SKIT.SHOCKED05.PC.X02ASKIT09AND02.TALK") }}
-				</li>
-				<li>
-					{{
-						translationService.translateObject(
-							"X0202A.SKIT.SHOCKED05.FA.X02ASKIT09AND01.TALKAND1A"
-						) | async
-					}}
-				</li>
-			</ul>
-		</div>
-	</app-conditioned-content>
-
-	<app-conditioned-content>
-		<div class="condition">
-			<p>
-				<app-unlock-condition
-					[unlockType]="UnlockType.Death"
-					[bracketsOnlyAroundIcon]="true"
-				>
-					<span class="font-bold">
-						Markus died in
-						<a [routerLink]="['/chapters', 28]">Freedom March</a>
-					</span>
-				</app-unlock-condition>
-			</p>
-		</div>
-		<div class="content">
-			<ul>
-				<li>
-					{{
-						translationService.translateObject(
-							"X0202A.SKITMDEAD.SHOCKED01.FA.X02ASKIT11AND01.TALKAND01"
-						) | async
-					}}
-				</li>
-				<li>
-					{{
-						translationService.translateObject(
-							"X0202A.SKITMDEAD.SHOCKED01.PC.X02ASKIT11AND02.TALK"
-						) | async
-					}}
-				</li>
-				<li>
-					{{
-						translationService.translateObject(
-							"X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND01.LINE01"
-						) | async
-					}}
-				</li>
-				<li>
-					{{
-						translationService.translateObject(
-							"X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND01.LINE06"
-						) | async
-					}}
-				</li>
-				<li>
-					{{
-						translationService.translateObject(
-							"X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND02.LINE02"
-						) | async
-					}}
-				</li>
-				<li>
-					{{ t("X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND03.LINE03") }}
-				</li>
-				<li>
-					{{
-						translationService.translateObject(
-							"X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND04.LINE04"
-						) | async
-					}}
-				</li>
-				<li>
-					{{
-						translationService.translateObject(
-							"X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND05.LINE05"
-						) | async
-					}}
-				</li>
-			</ul>
-		</div>
-	</app-conditioned-content>
+	<app-condition-group>
+		<app-conditioned-content>
+			<div class="condition"><p>Markus is alive</p></div>
+			<div class="content">
+				<ul>
+					<li>
+						{{ t("X0202A.SKIT.SHOCKED05.PC.X02ASKIT09AND02.TALK") }}
+					</li>
+					<li>
+						{{
+							translationService.translateObject(
+								"X0202A.SKIT.SHOCKED05.FA.X02ASKIT09AND01.TALKAND1A"
+							) | async
+						}}
+					</li>
+				</ul>
+			</div>
+		</app-conditioned-content>
+		<app-conditioned-content>
+			<div class="condition">
+				<p>
+					<app-unlock-condition
+						[unlockType]="UnlockType.Death"
+						[bracketsOnlyAroundIcon]="true"
+					>
+						<span class="font-bold">
+							Markus died in
+							<a [routerLink]="['/chapters', 28]"
+								>Freedom March</a
+							>
+						</span>
+					</app-unlock-condition>
+				</p>
+			</div>
+			<div class="content">
+				<ul>
+					<li>
+						{{
+							translationService.translateObject(
+								"X0202A.SKITMDEAD.SHOCKED01.FA.X02ASKIT11AND01.TALKAND01"
+							) | async
+						}}
+					</li>
+					<li>
+						{{
+							translationService.translateObject(
+								"X0202A.SKITMDEAD.SHOCKED01.PC.X02ASKIT11AND02.TALK"
+							) | async
+						}}
+					</li>
+					<li>
+						{{
+							translationService.translateObject(
+								"X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND01.LINE01"
+							) | async
+						}}
+					</li>
+					<li>
+						{{
+							translationService.translateObject(
+								"X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND01.LINE06"
+							) | async
+						}}
+					</li>
+					<li>
+						{{
+							translationService.translateObject(
+								"X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND02.LINE02"
+							) | async
+						}}
+					</li>
+					<li>
+						{{
+							t(
+								"X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND03.LINE03"
+							)
+						}}
+					</li>
+					<li>
+						{{
+							translationService.translateObject(
+								"X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND04.LINE04"
+							) | async
+						}}
+					</li>
+					<li>
+						{{
+							translationService.translateObject(
+								"X0202A.SKITMDEAD.RUMORS.FA.X02ASKIT10AND05.LINE05"
+							) | async
+						}}
+					</li>
+				</ul>
+			</div>
+		</app-conditioned-content>
+	</app-condition-group>
 </ng-container>

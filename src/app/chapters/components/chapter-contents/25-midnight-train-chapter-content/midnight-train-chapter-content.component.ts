@@ -20,6 +20,7 @@ import { CommonTranslationKey } from '../../../../shared/utils/common-translatio
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 import { RouterLink } from '@angular/router';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -36,6 +37,7 @@ import { RouterLink } from '@angular/router';
 		RelationComponent,
 		TranslocoModule,
 		RouterLink,
+		ConditionGroupComponent,
 	],
 	templateUrl: './midnight-train-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

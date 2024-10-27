@@ -15,71 +15,75 @@
 			</app-unlock-condition>
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>
-					<app-unlock-condition
-						[unlockType]="UnlockType.Death"
-						[bracketsOnlyAroundIcon]="true"
-					>
-						<span class="font-bold">
-							Connor died in
-							<a [routerLink]="['/chapters', 31]">Crossroads</a>
-						</span>
-					</app-unlock-condition>
-				</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Amanda">
-						{{
-							translationService.translateObject(
-								"X1204C.AMANDA.LASTTALK.PC.X12CAMANDA.BADCONNOR01"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Connor">
-						{{
-							t(
-								"X1204C.AMANDA.LASTTALK.PC.X12CCONNOR.BADCONNOR02"
-							)
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Amanda">
-						{{
-							translationService.translateObject(
-								"X1204C.AMANDA.LASTTALK.PC.X12CAMANDA.BADCONNOR03"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition">
-				<p>
-					Connor stayed a machine and didn't die in
-					<a [routerLink]="['/chapters', 31]">Crossroads</a> (killed
-					Markus), North is leading a violent revolution
-				</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Amanda">
-						{{
-							translationService.translateObject(
-								"X1303C.ZENGARDEN.BRIDGE.PC.X13CAMANDA.REVOLUTION"
-							) | async
-						}}
-						{{
-							translationService.translateObject(
-								"X1303C.ZENGARDEN.BRIDGE.PC.X13CAMANDA.MISSION01"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						<app-unlock-condition
+							[unlockType]="UnlockType.Death"
+							[bracketsOnlyAroundIcon]="true"
+						>
+							<span class="font-bold">
+								Connor died in
+								<a [routerLink]="['/chapters', 31]"
+									>Crossroads</a
+								>
+							</span>
+						</app-unlock-condition>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Amanda">
+							{{
+								translationService.translateObject(
+									"X1204C.AMANDA.LASTTALK.PC.X12CAMANDA.BADCONNOR01"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X1204C.AMANDA.LASTTALK.PC.X12CCONNOR.BADCONNOR02"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Amanda">
+							{{
+								translationService.translateObject(
+									"X1204C.AMANDA.LASTTALK.PC.X12CAMANDA.BADCONNOR03"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Connor stayed a machine and didn't die in
+						<a [routerLink]="['/chapters', 31]">Crossroads</a>
+						(killed Markus), North is leading a violent revolution
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Amanda">
+							{{
+								translationService.translateObject(
+									"X1303C.ZENGARDEN.BRIDGE.PC.X13CAMANDA.REVOLUTION"
+								) | async
+							}}
+							{{
+								translationService.translateObject(
+									"X1303C.ZENGARDEN.BRIDGE.PC.X13CAMANDA.MISSION01"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 	</section>
 
 	<!-- scene change to Markus if Hank is not hostile -->
@@ -200,38 +204,40 @@
 
 		<mat-divider></mat-divider>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Connor died multiple times</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Hank">
-						{{
-							translationService.translateObject(
-								"X1204C.HOUSE.HANK.PC.X12CHANK.SEVERALDEATHS"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Connor never died</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Hank">
-						{{
-							translationService.translateObject(
-								"X1204C.HOUSE.HANK.PC.X12CHANK.NOHOPE"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Connor died multiple times</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X1204C.HOUSE.HANK.PC.X12CHANK.SEVERALDEATHS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Connor never died</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X1204C.HOUSE.HANK.PC.X12CHANK.NOHOPE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<mat-divider></mat-divider>
 
@@ -283,47 +289,50 @@
 
 		<section aria-labelledby="kara">
 			<h2 id="kara">Talking with Kara</h2>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						Connor went after Kara and Alice on the highway in
-						<a [routerLink]="['/chapters', 13]">On The Run</a>
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.SORRY"
-								) | async
-							}}
-							{{
-								t(
-									"X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.WHATNOW.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Kara">
-							{{
-								translationService.translateObject(
-									"X0904M.CHURCH.KARALEAVING.PC.X09MKARA.BUSK",
-									0,
-									3
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.WHATNOW",
-									1
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Connor went after Kara and Alice on the highway in
+							<a [routerLink]="['/chapters', 13]">On The Run</a>
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.SORRY"
+									) | async
+								}}
+								{{
+									t(
+										"X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.WHATNOW.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Kara">
+								{{
+									translationService.translateObject(
+										"X0904M.CHURCH.KARALEAVING.PC.X09MKARA.BUSK",
+										0,
+										3
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0904M.CHURCH.KARACONNOR.PC.X09MCONNOR.WHATNOW",
+										1
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="north-speech">
@@ -390,48 +399,50 @@
 						</app-dialogue-line>
 					</p>
 
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Markus detonated the bomb</p>
-						</div>
-						<div class="content">
-							<app-dialogue-line name="North">
-								{{
-									translationService.translateObject(
-										"X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBMARKUS"
-									) | async
-								}}
-							</app-dialogue-line>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Connor detonated the bomb</p>
-						</div>
-						<div class="content">
-							<app-dialogue-line name="North">
-								{{
-									translationService.translateObject(
-										"X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBCONNOR"
-									) | async
-								}}
-							</app-dialogue-line>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Markus died without detonating the bomb</p>
-						</div>
-						<div class="content">
-							<app-dialogue-line name="North">
-								{{
-									translationService.translateObject(
-										"X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.NOBOMB"
-									) | async
-								}}
-							</app-dialogue-line>
-						</div>
-					</app-conditioned-content>
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Markus detonated the bomb</p>
+							</div>
+							<div class="content">
+								<app-dialogue-line name="North">
+									{{
+										translationService.translateObject(
+											"X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBMARKUS"
+										) | async
+									}}
+								</app-dialogue-line>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Connor detonated the bomb</p>
+							</div>
+							<div class="content">
+								<app-dialogue-line name="North">
+									{{
+										translationService.translateObject(
+											"X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBCONNOR"
+										) | async
+									}}
+								</app-dialogue-line>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Markus died without detonating the bomb</p>
+							</div>
+							<div class="content">
+								<app-dialogue-line name="North">
+									{{
+										translationService.translateObject(
+											"X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.NOBOMB"
+										) | async
+									}}
+								</app-dialogue-line>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
 				</app-choice-item>
 			</app-choice-group>
 		</section>
@@ -480,40 +491,44 @@
 	<section aria-labelledby="north">
 		<h1 id="north">North calls to arms</h1>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>
-					<app-unlock-condition [unlockType]="UnlockType.Death">
-						<span class="font-bold">Markus died</span>
-					</app-unlock-condition>
-				</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="North">
-						{{
-							translationService.translateObject(
-								"X0904M.CHURCH.NORTHLEADER.PC.X09MMARLA.MARKUSDEAD"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition"><p>Markus was rejected by Jericho</p></div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="North">
-						{{
-							translationService.translateObject(
-								"X0904M.CHURCH.NORTHLEADER.PC.X09MMARLA.MARKUSFIRED"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Death">
+							<span class="font-bold">Markus died</span>
+						</app-unlock-condition>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="North">
+							{{
+								translationService.translateObject(
+									"X0904M.CHURCH.NORTHLEADER.PC.X09MMARLA.MARKUSDEAD"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Markus was rejected by Jericho</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="North">
+							{{
+								translationService.translateObject(
+									"X0904M.CHURCH.NORTHLEADER.PC.X09MMARLA.MARKUSFIRED"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<p>
 			<app-dialogue-line name="North">

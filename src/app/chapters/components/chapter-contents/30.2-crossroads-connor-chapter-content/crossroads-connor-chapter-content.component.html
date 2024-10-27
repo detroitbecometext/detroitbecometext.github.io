@@ -844,59 +844,61 @@
 			</app-dialogue-line>
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>
-					<app-unlock-condition [unlockType]="UnlockType.Death">
-						<span class="font-bold"
-							>Soldiers shoot Connor twice before arming
-							explosive</span
-						>
-					</app-unlock-condition>
-				</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Connor">
-						{{
-							translationService.translateObject(
-								"X0205A.CONNOR.NOTFLEEING.FA.X02ACONNOR.GAMEOVER02"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Soldier">
-						{{
-							t(
-								"X0205A.CONNOR.NOTFLEEING.VO.X02ASWAT01.GAMEOVERRUN"
-							)
-						}}
-					</app-dialogue-line>
-				</p>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Death">
+							<span class="font-bold"
+								>Soldiers shoot Connor twice before arming
+								explosive</span
+							>
+						</app-unlock-condition>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0205A.CONNOR.NOTFLEEING.FA.X02ACONNOR.GAMEOVER02"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Soldier">
+							{{
+								t(
+									"X0205A.CONNOR.NOTFLEEING.VO.X02ASWAT01.GAMEOVERRUN"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
 
-				<p>
-					<app-dialogue-line name="North">
-						{{
-							translationService.translateObject(
-								"X0205A.CONNOR.EXECUTION.PC.X02AMARLA.CONNORDEADM"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Josh">
-						{{
-							translationService.translateObject(
-								"X0205A.CONNOR.EXECUTION.PC.X02ASIMON.CONNORDEADM"
-							) | async
-						}}
-					</app-dialogue-line>
-					<span class="note"
-						>See
-						<a [routerLink]="['/chapters', 32]"
-							>Crossroads - Markus</a
-						>: Surviving characters jump.</span
-					>
-				</p>
-			</div>
-		</app-conditioned-content>
+					<p>
+						<app-dialogue-line name="North">
+							{{
+								translationService.translateObject(
+									"X0205A.CONNOR.EXECUTION.PC.X02AMARLA.CONNORDEADM"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Josh">
+							{{
+								translationService.translateObject(
+									"X0205A.CONNOR.EXECUTION.PC.X02ASIMON.CONNORDEADM"
+								) | async
+							}}
+						</app-dialogue-line>
+						<span class="note"
+							>See
+							<a [routerLink]="['/chapters', 32]"
+								>Crossroads - Markus</a
+							>: Surviving characters jump.</span
+						>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<section aria-labelledby="lucy">
 			<h2 id="lucy">Meet Lucy</h2>
@@ -1044,20 +1046,23 @@
 					{{ t("X0205A.SAVE.ANDROIDS2.FA.X02AANDW03.SURRENDER") }}
 				</app-dialogue-line>
 			</p>
-			<app-conditioned-content>
-				<div class="condition"><p>Knock soldiers out</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Connor">
-							{{
-								t(
-									"X0205A.SAVE.ANDROIDS2.FA.X02ACONNOR.GONOWCNR"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Knock soldiers out</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0205A.SAVE.ANDROIDS2.FA.X02ACONNOR.GONOWCNR"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="josh-dying">
@@ -1090,27 +1095,30 @@
 					}}
 				</app-dialogue-line>
 			</p>
-			<app-conditioned-content>
-				<div class="condition"><p>Connor dies</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Soldier">
-							{{
-								t(
-									"X0205A.MARKUS.EXECUTION.VO.X02ASWAT08.FAILURE01"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="North">
-							{{
-								translationService.translateObject(
-									"X0205A.CONNOR.EXECUTION.PC.X02AMARLA.CONNORDEADM"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Connor dies</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Soldier">
+								{{
+									t(
+										"X0205A.MARKUS.EXECUTION.VO.X02ASWAT08.FAILURE01"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="North">
+								{{
+									translationService.translateObject(
+										"X0205A.CONNOR.EXECUTION.PC.X02AMARLA.CONNORDEADM"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="explosives">
@@ -1210,20 +1218,22 @@
 				<app-choice-item
 					[choiceLabel]="t('X0205A.CNRBAD.SWAT.PC.SWATCHOICE.ATTACK')"
 				>
-					<app-conditioned-content>
-						<div class="condition"><p>Lose the fight</p></div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Soldier">
-									{{
-										t(
-											"X0205A.CNRBAD.SWAT.VO.X02ASWAT01.RUN"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition"><p>Lose the fight</p></div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Soldier">
+										{{
+											t(
+												"X0205A.CNRBAD.SWAT.VO.X02ASWAT01.RUN"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
 				</app-choice-item>
 				<app-choice-item
 					[choiceLabel]="t('X0205A.CNRBAD.SWAT.PC.SWATCHOICE.RUN')"
@@ -1242,213 +1252,233 @@
 
 		<h2 id="machine-hold">In the hold</h2>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Markus is alive - Connor finds Markus</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Connor">
-						{{ t("X0205A.CNRBAD.CATCHMKS.PC.X02ACONNOR.MISSIONC") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Markus">
-						{{
-							translationService.translateObject(
-								"X0205A.CNRBAD.CATCHMKS.PC.X02AMARKUS.MISSION"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-
-				<app-conditioned-content>
-					<div class="condition"><p>Reach the gun</p></div>
-					<div class="content">
-						<h2 id="markus-kill">Markus kills Connor</h2>
-						<p>
-							<app-dialogue-line name="Markus">
-								{{
-									t(
-										"X0205A.CNRBAD.CATCHMKS.FA.X02AMARKUS.MARKUSWINSM.1"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
-
-						<app-unused-content>
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										translationService.translateObject(
-											"X0205A.CNRBAD.CATCHMKS.FA.X02AMARKUS.MARKUSWINSM",
-											1
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-unused-content>
-
-						<p>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X0205A.CNRBAD.CATCHMKS.FA.X02ACONNOR.MARKUSWINSC"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-						<p>
-							<span class="note"
-								>See
-								<a [routerLink]="['/chapters', 32]"
-									>Crossroads - Markus</a
-								>: Escape from Jericho.</span
-							>
-						</p>
-					</div>
-				</app-conditioned-content>
-				<app-conditioned-content>
-					<div class="condition"><p>Fail to reach the gun</p></div>
-					<div class="content">
-						<p>
-							<app-unlock-condition
-								[unlockType]="UnlockType.Death"
-							>
-								Connor kills Markus
-							</app-unlock-condition>
-
-							<app-dialogue-line name="Connor">
-								{{
-									t(
-										"X0205A.CNRBAD.CATCHMKS.FA.X02ACONNOR.CONNORWINS"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
-						<p>
-							<app-dialogue-line name="North">
-								{{
-									translationService.translateObject(
-										"X0205A.MARKUS.EXECUTION.PC.X02AMARLA.MARKUSDEAD01"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Markus is alive - Connor finds Markus</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0205A.CNRBAD.CATCHMKS.PC.X02ACONNOR.MISSIONC"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Markus">
+							{{
+								translationService.translateObject(
+									"X0205A.CNRBAD.CATCHMKS.PC.X02AMARKUS.MISSION"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+					<app-condition-group>
 						<app-conditioned-content>
-							<div class="condition"><p>Simon alive</p></div>
+							<div class="condition"><p>Reach the gun</p></div>
 							<div class="content">
+								<h2 id="markus-kill">Markus kills Connor</h2>
 								<p>
-									<app-dialogue-line name="Simon">
+									<app-dialogue-line name="Markus">
 										{{
 											t(
-												"X0205A.MARKUS.EXECUTION.PC.X02ASIMON.MARKUSDEAD02"
+												"X0205A.CNRBAD.CATCHMKS.FA.X02AMARKUS.MARKUSWINSM.1"
 											)
 										}}
 									</app-dialogue-line>
 								</p>
+
+								<app-unused-content>
+									<p>
+										<app-dialogue-line name="Markus">
+											{{
+												translationService.translateObject(
+													"X0205A.CNRBAD.CATCHMKS.FA.X02AMARKUS.MARKUSWINSM",
+													1
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</app-unused-content>
+
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0205A.CNRBAD.CATCHMKS.FA.X02ACONNOR.MARKUSWINSC"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+								<p>
+									<span class="note"
+										>See
+										<a [routerLink]="['/chapters', 32]"
+											>Crossroads - Markus</a
+										>: Escape from Jericho.</span
+									>
+								</p>
 							</div>
 						</app-conditioned-content>
 						<app-conditioned-content>
-							<div class="condition"><p>Simon dead</p></div>
+							<div class="condition">
+								<p>Fail to reach the gun</p>
+							</div>
 							<div class="content">
 								<p>
-									<app-dialogue-line name="Josh">
+									<app-unlock-condition
+										[unlockType]="UnlockType.Death"
+									>
+										Connor kills Markus
+									</app-unlock-condition>
+
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X0205A.CNRBAD.CATCHMKS.FA.X02ACONNOR.CONNORWINS"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+								<p>
+									<app-dialogue-line name="North">
 										{{
 											translationService.translateObject(
-												"X0205A.MARKUS.EXECUTION.PC.X02AJOSH.MARKUSDEAD03"
+												"X0205A.MARKUS.EXECUTION.PC.X02AMARLA.MARKUSDEAD01"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+
+								<app-condition-group>
+									<app-conditioned-content>
+										<div class="condition">
+											<p>Simon is alive</p>
+										</div>
+										<div class="content">
+											<p>
+												<app-dialogue-line name="Simon">
+													{{
+														t(
+															"X0205A.MARKUS.EXECUTION.PC.X02ASIMON.MARKUSDEAD02"
+														)
+													}}
+												</app-dialogue-line>
+											</p>
+										</div>
+									</app-conditioned-content>
+									<app-conditioned-content>
+										<div class="condition">
+											<p>Simon is dead</p>
+										</div>
+										<div class="content">
+											<p>
+												<app-dialogue-line name="Josh">
+													{{
+														translationService.translateObject(
+															"X0205A.MARKUS.EXECUTION.PC.X02AJOSH.MARKUSDEAD03"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</div>
+									</app-conditioned-content>
+								</app-condition-group>
+
+								<p>
+									<app-dialogue-line name="North">
+										{{
+											t(
+												"X0205A.MARKUS.EXECUTION.PC.X02AMARLA.MARKUSDEAD03"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+								<p>
+									<span class="note"
+										>See
+										<a [routerLink]="['/chapters', 32]"
+											>Crossroads - Markus</a
+										>: Surviving characters jump.</span
+									>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Markus is dead or left Jericho - Connor goes after North
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Josh">
+							{{
+								translationService.translateObject(
+									"X0205A.CONNOR.JOSH.PC.X02AJOSH.ALLOVER"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<h3 id="north-escapes">North escapes</h3>
+
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Attacked the soldier</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Soldier">
+										{{
+											t(
+												"X0205A.CNRBAD.RUNSUCCESS.VO.X02ASWAT09.DIESWAT"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0205A.CNRBAD.RUNSUCCESS.PC.X02ACONNOR.DIE"
 											) | async
 										}}
 									</app-dialogue-line>
 								</p>
 							</div>
 						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Didn't attack the soldier</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Soldier">
+										{{
+											t(
+												"X0205A.CNRBAD.FAILCHASE.VO.X02ASWAT09.DIE"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
 
-						<p>
-							<app-dialogue-line name="North">
-								{{
-									t(
-										"X0205A.MARKUS.EXECUTION.PC.X02AMARLA.MARKUSDEAD03"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
-						<p>
-							<span class="note"
-								>See
-								<a [routerLink]="['/chapters', 32]"
-									>Crossroads - Markus</a
-								>: Surviving characters jump.</span
-							>
-						</p>
-					</div>
-				</app-conditioned-content>
-			</div>
-		</app-conditioned-content>
-
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Markus is dead or left Jericho - Connor goes after North</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Josh">
-						{{
-							translationService.translateObject(
-								"X0205A.CONNOR.JOSH.PC.X02AJOSH.ALLOVER"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-
-				<h3 id="north-escapes">North escapes</h3>
-
-				<app-conditioned-content>
-					<div class="condition"><p>Attacked the soldier</p></div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Soldier">
-								{{
-									t(
-										"X0205A.CNRBAD.RUNSUCCESS.VO.X02ASWAT09.DIESWAT"
-									)
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X0205A.CNRBAD.RUNSUCCESS.PC.X02ACONNOR.DIE"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-				<app-conditioned-content>
-					<div class="condition">
-						<p>Didn't attack the soldier</p>
-					</div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Soldier">
-								{{
-									t(
-										"X0205A.CNRBAD.FAILCHASE.VO.X02ASWAT09.DIE"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-
-				<p>
-					<span class="note"
-						>See
-						<a [routerLink]="['/chapters', 32]"
-							>Crossroads - Markus</a
-						>: Surviving characters jump.</span
-					>
-				</p>
-			</div>
-		</app-conditioned-content>
+					<p>
+						<span class="note"
+							>See
+							<a [routerLink]="['/chapters', 32]"
+								>Crossroads - Markus</a
+							>: Surviving characters jump.</span
+						>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 	</section>
 </ng-container>

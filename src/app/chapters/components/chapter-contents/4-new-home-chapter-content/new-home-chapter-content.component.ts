@@ -20,6 +20,7 @@ import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -36,6 +37,7 @@ import { ObservationItemComponent } from '../../../../shared/components/observat
 		TranslocoModule,
 		ObservationComponent,
 		ObservationItemComponent,
+		ConditionGroupComponent,
 	],
 	templateUrl: './new-home-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

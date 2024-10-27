@@ -22,6 +22,7 @@ import { CommonTranslationKey } from '../../../../shared/utils/common-translatio
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -40,6 +41,7 @@ import { ObservationItemComponent } from '../../../../shared/components/observat
 		TranslocoModule,
 		ObservationComponent,
 		ObservationItemComponent,
+		ConditionGroupComponent,
 	],
 	templateUrl: './russian-roulette-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

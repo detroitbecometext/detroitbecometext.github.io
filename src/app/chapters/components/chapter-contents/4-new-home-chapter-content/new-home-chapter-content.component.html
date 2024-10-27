@@ -371,22 +371,24 @@
 	<section aria-labelledby="alice-room">
 		<h1 id="alice-room">In Alice's room</h1>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Todd's room was cleaned before Alice's room</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Kara">
-						{{
-							translationService.translateObject(
-								"X0101K.ALICE.ROOM.PC.X01KKARA.TIDY"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Todd's room was cleaned before Alice's room</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0101K.ALICE.ROOM.PC.X01KKARA.TIDY"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<section aria-labelledby="book">
 			<h2 id="book">Looking at the book on the floor</h2>

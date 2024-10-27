@@ -671,69 +671,79 @@
 			</app-dialogue-line>
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Knowing the deviant's name</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-unlock-condition [unlockType]="UnlockType.Lock">
-						Looked at Emma's tablet
-					</app-unlock-condition>
-					<app-dialogue-line name="Connor">
-						{{
-							t("X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01.1")
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Daniel">
-						{{
-							t("X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEHOLO02.1")
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Connor">
-						{{
-							t("X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01.2")
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Daniel">
-						{{
-							t("X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEHOLO02.2")
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Connor">
-						{{
-							translationService.translateObject(
-								"X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01",
-								2
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Not knowing the name</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Connor">
-						{{
-							translationService.translateObject(
-								"X0101X.TERRACE.PARTI.PC.X01CONNOR.NAME01V2"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Daniel">
-						{{
-							translationService.translateObject(
-								"X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEV2"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Knowing the deviant's name</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Looked at Emma's tablet
+						</app-unlock-condition>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01.1"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Daniel">
+							{{
+								t(
+									"X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEHOLO02.1"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01.2"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Daniel">
+							{{
+								t(
+									"X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEHOLO02.2"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0101X.TERRACE.PARTI.PC.X01CONNOR.NAMEHOLO01",
+									2
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Not knowing the name</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0101X.TERRACE.PARTI.PC.X01CONNOR.NAME01V2"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Daniel">
+							{{
+								translationService.translateObject(
+									"X0101X.TERRACE.PARTI.PC.X01ANDROID.NAMEV2"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<mat-divider></mat-divider>
 
@@ -906,84 +916,87 @@
 
 		<mat-divider></mat-divider>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Took the gun</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Daniel">
-						{{ t("X0101X.TERRACE.PARTI.PC.X01ANDROID.GUNV2") }}
-					</app-dialogue-line>
-				</p>
-
-				<app-choice-group>
-					<app-choice-item
-						[choiceLabel]="
-							t('X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPGUN1.LIE')
-						"
-					>
-						<p>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X0101X.TERRACE.PARTI.PC.X01CONNOR.LIE0101V2"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Daniel">
-								{{
-									translationService.translateObject(
-										"X0101X.TERRACE.PARTI.PC.X01ANDROID.LIE01V2"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X0101X.TERRACE.PARTI.PC.X01CONNOR.LIE0201V2"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-					<app-choice-item
-						[choiceLabel]="
-							t(
-								'X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPGUN1.TRUTH'
-							)
-						"
-					>
-						<p>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X0101X.TERRACE.PARTI.PC.X01CONNOR.TRUTH0101V2",
-										0,
-										2
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Daniel">
-								{{
-									translationService.translateObject(
-										"X0101X.TERRACE.PARTI.PC.X01ANDROID.TRUTH01V2"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X0101X.TERRACE.PARTI.PC.X01CONNOR.TRUTH0101V2",
-										2
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-				</app-choice-group>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Took the gun</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Daniel">
+							{{ t("X0101X.TERRACE.PARTI.PC.X01ANDROID.GUNV2") }}
+						</app-dialogue-line>
+					</p>
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPGUN1.LIE'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0101X.TERRACE.PARTI.PC.X01CONNOR.LIE0101V2"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Daniel">
+									{{
+										translationService.translateObject(
+											"X0101X.TERRACE.PARTI.PC.X01ANDROID.LIE01V2"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0101X.TERRACE.PARTI.PC.X01CONNOR.LIE0201V2"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0101X.TERRACE.PARTI.FA.DD.CHOICEGROUPGUN1.TRUTH'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0101X.TERRACE.PARTI.PC.X01CONNOR.TRUTH0101V2",
+											0,
+											2
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Daniel">
+									{{
+										translationService.translateObject(
+											"X0101X.TERRACE.PARTI.PC.X01ANDROID.TRUTH01V2"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0101X.TERRACE.PARTI.PC.X01CONNOR.TRUTH0101V2",
+											2
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<mat-divider></mat-divider>
 
@@ -1538,79 +1551,87 @@
 
 		<mat-divider></mat-divider>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Probability of success at 100%</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-relation
-						[name]="RelationName.SoftwareInstability"
-						[type]="RelationType.SmallUp"
-					></app-relation>
-					<app-dialogue-line name="Daniel">
-						{{
-							translationService.translateObject(
-								"X0101X.TERRACE.PARTII.PC.X01ANDROID.GOODENDINGV2",
-								0,
-								2
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Daniel">
-						{{
-							translationService.translateObject(
-								"X0101X.TERRACE.PARTII.PC.X01ANDROID.GOODENDINGV2",
-								2,
-								4
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Probability of success too low</p>
-			</div>
-			<div class="content">
-				<app-conditioned-content>
-					<div class="condition">
-						<p>Connor dies</p>
-					</div>
-					<div class="content">
-						<p>
-							<app-relation
-								[name]="RelationName.SoftwareInstability"
-								[type]="RelationType.SmallDown"
-							></app-relation>
-						</p>
-					</div>
-				</app-conditioned-content>
-				<app-conditioned-content>
-					<div class="condition">
-						<p>Connor survives</p>
-					</div>
-					<div class="content">
-						<p>
-							<app-relation
-								[name]="RelationName.SoftwareInstability"
-								[type]="RelationType.SmallUp"
-							></app-relation>
-						</p>
-					</div>
-				</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Probability of success at 100%</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-relation
+							[name]="RelationName.SoftwareInstability"
+							[type]="RelationType.SmallUp"
+						></app-relation>
+						<app-dialogue-line name="Daniel">
+							{{
+								translationService.translateObject(
+									"X0101X.TERRACE.PARTII.PC.X01ANDROID.GOODENDINGV2",
+									0,
+									2
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Daniel">
+							{{
+								translationService.translateObject(
+									"X0101X.TERRACE.PARTII.PC.X01ANDROID.GOODENDINGV2",
+									2,
+									4
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Probability of success too low</p>
+				</div>
+				<div class="content">
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Connor dies</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-relation
+										[name]="
+											RelationName.SoftwareInstability
+										"
+										[type]="RelationType.SmallDown"
+									></app-relation>
+								</p>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Connor survives</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-relation
+										[name]="
+											RelationName.SoftwareInstability
+										"
+										[type]="RelationType.SmallUp"
+									></app-relation>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
 
-				<p>
-					<app-dialogue-line name="Daniel">
-						{{
-							translationService.translateObject(
-								"X0101X.TERRACE.PARTII.PC.X01ANDROID.BADENDINGV2"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+					<p>
+						<app-dialogue-line name="Daniel">
+							{{
+								translationService.translateObject(
+									"X0101X.TERRACE.PARTII.PC.X01ANDROID.BADENDINGV2"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 	</section>
 </ng-container>

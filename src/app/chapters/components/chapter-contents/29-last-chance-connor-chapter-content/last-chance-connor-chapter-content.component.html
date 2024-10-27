@@ -58,161 +58,171 @@
 					</app-unlock-condition>
 				</p>
 
-				<app-conditioned-content>
-					<div class="condition">
-						<p>
-							Connor didn't shoot Chloe in
-							<a [routerLink]="['/chapters', 27]">Meet Kamski</a>
-						</p>
-					</div>
-					<div class="content">
-						<p>
-							<app-relation
-								[name]="RelationName.Amanda"
-								[type]="RelationType.SmallDown"
-							></app-relation>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.01KAMSKI02"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Amanda">
-								{{
-									translationService.translateObject(
-										"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.01KAMSKI02"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
+				<app-condition-group>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>
+								Connor didn't shoot Chloe in
+								<a [routerLink]="['/chapters', 27]"
+									>Meet Kamski</a
+								>
+							</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-relation
+									[name]="RelationName.Amanda"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.01KAMSKI02"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Amanda">
+									{{
+										translationService.translateObject(
+											"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.01KAMSKI02"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
 
-						<app-choice-group>
-							<app-choice-item
-								[choiceLabel]="
-									t(
-										'X1201C.FROZEN.AMANDA.PC.CHOICE02.EMOTIONAL'
-									)
-								"
-							>
-								<p>
-									<app-relation
-										[name]="
-											RelationName.SoftwareInstability
-										"
-										[type]="RelationType.SmallUp"
-									></app-relation>
-									<app-relation
-										[name]="RelationName.Amanda"
-										[type]="RelationType.LargeDown"
-									></app-relation>
-									<app-dialogue-line name="Connor">
-										{{
-											translationService.translateObject(
-												"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.02EMOTIONAL"
-											) | async
-										}}
-									</app-dialogue-line>
-								</p>
-							</app-choice-item>
-							<app-choice-item
-								[choiceLabel]="
-									t('X1201C.FROZEN.AMANDA.PC.CHOICE02.COLD')
-								"
-							>
-								<p>
-									<app-relation
-										[name]="RelationName.Amanda"
-										[type]="RelationType.SmallUp"
-									></app-relation>
-									<app-relation
-										[name]="
-											RelationName.SoftwareInstability
-										"
-										[type]="RelationType.SmallDown"
-									></app-relation>
-									<app-dialogue-line name="Connor">
-										{{
-											translationService.translateObject(
-												"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.02COLD"
-											) | async
-										}}
-									</app-dialogue-line>
-								</p>
-							</app-choice-item>
-							<app-choice-item
-								[choiceLabel]="
-									t(
-										'X1201C.FROZEN.AMANDA.PC.CHOICE02.STAYSILENT'
-									)
-								"
-							>
-								<p>&oslash;</p>
-							</app-choice-item>
-						</app-choice-group>
-					</div>
-				</app-conditioned-content>
-				<app-conditioned-content>
-					<div class="condition">
-						<p>
-							Connor shot Chloe in
-							<a [routerLink]="['/chapters', 27]">Meet Kamski</a>
-							and didn't ask about Jericho
-						</p>
-					</div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Connor">
-								{{
-									t(
-										"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.01KAMSKI01.1"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
+							<app-choice-group>
+								<app-choice-item
+									[choiceLabel]="
+										t(
+											'X1201C.FROZEN.AMANDA.PC.CHOICE02.EMOTIONAL'
+										)
+									"
+								>
+									<p>
+										<app-relation
+											[name]="
+												RelationName.SoftwareInstability
+											"
+											[type]="RelationType.SmallUp"
+										></app-relation>
+										<app-relation
+											[name]="RelationName.Amanda"
+											[type]="RelationType.LargeDown"
+										></app-relation>
+										<app-dialogue-line name="Connor">
+											{{
+												translationService.translateObject(
+													"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.02EMOTIONAL"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</app-choice-item>
+								<app-choice-item
+									[choiceLabel]="
+										t(
+											'X1201C.FROZEN.AMANDA.PC.CHOICE02.COLD'
+										)
+									"
+								>
+									<p>
+										<app-relation
+											[name]="RelationName.Amanda"
+											[type]="RelationType.SmallUp"
+										></app-relation>
+										<app-relation
+											[name]="
+												RelationName.SoftwareInstability
+											"
+											[type]="RelationType.SmallDown"
+										></app-relation>
+										<app-dialogue-line name="Connor">
+											{{
+												translationService.translateObject(
+													"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.02COLD"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</app-choice-item>
+								<app-choice-item
+									[choiceLabel]="
+										t(
+											'X1201C.FROZEN.AMANDA.PC.CHOICE02.STAYSILENT'
+										)
+									"
+								>
+									<p>&oslash;</p>
+								</app-choice-item>
+							</app-choice-group>
+						</div>
+					</app-conditioned-content>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>
+								Connor shot Chloe in
+								<a [routerLink]="['/chapters', 27]"
+									>Meet Kamski</a
+								>
+								and didn't ask about Jericho
+							</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										t(
+											"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.01KAMSKI01.1"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
 
-						<app-conditioned-content>
-							<div class="condition">
-								<p>Asked Kamski about rA9</p>
-							</div>
-							<div class="content">
-								<p>
-									<app-dialogue-line name="Connor">
-										{{
-											translationService.translateObject(
-												"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.01KAMSKI01",
-												1
-											) | async
-										}}
-									</app-dialogue-line>
-								</p>
-							</div>
-						</app-conditioned-content>
-						<app-conditioned-content>
-							<div class="condition">
-								<p>Asked Kamski about VIRUS</p>
-							</div>
-							<div class="content">
-								<p>
-									<app-dialogue-line name="Connor">
-										{{
-											translationService.translateObject(
-												"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.01KAMSKI02"
-											) | async
-										}}
-									</app-dialogue-line>
-									<app-dialogue-line name="Amanda">
-										{{
-											t(
-												"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.01KAMSKI02.1"
-											)
-										}}
-									</app-dialogue-line>
-								</p>
-							</div>
-						</app-conditioned-content>
-					</div>
-				</app-conditioned-content>
+							<app-condition-group>
+								<app-conditioned-content>
+									<div class="condition">
+										<p>Asked Kamski about rA9</p>
+									</div>
+									<div class="content">
+										<p>
+											<app-dialogue-line name="Connor">
+												{{
+													translationService.translateObject(
+														"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.01KAMSKI01",
+														1
+													) | async
+												}}
+											</app-dialogue-line>
+										</p>
+									</div>
+								</app-conditioned-content>
+								<app-conditioned-content>
+									<div class="condition">
+										<p>Asked Kamski about VIRUS</p>
+									</div>
+									<div class="content">
+										<p>
+											<app-dialogue-line name="Connor">
+												{{
+													translationService.translateObject(
+														"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.01KAMSKI02"
+													) | async
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Amanda">
+												{{
+													t(
+														"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.01KAMSKI02.1"
+													)
+												}}
+											</app-dialogue-line>
+										</p>
+									</div>
+								</app-conditioned-content>
+							</app-condition-group>
+						</div>
+					</app-conditioned-content>
+				</app-condition-group>
 			</app-choice-item>
 		</app-choice-group>
 
@@ -367,126 +377,129 @@
 
 		<mat-divider></mat-divider>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>
-					Connor shot the Tracis in
-					<a [routerLink]="['/chapters', 20]">The Eden Club</a> or
-					shot Chloe in
-					<a [routerLink]="['/chapters', 27]">Meet Kamski</a> (or
-					both)
-				</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Amanda">
-						{{
-							translationService.translateObject(
-								"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.DEVIANT"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Connor shot the Tracis in
+						<a [routerLink]="['/chapters', 20]">The Eden Club</a> or
+						shot Chloe in
+						<a [routerLink]="['/chapters', 27]">Meet Kamski</a> (or
+						both)
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Amanda">
+							{{
+								translationService.translateObject(
+									"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.DEVIANT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
 
-				<app-choice-group>
-					<app-choice-item
-						[choiceLabel]="
-							t('X1201C.FROZEN.AMANDA.PC.CHOICE04.YES')
-						"
-					>
-						<p>
-							<app-relation
-								[name]="RelationName.SoftwareInstability"
-								[type]="RelationType.SmallUp"
-							></app-relation>
-							<app-relation
-								[name]="RelationName.Amanda"
-								[type]="RelationType.LargeDown"
-							></app-relation>
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t('X1201C.FROZEN.AMANDA.PC.CHOICE04.YES')
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.SoftwareInstability"
+									[type]="RelationType.SmallUp"
+								></app-relation>
+								<app-relation
+									[name]="RelationName.Amanda"
+									[type]="RelationType.LargeDown"
+								></app-relation>
 
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.04YES01"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Amanda">
-								{{
-									translationService.translateObject(
-										"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.04YES02"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-					<app-choice-item
-						[choiceLabel]="t('X1201C.FROZEN.AMANDA.PC.CHOICE04.NO')"
-					>
-						<p>
-							<app-relation
-								[name]="RelationName.Amanda"
-								[type]="RelationType.LargeUp"
-							></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.04YES01"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Amanda">
+									{{
+										translationService.translateObject(
+											"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.04YES02"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X1201C.FROZEN.AMANDA.PC.CHOICE04.NO')
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.Amanda"
+									[type]="RelationType.LargeUp"
+								></app-relation>
 
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.04NO"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Amanda">
-								{{
-									translationService.translateObject(
-										"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.04NO"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-					<app-choice-item
-						[choiceLabel]="
-							t('X1201C.FROZEN.AMANDA.PC.CHOICE04.DOUBTS')
-						"
-					>
-						<p>
-							<app-relation
-								[name]="RelationName.Amanda"
-								[type]="RelationType.LargeDown"
-							></app-relation>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.04DOUBTS"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-				</app-choice-group>
-			</div>
-		</app-conditioned-content>
-
-		<app-conditioned-content>
-			<div class="condition">
-				<p>
-					Connor didn't shoot Chloe in
-					<a [routerLink]="['/chapters', 27]">Meet Kamski</a>
-				</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Amanda">
-						{{
-							translationService.translateObject(
-								"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.NOJERICHO"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.04NO"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Amanda">
+									{{
+										translationService.translateObject(
+											"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.04NO"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X1201C.FROZEN.AMANDA.PC.CHOICE04.DOUBTS')
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.Amanda"
+									[type]="RelationType.LargeDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X1201C.FROZEN.AMANDA.PC.X12CCONNOR.04DOUBTS"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Connor didn't shoot Chloe in
+						<a [routerLink]="['/chapters', 27]">Meet Kamski</a>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Amanda">
+							{{
+								translationService.translateObject(
+									"X1201C.FROZEN.AMANDA.PC.X12CAMANDA.NOJERICHO"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 	</section>
 
 	<section aria-labelledby="station">
@@ -557,984 +570,452 @@
 					}}
 				</app-dialogue-line>
 			</p>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Hank is hostile</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Fowler">
-							{{
-								t(
-									"X1202C.OFFICE.FOWLER.PC.X12CFOWLER.ATROCIOUS.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X1202C.OFFICE.FOWLER.PC.X12CHANK.ATROCIOUS.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Fowler">
-							{{
-								t(
-									"X1202C.OFFICE.FOWLER.PC.X12CFOWLER.ATROCIOUS.2"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X1202C.OFFICE.FOWLER.PC.X12CHANK.ATROCIOUS",
-									1
-								) | async
-							}}
-							{{
-								translationService.translateObject(
-									"X1202C.OFFICE.FOWLER.PC.X12CHANK.ATROCIOUS03"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Hank is hostile</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Fowler">
+								{{
+									t(
+										"X1202C.OFFICE.FOWLER.PC.X12CFOWLER.ATROCIOUS.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X1202C.OFFICE.FOWLER.PC.X12CHANK.ATROCIOUS.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Fowler">
+								{{
+									t(
+										"X1202C.OFFICE.FOWLER.PC.X12CFOWLER.ATROCIOUS.2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X1202C.OFFICE.FOWLER.PC.X12CHANK.ATROCIOUS",
+										1
+									) | async
+								}}
+								{{
+									translationService.translateObject(
+										"X1202C.OFFICE.FOWLER.PC.X12CHANK.ATROCIOUS03"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="talk-hank">
 			<h2 id="talk-hank">Hank isn't hostile : Talking with Hank</h2>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Connor doesn't know where Jericho is</p>
-				</div>
-				<div class="content">
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE01.FRUSTRATED'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.FRUSTRATED"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE01.MORETIME'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.MORETIME"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE01.EXPLAIN'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.EXPLAIN"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE01.NOCHOICE'
-								)
-							"
-						>
-							<p>&oslash;</p>
-						</app-choice-item>
-					</app-choice-group>
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.DEVIANT.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.DEVIANT"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.DEVIANT",
-									1
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
 
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE02.NOTPEOPLE'
-								)
-							"
-						>
-							<p>
-								<app-relation
-									[name]="RelationName.SoftwareInstability"
-									[type]="RelationType.SmallDown"
-								></app-relation>
-								<app-relation
-									[name]="RelationName.Hank"
-									[type]="RelationType.SmallDown"
-								></app-relation>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.NOTPEOPLE"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.NOTPEOPLEH"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE02.CORRECT'
-								)
-							"
-						>
-							<p>
-								<app-relation
-									[name]="RelationName.Hank"
-									[type]="RelationType.SmallDown"
-								></app-relation>
-
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.CORRECT"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.CORRECTH"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE02.REGRETS'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.REGRETS"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE02.NODOUBT'
-								)
-							"
-						>
-							<p>
-								<app-relation
-									[name]="RelationName.SoftwareInstability"
-									[type]="RelationType.SmallDown"
-								></app-relation>
-								<app-relation
-									[name]="RelationName.Hank"
-									[type]="RelationType.SmallDown"
-								></app-relation>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.NODOUBT"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-					<!-- TODO (V2): choice02 check DOUBTS and NOCHOICE -->
-					<mat-divider></mat-divider>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Connor didn't shoot Chloe</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.SPAREDCHLOE.1"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-							<app-unused-content>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Connor doesn't know where Jericho is</p>
+					</div>
+					<div class="content">
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE01.FRUSTRATED'
+									)
+								"
+							>
 								<p>
-									<app-dialogue-line name="Hank">
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.FRUSTRATED"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE01.MORETIME'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.MORETIME"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE01.EXPLAIN'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.EXPLAIN"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE01.NOCHOICE'
+									)
+								"
+							>
+								<p>&oslash;</p>
+							</app-choice-item>
+						</app-choice-group>
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.DEVIANT.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.DEVIANT"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.DEVIANT",
+										1
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE02.NOTPEOPLE'
+									)
+								"
+							>
+								<p>
+									<app-relation
+										[name]="
+											RelationName.SoftwareInstability
+										"
+										[type]="RelationType.SmallDown"
+									></app-relation>
+									<app-relation
+										[name]="RelationName.Hank"
+										[type]="RelationType.SmallDown"
+									></app-relation>
+									<app-dialogue-line name="Connor">
 										{{
 											t(
-												"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.SPAREDCHLOE.2"
+												"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.NOTPEOPLE"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.NOTPEOPLEH"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE02.CORRECT'
+									)
+								"
+							>
+								<p>
+									<app-relation
+										[name]="RelationName.Hank"
+										[type]="RelationType.SmallDown"
+									></app-relation>
+
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.CORRECT"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.CORRECTH"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE02.REGRETS'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.REGRETS"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.CHOICE02.NODOUBT'
+									)
+								"
+							>
+								<p>
+									<app-relation
+										[name]="
+											RelationName.SoftwareInstability
+										"
+										[type]="RelationType.SmallDown"
+									></app-relation>
+									<app-relation
+										[name]="RelationName.Hank"
+										[type]="RelationType.SmallDown"
+									></app-relation>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.NODOUBT"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+
+						<!-- TODO (V2): choice02 check DOUBTS and NOCHOICE -->
+						<mat-divider></mat-divider>
+
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Connor didn't shoot Chloe</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.SPAREDCHLOE.1"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+									<app-unused-content>
+										<p>
+											<app-dialogue-line name="Hank">
+												{{
+													t(
+														"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.SPAREDCHLOE.2"
+													)
+												}}
+											</app-dialogue-line>
+										</p>
+									</app-unused-content>
+									<p>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.SPAREDCHLOE",
+													2
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										Connor shot Chloe and saved Hank before
+									</p>
+								</div>
+								<div class="content">
+									<app-condition-group>
+										<app-conditioned-content>
+											<div class="condition">
+												<p>
+													Connor saved Hank on the
+													roof in
+													<a
+														[routerLink]="[
+															'/chapters',
+															15,
+														]"
+														>The Nest</a
+													>
+												</p>
+											</div>
+											<div class="content">
+												<p>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.HANKTHENEST"
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
+											</div>
+										</app-conditioned-content>
+										<app-conditioned-content>
+											<div class="condition">
+												<p>
+													Connor saved Hank at the
+													Stratford Tower in
+													<a
+														[routerLink]="[
+															'/chapters',
+															24,
+														]"
+														>Public Enemy
+													</a>
+												</p>
+											</div>
+											<div class="content">
+												<p>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.HANKBIGSCREEN"
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
+											</div>
+										</app-conditioned-content>
+									</app-condition-group>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+
+						<mat-divider></mat-divider>
+
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.POSITIVECHOICE.NOTDEVIANT'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.NOTDEVIANT"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.POSITIVECHOICE.DETERMINED'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DETERMINED02"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.POSITIVECHOICE.TROUBLED'
+									)
+								"
+							>
+								<p>
+									<app-relation
+										[name]="
+											RelationName.SoftwareInstability
+										"
+										[type]="RelationType.SmallUp"
+									></app-relation>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.TROUBLED02"
 											)
 										}}
 									</app-dialogue-line>
 								</p>
-							</app-unused-content>
-							<p>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.SPAREDCHLOE",
-											2
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Connor shot Chloe and saved Hank before</p>
-						</div>
-						<div class="content">
-							<app-conditioned-content>
-								<div class="condition">
-									<p>
-										Connor saved Hank on the roof in
-										<a [routerLink]="['/chapters', 15]"
-											>The Nest</a
-										>
-									</p>
-								</div>
-								<div class="content">
-									<p>
-										<app-dialogue-line name="Hank">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.HANKTHENEST"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</div>
-							</app-conditioned-content>
-							<app-conditioned-content>
-								<div class="condition">
-									<p>
-										Connor saved Hank at the Stratford Tower
-										in
-										<a [routerLink]="['/chapters', 24]"
-											>Public Enemy
-										</a>
-									</p>
-								</div>
-								<div class="content">
-									<p>
-										<app-dialogue-line name="Hank">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.HANKBIGSCREEN"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</div>
-							</app-conditioned-content>
-						</div>
-					</app-conditioned-content>
-					<mat-divider></mat-divider>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.NOJERICHOINFO.PC.POSITIVECHOICE.COLD'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.COLD01"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
 
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.POSITIVECHOICE.NOTDEVIANT'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.NOTDEVIANT"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.POSITIVECHOICE.DETERMINED'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DETERMINED02"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.POSITIVECHOICE.TROUBLED'
-								)
-							"
-						>
-							<p>
-								<app-relation
-									[name]="RelationName.SoftwareInstability"
-									[type]="RelationType.SmallUp"
-								></app-relation>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.TROUBLED02"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.NOJERICHOINFO.PC.POSITIVECHOICE.COLD'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.COLD01"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-					<mat-divider></mat-divider>
-					<app-conditioned-content>
-						<div class="condition"><p>Hank is friendly</p></div>
-						<div class="content">
-							<app-choice-group>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.NOJERICHOINFO.PC.GOODRELATION.SINCERE'
-										)
-									"
-								>
-									<p>
-										<app-relation
-											[name]="
-												RelationName.SoftwareInstability
-											"
-											[type]="RelationType.SmallUp"
-										></app-relation>
-										<app-relation
-											[name]="RelationName.Hank"
-											[type]="RelationType.SmallUp"
-										></app-relation>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.SINCERE"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.NOJERICHOINFO.PC.GOODRELATION.FRIENDS'
-										)
-									"
-								>
-									<p>
-										<app-relation
-											[name]="
-												RelationName.SoftwareInstability
-											"
-											[type]="RelationType.SmallUp"
-										></app-relation>
-										<app-relation
-											[name]="RelationName.Hank"
-											[type]="RelationType.SmallUp"
-										></app-relation>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.FRIENDS"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.NOJERICHOINFO.PC.GOODRELATION.ADVICE'
-										)
-									"
-								>
-									<p>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.RESPECT"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.NOJERICHOINFO.PC.GOODRELATION.HANKSECRET'
-										)
-									"
-								>
-									<p>
-										<app-relation
-											[name]="
-												RelationName.SoftwareInstability
-											"
-											[type]="RelationType.SmallUp"
-										></app-relation>
-										<app-relation
-											[name]="RelationName.Hank"
-											[type]="RelationType.SmallUp"
-										></app-relation>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.HANKSECRET"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-							</app-choice-group>
-						</div>
-					</app-conditioned-content>
-					<!-- TODO (V2): Check X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.NEUTRAL -->
-					<mat-divider></mat-divider>
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.PERKINS.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.PERKINS",
-									0,
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.PERKINS.2"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.PERKINS",
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-					<app-conditioned-content>
-						<div class="condition"><p>Hank is friendly</p></div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.GOODCONCLUSION.1"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.GOODCONCLUSION"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.GOODCONCLUSION",
-											1
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-							<p>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X1202C.OFFICE.HANKHELP.FA.X12CHANK.FIGHT01"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Cop">
-									{{
-										t(
-											"X1202C.OFFICE.HANKHELP.FA.X12CCOP01.FIGHT03.1"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X1202C.OFFICE.HANKHELP.FA.X12CHANK.FIGHT02"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Perkins">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.HANKHELP.FA.X12CPERKINS.FIGHT04"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X1202C.OFFICE.HANKHELP.FA.X12CHANK.FIGHT05"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Cop">
-									{{
-										t(
-											"X1202C.OFFICE.HANKHELP.FA.X12CCOP01.FIGHT06.1"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Perkins">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.HANKHELP.FA.X12CPERKINS.SITDOWN02"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition"><p>Hank is not friendly</p></div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.BADCONCLUSION"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-							<app-conditioned-content>
-								<div class="condition">
-									<p>Freeing the prisoner</p>
-								</div>
-								<div class="content">
-									<p>
-										<app-dialogue-line name="Perkins">
-											{{
-												t(
-													"X1107M.NEGOCIATION.PERKINS.PC.X11MPERKINS.SPEAKPERKINSP.4"
-												)
-											}}
-											{{
-												t(
-													"X1105M.BARRICADE.PERKINS.PC.X11MPERKINS.02REFUSEPERK.2"
-												)
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Cop">
-											{{
-												t(
-													"X1202C.PRISON.BREAK.FA.X12CCOP01.ESCAPE01"
-												)
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Cop 2">
-											{{
-												t(
-													"X1202C.PRISON.BREAK.FA.X12CCOP02.ESCAPE02"
-												)
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Cop">
-											{{
-												translationService.translateObject(
-													"X1202C.PRISON.BREAK.FA.X12CCOP03.ESCAPE03"
-												) | async
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Cop 2">
-											{{
-												translationService.translateObject(
-													"X1202C.PRISON.BREAK.FA.X12CCOP02.ESCAPE04"
-												) | async
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Perkins">
-											{{
-												translationService.translateObject(
-													"X1202C.PRISON.BREAK.FA.X12CPERKINS.ESCAPE06"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</div>
-							</app-conditioned-content>
-						</div>
-					</app-conditioned-content>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Connor knows how to find Jericho</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.REGRETS.2"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
+						<mat-divider></mat-divider>
 
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.JERICHOINFO.PC.CHOICE01.MISSION'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.MISSION",
-											0,
-											2
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.MISSION"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.MISSION",
-											2
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.JERICHOINFO.PC.CHOICE01.EXPLAIN'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.EXPLAIN"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.MISSIONH"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.JERICHOINFO.PC.CHOICE02.DETERMINED'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DETERMINED01"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.JERICHOINFO.PC.CHOICE02.TROUBLED'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.TROUBLED01"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.JERICHOINFO.PC.CHOICE02.NODOUBT'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.NODOUBT"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1202C.OFFICE.JERICHOINFO.PC.CHOICE02.DOUBTS'
-								)
-							"
-						>
-							<p>
-								<app-relation
-									[name]="RelationName.SoftwareInstability"
-									[type]="RelationType.SmallUp"
-								></app-relation>
-								<app-relation
-									[name]="RelationName.Hank"
-									[type]="RelationType.SmallUp"
-								></app-relation>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DOUBTS"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-					<mat-divider></mat-divider>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Connor saved Hank before</p>
-						</div>
-						<div class="content">
-							<app-conditioned-content>
-								<div class="condition">
-									<p>
-										Connor saved Hank on the roof in
-										<a [routerLink]="['/chapters', 15]"
-											>The Nest</a
-										>
-									</p>
-								</div>
-								<div class="content">
-									<p>
-										<app-dialogue-line name="Hank">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.HANKTHENEST"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</div>
-							</app-conditioned-content>
-							<app-conditioned-content>
-								<div class="condition">
-									<p>
-										Connor saved Hank at the Stratford Tower
-										in
-										<a [routerLink]="['/chapters', 24]"
-											>Public Enemy
-										</a>
-									</p>
-								</div>
-								<div class="content">
-									<p>
-										<app-dialogue-line name="Hank">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.HANKBIGSCREEN"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</div>
-							</app-conditioned-content>
-							<mat-divider></mat-divider>
-
-							<app-choice-group>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.JERICHOINFO.PC.POSITIVECHOICE.NOTDEVIANT'
-										)
-									"
-								>
-									<p>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.NOTDEVIANT"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.JERICHOINFO.PC.POSITIVECHOICE.DETERMINED'
-										)
-									"
-								>
-									<p>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DETERMINED02"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.JERICHOINFO.PC.POSITIVECHOICE.TROUBLED'
-										)
-									"
-								>
-									<p>
-										<app-relation
-											[name]="
-												RelationName.SoftwareInstability
-											"
-											[type]="RelationType.SmallUp"
-										></app-relation>
-										<app-dialogue-line name="Connor">
-											{{
-												t(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.TROUBLED02"
-												)
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.JERICHOINFO.PC.POSITIVECHOICE.SAYNOTHING'
-										)
-									"
-								>
-									<p>&oslash;</p>
-								</app-choice-item>
-							</app-choice-group>
-							<mat-divider></mat-divider>
+						<app-condition-group>
 							<app-conditioned-content>
 								<div class="condition">
 									<p>Hank is friendly</p>
@@ -1544,11 +1025,25 @@
 										<app-choice-item
 											[choiceLabel]="
 												t(
-													'X1202C.OFFICE.JERICHOINFO.PC.GOODRELATION.SINCERE'
+													'X1202C.OFFICE.NOJERICHOINFO.PC.GOODRELATION.SINCERE'
 												)
 											"
 										>
 											<p>
+												<app-relation
+													[name]="
+														RelationName.SoftwareInstability
+													"
+													[type]="
+														RelationType.SmallUp
+													"
+												></app-relation>
+												<app-relation
+													[name]="RelationName.Hank"
+													[type]="
+														RelationType.SmallUp
+													"
+												></app-relation>
 												<app-dialogue-line
 													name="Connor"
 												>
@@ -1563,7 +1058,7 @@
 										<app-choice-item
 											[choiceLabel]="
 												t(
-													'X1202C.OFFICE.JERICHOINFO.PC.GOODRELATION.FRIENDS'
+													'X1202C.OFFICE.NOJERICHOINFO.PC.GOODRELATION.FRIENDS'
 												)
 											"
 										>
@@ -1596,7 +1091,26 @@
 										<app-choice-item
 											[choiceLabel]="
 												t(
-													'X1202C.OFFICE.JERICHOINFO.PC.GOODRELATION.RESPECT'
+													'X1202C.OFFICE.NOJERICHOINFO.PC.GOODRELATION.ADVICE'
+												)
+											"
+										>
+											<p>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.RESPECT"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.NOJERICHOINFO.PC.GOODRELATION.HANKSECRET'
 												)
 											"
 										>
@@ -1620,16 +1134,459 @@
 												>
 													{{
 														translationService.translateObject(
-															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.RESPECT"
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.HANKSECRET"
 														) | async
 													}}
 												</app-dialogue-line>
 											</p>
 										</app-choice-item>
+									</app-choice-group>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+
+						<!-- TODO (V2): Check X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.NEUTRAL -->
+						<mat-divider></mat-divider>
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.PERKINS.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.PERKINS",
+										0,
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.PERKINS.2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.PERKINS",
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Hank is friendly</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.GOODCONCLUSION.1"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Connor">
+											{{
+												translationService.translateObject(
+													"X1202C.OFFICE.NOJERICHOINFO.PC.X12CCONNOR.GOODCONCLUSION"
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.GOODCONCLUSION",
+													1
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+									<p>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X1202C.OFFICE.HANKHELP.FA.X12CHANK.FIGHT01"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Cop">
+											{{
+												t(
+													"X1202C.OFFICE.HANKHELP.FA.X12CCOP01.FIGHT03.1"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X1202C.OFFICE.HANKHELP.FA.X12CHANK.FIGHT02"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Perkins">
+											{{
+												translationService.translateObject(
+													"X1202C.OFFICE.HANKHELP.FA.X12CPERKINS.FIGHT04"
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X1202C.OFFICE.HANKHELP.FA.X12CHANK.FIGHT05"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Cop">
+											{{
+												t(
+													"X1202C.OFFICE.HANKHELP.FA.X12CCOP01.FIGHT06.1"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Perkins">
+											{{
+												translationService.translateObject(
+													"X1202C.OFFICE.HANKHELP.FA.X12CPERKINS.SITDOWN02"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Hank is not friendly</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X1202C.OFFICE.NOJERICHOINFO.PC.X12CHANK.BADCONCLUSION"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+
+									<app-condition-group>
+										<app-conditioned-content>
+											<div class="condition">
+												<p>Freeing the prisoner</p>
+											</div>
+											<div class="content">
+												<p>
+													<app-dialogue-line
+														name="Perkins"
+													>
+														{{
+															t(
+																"X1107M.NEGOCIATION.PERKINS.PC.X11MPERKINS.SPEAKPERKINSP.4"
+															)
+														}}
+														{{
+															t(
+																"X1105M.BARRICADE.PERKINS.PC.X11MPERKINS.02REFUSEPERK.2"
+															)
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Cop"
+													>
+														{{
+															t(
+																"X1202C.PRISON.BREAK.FA.X12CCOP01.ESCAPE01"
+															)
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Cop 2"
+													>
+														{{
+															t(
+																"X1202C.PRISON.BREAK.FA.X12CCOP02.ESCAPE02"
+															)
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Cop"
+													>
+														{{
+															translationService.translateObject(
+																"X1202C.PRISON.BREAK.FA.X12CCOP03.ESCAPE03"
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Cop 2"
+													>
+														{{
+															translationService.translateObject(
+																"X1202C.PRISON.BREAK.FA.X12CCOP02.ESCAPE04"
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Perkins"
+													>
+														{{
+															translationService.translateObject(
+																"X1202C.PRISON.BREAK.FA.X12CPERKINS.ESCAPE06"
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
+											</div>
+										</app-conditioned-content>
+									</app-condition-group>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Connor knows how to find Jericho</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.REGRETS.2"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.JERICHOINFO.PC.CHOICE01.MISSION'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.MISSION",
+												0,
+												2
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											t(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.MISSION"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.MISSION",
+												2
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.JERICHOINFO.PC.CHOICE01.EXPLAIN'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.EXPLAIN"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.MISSIONH"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.JERICHOINFO.PC.CHOICE02.DETERMINED'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DETERMINED01"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.JERICHOINFO.PC.CHOICE02.TROUBLED'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.TROUBLED01"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.JERICHOINFO.PC.CHOICE02.NODOUBT'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.NODOUBT"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.OFFICE.JERICHOINFO.PC.CHOICE02.DOUBTS'
+									)
+								"
+							>
+								<p>
+									<app-relation
+										[name]="
+											RelationName.SoftwareInstability
+										"
+										[type]="RelationType.SmallUp"
+									></app-relation>
+									<app-relation
+										[name]="RelationName.Hank"
+										[type]="RelationType.SmallUp"
+									></app-relation>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DOUBTS"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+
+						<mat-divider></mat-divider>
+
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Connor saved Hank before</p>
+								</div>
+								<div class="content">
+									<app-condition-group>
+										<app-conditioned-content>
+											<div class="condition">
+												<p>
+													Connor saved Hank on the
+													roof in
+													<a
+														[routerLink]="[
+															'/chapters',
+															15,
+														]"
+														>The Nest</a
+													>
+												</p>
+											</div>
+											<div class="content">
+												<p>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.HANKTHENEST"
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
+											</div>
+										</app-conditioned-content>
+										<app-conditioned-content>
+											<div class="condition">
+												<p>
+													Connor saved Hank at the
+													Stratford Tower in
+													<a
+														[routerLink]="[
+															'/chapters',
+															24,
+														]"
+														>Public Enemy
+													</a>
+												</p>
+											</div>
+											<div class="content">
+												<p>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.HANKBIGSCREEN"
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
+											</div>
+										</app-conditioned-content>
+									</app-condition-group>
+
+									<mat-divider></mat-divider>
+
+									<app-choice-group>
 										<app-choice-item
 											[choiceLabel]="
 												t(
-													'X1202C.OFFICE.JERICHOINFO.PC.GOODRELATION.NEUTRAL'
+													'X1202C.OFFICE.JERICHOINFO.PC.POSITIVECHOICE.NOTDEVIANT'
 												)
 											"
 										>
@@ -1638,9 +1595,406 @@
 													name="Connor"
 												>
 													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.NOTDEVIANT"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.JERICHOINFO.PC.POSITIVECHOICE.DETERMINED'
+												)
+											"
+										>
+											<p>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DETERMINED02"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.JERICHOINFO.PC.POSITIVECHOICE.TROUBLED'
+												)
+											"
+										>
+											<p>
+												<app-relation
+													[name]="
+														RelationName.SoftwareInstability
+													"
+													[type]="
+														RelationType.SmallUp
+													"
+												></app-relation>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
 														t(
-															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.NEUTRAL"
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.TROUBLED02"
 														)
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.JERICHOINFO.PC.POSITIVECHOICE.SAYNOTHING'
+												)
+											"
+										>
+											<p>&oslash;</p>
+										</app-choice-item>
+									</app-choice-group>
+
+									<mat-divider></mat-divider>
+
+									<app-condition-group>
+										<app-conditioned-content>
+											<div class="condition">
+												<p>Hank is friendly</p>
+											</div>
+											<div class="content">
+												<app-choice-group>
+													<app-choice-item
+														[choiceLabel]="
+															t(
+																'X1202C.OFFICE.JERICHOINFO.PC.GOODRELATION.SINCERE'
+															)
+														"
+													>
+														<p>
+															<app-dialogue-line
+																name="Connor"
+															>
+																{{
+																	translationService.translateObject(
+																		"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.SINCERE"
+																	) | async
+																}}
+															</app-dialogue-line>
+														</p>
+													</app-choice-item>
+													<app-choice-item
+														[choiceLabel]="
+															t(
+																'X1202C.OFFICE.JERICHOINFO.PC.GOODRELATION.FRIENDS'
+															)
+														"
+													>
+														<p>
+															<app-relation
+																[name]="
+																	RelationName.SoftwareInstability
+																"
+																[type]="
+																	RelationType.SmallUp
+																"
+															></app-relation>
+															<app-relation
+																[name]="
+																	RelationName.Hank
+																"
+																[type]="
+																	RelationType.SmallUp
+																"
+															></app-relation>
+															<app-dialogue-line
+																name="Connor"
+															>
+																{{
+																	translationService.translateObject(
+																		"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.FRIENDS"
+																	) | async
+																}}
+															</app-dialogue-line>
+														</p>
+													</app-choice-item>
+													<app-choice-item
+														[choiceLabel]="
+															t(
+																'X1202C.OFFICE.JERICHOINFO.PC.GOODRELATION.RESPECT'
+															)
+														"
+													>
+														<p>
+															<app-relation
+																[name]="
+																	RelationName.SoftwareInstability
+																"
+																[type]="
+																	RelationType.SmallUp
+																"
+															></app-relation>
+															<app-relation
+																[name]="
+																	RelationName.Hank
+																"
+																[type]="
+																	RelationType.SmallUp
+																"
+															></app-relation>
+															<app-dialogue-line
+																name="Connor"
+															>
+																{{
+																	translationService.translateObject(
+																		"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.RESPECT"
+																	) | async
+																}}
+															</app-dialogue-line>
+														</p>
+													</app-choice-item>
+													<app-choice-item
+														[choiceLabel]="
+															t(
+																'X1202C.OFFICE.JERICHOINFO.PC.GOODRELATION.NEUTRAL'
+															)
+														"
+													>
+														<p>
+															<app-dialogue-line
+																name="Connor"
+															>
+																{{
+																	t(
+																		"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.NEUTRAL"
+																	)
+																}}
+															</app-dialogue-line>
+														</p>
+													</app-choice-item>
+												</app-choice-group>
+											</div>
+										</app-conditioned-content>
+									</app-condition-group>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										Connor never saved Hank and died at
+										least once
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.YOUCHANGE"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+
+									<app-choice-group>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.NOJERICHOINFO.PC.NEGATIVECHOICE.INDIFFERENT'
+												)
+											"
+										>
+											<p>
+												<app-relation
+													[name]="
+														RelationName.SoftwareInstability
+													"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-relation
+													[name]="RelationName.Hank"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.INDIFFERENT"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.NOJERICHOINFO.PC.NEGATIVECHOICE.DISTANT'
+												)
+											"
+										>
+											<p>
+												<app-relation
+													[name]="
+														RelationName.SoftwareInstability
+													"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-relation
+													[name]="RelationName.Hank"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DISTANT01"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.NOJERICHOINFO.PC.NEGATIVECHOICE.EMPATHY'
+												)
+											"
+										>
+											<p>
+												<app-relation
+													[name]="
+														RelationName.SoftwareInstability
+													"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-relation
+													[name]="RelationName.Hank"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.EMPATHY"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.NOJERICHOINFO.PC.NEGATIVECHOICE.NORESPONSE'
+												)
+											"
+										>
+											<p>&oslash;</p>
+										</app-choice-item>
+									</app-choice-group>
+
+									<mat-divider></mat-divider>
+
+									<app-choice-group>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.REMORSE'
+												)
+											"
+										>
+											<p>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.REMORSE"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.DISTANT'
+												)
+											"
+										>
+											<p>
+												<app-relation
+													[name]="
+														RelationName.SoftwareInstability
+													"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-relation
+													[name]="RelationName.Hank"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DISTANT02"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.COLD'
+												)
+											"
+										>
+											<p>
+												<app-relation
+													[name]="
+														RelationName.SoftwareInstability
+													"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-relation
+													[name]="RelationName.Hank"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.COLD02"
+														) | async
 													}}
 												</app-dialogue-line>
 											</p>
@@ -1648,315 +2002,151 @@
 									</app-choice-group>
 								</div>
 							</app-conditioned-content>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>
-								Connor never saved Hank and died at least once
-							</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.YOUCHANGE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Connor never showed empathy</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.BADRELATIONSHIP"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
 
-							<app-choice-group>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.NOJERICHOINFO.PC.NEGATIVECHOICE.INDIFFERENT'
-										)
-									"
-								>
-									<p>
-										<app-relation
-											[name]="
-												RelationName.SoftwareInstability
+									<app-choice-group>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.REMORSE'
+												)
 											"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-relation
-											[name]="RelationName.Hank"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.INDIFFERENT"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.NOJERICHOINFO.PC.NEGATIVECHOICE.DISTANT'
-										)
-									"
-								>
-									<p>
-										<app-relation
-											[name]="
-												RelationName.SoftwareInstability
+										>
+											<p>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.REMORSE"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.DISTANT'
+												)
 											"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-relation
-											[name]="RelationName.Hank"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DISTANT01"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.NOJERICHOINFO.PC.NEGATIVECHOICE.EMPATHY'
-										)
-									"
-								>
-									<p>
-										<app-relation
-											[name]="
-												RelationName.SoftwareInstability
+										>
+											<p>
+												<app-relation
+													[name]="
+														RelationName.SoftwareInstability
+													"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-relation
+													[name]="RelationName.Hank"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DISTANT02"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t(
+													'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.COLD'
+												)
 											"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-relation
-											[name]="RelationName.Hank"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.EMPATHY"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.NOJERICHOINFO.PC.NEGATIVECHOICE.NORESPONSE'
-										)
-									"
-								>
-									<p>&oslash;</p>
-								</app-choice-item>
-							</app-choice-group>
-							<mat-divider></mat-divider>
+										>
+											<p>
+												<app-relation
+													[name]="
+														RelationName.SoftwareInstability
+													"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-relation
+													[name]="RelationName.Hank"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.COLD02"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+									</app-choice-group>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
 
-							<app-choice-group>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.REMORSE'
-										)
-									"
-								>
-									<p>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.REMORSE"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.DISTANT'
-										)
-									"
-								>
-									<p>
-										<app-relation
-											[name]="
-												RelationName.SoftwareInstability
-											"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-relation
-											[name]="RelationName.Hank"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DISTANT02"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.COLD'
-										)
-									"
-								>
-									<p>
-										<app-relation
-											[name]="
-												RelationName.SoftwareInstability
-											"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-relation
-											[name]="RelationName.Hank"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.COLD02"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-							</app-choice-group>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Connor never showed empathy</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.BADRELATIONSHIP"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
+						<mat-divider></mat-divider>
 
-							<app-choice-group>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.REMORSE'
-										)
-									"
-								>
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Hank is friendly</p>
+								</div>
+								<div class="content">
 									<p>
-										<app-dialogue-line name="Connor">
+										<app-dialogue-line name="Hank">
 											{{
 												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.REMORSE"
+													"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.GOODCONCLUSION"
 												) | async
 											}}
 										</app-dialogue-line>
 									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.DISTANT'
-										)
-									"
-								>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Hank is not friendly</p>
+								</div>
+								<div class="content">
 									<p>
-										<app-relation
-											[name]="
-												RelationName.SoftwareInstability
-											"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-relation
-											[name]="RelationName.Hank"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-dialogue-line name="Connor">
+										<app-dialogue-line name="Hank">
 											{{
 												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.DISTANT02"
+													"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.BADCONCLUSION"
 												) | async
 											}}
 										</app-dialogue-line>
 									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X1202C.OFFICE.JERICHOINFO.PC.BADRELATION.COLD'
-										)
-									"
-								>
-									<p>
-										<app-relation
-											[name]="
-												RelationName.SoftwareInstability
-											"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-relation
-											[name]="RelationName.Hank"
-											[type]="RelationType.SmallDown"
-										></app-relation>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1202C.OFFICE.JERICHOINFO.PC.X12CCONNOR.COLD02"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-							</app-choice-group>
-						</div>
-					</app-conditioned-content>
-					<mat-divider></mat-divider>
-					<app-conditioned-content>
-						<div class="condition"><p>Hank is friendly</p></div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.GOODCONCLUSION"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition"><p>Hank is not friendly</p></div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1202C.OFFICE.JERICHOINFO.PC.X12CHANK.BADCONCLUSION"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-				</div>
-			</app-conditioned-content>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="basement">
@@ -2681,145 +2871,156 @@
 					{{ t("X1202C.EVIDENCE.DANIEL.VO.X12CCONNOR.THINK") }}
 				</app-dialogue-line>
 			</p>
+
 			<h3 id="daniel-activate">Reactivating Daniel</h3>
-			<app-conditioned-content>
-				<div class="condition"><p>Daniel trusted Connor</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Daniel">
-							{{
-								translationService.translateObject(
-									"X1202C.SOLUTION05.DANIEL.FA.X12CDANIEL.DANIELKILLED01"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Daniel trusted Connor</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Daniel">
+								{{
+									translationService.translateObject(
+										"X1202C.SOLUTION05.DANIEL.FA.X12CDANIEL.DANIELKILLED01"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
 
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t('X1202C.SOLUTION05.DANIEL.PC.CHOICE.EXPLAIN')
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.SOLUTION05.DANIEL.PC.X12CCONNOR.EXPLAIN"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t('X1202C.SOLUTION05.DANIEL.PC.CHOICE.LIE')
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.SOLUTION05.DANIEL.PC.X12CCONNOR.LIE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t('X1202C.SOLUTION05.DANIEL.PC.CHOICE.DIRECT')
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.SOLUTION05.DANIEL.PC.X12CCONNOR.DIRECT"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-					<p>
-						<app-dialogue-line name="Daniel">
-							{{
-								translationService.translateObject(
-									"X1202C.SOLUTION05.DANIEL.FA.X12CDANIEL.DANIELKILLED02"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						<app-unlock-condition [unlockType]="UnlockType.Death">
-							<span class="font-bold">
-								Daniel killed Connor in
-								<a [routerLink]="['/chapters', 1]"
-									>The Hostage</a
-								>
-							</span>
-						</app-unlock-condition>
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Daniel">
-							{{
-								translationService.translateObject(
-									"X1202C.SOLUTION05.DANIEL.FA.X12CDANIEL.CONNORKILLED01"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.SOLUTION05.DANIEL.PC.CHOICE.EXPLAIN'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.SOLUTION05.DANIEL.PC.X12CCONNOR.EXPLAIN"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t('X1202C.SOLUTION05.DANIEL.PC.CHOICE.LIE')
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.SOLUTION05.DANIEL.PC.X12CCONNOR.LIE"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.SOLUTION05.DANIEL.PC.CHOICE.DIRECT'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.SOLUTION05.DANIEL.PC.X12CCONNOR.DIRECT"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+						<p>
+							<app-dialogue-line name="Daniel">
+								{{
+									translationService.translateObject(
+										"X1202C.SOLUTION05.DANIEL.FA.X12CDANIEL.DANIELKILLED02"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							<app-unlock-condition
+								[unlockType]="UnlockType.Death"
+							>
+								<span class="font-bold">
+									Daniel killed Connor in
+									<a [routerLink]="['/chapters', 1]"
+										>The Hostage</a
+									>
+								</span>
+							</app-unlock-condition>
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Daniel">
+								{{
+									translationService.translateObject(
+										"X1202C.SOLUTION05.DANIEL.FA.X12CDANIEL.CONNORKILLED01"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
 
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t('X1202C.SOLUTION05.DANIEL.PC.CHOICE.LIE')
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.SOLUTION05.DANIEL.PC.X12CCONNOR.LIE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t('X1202C.SOLUTION05.DANIEL.PC.CHOICE.DIRECT')
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1202C.SOLUTION05.DANIEL.PC.X12CCONNOR.DIRECT"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-					<p>
-						<app-dialogue-line name="Daniel">
-							{{
-								translationService.translateObject(
-									"X1202C.SOLUTION05.DANIEL.FA.X12CDANIEL.CONNORKILLED02"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t('X1202C.SOLUTION05.DANIEL.PC.CHOICE.LIE')
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.SOLUTION05.DANIEL.PC.X12CCONNOR.LIE"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1202C.SOLUTION05.DANIEL.PC.CHOICE.DIRECT'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1202C.SOLUTION05.DANIEL.PC.X12CCONNOR.DIRECT"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+						<p>
+							<app-dialogue-line name="Daniel">
+								{{
+									translationService.translateObject(
+										"X1202C.SOLUTION05.DANIEL.FA.X12CDANIEL.CONNORKILLED02"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="ortiz">
@@ -2832,94 +3033,108 @@
 		</section>
 
 		<section aria-labelledby="timeout">
-			<app-conditioned-content>
-				<div class="condition">
-					<h2 id="timeout">
-						<app-unlock-condition [unlockType]="UnlockType.Time">
-							Not enough evidence to find Jericho or took too much
-							time
-						</app-unlock-condition>
-					</h2>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Amanda">
-							{{
-								translationService.translateObject(
-									"X1202C.ZENGARDEN.GAMEOVER.PC.X12CAMANDA.COLD",
-									0,
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X1202C.ZENGARDEN.GAMEOVER.PC.X12CCONNOR.COLD"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Amanda">
-							{{
-								translationService.translateObject(
-									"X1202C.ZENGARDEN.GAMEOVER.PC.X12CAMANDA.COLD",
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<h2 id="timeout">
+							<app-unlock-condition
+								[unlockType]="UnlockType.Time"
+							>
+								Not enough evidence to find Jericho or took too
+								much time
+							</app-unlock-condition>
+						</h2>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Amanda">
+								{{
+									translationService.translateObject(
+										"X1202C.ZENGARDEN.GAMEOVER.PC.X12CAMANDA.COLD",
+										0,
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X1202C.ZENGARDEN.GAMEOVER.PC.X12CCONNOR.COLD"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Amanda">
+								{{
+									translationService.translateObject(
+										"X1202C.ZENGARDEN.GAMEOVER.PC.X12CAMANDA.COLD",
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="jericho-found">
 			<h2 id="jericho-found">Located Jericho</h2>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Connor chose IRONIC or LEAVE when stopped by Gavin</p>
-				</div>
-				<div class="content">
-					<h3 id="gavin">Gavin returns</h3>
-					<p>
-						<app-dialogue-line name="Gavin">
-							{{
-								t(
-									"X1202C.CONTAINERROOM.END.PC.X12CCURTIS.CURTISBACK.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X1202C.CONTAINERROOM.END.PC.X12CCONNOR.CURTISBACK"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Gavin">
-							{{
-								translationService.translateObject(
-									"X1202C.CONTAINERROOM.END.PC.X12CCURTIS.CURTISBACK",
-									1
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-					<app-conditioned-content>
-						<div class="condition"><p>Losing the fight</p></div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Gavin">
-									{{
-										t(
-											"X1202C.CONTAINERROOM.END.FA.X12CCURTIS.FAILURE"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-				</div>
-			</app-conditioned-content>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Connor chose IRONIC or LEAVE when stopped by Gavin
+						</p>
+					</div>
+					<div class="content">
+						<h3 id="gavin">Gavin returns</h3>
+						<p>
+							<app-dialogue-line name="Gavin">
+								{{
+									t(
+										"X1202C.CONTAINERROOM.END.PC.X12CCURTIS.CURTISBACK.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X1202C.CONTAINERROOM.END.PC.X12CCONNOR.CURTISBACK"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Gavin">
+								{{
+									translationService.translateObject(
+										"X1202C.CONTAINERROOM.END.PC.X12CCURTIS.CURTISBACK",
+										1
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Lose the fight</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Gavin">
+											{{
+												t(
+													"X1202C.CONTAINERROOM.END.FA.X12CCURTIS.FAILURE"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
 			<p>
 				<app-dialogue-line name="Perkins">
 					{{ t("X1202C.CONTAINERROOM.END.FA.X12CPERKINS.SUCCESS.1") }}

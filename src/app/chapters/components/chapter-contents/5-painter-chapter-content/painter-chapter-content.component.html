@@ -92,90 +92,94 @@
 				</app-dialogue-line>
 			</p>
 
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						Markus ran into the protesters in
-						<a [routerLink]="['/chapters', 3]">Shades of Color</a>
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Carl">
-							{{
-								t(
-									"X0101M.BEDROOM.INJECTION.PC.X01MCARL.CLOTHES"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Markus">
-							{{
-								translationService.translateObject(
-									"X0101M.BEDROOM.INJECTION.PC.X01MMARKUS.REASSURING"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-
-					<app-unused-content>
-						<app-choice-group>
-							<app-choice-item
-								[choiceLabel]="
-									t(
-										'X0101M.BEDROOM.INJECTION.PC.CLOTHESCHOICE.FACTUAL'
-									)
-								"
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Markus ran into the protesters in
+							<a [routerLink]="['/chapters', 3]"
+								>Shades of Color</a
 							>
-								<p>
-									<app-dialogue-line name="Markus">
-										{{
-											translationService.translateObject(
-												"X0101M.BEDROOM.INJECTION.PC.X01MMARKUS.FACTUAL"
-											) | async
-										}}
-									</app-dialogue-line>
-								</p>
-							</app-choice-item>
-							<app-choice-item
-								[choiceLabel]="
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Carl">
+								{{
 									t(
-										'X0101M.BEDROOM.INJECTION.PC.CLOTHESCHOICE.REASSURING'
+										"X0101M.BEDROOM.INJECTION.PC.X01MCARL.CLOTHES"
 									)
-								"
-							>
-								<p>
-									<app-dialogue-line name="Markus">
-										{{
-											translationService.translateObject(
-												"X0101M.BEDROOM.INJECTION.PC.X01MMARKUS.REASSURING"
-											) | async
-										}}
-									</app-dialogue-line>
-								</p>
-							</app-choice-item>
-						</app-choice-group>
-					</app-unused-content>
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Markus">
+								{{
+									translationService.translateObject(
+										"X0101M.BEDROOM.INJECTION.PC.X01MMARKUS.REASSURING"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
 
-					<p>
-						<app-dialogue-line name="Carl">
-							{{
-								translationService.translateObject(
-									"X0101M.BEDROOM.INJECTION.PC.X01MCARL.CLOTHESCONT"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Markus">
-							{{
-								translationService.translateObject(
-									"X0101M.BEDROOM.INJECTION.PC.X01MMARKUS.CLOTHESCONT",
-									0,
-									3
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+						<app-unused-content>
+							<app-choice-group>
+								<app-choice-item
+									[choiceLabel]="
+										t(
+											'X0101M.BEDROOM.INJECTION.PC.CLOTHESCHOICE.FACTUAL'
+										)
+									"
+								>
+									<p>
+										<app-dialogue-line name="Markus">
+											{{
+												translationService.translateObject(
+													"X0101M.BEDROOM.INJECTION.PC.X01MMARKUS.FACTUAL"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</app-choice-item>
+								<app-choice-item
+									[choiceLabel]="
+										t(
+											'X0101M.BEDROOM.INJECTION.PC.CLOTHESCHOICE.REASSURING'
+										)
+									"
+								>
+									<p>
+										<app-dialogue-line name="Markus">
+											{{
+												translationService.translateObject(
+													"X0101M.BEDROOM.INJECTION.PC.X01MMARKUS.REASSURING"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</app-choice-item>
+							</app-choice-group>
+						</app-unused-content>
+
+						<p>
+							<app-dialogue-line name="Carl">
+								{{
+									translationService.translateObject(
+										"X0101M.BEDROOM.INJECTION.PC.X01MCARL.CLOTHESCONT"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Markus">
+								{{
+									translationService.translateObject(
+										"X0101M.BEDROOM.INJECTION.PC.X01MMARKUS.CLOTHESCONT",
+										0,
+										3
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 
 			<p>
 				<app-dialogue-line name="Markus">
@@ -243,48 +247,56 @@
 				</app-dialogue-line>
 			</p>
 			<!-- TODO (V2): Check X0101M.LIVING.HUNGRY.FA.X01MCARL.WAITING and X0101M.LIVING.HUNGRY.FA.X01MCARL.TOOLONG lines -->
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Going without Carl</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Carl">
-							{{
-								t("X0101M.LIVING.HUNGRY.FA.X01MCARL.WAITING01")
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Markus">
-							{{
-								translationService.translateObject(
-									"X0101M.LIVING.HUNGRY.FA.X01MMARKUS.SORRY01"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-					<p>
-						<app-dialogue-line name="Carl">
-							{{
-								t("X0101M.LIVING.HUNGRY.FA.X01MCARL.WAITING02")
-							}}
-						</app-dialogue-line>
-					</p>
-					<p>
-						<app-dialogue-line name="Carl">
-							{{
-								t("X0101M.LIVING.HUNGRY.FA.X01MCARL.WAITING04")
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Markus">
-							{{
-								translationService.translateObject(
-									"X0101M.LIVING.HUNGRY.FA.X01MMARKUS.SORRY02"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Going without Carl</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Carl">
+								{{
+									t(
+										"X0101M.LIVING.HUNGRY.FA.X01MCARL.WAITING01"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Markus">
+								{{
+									translationService.translateObject(
+										"X0101M.LIVING.HUNGRY.FA.X01MMARKUS.SORRY01"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+						<p>
+							<app-dialogue-line name="Carl">
+								{{
+									t(
+										"X0101M.LIVING.HUNGRY.FA.X01MCARL.WAITING02"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+						<p>
+							<app-dialogue-line name="Carl">
+								{{
+									t(
+										"X0101M.LIVING.HUNGRY.FA.X01MCARL.WAITING04"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Markus">
+								{{
+									translationService.translateObject(
+										"X0101M.LIVING.HUNGRY.FA.X01MMARKUS.SORRY02"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 
 			<h3 id="downstairs-timeout">
 				<app-unlock-condition [unlockType]="UnlockType.Time">
@@ -376,390 +388,414 @@
 		<section aria-labelledby="explore">
 			<h2 id="explore">Find something to do</h2>
 
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						{{ t("THOUGHTS.0101M.READBOOK") }}
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Carl">
-							{{ t("X0101M.LIVING.BOOK.PC.X01MCARL.READ") }}
-						</app-dialogue-line>
-					</p>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							{{ t("THOUGHTS.0101M.READBOOK") }}
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Carl">
+								{{ t("X0101M.LIVING.BOOK.PC.X01MCARL.READ") }}
+							</app-dialogue-line>
+						</p>
 
-					<app-conditioned-content>
-						<div class="condition">
-							<p>
-								{{ t("GUI.ACTION.01M.SHAKESPEARE") }}
-							</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										translationService.translateObject(
-											"X0101M.LIVING.BOOK.PC.X01MMARKUS.SHAKESPEARE01"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Carl">
-									{{
-										t(
-											"X0101M.LIVING.BOOK.PC.X01MCARL.SHAKESPEARE01"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Markus">
-									{{
-										translationService.translateObject(
-											"X0101M.LIVING.BOOK.PC.X01MMARKUS.SHAKESPEARE02"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Carl">
-									{{
-										translationService.translateObject(
-											"X0101M.LIVING.BOOK.PC.X01MCARL.SHAKESPEARE02"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>
-								{{ t("GUI.ACTION.01M.PLATO") }}
-							</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										translationService.translateObject(
-											"X0101M.LIVING.BOOK.PC.X01MMARKUS.PLATON01"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Carl">
-									{{
-										t(
-											"X0101M.LIVING.BOOK.PC.X01MCARL.PLATON01"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Markus">
-									{{
-										translationService.translateObject(
-											"X0101M.LIVING.BOOK.PC.X01MMARKUS.PLATON02A"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Carl">
-									{{
-										t(
-											"X0101M.LIVING.BOOK.PC.X01MCARL.PLATON02B"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>
-								{{ t("GUI.ACTION.01M.KEATS") }}
-							</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										t(
-											"X0101M.LIVING.BOOK.PC.X01MMARKUS.KEATS01"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Carl">
-									{{
-										t(
-											"X0101M.LIVING.BOOK.PC.X01MCARL.THINK"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Markus">
-									{{
-										t(
-											"X0101M.LIVING.BOOK.PC.X01MMARKUS.KEATS02A"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Carl">
-									{{
-										t(
-											"X0101M.LIVING.BOOK.PC.X01MCARL.KEATS02A"
-										)
-									}}
-									{{
-										t(
-											"X0101M.LIVING.BOOK.PC.X01MCARL.KEATS02B"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						{{ t("THOUGHTS.0101M.PLAYPIANO") }}
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Carl">
-							{{
-								translationService.translateObject(
-									"X0101M.LIVING.PIANO.PC.X01MCARL.MOVED"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						{{ t("THOUGHTS.0101M.PLAYCHESS") }}
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Carl">
-							{{ t("X0101M.LIVING.CHESS.PC.X01MCARL.PLAY.1") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Markus">
-							{{ t("X0101M.LIVING.CHESS.PC.X01MMARKUS.PLAY.1") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Carl">
-							{{ t("X0101M.LIVING.CHESS.PC.X01MCARL.PLAY.2") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Markus">
-							{{ t("X0101M.LIVING.CHESS.PC.X01MMARKUS.PLAY.2") }}
-						</app-dialogue-line>
-					</p>
-
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="t('X0101M.LIVING.CHESS.PC.END.WIN')"
-						>
-							<p>
-								<app-dialogue-line name="Carl">
-									{{
-										t("X0101M.LIVING.CHESS.PC.X01MCARL.WIN")
-									}}
-								</app-dialogue-line>
-							</p>
-
-							<app-choice-group>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X0101M.LIVING.CHESS.PC.CHOICEAFTERWIN.JUSTIFY'
-										)
-									"
-								>
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										{{ t("GUI.ACTION.01M.SHAKESPEARE") }}
+									</p>
+								</div>
+								<div class="content">
 									<p>
 										<app-dialogue-line name="Markus">
 											{{
 												translationService.translateObject(
-													"X0101M.LIVING.CHESS.PC.X01MMARKUS.JUSTIFY"
+													"X0101M.LIVING.BOOK.PC.X01MMARKUS.SHAKESPEARE01"
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Carl">
+											{{
+												t(
+													"X0101M.LIVING.BOOK.PC.X01MCARL.SHAKESPEARE01"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Markus">
+											{{
+												translationService.translateObject(
+													"X0101M.LIVING.BOOK.PC.X01MMARKUS.SHAKESPEARE02"
 												) | async
 											}}
 										</app-dialogue-line>
 										<app-dialogue-line name="Carl">
 											{{
 												translationService.translateObject(
-													"X0101M.LIVING.CHESS.PC.X01MCARL.JUSTIFY"
+													"X0101M.LIVING.BOOK.PC.X01MCARL.SHAKESPEARE02"
 												) | async
 											}}
 										</app-dialogue-line>
 									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X0101M.LIVING.CHESS.PC.CHOICEAFTERWIN.SORRY'
-										)
-									"
-								>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										{{ t("GUI.ACTION.01M.PLATO") }}
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Markus">
+											{{
+												translationService.translateObject(
+													"X0101M.LIVING.BOOK.PC.X01MMARKUS.PLATON01"
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Carl">
+											{{
+												t(
+													"X0101M.LIVING.BOOK.PC.X01MCARL.PLATON01"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Markus">
+											{{
+												translationService.translateObject(
+													"X0101M.LIVING.BOOK.PC.X01MMARKUS.PLATON02A"
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Carl">
+											{{
+												t(
+													"X0101M.LIVING.BOOK.PC.X01MCARL.PLATON02B"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										{{ t("GUI.ACTION.01M.KEATS") }}
+									</p>
+								</div>
+								<div class="content">
 									<p>
 										<app-dialogue-line name="Markus">
 											{{
 												t(
-													"X0101M.LIVING.CHESS.PC.X01MMARKUS.SORRY"
+													"X0101M.LIVING.BOOK.PC.X01MMARKUS.KEATS01"
 												)
 											}}
 										</app-dialogue-line>
 										<app-dialogue-line name="Carl">
 											{{
-												translationService.translateObject(
-													"X0101M.LIVING.CHESS.PC.X01MCARL.SORRY"
-												) | async
+												t(
+													"X0101M.LIVING.BOOK.PC.X01MCARL.THINK"
+												)
 											}}
 										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-							</app-choice-group>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="t('X0101M.LIVING.CHESS.PC.END.LOSE')"
-						>
-							<p>
-								<app-dialogue-line name="Carl">
-									{{
-										translationService.translateObject(
-											"X0101M.LIVING.CHESS.PC.X01MCARL.LOSE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-
-							<app-choice-group>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X0101M.LIVING.CHESS.PC.CHOICEAFTERLOSE.LIE'
-										)
-									"
-								>
-									<p>
 										<app-dialogue-line name="Markus">
 											{{
 												t(
-													"X0101M.LIVING.CHESS.PC.X01MMARKUS.LOSELIE"
+													"X0101M.LIVING.BOOK.PC.X01MMARKUS.KEATS02A"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Carl">
+											{{
+												t(
+													"X0101M.LIVING.BOOK.PC.X01MCARL.KEATS02A"
+												)
+											}}
+											{{
+												t(
+													"X0101M.LIVING.BOOK.PC.X01MCARL.KEATS02B"
 												)
 											}}
 										</app-dialogue-line>
 									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X0101M.LIVING.CHESS.PC.CHOICEAFTERLOSE.TRUTH'
-										)
-									"
-								>
-									<p>
-										<app-dialogue-line name="Markus">
-											{{
-												t(
-													"X0101M.LIVING.CHESS.PC.X01MMARKUS.LOSETRUTH"
-												)
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-							</app-choice-group>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							{{ t("THOUGHTS.0101M.PLAYPIANO") }}
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Carl">
+								{{
+									translationService.translateObject(
+										"X0101M.LIVING.PIANO.PC.X01MCARL.MOVED"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							{{ t("THOUGHTS.0101M.PLAYCHESS") }}
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Carl">
+								{{
+									t("X0101M.LIVING.CHESS.PC.X01MCARL.PLAY.1")
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Markus">
+								{{
+									t(
+										"X0101M.LIVING.CHESS.PC.X01MMARKUS.PLAY.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Carl">
+								{{
+									t("X0101M.LIVING.CHESS.PC.X01MCARL.PLAY.2")
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Markus">
+								{{
+									t(
+										"X0101M.LIVING.CHESS.PC.X01MMARKUS.PLAY.2"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
 
-							<p>
-								<app-dialogue-line name="Carl">
-									{{
-										translationService.translateObject(
-											"X0101M.LIVING.CHESS.PC.X01MCARL.DONTLOSE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="t('X0101M.LIVING.CHESS.PC.END.DRAW')"
-						>
-							<p>
-								<app-dialogue-line name="Carl">
-									{{
-										t(
-											"X0101M.LIVING.CHESS.PC.X01MCARL.DRAW01"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-
-							<app-unused-content>
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t('X0101M.LIVING.CHESS.PC.END.WIN')
+								"
+							>
 								<p>
 									<app-dialogue-line name="Carl">
 										{{
 											t(
-												"X0101M.LIVING.CHESS.PC.X01MCARL.DRAW02"
+												"X0101M.LIVING.CHESS.PC.X01MCARL.WIN"
 											)
 										}}
 									</app-dialogue-line>
 								</p>
-							</app-unused-content>
 
-							<app-choice-group>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X0101M.LIVING.CHESS.PC.CHOICEAFTERDRAW.LIE'
-										)
-									"
-								>
-									<p>
-										<app-dialogue-line name="Markus">
-											{{
-												t(
-													"X0101M.LIVING.CHESS.PC.X01MMARKUS.DRAWLIE"
-												)
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Carl">
-											{{
-												translationService.translateObject(
-													"X0101M.LIVING.CHESS.PC.X01MCARL.DRAWLIE"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(
-											'X0101M.LIVING.CHESS.PC.CHOICEAFTERDRAW.TRUTH'
-										)
-									"
-								>
-									<p>
-										<app-dialogue-line name="Markus">
-											{{
-												translationService.translateObject(
-													"X0101M.LIVING.CHESS.PC.X01MMARKUS.DRAWTRUTH"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
-
-									<app-unused-content>
+								<app-choice-group>
+									<app-choice-item
+										[choiceLabel]="
+											t(
+												'X0101M.LIVING.CHESS.PC.CHOICEAFTERWIN.JUSTIFY'
+											)
+										"
+									>
 										<p>
+											<app-dialogue-line name="Markus">
+												{{
+													translationService.translateObject(
+														"X0101M.LIVING.CHESS.PC.X01MMARKUS.JUSTIFY"
+													) | async
+												}}
+											</app-dialogue-line>
 											<app-dialogue-line name="Carl">
 												{{
+													translationService.translateObject(
+														"X0101M.LIVING.CHESS.PC.X01MCARL.JUSTIFY"
+													) | async
+												}}
+											</app-dialogue-line>
+										</p>
+									</app-choice-item>
+									<app-choice-item
+										[choiceLabel]="
+											t(
+												'X0101M.LIVING.CHESS.PC.CHOICEAFTERWIN.SORRY'
+											)
+										"
+									>
+										<p>
+											<app-dialogue-line name="Markus">
+												{{
 													t(
-														"X0101M.LIVING.CHESS.PC.X01MCARL.DRAWTRUTH"
+														"X0101M.LIVING.CHESS.PC.X01MMARKUS.SORRY"
+													)
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Carl">
+												{{
+													translationService.translateObject(
+														"X0101M.LIVING.CHESS.PC.X01MCARL.SORRY"
+													) | async
+												}}
+											</app-dialogue-line>
+										</p>
+									</app-choice-item>
+								</app-choice-group>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t('X0101M.LIVING.CHESS.PC.END.LOSE')
+								"
+							>
+								<p>
+									<app-dialogue-line name="Carl">
+										{{
+											translationService.translateObject(
+												"X0101M.LIVING.CHESS.PC.X01MCARL.LOSE"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+
+								<app-choice-group>
+									<app-choice-item
+										[choiceLabel]="
+											t(
+												'X0101M.LIVING.CHESS.PC.CHOICEAFTERLOSE.LIE'
+											)
+										"
+									>
+										<p>
+											<app-dialogue-line name="Markus">
+												{{
+													t(
+														"X0101M.LIVING.CHESS.PC.X01MMARKUS.LOSELIE"
 													)
 												}}
 											</app-dialogue-line>
 										</p>
-									</app-unused-content>
-								</app-choice-item>
-							</app-choice-group>
-						</app-choice-item>
-					</app-choice-group>
-				</div>
-			</app-conditioned-content>
+									</app-choice-item>
+									<app-choice-item
+										[choiceLabel]="
+											t(
+												'X0101M.LIVING.CHESS.PC.CHOICEAFTERLOSE.TRUTH'
+											)
+										"
+									>
+										<p>
+											<app-dialogue-line name="Markus">
+												{{
+													t(
+														"X0101M.LIVING.CHESS.PC.X01MMARKUS.LOSETRUTH"
+													)
+												}}
+											</app-dialogue-line>
+										</p>
+									</app-choice-item>
+								</app-choice-group>
+
+								<p>
+									<app-dialogue-line name="Carl">
+										{{
+											translationService.translateObject(
+												"X0101M.LIVING.CHESS.PC.X01MCARL.DONTLOSE"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t('X0101M.LIVING.CHESS.PC.END.DRAW')
+								"
+							>
+								<p>
+									<app-dialogue-line name="Carl">
+										{{
+											t(
+												"X0101M.LIVING.CHESS.PC.X01MCARL.DRAW01"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+
+								<app-unused-content>
+									<p>
+										<app-dialogue-line name="Carl">
+											{{
+												t(
+													"X0101M.LIVING.CHESS.PC.X01MCARL.DRAW02"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+								</app-unused-content>
+
+								<app-choice-group>
+									<app-choice-item
+										[choiceLabel]="
+											t(
+												'X0101M.LIVING.CHESS.PC.CHOICEAFTERDRAW.LIE'
+											)
+										"
+									>
+										<p>
+											<app-dialogue-line name="Markus">
+												{{
+													t(
+														"X0101M.LIVING.CHESS.PC.X01MMARKUS.DRAWLIE"
+													)
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Carl">
+												{{
+													translationService.translateObject(
+														"X0101M.LIVING.CHESS.PC.X01MCARL.DRAWLIE"
+													) | async
+												}}
+											</app-dialogue-line>
+										</p>
+									</app-choice-item>
+									<app-choice-item
+										[choiceLabel]="
+											t(
+												'X0101M.LIVING.CHESS.PC.CHOICEAFTERDRAW.TRUTH'
+											)
+										"
+									>
+										<p>
+											<app-dialogue-line name="Markus">
+												{{
+													translationService.translateObject(
+														"X0101M.LIVING.CHESS.PC.X01MMARKUS.DRAWTRUTH"
+													) | async
+												}}
+											</app-dialogue-line>
+										</p>
+
+										<app-unused-content>
+											<p>
+												<app-dialogue-line name="Carl">
+													{{
+														t(
+															"X0101M.LIVING.CHESS.PC.X01MCARL.DRAWTRUTH"
+														)
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-unused-content>
+									</app-choice-item>
+								</app-choice-group>
+							</app-choice-item>
+						</app-choice-group>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 
 			<p>
 				<app-dialogue-line name="Carl">

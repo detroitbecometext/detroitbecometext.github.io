@@ -52,75 +52,17 @@
 			</app-dialogue-line>
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Luther is alive</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Luther">
-						{{
-							t(
-								"X0801K.DOORSTEP.TRUST.FA.X08KLUTHER.TRUSTQUESTION"
-							)
-						}}
-					</app-dialogue-line>
-				</p>
-
-				<app-choice-group>
-					<app-choice-item
-						[choiceLabel]="
-							t('X0801K.DOORSTEP.TRUST.FA.CHOICEGROUP.DISTRUST')
-						"
-					>
-						<p>
-							<app-dialogue-line name="Kara">
-								{{
-									translationService.translateObject(
-										"X0801K.DOORSTEP.TRUST.FA.X08KKARA.DISTRUST"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Luther">
-								{{
-									t(
-										"X0801K.DOORSTEP.TRUST.FA.X08KLUTHER.DISTRUST"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-					<app-choice-item
-						[choiceLabel]="
-							t('X0801K.DOORSTEP.TRUST.FA.CHOICEGROUP.TRUST')
-						"
-					>
-						<p>
-							<app-dialogue-line name="Kara">
-								{{
-									t("X0801K.DOORSTEP.TRUST.FA.X08KKARA.TRUST")
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-choice-item>
-				</app-choice-group>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition">
-				<p>
-					Luther died in
-					<a [routerLink]="['/chapters', 21]">The Pirate's Cove</a>'s
-					unused chase scene
-				</p>
-			</div>
-			<div class="content">
-				<app-unused-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Luther is alive</p>
+				</div>
+				<div class="content">
 					<p>
-						<app-dialogue-line name="Alice">
+						<app-dialogue-line name="Luther">
 							{{
 								t(
-									"X0801K.DOORSTEP.TRUST.FA.X08KALICE.TRUSTALICE"
+									"X0801K.DOORSTEP.TRUST.FA.X08KLUTHER.TRUSTQUESTION"
 								)
 							}}
 						</app-dialogue-line>
@@ -142,10 +84,10 @@
 										) | async
 									}}
 								</app-dialogue-line>
-								<app-dialogue-line name="Alice">
+								<app-dialogue-line name="Luther">
 									{{
 										t(
-											"X0801K.DOORSTEP.TRUST.FA.X08KALICE.DISTRUSTALICE"
+											"X0801K.DOORSTEP.TRUST.FA.X08KLUTHER.DISTRUST"
 										)
 									}}
 								</app-dialogue-line>
@@ -167,9 +109,75 @@
 							</p>
 						</app-choice-item>
 					</app-choice-group>
-				</app-unused-content>
-			</div>
-		</app-conditioned-content>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Luther died in
+						<a [routerLink]="['/chapters', 21]">The Pirate's Cove</a
+						>'s unused chase scene
+					</p>
+				</div>
+				<div class="content">
+					<app-unused-content>
+						<p>
+							<app-dialogue-line name="Alice">
+								{{
+									t(
+										"X0801K.DOORSTEP.TRUST.FA.X08KALICE.TRUSTALICE"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0801K.DOORSTEP.TRUST.FA.CHOICEGROUP.DISTRUST'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Kara">
+										{{
+											translationService.translateObject(
+												"X0801K.DOORSTEP.TRUST.FA.X08KKARA.DISTRUST"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Alice">
+										{{
+											t(
+												"X0801K.DOORSTEP.TRUST.FA.X08KALICE.DISTRUSTALICE"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0801K.DOORSTEP.TRUST.FA.CHOICEGROUP.TRUST'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Kara">
+										{{
+											t(
+												"X0801K.DOORSTEP.TRUST.FA.X08KKARA.TRUST"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+					</app-unused-content>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<section aria-labelledby="talk-alice">
 			<h2 id="talk-alice">Talk to Alice</h2>
@@ -406,39 +414,41 @@
 			</app-choice-group>
 
 			<app-unused-content>
-				<app-conditioned-content>
-					<div class="condition">
-						<p>Luther is alive</p>
-					</div>
-					<div class="content">
-						<app-dialogue-line name="Alice">
-							{{
-								translationService.translateObject(
-									"X0801K.ALICE.TAKECARE.PC.X08KALICE.03CONTLUTHER"
-								) | async
-							}}
-						</app-dialogue-line>
-					</div>
-				</app-conditioned-content>
-				<app-conditioned-content>
-					<div class="condition">
-						<p>
-							Luther died in
-							<a [routerLink]="['/chapters', 21]"
-								>The Pirate's Cove</a
-							>'s unused chase scene
-						</p>
-					</div>
-					<div class="content">
-						<app-dialogue-line name="Alice">
-							{{
-								translationService.translateObject(
-									"X0801K.ALICE.TAKECARE.PC.X08KALICE.03CONT"
-								) | async
-							}}
-						</app-dialogue-line>
-					</div>
-				</app-conditioned-content>
+				<app-condition-group>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>Luther is alive</p>
+						</div>
+						<div class="content">
+							<app-dialogue-line name="Alice">
+								{{
+									translationService.translateObject(
+										"X0801K.ALICE.TAKECARE.PC.X08KALICE.03CONTLUTHER"
+									) | async
+								}}
+							</app-dialogue-line>
+						</div>
+					</app-conditioned-content>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>
+								Luther died in
+								<a [routerLink]="['/chapters', 21]"
+									>The Pirate's Cove</a
+								>'s unused chase scene
+							</p>
+						</div>
+						<div class="content">
+							<app-dialogue-line name="Alice">
+								{{
+									translationService.translateObject(
+										"X0801K.ALICE.TAKECARE.PC.X08KALICE.03CONT"
+									) | async
+								}}
+							</app-dialogue-line>
+						</div>
+					</app-conditioned-content>
+				</app-condition-group>
 
 				<app-choice-group>
 					<app-choice-item
@@ -550,54 +560,57 @@
 				</app-dialogue-line>
 			</p>
 
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Luther is alive</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Luther">
-							{{
-								translationService.translateObject(
-									"X0801K.ALICE.TAKECARE.PC.X08KLUTHER.GETREST"
-								) | async
-							}}
-							{{
-								t(
-									"X0801K.ALICE.TAKECARE.PC.X08KLUTHER.GETRESTSTAY"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						Luther died in
-						<a [routerLink]="['/chapters', 21]">The Pirate's Cove</a
-						>'s unused chase scene
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Alice">
-							{{
-								t(
-									"X0801K.ALICE.TAKECARE.PC.X08KALICE.MISSLUTHER"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Kara">
-							{{
-								t(
-									"X0801K.ALICE.TAKECARE.PC.X08KKARA.MISSLUTHER"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Luther is alive</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Luther">
+								{{
+									translationService.translateObject(
+										"X0801K.ALICE.TAKECARE.PC.X08KLUTHER.GETREST"
+									) | async
+								}}
+								{{
+									t(
+										"X0801K.ALICE.TAKECARE.PC.X08KLUTHER.GETRESTSTAY"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Luther died in
+							<a [routerLink]="['/chapters', 21]"
+								>The Pirate's Cove</a
+							>'s unused chase scene
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Alice">
+								{{
+									t(
+										"X0801K.ALICE.TAKECARE.PC.X08KALICE.MISSLUTHER"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0801K.ALICE.TAKECARE.PC.X08KKARA.MISSLUTHER"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 
 			<p>
 				<app-dialogue-line name="Rose">
@@ -1398,198 +1411,213 @@
 				</app-choice-item>
 			</app-choice-group>
 
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						Kara didn't close the cupboard - policeman sees blue
-						blood
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Policeman">
-							{{
-								translationService.translateObject(
-									"X0801K.COP.INSPECTION.FA.X08KCOP.LOCKEROPEN"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0801K.COP.INSPECTION.FA.LOCKEROPENCHOICE02.MESS'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Kara">
-									{{
-										translationService.translateObject(
-											"X0801K.COP.INSPECTION.FA.X08KKARA.MESS"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0801K.COP.INSPECTION.FA.LOCKEROPENCHOICE02.PREVIOUS'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Kara">
-									{{
-										translationService.translateObject(
-											"X0801K.COP.INSPECTION.FA.X08KKARA.PREVIOUS"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0801K.COP.INSPECTION.FA.LOCKEROPENCHOICE02.NOTMY'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Kara">
-									{{
-										t(
-											"X0801K.COP.INSPECTION.FA.X08KKARA.NOTMY"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-				</div>
-			</app-conditioned-content>
-
-			<mat-divider></mat-divider>
-
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						Policeman discovers Alice & Luther hidden in the kitchen
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Policeman">
-							{{
-								t(
-									"X0801K.COP.INSPECTION.FA.X08KCOP.LUTHERFOUNDCOP"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Kara">
-							{{
-								t(
-									"X0801K.COP.INSPECTION.FA.X08KKARA.LUTHERFOUNDA"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Luther">
-							{{
-								t(
-									"X0801K.COP.INSPECTION.FA.X08KLUTHER.LUTHERFOUNDB02.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Alice">
-							{{
-								t(
-									"X0801K.COP.INSPECTION.FA.X08KALICE.LUTHERFOUNDD.1"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Policeman discovers Alice hidden in the kitchen</p>
-				</div>
-				<div class="content">
-					<app-unused-content>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
 						<p>
-							<app-unlock-condition
-								[unlockType]="UnlockType.Death"
-							>
-								Luther died in
-								<a [routerLink]="['/chapters', 21]"
-									>The Pirate's Cove</a
-								>'s unused chase scene
-							</app-unlock-condition>
+							Kara didn't close the cupboard - policeman sees blue
+							blood
 						</p>
-
+					</div>
+					<div class="content">
 						<p>
 							<app-dialogue-line name="Policeman">
 								{{
 									translationService.translateObject(
-										"X0801K.COP.INSPECTION.FA.X08KCOP.ALICEFOUNDCOP"
+										"X0801K.COP.INSPECTION.FA.X08KCOP.LOCKEROPEN"
 									) | async
 								}}
 							</app-dialogue-line>
 						</p>
-					</app-unused-content>
-				</div>
-			</app-conditioned-content>
+
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0801K.COP.INSPECTION.FA.LOCKEROPENCHOICE02.MESS'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Kara">
+										{{
+											translationService.translateObject(
+												"X0801K.COP.INSPECTION.FA.X08KKARA.MESS"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0801K.COP.INSPECTION.FA.LOCKEROPENCHOICE02.PREVIOUS'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Kara">
+										{{
+											translationService.translateObject(
+												"X0801K.COP.INSPECTION.FA.X08KKARA.PREVIOUS"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0801K.COP.INSPECTION.FA.LOCKEROPENCHOICE02.NOTMY'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Kara">
+										{{
+											t(
+												"X0801K.COP.INSPECTION.FA.X08KKARA.NOTMY"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 
 			<mat-divider></mat-divider>
 
-			<app-conditioned-content>
-				<div class="condition"><p>Made coffee</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Policeman">
-							{{ t("X0801K.COP.INSPECTION.FA.X08KCOP.COFFEE") }}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Policeman discovers Alice & Luther hidden in the
+							kitchen
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Policeman">
+								{{
+									t(
+										"X0801K.COP.INSPECTION.FA.X08KCOP.LUTHERFOUNDCOP"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0801K.COP.INSPECTION.FA.X08KKARA.LUTHERFOUNDA"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Luther">
+								{{
+									t(
+										"X0801K.COP.INSPECTION.FA.X08KLUTHER.LUTHERFOUNDB02.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Alice">
+								{{
+									t(
+										"X0801K.COP.INSPECTION.FA.X08KALICE.LUTHERFOUNDD.1"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Policeman discovers Alice hidden in the kitchen</p>
+					</div>
+					<div class="content">
+						<app-unused-content>
+							<p>
+								<app-unlock-condition
+									[unlockType]="UnlockType.Death"
+								>
+									Luther died in
+									<a [routerLink]="['/chapters', 21]"
+										>The Pirate's Cove</a
+									>'s unused chase scene
+								</app-unlock-condition>
+							</p>
+
+							<p>
+								<app-dialogue-line name="Policeman">
+									{{
+										translationService.translateObject(
+											"X0801K.COP.INSPECTION.FA.X08KCOP.ALICEFOUNDCOP"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-unused-content>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
 			<mat-divider></mat-divider>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Luther is hidden upstairs and chose NOBODY</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Policeman">
-							{{
-								t(
-									"X0801K.COP.INSPECTION.FA.X08KCOP.SOMEONELSECOP"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Kara">
-							{{
-								translationService.translateObject(
-									"X0801K.COP.INSPECTION.FA.X08KKARA.SOMEONELSE"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Luther is hidden upstairs and chose ALICE</p>
-				</div>
-				<div class="content">
-					<app-dialogue-line name="Policeman">
-						{{ t("X0801K.COP.INSPECTION.FA.X08KCOP.DAUGHTER") }}
-					</app-dialogue-line>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Made coffee</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Policeman">
+								{{
+									t("X0801K.COP.INSPECTION.FA.X08KCOP.COFFEE")
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
 			<mat-divider></mat-divider>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Luther is hidden upstairs and chose NOBODY</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Policeman">
+								{{
+									t(
+										"X0801K.COP.INSPECTION.FA.X08KCOP.SOMEONELSECOP"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Kara">
+								{{
+									translationService.translateObject(
+										"X0801K.COP.INSPECTION.FA.X08KKARA.SOMEONELSE"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Luther is hidden upstairs and chose ALICE</p>
+					</div>
+					<div class="content">
+						<app-dialogue-line name="Policeman">
+							{{ t("X0801K.COP.INSPECTION.FA.X08KCOP.DAUGHTER") }}
+						</app-dialogue-line>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
+			<mat-divider></mat-divider>
+
 			<p>
 				<app-dialogue-line name="Policeman">
 					{{ t("X0801K.COP.INSPECTION.PC.X08KCOP.ADAM01") }}
@@ -1663,34 +1691,38 @@
 					}}
 				</app-dialogue-line>
 			</p>
-			<app-conditioned-content>
-				<div class="condition"><p>Made coffee</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Policeman">
-							{{
-								translationService.translateObject(
-									"X0801K.COP.INSPECTION.VO.X08KCOP.THANKS"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition"><p>Didn't make coffee</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Policeman">
-							{{
-								translationService.translateObject(
-									"X0801K.COP.INSPECTION.VO.X08KCOP.NOCOFFEE"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Made coffee</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Policeman">
+								{{
+									translationService.translateObject(
+										"X0801K.COP.INSPECTION.VO.X08KCOP.THANKS"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition"><p>Didn't make coffee</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Policeman">
+								{{
+									translationService.translateObject(
+										"X0801K.COP.INSPECTION.VO.X08KCOP.NOCOFFEE"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
 			<p>
 				<app-dialogue-line name="Policeman">
 					{{ t("X0801K.COP.INSPECTION.PC.X08KCOP.BIGNOISE") }}
@@ -1760,115 +1792,119 @@
 					</p>
 				</app-choice-item>
 			</app-choice-group>
-			<app-conditioned-content>
-				<div class="condition"><p>Policeman is fooled</p></div>
-				<div class="content">
-					<p>
-						<app-relation
-							[name]="RelationName.Alice"
-							[type]="RelationType.SmallUp"
-						></app-relation>
-						<app-relation
-							[name]="RelationName.Luther"
-							[type]="RelationType.SmallUp"
-						></app-relation>
-						<app-dialogue-line name="Policeman">
-							{{
-								translationService.translateObject(
-									"X0801K.COP.INSPECTION.PC.X08KCOP.LEAVE"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Luther">
-							{{
-								t(
-									"X0801K.COP.INSPECTION.FA.X08KLUTHER.RELIEVED01"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Kara">
-							{{
-								translationService.translateObject(
-									"X0801K.COP.INSPECTION.FA.X08KKARA.RELIEVED02"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Luther">
-							{{
-								t(
-									"X0801K.COP.INSPECTION.FA.X08KLUTHER.RELIEVED03"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition"><p>Policeman is suspicious</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Policeman">
-							{{
-								translationService.translateObject(
-									"X0801K.COP.INSPECTION.PC.X08KCOP.SPOTTEDPART1"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Kara">
-							{{
-								t(
-									"X0801K.COP.INSPECTION.FA.X08KKARA.LUTHERFOUNDA"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Adam">
-							{{
-								translationService.translateObject(
-									"X0801K.COP.INSPECTION.PC.X08KADAM.LUTHERFOUNDC",
-									0,
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Alice">
-							{{
-								t(
-									"X0801K.COP.INSPECTION.FA.X08KALICE.LUTHERFOUNDD.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Luther">
-							{{
-								t(
-									"X0801K.COP.INSPECTION.FA.X08KLUTHER.LUTHERFOUNDB02.1"
-								)
-							}}
-							{{
-								translationService.translateObject(
-									"X0801K.COP.INSPECTION.FA.X08KLUTHER.LUTHERFOUNDB02",
-									2,
-									4
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Alice">
-							{{
-								t(
-									"X0801K.COP.INSPECTION.FA.X08KALICE.LUTHERFOUNDD.2"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Adam">
-							{{
-								translationService.translateObject(
-									"X0801K.COP.INSPECTION.PC.X08KADAM.LUTHERFOUNDC",
-									3
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Policeman is fooled</p></div>
+					<div class="content">
+						<p>
+							<app-relation
+								[name]="RelationName.Alice"
+								[type]="RelationType.SmallUp"
+							></app-relation>
+							<app-relation
+								[name]="RelationName.Luther"
+								[type]="RelationType.SmallUp"
+							></app-relation>
+							<app-dialogue-line name="Policeman">
+								{{
+									translationService.translateObject(
+										"X0801K.COP.INSPECTION.PC.X08KCOP.LEAVE"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Luther">
+								{{
+									t(
+										"X0801K.COP.INSPECTION.FA.X08KLUTHER.RELIEVED01"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Kara">
+								{{
+									translationService.translateObject(
+										"X0801K.COP.INSPECTION.FA.X08KKARA.RELIEVED02"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Luther">
+								{{
+									t(
+										"X0801K.COP.INSPECTION.FA.X08KLUTHER.RELIEVED03"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition"><p>Policeman is suspicious</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Policeman">
+								{{
+									translationService.translateObject(
+										"X0801K.COP.INSPECTION.PC.X08KCOP.SPOTTEDPART1"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0801K.COP.INSPECTION.FA.X08KKARA.LUTHERFOUNDA"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Adam">
+								{{
+									translationService.translateObject(
+										"X0801K.COP.INSPECTION.PC.X08KADAM.LUTHERFOUNDC",
+										0,
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Alice">
+								{{
+									t(
+										"X0801K.COP.INSPECTION.FA.X08KALICE.LUTHERFOUNDD.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Luther">
+								{{
+									t(
+										"X0801K.COP.INSPECTION.FA.X08KLUTHER.LUTHERFOUNDB02.1"
+									)
+								}}
+								{{
+									translationService.translateObject(
+										"X0801K.COP.INSPECTION.FA.X08KLUTHER.LUTHERFOUNDB02",
+										2,
+										4
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Alice">
+								{{
+									t(
+										"X0801K.COP.INSPECTION.FA.X08KALICE.LUTHERFOUNDD.2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Adam">
+								{{
+									translationService.translateObject(
+										"X0801K.COP.INSPECTION.PC.X08KADAM.LUTHERFOUNDC",
+										3
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
 			<p>
 				<app-dialogue-line name="Rose">
 					{{

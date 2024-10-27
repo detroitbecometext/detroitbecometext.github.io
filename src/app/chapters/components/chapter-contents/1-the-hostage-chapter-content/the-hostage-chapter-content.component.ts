@@ -21,6 +21,7 @@ import { ObservationComponent } from '../../../../shared/components/observation/
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -38,6 +39,7 @@ import { UnusedContentComponent } from '../../../../shared/components/unused-con
 		ObservationComponent,
 		ObservationItemComponent,
 		UnusedContentComponent,
+		ConditionGroupComponent,
 	],
 	templateUrl: './the-hostage-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

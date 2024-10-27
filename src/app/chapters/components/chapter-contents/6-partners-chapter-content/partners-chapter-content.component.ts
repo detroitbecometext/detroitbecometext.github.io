@@ -22,6 +22,7 @@ import { ObservationComponent } from '../../../../shared/components/observation/
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';
 import { RouterLink } from '@angular/router';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -40,6 +41,7 @@ import { RouterLink } from '@angular/router';
 		ObservationItemComponent,
 		UnusedContentComponent,
 		RouterLink,
+		ConditionGroupComponent,
 	],
 	templateUrl: './partners-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

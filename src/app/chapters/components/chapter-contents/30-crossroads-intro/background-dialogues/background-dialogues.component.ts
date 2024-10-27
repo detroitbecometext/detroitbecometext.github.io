@@ -6,6 +6,7 @@ import { UnlockConditionComponent } from '../../../../../shared/components/unloc
 import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../../../../shared/services/translation.service';
 import { UnlockType } from '../../../../../shared/enums/unlock-type.enum';
+import { ConditionGroupComponent } from '../../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	selector: 'app-background-dialogues',
@@ -17,6 +18,7 @@ import { UnlockType } from '../../../../../shared/enums/unlock-type.enum';
 		UnlockConditionComponent,
 		RouterLink,
 		TranslocoModule,
+		ConditionGroupComponent,
 	],
 	templateUrl: './background-dialogues.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

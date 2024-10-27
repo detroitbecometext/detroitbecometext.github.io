@@ -19,6 +19,7 @@ import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -35,6 +36,7 @@ import { UnusedContentComponent } from '../../../../shared/components/unused-con
 		RouterLink,
 		TranslocoModule,
 		UnusedContentComponent,
+		ConditionGroupComponent,
 	],
 	templateUrl: './the-bridge-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

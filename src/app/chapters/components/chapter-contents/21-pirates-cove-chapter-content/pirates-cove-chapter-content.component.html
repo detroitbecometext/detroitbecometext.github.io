@@ -151,29 +151,32 @@
 					}}
 				</app-dialogue-line>
 			</p>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						Kara set the house on fire in
-						<a [routerLink]="['/chapters', 17]">Zlatko</a>
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-relation
-							[name]="RelationName.PublicOpinion"
-							[type]="RelationType.SmallDown"
-						></app-relation>
-						<app-dialogue-line name="Channel 16 - Michael Webb">
-							{{
-								translationService.translateObject(
-									"X0703K.TV.NEWS.PC.X07KWEBB.HOUSEFIRE"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Kara set the house on fire in
+							<a [routerLink]="['/chapters', 17]">Zlatko</a>
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-relation
+								[name]="RelationName.PublicOpinion"
+								[type]="RelationType.SmallDown"
+							></app-relation>
+							<app-dialogue-line name="Channel 16 - Michael Webb">
+								{{
+									translationService.translateObject(
+										"X0703K.TV.NEWS.PC.X07KWEBB.HOUSEFIRE"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="car-breaks">
@@ -1271,8 +1274,8 @@
 		<h1 id="hunters-arrive">Hunters arrive</h1>
 
 		<app-unused-content>
-			<p>
-				<span class="italic"
+			<p class="text-start">
+				<span dir="ltr" class="italic"
 					>See
 					<a href="https://www.youtube.com/watch?v=XHYbJddsbSY"
 						>this video</a
@@ -1338,21 +1341,25 @@
 				</app-dialogue-line>
 			</p>
 
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Fail to escape</p>
-				</div>
-				<div class="content">
-					<app-dialogue-line name="Hunter">
-						{{
-							t("X0701K.CHASE.GAMEOVER.FA.X07KBADBOY01.DEADBAD02")
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Kara">
-						{{ t("X0701K.CHASE.GAMEOVER.FA.X07KKARA.DEADSEC") }}
-					</app-dialogue-line>
-				</div>
-			</app-conditioned-content>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Fail to escape</p>
+					</div>
+					<div class="content">
+						<app-dialogue-line name="Hunter">
+							{{
+								t(
+									"X0701K.CHASE.GAMEOVER.FA.X07KBADBOY01.DEADBAD02"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{ t("X0701K.CHASE.GAMEOVER.FA.X07KKARA.DEADSEC") }}
+						</app-dialogue-line>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 
 			<p>
 				<app-dialogue-line name="Alice">

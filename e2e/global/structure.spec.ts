@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { NavigableItemPage } from '../pages/NavigableItemPage';
+import { fail } from 'assert';
 
 for (let chapterId = 1; chapterId <= 40; chapterId++) {
 	test(`Chapter ${chapterId} should have ids defined for all headings`, async ({
@@ -71,5 +72,38 @@ for (let chapterId = 1; chapterId <= 40; chapterId++) {
 			sectionCount,
 		);
 		expect(headingCount).toBe(sectionCount);
+	});
+
+	test(`Chapter ${chapterId} should have a condition group for each condition content`, async ({
+		page,
+	}) => {
+		const currentPage = new NavigableItemPage('chapters', page);
+		await currentPage.goToId(chapterId);
+
+		const conditionContents = await page
+			.locator('app-conditioned-content')
+			.all();
+
+		const errors = [];
+
+		for (const conditionContent of conditionContents) {
+			const parent = conditionContent.locator('..');
+			const parentTagName = await parent.evaluate((e) => e.tagName);
+
+			if (parentTagName !== 'APP-CONDITION-GROUP') {
+				const conditionText = await conditionContent
+					.locator('.condition')
+					.first()
+					.textContent();
+
+				errors.push(
+					`Condition "${conditionText}" is not inside a condition group`,
+				);
+			}
+		}
+
+		if (errors.length > 0) {
+			fail(errors.join('\n'));
+		}
 	});
 }

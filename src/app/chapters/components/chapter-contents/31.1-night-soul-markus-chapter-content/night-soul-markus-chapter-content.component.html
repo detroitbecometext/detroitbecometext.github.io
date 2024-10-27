@@ -594,141 +594,145 @@
 				></app-relation>
 			</p>
 
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						<app-unlock-condition [unlockType]="UnlockType.Death">
-							<span class="font-bold">North is dead</span>
-						</app-unlock-condition>
-					</p>
-				</div>
-				<div class="content">
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.SITUATION.PC.CHOICEGROUP01.SITUATION'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										t(
-											"X0904M.CHURCH.SITUATION.PC.X09MMARKUS.SITUATION"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Simon">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.SITUATION.PC.X09MSIMON.SITUATION"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.SITUATION.PC.CHOICEGROUP01.NORTH'
-								)
-							"
-						>
-							<!-- TODO (V2): Check NORTHABANDONNED -->
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.SITUATION.PC.X09MMARKUS.NORTHDEAD"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.SITUATION.PC.CHOICEGROUP01.HOWMANY'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										t(
-											"X0904M.CHURCH.SITUATION.PC.X09MMARKUS.HOWMANY"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Simon">
-									<!-- TODO (V2): Check if Jericho not blown up -->
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.SITUATION.PC.X09MSIMON.HOWMANY"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.SITUATION.PC.CHOICEGROUP01.CAMPS'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										t(
-											"X0904M.CHURCH.SITUATION.PC.X09MMARKUS.CAMPS"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Simon">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.SITUATION.PC.X09MSIMON.CAMPSSIMON",
-											0,
-											3
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.SITUATION.PC.CHOICEGROUP01.JOSH'
-								)
-							"
-						>
-							<p>
-								<app-unlock-condition
-									[unlockType]="UnlockType.Death"
-								>
-									Josh is dead
-								</app-unlock-condition>
-								<app-dialogue-line name="Markus">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.SITUATION.PC.X09MMARKUS.JOSH"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Simon">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.SITUATION.PC.X09MSIMON.JOSHSIMON"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-				</div>
-			</app-conditioned-content>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							<app-unlock-condition
+								[unlockType]="UnlockType.Death"
+							>
+								<span class="font-bold">North is dead</span>
+							</app-unlock-condition>
+						</p>
+					</div>
+					<div class="content">
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.SITUATION.PC.CHOICEGROUP01.SITUATION'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Markus">
+										{{
+											t(
+												"X0904M.CHURCH.SITUATION.PC.X09MMARKUS.SITUATION"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Simon">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.SITUATION.PC.X09MSIMON.SITUATION"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.SITUATION.PC.CHOICEGROUP01.NORTH'
+									)
+								"
+							>
+								<!-- TODO (V2): Check NORTHABANDONNED -->
+								<p>
+									<app-dialogue-line name="Markus">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.SITUATION.PC.X09MMARKUS.NORTHDEAD"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.SITUATION.PC.CHOICEGROUP01.HOWMANY'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Markus">
+										{{
+											t(
+												"X0904M.CHURCH.SITUATION.PC.X09MMARKUS.HOWMANY"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Simon">
+										<!-- TODO (V2): Check if Jericho not blown up -->
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.SITUATION.PC.X09MSIMON.HOWMANY"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.SITUATION.PC.CHOICEGROUP01.CAMPS'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Markus">
+										{{
+											t(
+												"X0904M.CHURCH.SITUATION.PC.X09MMARKUS.CAMPS"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Simon">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.SITUATION.PC.X09MSIMON.CAMPSSIMON",
+												0,
+												3
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.SITUATION.PC.CHOICEGROUP01.JOSH'
+									)
+								"
+							>
+								<p>
+									<app-unlock-condition
+										[unlockType]="UnlockType.Death"
+									>
+										Josh is dead
+									</app-unlock-condition>
+									<app-dialogue-line name="Markus">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.SITUATION.PC.X09MMARKUS.JOSH"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Simon">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.SITUATION.PC.X09MSIMON.JOSHSIMON"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 
 			<p>
 				<app-dialogue-line name="Simon">
@@ -749,42 +753,48 @@
 					[type]="RelationType.SmallUp"
 				></app-relation>
 			</p>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						<app-unlock-condition [unlockType]="UnlockType.Death">
-							<span class="font-bold">
-								North died in
-								<a [routerLink]="['/chapters', 32]"
-									>Crossroads</a
-								>
-							</span>
-						</app-unlock-condition>
-					</p>
-				</div>
-				<div class="content">
-					<!-- TODO (V2): Check if X0904M.CHURCH.SITUATION.PC.X09MMARKUS.NORTHABANDONNED triggers if chose RUN -->
-					<p>
-						<app-dialogue-line name="Markus">
-							{{
-								translationService.translateObject(
-									"X0904M.CHURCH.TALKTOJOSH.PC.X09MMARKUS.NORTHDEAD",
-									0,
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Josh">
-							{{
-								translationService.translateObject(
-									"X0904M.CHURCH.TALKTOJOSH.PC.X09MJOSH.NORTHDEAD",
-									1
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							<app-unlock-condition
+								[unlockType]="UnlockType.Death"
+							>
+								<span class="font-bold">
+									North died in
+									<a [routerLink]="['/chapters', 32]"
+										>Crossroads</a
+									>
+								</span>
+							</app-unlock-condition>
+						</p>
+					</div>
+					<div class="content">
+						<!-- TODO (V2): Check if X0904M.CHURCH.SITUATION.PC.X09MMARKUS.NORTHABANDONNED triggers if chose RUN -->
+						<p>
+							<app-dialogue-line name="Markus">
+								{{
+									translationService.translateObject(
+										"X0904M.CHURCH.TALKTOJOSH.PC.X09MMARKUS.NORTHDEAD",
+										0,
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Josh">
+								{{
+									translationService.translateObject(
+										"X0904M.CHURCH.TALKTOJOSH.PC.X09MJOSH.NORTHDEAD",
+										1
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
 			<p>
 				<app-dialogue-line name="Josh">
 					{{
@@ -905,217 +915,223 @@
 					[type]="RelationType.SmallUp"
 				></app-relation>
 			</p>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Markus wasn't rejected by Jericho</p>
-				</div>
-				<div class="content">
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP02.SITUATION'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.SITUATION"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP02.SURVIVORS'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										t(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.SURVIVORS01"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="North">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.SURVIVORS02"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP02.WOUND'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										t(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.WOUND"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="North">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.WOUND"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP02.CAMPS'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										t(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.CAMPS"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="North">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.CAMPS"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-					<p>
-						<app-dialogue-line name="North">
-							{{
-								translationService.translateObject(
-									"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.CONT"
-								) | async
-							}}.
-						</app-dialogue-line>
-					</p>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>North has lover relationship status</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="North">
-									{{
-										t(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.LOVEYOU"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Markus was rejected by Jericho</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="North">
-							{{
-								translationService.translateObject(
-									"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.WRONG"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
 
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP01.HUMBLE'
-								)
-							"
-						>
-							<p>
-								<app-relation
-									[name]="RelationName.North"
-									[type]="RelationType.SmallUp"
-								></app-relation>
-								<app-dialogue-line name="Markus">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.HUMBLE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP01.LENIENT'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.FORGIVING"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP01.RESENTFUL'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Markus">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.RESENTFUL"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="North">
-									{{
-										translationService.translateObject(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.RESENTFUL"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Markus">
-									{{
-										t(
-											"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.RESENTFULEND"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-				</div>
-			</app-conditioned-content>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Markus wasn't rejected by Jericho</p>
+					</div>
+					<div class="content">
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP02.SITUATION'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Markus">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.SITUATION"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP02.SURVIVORS'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Markus">
+										{{
+											t(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.SURVIVORS01"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="North">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.SURVIVORS02"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP02.WOUND'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Markus">
+										{{
+											t(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.WOUND"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="North">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.WOUND"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP02.CAMPS'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Markus">
+										{{
+											t(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.CAMPS"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="North">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.CAMPS"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+						<p>
+							<app-dialogue-line name="North">
+								{{
+									translationService.translateObject(
+										"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.CONT"
+									) | async
+								}}.
+							</app-dialogue-line>
+						</p>
+
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>North has lover relationship status</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="North">
+											{{
+												t(
+													"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.LOVEYOU"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Markus was rejected by Jericho</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="North">
+								{{
+									translationService.translateObject(
+										"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.WRONG"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP01.HUMBLE'
+									)
+								"
+							>
+								<p>
+									<app-relation
+										[name]="RelationName.North"
+										[type]="RelationType.SmallUp"
+									></app-relation>
+									<app-dialogue-line name="Markus">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.HUMBLE"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP01.LENIENT'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Markus">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.FORGIVING"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X0904M.CHURCH.NORTHAPOLOGIES.PC.CHOICEGROUP01.RESENTFUL'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Markus">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.RESENTFUL"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="North">
+										{{
+											translationService.translateObject(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARLA.RESENTFUL"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Markus">
+										{{
+											t(
+												"X0904M.CHURCH.NORTHAPOLOGIES.PC.X09MMARKUS.RESENTFULEND"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="kara">

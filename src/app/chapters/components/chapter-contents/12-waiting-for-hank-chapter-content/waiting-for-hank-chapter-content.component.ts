@@ -23,6 +23,7 @@ import { ObservationComponent } from '../../../../shared/components/observation/
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 import { CaseFileComponent } from '../../case-file/case-file.component';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -43,6 +44,7 @@ import { ChapterTocService } from '../../../../shared/services/chapter-toc.servi
 		ObservationComponent,
 		ObservationItemComponent,
 		CaseFileComponent,
+		ConditionGroupComponent,
 	],
 	templateUrl: './waiting-for-hank-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

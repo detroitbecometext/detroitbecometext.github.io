@@ -13,6 +13,7 @@ import { TranslationService } from '../../../shared/services/translation.service
 import { RelationName } from '../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../shared/enums/relation-type.enum';
 import { UnlockType } from '../../../shared/enums/unlock-type.enum';
+import { ConditionGroupComponent } from '../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -28,6 +29,7 @@ import { UnlockType } from '../../../shared/enums/unlock-type.enum';
 		MatDividerModule,
 		RelationComponent,
 		TranslocoModule,
+		ConditionGroupComponent,
 	],
 	templateUrl: './endings.component.html',
 	styleUrl: './endings.component.scss',

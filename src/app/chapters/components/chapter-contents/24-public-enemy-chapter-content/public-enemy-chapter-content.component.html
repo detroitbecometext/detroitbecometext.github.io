@@ -939,105 +939,116 @@
 								}}
 							</app-dialogue-line>
 						</p>
-						<app-conditioned-content>
-							<div class="condition">
-								<p>Connor didn't die before</p>
-							</div>
-							<div class="content">
-								<p>
-									<app-dialogue-line name="Connor">
-										{{
-											t(
-												"X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.SURVIVE"
-											)
-										}}
-									</app-dialogue-line>
-									<app-dialogue-line name="Cop">
-										{{
-											translationService.translateObject(
-												"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.SURVIVE"
-											) | async
-										}}
-									</app-dialogue-line>
-								</p>
-							</div>
-						</app-conditioned-content>
-						<app-conditioned-content>
-							<div class="condition">
-								<p>
-									<app-unlock-condition
-										[unlockType]="UnlockType.Death"
-										[bracketsOnlyAroundIcon]="true"
-									>
-										<span class="font-bold">
-											Connor died in
-											<a [routerLink]="['/chapters', 1]"
-												>The Hostage</a
-											>
-										</span>
-									</app-unlock-condition>
-								</p>
-							</div>
-							<div class="content">
-								<p>
-									<app-dialogue-line name="Connor">
-										{{
-											translationService.translateObject(
-												"X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.DEAD"
-											) | async
-										}}
-									</app-dialogue-line>
-									<app-dialogue-line name="Cop">
-										{{
-											translationService.translateObject(
-												"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD"
-											) | async
-										}}
-									</app-dialogue-line>
-								</p>
-							</div>
-						</app-conditioned-content>
-						<app-conditioned-content>
-							<div class="condition">
-								<p>
-									<app-unlock-condition
-										[unlockType]="UnlockType.Death"
-										[bracketsOnlyAroundIcon]="true"
-									>
-										<span class="font-bold">
-											Connor died after
-											<a [routerLink]="['/chapters', 1]"
-												>The Hostage</a
-											>
-										</span>
-									</app-unlock-condition>
-								</p>
-							</div>
-							<div class="content">
-								<p>
-									<app-dialogue-line name="Connor">
-										{{
-											translationService.translateObject(
-												"X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.DEAD"
-											) | async
-										}}
-									</app-dialogue-line>
-									<app-dialogue-line name="Cop">
-										{{
-											t(
-												"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD.4"
-											)
-										}}
-										{{
-											translationService.translateObject(
-												"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD",
-												5
-											) | async
-										}}
-									</app-dialogue-line>
-								</p>
-							</div>
-						</app-conditioned-content>
+
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Connor didn't die before</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Connor">
+											{{
+												t(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.SURVIVE"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Cop">
+											{{
+												translationService.translateObject(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.SURVIVE"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										<app-unlock-condition
+											[unlockType]="UnlockType.Death"
+											[bracketsOnlyAroundIcon]="true"
+										>
+											<span class="font-bold">
+												Connor died in
+												<a
+													[routerLink]="[
+														'/chapters',
+														1,
+													]"
+													>The Hostage</a
+												>
+											</span>
+										</app-unlock-condition>
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Connor">
+											{{
+												translationService.translateObject(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.DEAD"
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Cop">
+											{{
+												translationService.translateObject(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										<app-unlock-condition
+											[unlockType]="UnlockType.Death"
+											[bracketsOnlyAroundIcon]="true"
+										>
+											<span class="font-bold">
+												Connor died after
+												<a
+													[routerLink]="[
+														'/chapters',
+														1,
+													]"
+													>The Hostage</a
+												>
+											</span>
+										</app-unlock-condition>
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Connor">
+											{{
+												translationService.translateObject(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.DEAD"
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Cop">
+											{{
+												t(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD.4"
+												)
+											}}
+											{{
+												translationService.translateObject(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD",
+													5
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
 					</div>
 				</app-conditioned-content>
 			</app-condition-group>
@@ -1769,22 +1780,26 @@
 				/>
 			</app-observation>
 
-			<app-conditioned-content class="mb-3">
-				<div class="condition"><p>Simon is dead</p></div>
-				<div class="content">
-					<app-observation label="Body">
-						<app-observation-item
-							[title]="t('MENU.OBSERVATION.09C.MP.BRAD.TITLE')"
-							[subline1]="
-								t('MENU.OBSERVATION.09C.MP.BRAD.SUBLINE01')
-							"
-							[subline2]="
-								t('MENU.OBSERVATION.09C.MP.BRAD.SUBLINE02')
-							"
-						/>
-					</app-observation>
-				</div>
-			</app-conditioned-content>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Simon is dead</p></div>
+					<div class="content">
+						<app-observation label="Body">
+							<app-observation-item
+								[title]="
+									t('MENU.OBSERVATION.09C.MP.BRAD.TITLE')
+								"
+								[subline1]="
+									t('MENU.OBSERVATION.09C.MP.BRAD.SUBLINE01')
+								"
+								[subline2]="
+									t('MENU.OBSERVATION.09C.MP.BRAD.SUBLINE02')
+								"
+							/>
+						</app-observation>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 
 			<h3 id="bag">Analyze bag</h3>
 			<p>

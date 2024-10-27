@@ -21,6 +21,7 @@ import { ChapterTocService } from '../../../../shared/services/chapter-toc.servi
 import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';
 import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -39,6 +40,7 @@ import { ObservationItemComponent } from '../../../../shared/components/observat
 		UnusedContentComponent,
 		ObservationComponent,
 		ObservationItemComponent,
+		ConditionGroupComponent,
 	],
 	templateUrl: './meet-kamski-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

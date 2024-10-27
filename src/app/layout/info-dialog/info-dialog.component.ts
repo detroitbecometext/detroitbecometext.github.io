@@ -19,6 +19,7 @@ import { TranslocoService } from '@jsverse/transloco';
 import { MatButtonModule } from '@angular/material/button';
 import { ObservationComponent } from '../../shared/components/observation/observation.component';
 import { ObservationItemComponent } from '../../shared/components/observation-item/observation-item.component';
+import { ConditionGroupComponent } from '../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	selector: 'app-info-dialog',
@@ -36,6 +37,7 @@ import { ObservationItemComponent } from '../../shared/components/observation-it
 		UnusedContentComponent,
 		ObservationComponent,
 		ObservationItemComponent,
+		ConditionGroupComponent,
 	],
 	templateUrl: './info-dialog.component.html',
 	styleUrl: './info-dialog.component.scss',

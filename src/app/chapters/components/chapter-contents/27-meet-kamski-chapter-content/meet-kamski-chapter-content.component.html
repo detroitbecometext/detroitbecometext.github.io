@@ -8,226 +8,246 @@
 			{{ t("GUI.MENU.TIME.11C") }}
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition"><p>Hank arrives alone</p></div>
-			<div class="content">
-				<p>
-					<app-unlock-condition [unlockType]="UnlockType.Death">
-						Connor died in
-						<a [routerLink]="['/chapters', 24]">Public Enemy</a>
-					</app-unlock-condition>
-					<app-relation
-						[name]="RelationName.Hank"
-						[type]="RelationType.SmallDown"
-					></app-relation>
-				</p>
-
-				<app-conditioned-content>
-					<div class="condition">
-						<p>Connor died multiple times</p>
-					</div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Hank">
-								{{
-									t(
-										"X1102C.OUTSIDE.INTRO.PC.X11CHANK.IMMORTAL"
-									)
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Connor">
-								{{
-									t(
-										"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.IMMORTAL"
-									)
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Hank">
-								{{
-									t(
-										"X1102C.OUTSIDE.INTRO.PC.X11CHANK.DONTCOMEBACK"
-									)
-								}}
-							</app-dialogue-line>
-
-							<app-unused-content class="mt-3">
-								<span class="italic"
-									>(Would have played instead of the above if
-									Hank is not hostile with Connor)</span
-								>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1102C.OUTSIDE.INTRO.PC.X11CHANK.WANTYOUBACK"
-										) | async
-									}}
-								</app-dialogue-line>
-							</app-unused-content>
-
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.JUSTAMACHINE"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Hank">
-								{{
-									t(
-										"X1102C.OUTSIDE.INTRO.PC.X11CHANK.FUCKYOU"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-				<app-conditioned-content>
-					<div class="condition">
-						<p>
-							Connor died for the first time in
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition"><p>Hank arrives alone</p></div>
+				<div class="content">
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Death">
+							Connor died in
 							<a [routerLink]="['/chapters', 24]">Public Enemy</a>
-						</p>
-					</div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Hank">
-								{{
-									t(
-										"X1102C.OUTSIDE.INTRO.PC.X11CHANK.FIRSTTRANSFER.1"
-									)
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.FIRSTTRANSFER"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Hank">
-								{{
-									translationService.translateObject(
-										"X1102C.OUTSIDE.INTRO.PC.X11CHANK.FIRSTTRANSFER",
-										1
-									) | async
-								}}
-								{{
-									t(
-										"X1102C.OUTSIDE.INTRO.PC.X11CHANK.FUCKYOU"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition"><p>Hank and Connor arrive together</p></div>
-			<div class="content">
-				<p>
-					<app-unlock-condition [unlockType]="UnlockType.Lock">
-						Connor didn't die in
-						<a [routerLink]="['/chapters', 24]">Public Enemy</a>
-					</app-unlock-condition>
-				</p>
+						</app-unlock-condition>
+						<app-relation
+							[name]="RelationName.Hank"
+							[type]="RelationType.SmallDown"
+						></app-relation>
+					</p>
 
-				<app-conditioned-content>
-					<div class="condition">
-						<p>
-							Chris died in
-							<a href="chapter26.html">Capitol Park</a>
-						</p>
-					</div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Connor">
-								{{ t("X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.OK") }}
-							</app-dialogue-line>
-							<app-dialogue-line name="Hank">
-								{{
-									translationService.translateObject(
-										"X1102C.OUTSIDE.INTRO.PC.X11CHANK.EXECUTED"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.SORRY",
-										0,
-										2
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Hank">
-								{{
-									t("X1102C.OUTSIDE.INTRO.PC.X11CHANK.SORRY")
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.SORRY",
-										2
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Connor died multiple times</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Hank">
+										{{
+											t(
+												"X1102C.OUTSIDE.INTRO.PC.X11CHANK.IMMORTAL"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.IMMORTAL"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											t(
+												"X1102C.OUTSIDE.INTRO.PC.X11CHANK.DONTCOMEBACK"
+											)
+										}}
+									</app-dialogue-line>
 
-						<p>
-							<app-unused-content>
-								<span class="italic"
-									>(Alternative version for Chris's
-									death)</span
-								>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1102C.OUTSIDE.INTRO.PC.X11CHANK.BEATENDEATH"
-										) | async
-									}}
-								</app-dialogue-line>
-							</app-unused-content>
-						</p>
-					</div>
-				</app-conditioned-content>
-				<app-conditioned-content>
-					<div class="condition"><p>Chris was spared</p></div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Connor">
-								{{ t("X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.OK") }}
-							</app-dialogue-line>
-							<app-dialogue-line name="Hank">
-								{{
-									translationService.translateObject(
-										"X1102C.OUTSIDE.INTRO.PC.X11CHANK.SAVED",
-										0,
-										3
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Connor">
-								{{
-									t(
-										"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.SAVED"
-									)
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Hank">
-								{{
-									translationService.translateObject(
-										"X1102C.OUTSIDE.INTRO.PC.X11CHANK.SAVED",
-										3
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-			</div>
-		</app-conditioned-content>
+									<app-unused-content class="mt-3">
+										<span class="italic"
+											>(Would have played instead of the
+											above if Hank is not hostile with
+											Connor)</span
+										>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X1102C.OUTSIDE.INTRO.PC.X11CHANK.WANTYOUBACK"
+												) | async
+											}}
+										</app-dialogue-line>
+									</app-unused-content>
+
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.JUSTAMACHINE"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											t(
+												"X1102C.OUTSIDE.INTRO.PC.X11CHANK.FUCKYOU"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>
+									Connor died for the first time in
+									<a [routerLink]="['/chapters', 24]"
+										>Public Enemy</a
+									>
+								</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Hank">
+										{{
+											t(
+												"X1102C.OUTSIDE.INTRO.PC.X11CHANK.FIRSTTRANSFER.1"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.FIRSTTRANSFER"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X1102C.OUTSIDE.INTRO.PC.X11CHANK.FIRSTTRANSFER",
+												1
+											) | async
+										}}
+										{{
+											t(
+												"X1102C.OUTSIDE.INTRO.PC.X11CHANK.FUCKYOU"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Hank and Connor arrive together</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Connor didn't die in
+							<a [routerLink]="['/chapters', 24]">Public Enemy</a>
+						</app-unlock-condition>
+					</p>
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>
+									Chris died in
+									<a href="chapter26.html">Capitol Park</a>
+								</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.OK"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X1102C.OUTSIDE.INTRO.PC.X11CHANK.EXECUTED"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.SORRY",
+												0,
+												2
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											t(
+												"X1102C.OUTSIDE.INTRO.PC.X11CHANK.SORRY"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.SORRY",
+												2
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+
+								<p>
+									<app-unused-content>
+										<span class="italic"
+											>(Alternative version for Chris's
+											death)</span
+										>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X1102C.OUTSIDE.INTRO.PC.X11CHANK.BEATENDEATH"
+												) | async
+											}}
+										</app-dialogue-line>
+									</app-unused-content>
+								</p>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition"><p>Chris was spared</p></div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.OK"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X1102C.OUTSIDE.INTRO.PC.X11CHANK.SAVED",
+												0,
+												3
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X1102C.OUTSIDE.INTRO.PC.X11CCONNOR.SAVED"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X1102C.OUTSIDE.INTRO.PC.X11CHANK.SAVED",
+												3
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<mat-divider></mat-divider>
 
@@ -297,73 +317,77 @@
 					</app-unlock-condition>
 				</p>
 
-				<app-conditioned-content>
-					<div class="condition"><p>Chris was spared</p></div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Connor">
-								{{
-									t("X1102C.OUTSIDE.WALK.FA.X11CCONNOR.SAVED")
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Hank">
-								{{
-									translationService.translateObject(
-										"X1102C.OUTSIDE.WALK.FA.X11CHANK.SAVED"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-				<app-conditioned-content>
-					<div class="condition"><p>Chris was killed</p></div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X1102C.OUTSIDE.WALK.FA.X11CCONNOR.HARVEY"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Hank">
-								{{
-									t(
-										"X1102C.OUTSIDE.INTRO.PC.X11CHANK.EXECUTED.3"
-									)
-								}}
-								{{
-									translationService.translateObject(
-										"X1102C.OUTSIDE.WALK.FA.X11CHANK.EXECUTED",
-										1
-									) | async
-								}}
-							</app-dialogue-line>
+				<app-condition-group>
+					<app-conditioned-content>
+						<div class="condition"><p>Chris was spared</p></div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										t(
+											"X1102C.OUTSIDE.WALK.FA.X11CCONNOR.SAVED"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Hank">
+									{{
+										translationService.translateObject(
+											"X1102C.OUTSIDE.WALK.FA.X11CHANK.SAVED"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+					<app-conditioned-content>
+						<div class="condition"><p>Chris was killed</p></div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X1102C.OUTSIDE.WALK.FA.X11CCONNOR.HARVEY"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Hank">
+									{{
+										t(
+											"X1102C.OUTSIDE.INTRO.PC.X11CHANK.EXECUTED.3"
+										)
+									}}
+									{{
+										translationService.translateObject(
+											"X1102C.OUTSIDE.WALK.FA.X11CHANK.EXECUTED",
+											1
+										) | async
+									}}
+								</app-dialogue-line>
 
-							<app-unused-content class="mt-3">
-								<span class="italic"
-									>(Alternative versions for Chris's
-									death)</span
-								>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1102C.OUTSIDE.WALK.FA.X11CHANK.EXECUTED"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X1102C.OUTSIDE.WALK.FA.X11CHANK.BEATENDEATH"
-										) | async
-									}}
-								</app-dialogue-line>
-							</app-unused-content>
-						</p>
-					</div>
-				</app-conditioned-content>
+								<app-unused-content class="mt-3">
+									<span class="italic"
+										>(Alternative versions for Chris's
+										death)</span
+									>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X1102C.OUTSIDE.WALK.FA.X11CHANK.EXECUTED"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X1102C.OUTSIDE.WALK.FA.X11CHANK.BEATENDEATH"
+											) | async
+										}}
+									</app-dialogue-line>
+								</app-unused-content>
+							</p>
+						</div>
+					</app-conditioned-content>
+				</app-condition-group>
 			</app-choice-item>
 		</app-choice-group>
 
@@ -1059,92 +1083,103 @@
 
 	<section aria-labelledby="leave">
 		<h1 id="leave">Leaving Kamski's house</h1>
-		<app-conditioned-content>
-			<div class="condition"><p>Connor shot Chloe</p></div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Hank">
-						{{ t("X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT.1") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Connor">
-						{{ t("X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.SHOOT.1") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Hank">
-						{{ t("X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT.2") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Connor">
-						{{ t("X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.SHOOT.2") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Hank">
-						{{
-							translationService.translateObject(
-								"X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT",
-								2,
-								4
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Connor">
-						{{
-							translationService.translateObject(
-								"X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.SHOOT",
-								2
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Hank">
-						{{
-							translationService.translateObject(
-								"X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT",
-								4
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
-		<app-conditioned-content>
-			<div class="condition"><p>Connor didn't shoot Chloe</p></div>
-			<div class="content">
-				<p>
-					<app-relation
-						[name]="RelationName.Hank"
-						[type]="RelationType.LargeUp"
-					></app-relation>
-					<app-dialogue-line name="Hank">
-						{{ t("X1102C.OUTSIDE.OUTRO.PC.X11CHANK.NOSHOOT.1") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Connor">
-						{{
-							translationService.translateObject(
-								"X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.NOSHOOT",
-								0,
-								3
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Hank">
-						{{
-							translationService.translateObject(
-								"X1102C.OUTSIDE.OUTRO.PC.X11CHANK.NOSHOOT",
-								1,
-								3
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Connor">
-						{{
-							translationService.translateObject(
-								"X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.NOSHOOT",
-								3
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Hank">
-						{{ t("X1102C.OUTSIDE.OUTRO.PC.X11CHANK.NOSHOOT.4") }}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition"><p>Connor shot Chloe</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Hank">
+							{{ t("X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT.1") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								t("X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.SHOOT.1")
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{ t("X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT.2") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								t("X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.SHOOT.2")
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT",
+									2,
+									4
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.SHOOT",
+									2
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X1102C.OUTSIDE.OUTRO.PC.X11CHANK.SHOOT",
+									4
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition"><p>Connor didn't shoot Chloe</p></div>
+				<div class="content">
+					<p>
+						<app-relation
+							[name]="RelationName.Hank"
+							[type]="RelationType.LargeUp"
+						></app-relation>
+						<app-dialogue-line name="Hank">
+							{{
+								t("X1102C.OUTSIDE.OUTRO.PC.X11CHANK.NOSHOOT.1")
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.NOSHOOT",
+									0,
+									3
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X1102C.OUTSIDE.OUTRO.PC.X11CHANK.NOSHOOT",
+									1,
+									3
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X1102C.OUTSIDE.OUTRO.PC.X11CCONNOR.NOSHOOT",
+									3
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{
+								t("X1102C.OUTSIDE.OUTRO.PC.X11CHANK.NOSHOOT.4")
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 	</section>
 </ng-container>

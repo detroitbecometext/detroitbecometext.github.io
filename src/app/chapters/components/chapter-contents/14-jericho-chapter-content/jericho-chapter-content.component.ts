@@ -10,6 +10,7 @@ import { ConditionedContentComponent } from '../../../../shared/components/condi
 import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../../../shared/services/translation.service';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -20,6 +21,7 @@ import { ChapterTocService } from '../../../../shared/services/chapter-toc.servi
 		ConditionedContentComponent,
 		RouterLink,
 		TranslocoModule,
+		ConditionGroupComponent,
 	],
 	templateUrl: './jericho-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

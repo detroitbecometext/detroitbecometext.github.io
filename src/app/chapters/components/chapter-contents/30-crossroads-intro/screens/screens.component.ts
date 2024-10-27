@@ -8,6 +8,7 @@ import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../../../../shared/services/translation.service';
 import { UnlockType } from '../../../../../shared/enums/unlock-type.enum';
 import { CommonTranslationKey } from '../../../../../shared/utils/common-translation-keys.enum';
+import { ConditionGroupComponent } from '../../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	selector: 'app-screens',
@@ -20,6 +21,7 @@ import { CommonTranslationKey } from '../../../../../shared/utils/common-transla
 		ConditionedContentComponent,
 		RouterLink,
 		TranslocoModule,
+		ConditionGroupComponent,
 	],
 	templateUrl: './screens.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

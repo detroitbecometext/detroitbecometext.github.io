@@ -17,6 +17,7 @@ import { TranslationService } from '../../../../shared/services/translation.serv
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { CommonTranslationKey } from '../../../../shared/utils/common-translation-keys.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -32,6 +33,7 @@ import { ChapterTocService } from '../../../../shared/services/chapter-toc.servi
 		UnusedContentComponent,
 		MatDividerModule,
 		TranslocoModule,
+		ConditionGroupComponent,
 	],
 	templateUrl: './connor-cyberlife-tower-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

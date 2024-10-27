@@ -39,21 +39,27 @@
 			</app-dialogue-line>
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Go without Carl</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Carl">
-						{{ t("X0201M.INTRO.CALLBACK.PC.X02MCARL.CALL01") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Markus">
-						{{ t("X0201M.INTRO.CALLBACK.FA.X02MMARKUSINT.CALL02") }}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Go without Carl</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Carl">
+							{{ t("X0201M.INTRO.CALLBACK.PC.X02MCARL.CALL01") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Markus">
+							{{
+								t(
+									"X0201M.INTRO.CALLBACK.FA.X02MMARKUSINT.CALL02"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<p>
 			<app-dialogue-line name="Markus">
@@ -93,50 +99,55 @@
 			</app-dialogue-line>
 		</p>
 
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Going without Carl</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Carl">
-						{{ t("X0201M.WORKSHOP.CALLBACK.PC.X02MCARL.CALL") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Markus">
-						{{ t("X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.FINDLEO") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Leo">
-						{{ t("X0201M.WORKSHOP.LEO.PC.X02MLEO.FINDLEO") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Carl">
-						{{
-							translationService.translateObject(
-								"X0201M.WORKSHOP.LEO.PC.X02MCARL.FINDLEO"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
-
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Going with Carl</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-dialogue-line name="Carl">
-						{{
-							translationService.translateObject(
-								"X0201M.WORKSHOP.LEO.PC.X02MCARL.STOP",
-								0,
-								2
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Going without Carl</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Carl">
+							{{ t("X0201M.WORKSHOP.CALLBACK.PC.X02MCARL.CALL") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Markus">
+							{{
+								t(
+									"X0201M.WORKSHOP.LEO.PC.X02MMARKUSINT.FINDLEO"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Leo">
+							{{ t("X0201M.WORKSHOP.LEO.PC.X02MLEO.FINDLEO") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Carl">
+							{{
+								translationService.translateObject(
+									"X0201M.WORKSHOP.LEO.PC.X02MCARL.FINDLEO"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Going with Carl</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Carl">
+							{{
+								translationService.translateObject(
+									"X0201M.WORKSHOP.LEO.PC.X02MCARL.STOP",
+									0,
+									2
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
 
 		<p>
 			<app-dialogue-line name="Leo">

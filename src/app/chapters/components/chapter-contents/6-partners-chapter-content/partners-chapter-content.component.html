@@ -476,37 +476,39 @@
 				</app-dialogue-line>
 			</p>
 
-			<app-conditioned-content>
-				<div class="condition"><p>Didn't pick [ FIRM ]</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X0201C.CRIMESCENE.GUARD.FA.X02CHANK.HPATIENTORDIPLOMAT"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								t(
-									"X0201C.CRIMESCENE.GUARD.FA.X02CCONNOR.CPATIENTORDIPLOMAT.1"
-								)
-							}}
-						</app-dialogue-line>
-
-						<app-unused-content class="mt-3">
-							<app-dialogue-line name="Connor">
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Didn't pick [ FIRM ]</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Hank">
 								{{
 									t(
-										"X0201C.CRIMESCENE.GUARD.FA.X02CCONNOR.CPATIENTORDIPLOMAT.2"
+										"X0201C.CRIMESCENE.GUARD.FA.X02CHANK.HPATIENTORDIPLOMAT"
 									)
 								}}
 							</app-dialogue-line>
-						</app-unused-content>
-					</p>
-				</div>
-			</app-conditioned-content>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0201C.CRIMESCENE.GUARD.FA.X02CCONNOR.CPATIENTORDIPLOMAT.1"
+									)
+								}}
+							</app-dialogue-line>
+
+							<app-unused-content class="mt-3">
+								<app-dialogue-line name="Connor">
+									{{
+										t(
+											"X0201C.CRIMESCENE.GUARD.FA.X02CCONNOR.CPATIENTORDIPLOMAT.2"
+										)
+									}}
+								</app-dialogue-line>
+							</app-unused-content>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 
 			<p>
 				<app-dialogue-line name="Hank">
@@ -878,144 +880,156 @@
 		</section>
 
 		<section aria-labelledby="timeout">
-			<app-conditioned-content>
-				<div class="condition">
-					<h2 id="timeout">
-						<app-unlock-condition [unlockType]="UnlockType.Time">
-							{{ t(CommonTranslationKey.TooMuchTime) }}
-						</app-unlock-condition>
-					</h2>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0201C.HANK.LEAVE.PC.X02CHANK.BYE01",
-									0,
-									2
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{ t("X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.1") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{ t("X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.3") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{ t("X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.2") }}
-						</app-dialogue-line>
-					</p>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<h2 id="timeout">
+							<app-unlock-condition
+								[unlockType]="UnlockType.Time"
+							>
+								{{ t(CommonTranslationKey.TooMuchTime) }}
+							</app-unlock-condition>
+						</h2>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0201C.HANK.LEAVE.PC.X02CHANK.BYE01",
+										0,
+										2
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									t("X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.1")
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{ t("X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.3") }}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									t("X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.2")
+								}}
+							</app-dialogue-line>
+						</p>
 
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Chose to spill Hank's drink</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-relation
-									[name]="RelationName.Hank"
-									[type]="RelationType.SmallDown"
-								></app-relation>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X0201C.HANK.LEAVE.PC.X02CHANK.BYE02"
-										) | async
-									}}
-								</app-dialogue-line>
-								<span class="note">Ends the investigation</span>
-							</p>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Chose to buy Hank a drink</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01",
-											2,
-											5
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.4"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.6"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.5"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
-					<app-conditioned-content>
-						<div class="condition">
-							<p>Chose to wait outside</p>
-						</div>
-						<div class="content">
-							<p>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.4"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.6"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.5"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</div>
-					</app-conditioned-content>
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Chose to spill Hank's drink</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-relation
+											[name]="RelationName.Hank"
+											[type]="RelationType.SmallDown"
+										></app-relation>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X0201C.HANK.LEAVE.PC.X02CHANK.BYE02"
+												) | async
+											}}
+										</app-dialogue-line>
+										<span class="note"
+											>Ends the investigation</span
+										>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Chose to buy Hank a drink</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Connor">
+											{{
+												translationService.translateObject(
+													"X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01",
+													2,
+													5
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.4"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Connor">
+											{{
+												t(
+													"X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.6"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.5"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Chose to wait outside</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.4"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Connor">
+											{{
+												t(
+													"X0201C.HANK.LEAVE.PC.X02CCONNOR.BYE01.6"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X0201C.HANK.LEAVE.PC.X02CHANK.BYE01.5"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
 
-					<h3 id="timeout-again">Taking too much time again</h3>
-					<p>
-						<app-relation
-							[name]="RelationName.Hank"
-							[type]="RelationType.SmallDown"
-						></app-relation>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0201C.HANK.ENDOFTIMER.PC.X02CHANK.ENDING"
-								) | async
-							}}
-						</app-dialogue-line>
-						<span class="note">Ends the investigation</span>
-					</p>
-				</div>
-			</app-conditioned-content>
+						<h3 id="timeout-again">Taking too much time again</h3>
+						<p>
+							<app-relation
+								[name]="RelationName.Hank"
+								[type]="RelationType.SmallDown"
+							></app-relation>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0201C.HANK.ENDOFTIMER.PC.X02CHANK.ENDING"
+									) | async
+								}}
+							</app-dialogue-line>
+							<span class="note">Ends the investigation</span>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 		</section>
 
 		<section aria-labelledby="investigation-hank">
