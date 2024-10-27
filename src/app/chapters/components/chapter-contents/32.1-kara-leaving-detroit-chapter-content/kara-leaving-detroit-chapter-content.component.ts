@@ -19,6 +19,7 @@ import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
+import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';
 
 @Component({
 	standalone: true,
@@ -34,6 +35,7 @@ import { ChapterTocService } from '../../../../shared/services/chapter-toc.servi
 		RouterLink,
 		MatDividerModule,
 		TranslocoModule,
+		UnusedContentComponent,
 	],
 	templateUrl: './kara-leaving-detroit-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

@@ -18,6 +18,10 @@ import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
+import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
+import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
+import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';
+import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
 
 @Component({
 	standalone: true,
@@ -33,6 +37,10 @@ import { ChapterTocService } from '../../../../shared/services/chapter-toc.servi
 		RouterLink,
 		UnlockConditionComponent,
 		TranslocoModule,
+		ObservationComponent,
+		ObservationItemComponent,
+		UnusedContentComponent,
+		ConditionGroupComponent,
 	],
 	templateUrl: './public-enemy-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

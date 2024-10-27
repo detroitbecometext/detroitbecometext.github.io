@@ -1052,6 +1052,45 @@
 
 		<app-conditioned-content>
 			<div class="condition">
+				<p>Successfully escaped and stole the truck</p>
+			</div>
+			<div class="content">
+				<p>
+					<app-relation
+						[name]="RelationName.Jericho"
+						[type]="RelationType.LargeUp"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.Simon"
+						[type]="RelationType.LargeUp"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.North"
+						[type]="RelationType.LargeUp"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.Josh"
+						[type]="RelationType.SmallUp"
+					></app-relation>
+					<app-dialogue-line name="Simon">
+						{{
+							translationService.translateObject(
+								"X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.TRUCK"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Josh">
+						{{ t("X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.TRUCK") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="North">
+						{{ t("X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.TRUCK") }}
+					</app-dialogue-line>
+				</p>
+			</div>
+		</app-conditioned-content>
+
+		<app-conditioned-content>
+			<div class="condition">
 				<p>Successfully escaped, without stealing the truck</p>
 			</div>
 			<div class="content">
@@ -1088,45 +1127,6 @@
 						{{
 							t("X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.BAGSFULL")
 						}}
-					</app-dialogue-line>
-				</p>
-			</div>
-		</app-conditioned-content>
-
-		<app-conditioned-content>
-			<div class="condition">
-				<p>Successfully escaped and stole the truck</p>
-			</div>
-			<div class="content">
-				<p>
-					<app-relation
-						[name]="RelationName.Jericho"
-						[type]="RelationType.LargeUp"
-					></app-relation>
-					<app-relation
-						[name]="RelationName.Simon"
-						[type]="RelationType.LargeUp"
-					></app-relation>
-					<app-relation
-						[name]="RelationName.North"
-						[type]="RelationType.LargeUp"
-					></app-relation>
-					<app-relation
-						[name]="RelationName.Josh"
-						[type]="RelationType.SmallUp"
-					></app-relation>
-					<app-dialogue-line name="Simon">
-						{{
-							translationService.translateObject(
-								"X0603M.AFTERMATCH.JERICHO.PC.X06MSIMON.TRUCK"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Josh">
-						{{ t("X0603M.AFTERMATCH.JERICHO.PC.X06MJOSH.TRUCK") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="North">
-						{{ t("X0603M.AFTERMATCH.JERICHO.PC.X06MMARLA.TRUCK") }}
 					</app-dialogue-line>
 				</p>
 			</div>

@@ -11,7 +11,7 @@ import { TranslocoService } from '@jsverse/transloco';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogueLineComponent {
-	@Input({ required: true }) name: string = ''; // TODO: string union ?
+	@Input({ required: true }) name: string = '';
 
 	constructor(public readonly translocoService: TranslocoService) {}
 }

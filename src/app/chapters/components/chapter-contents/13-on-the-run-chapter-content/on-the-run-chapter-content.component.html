@@ -689,6 +689,36 @@
 			<app-conditioned-content>
 				<div class="condition"><p>Kara was nice with Ralph</p></div>
 				<div class="content">
+					<app-observation label="Scan Ralph">
+						<app-observation-item
+							[title]="t('MENU.OBSERVATION.04K.MP.LED.TITLE')"
+							[subline1]="
+								t('MENU.OBSERVATION.04K.MP.LED.SUBLINE01')
+							"
+							[subline2]="
+								t('MENU.OBSERVATION.04K.MP.LED.SUBLINE02')
+							"
+						/>
+						<app-observation-item
+							[title]="t('MENU.OBSERVATION.04K.MP.RALPH.TITLE')"
+							[subline1]="
+								t('MENU.OBSERVATION.04K.MP.RALPH.SUBLINE01')
+							"
+							[subline2]="
+								t('MENU.OBSERVATION.04K.MP.RALPH.SUBLINE02')
+							"
+						/>
+						<app-observation-item
+							[title]="t('MENU.OBSERVATION.04K.MP.INJURY.TITLE')"
+							[subline1]="
+								t('MENU.OBSERVATION.04K.MP.INJURY.SUBLINE01')
+							"
+							[subline2]="
+								t('MENU.OBSERVATION.04K.MP.INJURY.SUBLINE02')
+							"
+						/>
+					</app-observation>
+
 					<app-choice-group>
 						<app-choice-item
 							[choiceLabel]="
@@ -1593,13 +1623,6 @@
 			</app-dialogue-line>
 		</p>
 
-		<!-- TODO: remove ?-->
-		<p>
-			<app-dialogue-line name="Cop">
-				{{ t("X0502K.CHASE.SPARELINES.FA.X05KZLATKO.HERE") }}
-			</app-dialogue-line>
-		</p>
-
 		<h2 id="chase-timeout">
 			<app-unlock-condition [unlockType]="UnlockType.Time">
 				{{ t(CommonTranslationKey.TooMuchTime) }}
@@ -1660,12 +1683,9 @@
 					<p>
 						<app-dialogue-line name="Hank">
 							{{
-								t("X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK.1")
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								t("X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK.2")
+								translationService.translateObject(
+									"X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK"
+								) | async
 							}}
 						</app-dialogue-line>
 					</p>
@@ -1687,9 +1707,7 @@
 					<p>
 						<app-dialogue-line name="Connor">
 							<!-- NOTE: No subtitles for this line, so take a substitute -->
-							{{
-								t("X1302C.ELEVATOR.CAMERA.FA.X13CCONNOR.CAMERA")
-							}}
+							{{ t("X1103M.FINAL.SHOP.PC.X11MCONNOR.DETONATE") }}
 						</app-dialogue-line>
 					</p>
 				</app-choice-item>

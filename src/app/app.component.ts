@@ -20,8 +20,6 @@ type Language = {
 	styleUrl: './app.component.scss',
 })
 export class AppComponent {
-	// TODO: Add observable to change ltr to rtl when language changes
-
 	constructor(
 		public readonly themePickerService: ThemePickerService,
 		public readonly translocoService: TranslocoService,

@@ -20,6 +20,8 @@ import { RelationType } from '../../../../shared/enums/relation-type.enum';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { CommonTranslationKey } from '../../../../shared/utils/common-translation-keys.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
+import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
+import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 
 @Component({
 	standalone: true,
@@ -36,6 +38,8 @@ import { ChapterTocService } from '../../../../shared/services/chapter-toc.servi
 		UnusedContentComponent,
 		RouterLink,
 		TranslocoModule,
+		ObservationComponent,
+		ObservationItemComponent,
 	],
 	templateUrl: './russian-roulette-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

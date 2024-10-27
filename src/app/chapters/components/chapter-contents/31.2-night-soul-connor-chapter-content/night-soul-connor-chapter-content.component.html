@@ -202,7 +202,7 @@
 
 		<app-conditioned-content>
 			<div class="condition">
-				<p>Chose [ PHOTO ] + Connor died multiple times</p>
+				<p>Connor died multiple times</p>
 			</div>
 			<div class="content">
 				<p>
@@ -218,7 +218,7 @@
 		</app-conditioned-content>
 		<app-conditioned-content>
 			<div class="condition">
-				<p>Connor didn't die before / don't choose [ PHOTO ]</p>
+				<p>Connor never died</p>
 			</div>
 			<div class="content">
 				<p>
@@ -342,9 +342,7 @@
 						<app-dialogue-line name="Connor">
 							{{
 								translationService.translateObject(
-									"X0904M.CHURCH.MARKUSDEAD.PC.X09MCONNOR.MARKUS",
-									0,
-									3
+									"X0904M.CHURCH.MARKUSDEAD.PC.X09MCONNOR.MARKUS"
 								) | async
 							}}
 						</app-dialogue-line>
@@ -390,19 +388,50 @@
 								)
 							}}
 						</app-dialogue-line>
-						<app-dialogue-line name="North">
-							{{
-								translationService.translateObject(
-									"X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBCONNOR"
-								) | async
-							}}
-						</app-dialogue-line>
-
-						<!-- TODO (V2): Check if X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBMARKUS triggers
-								if Markus dies after activating the bomb -->
-						<!-- TODO (V2): Check if X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.NOBOMB triggers
-								if Markus dies without activating the bomb -->
 					</p>
+
+					<app-conditioned-content>
+						<div class="condition">
+							<p>Markus detonated the bomb</p>
+						</div>
+						<div class="content">
+							<app-dialogue-line name="North">
+								{{
+									translationService.translateObject(
+										"X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBMARKUS"
+									) | async
+								}}
+							</app-dialogue-line>
+						</div>
+					</app-conditioned-content>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>Connor detonated the bomb</p>
+						</div>
+						<div class="content">
+							<app-dialogue-line name="North">
+								{{
+									translationService.translateObject(
+										"X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.BOMBCONNOR"
+									) | async
+								}}
+							</app-dialogue-line>
+						</div>
+					</app-conditioned-content>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>Markus died without detonating the bomb</p>
+						</div>
+						<div class="content">
+							<app-dialogue-line name="North">
+								{{
+									translationService.translateObject(
+										"X0904M.CHURCH.MARKUSDEAD.PC.X09MMARLA.NOBOMB"
+									) | async
+								}}
+							</app-dialogue-line>
+						</div>
+					</app-conditioned-content>
 				</app-choice-item>
 			</app-choice-group>
 		</section>

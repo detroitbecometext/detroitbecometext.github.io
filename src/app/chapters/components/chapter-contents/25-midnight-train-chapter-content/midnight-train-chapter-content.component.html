@@ -52,46 +52,128 @@
 			</app-dialogue-line>
 		</p>
 
-		<p>
-			<app-dialogue-line name="Luther">
-				{{ t("X0801K.DOORSTEP.TRUST.FA.X08KLUTHER.TRUSTQUESTION") }}
-			</app-dialogue-line>
-		</p>
-
-		<app-choice-group>
-			<app-choice-item
-				[choiceLabel]="
-					t('X0801K.DOORSTEP.TRUST.FA.CHOICEGROUP.DISTRUST')
-				"
-			>
+		<app-conditioned-content>
+			<div class="condition">
+				<p>Luther is alive</p>
+			</div>
+			<div class="content">
 				<p>
-					<app-dialogue-line name="Kara">
+					<app-dialogue-line name="Luther">
 						{{
-							translationService.translateObject(
-								"X0801K.DOORSTEP.TRUST.FA.X08KKARA.DISTRUST"
-							) | async
+							t(
+								"X0801K.DOORSTEP.TRUST.FA.X08KLUTHER.TRUSTQUESTION"
+							)
 						}}
 					</app-dialogue-line>
-					<app-dialogue-line name="Luther">
-						{{ t("X0801K.DOORSTEP.TRUST.FA.X08KLUTHER.DISTRUST") }}
-					</app-dialogue-line>
 				</p>
-			</app-choice-item>
-			<app-choice-item
-				[choiceLabel]="t('X0801K.DOORSTEP.TRUST.FA.CHOICEGROUP.TRUST')"
-			>
-				<p>
-					<app-dialogue-line name="Kara">
-						{{ t("X0801K.DOORSTEP.TRUST.FA.X08KKARA.TRUST") }}
-					</app-dialogue-line>
-				</p>
-			</app-choice-item>
-		</app-choice-group>
 
-		<!-- TODO (V2): Add unused trust / distrust alice (X0801K.DOORSTEP.TRUST.FA.X08KALICE) if Luther died in Pirate's Cove -->
+				<app-choice-group>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0801K.DOORSTEP.TRUST.FA.CHOICEGROUP.DISTRUST')
+						"
+					>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									translationService.translateObject(
+										"X0801K.DOORSTEP.TRUST.FA.X08KKARA.DISTRUST"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Luther">
+								{{
+									t(
+										"X0801K.DOORSTEP.TRUST.FA.X08KLUTHER.DISTRUST"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0801K.DOORSTEP.TRUST.FA.CHOICEGROUP.TRUST')
+						"
+					>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									t("X0801K.DOORSTEP.TRUST.FA.X08KKARA.TRUST")
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+				</app-choice-group>
+			</div>
+		</app-conditioned-content>
+		<app-conditioned-content>
+			<div class="condition">
+				<p>
+					Luther died in
+					<a [routerLink]="['/chapters', 21]">The Pirate's Cove</a>'s
+					unused chase scene
+				</p>
+			</div>
+			<div class="content">
+				<app-unused-content>
+					<p>
+						<app-dialogue-line name="Alice">
+							{{
+								t(
+									"X0801K.DOORSTEP.TRUST.FA.X08KALICE.TRUSTALICE"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0801K.DOORSTEP.TRUST.FA.CHOICEGROUP.DISTRUST'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Kara">
+									{{
+										translationService.translateObject(
+											"X0801K.DOORSTEP.TRUST.FA.X08KKARA.DISTRUST"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Alice">
+									{{
+										t(
+											"X0801K.DOORSTEP.TRUST.FA.X08KALICE.DISTRUSTALICE"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0801K.DOORSTEP.TRUST.FA.CHOICEGROUP.TRUST')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Kara">
+									{{
+										t(
+											"X0801K.DOORSTEP.TRUST.FA.X08KKARA.TRUST"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</app-unused-content>
+			</div>
+		</app-conditioned-content>
 
 		<section aria-labelledby="talk-alice">
 			<h2 id="talk-alice">Talk to Alice</h2>
+
 			<p>
 				<app-dialogue-line name="Kara">
 					{{ t("X0801K.DOORSTEP.FEELINGS.PC.X08KKARA.ALICE.1") }}
@@ -322,7 +404,91 @@
 					</p>
 				</app-choice-item>
 			</app-choice-group>
-			<!-- TODO (V2): Add unused CHOICE04 if LUTHER is dead -->
+
+			<app-unused-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Luther is alive</p>
+					</div>
+					<div class="content">
+						<app-dialogue-line name="Alice">
+							{{
+								translationService.translateObject(
+									"X0801K.ALICE.TAKECARE.PC.X08KALICE.03CONTLUTHER"
+								) | async
+							}}
+						</app-dialogue-line>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Luther died in
+							<a [routerLink]="['/chapters', 21]"
+								>The Pirate's Cove</a
+							>'s unused chase scene
+						</p>
+					</div>
+					<div class="content">
+						<app-dialogue-line name="Alice">
+							{{
+								translationService.translateObject(
+									"X0801K.ALICE.TAKECARE.PC.X08KALICE.03CONT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</div>
+				</app-conditioned-content>
+
+				<app-choice-group>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0801K.ALICE.TAKECARE.PC.CHOICE04.REASSURE')
+						"
+					>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									translationService.translateObject(
+										"X0801K.ALICE.TAKECARE.PC.X08KKARA.04REASSURE"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0801K.ALICE.TAKECARE.PC.CHOICE04.PROTECT')
+						"
+					>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0801K.ALICE.TAKECARE.PC.X08KKARA.04PROTECT"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0801K.ALICE.TAKECARE.PC.CHOICE04.BRAVE')
+						"
+					>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									translationService.translateObject(
+										"X0801K.ALICE.TAKECARE.PC.X08KKARA.04BRAVE"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+				</app-choice-group>
+			</app-unused-content>
+
 			<p>
 				<app-dialogue-line name="Rose">
 					{{
@@ -382,15 +548,57 @@
 				<app-dialogue-line name="Kara">
 					{{ t("X0801K.ALICE.TAKECARE.PC.X08KKARA.05CONT") }}
 				</app-dialogue-line>
-				<app-dialogue-line name="Luther">
-					{{
-						translationService.translateObject(
-							"X0801K.ALICE.TAKECARE.PC.X08KLUTHER.GETREST"
-						) | async
-					}}
-					{{ t("X0801K.ALICE.TAKECARE.PC.X08KLUTHER.GETRESTSTAY") }}
-				</app-dialogue-line>
 			</p>
+
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Luther is alive</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Luther">
+							{{
+								translationService.translateObject(
+									"X0801K.ALICE.TAKECARE.PC.X08KLUTHER.GETREST"
+								) | async
+							}}
+							{{
+								t(
+									"X0801K.ALICE.TAKECARE.PC.X08KLUTHER.GETRESTSTAY"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Luther died in
+						<a [routerLink]="['/chapters', 21]">The Pirate's Cove</a
+						>'s unused chase scene
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Alice">
+							{{
+								t(
+									"X0801K.ALICE.TAKECARE.PC.X08KALICE.MISSLUTHER"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{
+								t(
+									"X0801K.ALICE.TAKECARE.PC.X08KKARA.MISSLUTHER"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+
 			<p>
 				<app-dialogue-line name="Rose">
 					{{ t("X0801K.HOUSE.NAME.PC.X08KROSE.NAME01") }}
@@ -742,6 +950,28 @@
 
 		<section aria-labelledby="talk-alice-inside">
 			<h2 id="talk-alice-inside">Talking to Alice</h2>
+
+			<app-unused-content>
+				<p>
+					<app-unlock-condition [unlockType]="UnlockType.Death">
+						Luther died in
+						<a [routerLink]="['/chapters', 21]">The Pirate's Cove</a
+						>'s unused chase scene
+					</app-unlock-condition>
+				</p>
+
+				<p>
+					<app-dialogue-line name="Kara">
+						{{ t("X0801K.HOUSE.FIRE.FA.X08KKARA.NOLUTHER01") }}
+						{{ t("X0801K.HOUSE.FIRE.FA.X08KKARA.NOLUTHER02") }}
+					</app-dialogue-line>
+				</p>
+			</app-unused-content>
+		</section>
+
+		<section aria-labelledby="join-alice-fire">
+			<h2 id="join-alice-fire">Join Alice</h2>
+
 			<p>
 				<app-dialogue-line name="Kara">
 					{{
@@ -881,6 +1111,9 @@
 					) | async
 				}}
 			</app-dialogue-line>
+		</p>
+
+		<p>
 			<app-unused-content>
 				<app-dialogue-line name="Adam">
 					{{
@@ -891,6 +1124,9 @@
 					}}
 				</app-dialogue-line>
 			</app-unused-content>
+		</p>
+
+		<p>
 			<app-dialogue-line name="Adam">
 				{{
 					translationService.translateObject(
@@ -942,6 +1178,70 @@
 					{{ t("X0801K.LUTHER.HIDE.PC.X08KLUTHER.QUICK") }}
 				</app-dialogue-line>
 			</p>
+		</section>
+
+		<section aria-labelledby="talk-alice-hide">
+			<h2 id="talk-alice-hide">Talk to Alice</h2>
+
+			<app-unused-content>
+				<p>
+					<app-unlock-condition [unlockType]="UnlockType.Death">
+						Luther died in
+						<a [routerLink]="['/chapters', 21]">The Pirate's Cove</a
+						>'s unused chase scene
+					</app-unlock-condition>
+				</p>
+
+				<p>
+					<app-dialogue-line name="Kara">
+						{{ t("X0801K.LUTHER.HIDE.PC.X08KKARA.HIDEA") }}
+					</app-dialogue-line>
+				</p>
+
+				<app-choice-group>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0801K.LUTHER.HIDE.PC.CHOICEA.UPSTAIRS')
+						"
+					>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0801K.LUTHER.HIDE.PC.X08KKARA.UPSTAIRSA"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0801K.LUTHER.HIDE.PC.CHOICEA.LAUNDRY')
+						"
+					>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									t("X0801K.LUTHER.HIDE.PC.X08KKARA.LAUNDRYA")
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0801K.LUTHER.HIDE.PC.CHOICEA.KITCHEN')
+						"
+					>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									t("X0801K.LUTHER.HIDE.PC.X08KKARA.KITCHENA")
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+				</app-choice-group>
+			</app-unused-content>
 		</section>
 
 		<section aria-labelledby="talk-adam-police">
@@ -1171,10 +1471,14 @@
 					</app-choice-group>
 				</div>
 			</app-conditioned-content>
+
 			<mat-divider></mat-divider>
+
 			<app-conditioned-content>
 				<div class="condition">
-					<p>Policeman discovers Alice & Luther hidden</p>
+					<p>
+						Policeman discovers Alice & Luther hidden in the kitchen
+					</p>
 				</div>
 				<div class="content">
 					<p>
@@ -1209,7 +1513,38 @@
 					</p>
 				</div>
 			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Policeman discovers Alice hidden in the kitchen</p>
+				</div>
+				<div class="content">
+					<app-unused-content>
+						<p>
+							<app-unlock-condition
+								[unlockType]="UnlockType.Death"
+							>
+								Luther died in
+								<a [routerLink]="['/chapters', 21]"
+									>The Pirate's Cove</a
+								>'s unused chase scene
+							</app-unlock-condition>
+						</p>
+
+						<p>
+							<app-dialogue-line name="Policeman">
+								{{
+									translationService.translateObject(
+										"X0801K.COP.INSPECTION.FA.X08KCOP.ALICEFOUNDCOP"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-unused-content>
+				</div>
+			</app-conditioned-content>
+
 			<mat-divider></mat-divider>
+
 			<app-conditioned-content>
 				<div class="condition"><p>Made coffee</p></div>
 				<div class="content">
