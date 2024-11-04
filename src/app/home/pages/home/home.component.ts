@@ -24,6 +24,7 @@ import { LangPickerToggleComponent } from '../../../layout/lang-picker-toggle/la
 import { MatCardModule } from '@angular/material/card';
 import { FooterComponent } from '../../../layout/footer/footer.component';
 import { TranslocoModule } from '@jsverse/transloco';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 type AdditionalLink = {
 	img: string;
@@ -48,6 +49,7 @@ type AdditionalLink = {
 		MatCardModule,
 		FooterComponent,
 		TranslocoModule,
+		MatExpansionModule,
 	],
 	templateUrl: './home.component.html',
 	styleUrl: './home.component.scss',

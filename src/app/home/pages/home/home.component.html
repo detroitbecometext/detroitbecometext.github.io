@@ -51,29 +51,35 @@
 			Text transcription
 		</h1>
 
-		<div
-			class="flex-initial bg-blue-300 bg-opacity-50 rounded-xl p-8 mb-8 dark:text-gray-200"
+		<mat-expansion-panel
+			class="bg-blue-300 bg-opacity-70 dark:text-gray-100 mb-8"
 		>
-			<div class="mb-4 flex flex-row justify-start items-center">
-				<fa-icon [icon]="faInfoCircle" size="lg"></fa-icon>
-				<h2 class="ml-2 text-xl mb-0">22/08/2024 - Update</h2>
-			</div>
+			<mat-expansion-panel-header>
+				<mat-panel-title class="flex flex-row items-center">
+					<fa-icon [icon]="faInfoCircle" size="sm"></fa-icon>
+					<h2 class="ms-2 text-xl">What's new</h2>
+				</mat-panel-title>
+				<mat-panel-description>
+					<span class="text-sm">November 2024</span>
+				</mat-panel-description>
+			</mat-expansion-panel-header>
+			<mat-divider class="m-0 mb-2" />
 			<ul>
-				<li>New languages: Arabic and Simplified Chinese.</li>
-				<li>Technical upgrade</li>
+				<li>New languages: Arabic and Simplified Chinese</li>
 				<li>Close language picker on click</li>
-				<li>Add observations (the hostage (wip), capitol park)</li>
-				<li>Add some missing dialogues (capitol park)</li>
-				<li>Add missing survey answers</li>
-				<li>Add warming screen's android showcase to extra</li>
+				<li>Add observations</li>
+				<li>Add some missing dialogues</li>
+				<li>Add some missing survey answers</li>
+				<li>Add warming screen's android showcase to extras</li>
 				<li>Enhanced keyboard navigation for better accessibility</li>
 				<li>Table of contents in chapters</li>
 				<li>
 					Add the unused chase scene in pirate cove and more cut
 					content
 				</li>
+				<li>Technical upgrade</li>
 			</ul>
-		</div>
+		</mat-expansion-panel>
 
 		<ng-container *transloco="let t">
 			<h2 class="mb-0 dark:text-gray-200 text-3xl">
@@ -133,6 +139,13 @@
 				altText="Vinyl"
 				title="Soundtrack"
 				text="Tracks from the extras menu"
+			></app-card>
+			<app-card
+				[routerLink]="['/warming']"
+				imageSource="images/showcase.png"
+				altText="Shaders compilation screen"
+				title="Warming screen"
+				text="Android showcase"
 			></app-card>
 		</app-card-container>
 

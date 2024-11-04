@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule, ViewportScroller } from '@angular/common';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { UnusedContentComponent } from '../../../shared/components/unused-content/unused-content.component';
 import { ChoiceGroupComponent } from '../../../shared/components/choice-group/choice-group.component';
@@ -24,6 +24,13 @@ import { TranslationService } from '../../../shared/services/translation.service
 	styleUrl: './chloe.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ChloeComponent {
-	constructor(protected readonly translationService: TranslationService) {}
+export class ChloeComponent implements OnInit {
+	constructor(
+		protected readonly translationService: TranslationService,
+		private readonly viewPortScroller: ViewportScroller,
+	) {}
+
+	ngOnInit(): void {
+		this.viewPortScroller.scrollToPosition([0, 0]);
+	}
 }
