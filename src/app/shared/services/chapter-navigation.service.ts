@@ -43,4 +43,38 @@ export class ChapterNavigationService extends ItemNavigationService<Chapter> {
 	) {
 		super(chapterService, '/chapters', router, textDirectionService);
 	}
+
+	public override onNavigationEvent(event: KeyboardEvent): void {
+		const item = this.currentItem();
+
+		if (item === null) {
+			return;
+		}
+
+		let newId: number | null = null;
+		if (event.key == 'ArrowRight' && event.ctrlKey) {
+			newId = this.textDirectionService.isRtl()
+				? this.previousCharacterChapterId()
+				: this.nextCharacterChapterId();
+		} else if (event.key == 'ArrowLeft' && event.ctrlKey) {
+			newId = this.textDirectionService.isRtl()
+				? this.nextCharacterChapterId()
+				: this.previousCharacterChapterId();
+		} else {
+			super.onNavigationEvent(event);
+			return;
+		}
+
+		event.stopImmediatePropagation();
+
+		if (newId === null) {
+			return;
+		}
+
+		const itemExists = this.dataService.get(newId) !== undefined;
+
+		if (itemExists) {
+			this.router.navigate([this.itemUrl, newId]);
+		}
+	}
 }

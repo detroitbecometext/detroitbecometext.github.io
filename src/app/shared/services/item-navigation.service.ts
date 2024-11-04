@@ -50,11 +50,11 @@ export class ItemNavigationService<T extends DataItem> {
 
 	constructor(
 		@Inject(DATA_SERVICE_TOKEN)
-		private readonly dataService: BaseDataService<T>,
+		protected readonly dataService: BaseDataService<T>,
 		@Inject(ITEM_URL_TOKEN)
-		private readonly itemUrl: string,
-		private readonly router: Router,
-		private readonly textDirectionService: TextDirectionService,
+		protected readonly itemUrl: string,
+		protected readonly router: Router,
+		protected readonly textDirectionService: TextDirectionService,
 	) {}
 
 	public onPathIdChanged(idParam: string | null): void {

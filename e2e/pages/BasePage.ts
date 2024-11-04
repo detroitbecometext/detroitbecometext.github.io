@@ -14,4 +14,13 @@ export class BasePage {
 			this.page.getByRole('progressbar', { name: 'Loading' }),
 		).toHaveCount(0);
 	}
+
+	public async changeLanguage(language: string): Promise<void> {
+		await this.page
+			.getByRole('button', { name: 'Toggle language picker' })
+			.click();
+		await this.page
+			.getByRole('button', { name: `Change language to ${language}` })
+			.click();
+	}
 }
