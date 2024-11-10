@@ -1,0 +1,49 @@
+<div class="main centered-card">
+	<mat-card id="main-content" [tabIndex]="-1">
+		@if (itemNavigationService.currentItem() !== null) {
+			<ng-container *transloco="let t">
+				<mat-card-content>
+					<ng-container
+						[ngTemplateOutlet]="itemTemplate"
+						[ngTemplateOutletContext]="{
+							$implicit: itemNavigationService.currentItem(),
+						}"
+					></ng-container>
+				</mat-card-content>
+
+				<mat-divider></mat-divider>
+
+				<mat-card-footer class="pt-4">
+					<nav class="flex flex-row justify-between text-sm">
+						<div>
+							@if (
+								itemNavigationService.previousItemId() !== null
+							) {
+								<app-navigation-link
+									[link]="[
+										itemUrl,
+										itemNavigationService.previousItemId(),
+									]"
+									position="start"
+									label="{{ previousLabel }}"
+								/>
+							}
+						</div>
+						<div>
+							@if (itemNavigationService.nextItemId() !== null) {
+								<app-navigation-link
+									[link]="[
+										itemUrl,
+										itemNavigationService.nextItemId(),
+									]"
+									position="end"
+									label="{{ nextLabel }}"
+								/>
+							}
+						</div>
+					</nav>
+				</mat-card-footer>
+			</ng-container>
+		}
+	</mat-card>
+</div>

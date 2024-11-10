@@ -1,0 +1,25 @@
+<mat-sidenav-container class="min-h-screen overflow-clip">
+	<!-- Sidenav -->
+	<mat-sidenav #sidenav mode="over" [fixedInViewport]="true" class="max-w-xs">
+		<app-sidenav [sidenav]="sidenav"></app-sidenav>
+	</mat-sidenav>
+	<!-- Page content -->
+	<mat-sidenav-content class="flex flex-col min-h-screen overflow-clip">
+		<div class="text-center bg-blue-400 p-2 sr-only">
+			<a routerLink="./" fragment="main-content" class="font-bold"
+				>Skip to main content</a
+			>
+		</div>
+
+		<app-header
+			class="flex-initial sticky top-0"
+			[sidenav]="sidenav"
+		></app-header>
+		<main
+			class="content flex-auto flex-grow flex flex-col justify-start items-stretch"
+		>
+			<router-outlet class="flex-grow-0 flex-shrink-0"></router-outlet>
+		</main>
+		<app-footer class="flex-initial"></app-footer>
+	</mat-sidenav-content>
+</mat-sidenav-container>

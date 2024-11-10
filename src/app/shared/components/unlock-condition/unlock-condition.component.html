@@ -1,23 +1,43 @@
 <div>
-    <span>[&nbsp;</span>
+	<span>[&nbsp;</span>
 
-    <div *ngIf="unlockType === UnlockType.Lock" class="inline">
-        <fa-icon icon="lock-open" flip="horizontal"></fa-icon>
-    </div>
-    <div *ngIf="unlockType === UnlockType.Death" class="inline">
-        <fa-icon icon="skull"></fa-icon>
-    </div>
-    <div *ngIf="unlockType === UnlockType.Time" class="inline">
-        <fa-icon icon="hourglass-end"></fa-icon>
-    </div>
-    <div *ngIf="unlockType === UnlockType.Tv" class="inline">
-        <fa-icon icon="tv"></fa-icon>
-    </div>
+	@if (unlockType === UnlockType.Lock) {
+		<div class="inline">
+			<fa-icon [icon]="faLockOpen" flip="horizontal"></fa-icon>
+		</div>
+	}
 
-    <span *ngIf="bracketsOnlyAroundIcon">&nbsp;]</span>
-    <span *ngIf="unlockType !== UnlockType.None">&nbsp;-&nbsp;</span>
-    <div class="inline">
-        <ng-content></ng-content>
-    </div>
-    <span *ngIf="!bracketsOnlyAroundIcon">]</span>
+	@if (unlockType === UnlockType.Death) {
+		<div class="inline">
+			<fa-icon [icon]="faSkull"></fa-icon>
+		</div>
+	}
+
+	@if (unlockType === UnlockType.Time) {
+		<div class="inline">
+			<fa-icon [icon]="faHourglassEnd"></fa-icon>
+		</div>
+	}
+
+	@if (unlockType === UnlockType.Tv) {
+		<div class="inline">
+			<fa-icon [icon]="faTv"></fa-icon>
+		</div>
+	}
+
+	@if (bracketsOnlyAroundIcon) {
+		<span>&nbsp;]</span>
+	}
+
+	@if (!bracketsOnlyAroundIcon && unlockType !== UnlockType.None) {
+		<span>&nbsp;-&nbsp;</span>
+	}
+
+	<div class="inline">
+		<ng-content></ng-content>
+	</div>
+
+	@if (!bracketsOnlyAroundIcon) {
+		<span>]</span>
+	}
 </div>

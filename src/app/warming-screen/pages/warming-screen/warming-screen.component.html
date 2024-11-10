@@ -1,0 +1,27 @@
+<ng-container *transloco="let t">
+	<div class="main centered-card">
+		<mat-card id="main-content" [tabIndex]="-1">
+			<mat-card-content>
+				<h1 class="text-center text-5xl">
+					{{ t("GUI.WARMING.SCREEN.AND.SHOWCASE") }}
+				</h1>
+
+				<mat-divider></mat-divider>
+
+				<section class="chapter-content">
+					@for (id of andIds; track id) {
+						<h1>
+							{{ t("GUI.WARMING.SCREEN.AND." + id + ".VALUE") }}
+						</h1>
+						<ul
+							[innerHTML]="
+								t('GUI.WARMING.SCREEN.AND.' + id + '.DESC')
+									| appSplitToLi
+							"
+						></ul>
+					}
+				</section>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</ng-container>

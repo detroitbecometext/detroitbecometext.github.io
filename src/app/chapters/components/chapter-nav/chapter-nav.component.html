@@ -1,0 +1,53 @@
+<nav class="text-sm">
+	<div class="flex flex-row justify-between">
+		<div>
+			@if (navigationService.previousItemId() !== null) {
+				<app-navigation-link
+					[link]="['/chapters', navigationService.previousItemId()]"
+					position="start"
+					label="Previous chapter"
+				/>
+			}
+		</div>
+		<div>
+			@if (navigationService.nextItemId() !== null) {
+				<app-navigation-link
+					[link]="['/chapters', navigationService.nextItemId()]"
+					position="end"
+					label="Next chapter"
+				/>
+			}
+		</div>
+	</div>
+
+	<div class="flex flex-row justify-between">
+		<div>
+			@if (navigationService.previousCharacterChapterId() !== null) {
+				<app-navigation-link
+					[link]="[
+						'/chapters',
+						navigationService.previousCharacterChapterId(),
+					]"
+					position="start"
+					label="Previous {{
+						navigationService.currentItem()?.character
+					}} chapter"
+				/>
+			}
+		</div>
+		<div>
+			@if (navigationService.nextCharacterChapterId() !== null) {
+				<app-navigation-link
+					[link]="[
+						'/chapters',
+						navigationService.nextCharacterChapterId(),
+					]"
+					position="end"
+					label="Next {{
+						navigationService.currentItem()?.character
+					}} chapter"
+				/>
+			}
+		</div>
+	</div>
+</nav>

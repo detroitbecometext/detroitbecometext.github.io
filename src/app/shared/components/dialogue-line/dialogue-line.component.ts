@@ -1,12 +1,17 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { TranslocoService } from '@jsverse/transloco';
 
 @Component({
-    selector: 'app-dialogue-line',
-    templateUrl: './dialogue-line.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+	selector: 'app-dialogue-line',
+	standalone: true,
+	imports: [CommonModule],
+	templateUrl: './dialogue-line.component.html',
+	styleUrl: './dialogue-line.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogueLineComponent {
-    @Input() name: string;
+	@Input({ required: true }) name: string = '';
 
-    constructor() {}
+	constructor(public readonly translocoService: TranslocoService) {}
 }

@@ -1,0 +1,111 @@
+<div
+	class="flex flex-col items-stretch bg-card-light dark:bg-card-dark"
+	[class.dark]="(themePickerService.isDark$ | async) === true"
+	[class.light]="(themePickerService.isDark$ | async) === false"
+	[lang]="this.translocoService.langChanges$ | async"
+	dir="ltr"
+>
+	<mat-dialog-content class="chapter-content">
+		<section aria-labelledby="legend">
+			<h1 id="legend" mat-dialog-title class="text-center">Legend</h1>
+			<mat-divider></mat-divider>
+			<h2>This is an action or an event</h2>
+			<p>The associated dialogue being available below.</p>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>A condition that affects dialogues</p>
+					</div>
+					<div class="content">
+						<p>And the text that goes with it.</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
+			<p class="note">Notes are in italic.</p>
+
+			<app-choice-group>
+				<app-choice-item choiceLabel="DIALOGUE CHOICES">
+					Have their associated dialogue just below.
+				</app-choice-item>
+			</app-choice-group>
+
+			<p>
+				Relation changes are indicated with the same color code as in
+				game.
+				<br />
+				<span
+					[dir]="
+						(this.textDirectionService.isRtl$ | async)
+							? 'rtl'
+							: 'ltr'
+					"
+				>
+					<app-relation
+						[name]="RelationName.Hank"
+						[type]="RelationType.LargeUp"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+				</span>
+			</p>
+
+			<p>
+				<app-unlock-condition [unlockType]="UnlockType.Lock">
+					A lock icon means the option or event is unlocked by a
+					previous action or dialogue choice.
+				</app-unlock-condition>
+				<app-unlock-condition [unlockType]="UnlockType.Time">
+					An hourglass icon means the event occurs if you take too
+					much time.
+				</app-unlock-condition>
+				<app-unlock-condition [unlockType]="UnlockType.Death">
+					A skull icon means the option or event is unlocked by the
+					death of a character.
+				</app-unlock-condition>
+				<app-unlock-condition [unlockType]="UnlockType.Tv">
+					A tv icon indicates dialogues heard on televisions or
+					screens.
+				</app-unlock-condition>
+			</p>
+
+			<app-unused-content>
+				<p>Cut content will appear in these sections.</p>
+			</app-unused-content>
+
+			<app-observation label="Observations will appear in this box">
+				<app-observation-item
+					title="With the observable item"
+					subline1="And description"
+					subline2=""
+				>
+				</app-observation-item>
+			</app-observation>
+		</section>
+		<section aria-labelledby="shortcuts">
+			<h1 id="shortcuts" mat-dialog-title class="text-center">
+				Shortcuts
+			</h1>
+			<mat-divider></mat-divider>
+			<p>
+				You can navigate between pages with the <kbd>Left</kbd> and
+				<kbd>Right</kbd> arrows on your keyboard.
+			</p>
+			<p>
+				You can also use <kbd>Ctrl</kbd> + <kbd>Left</kbd> and
+				<kbd>Ctrl</kbd> + <kbd>Right</kbd> to navigate between chapters
+				for the same character.
+			</p>
+			<p>
+				The <kbd>L</kbd> and <kbd>K</kbd> keys can be used to change the
+				current language.
+			</p>
+		</section>
+	</mat-dialog-content>
+	<mat-dialog-actions>
+		<button mat-button mat-dialog-close>Close</button>
+	</mat-dialog-actions>
+</div>

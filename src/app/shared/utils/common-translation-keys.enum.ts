@@ -1,0 +1,4 @@
+export enum CommonTranslationKey {
+	DefaultChoice = 'X0603C.CRIMESCENE.INTERROGATE.PC.CHOICEGROUP01.TIMEOUT',
+	TooMuchTime = 'MENU.FLOWCHART.03K.SHOP.ROBTIMEOUT',
+}

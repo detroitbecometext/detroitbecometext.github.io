@@ -1,0 +1,12 @@
+<button
+	[matTooltip]="tooltip()"
+	[attr.aria-label]="tooltip()"
+	(click)="themePickerService.switchTheme()"
+	[ngClass]="{ 'stroke-current text-white': switchIconColor }"
+>
+	@if (themePickerService.isDark$ | async) {
+		<fa-icon [icon]="faMoon"></fa-icon>
+	} @else {
+		<fa-icon [icon]="faSun"></fa-icon>
+	}
+</button>

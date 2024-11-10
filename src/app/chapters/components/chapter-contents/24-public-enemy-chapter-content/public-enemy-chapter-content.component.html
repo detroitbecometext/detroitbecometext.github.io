@@ -1,0 +1,1989 @@
+<ng-container *transloco="let t">
+	<section aria-labelledby="zen-garden">
+		<h1 id="zen-garden">In the Zen Garden</h1>
+
+		<p>
+			{{ t("GUI.MENU.DATE.09C") }}
+			<br />
+			{{ t("GUI.MENU.TIME.09C") }}
+		</p>
+
+		<p>
+			<app-dialogue-line name="Amanda">
+				{{
+					translationService.translateObject(
+						"X0901C.BOAT.CHAT.PC.X09CAMANDA.CLIMB"
+					) | async
+				}}
+				{{
+					translationService.translateObject(
+						"X0901C.BOAT.CHAT.PC.X09CAMANDA.START"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE01.HANK')"
+			>
+				<app-condition-group>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>
+								<app-unlock-condition
+									[unlockType]="UnlockType.Death"
+									[bracketsOnlyAroundIcon]="true"
+								>
+									<span class="font-bold">
+										Hank shot Connor in
+										<a [routerLink]="['/chapters', 22]"
+											>The Bridge</a
+										>
+									</span>
+								</app-unlock-condition>
+							</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0901C.BOAT.CHAT.PC.X09CCONNOR.01CONNORKILLED"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>
+								Hank left Connor alone in
+								<a [routerLink]="['/chapters', 22]"
+									>The Bridge</a
+								>
+							</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0901C.BOAT.CHAT.PC.X09CCONNOR.01CONNORALIVE"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Amanda">
+									{{
+										translationService.translateObject(
+											"X0901C.BOAT.CHAT.PC.X09CAMANDA.01HANKCONT"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+				</app-condition-group>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE01.EDENCLUB')"
+			>
+				<app-condition-group>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>
+								Connor didn't find the Tracis in
+								<a [routerLink]="['/chapters', 20]"
+									>The Eden Club</a
+								>
+							</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-relation
+									[name]="RelationName.Amanda"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0901C.BOAT.CHAT.PC.X09CCONNOR.01TRACINOTFOUND"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Amanda">
+									{{
+										translationService.translateObject(
+											"X0901C.BOAT.CHAT.PC.X09CAMANDA.01TRACINOTFOUND"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>
+								Connor found the Tracis in
+								<a [routerLink]="['/chapters', 20]"
+									>The Eden Club</a
+								>
+								and let them go
+							</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-relation
+									[name]="RelationName.Amanda"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0901C.BOAT.CHAT.PC.X09CCONNOR.01TRACIALIVE"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Amanda">
+									{{
+										translationService.translateObject(
+											"X0901C.BOAT.CHAT.PC.X09CAMANDA.01TRACIALIVE"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>
+								Connor found the Tracis in
+								<a [routerLink]="['/chapters', 20]"
+									>The Eden Club</a
+								>
+								and they died
+							</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-relation
+									[name]="RelationName.Amanda"
+									[type]="RelationType.SmallUp"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0901C.BOAT.CHAT.PC.X09CCONNOR.01TRACIKILLED"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+				</app-condition-group>
+			</app-choice-item>
+		</app-choice-group>
+
+		<mat-divider></mat-divider>
+
+		<p>
+			<app-dialogue-line name="Amanda">
+				{{
+					translationService.translateObject(
+						"X0901C.BOAT.CHAT.PC.X09CAMANDA.01CONT"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE02.SINCERE')"
+				[brackets]="true"
+			>
+				<p>
+					<app-unlock-condition [unlockType]="UnlockType.Lock">
+						Spared the Tracis in
+						<a [routerLink]="['/chapters', 20]">The Eden Club</a>
+					</app-unlock-condition>
+					<app-relation
+						[name]="RelationName.Amanda"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0901C.BOAT.CHAT.PC.X09CCONNOR.02SINCERE"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE02.DETERMINED')"
+			>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0901C.BOAT.CHAT.PC.X09CCONNOR.02DETERMINED"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE02.COLD')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0901C.BOAT.CHAT.PC.X09CCONNOR.02COLD"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE02.TROUBLED')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallUp"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.Amanda"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0901C.BOAT.CHAT.PC.X09CCONNOR.02TROUBLED"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+		</app-choice-group>
+
+		<mat-divider></mat-divider>
+
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Connor spared the Tracis in
+						<a [routerLink]="['/chapters', 20]">The Eden Club</a>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Amanda">
+							{{
+								translationService.translateObject(
+									"X0901C.BOAT.CHAT.PC.X09CAMANDA.02CONT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0901C.BOAT.CHAT.PC.CHOICE03.TOOFAR')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0901C.BOAT.CHAT.PC.X09CCONNOR.03TOOFAR"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Amanda">
+									{{
+										t(
+											"X0901C.BOAT.CHAT.PC.X09CAMANDA.03TOOFAR"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0901C.BOAT.CHAT.PC.CHOICE03.USELESS')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0901C.BOAT.CHAT.PC.X09CCONNOR.03USELESS"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0901C.BOAT.CHAT.PC.CHOICE03.TRUTH')
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.Amanda"
+									[type]="RelationType.LargeDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0901C.BOAT.CHAT.PC.X09CCONNOR.03TRUTH"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
+
+		<mat-divider></mat-divider>
+
+		<p>
+			<app-dialogue-line name="Amanda">
+				{{
+					translationService.translateObject(
+						"X0901C.BOAT.CHAT.PC.X09CAMANDA.03CONT"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE04.CONFLICTED')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallUp"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{ t("X0901C.BOAT.CHAT.PC.X09CCONNOR.04CONFLICTED") }}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE04.CONFIDENT')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.Amanda"
+						[type]="RelationType.SmallUp"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0901C.BOAT.CHAT.PC.X09CCONNOR.04CONFIDENT"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0901C.BOAT.CHAT.PC.CHOICE04.INDIFFERENT')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.Amanda"
+						[type]="RelationType.LargeUp"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0901C.BOAT.CHAT.PC.X09CCONNOR.04INDIFFERENT"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+		</app-choice-group>
+
+		<p>
+			<app-dialogue-line name="Amanda">
+				{{
+					translationService.translateObject(
+						"X0901C.BOAT.CHAT.PC.X09CAMANDA.04CONT"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+	</section>
+
+	<section aria-labelledby="tower">
+		<h1 id="tower">In the tower</h1>
+
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						<app-unlock-condition
+							[unlockType]="UnlockType.Death"
+							[bracketsOnlyAroundIcon]="true"
+						>
+							<span class="font-bold">
+								Hank shot Connor in
+								<a [routerLink]="['/chapters', 22]"
+									>The Bridge</a
+								>
+							</span>
+						</app-unlock-condition>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0903C.ARRIVAL.INTRO.PC.X09CCONNOR.SHOOTME.1"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{
+								t("X0903C.ARRIVAL.INTRO.PC.X09CHANK.SHOOTME.1")
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0903C.ARRIVAL.INTRO.PC.X09CCONNOR.SHOOTME",
+									1,
+									3
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{
+								t("X0903C.ARRIVAL.INTRO.PC.X09CHANK.SHOOTME.2")
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0903C.ARRIVAL.INTRO.PC.X09CCONNOR.SHOOTME.4"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Hank didn't shoot Connor in
+						<a [routerLink]="['/chapters', 22]">The Bridge</a>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Hank">
+							{{ t("X0903C.ARRIVAL.INTRO.PC.X09CHANK.COIN.1") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{ t("X0903C.ARRIVAL.INTRO.PC.X09CCONNOR.COIN.1") }}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
+
+		<p>
+			<app-dialogue-line name="Elevator">
+				{{ t("X0703M.VOICE.ELEVATOR.VO.WOMKCH.79TH") }}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Chris">
+				{{ t("X0903C.CHAD.BRIEFING.PC.X09CHARVEY.STARTCHRIS.1") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Hank">
+				{{ t("X0903C.CHAD.BRIEFING.FA.X09CHANK.STARTHANK01") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Chris">
+				{{
+					translationService.translateObject(
+						"X0903C.CHAD.BRIEFING.PC.X09CHARVEY.STARTCHRIS",
+						1
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Hank">
+				{{
+					translationService.translateObject(
+						"X0903C.CHAD.BRIEFING.FA.X09CHANK.STARTHANK02"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Chris">
+				{{
+					translationService.translateObject(
+						"X0903C.CHAD.BRIEFING.PC.X09CHARVEY.CORRIDOR01CHRIS"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Cop 1">
+				{{ t("X0903C.PBY.LINES.FA.X09CINVESTIGATORM.FBI01") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Cop 2">
+				{{ t("X0903C.PBY.LINES.FA.X09CINVESTIGATORW.FBI02") }}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Cop 1">
+				{{ t("X0903C.PBY.LINES.FA.X09CINVESTIGATOR01.SIMON01") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Cop 2">
+				{{
+					translationService.translateObject(
+						"X0903C.PBY.LINES.FA.X09CINVESTIGATOR02.SIMON02"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Cop 1">
+				{{ t("X0903C.PBY.LINES.FA.X09CINVESTIGATOR01.SIMON03") }}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Cop 1">
+				{{ t("X0903C.PBY.LINES.FA.X09CINVESTIGATORM.FORENSIC01") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Cop 2">
+				{{ t("X0903C.PBY.LINES.FA.X09CINVESTIGATORW.FORENSIC02") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Cop 1">
+				{{ t("X0903C.PBY.LINES.FA.X09CINVESTIGATORM.FORENSIC03") }}
+			</app-dialogue-line>
+		</p>
+
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Knocked out the guards in
+						<a [routerLink]="['/chapters', 23]"
+							>The Stratford Tower</a
+						>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Chris">
+							{{
+								translationService.translateObject(
+									"X0903C.CHAD.BRIEFING.PC.X09CHARVEY.GUARDALIVECHRIS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Attacked the guards in
+						<a [routerLink]="['/chapters', 23]"
+							>The Stratford Tower</a
+						>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Chris">
+							{{
+								translationService.translateObject(
+									"X0903C.CHAD.BRIEFING.FA.X09CHARVEY.GUARDKILLEDCHRIS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
+
+		<mat-divider></mat-divider>
+
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Station employee wasn't shot in
+						<a [routerLink]="['/chapters', 23]"
+							>The Stratford Tower</a
+						>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Chris">
+							{{
+								translationService.translateObject(
+									"X0903C.CHAD.BRIEFING.PC.X09CHARVEY.EMPLOYEALIVECHRIS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Station employee was shot in
+						<a [routerLink]="['/chapters', 23]"
+							>The Stratford Tower</a
+						>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Chris">
+							{{
+								translationService.translateObject(
+									"X0903C.CHAD.BRIEFING.PC.X09CHARVEY.EMPLOYEKILLEDCHRIS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
+
+		<p>
+			<app-dialogue-line name="Hank">
+				{{ t("X0903C.CHAD.BRIEFING.FA.X09CHANK.CTRLROOMHANK.1") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Chris">
+				{{
+					translationService.translateObject(
+						"X0903C.CHAD.BRIEFING.FA.X09CHARVEY.CTRLROOMCHRIS",
+						0,
+						3
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Hank">
+				{{ t("X0903C.CHAD.BRIEFING.FA.X09CHANK.CTRLROOMHANK.2") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Chris">
+				{{ t("X0903C.CHAD.BRIEFING.FA.X09CHARVEY.CTRLROOMCHRIS.4") }}
+			</app-dialogue-line>
+		</p>
+
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition"><p>SWAT killed Simon</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Chris">
+							{{
+								translationService.translateObject(
+									"X0903C.CHAD.BRIEFING.FA.X09CHARVEY.ROOMBRADCHRIS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition"><p>Simon was killed on the roof</p></div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Chris">
+							{{
+								translationService.translateObject(
+									"X0903C.CHAD.BRIEFING.FA.X09CHARVEY.ROOFBRADCHRIS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
+
+		<p>
+			<app-dialogue-line name="Chris">
+				{{ t("X0903C.CHAD.BRIEFING.FA.X09CHARVEY.SCREENCHRIS.3") }}
+			</app-dialogue-line>
+		</p>
+
+		<p>
+			<app-dialogue-line name="Chris">
+				{{
+					translationService.translateObject(
+						"X0903C.CTRLROOM.PERKINS.FA.X09CHARVEY.WHOCHRIS"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Perkins">
+				{{ t("X0903C.CTRLROOM.PERKINS.PC.X09CPERKINS.WHOPERKINS.1") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Connor">
+				{{
+					translationService.translateObject(
+						"X0903C.CTRLROOM.PERKINS.PC.X09CCONNOR.WHO"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Perkins">
+				{{
+					translationService.translateObject(
+						"X0903C.CTRLROOM.PERKINS.PC.X09CPERKINS.WHOPERKINS",
+						1,
+						6
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Hank">
+				{{ t("X0903C.CTRLROOM.PERKINS.PC.X09CHANK.WHO.1") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Perkins">
+				{{
+					translationService.translateObject(
+						"X0903C.CTRLROOM.PERKINS.PC.X09CPERKINS.WHOPERKINS",
+						6
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Hank">
+				{{ t("X0903C.CTRLROOM.PERKINS.PC.X09CHANK.WHO.2") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Chris">
+				{{ t("X0903C.CTRLROOM.PERKINS.FA.X09CHARVEY.NEARBY") }}
+			</app-dialogue-line>
+			<app-dialogue-line name="Hank">
+				{{
+					translationService.translateObject(
+						"X0903C.CTRLROOM.TAKEALOOK.PC.X09CHANK.GO"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Connor">
+				{{ t("X0903C.CTRLROOM.TAKEALOOK.FA.X09CCONNOR.GO") }}
+			</app-dialogue-line>
+		</p>
+
+		<section aria-labelledby="investigation">
+			<h2 id="investigation">Investigating</h2>
+
+			<app-observation label="Investigate">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.09C.MP.BULLET.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.09C.MP.BULLET.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.09C.MP.BULLET.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.09C.MP.BULLET2.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.09C.MP.BULLET2.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.09C.MP.BULLET2.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.09C.MP.BBLOOD.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.09C.MP.BBLOOD.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.09C.MP.BBLOOD.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.09C.MP.CAP.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.09C.MP.CAP.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.09C.MP.CAP.SUBLINE02')"
+				/>
+			</app-observation>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Employee was shot</p></div>
+					<div class="content">
+						<app-observation label="Body">
+							<app-observation-item
+								[title]="
+									t(
+										'MENU.OBSERVATION.09C.MP.DEADEMPLOYEE.TITLE'
+									)
+								"
+								[subline1]="
+									t(
+										'MENU.OBSERVATION.09C.MP.DEADEMPLOYEE.SUBLINE01'
+									)
+								"
+								[subline2]="
+									t(
+										'MENU.OBSERVATION.09C.MP.DEADEMPLOYEE.SUBLINE02'
+									)
+								"
+							/>
+						</app-observation>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Left guard was shot</p></div>
+					<div class="content">
+						<app-observation label="Body">
+							<app-observation-item
+								[title]="
+									t(
+										'MENU.OBSERVATION.09C.MP.DEADGUARD01.TITLE'
+									)
+								"
+								[subline1]="
+									t(
+										'MENU.OBSERVATION.09C.MP.DEADGUARD01.SUBLINE01'
+									)
+								"
+								[subline2]="
+									t(
+										'MENU.OBSERVATION.09C.MP.DEADGUARD01.SUBLINE02'
+									)
+								"
+							/>
+						</app-observation>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition"><p>Right guard was shot</p></div>
+					<div class="content">
+						<app-observation label="Wall and body">
+							<app-observation-item
+								[title]="
+									t(
+										'MENU.OBSERVATION.09C.MP.BLOODGUARD.TITLE'
+									)
+								"
+								[subline1]="
+									t(
+										'MENU.OBSERVATION.09C.MP.BLOODGUARD.SUBLINE01'
+									)
+								"
+								[subline2]="
+									t(
+										'MENU.OBSERVATION.09C.MP.BLOODGUARD.SUBLINE02'
+									)
+								"
+							/>
+							<app-observation-item
+								[title]="
+									t(
+										'MENU.OBSERVATION.09C.MP.DEADGUARD02.TITLE'
+									)
+								"
+								[subline1]="
+									t(
+										'MENU.OBSERVATION.09C.MP.DEADGUARD02.SUBLINE01'
+									)
+								"
+								[subline2]="
+									t(
+										'MENU.OBSERVATION.09C.MP.DEADGUARD02.SUBLINE02'
+									)
+								"
+							/>
+						</app-observation>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
+			<mat-divider />
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Going near the kitchen - Talking to the cop from
+							<a [routerLink]="['/chapters', 1]">The Hostage</a>
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-unlock-condition
+								[unlockType]="UnlockType.Lock"
+							>
+								Saved the wounded cop in
+								<a [routerLink]="['/chapters', 1]"
+									>The Hostage</a
+								>
+							</app-unlock-condition>
+							<app-dialogue-line name="Cop">
+								{{
+									translationService.translateObject(
+										"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.START"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Connor didn't die before</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Connor">
+											{{
+												t(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.SURVIVE"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Cop">
+											{{
+												translationService.translateObject(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.SURVIVE"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										<app-unlock-condition
+											[unlockType]="UnlockType.Death"
+											[bracketsOnlyAroundIcon]="true"
+										>
+											<span class="font-bold">
+												Connor died in
+												<a
+													[routerLink]="[
+														'/chapters',
+														1,
+													]"
+													>The Hostage</a
+												>
+											</span>
+										</app-unlock-condition>
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Connor">
+											{{
+												translationService.translateObject(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.DEAD"
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Cop">
+											{{
+												translationService.translateObject(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										<app-unlock-condition
+											[unlockType]="UnlockType.Death"
+											[bracketsOnlyAroundIcon]="true"
+										>
+											<span class="font-bold">
+												Connor died after
+												<a
+													[routerLink]="[
+														'/chapters',
+														1,
+													]"
+													>The Hostage</a
+												>
+											</span>
+										</app-unlock-condition>
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Connor">
+											{{
+												translationService.translateObject(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CCONNOR.DEAD"
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Cop">
+											{{
+												t(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD.4"
+												)
+											}}
+											{{
+												translationService.translateObject(
+													"X0903C.INVESTIGATION.FRIENDS.PC.X09CHOSTAGECOP.DEAD",
+													5
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
+			<section aria-labelledby="cctv">
+				<h3 id="cctv">Check CCTV</h3>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{
+							t(
+								"X0903C.INVESTIGATION.WATCHSCREEN.PC.X09CCONNOR.CHECK.1"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Chris">
+						{{
+							t(
+								"X0903C.INVESTIGATION.WATCHSCREEN.PC.X09CHARVEY.CHECKCHRIS"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0903C.INVESTIGATION.WATCHSCREEN.PC.X09CCONNOR.CHECK",
+								1
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							t(
+								"X0903C.INVESTIGATION.WATCHSCREEN.PC.X09CHANK.CHECK"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Chris">
+						{{
+							translationService.translateObject(
+								"X0903C.CHAD.BRIEFING.FA.X09CHARVEY.SCREENCHRIS",
+								0,
+								2
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</section>
+
+			<section aria-labelledby="speech">
+				<h3 id="speech">Look at the speech</h3>
+				<p>
+					<app-dialogue-line name="Hank">
+						{{ t("X0903C.INVESTIGATION.VIDEO.PC.X09CHANK.RA9") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0903C.INVESTIGATION.VIDEO.PC.X09CCONNOR.RA9"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+
+				<app-observation label="Analyze">
+					<app-observation-item
+						[title]="t('MENU.OBSERVATION.09C.MP.EYE.TITLE')"
+						[subline1]="t('MENU.OBSERVATION.09C.MP.EYE.SUBLINE01')"
+						[subline2]="t('MENU.OBSERVATION.09C.MP.EYE.SUBLINE02')"
+					/>
+					<app-observation-item
+						[title]="
+							t('MENU.OBSERVATION.09C.MP.PUPILREFLECTION.TITLE')
+						"
+						[subline1]="
+							t(
+								'MENU.OBSERVATION.09C.MP.PUPILREFLECTION.SUBLINE01'
+							)
+						"
+						[subline2]="
+							t(
+								'MENU.OBSERVATION.09C.MP.PUPILREFLECTION.SUBLINE02'
+							)
+						"
+					/>
+					<app-observation-item
+						[title]="
+							t('MENU.OBSERVATION.09C.MP.SERIALNUMBER.TITLE')
+						"
+						[subline1]="
+							t('MENU.OBSERVATION.09C.MP.SERIALNUMBER.SUBLINE01')
+						"
+						[subline2]="
+							t('MENU.OBSERVATION.09C.MP.SERIALNUMBER.SUBLINE02')
+						"
+					/>
+				</app-observation>
+
+				<p>
+					<app-dialogue-line name="Hank">
+						{{
+							t(
+								"X0903C.INVESTIGATION.SERIALNUM.PC.X09CHANK.FOUND.1"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Connor">
+						{{
+							t(
+								"X0903C.INVESTIGATION.SERIALNUM.PC.X09CCONNOR.FOUND.1"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							t(
+								"X0903C.INVESTIGATION.SERIALNUM.PC.X09CHANK.FOUND.2"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0903C.INVESTIGATION.SERIALNUM.PC.X09CCONNOR.FOUND",
+								1
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</section>
+
+			<section aria-labelledby="timeout">
+				<h3 id="timeout">
+					<app-unlock-condition
+						[unlockType]="UnlockType.Time"
+						[bracketsOnlyAroundIcon]="true"
+					>
+						Taking too much time / Ask Hank to leave
+					</app-unlock-condition>
+				</h3>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{
+							t(
+								"X0903C.INVESTIGATION.FAILED.PC.X09CCONNOR.LEAVEV2"
+							)
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							t("X0903C.INVESTIGATION.FAILED.PC.X09CHANK.LEAVEV2")
+						}}
+					</app-dialogue-line>
+				</p>
+				<app-choice-group>
+					<app-choice-item
+						[choiceLabel]="
+							t(
+								'X0903C.INVESTIGATION.FAILED.PC.LEAVECHOICE02V2.YES'
+							)
+						"
+					>
+						<p>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0903C.INVESTIGATION.FAILED.PC.X09CCONNOR.YESV2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0903C.INVESTIGATION.FAILED.PC.X09CHANK.YESV2"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+					<app-choice-item
+						[choiceLabel]="
+							t(
+								'X0903C.INVESTIGATION.FAILED.PC.LEAVECHOICE02V2.NO'
+							)
+						"
+					>
+						<p>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0903C.INVESTIGATION.FAILED.PC.X09CCONNOR.NOV2"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0903C.INVESTIGATION.FAILED.PC.X09CHANK.NOV2"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+				</app-choice-group>
+			</section>
+		</section>
+
+		<section aria-labelledby="kitchen">
+			<h2 id="kitchen">In the kitchen</h2>
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.STARTCHOICE01.FUNCTION')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.FUNCTION"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Android">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND03.FUNCTION"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.STARTCHOICE01.MODEL')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.MODEL"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Android">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND01.MODEL"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<mat-divider></mat-divider>
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.CONTACTCHOICE02.WITNESS')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.WITNESS"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Android">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND02.WITNESS"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.CONTACTCHOICE02.MEMORY')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.MEMORY01"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Android">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND02.MEMORY01"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t(
+							'X0903C.KITCHEN.QUESTIONS.PC.CONTACTCHOICE02.DIAGNOSIS'
+						)
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.DIAGNOSIS"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Android">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND03.DIAGNOSIS"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.CONTACTCHOICE02.CONTACT')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.CONTACT"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Android">
+							{{
+								t(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCTRLROOMAND01.CONTACT"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+
+			<mat-divider></mat-divider>
+
+			<p class="note">
+				<span dir="ltr">
+					If Connor checked the CCTV, the dialogue will continue.
+					Otherwise, he can come back later to resume the dialogue
+					here.
+				</span>
+			</p>
+			<p>
+				<app-dialogue-line name="Connor">
+					{{
+						translationService.translateObject(
+							"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.DEVIANT"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.DEVIANTCHOICE03.THREAT')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.THREAT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.DEVIANTCHOICE03.DEAL')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.DEAL"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.DEVIANTCHOICE03.GUILT')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.GUILT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+			<mat-divider></mat-divider>
+
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.LASTCHOICE04.VIOLENCE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.VIOLENCE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.LASTCHOICE04.BLUFF')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.BLUFF"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.LASTCHOICE04.TORTURE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.TORTURE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0903C.KITCHEN.QUESTIONS.PC.DEVIANTCHOICE03.MEMORY')
+					"
+				>
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Probing the wrong android</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X0903C.KITCHEN.QUESTIONS.PC.X09CCONNOR.MEMORY02"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
+				</app-choice-item>
+			</app-choice-group>
+
+			<mat-divider></mat-divider>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Found the deviant</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0903C.KITCHEN.HELP.PC.X09CCONNOR.CALL"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										Get the biocomponent back and go after
+										the deviant
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Connor">
+											{{
+												t(
+													"X0903C.CORRIDOR.FINALE.FA.X09CCONNOR.RUN"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+									<app-choice-group>
+										<app-choice-item
+											[choiceLabel]="
+												t('GUI.ACTION.ATTACK')
+											"
+										>
+											<p>
+												<app-relation
+													[name]="
+														RelationName.PublicOpinion
+													"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-relation
+													[name]="
+														RelationName.SoftwareInstability
+													"
+													[type]="
+														RelationType.LargeUp
+													"
+												></app-relation>
+												<app-dialogue-line name="Hank">
+													{{
+														t(
+															"X0903C.CORRIDOR.ANDSUICIDE.PC.X09CHANK.TOOLATE"
+														)
+													}}
+												</app-dialogue-line>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														translationService.translateObject(
+															"X0903C.CORRIDOR.ANDSUICIDE.PC.X09CCONNOR.TOOLATE"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t('THOUGHTS.0601C.SAVE')
+											"
+										>
+											<p>
+												<app-relation
+													[name]="
+														RelationName.PublicOpinion
+													"
+													[type]="
+														RelationType.SmallDown
+													"
+												></app-relation>
+												<app-relation
+													[name]="RelationName.Hank"
+													[type]="
+														RelationType.LargeUp
+													"
+												></app-relation>
+												<app-dialogue-line name="Hank">
+													{{
+														translationService.translateObject(
+															"X0903C.CORRIDOR.HANKFINAL.PC.X09CHANK.CNRDEAD"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+										<app-choice-item
+											[choiceLabel]="
+												t('THOUGHTS.0701K.TAKEGUN')
+											"
+										>
+											<p>
+												<app-relation
+													[name]="RelationName.Hank"
+													[type]="
+														RelationType.LargeUp
+													"
+												></app-relation>
+												<app-dialogue-line name="Hank">
+													{{
+														t(
+															"X0903C.CORRIDOR.GUN.PC.X09CHANK.SAVEDLIVES"
+														)
+													}}
+												</app-dialogue-line>
+												<app-dialogue-line
+													name="Connor"
+												>
+													{{
+														t(
+															"X0903C.CORRIDOR.GUN.PC.X09CCONNOR.SAVEDLIVESC"
+														)
+													}}
+												</app-dialogue-line>
+												<app-dialogue-line name="Hank">
+													{{
+														translationService.translateObject(
+															"X0903C.CORRIDOR.GUN.PC.X09CHANK.SAVEDLIVESH"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+										</app-choice-item>
+									</app-choice-group>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Fail to get the biocomponent</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-relation
+											[name]="
+												RelationName.SoftwareInstability
+											"
+											[type]="RelationType.SmallDown"
+										></app-relation>
+										<app-relation
+											[name]="RelationName.Hank"
+											[type]="RelationType.SmallDown"
+										></app-relation>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X0903C.KITCHEN.HANK.PC.X09CHANK.SAVED1",
+													0,
+													2
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Connor">
+											{{
+												translationService.translateObject(
+													"X0903C.KITCHEN.HANK.FA.X09CCONNOR.SAVED1SEC"
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X0903C.KITCHEN.HANK.PC.X09CHANK.SAVED1",
+													2
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition"><p>Fail to find the deviant</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0903C.INVESTIGATION.FAILED.PC.X09CCONNOR.LEAVEV2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0903C.INVESTIGATION.FAILED.PC.X09CHANK.LEAVEV2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0903C.INVESTIGATION.FAILED.PC.X09CCONNOR.YESV2"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0903C.INVESTIGATION.FAILED.PC.X09CHANK.YESV2"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+		</section>
+
+		<section aria-labelledby="roof">
+			<h2 id="roof">On the roof</h2>
+			<p>
+				<app-dialogue-line name="Hank">
+					{{
+						translationService.translateObject(
+							"X0903C.ROOF.COMMENT.PC.X09CHANK.COMMENT"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+
+			<app-observation label="Investigate">
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.09C.MP.DOOR.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.09C.MP.DOOR.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.09C.MP.DOOR.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.09C.MP.SHOE.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.09C.MP.SHOE.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.09C.MP.SHOE.SUBLINE02')"
+				/>
+				<app-observation-item
+					[title]="t('MENU.OBSERVATION.09C.MP.GUNS.TITLE')"
+					[subline1]="t('MENU.OBSERVATION.09C.MP.GUNS.SUBLINE01')"
+					[subline2]="t('MENU.OBSERVATION.09C.MP.GUNS.SUBLINE02')"
+				/>
+			</app-observation>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Simon is dead</p></div>
+					<div class="content">
+						<app-observation label="Body">
+							<app-observation-item
+								[title]="
+									t('MENU.OBSERVATION.09C.MP.BRAD.TITLE')
+								"
+								[subline1]="
+									t('MENU.OBSERVATION.09C.MP.BRAD.SUBLINE01')
+								"
+								[subline2]="
+									t('MENU.OBSERVATION.09C.MP.BRAD.SUBLINE02')
+								"
+							/>
+						</app-observation>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
+			<section aria-labelledby="bag">
+				<h3 id="bag">Analyze bag</h3>
+				<p>
+					<app-dialogue-line name="Hank">
+						{{ t("X0903C.ROOF.PARACHUTE.PC.X09CHANK.EXAMINE") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0903C.ROOF.PARACHUTE.PC.X09CCONNOR.EXAMINEC",
+								0,
+								2
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+
+				<app-condition-group>
+					<app-conditioned-content>
+						<div class="condition">
+							<p>
+								Simon was left behind alive in
+								<a [routerLink]="['/chapters', 23]"
+									>The Stratford Tower</a
+								>
+							</p>
+						</div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Hank">
+									{{
+										translationService.translateObject(
+											"X0903C.ROOF.PARACHUTE.PC.X09CHANK.EXAMINEC"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Connor">
+									{{
+										t(
+											"X0903C.ROOF.PARACHUTE.PC.X09CCONNOR.EXAMINEC.3"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+				</app-condition-group>
+			</section>
+
+			<section aria-labelledby="find-simon">
+				<h3 id="find-simon">Find Simon</h3>
+				<p>
+					<app-unlock-condition [unlockType]="UnlockType.Lock">
+						Simon was left alive on the roof in
+						<a [routerLink]="['/chapters', 23]"
+							>The Stratford Tower</a
+						>
+					</app-unlock-condition>
+					<app-dialogue-line name="Connor">
+						{{ t("X0903C.ROOF.BRAD.FA.X09CCONNOR.FOUND") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{ t("X0903C.ROOF.BRAD.FA.X09CHANK.FOUND") }}
+					</app-dialogue-line>
+				</p>
+				<app-choice-group>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0903C.ROOF.BRAD.FA.FOUNDCHOICE01.GETOUT')
+						"
+					>
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										<app-unlock-condition
+											[unlockType]="UnlockType.Death"
+											[bracketsOnlyAroundIcon]="true"
+										>
+											<span class="font-bold"
+												>Connor dies rushing Simon</span
+											>
+										</app-unlock-condition>
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X0903C.BRAD.CONCLUSION.PC.X09CHANK.FAIL",
+													2
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Connor reaches Simon</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-relation
+											[name]="
+												RelationName.SoftwareInstability
+											"
+											[type]="RelationType.LargeUp"
+										></app-relation>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X0903C.BRAD.CONCLUSION.PC.X09CHANK.SUCCESS.1"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Connor">
+											{{
+												t(
+													"X0903C.BRAD.CONCLUSION.PC.X09CCONNOR.SUCCESS.1"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Hank">
+											{{
+												t(
+													"X0903C.BRAD.CONCLUSION.PC.X09CHANK.SUCCESS.2"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Connor">
+											{{
+												t(
+													"X0903C.BRAD.CONCLUSION.PC.X09CCONNOR.SUCCESS.2"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Hank">
+											{{
+												translationService.translateObject(
+													"X0903C.BRAD.CONCLUSION.PC.X09CHANK.SUCCESS",
+													2
+												) | async
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Connor">
+											{{
+												translationService.translateObject(
+													"X0903C.BRAD.CONCLUSION.PC.X09CCONNOR.SUCCESS",
+													2
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</app-choice-item>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0903C.ROOF.BRAD.FA.FOUNDCHOICE01.STAY')
+						"
+					>
+						<p>&oslash;</p>
+					</app-choice-item>
+				</app-choice-group>
+			</section>
+		</section>
+	</section>
+</ng-container>

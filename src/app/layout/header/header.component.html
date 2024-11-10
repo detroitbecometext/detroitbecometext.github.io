@@ -1,0 +1,50 @@
+<header class="bg-black">
+	<nav class="flex flex-row justify-start items-center">
+		<button
+			(click)="sidenav?.toggle()"
+			matTooltip="Open sidenav"
+			aria-label="Open sidenav"
+		>
+			<fa-icon [icon]="faBars"></fa-icon>
+		</button>
+		<a [routerLink]="['/home']" matTooltip="Home" aria-label="Home">
+			<fa-icon [icon]="faHome"></fa-icon>
+		</a>
+		<button (click)="openDialog()" matTooltip="Info" aria-label="Info">
+			<fa-icon
+				[icon]="faQuestion"
+				[flip]="
+					(textDirectionService.isRtl$ | async)
+						? 'horizontal'
+						: undefined
+				"
+			></fa-icon>
+		</button>
+		<a
+			[routerLink]="['/contact']"
+			matTooltip="Contact"
+			aria-label="Contact"
+		>
+			<fa-icon [icon]="faEnvelope"></fa-icon>
+		</a>
+
+		<span class="flex-auto"></span>
+		<app-theme-toggle
+			class="me-4"
+			[switchIconColor]="true"
+		></app-theme-toggle>
+		<app-lang-picker-toggle
+			#langToggle
+			class="me-4"
+			[switchCaretColor]="true"
+		></app-lang-picker-toggle>
+	</nav>
+	<div class="flex flex-row justify-end">
+		@if (languagePickerService.showPicker$ | async) {
+			<app-lang-picker
+				class="max-w-1/2"
+				[langPickerToggleElement]="langToggleElement"
+			></app-lang-picker>
+		}
+	</div>
+</header>

@@ -1,0 +1,46 @@
+:host {
+	display: block;
+	overflow: clip;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 3% 92% 3%; // 92% =~ .w-11/12
+
+	// Tailwind md breakpoint
+	@media (min-width: 768px) {
+		grid-template-columns: 10% 80% 10%;
+	}
+
+	// Tailwind lg breakpoint
+	@media (min-width: 1024px) {
+		// 60% is .w-3/5
+		grid-template-columns: 20% 60% 20%;
+	}
+
+	#toc-container {
+		align-self: start;
+		position: sticky;
+		// Header height (64) + a margin (20px)
+		top: 84px;
+		min-height: 0;
+		max-height: 60dvh;
+	}
+}
+
+#toc-button {
+	width: 40px;
+	height: 40px;
+}
+
+#toc-bottom-sheet {
+	transition: height 0.5s;
+
+	&.open {
+		height: 35%;
+	}
+
+	&.closed {
+		height: 0;
+	}
+}

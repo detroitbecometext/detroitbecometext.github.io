@@ -1,12 +1,21 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { TextDirectionService } from '../../services/text-direction.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-observation',
-    templateUrl: './observation.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+	selector: 'app-observation',
+	standalone: true,
+	imports: [CommonModule, FontAwesomeModule],
+	templateUrl: './observation.component.html',
+	styleUrl: './observation.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ObservationComponent {
-    @Input() label: string;
+	@Input({ required: true }) label: string = '';
 
-    constructor() {}
+	faSearch = faSearch;
+
+	constructor(public readonly textDirectionService: TextDirectionService) {}
 }

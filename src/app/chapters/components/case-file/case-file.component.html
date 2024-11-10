@@ -1,0 +1,174 @@
+<ng-container *transloco="let t">
+	<div class="flex flex-col gap-3 md:flex-row">
+		<div class="flex flex-col">
+			<p>
+				<span>
+					{{ t("MENU.SPECIFIC.03C.FILES.CASE.REFERENCE") }}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">
+					@if (caseNumber === "06") {
+						{{ t("MENU.SPECIFIC.03C.FILES.FILE.0601.REFERENCE") }} /
+						{{ t("MENU.SPECIFIC.03C.FILES.FILE.0602.REFERENCE") }}
+					} @else {
+						{{
+							t(
+								"MENU.SPECIFIC.03C.FILES.FILE." +
+									caseNumber +
+									".REFERENCE"
+							)
+						}}
+					}
+				</span>
+			</p>
+
+			<p>
+				<span>
+					{{ t("MENU.SPECIFIC.03C.FILES.VICTIM") }}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">{{
+					t("MENU.SPECIFIC.03C.FILES.FILE." + caseNumber + ".VICTIM")
+				}}</span>
+			</p>
+
+			<p>
+				<span>
+					{{ t("MENU.SPECIFIC.03C.FILES.REPORTING.OFFICER") }}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">{{
+					t("MENU.SPECIFIC.03C.FILES.FILE." + caseNumber + ".OFFICER")
+				}}</span>
+			</p>
+
+			<p>
+				<span>
+					{{ t("MENU.SPECIFIC.03C.FILES.CASE.ASSIGNED.TO") }}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">{{
+					t(
+						"MENU.SPECIFIC.03C.FILES.FILE." +
+							caseNumber +
+							".ASSIGNED.TO"
+					)
+				}}</span>
+			</p>
+
+			<p>
+				<span>
+					{{ t("MENU.SPECIFIC.03C.FILES.CASE.STATUS") }}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">{{
+					t("MENU.SPECIFIC.03C.FILES.FILE." + caseNumber + ".STATUS")
+				}}</span>
+			</p>
+
+			<p>
+				<span>
+					{{ t("MENU.SPECIFIC.03C.FILES.INVOLVING.ANDROID") }}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">{{
+					t(
+						"MENU.SPECIFIC.03C.FILES.FILE." +
+							caseNumber +
+							".ANDROID.INVOLVED"
+					)
+				}}</span>
+			</p>
+		</div>
+
+		<div class="flex flex-col">
+			<p>
+				<span>
+					{{ t("MENU.SPECIFIC.03C.FILES.AGENCY.NAME") }}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">{{
+					t(
+						"MENU.SPECIFIC.03C.FILES.FILE." +
+							caseNumber +
+							".AGENCY.NAME"
+					)
+				}}</span>
+			</p>
+
+			<p>
+				<span>
+					{{ t("MENU.SPECIFIC.03C.FILES.AGENCY.QIR.NUMBER") }}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">{{
+					t(
+						"MENU.SPECIFIC.03C.FILES.FILE." +
+							caseNumber +
+							".AGENCY.QIR"
+					)
+				}}</span>
+			</p>
+
+			<p>
+				<span>
+					{{ t("MENU.SPECIFIC.03C.FILES.AGENCY.CASE.NUMBER") }}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">{{
+					t(
+						"MENU.SPECIFIC.03C.FILES.FILE." +
+							caseNumber +
+							".AGENCY.CASE"
+					)
+				}}</span>
+			</p>
+
+			<p>
+				<span>
+					{{ t("MENU.SPECIFIC.03C.FILES.DATE.OF.OFFENSE") }}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">{{
+					t(
+						"MENU.SPECIFIC.03C.FILES.FILE." +
+							caseNumber +
+							".OFFENSE.DATE"
+					)
+				}}</span>
+			</p>
+
+			<p>
+				<span>
+					{{ t("MENU.SPECIFIC.03C.FILES.REPORT.DATE") }}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">{{
+					t(
+						"MENU.SPECIFIC.03C.FILES.FILE." +
+							caseNumber +
+							".REPORT.DATE"
+					)
+				}}</span>
+			</p>
+
+			<p>
+				<span>
+					{{
+						t(
+							"X0603C.CRIMESCENE.INTERROGATE.PC.CHOICEGROUP04.ANDROID"
+						)
+					}}
+				</span>
+				<br />
+				<span class="text-blue-600 dark:text-blue-300">{{
+					t("MENU.SPECIFIC.03C.FILES." + caseSuspect.get(caseNumber))
+				}}</span>
+			</p>
+		</div>
+	</div>
+	<mat-divider />
+	<div>
+		<ng-content></ng-content>
+	</div>
+</ng-container>

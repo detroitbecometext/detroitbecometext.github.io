@@ -1,0 +1,84 @@
+<article class="main">
+	@if (navigationService.currentItem() !== null) {
+		<header
+			class="self-stretch text-center bg-card-light dark:bg-card-dark bg-opacity-80 dark:bg-opacity-80"
+		>
+			<h1 id="chapter-title" class="mt-8 mb-4 text-6xl">
+				<ng-container *transloco="let t">
+					{{ navigationService.currentItem()!.number }} -
+					{{
+						t(
+							"GUI.MENU.CHAPTERS." +
+								navigationService.currentItem()!.shortIdentifier
+						)
+					}}
+				</ng-container>
+			</h1>
+		</header>
+
+		<div class="grid">
+			<div
+				id="toc-container"
+				class="flex flex-col m-8 me-1 invisible lg:visible"
+			>
+				<app-chapter-toc class="flex-1 min-h-0" cardClasses="p-2" />
+			</div>
+
+			<mat-card class="chapter-card" id="main-content" [tabIndex]="-1">
+				<mat-card-content>
+					<!-- Top nav -->
+					<app-chapter-nav></app-chapter-nav>
+
+					<mat-divider></mat-divider>
+
+					<!-- Chapter content -->
+					<div class="chapter-content">
+						<ng-template [cdkPortalOutlet]="portal()"></ng-template>
+					</div>
+
+					<!-- Bottom nav -->
+					<mat-divider></mat-divider>
+					<app-chapter-nav></app-chapter-nav>
+				</mat-card-content>
+			</mat-card>
+
+			<div></div>
+		</div>
+
+		<button
+			#tocButton
+			id="toc-button"
+			matTooltip="Open table of contents"
+			aria-label="Open table of contents"
+			class="fixed bottom-2 start-2 bg-black text-white p-2 rounded-lg visible lg:invisible"
+			(click)="toggleToc()"
+		>
+			<fa-icon
+				[icon]="
+					(textDirectionService.isRtl$ | async)
+						? faAlignRight
+						: faAlignLeft
+				"
+			></fa-icon>
+		</button>
+
+		<div
+			#tocBottomSheet
+			id="toc-bottom-sheet"
+			class="fixed bottom-0 start-16 end-16 p-2 rounded-t-lg"
+			[class.open]="tocBottomSheetOpened()"
+			[class.closed]="!tocBottomSheetOpened()"
+			[attr.aria-hidden]="!tocBottomSheetOpened()"
+			[tabindex]="-1"
+		>
+			<app-chapter-toc
+				class="h-full"
+				[cardClasses]="
+					'bg-opacity-100 transition-spacing duration-500 ' +
+					(tocBottomSheetOpened() ? 'p-6' : 'p-0')
+				"
+				[focusable]="tocBottomSheetOpened()"
+			/>
+		</div>
+	}
+</article>

@@ -1,0 +1,1157 @@
+<ng-container *transloco="let t">
+	<section aria-labelledby="bridge">
+		<h1 id="bridge">At Ambassador Bridge</h1>
+
+		<p>
+			{{ t("GUI.MENU.DATE.08C") }}
+			<br />
+			{{ t("GUI.MENU.TIME.08C") }}
+		</p>
+
+		<p>
+			<app-dialogue-line name="Hank">
+				{{
+					translationService.translateObject(
+						"X0801C.BENCH.TALK.PC.X08CHANK.START"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="t('X0801C.BENCH.TALK.PC.STARTCHOICE01.SUICIDE')"
+			>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{ t("X0801C.BENCH.TALK.PC.X08CCONNOR.SUICIDE") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{ t("X0801C.BENCH.TALK.PC.X08CHANK.SUICIDE") }}
+					</app-dialogue-line>
+				</p>
+				<p class="note">
+					<span dir="ltr"
+						>If Connor didn't look at the photo in
+						<a [routerLink]="['/chapters', 18]">Russian Roulette</a
+						>, no choice will be given and the dialogue will go
+						directly to the SUICIDE option.</span
+					>
+				</p>
+
+				<app-choice-group>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0801C.BENCH.TALK.PC.PHOTOCHOICE.PHOTO')
+						"
+					>
+						<p>
+							<app-unlock-condition
+								[unlockType]="UnlockType.Lock"
+							>
+								Looked at Cole's photo in
+								<a [routerLink]="['/chapters', 18]"
+									>Russian Roulette</a
+								>
+							</app-unlock-condition>
+							<app-relation
+								[name]="RelationName.Hank"
+								[type]="RelationType.SmallDown"
+							></app-relation>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0801C.BENCH.TALK.PC.X08CCONNOR.PHOTO"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0801C.BENCH.TALK.PC.X08CHANK.PHOTO"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0801C.BENCH.TALK.PC.PHOTOCHOICE.SUICIDE')
+						"
+					>
+						<p>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0801C.BENCH.TALK.PC.X08CCONNOR.KILLYOURSELF00"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0801C.BENCH.TALK.PC.X08CHANK.KILLYOURSELF01"
+									) | async
+								}}
+								{{
+									translationService.translateObject(
+										"X0801C.BENCH.TALK.PC.X08CHANK.KILLYOURSELF02"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+				</app-choice-group>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0801C.BENCH.TALK.PC.STARTCHOICE01.ALCOHOL')"
+			>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.ALCOHOL"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{ t("X0801C.BENCH.TALK.PC.X08CHANK.ALCOHOL") }}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0801C.BENCH.TALK.PC.STARTCHOICE01.BEFORE')"
+			>
+				<p>
+					<app-unused-content>
+						<app-dialogue-line name="Connor">
+							{{ t("X0801C.BENCH.TALK.PC.X08CCONNOR.BEFORE.1") }}
+						</app-dialogue-line>
+					</app-unused-content>
+
+					<app-dialogue-line name="Connor">
+						{{ t("X0801C.BENCH.TALK.PC.X08CCONNOR.BEFORE.2") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{ t("X0801C.BENCH.TALK.PC.X08CHANK.BEFORE.1") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.BEFORE",
+								2
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CHANK.BEFORE",
+								1
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0801C.BENCH.TALK.PC.STARTCHOICE01.GOBACK')"
+			>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.GOBACKC"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CHANK.GOBACKC"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+
+				<p>
+					<app-unused-content>
+						<span class="italic"> (Alternative version) </span>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0801C.BENCH.TALK.PC.X08CCONNOR.GOBACK"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0801C.BENCH.TALK.PC.X08CHANK.GOBACKH"
+								) | async
+							}}
+						</app-dialogue-line>
+					</app-unused-content>
+				</p>
+			</app-choice-item>
+		</app-choice-group>
+
+		<p>
+			<app-dialogue-line name="Connor">
+				{{
+					translationService.translateObject(
+						"X0801C.BENCH.TALK.PC.X08CCONNOR.INVESTIGATIONC"
+					) | async
+				}}
+			</app-dialogue-line>
+			<app-dialogue-line name="Hank">
+				{{ t("X0801C.BENCH.TALK.PC.X08CHANK.INVESTIGATIONH") }}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0801C.BENCH.TALK.PC.INVESTIGATIONCHOICE02.RA9')
+				"
+			>
+				<p>
+					<app-unlock-condition [unlockType]="UnlockType.Lock">
+						Looked at rA9 clues in previous chapters
+					</app-unlock-condition>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.RA9C"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CHANK.RA9H"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0801C.BENCH.TALK.PC.INVESTIGATIONCHOICE02.SHOCK')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.SHOCK"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CHANK.SHOCK"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0801C.BENCH.TALK.PC.INVESTIGATIONCHOICE02.SYSTEMS')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.CIRCUITS"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CHANK.CIRCUITS"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0801C.BENCH.TALK.PC.INVESTIGATIONCHOICE02.SOFTWARES')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.SOFTWARES"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{ t("X0801C.BENCH.TALK.PC.X08CHANK.SOFTWARES") }}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+		</app-choice-group>
+
+		<p>
+			<app-dialogue-line name="Connor">
+				{{
+					translationService.translateObject(
+						"X0801C.BENCH.TALK.PC.X08CCONNOR.CLUB"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						Found the Tracis in
+						<a [routerLink]="['/chapters', 20]">The Eden Club</a>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0801C.BENCH.TALK.PC.X08CHANK.FOUND"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.RATIONAL')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.RATIONAL01"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.DEVIANTS')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.DEVIANTS"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.IRONIC')
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.IRONIC"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0801C.BENCH.TALK.PC.FOUNDCHOICE03.COLD')
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.Hank"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-relation
+									[name]="RelationName.SoftwareInstability"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.COLD01"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Time">
+							<span class="font-bold">
+								Took too much time looking for the Traci in
+								<a [routerLink]="['/chapters', 20]"
+									>The Eden Club</a
+								>
+							</span>
+						</app-unlock-condition>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0801C.BENCH.TALK.PC.X08CHANK.NOTFOUND"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0801C.BENCH.TALK.PC.NOTFOUNDCHOICE04.COLD')
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.SoftwareInstability"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-relation
+									[name]="RelationName.Hank"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.COLD02"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0801C.BENCH.TALK.PC.NOTFOUNDCHOICE04.IRONIC'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.IRONIC"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0801C.BENCH.TALK.PC.NOTFOUNDCHOICE04.RATIONAL'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.RATIONAL02"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
+
+		<mat-divider></mat-divider>
+
+		<p>
+			<app-dialogue-line name="Hank">
+				{{
+					translationService.translateObject(
+						"X0801C.BENCH.TALK.PC.X08CHANK.ABOUTYOU"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="t('X0801C.BENCH.TALK.PC.ABOUTYOUCHOICE05.COLD')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.Hank"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{ t("X0801C.BENCH.TALK.PC.X08CCONNOR.COLD03") }}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0801C.BENCH.TALK.PC.ABOUTYOUCHOICE05.AGGRESSIVE')
+				"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.Hank"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.AGGRESSIVE01"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0801C.BENCH.TALK.PC.ABOUTYOUCHOICE05.DEFENSIVE')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE01"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0801C.BENCH.TALK.PC.ABOUTYOUCHOICE05.NEUTRAL')
+				"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.Hank"
+						[type]="RelationType.SmallUp"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL01"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+		</app-choice-group>
+
+		<mat-divider></mat-divider>
+
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Connor spared the Tracis</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0801C.BENCH.TALK.PC.X08CHANK.NOTSHOOT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0801C.BENCH.TALK.PC.NOTSHOOTCHOICE07.LIE')
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.Hank"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.LIE"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0801C.BENCH.TALK.PC.NOTSHOOTCHOICE07.TRUTH')
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.SoftwareInstability"
+									[type]="RelationType.SmallUp"
+								></app-relation>
+								<app-relation
+									[name]="RelationName.Hank"
+									[type]="RelationType.SmallUp"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.TRUTH"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Connor shot the Tracis in the back</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0801C.BENCH.TALK.PC.X08CHANK.SHOOT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0801C.BENCH.TALK.PC.SHOOTCHOICE06.COLD')
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.SoftwareInstability"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-relation
+									[name]="RelationName.Hank"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.COLD04"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0801C.BENCH.TALK.PC.SHOOTCHOICE06.DEFENSIVE'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE02"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0801C.BENCH.TALK.PC.SHOOTCHOICE06.AGGRESSIVE'
+								)
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.Hank"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.AGGRESSIVE02"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0801C.BENCH.TALK.PC.SHOOTCHOICE06.NEUTRAL')
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.SoftwareInstability"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-relation
+									[name]="RelationName.Hank"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL03"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Connor shot one Traci</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0801C.BENCH.TALK.PC.X08CHANK.SUICIDETRACY"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0801C.BENCH.TALK.PC.SUICIDECHOICE11.DISTURBED'
+								)
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.SoftwareInstability"
+									[type]="RelationType.SmallUp"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.COLD11"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t('X0801C.BENCH.TALK.PC.SHOOTCHOICE06.COLD')
+							"
+						>
+							<p>
+								<app-relation
+									[name]="RelationName.SoftwareInstability"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-relation
+									[name]="RelationName.Hank"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.DISTURBED11"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>Connor didn't find the Tracis</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0801C.BENCH.TALK.PC.X08CHANK.NOWEAKNESSES"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+
+					<app-choice-group>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0801C.BENCH.TALK.PC.NOWEAKNESSESCHOICE11.DEFENSIVE'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.DEFENSIVE04"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0801C.BENCH.TALK.PC.NOWEAKNESSESCHOICE11.CYNICAL'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										t(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.CYNICAL"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0801C.BENCH.TALK.PC.NOWEAKNESSESCHOICE11.UNDERSTANDING'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.UNDRESTANDING"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+						<app-choice-item
+							[choiceLabel]="
+								t(
+									'X0801C.BENCH.TALK.PC.NOWEAKNESSESCHOICE11.NEUTRAL'
+								)
+							"
+						>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0801C.BENCH.TALK.PC.X08CCONNOR.NEUTRAL02"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-choice-item>
+					</app-choice-group>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
+
+		<mat-divider></mat-divider>
+
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition">
+					<p>
+						<app-unlock-condition
+							[unlockType]="UnlockType.Death"
+							[bracketsOnlyAroundIcon]="true"
+						>
+							<span class="font-bold">Connor died before</span>
+						</app-unlock-condition>
+					</p>
+				</div>
+				<div class="content">
+					<p>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0801C.BENCH.TALK.PC.X08CHANK.DEAD"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
+
+		<p>
+			<app-dialogue-line name="Hank">
+				{{ t("X0801C.BENCH.TALK.PC.X08CHANK.DEADNEVER") }}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="t('X0801C.BENCH.TALK.PC.FEARCHOICE09.YES')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallUp"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.YES"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0801C.BENCH.TALK.PC.FEARCHOICE09.NO')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.Hank"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{ t("X0801C.BENCH.TALK.PC.X08CCONNOR.NO.1") }}
+					</app-dialogue-line>
+
+					<app-unused-content>
+						<app-dialogue-line name="Connor">
+							{{ t("X0801C.BENCH.TALK.PC.X08CCONNOR.NO.2") }}
+						</app-dialogue-line>
+					</app-unused-content>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0801C.BENCH.TALK.PC.FEARCHOICE09.NOTALIVE')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.Hank"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.NOTALIVE"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="t('X0801C.BENCH.TALK.PC.FEARCHOICE09.COLD')"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.SoftwareInstability"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-relation
+						[name]="RelationName.Hank"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.COLD05"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+		</app-choice-group>
+
+		<mat-divider></mat-divider>
+
+		<p>
+			<app-dialogue-line name="Hank">
+				{{
+					translationService.translateObject(
+						"X0801C.BENCH.TALK.PC.X08CHANK.PULLTRIGGER"
+					) | async
+				}}
+			</app-dialogue-line>
+		</p>
+
+		<app-choice-group>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0801C.BENCH.TALK.PC.PULLTRIGGERCHOICE10.DEFY')
+				"
+			>
+				<p>
+					<app-relation
+						[name]="RelationName.Hank"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.DEFY"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CHANK.DEFY"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.SELFTEST"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0801C.BENCH.TALK.PC.PULLTRIGGERCHOICE10.ANALYSE')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.ANALYSE"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CHANK.DEFY"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.SELFTEST"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0801C.BENCH.TALK.PC.PULLTRIGGERCHOICE10.HEAVEN')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{ t("X0801C.BENCH.TALK.PC.X08CCONNOR.HEAVEN01") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CHANK.HEAVEN02"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.SELFTEST"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+			<app-choice-item
+				[choiceLabel]="
+					t('X0801C.BENCH.TALK.PC.PULLTRIGGERCHOICE10.NOTHING')
+				"
+			>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0801C.BENCH.TALK.PC.X08CCONNOR.NOTHING"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</app-choice-item>
+		</app-choice-group>
+
+		<app-condition-group>
+			<app-conditioned-content>
+				<div class="condition"><p>Hank left Connor alone</p></div>
+				<div class="content">
+					<p>
+						<app-unlock-condition [unlockType]="UnlockType.Lock">
+							Hank isn't hostile
+						</app-unlock-condition>
+						<app-dialogue-line name="Connor">
+							{{ t("X0801C.BENCH.TALK.PC.X08CCONNOR.END") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0801C.BENCH.TALK.PC.X08CHANK.END"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</div>
+			</app-conditioned-content>
+		</app-condition-group>
+	</section>
+</ng-container>
