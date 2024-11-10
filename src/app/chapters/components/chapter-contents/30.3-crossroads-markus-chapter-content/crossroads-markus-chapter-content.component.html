@@ -760,20 +760,24 @@
 							</app-conditioned-content>
 						</app-condition-group>
 
-						<h3 id="connor-arrives-popular">Connor arrives</h3>
-						<p>
-							<app-unlock-condition
-								[unlockType]="UnlockType.Lock"
-							>
-								Connor found Jericho
-							</app-unlock-condition>
-							<span class="note"
-								>See
-								<a [routerLink]="['/chapters', 31]"
-									>Crossroads - Connor</a
-								>: Finding Markus.</span
-							>
-						</p>
+						<section aria-labelledby="connor-arrives-popular">
+							<h3 id="connor-arrives-popular">
+								Connor arrives to find Markus
+							</h3>
+							<p>
+								<app-unlock-condition
+									[unlockType]="UnlockType.Lock"
+								>
+									Connor found Jericho
+								</app-unlock-condition>
+								<span class="note"
+									>See
+									<a [routerLink]="['/chapters', 31]"
+										>Crossroads - Connor</a
+									>: Finding Markus.</span
+								>
+							</p>
+						</section>
 					</div>
 				</app-conditioned-content>
 				<app-conditioned-content>
@@ -820,20 +824,25 @@
 								}}
 							</app-dialogue-line>
 						</p>
-						<h3 id="connor-arrives-unpopular">Connor arrives</h3>
-						<p>
-							<app-unlock-condition
-								[unlockType]="UnlockType.Lock"
-							>
-								Connor found Jericho
-							</app-unlock-condition>
-							<span class="note"
-								>See
-								<a [routerLink]="['/chapters', 31]"
-									>Crossroads - Connor</a
-								>: Find North.</span
-							>
-						</p>
+
+						<section aria-labelledby="connor-arrives-unpopular">
+							<h3 id="connor-arrives-unpopular">
+								Connor arrives to find North
+							</h3>
+							<p>
+								<app-unlock-condition
+									[unlockType]="UnlockType.Lock"
+								>
+									Connor found Jericho
+								</app-unlock-condition>
+								<span class="note"
+									>See
+									<a [routerLink]="['/chapters', 31]"
+										>Crossroads - Connor</a
+									>: Find North.</span
+								>
+							</p>
+						</section>
 					</div>
 				</app-conditioned-content>
 			</app-condition-group>
@@ -1032,18 +1041,21 @@
 				</app-conditioned-content>
 			</app-condition-group>
 
-			<h3 id="connor-arrives-north">Connor arrives</h3>
+			<section aria-labelledby="connor-arrives-north">
+				<h3 id="connor-arrives-north">Connor arrives</h3>
 
-			<p>
-				<app-unlock-condition [unlockType]="UnlockType.Lock">
-					Connor found Jericho
-				</app-unlock-condition>
-				<span class="note"
-					>See
-					<a [routerLink]="['/chapters', 31]">Crossroads - Connor</a>:
-					Find North.</span
-				>
-			</p>
+				<p>
+					<app-unlock-condition [unlockType]="UnlockType.Lock">
+						Connor found Jericho
+					</app-unlock-condition>
+					<span class="note"
+						>See
+						<a [routerLink]="['/chapters', 31]"
+							>Crossroads - Connor</a
+						>: Find North.</span
+					>
+				</p>
+			</section>
 		</section>
 	</section>
 
@@ -1731,12 +1743,14 @@
 						<p>Connor remained a machine</p>
 					</div>
 					<div class="content">
-						<h3 id="connor-interrupts">Connor interrupts</h3>
 						<p class="note">
-							See
-							<a [routerLink]="['/chapters', 31]"
-								>Connor - Crossroads</a
-							>: Connor remained a machine.
+							Connor interrupts; See
+							<a
+								[routerLink]="['/chapters', 31]"
+								fragment="machine-hold"
+								>Connor - Crossroads: Connor remained a
+								machine.</a
+							>
 						</p>
 					</div>
 				</app-conditioned-content>
@@ -1885,398 +1899,406 @@
 				</app-conditioned-content>
 			</app-condition-group>
 
-			<h3 id="north-shot">North is shot</h3>
+			<section aria-labelledby="north-shot">
+				<h3 id="north-shot">North is shot</h3>
 
-			<app-condition-group>
-				<app-conditioned-content>
-					<div class="condition"><p>Simon is alive</p></div>
-					<div class="content">
+				<app-condition-group>
+					<app-conditioned-content>
+						<div class="condition"><p>Simon is alive</p></div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Simon">
+									{{
+										t(
+											"X0205A.MARKUS.NORTHSHOT.PC.X02ASIMON.TOOLATESIMON"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+					<app-conditioned-content>
+						<div class="condition"><p>Simon is dead</p></div>
+						<div class="content">
+							<p>
+								<app-dialogue-line name="Josh">
+									{{
+										t(
+											"X0205A.MARKUS.NORTHSHOT.PC.X02AJOSH.TOOLATEJOSH"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</div>
+					</app-conditioned-content>
+				</app-condition-group>
+
+				<app-choice-group>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0205A.MARKUS.NORTHSHOT.PC.SAVECHOICE.SAVENORTH')
+						"
+					>
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Markus is injured - cannot save North</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-relation
+											[name]="RelationName.Jericho"
+											[type]="RelationType.SmallDown"
+										></app-relation>
+										<app-relation
+											[name]="RelationName.Simon"
+											[type]="RelationType.SmallDown"
+										></app-relation>
+										<app-relation
+											[name]="RelationName.Josh"
+											[type]="RelationType.LargeDown"
+										></app-relation>
+										<app-dialogue-line name="Markus">
+											{{
+												t(
+													"X0205A.MARKUS.NORTHSHOT.PC.X02AMARKUS.WOUNDEDSAVE"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Simon">
+											{{
+												t(
+													"X0205A.MARKUS.NORTHSHOT.PC.X02ASIMON.WOUNDEDSAVE"
+												)
+											}}
+										</app-dialogue-line>
+										<app-dialogue-line name="Josh">
+											{{
+												translationService.translateObject(
+													"X0205A.MARKUS.NORTHSHOT.PC.X02AJOSH.WOUNDEDSAVE"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Markus is not injured</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-relation
+											[name]="RelationName.Jericho"
+											[type]="RelationType.SmallUp"
+										></app-relation>
+										<app-relation
+											[name]="RelationName.North"
+											[type]="RelationType.LargeUp"
+										></app-relation>
+										<app-relation
+											[name]="RelationName.Josh"
+											[type]="RelationType.SmallUp"
+										></app-relation>
+										<app-relation
+											[name]="RelationName.Simon"
+											[type]="RelationType.SmallUp"
+										></app-relation>
+										<app-dialogue-line name="Soldier">
+											{{
+												t(
+													"X5072X.MILITARY.FIGHT.VO.MANDCO.ORDERFIRE02"
+												)
+											}}
+										</app-dialogue-line>
+									</p>
+
+									<app-condition-group>
+										<app-conditioned-content>
+											<div class="condition">
+												<p>Save North</p>
+											</div>
+											<div class="content">
+												<p>
+													<app-dialogue-line
+														name="Soldier"
+													>
+														{{
+															t(
+																"X5072X.MILITARY.FIGHT.VO.MANDCO.CONTACT02"
+															)
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Markus"
+													>
+														{{
+															translationService.translateObject(
+																"X0205A.MARKUS.RUNAWAY.FA.X02AMARKUS.RUN"
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
+
+												<app-condition-group>
+													<app-conditioned-content>
+														<div class="condition">
+															<p>
+																Connor became
+																deviant - Connor
+																protects Markus
+																and North
+															</p>
+														</div>
+														<div class="content">
+															<p>
+																<app-dialogue-line
+																	name="Soldier"
+																>
+																	{{
+																		t(
+																			"X5072X.MILITARY.FIGHT.VO.WOMLKE.ORDERGO04"
+																		)
+																	}}
+																</app-dialogue-line>
+																<app-dialogue-line
+																	name="Solder"
+																>
+																	{{
+																		t(
+																			"X5072X.MILITARY.FIGHT.VO.MANAWI.CONTACT01"
+																		)
+																	}}
+																</app-dialogue-line>
+															</p>
+
+															<app-condition-group>
+																<app-conditioned-content>
+																	<div
+																		class="condition"
+																	>
+																		<p>
+																			Connor
+																			kills
+																			the
+																			soldiers
+																		</p>
+																	</div>
+																	<div
+																		class="content"
+																	>
+																		<p>
+																			<app-dialogue-line
+																				name="Soldier"
+																			>
+																				{{
+																					t(
+																						"X0205A.PBY.ASSAULT.VO.X02ASWAT19.RAID05W"
+																					)
+																				}}
+																			</app-dialogue-line>
+																		</p>
+																	</div>
+																</app-conditioned-content>
+															</app-condition-group>
+														</div>
+													</app-conditioned-content>
+												</app-condition-group>
+
+												<mat-divider></mat-divider>
+
+												<app-condition-group>
+													<app-conditioned-content>
+														<div class="condition">
+															<p>Run to exit</p>
+														</div>
+														<div class="content">
+															<p>
+																<app-dialogue-line
+																	name="Markus"
+																>
+																	{{
+																		t(
+																			"X0205A.MARKUS.EXECUTION.FA.X02AMARKUS.SUCCESS"
+																		)
+																	}}
+																</app-dialogue-line>
+															</p>
+														</div>
+													</app-conditioned-content>
+													<app-conditioned-content>
+														<div class="condition">
+															<p>
+																Fail to run to
+																exit (Connor
+																stayed a
+																machine) -
+																Markus dies
+															</p>
+														</div>
+														<div class="content">
+															<p>
+																<app-dialogue-line
+																	name="North"
+																>
+																	{{
+																		t(
+																			"X0205A.MARKUS.NORTHRUN.PC.X02AMARLA.MARKUSFAIL.1"
+																		)
+																	}}
+																</app-dialogue-line>
+																<app-dialogue-line
+																	name="Markus"
+																>
+																	{{
+																		t(
+																			"X0205A.MARKUS.NORTHRUN.PC.X02AMARKUS.MARKUSFAIL"
+																		)
+																	}}
+																</app-dialogue-line>
+																<app-dialogue-line
+																	name="Soldier"
+																>
+																	{{
+																		t(
+																			"X0205A.PBY.ASSAULT.VO.X02ASWAT10.RAID10"
+																		)
+																	}}
+																</app-dialogue-line>
+															</p>
+															<p>
+																<app-dialogue-line
+																	name="Perkins"
+																>
+																	{{
+																		translationService.translateObject(
+																			"X0205A.MARKUS.NORTHSHOT.FA.X02APERKINS.INTERVENE"
+																		)
+																			| async
+																	}}
+																</app-dialogue-line>
+															</p>
+														</div>
+													</app-conditioned-content>
+												</app-condition-group>
+											</div>
+										</app-conditioned-content>
+										<app-conditioned-content>
+											<div class="condition">
+												<p>Fail to save North</p>
+											</div>
+											<div class="content">
+												<app-condition-group>
+													<app-conditioned-content>
+														<div class="condition">
+															<p>
+																Connor became a
+																deviant - North
+																dies, Connor
+																rescues Markus
+															</p>
+														</div>
+														<div class="content">
+															<p>
+																<app-relation
+																	[name]="
+																		RelationName.Jericho
+																	"
+																	[type]="
+																		RelationType.SmallDown
+																	"
+																></app-relation>
+																<app-dialogue-line
+																	name="North"
+																>
+																	{{
+																		t(
+																			"X0205A.MARKUS.NORTHSHOT.FA.X02AMARLA.SAVEFAILURENORTHV2"
+																		)
+																	}}
+																</app-dialogue-line>
+															</p>
+														</div>
+													</app-conditioned-content>
+													<app-conditioned-content>
+														<div class="condition">
+															<p>
+																Connor stayed a
+																machine - Markus
+																dies, North
+																escapes
+															</p>
+														</div>
+														<div class="content">
+															<p>
+																<app-dialogue-line
+																	name="North"
+																>
+																	{{
+																		t(
+																			"X0205A.MARKUS.NORTHSHOT.FA.X02AMARLA.SAVEFAILURENORTHV2"
+																		)
+																	}}
+																</app-dialogue-line>
+															</p>
+															<p>
+																<app-dialogue-line
+																	name="Perkins"
+																>
+																	{{
+																		translationService.translateObject(
+																			"X0205A.MARKUS.NORTHSHOT.FA.X02APERKINS.INTERVENE"
+																		)
+																			| async
+																	}}
+																</app-dialogue-line>
+															</p>
+														</div>
+													</app-conditioned-content>
+												</app-condition-group>
+											</div>
+										</app-conditioned-content>
+									</app-condition-group>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</app-choice-item>
+					<app-choice-item
+						[choiceLabel]="
+							t('X0205A.MARKUS.NORTHSHOT.PC.SAVECHOICE.RUN')
+						"
+					>
 						<p>
+							<app-relation
+								[name]="RelationName.Jericho"
+								[type]="RelationType.SmallDown"
+							></app-relation>
+							<app-relation
+								[name]="RelationName.Simon"
+								[type]="RelationType.SmallDown"
+							></app-relation>
+							<app-relation
+								[name]="RelationName.Josh"
+								[type]="RelationType.LargeDown"
+							></app-relation>
 							<app-dialogue-line name="Simon">
 								{{
 									t(
-										"X0205A.MARKUS.NORTHSHOT.PC.X02ASIMON.TOOLATESIMON"
+										"X0205A.MARKUS.NORTHSHOT.PC.X02ASIMON.RUNSIMON"
 									)
 								}}
 							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-				<app-conditioned-content>
-					<div class="condition"><p>Simon is dead</p></div>
-					<div class="content">
-						<p>
 							<app-dialogue-line name="Josh">
 								{{
 									t(
-										"X0205A.MARKUS.NORTHSHOT.PC.X02AJOSH.TOOLATEJOSH"
+										"X0205A.MARKUS.NORTHSHOT.PC.X02AJOSH.RUNJOSH"
 									)
 								}}
 							</app-dialogue-line>
 						</p>
-					</div>
-				</app-conditioned-content>
-			</app-condition-group>
-
-			<app-choice-group>
-				<app-choice-item
-					[choiceLabel]="
-						t('X0205A.MARKUS.NORTHSHOT.PC.SAVECHOICE.SAVENORTH')
-					"
-				>
-					<app-condition-group>
-						<app-conditioned-content>
-							<div class="condition">
-								<p>Markus is injured - cannot save North</p>
-							</div>
-							<div class="content">
-								<p>
-									<app-relation
-										[name]="RelationName.Jericho"
-										[type]="RelationType.SmallDown"
-									></app-relation>
-									<app-relation
-										[name]="RelationName.Simon"
-										[type]="RelationType.SmallDown"
-									></app-relation>
-									<app-relation
-										[name]="RelationName.Josh"
-										[type]="RelationType.LargeDown"
-									></app-relation>
-									<app-dialogue-line name="Markus">
-										{{
-											t(
-												"X0205A.MARKUS.NORTHSHOT.PC.X02AMARKUS.WOUNDEDSAVE"
-											)
-										}}
-									</app-dialogue-line>
-									<app-dialogue-line name="Simon">
-										{{
-											t(
-												"X0205A.MARKUS.NORTHSHOT.PC.X02ASIMON.WOUNDEDSAVE"
-											)
-										}}
-									</app-dialogue-line>
-									<app-dialogue-line name="Josh">
-										{{
-											translationService.translateObject(
-												"X0205A.MARKUS.NORTHSHOT.PC.X02AJOSH.WOUNDEDSAVE"
-											) | async
-										}}
-									</app-dialogue-line>
-								</p>
-							</div>
-						</app-conditioned-content>
-						<app-conditioned-content>
-							<div class="condition">
-								<p>Markus is not injured</p>
-							</div>
-							<div class="content">
-								<p>
-									<app-relation
-										[name]="RelationName.Jericho"
-										[type]="RelationType.SmallUp"
-									></app-relation>
-									<app-relation
-										[name]="RelationName.North"
-										[type]="RelationType.LargeUp"
-									></app-relation>
-									<app-relation
-										[name]="RelationName.Josh"
-										[type]="RelationType.SmallUp"
-									></app-relation>
-									<app-relation
-										[name]="RelationName.Simon"
-										[type]="RelationType.SmallUp"
-									></app-relation>
-									<app-dialogue-line name="Soldier">
-										{{
-											t(
-												"X5072X.MILITARY.FIGHT.VO.MANDCO.ORDERFIRE02"
-											)
-										}}
-									</app-dialogue-line>
-								</p>
-
-								<app-condition-group>
-									<app-conditioned-content>
-										<div class="condition">
-											<p>Save North</p>
-										</div>
-										<div class="content">
-											<p>
-												<app-dialogue-line
-													name="Soldier"
-												>
-													{{
-														t(
-															"X5072X.MILITARY.FIGHT.VO.MANDCO.CONTACT02"
-														)
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line
-													name="Markus"
-												>
-													{{
-														translationService.translateObject(
-															"X0205A.MARKUS.RUNAWAY.FA.X02AMARKUS.RUN"
-														) | async
-													}}
-												</app-dialogue-line>
-											</p>
-
-											<app-condition-group>
-												<app-conditioned-content>
-													<div class="condition">
-														<p>
-															Connor became
-															deviant - Connor
-															protects Markus and
-															North
-														</p>
-													</div>
-													<div class="content">
-														<p>
-															<app-dialogue-line
-																name="Soldier"
-															>
-																{{
-																	t(
-																		"X5072X.MILITARY.FIGHT.VO.WOMLKE.ORDERGO04"
-																	)
-																}}
-															</app-dialogue-line>
-															<app-dialogue-line
-																name="Solder"
-															>
-																{{
-																	t(
-																		"X5072X.MILITARY.FIGHT.VO.MANAWI.CONTACT01"
-																	)
-																}}
-															</app-dialogue-line>
-														</p>
-
-														<app-condition-group>
-															<app-conditioned-content>
-																<div
-																	class="condition"
-																>
-																	<p>
-																		Connor
-																		kills
-																		the
-																		soldiers
-																	</p>
-																</div>
-																<div
-																	class="content"
-																>
-																	<p>
-																		<app-dialogue-line
-																			name="Soldier"
-																		>
-																			{{
-																				t(
-																					"X0205A.PBY.ASSAULT.VO.X02ASWAT19.RAID05W"
-																				)
-																			}}
-																		</app-dialogue-line>
-																	</p>
-																</div>
-															</app-conditioned-content>
-														</app-condition-group>
-													</div>
-												</app-conditioned-content>
-											</app-condition-group>
-
-											<mat-divider></mat-divider>
-
-											<app-condition-group>
-												<app-conditioned-content>
-													<div class="condition">
-														<p>Run to exit</p>
-													</div>
-													<div class="content">
-														<p>
-															<app-dialogue-line
-																name="Markus"
-															>
-																{{
-																	t(
-																		"X0205A.MARKUS.EXECUTION.FA.X02AMARKUS.SUCCESS"
-																	)
-																}}
-															</app-dialogue-line>
-														</p>
-													</div>
-												</app-conditioned-content>
-												<app-conditioned-content>
-													<div class="condition">
-														<p>
-															Fail to run to exit
-															(Connor stayed a
-															machine) - Markus
-															dies
-														</p>
-													</div>
-													<div class="content">
-														<p>
-															<app-dialogue-line
-																name="North"
-															>
-																{{
-																	t(
-																		"X0205A.MARKUS.NORTHRUN.PC.X02AMARLA.MARKUSFAIL.1"
-																	)
-																}}
-															</app-dialogue-line>
-															<app-dialogue-line
-																name="Markus"
-															>
-																{{
-																	t(
-																		"X0205A.MARKUS.NORTHRUN.PC.X02AMARKUS.MARKUSFAIL"
-																	)
-																}}
-															</app-dialogue-line>
-															<app-dialogue-line
-																name="Soldier"
-															>
-																{{
-																	t(
-																		"X0205A.PBY.ASSAULT.VO.X02ASWAT10.RAID10"
-																	)
-																}}
-															</app-dialogue-line>
-														</p>
-														<p>
-															<app-dialogue-line
-																name="Perkins"
-															>
-																{{
-																	translationService.translateObject(
-																		"X0205A.MARKUS.NORTHSHOT.FA.X02APERKINS.INTERVENE"
-																	) | async
-																}}
-															</app-dialogue-line>
-														</p>
-													</div>
-												</app-conditioned-content>
-											</app-condition-group>
-										</div>
-									</app-conditioned-content>
-									<app-conditioned-content>
-										<div class="condition">
-											<p>Fail to save North</p>
-										</div>
-										<div class="content">
-											<app-condition-group>
-												<app-conditioned-content>
-													<div class="condition">
-														<p>
-															Connor became a
-															deviant - North
-															dies, Connor rescues
-															Markus
-														</p>
-													</div>
-													<div class="content">
-														<p>
-															<app-relation
-																[name]="
-																	RelationName.Jericho
-																"
-																[type]="
-																	RelationType.SmallDown
-																"
-															></app-relation>
-															<app-dialogue-line
-																name="North"
-															>
-																{{
-																	t(
-																		"X0205A.MARKUS.NORTHSHOT.FA.X02AMARLA.SAVEFAILURENORTHV2"
-																	)
-																}}
-															</app-dialogue-line>
-														</p>
-													</div>
-												</app-conditioned-content>
-												<app-conditioned-content>
-													<div class="condition">
-														<p>
-															Connor stayed a
-															machine - Markus
-															dies, North escapes
-														</p>
-													</div>
-													<div class="content">
-														<p>
-															<app-dialogue-line
-																name="North"
-															>
-																{{
-																	t(
-																		"X0205A.MARKUS.NORTHSHOT.FA.X02AMARLA.SAVEFAILURENORTHV2"
-																	)
-																}}
-															</app-dialogue-line>
-														</p>
-														<p>
-															<app-dialogue-line
-																name="Perkins"
-															>
-																{{
-																	translationService.translateObject(
-																		"X0205A.MARKUS.NORTHSHOT.FA.X02APERKINS.INTERVENE"
-																	) | async
-																}}
-															</app-dialogue-line>
-														</p>
-													</div>
-												</app-conditioned-content>
-											</app-condition-group>
-										</div>
-									</app-conditioned-content>
-								</app-condition-group>
-							</div>
-						</app-conditioned-content>
-					</app-condition-group>
-				</app-choice-item>
-				<app-choice-item
-					[choiceLabel]="
-						t('X0205A.MARKUS.NORTHSHOT.PC.SAVECHOICE.RUN')
-					"
-				>
-					<p>
-						<app-relation
-							[name]="RelationName.Jericho"
-							[type]="RelationType.SmallDown"
-						></app-relation>
-						<app-relation
-							[name]="RelationName.Simon"
-							[type]="RelationType.SmallDown"
-						></app-relation>
-						<app-relation
-							[name]="RelationName.Josh"
-							[type]="RelationType.LargeDown"
-						></app-relation>
-						<app-dialogue-line name="Simon">
-							{{
-								t(
-									"X0205A.MARKUS.NORTHSHOT.PC.X02ASIMON.RUNSIMON"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Josh">
-							{{
-								t("X0205A.MARKUS.NORTHSHOT.PC.X02AJOSH.RUNJOSH")
-							}}
-						</app-dialogue-line>
-					</p>
-				</app-choice-item>
-			</app-choice-group>
+					</app-choice-item>
+				</app-choice-group>
+			</section>
 		</section>
 
 		<mat-divider></mat-divider>

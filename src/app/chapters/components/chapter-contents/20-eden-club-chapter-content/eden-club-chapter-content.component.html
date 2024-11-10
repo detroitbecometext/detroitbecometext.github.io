@@ -37,7 +37,7 @@
 		</p>
 
 		<section aria-labelledby="look-android">
-			<h2 id="look-android">Looking at the androids for too long</h2>
+			<h2 id="look-android">Look at the androids for too long</h2>
 			<p>
 				<app-dialogue-line name="Hank">
 					{{ t("X0603C.EDENCLUB.REMINDER.PC.X06CHANK.HANKCONNOR.1") }}
@@ -49,7 +49,7 @@
 		</section>
 
 		<section aria-labelledby="listen-ben">
-			<h2 id="listen-ben">Listening to Ben</h2>
+			<h2 id="listen-ben">Listen to Ben</h2>
 			<p>
 				<app-dialogue-line name="Manager">
 					{{ t("X0603C.EDENCLUB.CHAD.PC.X06CFLOYD.MOVIEF") }}
@@ -141,42 +141,46 @@
 				/>
 			</app-observation>
 
-			<h3 id="blood">Analysing the blood</h3>
-			<p>
-				<app-dialogue-line name="Hank">
-					{{
-						translationService.translateObject(
-							"X0603C.CRIMESCENE.BLOOD.PC.X06CHANK.DISGUSTED"
-						) | async
-					}}
-				</app-dialogue-line>
-			</p>
-			<app-observation label="Blood">
-				<app-observation-item
-					[title]="t('MENU.OBSERVATION.06C.MP.BLUEBLOOD.TITLE')"
-					[subline1]="
-						t('MENU.OBSERVATION.06C.MP.BLUEBLOOD.SUBLINE01')
-					"
-					[subline2]="
-						t('MENU.OBSERVATION.06C.MP.BLUEBLOOD.SUBLINE02')
-					"
-				/>
-			</app-observation>
+			<section aria-labelledby="blood">
+				<h3 id="blood">Analyse the blood</h3>
+				<p>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0603C.CRIMESCENE.BLOOD.PC.X06CHANK.DISGUSTED"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+				<app-observation label="Blood">
+					<app-observation-item
+						[title]="t('MENU.OBSERVATION.06C.MP.BLUEBLOOD.TITLE')"
+						[subline1]="
+							t('MENU.OBSERVATION.06C.MP.BLUEBLOOD.SUBLINE01')
+						"
+						[subline2]="
+							t('MENU.OBSERVATION.06C.MP.BLUEBLOOD.SUBLINE02')
+						"
+					/>
+				</app-observation>
+			</section>
 
-			<h3 id="license">Hank looking at driver's license</h3>
-			<p>
-				<app-dialogue-line name="Hank">
-					{{
-						translationService.translateObject(
-							"X0603C.CRIMESCENE.WALLET.FA.X06CHANK.MOVIE"
-						) | async
-					}}
-				</app-dialogue-line>
-			</p>
+			<section aria-labelledby="license">
+				<h3 id="license">Hank looking at driver's license</h3>
+				<p>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0603C.CRIMESCENE.WALLET.FA.X06CHANK.MOVIE"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</section>
 		</section>
 
 		<section aria-labelledby="reconstruct">
-			<h2 id="reconstruct">Reconstructing</h2>
+			<h2 id="reconstruct">Reconstruct</h2>
 			<p>
 				<app-dialogue-line name="Connor">
 					{{
@@ -216,8 +220,9 @@
 				</app-dialogue-line>
 			</p>
 		</section>
+
 		<section aria-labelledby="connect">
-			<h2 id="connect">Connecting to the android</h2>
+			<h2 id="connect">Connect to the android</h2>
 			<p>
 				<app-dialogue-line name="Connor">
 					{{ t("X0603C.CRIMESCENE.TURNON.FA.X06CCONNOR.MOVIE.1") }}
@@ -545,7 +550,7 @@
 		</section>
 
 		<section aria-labelledby="leave-room">
-			<h2 id="leave-room">Leaving the room</h2>
+			<h2 id="leave-room">Leave the room</h2>
 			<app-unused-content>
 				<p>
 					<app-dialogue-line name="Manager">
@@ -663,113 +668,110 @@
 				</app-dialogue-line>
 			</p>
 
-			<app-condition-group>
-				<app-conditioned-content>
-					<div class="condition">
-						<h3 id="search-timeout">
-							<app-unlock-condition
-								[unlockType]="UnlockType.Time"
-								[bracketsOnlyAroundIcon]="true"
-							>
-								{{ t(CommonTranslationKey.TooMuchTime) }}
-							</app-unlock-condition>
-						</h3>
-					</div>
-					<div class="content">
+			<section aria-labelledby="search-timeout">
+				<h3 id="search-timeout">
+					<app-unlock-condition
+						[unlockType]="UnlockType.Time"
+						[bracketsOnlyAroundIcon]="true"
+					>
+						{{ t(CommonTranslationKey.TooMuchTime) }}
+					</app-unlock-condition>
+				</h3>
+				<p>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CHANK.HANK"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+
+				<app-choice-group>
+					<app-choice-item
+						[choiceLabel]="
+							t(
+								'X0603C.TRACKGAME.STILLSEARCHING.PC.CHOICEGROUP02.CONTINUE'
+							)
+						"
+					>
 						<p>
-							<app-dialogue-line name="Hank">
+							<app-dialogue-line name="Connor">
 								{{
 									translationService.translateObject(
-										"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CHANK.HANK"
+										"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CCONNOR.CONTINUE"
 									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CHANK.CONTINUE"
+									)
 								}}
 							</app-dialogue-line>
 						</p>
 
-						<app-choice-group>
-							<app-choice-item
-								[choiceLabel]="
+						<section aria-labelledby="search-timeout-again">
+							<h3 id="search-timeout-again">
+								Taking too much time again
+							</h3>
+							<p>
+								<app-relation
+									[name]="RelationName.Hank"
+									[type]="RelationType.SmallDown"
+								></app-relation>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CCONNOR.GIVEUP"
+										) | async
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Hank">
+									{{
+										t(
+											"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CHANK.GIVEUP"
+										)
+									}}
+								</app-dialogue-line>
+							</p>
+						</section>
+					</app-choice-item>
+					<app-choice-item
+						[choiceLabel]="
+							t(
+								'X0603C.TRACKGAME.STILLSEARCHING.PC.CHOICEGROUP02.GIVEUP'
+							)
+						"
+					>
+						<p>
+							<app-relation
+								[name]="RelationName.Hank"
+								[type]="RelationType.SmallDown"
+							></app-relation>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CCONNOR.GIVEUP"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
 									t(
-										'X0603C.TRACKGAME.STILLSEARCHING.PC.CHOICEGROUP02.CONTINUE'
+										"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CHANK.GIVEUP"
 									)
-								"
-							>
-								<p>
-									<app-dialogue-line name="Connor">
-										{{
-											translationService.translateObject(
-												"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CCONNOR.CONTINUE"
-											) | async
-										}}
-									</app-dialogue-line>
-									<app-dialogue-line name="Hank">
-										{{
-											t(
-												"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CHANK.CONTINUE"
-											)
-										}}
-									</app-dialogue-line>
-								</p>
-								<h3 id="search-timeout-again">
-									Taking too much time again
-								</h3>
-								<p>
-									<app-relation
-										[name]="RelationName.Hank"
-										[type]="RelationType.SmallDown"
-									></app-relation>
-									<app-dialogue-line name="Connor">
-										{{
-											translationService.translateObject(
-												"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CCONNOR.GIVEUP"
-											) | async
-										}}
-									</app-dialogue-line>
-									<app-dialogue-line name="Hank">
-										{{
-											t(
-												"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CHANK.GIVEUP"
-											)
-										}}
-									</app-dialogue-line>
-								</p>
-							</app-choice-item>
-							<app-choice-item
-								[choiceLabel]="
-									t(
-										'X0603C.TRACKGAME.STILLSEARCHING.PC.CHOICEGROUP02.GIVEUP'
-									)
-								"
-							>
-								<p>
-									<app-relation
-										[name]="RelationName.Hank"
-										[type]="RelationType.SmallDown"
-									></app-relation>
-									<app-dialogue-line name="Connor">
-										{{
-											translationService.translateObject(
-												"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CCONNOR.GIVEUP"
-											) | async
-										}}
-									</app-dialogue-line>
-									<app-dialogue-line name="Hank">
-										{{
-											t(
-												"X0603C.TRACKGAME.STILLSEARCHING.PC.X06CHANK.GIVEUP"
-											)
-										}}
-									</app-dialogue-line>
-								</p>
-							</app-choice-item>
-						</app-choice-group>
-					</div>
-				</app-conditioned-content>
-			</app-condition-group>
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-choice-item>
+				</app-choice-group>
+			</section>
 		</section>
 
 		<section aria-labelledby="rent">
-			<h2 id="rent">Asking Hank to rent a Traci</h2>
+			<h2 id="rent">Ask Hank to rent a Traci</h2>
 			<p>
 				<app-dialogue-line name="Machine">
 					{{
@@ -903,7 +905,7 @@
 		</section>
 
 		<section aria-labelledby="search-connect">
-			<h2 id="search-connect">Connecting to android</h2>
+			<h2 id="search-connect">Connect to android</h2>
 			<p>
 				<app-dialogue-line name="Connor">
 					{{ t("X0603C.TRACKGAME.BADCHOICE.FA.X06CCONNOR.MOVIE") }}
@@ -996,37 +998,38 @@
 				</li>
 			</ul>
 
-			<h3 id="search-connect-timeout">
-				<app-unlock-condition [unlockType]="UnlockType.Time">
-					{{ t(CommonTranslationKey.TooMuchTime) }}
-				</app-unlock-condition>
-			</h3>
-			<p>
-				<app-relation
-					[name]="RelationName.Hank"
-					[type]="RelationType.SmallDown"
-				></app-relation>
-
-				<app-dialogue-line name="Connor">
-					{{
-						translationService.translateObject(
-							"X0603C.TRACKGAME.TIMEOUT.PC.X06CCONNOR.MOVIE"
-						) | async
-					}}
-				</app-dialogue-line>
-				<app-dialogue-line name="Hank">
-					{{
-						translationService.translateObject(
-							"X0603C.TRACKGAME.TIMEOUT.PC.X06CHANK.MOVIE"
-						) | async
-					}}
-				</app-dialogue-line>
-			</p>
+			<section aria-labelledby="search-connect-timeout">
+				<h3 id="search-connect-timeout">
+					<app-unlock-condition [unlockType]="UnlockType.Time">
+						{{ t(CommonTranslationKey.TooMuchTime) }}
+					</app-unlock-condition>
+				</h3>
+				<p>
+					<app-relation
+						[name]="RelationName.Hank"
+						[type]="RelationType.SmallDown"
+					></app-relation>
+					<app-dialogue-line name="Connor">
+						{{
+							translationService.translateObject(
+								"X0603C.TRACKGAME.TIMEOUT.PC.X06CCONNOR.MOVIE"
+							) | async
+						}}
+					</app-dialogue-line>
+					<app-dialogue-line name="Hank">
+						{{
+							translationService.translateObject(
+								"X0603C.TRACKGAME.TIMEOUT.PC.X06CHANK.MOVIE"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
+			</section>
 		</section>
 
 		<section aria-labelledby="warehouse-found">
 			<h2 id="warehouse-found">
-				Finding out the Traci went through the staff door
+				Find out the Traci went through the staff door
 			</h2>
 			<p>
 				<app-dialogue-line name="Connor">
@@ -1078,56 +1081,50 @@
 			</app-dialogue-line>
 		</p>
 
-		<app-condition-group>
-			<app-conditioned-content>
-				<div class="condition">
-					<h2 id="warehouse-timeout">
-						<app-unlock-condition
-							[unlockType]="UnlockType.Time"
-							[bracketsOnlyAroundIcon]="true"
-						>
-							{{ t(CommonTranslationKey.TooMuchTime) }}
-						</app-unlock-condition>
-					</h2>
-				</div>
-				<div class="content">
-					<p>
-						<app-relation
-							[name]="RelationName.Hank"
-							[type]="RelationType.SmallDown"
-						></app-relation>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0603C.FINAL.GAMEOVERS.PC.X06CHANK.TIMER"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0603C.FINAL.HANKAGENDAFINISH.FA.X06CCONNOR.COMING"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0603C.FINAL.GAMEOVERS.PC.X06CCONNOR.LEAVE"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0603C.FINAL.GAMEOVERS.PC.X06CHANK.LEAVE"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-		</app-condition-group>
+		<section aria-labelledby="warehouse-timeout">
+			<h2 id="warehouse-timeout">
+				<app-unlock-condition
+					[unlockType]="UnlockType.Time"
+					[bracketsOnlyAroundIcon]="true"
+				>
+					{{ t(CommonTranslationKey.TooMuchTime) }}
+				</app-unlock-condition>
+			</h2>
+			<p>
+				<app-relation
+					[name]="RelationName.Hank"
+					[type]="RelationType.SmallDown"
+				></app-relation>
+				<app-dialogue-line name="Hank">
+					{{
+						translationService.translateObject(
+							"X0603C.FINAL.GAMEOVERS.PC.X06CHANK.TIMER"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Connor">
+					{{
+						translationService.translateObject(
+							"X0603C.FINAL.HANKAGENDAFINISH.FA.X06CCONNOR.COMING"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Connor">
+					{{
+						translationService.translateObject(
+							"X0603C.FINAL.GAMEOVERS.PC.X06CCONNOR.LEAVE"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Hank">
+					{{
+						translationService.translateObject(
+							"X0603C.FINAL.GAMEOVERS.PC.X06CHANK.LEAVE"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
 		<section aria-labelledby="traci-found">
 			<h2 id="traci-found">Find the Traci</h2>

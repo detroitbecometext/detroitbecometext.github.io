@@ -9,6 +9,7 @@ import { TranslationService } from '../../../../../shared/services/translation.s
 import { UnlockType } from '../../../../../shared/enums/unlock-type.enum';
 import { CommonTranslationKey } from '../../../../../shared/utils/common-translation-keys.enum';
 import { ConditionGroupComponent } from '../../../../../shared/components/condition-group/condition-group.component';
+import { UnusedContentComponent } from '../../../../../shared/components/unused-content/unused-content.component';
 
 @Component({
 	selector: 'app-screens',
@@ -22,6 +23,7 @@ import { ConditionGroupComponent } from '../../../../../shared/components/condit
 		RouterLink,
 		TranslocoModule,
 		ConditionGroupComponent,
+		UnusedContentComponent,
 	],
 	templateUrl: './screens.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

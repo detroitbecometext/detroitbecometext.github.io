@@ -63,14 +63,6 @@ for (let chapterId = 1; chapterId <= 40; chapterId++) {
 			.getByRole('region')
 			.count();
 
-		console.log(
-			'chapterId',
-			chapterId,
-			'headingCount',
-			headingCount,
-			'sectionCount',
-			sectionCount,
-		);
 		expect(headingCount).toBe(sectionCount);
 	});
 

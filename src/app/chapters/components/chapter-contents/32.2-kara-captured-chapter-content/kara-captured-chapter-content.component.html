@@ -71,14 +71,16 @@
 			</app-dialogue-line>
 		</p>
 
-		<h2 id="timeout-truck">
-			{{ t(CommonTranslationKey.TooMuchTime) }}
-		</h2>
-		<p>
-			<app-dialogue-line name="Soldier">
-				{{ t("X0911K.CAMP.HURRY.VO.X09KSWATM01.OUTNOW") }}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="timeout-truck">
+			<h2 id="timeout-truck">
+				{{ t(CommonTranslationKey.TooMuchTime) }}
+			</h2>
+			<p>
+				<app-dialogue-line name="Soldier">
+					{{ t("X0911K.CAMP.HURRY.VO.X09KSWATM01.OUTNOW") }}
+				</app-dialogue-line>
+			</p>
+		</section>
 	</section>
 
 	<section aria-labelledby="center">
@@ -454,37 +456,39 @@
 		<h1 id="explore-enclosure">Explore enclosure</h1>
 		<p>{{ t("GUI.MENU.TIME.04A.KC02") }}</p>
 
-		<h2 id="enter-enclosure">Going into the enclosure</h2>
-		<p>
-			<app-dialogue-line name="Kara">
-				{{ t("X0913K.ESCAPE.ALICE.FA.X09KKARA.CALLING03") }}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="enter-enclosure">
+			<h2 id="enter-enclosure">Going into the enclosure</h2>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{ t("X0913K.ESCAPE.ALICE.FA.X09KKARA.CALLING03") }}
+				</app-dialogue-line>
+			</p>
 
-		<app-choice-group>
-			<app-choice-item
-				[choiceLabel]="t('X0912K.CORRAL.ALICE.PC.LOOKINGFOR.CALL')"
-			>
-				<p>
-					<app-dialogue-line name="Kara">
-						{{ t("X0912K.CORRAL.ALICE.FA.X09KKARA.CALL01") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Kara">
-						{{ t("X0912K.CORRAL.ALICE.FA.X09KKARA.CALL02") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Kara">
-						{{ t("X0912K.CORRAL.ALICE.FA.X09KKARA.CALL03") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Kara">
-						{{
-							translationService.translateObject(
-								"X0912K.CORRAL.ALICE.FA.X09KKARA.ASK03"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</app-choice-item>
-		</app-choice-group>
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="t('X0912K.CORRAL.ALICE.PC.LOOKINGFOR.CALL')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0912K.CORRAL.ALICE.FA.X09KKARA.CALL01") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{ t("X0912K.CORRAL.ALICE.FA.X09KKARA.CALL02") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{ t("X0912K.CORRAL.ALICE.FA.X09KKARA.CALL03") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0912K.CORRAL.ALICE.FA.X09KKARA.ASK03"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+		</section>
 
 		<section aria-labelledby="drone">
 			<h2 id="drone">Android talking to drone</h2>
@@ -982,16 +986,18 @@
 						</app-choice-item>
 					</app-choice-group>
 
-					<h2 id="join-alice">Join Alice</h2>
-					<p>
-						<app-dialogue-line name="Soldier">
-							{{
-								translationService.translateObject(
-									"X0912K.CORRAL.GATE.VO.X09KSWATM05.OPENSOLDIER"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
+					<section aria-labelledby="join-alice">
+						<h2 id="join-alice">Join Alice</h2>
+						<p>
+							<app-dialogue-line name="Soldier">
+								{{
+									translationService.translateObject(
+										"X0912K.CORRAL.GATE.VO.X09KSWATM05.OPENSOLDIER"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</section>
 				</div>
 			</app-conditioned-content>
 		</app-condition-group>
@@ -999,7 +1005,6 @@
 
 	<section aria-labelledby="join-line">
 		<h1 id="join-line">Join line</h1>
-		<!-- TODO: Add sections -->
 		<p>{{ t("GUI.MENU.TIME.04A.KC03") }}</p>
 
 		<app-condition-group>
@@ -1018,19 +1023,23 @@
 						</app-dialogue-line>
 					</p>
 
-					<h2 id="talk-behind">Talk to android behind Kara</h2>
-					<p>
-						<app-dialogue-line name="Kara">
-							{{ t("X0913K.LINE.ANDROID.PC.X09KKARA.MARKUS") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Android">
-							{{
-								translationService.translateObject(
-									"X0913K.LINE.ANDROID.PC.X09KANDMLINE01.MARKUSAND"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
+					<section aria-labelledby="talk-behind">
+						<h2 id="talk-behind">Talk to android behind Kara</h2>
+						<p>
+							<app-dialogue-line name="Kara">
+								{{
+									t("X0913K.LINE.ANDROID.PC.X09KKARA.MARKUS")
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Android">
+								{{
+									translationService.translateObject(
+										"X0913K.LINE.ANDROID.PC.X09KANDMLINE01.MARKUSAND"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</section>
 				</div>
 			</app-conditioned-content>
 		</app-condition-group>
@@ -1045,211 +1054,237 @@
 			</app-dialogue-line>
 		</p>
 
-		<h2 id="drone-seen">Seen by drone</h2>
-		<p>
-			<app-dialogue-line name="Drone">
-				{{ t("X0913K.LINE.DRONE.VO.X09KDRONE.FAIL") }}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="drone-seen">
+			<h2 id="drone-seen">Seen by drone</h2>
+			<p>
+				<app-dialogue-line name="Drone">
+					{{ t("X0913K.LINE.DRONE.VO.X09KDRONE.FAIL") }}
+				</app-dialogue-line>
+			</p>
+		</section>
 
-		<h2 id="not-move">Do not move</h2>
-		<p>
-			<app-dialogue-line name="Soldier">
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.ADVANCE.VO.X09KSWATM09.WARNING01"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="not-move">
+			<h2 id="not-move">Do not move</h2>
+			<p>
+				<app-dialogue-line name="Soldier">
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.ADVANCE.VO.X09KSWATM09.WARNING01"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
-		<h2 id="mind-palace">Mind palace dialogues</h2>
+		<section aria-labelledby="mind-palace">
+			<h2 id="mind-palace">Mind palace dialogues</h2>
 
-		<ul>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD01") }}
-			</li>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD02") }}
-			</li>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD03") }}
-			</li>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD04") }}
-			</li>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD05") }}
-			</li>
-			<li>
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.VOICES.VO.X09KANDM08.HEAD06"
-					) | async
-				}}
-			</li>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD07") }}
-			</li>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD08") }}
-			</li>
-			<li>
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.VOICES.VO.X09KANDM08.HEAD09"
-					) | async
-				}}
-			</li>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.MARKUS01") }}
-			</li>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.MARKUS02") }}
-			</li>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.MARKUS03") }}
-			</li>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.MARKUS04") }}
-			</li>
-			<li>
-				{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.MARKUS05") }}
-			</li>
-		</ul>
+			<ul>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD01") }}
+				</li>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD02") }}
+				</li>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD03") }}
+				</li>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD04") }}
+				</li>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD05") }}
+				</li>
+				<li>
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.VOICES.VO.X09KANDM08.HEAD06"
+						) | async
+					}}
+				</li>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD07") }}
+				</li>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.HEAD08") }}
+				</li>
+				<li>
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.VOICES.VO.X09KANDM08.HEAD09"
+						) | async
+					}}
+				</li>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.MARKUS01") }}
+				</li>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.MARKUS02") }}
+				</li>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.MARKUS03") }}
+				</li>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.MARKUS04") }}
+				</li>
+				<li>
+					{{ t("X0913K.LINE.VOICES.VO.X09KANDM08.MARKUS05") }}
+				</li>
+			</ul>
+		</section>
 
-		<h2 id="call-alice">Call Alice</h2>
-		<p>
-			<app-dialogue-line name="Kara">
-				{{ t("X0912K.CORRAL.ALICE.VO.X09KKARA.CALL04") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Alice">
-				{{ t("X0913K.LINE.ALICE.FA.X09KALICE.KARA") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Kara">
-				{{ t("X0913K.LINE.ALICE.VO.X09KKARA.DONTMOVE") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Alice">
-				{{ t("X0913K.LINE.ALICE.VO.X09KALICE.DONTMOVEA") }}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="call-alice">
+			<h2 id="call-alice">Call Alice</h2>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{ t("X0912K.CORRAL.ALICE.VO.X09KKARA.CALL04") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Alice">
+					{{ t("X0913K.LINE.ALICE.FA.X09KALICE.KARA") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{ t("X0913K.LINE.ALICE.VO.X09KKARA.DONTMOVE") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Alice">
+					{{ t("X0913K.LINE.ALICE.VO.X09KALICE.DONTMOVEA") }}
+				</app-dialogue-line>
+			</p>
 
-		<app-choice-group>
-			<app-choice-item
-				[choiceLabel]="t('X0913K.LINE.ALICE.PC.TALKCHOICE.FIRM')"
-			>
-				<p>
-					<app-dialogue-line name="Kara">
-						{{ t("X0913K.LINE.ALICE.VO.X09KKARA.FIRM") }}
-					</app-dialogue-line>
-				</p>
-			</app-choice-item>
-			<app-choice-item
-				[choiceLabel]="t('X0913K.LINE.ALICE.PC.TALKCHOICE.OPTIMIST')"
-			>
-				<p>
-					<app-dialogue-line name="Kara">
-						{{ t("X0913K.LINE.ALICE.VO.X09KKARA.OPTIMIST") }}
-					</app-dialogue-line>
-				</p>
-			</app-choice-item>
-			<app-choice-item
-				[choiceLabel]="t('X0913K.LINE.ALICE.PC.TALKCHOICE.REASSURING')"
-			>
-				<p>
-					<app-dialogue-line name="Kara">
-						{{ t("X0913K.LINE.ALICE.VO.X09KKARA.REASSURING") }}
-					</app-dialogue-line>
-				</p>
-			</app-choice-item>
-			<app-choice-item
-				[choiceLabel]="t('X0913K.LINE.ALICE.PC.TALKCHOICE.DIRECT')"
-			>
-				<p>
-					<app-dialogue-line name="Kara">
-						{{
-							translationService.translateObject(
-								"X0913K.LINE.ALICE.VO.X09KKARA.DIRECT"
-							) | async
-						}}
-					</app-dialogue-line>
-				</p>
-			</app-choice-item>
-		</app-choice-group>
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="t('X0913K.LINE.ALICE.PC.TALKCHOICE.FIRM')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0913K.LINE.ALICE.VO.X09KKARA.FIRM") }}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0913K.LINE.ALICE.PC.TALKCHOICE.OPTIMIST')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0913K.LINE.ALICE.VO.X09KKARA.OPTIMIST") }}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0913K.LINE.ALICE.PC.TALKCHOICE.REASSURING')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0913K.LINE.ALICE.VO.X09KKARA.REASSURING") }}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t('X0913K.LINE.ALICE.PC.TALKCHOICE.DIRECT')"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								translationService.translateObject(
+									"X0913K.LINE.ALICE.VO.X09KKARA.DIRECT"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
 
-		<p>
-			<app-dialogue-line name="Alice">
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.ALICE.VO.X09KALICE.DONTLEAVE"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
+			<p>
+				<app-dialogue-line name="Alice">
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.ALICE.VO.X09KALICE.DONTLEAVE"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
-		<h2 id="talk-jerry-help">Talk to Jerry</h2>
-		<p>
-			<app-dialogue-line name="Jerry">
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.JERRY.VO.X09KJERRY02.HELP"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="talk-jerry-help">
+			<h2 id="talk-jerry-help">Talk to Jerry</h2>
+			<p>
+				<app-dialogue-line name="Jerry">
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.JERRY.VO.X09KJERRY02.HELP"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
-		<h2 id="talk-luther-help">Talk to Luther</h2>
-		<p>
-			<app-dialogue-line name="Luther">
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.LUTHER.VO.X09KLUTHER.ALICE"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="talk-luther-help">
+			<h2 id="talk-luther-help">Talk to Luther</h2>
+			<p>
+				<app-dialogue-line name="Luther">
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.LUTHER.VO.X09KLUTHER.ALICE"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
-		<h2 id="talk-ralph-help">Talk to Ralph</h2>
-		<p>
-			<app-dialogue-line name="Kara">
-				{{ t("X0912K.CORRAL.RALPH.VO.X09KKARA.RALPHKARATELEPATHY.1") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Ralph">
-				{{
-					translationService.translateObject(
-						"X0913K.ESCAPE.RALPH.VO.X09KRALPH.WANTOTHELP01"
-					) | async
-				}}
-			</app-dialogue-line>
-			<app-dialogue-line name="Kara">
-				{{ t("X0913K.ESCAPE.RALPH.VO.X09KKARA.WANTOTHELPKARA") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Ralph">
-				{{
-					translationService.translateObject(
-						"X0913K.ESCAPE.RALPH.VO.X09KRALPH.WANTOTHELP02"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="talk-ralph-help">
+			<h2 id="talk-ralph-help">Talk to Ralph</h2>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{
+						t(
+							"X0912K.CORRAL.RALPH.VO.X09KKARA.RALPHKARATELEPATHY.1"
+						)
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Ralph">
+					{{
+						translationService.translateObject(
+							"X0913K.ESCAPE.RALPH.VO.X09KRALPH.WANTOTHELP01"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{ t("X0913K.ESCAPE.RALPH.VO.X09KKARA.WANTOTHELPKARA") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Ralph">
+					{{
+						translationService.translateObject(
+							"X0913K.ESCAPE.RALPH.VO.X09KRALPH.WANTOTHELP02"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
-		<h2 id="talk-scarred-android-help">Talk to scarred android</h2>
-		<p>
-			<app-dialogue-line name="Android">
-				{{ t("X0913K.LINE.MOB.PC.X09KANDMOB01.HELP") }}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="talk-scarred-android-help">
+			<h2 id="talk-scarred-android-help">Talk to scarred android</h2>
+			<p>
+				<app-dialogue-line name="Android">
+					{{ t("X0913K.LINE.MOB.PC.X09KANDMOB01.HELP") }}
+				</app-dialogue-line>
+			</p>
+		</section>
 
-		<h2 id="talk-ahead">Talk to android ahead of Kara</h2>
-		<p>
-			<app-dialogue-line name="Kara">
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.ANDROID.PC.X09KKARA.WHY"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="talk-ahead">
+			<h2 id="talk-ahead">Talk to android ahead of Kara</h2>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.ANDROID.PC.X09KKARA.WHY"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
 		<mat-divider></mat-divider>
 
@@ -1392,278 +1427,287 @@
 
 		<mat-divider></mat-divider>
 
-		<h2 id="sacrifice-jerry">
-			{{ t("MENU.FLOWCHART.04A.KA.SACRIFICEJERRY") }}
-		</h2>
-		<p>
-			<app-dialogue-line name="Soldier">
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.JERRYHELP.VO.X09KSWATM09",
-						0,
-						2
-					) | async
-				}}
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.JERRYHELP.VO.X09KSWATM09.BACK04"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="sacrifice-jerry">
+			<h2 id="sacrifice-jerry">
+				{{ t("MENU.FLOWCHART.04A.KA.SACRIFICEJERRY") }}
+			</h2>
+			<p>
+				<app-dialogue-line name="Soldier">
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.JERRYHELP.VO.X09KSWATM09",
+							0,
+							2
+						) | async
+					}}
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.JERRYHELP.VO.X09KSWATM09.BACK04"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
-		<h2 id="sacrifice-ralph">Send Ralph</h2>
-		<p>
-			<app-dialogue-line name="Ralph">
-				{{
-					translationService.translateObject(
-						"X0913K.ESCAPE.RALPH.VO.X09KRALPH.SACRIFICE"
-					) | async
-				}}
-			</app-dialogue-line>
-			<app-dialogue-line name="Soldier">
-				{{ t("X0913K.ESCAPE.LUTHER.VO.X09KSWATM09.LUTHERDEAD01") }}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="sacrifice-ralph">
+			<h2 id="sacrifice-ralph">Send Ralph</h2>
+			<p>
+				<app-dialogue-line name="Ralph">
+					{{
+						translationService.translateObject(
+							"X0913K.ESCAPE.RALPH.VO.X09KRALPH.SACRIFICE"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Soldier">
+					{{ t("X0913K.ESCAPE.LUTHER.VO.X09KSWATM09.LUTHERDEAD01") }}
+				</app-dialogue-line>
+			</p>
+		</section>
 
-		<h2 id="sacrifice-scarred">Ask scarred android</h2>
-		<p>
-			<app-dialogue-line name="Soldier">
-				{{ t("X0913K.LINE.MOBHELP.VO.X09KSWATM04.WHAT") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Soldier">
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.MOBHELP.VO.X09KSWATM03.STOP"
-					) | async
-				}}
-				{{ t("X0913K.LINE.MOBHELP.VO.X09KSWATM03.INSIST") }}
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.MOBHELP.VO.X09KSWATM03.CONCLUSION"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="sacrifice-scarred">
+			<h2 id="sacrifice-scarred">Ask scarred android</h2>
+			<p>
+				<app-dialogue-line name="Soldier">
+					{{ t("X0913K.LINE.MOBHELP.VO.X09KSWATM04.WHAT") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Soldier">
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.MOBHELP.VO.X09KSWATM03.STOP"
+						) | async
+					}}
+					{{ t("X0913K.LINE.MOBHELP.VO.X09KSWATM03.INSIST") }}
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.MOBHELP.VO.X09KSWATM03.CONCLUSION"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
 		<mat-divider></mat-divider>
 
-		<h2 id="stress-100">Alice stress at 100%</h2>
-		<p>
-			<app-dialogue-line name="Kara">
-				{{ t("X0913K.LINE.ALICEFAIL.FA.X09KKARA.RUN") }}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="stress-100">
+			<h2 id="stress-100">Alice stress at 100%</h2>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{ t("X0913K.LINE.ALICEFAIL.FA.X09KKARA.RUN") }}
+				</app-dialogue-line>
+			</p>
 
-		<!-- TODO (V2): Add X0913K.LINE.ALICEFAIL.FA.X09KALICE.PROTKARA -->
-		<app-choice-group>
-			<app-choice-item
-				[choiceLabel]="
-					t('X0913K.LINE.ALICEFAIL.PC.PROTECTCHOICE.ALICE')
-				"
-			>
-				<p>
-					<app-dialogue-line name="Kara">
-						{{ t("X0912K.CORRAL.DRONEFAIL.FA.X09KKARA.DYING") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Alice">
-						{{ t("X0913K.LINE.ADVANCE.FA.X09KALICE.KARA") }}
-						{{
-							translationService.translateObject(
-								"X0913K.LINE.ALICEFAIL.FA.X09KALICE.PROTALICE"
-							) | async
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Soldier">
-						{{
-							t(
-								"X0913K.LINE.ALICEFAIL.VO.X09KSWATM09.PROTSOLDIER"
-							)
-						}}
-					</app-dialogue-line>
-				</p>
-			</app-choice-item>
-			<app-choice-item
-				[choiceLabel]="t('X0913K.LINE.ALICEFAIL.PC.PROTECTCHOICE.KARA')"
-			>
-				<p>
-					<app-dialogue-line name="Kara">
-						{{ t("X0912K.CORRAL.DRONEFAIL.FA.X09KKARA.DYING") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Alice">
-						{{ t("X0913K.ESCAPE.BARBEDWIRE.FA.X09KALICE.MUM.1") }}
-					</app-dialogue-line>
-					<app-dialogue-line name="Soldier">
-						{{
-							t(
-								"X0913K.LINE.ALICEFAIL.VO.X09KSWATM09.PROTSOLDIER"
-							)
-						}}
-					</app-dialogue-line>
-					<app-dialogue-line name="Kara">
-						{{ t("X0913K.LINE.ALICEFAIL.FA.X09KKARA.RUN") }}
-					</app-dialogue-line>
-				</p>
-			</app-choice-item>
-		</app-choice-group>
-
-		<h2 id="join-alice-success">Join Alice</h2>
-		<p>
-			<app-dialogue-line name="Alice">
-				{{
-					translationService.translateObject(
-						"X0913K.LINE.TOGETHER.PC.X09KALICE.JOIN"
-					) | async
-				}}
-			</app-dialogue-line>
-			<app-dialogue-line name="Kara">
-				{{ t("X0913K.LINE.TOGETHER.PC.X09KKARA.JOIN") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Soldier">
-				{{ t("X0913K.LINE.TOGETHER.VO.X09KSWATM09.MOVEIT") }}
-			</app-dialogue-line>
-		</p>
-
-		<h2 id="talk-luther-sacrifice">Talk to Luther</h2>
-		<p>
-			<app-dialogue-line name="Luther">
-				{{
-					translationService.translateObject(
-						"X0913K.ESCAPE.LUTHER.VO.X09KLUTHER.SACRIFICE",
-						0,
-						2
-					) | async
-				}}
-			</app-dialogue-line>
-			<app-dialogue-line name="Kara">
-				{{
-					translationService.translateObject(
-						"X0913K.ESCAPE.LUTHER.VO.X09KKARA.SACRIFICE"
-					) | async
-				}}
-			</app-dialogue-line>
-			<app-dialogue-line name="Luther">
-				{{
-					translationService.translateObject(
-						"X0913K.ESCAPE.LUTHER.VO.X09KLUTHER.SACRIFICE",
-						2
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
-
-		<h2 id="luther-recycling">Luther reaches Recycling Machine</h2>
-		<p>
-			<app-dialogue-line name="Alice">
-				{{ t("X0913K.ENDLINE.LUTHERGONNADIE.VO.X09KALICE.FAMILYA") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Luther">
-				{{
-					translationService.translateObject(
-						"X0913K.ENDLINE.LUTHERGONNADIE.VO.X09KLUTHER.FAMILY"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
-
-		<app-condition-group>
-			<app-conditioned-content>
-				<div class="condition"><p>Escape through the fence</p></div>
-				<div class="content">
+			<!-- TODO (V2): Add X0913K.LINE.ALICEFAIL.FA.X09KALICE.PROTKARA -->
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0913K.LINE.ALICEFAIL.PC.PROTECTCHOICE.ALICE')
+					"
+				>
 					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0912K.CORRAL.DRONEFAIL.FA.X09KKARA.DYING") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Alice">
+							{{ t("X0913K.LINE.ADVANCE.FA.X09KALICE.KARA") }}
+							{{
+								translationService.translateObject(
+									"X0913K.LINE.ALICEFAIL.FA.X09KALICE.PROTALICE"
+								) | async
+							}}
+						</app-dialogue-line>
 						<app-dialogue-line name="Soldier">
 							{{
 								t(
-									"X0913K.ESCAPE.BARBEDWIRE.VO.X09KSWATM09.STOP"
+									"X0913K.LINE.ALICEFAIL.VO.X09KSWATM09.PROTSOLDIER"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0913K.LINE.ALICEFAIL.PC.PROTECTCHOICE.KARA')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0912K.CORRAL.DRONEFAIL.FA.X09KKARA.DYING") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Alice">
+							{{
+								t("X0913K.ESCAPE.BARBEDWIRE.FA.X09KALICE.MUM.1")
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Soldier">
+							{{
+								t(
+									"X0913K.LINE.ALICEFAIL.VO.X09KSWATM09.PROTSOLDIER"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Kara">
+							{{ t("X0913K.LINE.ALICEFAIL.FA.X09KKARA.RUN") }}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+		</section>
+
+		<section aria-labelledby="join-alice-success">
+			<h2 id="join-alice-success">Join Alice</h2>
+			<p>
+				<app-dialogue-line name="Alice">
+					{{
+						translationService.translateObject(
+							"X0913K.LINE.TOGETHER.PC.X09KALICE.JOIN"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{ t("X0913K.LINE.TOGETHER.PC.X09KKARA.JOIN") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Soldier">
+					{{ t("X0913K.LINE.TOGETHER.VO.X09KSWATM09.MOVEIT") }}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<section aria-labelledby="talk-luther-sacrifice">
+			<h2 id="talk-luther-sacrifice">Talk to Luther</h2>
+			<p>
+				<app-dialogue-line name="Luther">
+					{{
+						translationService.translateObject(
+							"X0913K.ESCAPE.LUTHER.VO.X09KLUTHER.SACRIFICE",
+							0,
+							2
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Kara">
+					{{
+						translationService.translateObject(
+							"X0913K.ESCAPE.LUTHER.VO.X09KKARA.SACRIFICE"
+						) | async
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Luther">
+					{{
+						translationService.translateObject(
+							"X0913K.ESCAPE.LUTHER.VO.X09KLUTHER.SACRIFICE",
+							2
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<section aria-labelledby="luther-recycling">
+			<h2 id="luther-recycling">Luther reaches Recycling Machine</h2>
+			<p>
+				<app-dialogue-line name="Alice">
+					{{
+						t("X0913K.ENDLINE.LUTHERGONNADIE.VO.X09KALICE.FAMILYA")
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Luther">
+					{{
+						translationService.translateObject(
+							"X0913K.ENDLINE.LUTHERGONNADIE.VO.X09KLUTHER.FAMILY"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
+
+		<section aria-labelledby="escape-fence">
+			<h2 id="escape-fence">Escape through the fence</h2>
+			<p>
+				<app-dialogue-line name="Soldier">
+					{{ t("X0913K.ESCAPE.BARBEDWIRE.VO.X09KSWATM09.STOP") }}
+				</app-dialogue-line>
+			</p>
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0913K.ESCAPE.BARBEDWIRE.PC.CATCHED.FLEE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Alice">
+							{{
+								t(
+									"X0913K.ESCAPE.BARBEDWIRE.FA.X09KLUTHER.FIGHT"
+								)
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0913K.ESCAPE.BARBEDWIRE.PC.CATCHED.ATTACK')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{
+								t("X0913K.ESCAPE.BARBEDWIRE.FA.X09KKARA.ATTACK")
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Alice">
+							{{
+								t(
+									"X0913K.ESCAPE.BARBEDWIRE.FA.X09KALICE.ATTACKALICE"
+								)
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Luther">
+							{{
+								t(
+									"X0913K.ESCAPE.BARBEDWIRE.FA.X09KLUTHER.FIGHT"
 								)
 							}}
 						</app-dialogue-line>
 					</p>
 
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t('X0913K.ESCAPE.BARBEDWIRE.PC.CATCHED.FLEE')
-							"
-						>
-							<p>
-								<app-dialogue-line name="Alice">
-									{{
-										t(
-											"X0913K.ESCAPE.BARBEDWIRE.FA.X09KLUTHER.FIGHT"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t('X0913K.ESCAPE.BARBEDWIRE.PC.CATCHED.ATTACK')
-							"
-						>
-							<p>
-								<app-dialogue-line name="Kara">
-									{{
-										t(
-											"X0913K.ESCAPE.BARBEDWIRE.FA.X09KKARA.ATTACK"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Alice">
-									{{
-										t(
-											"X0913K.ESCAPE.BARBEDWIRE.FA.X09KALICE.ATTACKALICE"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Luther">
-									{{
-										t(
-											"X0913K.ESCAPE.BARBEDWIRE.FA.X09KLUTHER.FIGHT"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-
-							<app-condition-group>
-								<app-conditioned-content>
-									<div class="condition">
-										<p>
-											Fail the fight and Ralph is still
-											alive : Ralph saves Kara
-										</p>
-									</div>
-									<div class="content">
-										<p>
-											<app-dialogue-line name="Ralph">
-												{{
-													t(
-														"X0913K.ESCAPE.LASTCHANCE.PC.X09KRALPH.RUNRALPH"
-													)
-												}}
-											</app-dialogue-line>
-										</p>
-									</div>
-								</app-conditioned-content>
-							</app-condition-group>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="t(CommonTranslationKey.TooMuchTime)"
-						>
-							<p>
-								<app-dialogue-line name="Alice">
-									{{
-										translationService.translateObject(
-											"X0913K.ESCAPE.BARBEDWIRE.FA.X09KALICE.MUM"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-				</div>
-			</app-conditioned-content>
-		</app-condition-group>
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>
+									Fail the fight and Ralph is still alive :
+									Ralph saves Kara
+								</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Ralph">
+										{{
+											t(
+												"X0913K.ESCAPE.LASTCHANCE.PC.X09KRALPH.RUNRALPH"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="t(CommonTranslationKey.TooMuchTime)"
+				>
+					<p>
+						<app-dialogue-line name="Alice">
+							{{
+								translationService.translateObject(
+									"X0913K.ESCAPE.BARBEDWIRE.FA.X09KALICE.MUM"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+		</section>
 	</section>
 
 	<section aria-labelledby="escape-fail">

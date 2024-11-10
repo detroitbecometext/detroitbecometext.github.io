@@ -316,21 +316,27 @@
 					<p>Going upstairs before Todd</p>
 				</div>
 				<div class="content">
-					<h2 id="hallway-timeout">
-						<app-unlock-condition [unlockType]="UnlockType.Time">
-							Stay in the hallway
-						</app-unlock-condition>
-					</h2>
+					<section aria-labelledby="hallway-timeout">
+						<h2 id="hallway-timeout">
+							<app-unlock-condition
+								[unlockType]="UnlockType.Time"
+							>
+								Stay in the hallway
+							</app-unlock-condition>
+						</h2>
 
-					<p>
-						<app-dialogue-line name="Todd">
-							{{ t("X0201K.FATHER.OUTTAHERE.FA.X02KDAD.PUSH") }}
-						</app-dialogue-line>
-						<span class="note"
-							>Leads to the same outcome as "Going upstairs after
-							Todd".</span
-						>
-					</p>
+						<p>
+							<app-dialogue-line name="Todd">
+								{{
+									t("X0201K.FATHER.OUTTAHERE.FA.X02KDAD.PUSH")
+								}}
+							</app-dialogue-line>
+							<span class="note"
+								>Leads to the same outcome as "Going upstairs
+								after Todd".</span
+							>
+						</p>
+					</section>
 
 					<section aria-labelledby="take-gun">
 						<h2 id="take-gun">Take the gun</h2>
@@ -826,9 +832,7 @@
 					</section>
 
 					<section aria-labelledby="alice-room-after-todd">
-						<h2 id="alice-room-after-todd">
-							Going into Alice's room
-						</h2>
+						<h2 id="alice-room-after-todd">Go into Alice's room</h2>
 						<p>
 							<app-dialogue-line name="Alice">
 								{{
@@ -896,9 +900,6 @@
 										</app-dialogue-line>
 									</p>
 
-									<h3 id="fight-with-gun">
-										Kara and Todd fighting
-									</h3>
 									<p>
 										<app-dialogue-line name="Alice">
 											{{
@@ -1094,9 +1095,6 @@
 										</app-dialogue-line>
 									</p>
 
-									<h3 id="fight-no-gun">
-										Kara and Todd fighting
-									</h3>
 									<p>
 										<app-dialogue-line name="Alice">
 											{{
@@ -1133,121 +1131,49 @@
 										</app-dialogue-line>
 									</p>
 
-									<h3 id="fight-win">
-										Win the fight: Todd is stunned
-									</h3>
-									<p>
-										<app-dialogue-line name="Todd">
-											{{
-												translationService.translateObject(
-													"X0201K.TODD.WOUNDED.PC.X02KDAD.HELP"
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
+									<app-condition-group>
+										<app-conditioned-content>
+											<div class="condition">
+												<p>
+													Win the fight: Todd is
+													stunned
+												</p>
+											</div>
+											<div class="content">
+												<p>
+													<app-dialogue-line
+														name="Todd"
+													>
+														{{
+															translationService.translateObject(
+																"X0201K.TODD.WOUNDED.PC.X02KDAD.HELP"
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
 
-									<app-choice-item
-										[choiceLabel]="
-											t('MENU.FLOWCHART.02K.RUNAWAY')
-										"
-									>
-										<p>
-											<app-dialogue-line name="Todd">
-												{{
-													translationService.translateObject(
-														"X0201K.TODD.WOUNDED.PC.X02KDAD.HELP",
-														7,
-														10
-													) | async
-												}}
-												{{
-													translationService.translateObject(
-														"X0201K.RUNAWAY.MAINDOOR.PC.X02KDAD.TODD"
-													) | async
-												}}
-											</app-dialogue-line>
-										</p>
-
-										<app-condition-group>
-											<app-conditioned-content>
-												<div class="condition">
-													<p>Try to open the door</p>
-												</div>
-												<div class="content">
+												<app-choice-item
+													[choiceLabel]="
+														t(
+															'MENU.FLOWCHART.02K.RUNAWAY'
+														)
+													"
+												>
 													<p>
 														<app-dialogue-line
-															name="Alice"
+															name="Todd"
 														>
-															{{
-																t(
-																	"X0201K.RUNAWAY.MAINDOOR.PC.X02KALICE.NOKEY.1"
-																)
-															}}
-														</app-dialogue-line>
-													</p>
-													<app-condition-group>
-														<app-conditioned-content>
-															<div
-																class="condition"
-															>
-																<p>
-																	Reach the
-																	bus
-																</p>
-															</div>
-															<div
-																class="content"
-															>
-																<p>
-																	<app-dialogue-line
-																		name="Todd"
-																	>
-																		{{
-																			translationService.translateObject(
-																				"X0201K.RUNAWAY.SUCCESS.PC.X02KDAD.FRONTCOMEBACK",
-																				0,
-																				2
-																			)
-																				| async
-																		}}
-																	</app-dialogue-line>
-																</p>
-															</div>
-														</app-conditioned-content>
-													</app-condition-group>
-												</div>
-											</app-conditioned-content>
-											<app-conditioned-content>
-												<div class="condition">
-													<p>
-														Fail to open the door /
-														Fight downstairs
-													</p>
-												</div>
-												<div class="content">
-													<p>
-														<app-dialogue-line
-															name="Alice"
-														>
-															{{
-																t(
-																	"X0201K.FIGHT.ALICE.FA.X02KALICE.CUE06"
-																)
-															}}
 															{{
 																translationService.translateObject(
-																	"X0201K.FIGHT.ALICE.FA.X02KALICE.CUE05"
+																	"X0201K.TODD.WOUNDED.PC.X02KDAD.HELP",
+																	7,
+																	10
 																) | async
 															}}
 															{{
-																t(
-																	"X0201K.FIGHT.ALICE.FA.X02KALICE.CUE01"
-																)
-															}}
-															{{
-																t(
-																	"X0201K.FIGHT.ALICE.FA.X02KALICE.CUE06"
-																)
+																translationService.translateObject(
+																	"X0201K.RUNAWAY.MAINDOOR.PC.X02KDAD.TODD"
+																) | async
 															}}
 														</app-dialogue-line>
 													</p>
@@ -1258,9 +1184,8 @@
 																class="condition"
 															>
 																<p>
-																	Escape
-																	through the
-																	garden
+																	Try to open
+																	the door
 																</p>
 															</div>
 															<div
@@ -1268,37 +1193,152 @@
 															>
 																<p>
 																	<app-dialogue-line
-																		name="Todd"
+																		name="Alice"
 																	>
 																		{{
 																			t(
-																				"X0201K.RUNAWAY.SUCCESS.PC.X02KDAD.BACKCOMEBACK.1"
+																				"X0201K.RUNAWAY.MAINDOOR.PC.X02KALICE.NOKEY.1"
 																			)
 																		}}
 																	</app-dialogue-line>
 																</p>
+																<app-condition-group>
+																	<app-conditioned-content>
+																		<div
+																			class="condition"
+																		>
+																			<p>
+																				Reach
+																				the
+																				bus
+																			</p>
+																		</div>
+																		<div
+																			class="content"
+																		>
+																			<p>
+																				<app-dialogue-line
+																					name="Todd"
+																				>
+																					{{
+																						translationService.translateObject(
+																							"X0201K.RUNAWAY.SUCCESS.PC.X02KDAD.FRONTCOMEBACK",
+																							0,
+																							2
+																						)
+																							| async
+																					}}
+																				</app-dialogue-line>
+																			</p>
+																		</div>
+																	</app-conditioned-content>
+																</app-condition-group>
+															</div>
+														</app-conditioned-content>
+														<app-conditioned-content>
+															<div
+																class="condition"
+															>
+																<p>
+																	Fail to open
+																	the door /
+																	Fight
+																	downstairs
+																</p>
+															</div>
+															<div
+																class="content"
+															>
+																<p>
+																	<app-dialogue-line
+																		name="Alice"
+																	>
+																		{{
+																			t(
+																				"X0201K.FIGHT.ALICE.FA.X02KALICE.CUE06"
+																			)
+																		}}
+																		{{
+																			translationService.translateObject(
+																				"X0201K.FIGHT.ALICE.FA.X02KALICE.CUE05"
+																			)
+																				| async
+																		}}
+																		{{
+																			t(
+																				"X0201K.FIGHT.ALICE.FA.X02KALICE.CUE01"
+																			)
+																		}}
+																		{{
+																			t(
+																				"X0201K.FIGHT.ALICE.FA.X02KALICE.CUE06"
+																			)
+																		}}
+																	</app-dialogue-line>
+																</p>
+
+																<app-condition-group>
+																	<app-conditioned-content>
+																		<div
+																			class="condition"
+																		>
+																			<p>
+																				Escape
+																				through
+																				the
+																				garden
+																			</p>
+																		</div>
+																		<div
+																			class="content"
+																		>
+																			<p>
+																				<app-dialogue-line
+																					name="Todd"
+																				>
+																					{{
+																						t(
+																							"X0201K.RUNAWAY.SUCCESS.PC.X02KDAD.BACKCOMEBACK.1"
+																						)
+																					}}
+																				</app-dialogue-line>
+																			</p>
+																		</div>
+																	</app-conditioned-content>
+																</app-condition-group>
 															</div>
 														</app-conditioned-content>
 													</app-condition-group>
-												</div>
-											</app-conditioned-content>
-										</app-condition-group>
-									</app-choice-item>
+												</app-choice-item>
+											</div>
+										</app-conditioned-content>
+									</app-condition-group>
 
-									<h3 id="escape-fail">
-										Escape failed, Kara was destroyed
-									</h3>
-									<p>
-										<app-dialogue-line name="Todd">
-											{{
-												translationService.translateObject(
-													"X0201K.TIMEOUT.ALICEDEAD.PC.X02KDAD.GAMEOVER",
-													1,
-													4
-												) | async
-											}}
-										</app-dialogue-line>
-									</p>
+									<app-condition-group>
+										<app-conditioned-content>
+											<div class="condition">
+												<p>
+													Escape failed, Kara was
+													destroyed
+												</p>
+											</div>
+											<div class="content">
+												<p>
+													<app-dialogue-line
+														name="Todd"
+													>
+														{{
+															translationService.translateObject(
+																"X0201K.TIMEOUT.ALICEDEAD.PC.X02KDAD.GAMEOVER",
+																1,
+																4
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
+											</div>
+										</app-conditioned-content>
+									</app-condition-group>
 								</div>
 							</app-conditioned-content>
 						</app-condition-group>

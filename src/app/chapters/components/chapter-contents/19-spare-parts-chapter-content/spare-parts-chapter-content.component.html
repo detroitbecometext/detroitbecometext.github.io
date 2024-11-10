@@ -51,16 +51,18 @@
 			</app-dialogue-line>
 		</p>
 
-		<h2 id="timeout">
-			<app-unlock-condition [unlockType]="UnlockType.Time">
-				{{ t(CommonTranslationKey.TooMuchTime) }}
-			</app-unlock-condition>
-		</h2>
-		<p>
-			<app-dialogue-line name="North">
-				{{ t("X0602M.DOCKS.PROGRESSION.VO.X06MMARLA.WRONGWAY01") }}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="timeout">
+			<h2 id="timeout">
+				<app-unlock-condition [unlockType]="UnlockType.Time">
+					{{ t(CommonTranslationKey.TooMuchTime) }}
+				</app-unlock-condition>
+			</h2>
+			<p>
+				<app-dialogue-line name="North">
+					{{ t("X0602M.DOCKS.PROGRESSION.VO.X06MMARLA.WRONGWAY01") }}
+				</app-dialogue-line>
+			</p>
+		</section>
 
 		<mat-divider></mat-divider>
 
@@ -121,7 +123,7 @@
 		</p>
 
 		<section aria-labelledby="attack-drone">
-			<h2 id="attack-drone">Attacking the drone</h2>
+			<h2 id="attack-drone">Attack the drone</h2>
 
 			<app-condition-group>
 				<app-conditioned-content>
@@ -410,7 +412,7 @@
 		</p>
 
 		<section aria-labelledby="check-crate">
-			<h2 id="check-crate">Checking the bigger crate</h2>
+			<h2 id="check-crate">Check the bigger crate</h2>
 			<p>
 				<app-dialogue-line name="Markus">
 					{{
@@ -586,7 +588,7 @@
 		</app-choice-group>
 
 		<section aria-labelledby="john-join">
-			<h2 id="john-join">Let John join the group - Stealing the key</h2>
+			<h2 id="john-join">Let John join the group - Steal the key</h2>
 			<p>
 				<app-dialogue-line name="John">
 					{{
@@ -694,7 +696,6 @@
 						</app-dialogue-line>
 					</p>
 
-					<h3 id="control-room">In the control room</h3>
 					<p>
 						<app-dialogue-line name="Guard 1">
 							{{
@@ -958,16 +959,24 @@
 						</app-conditioned-content>
 					</app-condition-group>
 
-					<h3 id="stole-key">Stole the key - go back to the truck</h3>
-					<p>
-						<app-dialogue-line name="North">
-							{{
-								translationService.translateObject(
-									"X0602M.EXITGOTKEYNOALERT.SOWHAT.PC.X06MMARLA.OPENTRUCK"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Stole the key - go back to the truck</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="North">
+										{{
+											translationService.translateObject(
+												"X0602M.EXITGOTKEYNOALERT.SOWHAT.PC.X06MMARLA.OPENTRUCK"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
 				</app-choice-item>
 				<app-choice-item
 					[choiceLabel]="
@@ -1026,45 +1035,42 @@
 				</app-dialogue-line>
 			</p>
 
-			<h3 id="running-away-timeout">
-				<app-unlock-condition [unlockType]="UnlockType.Time">
-					{{ t(CommonTranslationKey.TooMuchTime) }}
-				</app-unlock-condition>
-			</h3>
-			<p>
-				<app-dialogue-line name="North">
-					{{
-						t(
-							"X0602M.EXITALERTREMINDER.CALLBACK.PC.X06MMARLA.REMINDER"
-						)
-					}}
-				</app-dialogue-line>
-			</p>
+			<section aria-labelledby="running-away-timeout">
+				<h3 id="running-away-timeout">
+					<app-unlock-condition [unlockType]="UnlockType.Time">
+						{{ t(CommonTranslationKey.TooMuchTime) }}
+					</app-unlock-condition>
+				</h3>
+				<p>
+					<app-dialogue-line name="North">
+						{{
+							t(
+								"X0602M.EXITALERTREMINDER.CALLBACK.PC.X06MMARLA.REMINDER"
+							)
+						}}
+					</app-dialogue-line>
+				</p>
+			</section>
 
-			<app-condition-group>
-				<app-conditioned-content>
-					<div class="condition"><p>Fail to escape</p></div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="North">
-								{{
-									t(
-										"X0602M.EXITALERTREMINDER.GAMEOVER.PC.X06MMARLA.FAIL"
-									)
-								}}
-							</app-dialogue-line>
-							<span class="note">
-								Will lead to the
-								<span class="name"
-									>Markus failed to escape and had to be
-									rescued</span
-								>
-								outcome.
-							</span>
-						</p>
-					</div>
-				</app-conditioned-content>
-			</app-condition-group>
+			<section aria-labelledby="running-away-fail">
+				<h3 id="running-away-fail">Fail to escape</h3>
+				<p>
+					<app-dialogue-line name="North">
+						{{
+							t(
+								"X0602M.EXITALERTREMINDER.GAMEOVER.PC.X06MMARLA.FAIL"
+							)
+						}}
+					</app-dialogue-line>
+					<span class="note">
+						Will lead to the
+						<span class="name"
+							>Markus failed to escape and had to be rescued</span
+						>
+						outcome.
+					</span>
+				</p>
+			</section>
 		</section>
 	</section>
 

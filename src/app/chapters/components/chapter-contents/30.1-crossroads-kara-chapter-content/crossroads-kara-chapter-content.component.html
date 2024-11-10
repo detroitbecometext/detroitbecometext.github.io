@@ -582,8 +582,8 @@
 						</p>
 					</div>
 					<div class="content">
-						<h3 id="flashback">Flashback</h3>
 						<p>
+							<span class="note">Flashback</span>
 							<app-dialogue-line name="Todd">
 								{{
 									translationService.translateObject(
@@ -727,128 +727,140 @@
 
 		<!-- scene change from Connor in the captain's cabin -->
 
-		<h2 id="jericho-attack">Jericho under attack</h2>
+		<section aria-labelledby="jericho-attack">
+			<h2 id="jericho-attack">Jericho under attack</h2>
 
-		<app-condition-group>
-			<app-conditioned-content>
-				<div class="condition"><p>Luther is alive</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Luther">
-							{{
-								t(
-									"X0201A.INSIDE.HELICOPTERS.PC.X02ALUTHER.SURPRISE"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-		</app-condition-group>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Luther is alive</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Luther">
+								{{
+									t(
+										"X0201A.INSIDE.HELICOPTERS.PC.X02ALUTHER.SURPRISE"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
 
-		<p>
-			<app-dialogue-line name="Kara">
-				{{ t("X0201A.INSIDE.HELICOPTERS.PC.X02AKARA.SURPRISE") }}
-			</app-dialogue-line>
-		</p>
+			<p>
+				<app-dialogue-line name="Kara">
+					{{ t("X0201A.INSIDE.HELICOPTERS.PC.X02AKARA.SURPRISE") }}
+				</app-dialogue-line>
+			</p>
 
-		<p>
-			<app-dialogue-line name="Soldier">
-				{{ t("X5072X.MILITARY.FIGHT.VO.MANAWI.ORDERGO01") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Soldier">
-				{{ t("X5072X.MILITARY.FIGHT.VO.MANDCO.ORDERGO03") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Soldier">
-				{{ t("X5072X.MILITARY.FIGHT.VO.MANORA.ADVISED") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Soldier">
-				{{ t("X5072X.MILITARY.FIGHT.VO.WOMLKE.EYESONTARGET") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Perkins">
-				{{ t("X0205A.INTRO.RATS.PC.X02APERKINS.MAZE") }}
-			</app-dialogue-line>
-		</p>
+			<p>
+				<app-dialogue-line name="Soldier">
+					{{ t("X5072X.MILITARY.FIGHT.VO.MANAWI.ORDERGO01") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Soldier">
+					{{ t("X5072X.MILITARY.FIGHT.VO.MANDCO.ORDERGO03") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Soldier">
+					{{ t("X5072X.MILITARY.FIGHT.VO.MANORA.ADVISED") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Soldier">
+					{{ t("X5072X.MILITARY.FIGHT.VO.WOMLKE.EYESONTARGET") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Perkins">
+					{{ t("X0205A.INTRO.RATS.PC.X02APERKINS.MAZE") }}
+				</app-dialogue-line>
+			</p>
 
-		<app-condition-group>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>Alice is DISTANT, but Kara chose LOOK FOR ALICE</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-unlock-condition [unlockType]="UnlockType.Lock">
-							Alice relation is below WARM and choose DISTANT
-						</app-unlock-condition>
-						<app-relation
-							[name]="RelationName.Alice"
-							[type]="RelationType.LargeUp"
-						></app-relation>
-						<app-dialogue-line name="Kara">
-							{{
-								t("X0502K.LOCKUPROOM.ALICE.PC.X05KKARA.FOUND.1")
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Alice">
-							{{
-								t(
-									"X0502K.LOCKUPROOM.ALICE.PC.X05KALICE.FOUND.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Kara">
-							{{
-								t("X0502K.LOCKUPROOM.ALICE.PC.X05KKARA.FOUND.3")
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-		</app-condition-group>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Alice is DISTANT, but Kara chose LOOK FOR ALICE</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-unlock-condition
+								[unlockType]="UnlockType.Lock"
+							>
+								Alice relation is below WARM and choose DISTANT
+							</app-unlock-condition>
+							<app-relation
+								[name]="RelationName.Alice"
+								[type]="RelationType.LargeUp"
+							></app-relation>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0502K.LOCKUPROOM.ALICE.PC.X05KKARA.FOUND.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Alice">
+								{{
+									t(
+										"X0502K.LOCKUPROOM.ALICE.PC.X05KALICE.FOUND.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Kara">
+								{{
+									t(
+										"X0502K.LOCKUPROOM.ALICE.PC.X05KKARA.FOUND.3"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+		</section>
 
-		<h2 id="wrong-way">Going the wrong way</h2>
-		<p>
-			<app-dialogue-line name="Alice">
-				{{ t("X0201K.FIGHT.ALICE.FA.X02KALICE.CUE03") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Alice">
-				{{
-					translationService.translateObject(
-						"X0204A.CABIN.FIGHT.FA.X02AALICE.SUCCESS"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="wrong-way">
+			<h2 id="wrong-way">Go the wrong way</h2>
+			<p>
+				<app-dialogue-line name="Alice">
+					{{ t("X0201K.FIGHT.ALICE.FA.X02KALICE.CUE03") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Alice">
+					{{
+						translationService.translateObject(
+							"X0204A.CABIN.FIGHT.FA.X02AALICE.SUCCESS"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
-		<h2 id="shot">Getting shot</h2>
-		<p>
-			<app-dialogue-line name="Alice">
-				{{
-					translationService.translateObject(
-						"X0204A.PANIC.INDICATION.FA.X02AALICE.YOUBLEED"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="shot">
+			<h2 id="shot">Get shot</h2>
+			<p>
+				<app-dialogue-line name="Alice">
+					{{
+						translationService.translateObject(
+							"X0204A.PANIC.INDICATION.FA.X02AALICE.YOUBLEED"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
 
-		<app-condition-group>
-			<app-conditioned-content>
-				<div class="condition">
-					<h3 id="timeout">
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
 						<app-unlock-condition [unlockType]="UnlockType.Time">
 							Out of time or wrong way
 						</app-unlock-condition>
-					</h3>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Soldier">
-							{{ t("X0911K.CAMP.ORDER.VO.X09KSWATM02.HANDS") }}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-		</app-condition-group>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Soldier">
+								{{
+									t("X0911K.CAMP.ORDER.VO.X09KSWATM02.HANDS")
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+		</section>
 
 		<mat-divider></mat-divider>
 
@@ -886,7 +898,6 @@
 						</app-dialogue-line>
 					</p>
 
-					<h3 id="luther-shot">Luther gets shot</h3>
 					<p>
 						<app-dialogue-line name="Kara">
 							{{
@@ -927,7 +938,6 @@
 						</app-dialogue-line>
 					</p>
 
-					<h2 id="android-open-door">Android opens door</h2>
 					<p>
 						<app-dialogue-line name="Kara">
 							{{
@@ -1381,7 +1391,7 @@
 									}}
 								</app-dialogue-line>
 							</p>
-							<h2 id="escape">Escape</h2>
+
 							<p>
 								<app-dialogue-line name="Kara">
 									{{

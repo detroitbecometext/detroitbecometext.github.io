@@ -831,32 +831,38 @@
 							</app-choice-item>
 						</app-choice-group>
 
-						<h3 id="squat-kara-found">Connor finds Kara</h3>
-						<p>
-							<app-dialogue-line name="Ralph">
-								{{
-									t("X0402K.SQUAT.KARAFOUND.PC.X04KRALPH.RUN")
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Hank">
-								{{
-									t("X0402K.SQUAT.KARAFOUND.PC.X04CHANK.HANK")
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Connor">
-								{{
-									t(
-										"X0402K.SQUAT.KARAFOUND.PC.X04CCONNOR.CONNOR"
-									)
-								}}
-							</app-dialogue-line>
-							<span class="note"
-								>Leads to
-								<a routerLink="./" fragment="pursuit"
-									>Connor pursues Kara</a
-								>.</span
-							>
-						</p>
+						<section aria-labelledby="squat-kara-found">
+							<h3 id="squat-kara-found">Connor finds Kara</h3>
+							<p>
+								<app-dialogue-line name="Ralph">
+									{{
+										t(
+											"X0402K.SQUAT.KARAFOUND.PC.X04KRALPH.RUN"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Hank">
+									{{
+										t(
+											"X0402K.SQUAT.KARAFOUND.PC.X04CHANK.HANK"
+										)
+									}}
+								</app-dialogue-line>
+								<app-dialogue-line name="Connor">
+									{{
+										t(
+											"X0402K.SQUAT.KARAFOUND.PC.X04CCONNOR.CONNOR"
+										)
+									}}
+								</app-dialogue-line>
+								<span class="note"
+									>Leads to
+									<a routerLink="./" fragment="pursuit"
+										>Connor pursues Kara</a
+									>.</span
+								>
+							</p>
+						</section>
 					</div>
 				</app-conditioned-content>
 				<app-conditioned-content>
@@ -999,104 +1005,92 @@
 				</app-conditioned-content>
 			</app-condition-group>
 
-			<h3 id="squat-upstairs">Going upstairs</h3>
-			<p>
-				<app-dialogue-line name="Connor">
-					{{ t("X0402K.SQUAT.EXPLORE.PC.X04KCONNOR.UPSTAIRS") }}
-				</app-dialogue-line>
-				<app-dialogue-line name="Ralph">
-					{{
-						translationService.translateObject(
-							"X0402K.SQUAT.EXPLORE.PC.X04KRALPH.UPSTAIRS"
-						) | async
-					}}
-				</app-dialogue-line>
-			</p>
+			<section aria-labelledby="squat-upstairs">
+				<h3 id="squat-upstairs">Go upstairs</h3>
+				<p>
+					<app-dialogue-line name="Connor">
+						{{ t("X0402K.SQUAT.EXPLORE.PC.X04KCONNOR.UPSTAIRS") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Ralph">
+						{{
+							translationService.translateObject(
+								"X0402K.SQUAT.EXPLORE.PC.X04KRALPH.UPSTAIRS"
+							) | async
+						}}
+					</app-dialogue-line>
+				</p>
 
-			<app-unused-content>
-				<app-dialogue-line name="Connor">
-					{{ t("X0402K.SQUAT.EXPLORE.PC.X04KCONNOR.MAINDOOR") }}
-				</app-dialogue-line>
-				<app-dialogue-line name="Ralph">
-					{{
-						translationService.translateObject(
-							"X0402K.SQUAT.EXPLORE.PC.X04KRALPH.MAINDOOR"
-						) | async
-					}}
-				</app-dialogue-line>
-			</app-unused-content>
+				<app-unused-content>
+					<app-dialogue-line name="Connor">
+						{{ t("X0402K.SQUAT.EXPLORE.PC.X04KCONNOR.MAINDOOR") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Ralph">
+						{{
+							translationService.translateObject(
+								"X0402K.SQUAT.EXPLORE.PC.X04KRALPH.MAINDOOR"
+							) | async
+						}}
+					</app-dialogue-line>
+				</app-unused-content>
+			</section>
 
-			<app-condition-group>
-				<app-conditioned-content>
-					<div class="condition">
-						<h3 id="squat-timeout">
-							<app-unlock-condition
-								[unlockType]="UnlockType.Time"
-							>
-								{{ t(CommonTranslationKey.TooMuchTime) }}
-							</app-unlock-condition>
-						</h3>
-					</div>
-					<div class="content">
-						<p>
-							<app-dialogue-line name="Hank">
-								{{ t("X0402K.SQUAT.EXPLORE.VO.X04KHANK.HANK") }}
-							</app-dialogue-line>
-							<app-dialogue-line name="Connor">
-								{{
-									t(
-										"X0402K.SQUAT.EXPLORE.FA.X04CCONNOR.COMING"
-									)
-								}}
-							</app-dialogue-line>
-						</p>
+			<section aria-labelledby="squat-timeout">
+				<h3 id="squat-timeout">
+					<app-unlock-condition [unlockType]="UnlockType.Time">
+						{{ t(CommonTranslationKey.TooMuchTime) }}
+					</app-unlock-condition>
+				</h3>
+				<p>
+					<app-dialogue-line name="Hank">
+						{{ t("X0402K.SQUAT.EXPLORE.VO.X04KHANK.HANK") }}
+					</app-dialogue-line>
+					<app-dialogue-line name="Connor">
+						{{ t("X0402K.SQUAT.EXPLORE.FA.X04CCONNOR.COMING") }}
+					</app-dialogue-line>
+				</p>
 
-						<h3 id="squat-timeout-again">
-							Taking too much time again
-						</h3>
-						<p>
-							<app-dialogue-line name="Hank">
-								{{
-									translationService.translateObject(
-										"X0402K.SQUAT.NOKARA.PC.X04KHANK.LEAVE",
-										0,
-										3
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X0402K.SQUAT.NOKARA.PC.X04KCONNOR.LEAVE"
-									) | async
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Hank">
-								{{
-									translationService.translateObject(
-										"X0402K.SQUAT.NOKARA.PC.X04KHANK.LEAVE",
-										3
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-						<p>
-							<app-dialogue-line name="Kara">
-								{{
-									t("X0402K.SQUAT.NOKARA.PC.X04KKARA.THANKS")
-								}}
-							</app-dialogue-line>
-							<app-dialogue-line name="Ralph">
-								{{
-									translationService.translateObject(
-										"X0402K.SQUAT.NOKARA.PC.X04KRALPH.THANKS"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</div>
-				</app-conditioned-content>
-			</app-condition-group>
+				<section aria-labelledby="squat-timeout-again">
+					<h3 id="squat-timeout-again">Taking too much time again</h3>
+					<p>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0402K.SQUAT.NOKARA.PC.X04KHANK.LEAVE",
+									0,
+									3
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Connor">
+							{{
+								translationService.translateObject(
+									"X0402K.SQUAT.NOKARA.PC.X04KCONNOR.LEAVE"
+								) | async
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0402K.SQUAT.NOKARA.PC.X04KHANK.LEAVE",
+									3
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+					<p>
+						<app-dialogue-line name="Kara">
+							{{ t("X0402K.SQUAT.NOKARA.PC.X04KKARA.THANKS") }}
+						</app-dialogue-line>
+						<app-dialogue-line name="Ralph">
+							{{
+								translationService.translateObject(
+									"X0402K.SQUAT.NOKARA.PC.X04KRALPH.THANKS"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</section>
+			</section>
 		</section>
 	</section>
 
@@ -1201,107 +1195,113 @@
 			</app-dialogue-line>
 		</p>
 
-		<h2 id="tv">
-			<app-unlock-condition [unlockType]="UnlockType.Tv">
-				{{ t(CommonTranslationKey.WatchTv) }}
-			</app-unlock-condition>
-		</h2>
+		<section aria-labelledby="tv">
+			<h2 id="tv">
+				<app-unlock-condition [unlockType]="UnlockType.Tv">
+					{{ t(CommonTranslationKey.WatchTv) }}
+				</app-unlock-condition>
+			</h2>
 
-		<app-condition-group>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						Todd was killed in
-						<a [routerLink]="['/chapters', 7]">Stormy Night</a>
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-relation
-							[name]="RelationName.PublicOpinion"
-							[type]="RelationType.SmallDown"
-						></app-relation>
-						<app-dialogue-line name="Channel 16 - Joss Douglas">
-							{{
-								translationService.translateObject(
-									"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDDEAD01"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Todd was killed in
+							<a [routerLink]="['/chapters', 7]">Stormy Night</a>
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-relation
+								[name]="RelationName.PublicOpinion"
+								[type]="RelationType.SmallDown"
+							></app-relation>
+							<app-dialogue-line name="Channel 16 - Joss Douglas">
+								{{
+									translationService.translateObject(
+										"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDDEAD01"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
 
-					<app-condition-group>
-						<app-conditioned-content>
-							<div class="condition"><p>Kara shot Todd</p></div>
-							<div class="content">
-								<p>
-									<app-dialogue-line name="Alice">
-										{{
-											translationService.translateObject(
-												"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.KARAKILLEDTODD"
-											) | async
-										}}
-									</app-dialogue-line>
-								</p>
-							</div>
-						</app-conditioned-content>
-						<app-conditioned-content>
-							<div class="condition"><p>Alice shot Todd</p></div>
-							<div class="content">
-								<p>
-									<app-dialogue-line name="Alice">
-										{{
-											translationService.translateObject(
-												"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.ALICEKILLEDTODD"
-											) | async
-										}}
-									</app-dialogue-line>
-								</p>
-							</div>
-						</app-conditioned-content>
-					</app-condition-group>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition"><p>Todd is alive</p></div>
-				<div class="content">
-					<p>
-						<app-relation
-							[name]="RelationName.PublicOpinion"
-							[type]="RelationType.SmallDown"
-						></app-relation>
-						<app-dialogue-line name="Channel 16 - Joss Douglas">
-							{{
-								translationService.translateObject(
-									"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDALIVE01A"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Todd">
-							{{
-								translationService.translateObject(
-									"X0401K.TV.TODDONTV.PC.X04KDAD.TODDALIVE01T"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Channel 16 - Joss Douglas">
-							{{
-								translationService.translateObject(
-									"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDALIVE01B"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Alice">
-							{{
-								translationService.translateObject(
-									"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.TODDNOTKILLED"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-		</app-condition-group>
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Kara shot Todd</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Alice">
+											{{
+												translationService.translateObject(
+													"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.KARAKILLEDTODD"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>Alice shot Todd</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Alice">
+											{{
+												translationService.translateObject(
+													"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.ALICEKILLEDTODD"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition"><p>Todd is alive</p></div>
+					<div class="content">
+						<p>
+							<app-relation
+								[name]="RelationName.PublicOpinion"
+								[type]="RelationType.SmallDown"
+							></app-relation>
+							<app-dialogue-line name="Channel 16 - Joss Douglas">
+								{{
+									translationService.translateObject(
+										"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDALIVE01A"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Todd">
+								{{
+									translationService.translateObject(
+										"X0401K.TV.TODDONTV.PC.X04KDAD.TODDALIVE01T"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Channel 16 - Joss Douglas">
+								{{
+									translationService.translateObject(
+										"X0401K.TV.TODDONTV.PC.X04KJOSS.TODDALIVE01B"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Alice">
+								{{
+									translationService.translateObject(
+										"X0401K.MOTEL.TOUGHTALK.PC.X04KALICE.TODDNOTKILLED"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+		</section>
 
 		<mat-divider></mat-divider>
 
@@ -1624,12 +1624,14 @@
 				</app-dialogue-line>
 			</p>
 
-			<h3 id="motel-room">Going into the room</h3>
-			<p>
-				<app-dialogue-line name="Hank">
-					{{ t("X0401K.MOTEL.ROOM.PC.X04KHANK.LEFT") }}
-				</app-dialogue-line>
-			</p>
+			<section aria-labelledby="motel-room">
+				<h3 id="motel-room">Go into the room</h3>
+				<p>
+					<app-dialogue-line name="Hank">
+						{{ t("X0401K.MOTEL.ROOM.PC.X04KHANK.LEFT") }}
+					</app-dialogue-line>
+				</p>
+			</section>
 		</section>
 	</section>
 
@@ -1678,19 +1680,21 @@
 			</app-dialogue-line>
 		</p>
 
-		<h2 id="chase-timeout">
-			<app-unlock-condition [unlockType]="UnlockType.Time">
-				{{ t(CommonTranslationKey.TooMuchTime) }}
-			</app-unlock-condition>
-		</h2>
-		<p>
-			<app-dialogue-line name="Connor">
-				{{ t("X0405K.CHASEV2.NOTNOTICED.PC.X04KCONNOR.LOST") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Hank">
-				{{ t("X0405K.CHASEV2.NOTNOTICED.PC.X04KHANK.LOST") }}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="chase-timeout">
+			<h2 id="chase-timeout">
+				<app-unlock-condition [unlockType]="UnlockType.Time">
+					{{ t(CommonTranslationKey.TooMuchTime) }}
+				</app-unlock-condition>
+			</h2>
+			<p>
+				<app-dialogue-line name="Connor">
+					{{ t("X0405K.CHASEV2.NOTNOTICED.PC.X04KCONNOR.LOST") }}
+				</app-dialogue-line>
+				<app-dialogue-line name="Hank">
+					{{ t("X0405K.CHASEV2.NOTNOTICED.PC.X04KHANK.LOST") }}
+				</app-dialogue-line>
+			</p>
+		</section>
 
 		<section aria-labelledby="fence">
 			<h2 id="fence">Reach the fence</h2>
@@ -1734,37 +1738,69 @@
 						</app-dialogue-line>
 					</p>
 
-					<h3 id="connor-dies">Connor dies on the highway</h3>
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-
-					<h3 id="kara-car">Kara gets hit by a car</h3>
-					<p>
-						<app-dialogue-line name="Alice">
-							{{ t("X0201K.FIGHT.ALICE.FA.X02KALICE.CUE03") }}
-							{{ t("X0201K.FIGHT.ALICE.FA.X02KALICE.CUE06") }}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								t("X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK.1")
-							}}
-						</app-dialogue-line>
-					</p>
-
-					<h3 id="kara-escape">Kara escapes and Connor survives</h3>
-					<p>
-						<app-dialogue-line name="Connor">
-							<!-- NOTE: No subtitles for this line, so take a substitute -->
-							{{ t("X1103M.FINAL.SHOP.PC.X11MCONNOR.DETONATE") }}
-						</app-dialogue-line>
-					</p>
+					<app-condition-group>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Connor dies on the highway</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Kara gets hit by a car</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Alice">
+										{{
+											t(
+												"X0201K.FIGHT.ALICE.FA.X02KALICE.CUE03"
+											)
+										}}
+										{{
+											t(
+												"X0201K.FIGHT.ALICE.FA.X02KALICE.CUE06"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											t(
+												"X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK.1"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+						<app-conditioned-content>
+							<div class="condition">
+								<p>Kara escapes and Connor survives</p>
+							</div>
+							<div class="content">
+								<p>
+									<app-dialogue-line name="Connor">
+										<!-- NOTE: No subtitles for this line, so take a substitute -->
+										{{
+											t(
+												"X1103M.FINAL.SHOP.PC.X11MCONNOR.DETONATE"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</div>
+						</app-conditioned-content>
+					</app-condition-group>
 				</app-choice-item>
 				<app-choice-item
 					[choiceLabel]="

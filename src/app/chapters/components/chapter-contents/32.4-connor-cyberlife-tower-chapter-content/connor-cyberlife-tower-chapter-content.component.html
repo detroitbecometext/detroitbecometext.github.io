@@ -2,7 +2,6 @@
 	<!-- TODO (V2): Check X1302C.FACETOFACE.CORRIDOR.FA.X13CBADCONNOR.BADCONNOR2 -->
 	<!-- TODO (V2): Check X1302C.FACETOFACE.ATTACK.PC.X13CHANK.IFDIETWICE -->
 	<section aria-labelledby="tower">
-		<!-- TODO: add sections-->
 		<h1 id="tower">At the CyberLife tower</h1>
 
 		<p>
@@ -62,31 +61,36 @@
 			</app-dialogue-line>
 		</p>
 
-		<h2 id="elevator">In the elevator</h2>
+		<section aria-labelledby="elevator">
+			<h2 id="elevator">In the elevator</h2>
+			<p>
+				<app-dialogue-line name="Guard">
+					{{
+						t("X1301C.ELEVATOR.ENTER.FA.X13CSOLDIER02.AUTHORIZED01")
+					}}
+				</app-dialogue-line>
+				<app-dialogue-line name="Elevator">
+					{{
+						translationService.translateObject(
+							"X1301C.ELEVATOR.ENTER.VO.X13CVOELEVATOR.AUTHORIZED02"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
-		<p>
-			<app-dialogue-line name="Guard">
-				{{ t("X1301C.ELEVATOR.ENTER.FA.X13CSOLDIER02.AUTHORIZED01") }}
-			</app-dialogue-line>
-			<app-dialogue-line name="Elevator">
-				{{
-					translationService.translateObject(
-						"X1301C.ELEVATOR.ENTER.VO.X13CVOELEVATOR.AUTHORIZED02"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
-
-		<h2 id="panel">Try to use panel</h2>
-		<p>
-			<app-dialogue-line name="Guard">
-				{{
-					translationService.translateObject(
-						"X1301C.ELEVATOR.GUARDS.PC.X13CSOLDIER02.BEFORE"
-					) | async
-				}}
-			</app-dialogue-line>
-		</p>
+		<section aria-labelledby="panel">
+			<h2 id="panel">Try to use panel</h2>
+			<p>
+				<app-dialogue-line name="Guard">
+					{{
+						translationService.translateObject(
+							"X1301C.ELEVATOR.GUARDS.PC.X13CSOLDIER02.BEFORE"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+		</section>
 
 		<app-condition-group>
 			<app-conditioned-content>
@@ -172,874 +176,366 @@
 			</app-conditioned-content>
 		</app-condition-group>
 
-		<h2 id="floor-49">Floor -49</h2>
+		<section aria-labelledby="floor-49">
+			<h2 id="floor-49">Floor -49</h2>
+			<p>{{ t("GUI.MENU.TIME.04A.CB02") }}</p>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition"><p>Didn't hack the camera</p></div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Guard">
+								{{
+									t(
+										"X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS02V2.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X1302C.ELEVATOR.CAMERA.FA.X13CCONNOR.CAMERA"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
 
-		<p>{{ t("GUI.MENU.TIME.04A.CB02") }}</p>
-
-		<app-condition-group>
-			<app-conditioned-content>
-				<div class="condition"><p>Didn't hack the camera</p></div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Guard">
-							{{
-								t(
-									"X0101X.LIVINGROOM.GUNSHOTS.FA.X01SWATCAPTAIN.ORDERS02V2.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								t("X1302C.ELEVATOR.CAMERA.FA.X13CCONNOR.CAMERA")
-							}}
-						</app-dialogue-line>
-					</p>
-
-					<app-condition-group>
-						<app-conditioned-content>
-							<div class="condition">
-								<p>
-									<app-unlock-condition
-										[unlockType]="UnlockType.Death"
-										[bracketsOnlyAroundIcon]="true"
-									>
-										<span class="font-bold"
-											>Connor dies</span
+						<app-condition-group>
+							<app-conditioned-content>
+								<div class="condition">
+									<p>
+										<app-unlock-condition
+											[unlockType]="UnlockType.Death"
+											[bracketsOnlyAroundIcon]="true"
 										>
-									</app-unlock-condition>
-								</p>
-							</div>
-							<div class="content">
+											<span class="font-bold"
+												>Connor dies</span
+											>
+										</app-unlock-condition>
+									</p>
+								</div>
+								<div class="content">
+									<p>
+										<app-dialogue-line name="Amanda">
+											{{
+												translationService.translateObject(
+													"X1301C.ELEVATOR.AMANDA.PC.X13CAMANDA.DEVIANT"
+												) | async
+											}}
+										</app-dialogue-line>
+									</p>
+								</div>
+							</app-conditioned-content>
+						</app-condition-group>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+
+			<mat-divider></mat-divider>
+
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Hank is still alive [Hank wasn't hostile in
+							<a [routerLink]="['/chapters', 29]"
+								>Last Chance, Connor</a
+							>]
+						</p>
+					</div>
+					<div class="content">
+						<app-unused-content>
+							<p>
+								<app-dialogue-line name="Connor">
+									{{
+										translationService.translateObject(
+											"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.ASKHANK01"
+										) | async
+									}}
+								</app-dialogue-line>
+							</p>
+						</app-unused-content>
+
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.ASKHANK01.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor-60">
+								{{
+									translationService.translateObject(
+										"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.ASKHANK02A"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.ASKHANK01",
+										1,
+										3
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor-60">
+								{{
+									translationService.translateObject(
+										"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.ASKHANK02B"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.ASKHANK01.4"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.GUARANTEE'
+									)
+								"
+							>
 								<p>
-									<app-dialogue-line name="Amanda">
+									<app-dialogue-line name="Connor">
 										{{
 											translationService.translateObject(
-												"X1301C.ELEVATOR.AMANDA.PC.X13CAMANDA.DEVIANT"
+												"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.GUARANTEE01"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor-60">
+										{{
+											translationService.translateObject(
+												"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.GUARANTEE02"
 											) | async
 										}}
 									</app-dialogue-line>
 								</p>
-							</div>
-						</app-conditioned-content>
-					</app-condition-group>
-				</div>
-			</app-conditioned-content>
-		</app-condition-group>
-
-		<mat-divider></mat-divider>
-
-		<app-condition-group>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						Hank is still alive [Hank wasn't hostile in
-						<a [routerLink]="['/chapters', 29]"
-							>Last Chance, Connor</a
-						>]
-					</p>
-				</div>
-				<div class="content">
-					<app-unused-content>
-						<p>
-							<app-dialogue-line name="Connor">
-								{{
-									translationService.translateObject(
-										"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.ASKHANK01"
-									) | async
-								}}
-							</app-dialogue-line>
-						</p>
-					</app-unused-content>
-
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.ASKHANK01.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor-60">
-							{{
-								translationService.translateObject(
-									"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.ASKHANK02A"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.ASKHANK01",
-									1,
-									3
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor-60">
-							{{
-								translationService.translateObject(
-									"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.ASKHANK02B"
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.ASKHANK01.4"
-								)
-							}}
-						</app-dialogue-line>
-					</p>
-
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.GUARANTEE'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.GUARANTEE01"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor-60">
-									{{
-										translationService.translateObject(
-											"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.GUARANTEE02"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.HANK'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.HANK01"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.HANK01"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.BLUFF'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.BLUFF01"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor-60">
-									{{
-										translationService.translateObject(
-											"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.BLUFF02"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.CONVINCE'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.CONVINCE01",
-											0,
-											3
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-							<app-unused-content>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.HANK'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.HANK01"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											t(
+												"X1302C.FACETOFACE.CORRIDOR.PC.X13CHANK.HANK01"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.BLUFF'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.BLUFF01"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor-60">
+										{{
+											translationService.translateObject(
+												"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.BLUFF02"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1302C.FACETOFACE.CORRIDOR.PC.LIFECHOICE01.CONVINCE'
+									)
+								"
+							>
 								<p>
 									<app-dialogue-line name="Connor">
 										{{
 											translationService.translateObject(
 												"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.CONVINCE01",
+												0,
 												3
 											) | async
 										}}
 									</app-dialogue-line>
 								</p>
-							</app-unused-content>
-
-							<p>
-								<app-dialogue-line name="Connor-60">
-									{{
-										translationService.translateObject(
-											"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.CONVINCE02"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-
-					<p>
-						<app-dialogue-line name="Connor-60">
-							{{
-								translationService.translateObject(
-									"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.CONT2"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1302C.FACETOFACE.CORRIDOR.PC.HANKGUNCHOICE.SAVEHANK'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.SAVEHANKC"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-
-							<app-choice-group>
-								<app-choice-item
-									[choiceLabel]="t('GUI.ACTION.SHOOT')"
-								>
+								<app-unused-content>
 									<p>
-										<app-dialogue-line name="Hank">
-											{{
-												t(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.1"
-												)
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Connor-60">
-											{{
-												translationService.translateObject(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.QUESTIONBAD01"
-												) | async
-											}}
-										</app-dialogue-line>
 										<app-dialogue-line name="Connor">
 											{{
 												translationService.translateObject(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.QUESTION",
-													0,
-													2
-												) | async
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Hank">
-											{{
-												translationService.translateObject(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION",
-													1,
-													4
-												) | async
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Connor-60">
-											{{
-												translationService.translateObject(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.QUESTIONBAD02"
-												) | async
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Hank">
-											{{
-												t(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.5"
-												)
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Connor">
-											{{
-												translationService.translateObject(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.QUESTION",
-													2,
-													4
-												) | async
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Hank">
-											{{
-												t(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.6"
-												)
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Connor-60">
-											{{
-												translationService.translateObject(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.QUESTIONBAD03"
-												) | async
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Connor">
-											{{
-												t(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.QUESTION.5"
-												)
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Hank">
-											{{
-												t(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.7"
-												)
-											}}
-										</app-dialogue-line>
-									</p>
-
-									<!-- Check dialogues for TIMEOUT -->
-									<app-choice-group>
-										<app-choice-item
-											[choiceLabel]="
-												t(
-													'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.SUMO'
-												)
-											"
-										>
-											<p>
-												<app-dialogue-line
-													name="Connor"
-												>
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.SUMO"
-														) | async
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line
-													name="Connor-60"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.RIGHTANSWERBAD01.2"
-														)
-													}}
-													{{
-														t(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.RIGHTANSWERBAD02.2"
-														)
-													}}
-												</app-dialogue-line>
-											</p>
-										</app-choice-item>
-										<app-choice-item
-											[choiceLabel]="
-												t(
-													'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.CHARLIE'
-												)
-											"
-										>
-											<p>
-												<app-dialogue-line
-													name="Connor"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.CHARLIE"
-														)
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line name="Hank">
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER",
-															0,
-															2
-														) | async
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line
-													name="Connor-60"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.WRONGANSWERBAD"
-														)
-													}}
-												</app-dialogue-line>
-											</p>
-										</app-choice-item>
-										<app-choice-item
-											[choiceLabel]="
-												t(
-													'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.JACK'
-												)
-											"
-										>
-											<p>
-												<app-dialogue-line
-													name="Connor"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.JACK"
-														)
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line name="Hank">
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER",
-															0,
-															2
-														) | async
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line
-													name="Connor-60"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.WRONGANSWERBAD"
-														)
-													}}
-												</app-dialogue-line>
-											</p>
-										</app-choice-item>
-										<app-choice-item
-											[choiceLabel]="
-												t(
-													'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.BUDDY'
-												)
-											"
-										>
-											<p>
-												<app-dialogue-line
-													name="Connor"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.BUDDY"
-														)
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line name="Hank">
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER",
-															0,
-															2
-														) | async
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line
-													name="Connor-60"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.WRONGANSWERBAD"
-														)
-													}}
-												</app-dialogue-line>
-											</p>
-										</app-choice-item>
-									</app-choice-group>
-
-									<p>
-										<app-dialogue-line name="Hank">
-											{{
-												t(
-													"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER.3"
-												)
-											}}
-										</app-dialogue-line>
-									</p>
-
-									<app-choice-group>
-										<app-choice-item
-											[choiceLabel]="
-												t(
-													'X1302C.FACETOFACE.ATTACK.PC.NAMESON.COLE'
-												)
-											"
-										>
-											<p>
-												<app-unlock-condition
-													[unlockType]="
-														UnlockType.Lock
-													"
-												>
-													Will be highlighted if
-													Connor looked at the photo
-													in
-													<a
-														[routerLink]="[
-															'/chapters',
-															18,
-														]"
-														>Russian Roulette</a
-													>
-												</app-unlock-condition>
-
-												<app-dialogue-line
-													name="Connor"
-												>
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.COLE"
-														) | async
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line name="Hank">
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.COLE"
-														) | async
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line
-													name="Connor-60"
-												>
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.COLEFINALBAD"
-														) | async
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line name="Hank">
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.COLEFINAL02"
-														) | async
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line
-													name="Connor"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.WAKEUP.PC.X13CCONNOR.WAKEUP"
-														)
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line
-													name="Androids"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01"
-														)
-													}}
-												</app-dialogue-line>
-											</p>
-										</app-choice-item>
-										<app-choice-item
-											[choiceLabel]="
-												t(
-													'X1302C.FACETOFACE.ATTACK.PC.NAMESON.ANTHONY01'
-												)
-											"
-										>
-											<p>
-												<app-dialogue-line
-													name="Connor"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.ANTHONY"
-														)
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line
-													name="Connor-60"
-												>
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.BADENDING"
-														) | async
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line name="Hank">
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.BADENDING"
-														) | async
-													}}
-												</app-dialogue-line>
-											</p>
-										</app-choice-item>
-										<app-choice-item
-											[choiceLabel]="
-												t(
-													'X1302C.FACETOFACE.ATTACK.PC.NAMESON.GABRIEL'
-												)
-											"
-										>
-											<p>
-												<app-dialogue-line
-													name="Connor"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.GABRIEL"
-														)
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line
-													name="Connor-60"
-												>
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.BADENDING"
-														) | async
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line name="Hank">
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.BADENDING"
-														) | async
-													}}
-												</app-dialogue-line>
-											</p>
-										</app-choice-item>
-										<app-choice-item
-											[choiceLabel]="
-												t(
-													'X1302C.FACETOFACE.ATTACK.PC.NAMESON.ELLIOTT'
-												)
-											"
-										>
-											<p>
-												<app-dialogue-line
-													name="Connor"
-												>
-													{{
-														t(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.ELLIOTT"
-														)
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line
-													name="Connor-60"
-												>
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.BADENDING"
-														) | async
-													}}
-												</app-dialogue-line>
-												<app-dialogue-line name="Hank">
-													{{
-														translationService.translateObject(
-															"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.BADENDING"
-														) | async
-													}}
-												</app-dialogue-line>
-											</p>
-										</app-choice-item>
-									</app-choice-group>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="t('GUI.ACTION.INTERPOSE')"
-								>
-									<p class="note">
-										Leads to the same dialogue as SHOOT.
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="t('GUI.ACTION.CONVERT')"
-								>
-									<p class="note">
-										Leads to the same result as sacrificing
-										Hank and successfully converting.
-									</p>
-								</app-choice-item>
-								<app-choice-item
-									[choiceLabel]="
-										t(CommonTranslationKey.DefaultChoice)
-									"
-								>
-									<p>
-										<app-dialogue-line name="Hank">
-											{{
-												translationService.translateObject(
-													"X1302C.FACETOFACE.SHOOT.FA.X13CHANK.NOSHOOT"
-												) | async
-											}}
-										</app-dialogue-line>
-										<app-dialogue-line name="Connor-60">
-											{{
-												translationService.translateObject(
-													"X1302C.FACETOFACE.SHOOT.PC.X13CBADCONNOR.NOSHOOT"
+													"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.CONVINCE01",
+													3
 												) | async
 											}}
 										</app-dialogue-line>
 									</p>
-								</app-choice-item>
-							</app-choice-group>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X1302C.FACETOFACE.CORRIDOR.PC.HANKGUNCHOICE.SACRIFICEHANK'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X1302C.FACETOFACE.CORRIDOR.FA.X13CCONNOR.SACRIFICEHANK.1"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
+								</app-unused-content>
 
-							<app-condition-group>
-								<app-conditioned-content>
-									<div class="condition">
+								<p>
+									<app-dialogue-line name="Connor-60">
+										{{
+											translationService.translateObject(
+												"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.CONVINCE02"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+
+						<p>
+							<app-dialogue-line name="Connor-60">
+								{{
+									translationService.translateObject(
+										"X1302C.FACETOFACE.CORRIDOR.PC.X13CBADCONNOR.CONT2"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1302C.FACETOFACE.CORRIDOR.PC.HANKGUNCHOICE.SAVEHANK'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1302C.FACETOFACE.CORRIDOR.PC.X13CCONNOR.SAVEHANKC"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+
+								<app-choice-group>
+									<app-choice-item
+										[choiceLabel]="t('GUI.ACTION.SHOOT')"
+									>
 										<p>
-											Successfully converting the android
-										</p>
-									</div>
-									<div class="content">
-										<p>
+											<app-dialogue-line name="Hank">
+												{{
+													t(
+														"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.1"
+													)
+												}}
+											</app-dialogue-line>
 											<app-dialogue-line name="Connor-60">
 												{{
 													translationService.translateObject(
-														"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.BADCONNOR"
+														"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.QUESTIONBAD01"
 													) | async
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Connor">
+												{{
+													translationService.translateObject(
+														"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.QUESTION",
+														0,
+														2
+													) | async
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Hank">
+												{{
+													translationService.translateObject(
+														"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION",
+														1,
+														4
+													) | async
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Connor-60">
+												{{
+													translationService.translateObject(
+														"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.QUESTIONBAD02"
+													) | async
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Hank">
+												{{
+													t(
+														"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.5"
+													)
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Connor">
+												{{
+													translationService.translateObject(
+														"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.QUESTION",
+														2,
+														4
+													) | async
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Hank">
+												{{
+													t(
+														"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.6"
+													)
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Connor-60">
+												{{
+													translationService.translateObject(
+														"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.QUESTIONBAD03"
+													) | async
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Connor">
+												{{
+													t(
+														"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.QUESTION.5"
+													)
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Hank">
+												{{
+													t(
+														"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.QUESTION.7"
+													)
 												}}
 											</app-dialogue-line>
 										</p>
 
+										<!-- TODO: Check dialogues for TIMEOUT -->
 										<app-choice-group>
 											<app-choice-item
 												[choiceLabel]="
-													t('GUI.ACTION.UP')
-												"
-											>
-												<p>
-													<app-dialogue-line
-														name="Androids"
-													>
-														{{
-															t(
-																"X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01"
-															)
-														}}
-													</app-dialogue-line>
-													<app-dialogue-line
-														name="Connor-60"
-													>
-														{{
-															translationService.translateObject(
-																"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.FLEECONVSUCCESS"
-															) | async
-														}}
-													</app-dialogue-line>
-												</p>
-											</app-choice-item>
-											<app-choice-item
-												[choiceLabel]="
-													t('GUI.ACTION.SHOOT')
-												"
-											>
-												<p>
-													<app-dialogue-line
-														name="Androids"
-													>
-														{{
-															t(
-																"X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01"
-															)
-														}}
-													</app-dialogue-line>
-												</p>
-											</app-choice-item>
-											<app-choice-item
-												[choiceLabel]="
-													t('GUI.ACTION.TRANSFER')
-												"
-											>
-												<p>
-													<app-dialogue-line
-														name="Connor-60"
-													>
-														{{
-															translationService.translateObject(
-																"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.TRANSFER"
-															) | async
-														}}
-													</app-dialogue-line>
-												</p>
-
-												<p>
-													<app-dialogue-line
-														name="Hank"
-													>
-														{{
-															translationService.translateObject(
-																"X1302C.FACETOFACE.MONOLOG.PC.X13CHANK.HANKDYING",
-																0,
-																3
-															) | async
-														}}
-													</app-dialogue-line>
-													<app-dialogue-line
-														name="Connor"
-													>
-														{{
-															t(
-																"X1302C.FACETOFACE.MONOLOG.PC.X13CCONNOR.HANKDYING"
-															)
-														}}
-													</app-dialogue-line>
-													<app-dialogue-line
-														name="Hank"
-													>
-														{{
-															translationService.translateObject(
-																"X1302C.FACETOFACE.MONOLOG.PC.X13CHANK.HANKDYING",
-																3
-															) | async
-														}}
-													</app-dialogue-line>
-												</p>
-											</app-choice-item>
-											<app-choice-item
-												[choiceLabel]="
 													t(
-														CommonTranslationKey.DefaultChoice
+														'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.SUMO'
 													)
 												"
 											>
@@ -1049,8 +545,224 @@
 													>
 														{{
 															translationService.translateObject(
-																"X1302C.FACETOFACE.MONOLOG.PC.X13CCONNOR.ANSWERSUCCESS"
+																"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.SUMO"
 															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Connor-60"
+													>
+														{{
+															t(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.RIGHTANSWERBAD01.2"
+															)
+														}}
+														{{
+															t(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.RIGHTANSWERBAD02.2"
+															)
+														}}
+													</app-dialogue-line>
+												</p>
+											</app-choice-item>
+											<app-choice-item
+												[choiceLabel]="
+													t(
+														'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.CHARLIE'
+													)
+												"
+											>
+												<p>
+													<app-dialogue-line
+														name="Connor"
+													>
+														{{
+															t(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.CHARLIE"
+															)
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER",
+																0,
+																2
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Connor-60"
+													>
+														{{
+															t(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.WRONGANSWERBAD"
+															)
+														}}
+													</app-dialogue-line>
+												</p>
+											</app-choice-item>
+											<app-choice-item
+												[choiceLabel]="
+													t(
+														'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.JACK'
+													)
+												"
+											>
+												<p>
+													<app-dialogue-line
+														name="Connor"
+													>
+														{{
+															t(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.JACK"
+															)
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER",
+																0,
+																2
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Connor-60"
+													>
+														{{
+															t(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.WRONGANSWERBAD"
+															)
+														}}
+													</app-dialogue-line>
+												</p>
+											</app-choice-item>
+											<app-choice-item
+												[choiceLabel]="
+													t(
+														'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.BUDDY'
+													)
+												"
+											>
+												<p>
+													<app-dialogue-line
+														name="Connor"
+													>
+														{{
+															t(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.BUDDY"
+															)
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER",
+																0,
+																2
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Connor-60"
+													>
+														{{
+															t(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.WRONGANSWERBAD"
+															)
+														}}
+													</app-dialogue-line>
+												</p>
+											</app-choice-item>
+										</app-choice-group>
+
+										<p>
+											<app-dialogue-line name="Hank">
+												{{
+													t(
+														"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER.3"
+													)
+												}}
+											</app-dialogue-line>
+										</p>
+
+										<app-choice-group>
+											<app-choice-item
+												[choiceLabel]="
+													t(
+														'X1302C.FACETOFACE.ATTACK.PC.NAMESON.COLE'
+													)
+												"
+											>
+												<p>
+													<app-unlock-condition
+														[unlockType]="
+															UnlockType.Lock
+														"
+													>
+														Will be highlighted if
+														Connor looked at the
+														photo in
+														<a
+															[routerLink]="[
+																'/chapters',
+																18,
+															]"
+															>Russian Roulette</a
+														>
+													</app-unlock-condition>
+
+													<app-dialogue-line
+														name="Connor"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.COLE"
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.COLE"
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Connor-60"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.COLEFINALBAD"
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.COLEFINAL02"
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Connor"
+													>
+														{{
+															t(
+																"X1302C.FACETOFACE.WAKEUP.PC.X13CCONNOR.WAKEUP"
+															)
 														}}
 													</app-dialogue-line>
 													<app-dialogue-line
@@ -1062,122 +774,444 @@
 															)
 														}}
 													</app-dialogue-line>
+												</p>
+											</app-choice-item>
+											<app-choice-item
+												[choiceLabel]="
+													t(
+														'X1302C.FACETOFACE.ATTACK.PC.NAMESON.ANTHONY01'
+													)
+												"
+											>
+												<p>
+													<app-dialogue-line
+														name="Connor"
+													>
+														{{
+															t(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.ANTHONY"
+															)
+														}}
+													</app-dialogue-line>
 													<app-dialogue-line
 														name="Connor-60"
 													>
 														{{
 															translationService.translateObject(
-																"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.FLEECONVSUCCESS"
+																"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.BADENDING"
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.BADENDING"
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
+											</app-choice-item>
+											<app-choice-item
+												[choiceLabel]="
+													t(
+														'X1302C.FACETOFACE.ATTACK.PC.NAMESON.GABRIEL'
+													)
+												"
+											>
+												<p>
+													<app-dialogue-line
+														name="Connor"
+													>
+														{{
+															t(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.GABRIEL"
+															)
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Connor-60"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.BADENDING"
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.BADENDING"
+															) | async
+														}}
+													</app-dialogue-line>
+												</p>
+											</app-choice-item>
+											<app-choice-item
+												[choiceLabel]="
+													t(
+														'X1302C.FACETOFACE.ATTACK.PC.NAMESON.ELLIOTT'
+													)
+												"
+											>
+												<p>
+													<app-dialogue-line
+														name="Connor"
+													>
+														{{
+															t(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.ELLIOTT"
+															)
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Connor-60"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.BADENDING"
+															) | async
+														}}
+													</app-dialogue-line>
+													<app-dialogue-line
+														name="Hank"
+													>
+														{{
+															translationService.translateObject(
+																"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.BADENDING"
 															) | async
 														}}
 													</app-dialogue-line>
 												</p>
 											</app-choice-item>
 										</app-choice-group>
+									</app-choice-item>
+									<app-choice-item
+										[choiceLabel]="
+											t('GUI.ACTION.INTERPOSE')
+										"
+									>
+										<p class="note">
+											Leads to the same dialogue as SHOOT.
+										</p>
+									</app-choice-item>
+									<app-choice-item
+										[choiceLabel]="t('GUI.ACTION.CONVERT')"
+									>
+										<p class="note">
+											Leads to the same result as
+											sacrificing Hank and successfully
+											converting.
+										</p>
+									</app-choice-item>
+									<app-choice-item
+										[choiceLabel]="
+											t(
+												CommonTranslationKey.DefaultChoice
+											)
+										"
+									>
+										<p>
+											<app-dialogue-line name="Hank">
+												{{
+													translationService.translateObject(
+														"X1302C.FACETOFACE.SHOOT.FA.X13CHANK.NOSHOOT"
+													) | async
+												}}
+											</app-dialogue-line>
+											<app-dialogue-line name="Connor-60">
+												{{
+													translationService.translateObject(
+														"X1302C.FACETOFACE.SHOOT.PC.X13CBADCONNOR.NOSHOOT"
+													) | async
+												}}
+											</app-dialogue-line>
+										</p>
+									</app-choice-item>
+								</app-choice-group>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(
+										'X1302C.FACETOFACE.CORRIDOR.PC.HANKGUNCHOICE.SACRIFICEHANK'
+									)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X1302C.FACETOFACE.CORRIDOR.FA.X13CCONNOR.SACRIFICEHANK.1"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
 
-										<app-condition-group>
-											<app-conditioned-content>
-												<div class="condition">
+								<app-condition-group>
+									<app-conditioned-content>
+										<div class="condition">
+											<p>
+												Successfully converting the
+												android
+											</p>
+										</div>
+										<div class="content">
+											<p>
+												<app-dialogue-line
+													name="Connor-60"
+												>
+													{{
+														translationService.translateObject(
+															"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.BADCONNOR"
+														) | async
+													}}
+												</app-dialogue-line>
+											</p>
+
+											<app-choice-group>
+												<app-choice-item
+													[choiceLabel]="
+														t('GUI.ACTION.UP')
+													"
+												>
 													<p>
-														Fail to convert the
-														android
+														<app-dialogue-line
+															name="Androids"
+														>
+															{{
+																t(
+																	"X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01"
+																)
+															}}
+														</app-dialogue-line>
+														<app-dialogue-line
+															name="Connor-60"
+														>
+															{{
+																translationService.translateObject(
+																	"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.FLEECONVSUCCESS"
+																) | async
+															}}
+														</app-dialogue-line>
 													</p>
-												</div>
-												<div class="content">
-													<p class="note">
-														Leads to the same
-														outcomes as if Hank is
-														dead for STAND UP, SHOOT
-														and [ TAKE TOO MUCH TIME
-														TO CHOOSE ], and to the
-														same result as
-														successfully converting
-														the android when
-														choosing TRANSFER.
+												</app-choice-item>
+												<app-choice-item
+													[choiceLabel]="
+														t('GUI.ACTION.SHOOT')
+													"
+												>
+													<p>
+														<app-dialogue-line
+															name="Androids"
+														>
+															{{
+																t(
+																	"X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01"
+																)
+															}}
+														</app-dialogue-line>
 													</p>
-												</div>
-											</app-conditioned-content>
-										</app-condition-group>
-									</div>
-								</app-conditioned-content>
-							</app-condition-group>
-						</app-choice-item>
-					</app-choice-group>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<p>
-						Hank is dead [Hank was hostile in
-						<a [routerLink]="['/chapters', 29]"
-							>Last Chance, Connor</a
-						>
-					</p>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Connor-60">
-							{{
-								translationService.translateObject(
-									"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.BADCONNOR"
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
+												</app-choice-item>
+												<app-choice-item
+													[choiceLabel]="
+														t('GUI.ACTION.TRANSFER')
+													"
+												>
+													<p>
+														<app-dialogue-line
+															name="Connor-60"
+														>
+															{{
+																translationService.translateObject(
+																	"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.TRANSFER"
+																) | async
+															}}
+														</app-dialogue-line>
+													</p>
 
-					<app-choice-group>
-						<app-choice-item [choiceLabel]="t('GUI.ACTION.UP')">
-							<p>&oslash;</p>
-						</app-choice-item>
-						<app-choice-item [choiceLabel]="t('GUI.ACTION.SHOOT')">
-							<p>&oslash;</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="t('GUI.ACTION.TRANSFER')"
-						>
-							<p>
-								<app-dialogue-line name="Connor-60">
-									{{
-										translationService.translateObject(
-											"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.TRANSFER"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X1302C.FACETOFACE.WAKEUP.PC.X13CCONNOR.WAKEUP"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Androids">
-									{{
-										t(
-											"X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(CommonTranslationKey.DefaultChoice)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X1302C.FACETOFACE.MONOLOG.PC.X13CCONNOR.ANSWERFAIL"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-				</div>
-			</app-conditioned-content>
-		</app-condition-group>
+													<p>
+														<app-dialogue-line
+															name="Hank"
+														>
+															{{
+																translationService.translateObject(
+																	"X1302C.FACETOFACE.MONOLOG.PC.X13CHANK.HANKDYING",
+																	0,
+																	3
+																) | async
+															}}
+														</app-dialogue-line>
+														<app-dialogue-line
+															name="Connor"
+														>
+															{{
+																t(
+																	"X1302C.FACETOFACE.MONOLOG.PC.X13CCONNOR.HANKDYING"
+																)
+															}}
+														</app-dialogue-line>
+														<app-dialogue-line
+															name="Hank"
+														>
+															{{
+																translationService.translateObject(
+																	"X1302C.FACETOFACE.MONOLOG.PC.X13CHANK.HANKDYING",
+																	3
+																) | async
+															}}
+														</app-dialogue-line>
+													</p>
+												</app-choice-item>
+												<app-choice-item
+													[choiceLabel]="
+														t(
+															CommonTranslationKey.DefaultChoice
+														)
+													"
+												>
+													<p>
+														<app-dialogue-line
+															name="Connor"
+														>
+															{{
+																translationService.translateObject(
+																	"X1302C.FACETOFACE.MONOLOG.PC.X13CCONNOR.ANSWERSUCCESS"
+																) | async
+															}}
+														</app-dialogue-line>
+														<app-dialogue-line
+															name="Androids"
+														>
+															{{
+																t(
+																	"X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01"
+																)
+															}}
+														</app-dialogue-line>
+														<app-dialogue-line
+															name="Connor-60"
+														>
+															{{
+																translationService.translateObject(
+																	"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.FLEECONVSUCCESS"
+																) | async
+															}}
+														</app-dialogue-line>
+													</p>
+												</app-choice-item>
+											</app-choice-group>
+
+											<app-condition-group>
+												<app-conditioned-content>
+													<div class="condition">
+														<p>
+															Fail to convert the
+															android
+														</p>
+													</div>
+													<div class="content">
+														<p class="note">
+															Leads to the same
+															outcomes as if Hank
+															is dead for STAND
+															UP, SHOOT and [ TAKE
+															TOO MUCH TIME TO
+															CHOOSE ], and to the
+															same result as
+															successfully
+															converting the
+															android when
+															choosing TRANSFER.
+														</p>
+													</div>
+												</app-conditioned-content>
+											</app-condition-group>
+										</div>
+									</app-conditioned-content>
+								</app-condition-group>
+							</app-choice-item>
+						</app-choice-group>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>
+							Hank is dead [Hank was hostile in
+							<a [routerLink]="['/chapters', 29]"
+								>Last Chance, Connor</a
+							>
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Connor-60">
+								{{
+									translationService.translateObject(
+										"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.BADCONNOR"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+
+						<app-choice-group>
+							<app-choice-item [choiceLabel]="t('GUI.ACTION.UP')">
+								<p>&oslash;</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="t('GUI.ACTION.SHOOT')"
+							>
+								<p>&oslash;</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="t('GUI.ACTION.TRANSFER')"
+							>
+								<p>
+									<app-dialogue-line name="Connor-60">
+										{{
+											translationService.translateObject(
+												"X1302C.FACETOFACE.MONOLOG.PC.X13CBADCONNOR.TRANSFER"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X1302C.FACETOFACE.WAKEUP.PC.X13CCONNOR.WAKEUP"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Androids">
+										{{
+											t(
+												"X1302C.FACETOFACE.MONOLOG.FA.X13CANDROID01.FINALGUN01"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="
+									t(CommonTranslationKey.DefaultChoice)
+								"
+							>
+								<p>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X1302C.FACETOFACE.MONOLOG.PC.X13CCONNOR.ANSWERFAIL"
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+		</section>
 	</section>
 
 	<section aria-labelledby="freed-androids">

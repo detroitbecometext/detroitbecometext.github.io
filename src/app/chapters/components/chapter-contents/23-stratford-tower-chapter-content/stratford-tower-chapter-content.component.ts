@@ -20,6 +20,8 @@ import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { CommonTranslationKey } from '../../../../shared/utils/common-translation-keys.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
+import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
+import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 
 @Component({
 	standalone: true,
@@ -36,6 +38,8 @@ import { ConditionGroupComponent } from '../../../../shared/components/condition
 		UnusedContentComponent,
 		TranslocoModule,
 		ConditionGroupComponent,
+		ObservationComponent,
+		ObservationItemComponent,
 	],
 	templateUrl: './stratford-tower-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

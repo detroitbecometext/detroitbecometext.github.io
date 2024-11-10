@@ -20,6 +20,8 @@ import { RelationName } from '../../../../shared/enums/relation-name.enum';
 import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
+import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
+import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 
 @Component({
 	standalone: true,
@@ -37,6 +39,8 @@ import { ConditionGroupComponent } from '../../../../shared/components/condition
 		RouterLink,
 		TranslocoModule,
 		ConditionGroupComponent,
+		ObservationComponent,
+		ObservationItemComponent,
 	],
 	templateUrl: './last-chance-connor-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1378,106 +1378,91 @@
 			</p>
 		</section>
 
-		<app-condition-group>
-			<app-conditioned-content>
-				<div class="condition">
-					<h2 id="investigation-timeout">
-						<app-unlock-condition [unlockType]="UnlockType.Time">
-							{{ t(CommonTranslationKey.TooMuchTime) }}
-						</app-unlock-condition>
-					</h2>
-				</div>
-				<div class="content">
+		<section aria-labelledby="investigation-timeout">
+			<h2 id="investigation-timeout">
+				<app-unlock-condition [unlockType]="UnlockType.Time">
+					{{ t(CommonTranslationKey.TooMuchTime) }}
+				</app-unlock-condition>
+			</h2>
+			<p>
+				<app-dialogue-line name="Hank">
+					{{
+						translationService.translateObject(
+							"X0502C.LIVING.GAMEOVER.PC.X05CHANK.GAMEOVER01"
+						) | async
+					}}
+				</app-dialogue-line>
+			</p>
+			<app-choice-group>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0502C.LIVING.GAMEOVER.PC.GAMEOVERCHOICE01.STAY')
+					"
+				>
 					<p>
+						<app-dialogue-line name="Connor">
+							{{ t("X0502C.LIVING.GAMEOVER.PC.X05CCONNOR.STAY") }}
+						</app-dialogue-line>
 						<app-dialogue-line name="Hank">
 							{{
 								translationService.translateObject(
-									"X0502C.LIVING.GAMEOVER.PC.X05CHANK.GAMEOVER01"
+									"X0502C.LIVING.GAMEOVER.PC.X05CHANK.STAYH"
 								) | async
 							}}
 						</app-dialogue-line>
 					</p>
 
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0502C.LIVING.GAMEOVER.PC.GAMEOVERCHOICE01.STAY'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X0502C.LIVING.GAMEOVER.PC.X05CCONNOR.STAY"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X0502C.LIVING.GAMEOVER.PC.X05CHANK.STAYH"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-
-							<h3 id="investigation-timeout-again">
-								Taking too much time again
-							</h3>
-							<p>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X0502C.LIVING.GAMEOVER.PC.X05CHANK.GAMEOVER02"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X0502C.LIVING.GAMEOVER.PC.X05CCONNOR.LEAVE"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X0502C.LIVING.GAMEOVER.PC.X05CHANK.LEAVE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="
-								t(
-									'X0502C.LIVING.GAMEOVER.PC.GAMEOVERCHOICE01.LEAVE'
-								)
-							"
-						>
-							<p>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X0502C.LIVING.GAMEOVER.PC.X05CCONNOR.LEAVE"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X0502C.LIVING.GAMEOVER.PC.X05CHANK.LEAVE"
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-				</div>
-			</app-conditioned-content>
-		</app-condition-group>
+					<section aria-labelledby="investigation-timeout-again">
+						<h3 id="investigation-timeout-again">
+							Take too much time again
+						</h3>
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0502C.LIVING.GAMEOVER.PC.X05CHANK.GAMEOVER02"
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0502C.LIVING.GAMEOVER.PC.X05CCONNOR.LEAVE"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0502C.LIVING.GAMEOVER.PC.X05CHANK.LEAVE"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</section>
+				</app-choice-item>
+				<app-choice-item
+					[choiceLabel]="
+						t('X0502C.LIVING.GAMEOVER.PC.GAMEOVERCHOICE01.LEAVE')
+					"
+				>
+					<p>
+						<app-dialogue-line name="Connor">
+							{{
+								t("X0502C.LIVING.GAMEOVER.PC.X05CCONNOR.LEAVE")
+							}}
+						</app-dialogue-line>
+						<app-dialogue-line name="Hank">
+							{{
+								translationService.translateObject(
+									"X0502C.LIVING.GAMEOVER.PC.X05CHANK.LEAVE"
+								) | async
+							}}
+						</app-dialogue-line>
+					</p>
+				</app-choice-item>
+			</app-choice-group>
+		</section>
 	</section>
 
 	<section aria-labelledby="rupert-found">
@@ -1528,265 +1513,278 @@
 			</ul>
 		</section>
 
-		<app-condition-group>
-			<app-conditioned-content>
-				<div class="condition">
-					<h2 id="rupert-caught">Catch Rupert</h2>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Hank">
-							{{ t("X0502C.SAVEHANK.FALL.FA.X05CHANK.FREEZE") }}
-						</app-dialogue-line>
-					</p>
+		<section aria-labelledby="chase-end">
+			<h2 id="chase-end">Chase end</h2>
+			<app-condition-group>
+				<app-conditioned-content>
+					<div class="condition">
+						<p>Catch Rupert</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									t("X0502C.SAVEHANK.FALL.FA.X05CHANK.FREEZE")
+								}}
+							</app-dialogue-line>
+						</p>
 
-					<app-choice-group>
-						<app-choice-item
-							[choiceLabel]="t('GUI.ACTION.05C.CHASERUPERT')"
-						>
-							<p>
-								<app-relation
-									[name]="RelationName.SoftwareInstability"
-									[type]="RelationType.LargeDown"
-								></app-relation>
-								<app-relation
-									[name]="RelationName.Hank"
-									[type]="RelationType.LargeDown"
-								></app-relation>
+						<app-choice-group>
+							<app-choice-item
+								[choiceLabel]="t('GUI.ACTION.05C.CHASERUPERT')"
+							>
+								<p>
+									<app-relation
+										[name]="
+											RelationName.SoftwareInstability
+										"
+										[type]="RelationType.LargeDown"
+									></app-relation>
+									<app-relation
+										[name]="RelationName.Hank"
+										[type]="RelationType.LargeDown"
+									></app-relation>
 
-								<app-dialogue-line name="Rupert">
-									{{
-										translationService.translateObject(
-											"X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.START"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X0502C.ENDING.SUCCESS.PC.X05CCONNOR.START"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X0502C.ENDING.SUCCESS.PC.X05CHANK.HANKFALLEN",
-											0,
-											3
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X0502C.ENDING.SUCCESS.PC.X05CCONNOR.HANKFALLEN.1"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X0502C.ENDING.SUCCESS.PC.X05CHANK.HANKFALLEN",
-											3,
-											7
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor">
-									{{
-										t(
-											"X0502C.ENDING.SUCCESS.PC.X05CCONNOR.HANKFALLEN.2"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X0502C.ENDING.SUCCESS.PC.X05CHANK.HANKFALLEN.8"
-										)
-									}}
-									{{
-										t(
-											"X0502C.ENDING.SUCCESS.PC.X05CHANK.END.1"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Rupert">
-									{{
-										t(
-											"X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.END.1"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X0502C.ENDING.SUCCESS.PC.X05CHANK.END",
-											1,
-											3
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Rupert">
-									{{
-										translationService.translateObject(
-											"X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.END",
-											1,
-											4
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X0502C.ENDING.SUCCESS.PC.X05CHANK.END",
-											3,
-											6
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Rupert">
-									{{
-										t(
-											"X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.END.5"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X0502C.ENDING.SUCCESS.PC.X05CHANK.END",
-											6
-										) | async
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-						<app-choice-item
-							[choiceLabel]="t('GUI.ACTION.05C.SAVEHANK')"
-						>
-							<p>
-								<app-relation
-									[name]="RelationName.SoftwareInstability"
-									[type]="RelationType.LargeUp"
-								></app-relation>
-								<app-relation
-									[name]="RelationName.Hank"
-									[type]="RelationType.LargeUp"
-								></app-relation>
+									<app-dialogue-line name="Rupert">
+										{{
+											translationService.translateObject(
+												"X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.START"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0502C.ENDING.SUCCESS.PC.X05CCONNOR.START"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X0502C.ENDING.SUCCESS.PC.X05CHANK.HANKFALLEN",
+												0,
+												3
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X0502C.ENDING.SUCCESS.PC.X05CCONNOR.HANKFALLEN.1"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X0502C.ENDING.SUCCESS.PC.X05CHANK.HANKFALLEN",
+												3,
+												7
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											t(
+												"X0502C.ENDING.SUCCESS.PC.X05CCONNOR.HANKFALLEN.2"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											t(
+												"X0502C.ENDING.SUCCESS.PC.X05CHANK.HANKFALLEN.8"
+											)
+										}}
+										{{
+											t(
+												"X0502C.ENDING.SUCCESS.PC.X05CHANK.END.1"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Rupert">
+										{{
+											t(
+												"X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.END.1"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X0502C.ENDING.SUCCESS.PC.X05CHANK.END",
+												1,
+												3
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Rupert">
+										{{
+											translationService.translateObject(
+												"X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.END",
+												1,
+												4
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X0502C.ENDING.SUCCESS.PC.X05CHANK.END",
+												3,
+												6
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Rupert">
+										{{
+											t(
+												"X0502C.ENDING.SUCCESS.PC.X05CRUPPERT.END.5"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X0502C.ENDING.SUCCESS.PC.X05CHANK.END",
+												6
+											) | async
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+							<app-choice-item
+								[choiceLabel]="t('GUI.ACTION.05C.SAVEHANK')"
+							>
+								<p>
+									<app-relation
+										[name]="
+											RelationName.SoftwareInstability
+										"
+										[type]="RelationType.LargeUp"
+									></app-relation>
+									<app-relation
+										[name]="RelationName.Hank"
+										[type]="RelationType.LargeUp"
+									></app-relation>
 
-								<app-dialogue-line name="Hank">
-									{{
-										t(
-											"X0502C.SAVEHANK.GAMEOVER2.PC.X05CHANK.SAVED.1"
-										)
-									}}
-									{{
-										t(
-											"X0502C.SAVEHANK.GAMEOVER2.FA.X05CHANK.SAVEDSEC.3"
-										)
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Connor">
-									{{
-										translationService.translateObject(
-											"X0502C.SAVEHANK.GAMEOVER2.PC.X05CCONNOR.SAVED"
-										) | async
-									}}
-								</app-dialogue-line>
-								<app-dialogue-line name="Hank">
-									{{
-										translationService.translateObject(
-											"X0502C.SAVEHANK.GAMEOVER2.PC.X05CHANK.SAVED",
-											3,
-											8
-										) | async
-									}}
-									{{
-										t(
-											"X0502C.SAVEHANK.GAMEOVER2.PC.X05CHANK.SAVED.10"
-										)
-									}}
-								</app-dialogue-line>
-							</p>
-						</app-choice-item>
-					</app-choice-group>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<h2 id="die">
-						<app-unlock-condition
-							[unlockType]="UnlockType.Death"
-							[bracketsOnlyAroundIcon]="true"
-						>
-							Die during the chase
-						</app-unlock-condition>
-					</h2>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								t("X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK.1")
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-			<app-conditioned-content>
-				<div class="condition">
-					<h2 id="rupert-lost">
-						<app-unlock-condition [unlockType]="UnlockType.Time">
-							Lose Rupert
-						</app-unlock-condition>
-					</h2>
-				</div>
-				<div class="content">
-					<p>
-						<app-dialogue-line name="Hank">
-							{{
-								t(
-									"X0502C.ENDING.GAMEOVER3.PC.X05CHANK.FAILED.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								t(
-									"X0502C.ENDING.GAMEOVER3.PC.X05CCONNOR.FAILED.1"
-								)
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0502C.ENDING.GAMEOVER3.PC.X05CHANK.FAILED",
-									1,
-									6
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Connor">
-							{{
-								translationService.translateObject(
-									"X0502C.ENDING.GAMEOVER3.PC.X05CCONNOR.FAILED",
-									1
-								) | async
-							}}
-						</app-dialogue-line>
-						<app-dialogue-line name="Hank">
-							{{
-								translationService.translateObject(
-									"X0502C.ENDING.GAMEOVER3.PC.X05CHANK.FAILED",
-									6
-								) | async
-							}}
-						</app-dialogue-line>
-					</p>
-				</div>
-			</app-conditioned-content>
-		</app-condition-group>
+									<app-dialogue-line name="Hank">
+										{{
+											t(
+												"X0502C.SAVEHANK.GAMEOVER2.PC.X05CHANK.SAVED.1"
+											)
+										}}
+										{{
+											t(
+												"X0502C.SAVEHANK.GAMEOVER2.FA.X05CHANK.SAVEDSEC.3"
+											)
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Connor">
+										{{
+											translationService.translateObject(
+												"X0502C.SAVEHANK.GAMEOVER2.PC.X05CCONNOR.SAVED"
+											) | async
+										}}
+									</app-dialogue-line>
+									<app-dialogue-line name="Hank">
+										{{
+											translationService.translateObject(
+												"X0502C.SAVEHANK.GAMEOVER2.PC.X05CHANK.SAVED",
+												3,
+												8
+											) | async
+										}}
+										{{
+											t(
+												"X0502C.SAVEHANK.GAMEOVER2.PC.X05CHANK.SAVED.10"
+											)
+										}}
+									</app-dialogue-line>
+								</p>
+							</app-choice-item>
+						</app-choice-group>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p id="die">
+							<app-unlock-condition
+								[unlockType]="UnlockType.Death"
+								[bracketsOnlyAroundIcon]="true"
+							>
+								Die during the chase
+							</app-unlock-condition>
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0405K.HIGHWAY.GAMEOVER.PC.X04CHANK.HANK.1"
+									)
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+				<app-conditioned-content>
+					<div class="condition">
+						<p id="rupert-lost">
+							<app-unlock-condition
+								[unlockType]="UnlockType.Time"
+							>
+								Lose Rupert
+							</app-unlock-condition>
+						</p>
+					</div>
+					<div class="content">
+						<p>
+							<app-dialogue-line name="Hank">
+								{{
+									t(
+										"X0502C.ENDING.GAMEOVER3.PC.X05CHANK.FAILED.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									t(
+										"X0502C.ENDING.GAMEOVER3.PC.X05CCONNOR.FAILED.1"
+									)
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0502C.ENDING.GAMEOVER3.PC.X05CHANK.FAILED",
+										1,
+										6
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0502C.ENDING.GAMEOVER3.PC.X05CCONNOR.FAILED",
+										1
+									) | async
+								}}
+							</app-dialogue-line>
+							<app-dialogue-line name="Hank">
+								{{
+									translationService.translateObject(
+										"X0502C.ENDING.GAMEOVER3.PC.X05CHANK.FAILED",
+										6
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</div>
+				</app-conditioned-content>
+			</app-condition-group>
+		</section>
 	</section>
 </ng-container>
