@@ -5,6 +5,7 @@ import { DialogueLineComponent } from '../../../../shared/components/dialogue-li
 import { ConditionedContentComponent } from '../../../../shared/components/conditioned-content/conditioned-content.component';
 import { TranslationService } from '../../../../shared/services/translation.service';
 import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
+import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';
 
 @Component({
 	selector: 'app-press-dirty-bomb',
@@ -16,6 +17,7 @@ import { ConditionGroupComponent } from '../../../../shared/components/condition
 		ConditionedContentComponent,
 		TranslocoModule,
 		ConditionGroupComponent,
+		UnusedContentComponent
 	],
 	templateUrl: './press-dirty-bomb.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

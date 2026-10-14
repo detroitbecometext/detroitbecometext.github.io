@@ -21,6 +21,7 @@ import { ChapterTocService } from '../../../../shared/services/chapter-toc.servi
 import { ObservationComponent } from '../../../../shared/components/observation/observation.component';
 import { ObservationItemComponent } from '../../../../shared/components/observation-item/observation-item.component';
 import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
+import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';
 
 @Component({
 	standalone: true,
@@ -39,6 +40,7 @@ import { ConditionGroupComponent } from '../../../../shared/components/condition
 		ObservationComponent,
 		ObservationItemComponent,
 		ConditionGroupComponent,
+		UnusedContentComponent,
 	],
 	templateUrl: './the-interrogation-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
