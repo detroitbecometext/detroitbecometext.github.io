@@ -20,6 +20,7 @@ import { UnlockType } from '../../../../shared/enums/unlock-type.enum';
 import { CommonTranslationKey } from '../../../../shared/utils/common-translation-keys.enum';
 import { ChapterTocService } from '../../../../shared/services/chapter-toc.service';
 import { ConditionGroupComponent } from '../../../../shared/components/condition-group/condition-group.component';
+import { UnusedContentComponent } from '../../../../shared/components/unused-content/unused-content.component';
 
 @Component({
 	standalone: true,
@@ -36,6 +37,7 @@ import { ConditionGroupComponent } from '../../../../shared/components/condition
 		RouterLink,
 		TranslocoModule,
 		ConditionGroupComponent,
+		UnusedContentComponent,
 	],
 	templateUrl: './fugitives-chapter-content.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,

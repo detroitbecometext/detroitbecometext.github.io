@@ -1,5 +1,4 @@
 <ng-container *transloco="let t">
-	<!-- TODO (V2): Check X1302C.FACETOFACE.CORRIDOR.FA.X13CBADCONNOR.BADCONNOR2 -->
 	<!-- TODO (V2): Check X1302C.FACETOFACE.ATTACK.PC.X13CHANK.IFDIETWICE -->
 	<section aria-labelledby="tower">
 		<h1 id="tower">At the CyberLife tower</h1>
@@ -55,8 +54,30 @@
 				{{ t("X1301C.HALL.GATE.VO.X13CVOGATE.FOLLOWME01V2") }}
 				{{ t("X1301C.SECURITY.GATE.VO.X13CVOGATE.SCAN02V2") }}
 				{{ t("X1301C.SECURITY.GATE.VO.X13CVOGATE.SCAN01V2") }}
+			</app-dialogue-line>
+		</p>
+		<p>
+			<app-unused-content>
+				<app-dialogue-line name="Scanner">
+					{{ t("X1301C.SECURITY.GATE.VO.X13CVOGATE.SCAN01") }}
+				</app-dialogue-line>
+			</app-unused-content>
+		</p>
+		<p>
+			<app-dialogue-line name="Scanner">
 				{{ t("X1301C.SECURITY.GATE.VO.X13CVOGATE.SCAN05") }}
 				{{ t("X1301C.SECURITY.GATE.VO.X13CVOGATE.SCAN04V2.1") }}
+			</app-dialogue-line>
+		<p>
+			<app-unused-content>
+				<app-dialogue-line name="Scanner">
+					{{ t("X1301C.HALL.GATE.VO.X13CVOGATE.FOLLOWME01.2") }}
+				</app-dialogue-line>
+			</app-unused-content>
+
+		</p>
+		<p>
+			<app-dialogue-line name="Scanner">
 				{{ t("X1301C.SECURITY.GATE.VO.X13CVOGATE.SCAN03V2") }}
 			</app-dialogue-line>
 		</p>
@@ -549,6 +570,15 @@
 															) | async
 														}}
 													</app-dialogue-line>
+												</p>
+												<app-unused-content>
+													<app-dialogue-line name="Connor-60">
+														{{ 
+															t("X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.RIGHTANSWERBAD01.1")
+														}}
+													</app-dialogue-line>
+												</app-unused-content>
+												<p>
 													<app-dialogue-line
 														name="Connor-60"
 													>
@@ -682,7 +712,69 @@
 													</app-dialogue-line>
 												</p>
 											</app-choice-item>
+
+											<app-choice-item
+												[choiceLabel]="
+													t(
+														'X1302C.FACETOFACE.ATTACK.PC.DOGQUESTION.TIMEOUT'
+													)
+												"
+											>
+												<p>
+													<app-unused-content>
+														<app-dialogue-line
+															name="Connor"
+														>
+															{{
+																t(
+																	"X1302C.FACETOFACE.ATTACK.PC.X13CCONNOR.TIEMOUT"
+																)
+															}}
+														</app-dialogue-line>
+														<app-dialogue-line
+															name="Hank"
+														>
+															{{
+																translationService.translateObject(
+																	"X1302C.FACETOFACE.ATTACK.PC.X13CHANK.WRONGANSWER",
+																	0,
+																	2
+																) | async
+															}}
+														</app-dialogue-line>
+														<app-dialogue-line
+															name="Connor-60"
+														>
+															{{
+																t(
+																	"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.WRONGANSWERBAD"
+																)
+															}}
+														</app-dialogue-line>
+													</app-unused-content>
+												</p>
+											</app-choice-item>
+
+				
 										</app-choice-group>
+										<p>
+											<app-unused-content>
+												<app-dialogue-line name="Hank">
+													{{
+														t("X1302C.FACETOFACE.ATTACK.PC.X13CHANK.RIGHTANSWER")
+													}}
+												</app-dialogue-line>
+												<app-dialogue-line name="Connor-60">
+													{{
+														translationService.translateObject(
+															"X1302C.FACETOFACE.ATTACK.PC.X13CBADCONNOR.RIGHTANSWERBAD02",
+															0,
+															3
+														) | async
+													}}
+												</app-dialogue-line>
+											</app-unused-content>
+										</p>
 
 										<p>
 											<app-dialogue-line name="Hank">
@@ -955,6 +1047,18 @@
 									</app-dialogue-line>
 								</p>
 
+								<p>
+									<app-unused-content>
+										<app-dialogue-line name="Connor-60">
+											{{
+												translationService.translateObject(
+													"X1302C.FACETOFACE.CORRIDOR.FA.X13CBADCONNOR.BADCONNOR2"
+												) | async
+											}}
+										</app-dialogue-line>
+									</app-unused-content>
+								</p>
+
 								<app-condition-group>
 									<app-conditioned-content>
 										<div class="condition">
@@ -964,6 +1068,11 @@
 											</p>
 										</div>
 										<div class="content">
+											<p>
+												<app-dialogue-line name="Connor">
+													{{t("X1302C.FACETOFACE.CORRIDOR.FA.X13CCONNOR.SACRIFICEHANK.2")}}
+												</app-dialogue-line>
+											</p>
 											<p>
 												<app-dialogue-line
 													name="Connor-60"

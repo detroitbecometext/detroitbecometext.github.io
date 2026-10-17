@@ -215,28 +215,32 @@
 				[brackets]="true"
 			>
 				<p>
-					<app-unlock-condition [unlockType]="UnlockType.Lock">
-						Found Rupert's ID in
-						<a [routerLink]="['/chapters', 15]">The Nest </a>
-					</app-unlock-condition>
-				</p>
+					<app-unused-content>
+						<p>
+							<app-unlock-condition [unlockType]="UnlockType.Lock">
+								Found Rupert's ID in
+								<a [routerLink]="['/chapters', 15]">The Nest </a>
+							</app-unlock-condition>
+						</p>
 
-				<p class="note">
-					<span dir="ltr"
-						>While this option is supposed to be unlocked by finding
-						Rupert's ID, it seems that it's actually impossible to
-						access it in the game.</span
-					>
-				</p>
+						<p class="note">
+							<span dir="ltr"
+								>While this option is supposed to be unlocked by finding
+								Rupert's ID, it seems that it's actually impossible to
+								access it in the game.</span
+							>
+						</p>
 
-				<p>
-					<app-dialogue-line name="Connor">
-						{{
-							translationService.translateObject(
-								"X0601C.AMANDA.INTRO.PC.X06CCONNOR.02DEVIANT"
-							) | async
-						}}
-					</app-dialogue-line>
+						<p>
+							<app-dialogue-line name="Connor">
+								{{
+									translationService.translateObject(
+										"X0601C.AMANDA.INTRO.PC.X06CCONNOR.02DEVIANT"
+									) | async
+								}}
+							</app-dialogue-line>
+						</p>
+					</app-unused-content>
 				</p>
 			</app-choice-item>
 			<app-choice-item
@@ -424,6 +428,10 @@
 								"
 							>
 								<p>
+									<app-relation
+									[name]="RelationName.Amanda"
+									[type]="RelationType.SmallDown"
+								></app-relation>
 									<app-dialogue-line name="Connor">
 										{{
 											translationService.translateObject(
@@ -1147,6 +1155,17 @@
 				<app-dialogue-line name="Hank">
 					{{ t("X0602C.HANKHOUSE.DRESSING.VO.X06CHANK.OPEN") }}
 				</app-dialogue-line>
+			</p>
+			<p>
+				<app-unused-content>
+					<app-dialogue-line name="Connor">
+						{{
+							t("X0602C.HANKHOUSE.DRESSING.FA.X06CCONNOR.OPEN.2")
+						}}
+					</app-dialogue-line>
+				</app-unused-content>
+			</p>
+			<p>
 				<app-dialogue-line name="Connor">
 					{{ t("X0602C.HANKHOUSE.VOMIT.PC.X06CCONNOR.MOVIE.1") }}
 				</app-dialogue-line>
